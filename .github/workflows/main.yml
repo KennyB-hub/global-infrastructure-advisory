@@ -1,4 +1,0 @@
-https://github.com/KennyB-hub/global-infrastructure-advisory
-ssh -T git@github.com
-Hi KennyB-hub! You've successfully authenticated.
-cat ~/.ssh/id_ed25519.pub
