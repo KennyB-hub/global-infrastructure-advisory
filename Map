@@ -4,345 +4,140 @@ global-map.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Global Infrastructure Map – Global Infrastructure Advisory</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Infrastructure Map — Global Infrastructure Advisory</title>
+    <link rel="stylesheet" href="/GIA-Website/assets/css/style.css">
 </head>
 
-<body>
+<body class="bg-slate-100">
 
-<header>
-  <nav class="nav">
-    <ul>
-      <li><a href="index.html">Home</a></li>
+<!-- Header -->
+<div id="header"></div>
 
-      <li class="dropdown">
-        <a href="about/mission.html">About</a>
-        <div class="dropdown-content">
-          <a href="about/mission.html">Mission</a>
-          <a href="about/founder-bio.html">Founder Bio</a>
-          <a href="about/philosophy.html">Philosophy</a>
-          <a href="about/global-footprint.html">Global Footprint</a>
-        </div>
-      </li>
-
-      <li class="dropdown">
-        <a href="services/federal-acquisition.html">Services</a>
-        <div class="dropdown-content">
-          <a href="services/federal-acquisition.html">Federal Acquisition</a>
-          <a href="services/global-acquisition.html">Global Acquisition</a>
-          <a href="services/procurement-compliance.html">Procurement Compliance</a>
-          <a href="services/construction-oversight.html">Construction Oversight</a>
-          <a href="services/pmo-systems-governance.html">PMO Systems & Governance</a>
-          <a href="services/risk-management.html">Risk Management</a>
-          <a href="services/monitoring-evaluation.html">Monitoring & Evaluation</a>
-        </div>
-      </li>
-
-      <li class="dropdown">
-        <a href="pmo-systems/pmo-charter.html">PMO Systems</a>
-        <div class="dropdown-content">
-          <a href="pmo-systems/pmo-charter.html">PMO Charter</a>
-          <a href="pmo-systems/procurement-sop.html">Procurement SOP</a>
-          <a href="pmo-systems/maturity-model.html">Maturity Model</a>
-          <a href="pmo-systems/risk-framework.html">Risk Framework</a>
-          <a href="pmo-systems/oversight-handbook.html">Oversight Handbook</a>
-          <a href="pmo-systems/me-framework.html">M&E Framework</a>
-          <a href="pmo-systems/governance-model.html">Governance Model</a>
-        </div>
-      </li>
-
-      <li class="dropdown">
-        <a href="case-studies/federal-facilities-program.html">Case Studies</a>
-        <div class="dropdown-content">
-          <a href="case-studies/federal-facilities-program.html">Federal Facilities Program</a>
-          <a href="case-studies/donor-funded-africa.html">Donor-Funded Africa</a>
-          <a href="case-studies/construction-middle-east.html">Middle East Construction</a>
-          <a href="case-studies/additional-case.html">Additional Case</a>
-          <a href="case-studies/ghana-case-study.html">Ghana Case Study</a>
-          <a href="case-studies/global-infrastructure.html">Global Infrastructure Case Studies</a>
-        </div>
-      </li>
-
-      <li><a href="contact/contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
-
-<section class="page-header">
-  <h1>Global Infrastructure Map</h1>
-  <p>A unified, intelligent view of the world’s infrastructure — the foundation of a global operating system.</p>
+<!-- Hero Section -->
+<section class="bg-slate-900 text-white py-20">
+    <div class="container mx-auto px-4">
+        <h1 class="text-4xl font-bold">Global Infrastructure Map</h1>
+        <p class="text-slate-300 mt-3 max-w-3xl">
+            A unified, systems-driven view of infrastructure programs, delivery environments, and global development sectors.
+            This map represents the centerpiece of the GIA Operating System.
+        </p>
+    </div>
 </section>
 
-<section class="content">
+<!-- Map Placeholder -->
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-4 max-w-6xl text-center">
 
-  <h2>The Vision</h2>
-  <p>
-    The Global Infrastructure Map is the centerpiece of this platform — a future interactive system that brings together
-    infrastructure projects, risks, performance data, and engineering insights from around the world. It is designed to
-    evolve into a global operating system for infrastructure planning, delivery, and oversight.
-  </p>
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">Interactive Map (Coming Soon)</h2>
+        <p class="text-slate-600 max-w-2xl mx-auto mb-10">
+            The Global Infrastructure Map will visualize active programs, infrastructure sectors, delivery environments,
+            and global PMO systems. This will evolve into a fully interactive, data-driven platform.
+        </p>
 
-  <h2>How the System Works</h2>
-  <p>This platform is built on a layered architecture that grows over time:</p>
+        <div class="bg-slate-200 border border-slate-300 rounded-lg h-96 flex items-center justify-center text-slate-500 text-lg">
+            Future Interactive Map Placeholder
+        </div>
 
-  <ul>
-    <li><strong>1. Map Layer:</strong> A global view of infrastructure projects across sectors and regions.</li>
-    <li><strong>2. Data Layer:</strong> Procurement, PMO, risk, oversight, and M&E data feeding each project.</li>
-    <li><strong>3. Intelligence Layer:</strong> AI‑powered risk scoring, trend detection, and predictive analytics.</li>
-    <li><strong>4. Integration Layer:</strong> Future connections to engineering tools (ANSYS, Autodesk, ESRI, Siemens).</li>
-    <li><strong>5. Collaboration Layer:</strong> Contractors, PMOs, donors, and governments sharing insights.</li>
-    <li><strong>6. Future Layer:</strong> Expansion into aerospace and off‑planet infrastructure systems.</li>
-  </ul>
-
-  <h2>What the Map Will Show</h2>
-  <ul>
-    <li>Active and planned infrastructure projects worldwide</li>
-    <li>Sector layers: roads, energy, water, public facilities, telecom, and more</li>
-    <li>Project status, risks, and performance indicators</li>
-    <li>Contractor and PMO participation</li>
-    <li>Donor and government involvement</li>
-    <li>Global trends and emerging infrastructure needs</li>
-  </ul>
-
-  <h2>Roadmap</h2>
-  <p>The Global Infrastructure Map will evolve in phases:</p>
-
-  <ul>
-    <li><strong>Phase 1 – Vision:</strong> Establish the concept and platform foundation.</li>
-    <li><strong>Phase 2 – Prototype:</strong> Build a functional map with sample data and project layers.</li>
-    <li><strong>Phase 3 – Integration:</strong> Connect PMO, procurement, risk, and oversight systems.</li>
-    <li><strong>Phase 4 – Intelligence:</strong> Add AI‑powered analytics and predictive insights.</li>
-    <li><strong>Phase 5 – Global Network:</strong> Enable contractors, PMOs, and donors to collaborate.</li>
-    <li><strong>Phase 6 – Frontier Expansion:</strong> Support aerospace and off‑planet infrastructure.</li>
-  </ul>
-
-  <h2>Future Integrations</h2>
-  <p>
-    As the platform grows, the map will integrate with engineering and simulation ecosystems such as:
-  </p>
-
-  <ul>
-    <li>ANSYS – structural and systems simulation</li>
-    <li>Autodesk & Bentley – BIM and civil design</li>
-    <li>ESRI – GIS and geospatial intelligence</li>
-    <li>Siemens – industrial and energy systems</li>
-  </ul>
-
-  <h2>Global Impact</h2>
-  <p>
-    The Global Infrastructure Map will help governments, donors, contractors, and PMOs make better decisions, reduce
-    risks, improve transparency, and accelerate development across the world.
-  </p>
-
-  <h2>Join the Vision</h2>
-  <p>
-    Contractors, PMOs, donors, and engineering partners will be able to join the platform as it evolves — contributing
-    insights, sharing data, and helping build the world’s first global infrastructure operating system.
-  </p>
-
+    </div>
 </section>
 
-<footer>
-  <p>© 2026 Global Infrastructure Advisory. All rights reserved.</p>
-</footer>
+<!-- Systems Architecture -->
+<section class="py-16 bg-slate-50">
+    <div class="container mx-auto px-4 max-w-5xl">
+
+        <h2 class="text-3xl font-bold text-slate-900 mb-8">Map Architecture</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <div class="p-6 bg-white rounded-lg shadow-sm">
+                <h3 class="text-xl font-semibold mb-2">Global Regions</h3>
+                <p class="text-slate-600 text-sm">
+                    Africa, Middle East, Asia-Pacific, Latin America, and U.S. federal programs.
+                </p>
+            </div>
+
+            <div class="p-6 bg-white rounded-lg shadow-sm">
+                <h3 class="text-xl font-semibold mb-2">Infrastructure Sectors</h3>
+                <p class="text-slate-600 text-sm">
+                    Transportation, energy, water, health, education, and public facilities.
+                </p>
+            </div>
+
+            <div class="p-6 bg-white rounded-lg shadow-sm">
+                <h3 class="text-xl font-semibold mb-2">Delivery Environments</h3>
+                <p class="text-slate-600 text-sm">
+                    Donor-funded programs, federal acquisition, PMO systems, and construction oversight.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Roadmap -->
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-4 max-w-5xl">
+
+        <h2 class="text-3xl font-bold text-slate-900 mb-8">Roadmap</h2>
+
+        <div class="space-y-8">
+
+            <div class="p-6 bg-slate-50 rounded-lg shadow-sm">
+                <h3 class="text-xl font-semibold mb-2">Phase 1 — Static Map (Current)</h3>
+                <p class="text-slate-600 text-sm">
+                    High-level global regions, sectors, and delivery environments.
+                </p>
+            </div>
+
+            <div class="p-6 bg-slate-50 rounded-lg shadow-sm">
+                <h3 class="text-xl font-semibold mb-2">Phase 2 — Interactive Layers</h3>
+                <p class="text-slate-600 text-sm">
+                    Clickable regions, sector overlays, and program summaries.
+                </p>
+            </div>
+
+            <div class="p-6 bg-slate-50 rounded-lg shadow-sm">
+                <h3 class="text-xl font-semibold mb-2">Phase 3 — Data Integration</h3>
+                <p class="text-slate-600 text-sm">
+                    API-driven data, dashboards, and real-time program insights.
+                </p>
+            </div>
+
+            <div class="p-6 bg-slate-50 rounded-lg shadow-sm">
+                <h3 class="text-xl font-semibold mb-2">Phase 4 — Global Operating System</h3>
+                <p class="text-slate-600 text-sm">
+                    A full OS for PMO systems, procurement, oversight, and risk management.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-16 bg-slate-900 text-white">
+    <div class="container mx-auto px-4 text-center max-w-3xl">
+        <h2 class="text-3xl font-bold mb-4">A New Way to See Global Infrastructure</h2>
+        <p class="text-slate-300 mb-8">
+            The Global Infrastructure Map is the foundation of a future global operating system — connecting programs,
+            sectors, and delivery environments into one unified platform.
+        </p>
+        <a href="/GIA-Website/pages/contact/contact.html" class="btn bg-emerald-600 text-white hover:bg-emerald-700">
+            Partner With GIA
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<div id="footer"></div>
 
 </body>
 </html>
-index.html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Global Infrastructure Advisory – Home</title>
-  <link rel="stylesheet" href="assets/css/style.css">
-</head>
 
-<body>
-
-<header>
-  <nav class="nav">
-    <ul>
-      <li><a href="index.html" class="active">Home</a></li>
-
-      <li class="dropdown">
-        <a href="about/mission.html">About</a>
-        <div class="dropdown-content">
-          <a href="about/mission.html">Mission</a>
-          <a href="about/founder-bio.html">Founder Bio</a>
-          <a href="about/philosophy.html">Philosophy</a>
-          <a href="about/global-footprint.html">Global Footprint</a>
-        </div>
-      </li>
-
-      <li class="dropdown">
-        <a href="services/federal-acquisition.html">Services</a>
-        <div class="dropdown-content">
-          <a href="services/federal-acquisition.html">Federal Acquisition</a>
-          <a href="services/global-acquisition.html">Global Acquisition</a>
-          <a href="services/procurement-compliance.html">Procurement Compliance</a>
-          <a href="services/construction-oversight.html">Construction Oversight</a>
-          <a href="services/pmo-systems-governance.html">PMO Systems & Governance</a>
-          <a href="services/risk-management.html">Risk Management</a>
-          <a href="services/monitoring-evaluation.html">Monitoring & Evaluation</a>
-        </div>
-      </li>
-
-      <li class="dropdown">
-        <a href="pmo-systems/pmo-charter.html">PMO Systems</a>
-        <div class="dropdown-content">
-          <a href="pmo-systems/pmo-charter.html">PMO Charter</a>
-          <a href="pmo-systems/procurement-sop.html">Procurement SOP</a>
-          <a href="pmo-systems/maturity-model.html">Maturity Model</a>
-          <a href="pmo-systems/risk-framework.html">Risk Framework</a>
-          <a href="pmo-systems/oversight-handbook.html">Oversight Handbook</a>
-          <a href="pmo-systems/me-framework.html">M&E Framework</a>
-          <a href="pmo-systems/governance-model.html">Governance Model</a>
-        </div>
-      </li>
-
-      <li class="dropdown">
-        <a href="case-studies/federal-facilities-program.html">Case Studies</a>
-        <div class="dropdown-content">
-          <a href="case-studies/federal-facilities-program.html">Federal Facilities Program</a>
-          <a href="case-studies/donor-funded-africa.html">Donor-Funded Africa</a>
-          <a href="case-studies/construction-middle-east.html">Middle East Construction</a>
-          <a href="case-studies/additional-case.html">Additional Case</a>
-          <a href="case-studies/ghana-case-study.html">Ghana Case Study</a>
-          <a href="case-studies/global-infrastructure.html">Global Infrastructure Case Studies</a>
-        </div>
-      </li>
-
-      <li><a href="global-map.html">Global Infrastructure Map</a></li>
-
-      <li class="dropdown">
-        <a href="capabilities/capabilities-statement.html">Capabilities</a>
-        <div class="dropdown-content">
-          <a href="capabilities/capabilities-statement.html">Capabilities Statement</a>
-          <a href="capabilities/proposal-deck.html">Proposal Deck</a>
-          <a href="capabilities/pmo-operating-manual.html">PMO Operating Manual</a>
-          <a href="capabilities/training-curriculum.html">Training Curriculum</a>
-        </div>
-      </li>
-
-      <li><a href="contact/contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
-
-<!-- HERO SECTION -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>Global Infrastructure Advisory</h1>
-    <p>
-      Engineering‑minded consulting for acquisition, compliance, oversight, and a future operating system for global infrastructure.
-    </p>
-    <div class="hero-actions">
-      <a href="services/federal-acquisition.html" class="btn-primary">Explore Services</a>
-      <a href="global-map.html" class="btn-secondary">Global Infrastructure Map</a>
-    </div>
-  </div>
-</section>
-
-<!-- CENTRAL HUB: GLOBAL INFRASTRUCTURE MAP TEASER -->
-<section class="section">
-  <h2>Global Infrastructure Map</h2>
-  <p>
-    A unified, intelligent view of infrastructure projects across the world — the centerpiece of a future global infrastructure operating system.
-  </p>
-  <a href="global-map.html" class="btn-link">Explore the Vision →</a>
-</section>
-
-<!-- SUPPORTING MODULES: SERVICES -->
-<section class="section">
-  <h2>Core Services</h2>
-  <p>Modular components that form the backbone of your infrastructure governance and delivery system.</p>
-  <div class="grid">
-    <div class="card">
-      <h3>PMO Systems & Governance</h3>
-      <p>Structured frameworks for decision‑making, oversight, and accountability.</p>
-      <a href="services/pmo-systems-governance.html" class="btn-link">Learn More →</a>
-    </div>
-    <div class="card">
-      <h3>Procurement Compliance</h3>
-      <p>Integrity, transparency, and alignment with national and donor rules.</p>
-      <a href="services/procurement-compliance.html" class="btn-link">Learn More →</a>
-    </div>
-    <div class="card">
-      <h3>Construction Oversight</h3>
-      <p>Field‑level verification, quality assurance, and contractor performance.</p>
-      <a href="services/construction-oversight.html" class="btn-link">Learn More →</a>
-    </div>
-    <div class="card">
-      <h3>Risk Management</h3>
-      <p>Predictive risk frameworks, early‑warning indicators, and mitigation planning.</p>
-      <a href="services/risk-management.html" class="btn-link">Learn More →</a>
-    </div>
-    <div class="card">
-      <h3>Monitoring & Evaluation</h3>
-      <p>Outcome tracking, performance analytics, and evidence‑based decision‑making.</p>
-      <a href="services/monitoring-evaluation.html" class="btn-link">Learn More →</a>
-    </div>
-    <div class="card">
-      <h3>Global & Federal Acquisition</h3>
-      <p>Complex acquisition support across U.S. federal and global development contexts.</p>
-      <a href="services/global-acquisition.html" class="btn-link">Global Acquisition →</a><br>
-      <a href="services/federal-acquisition.html" class="btn-link">Federal Acquisition →</a>
-    </div>
-  </div>
-</section>
-
-<!-- EVIDENCE: CASE STUDIES -->
-<section class="section">
-  <h2>Global Case Studies</h2>
-  <p>Evidence from real programs across regions, sectors, and funding environments.</p>
-  <div class="grid">
-    <div class="card">
-      <h3>Ghana Infrastructure Case Study</h3>
-      <p>Strengthening procurement, oversight, and PMO systems for national development.</p>
-      <a href="case-studies/ghana-case-study.html" class="btn-link">View Case →</a>
-    </div>
-    <div class="card">
-      <h3>Middle East Construction</h3>
-      <p>Oversight and risk governance in complex, high‑risk construction environments.</p>
-      <a href="case-studies/construction-middle-east.html" class="btn-link">View Case →</a>
-    </div>
-    <div class="card">
-      <h3>Donor‑Funded Africa</h3>
-      <p>Governance, compliance, and performance across multi‑country donor programs.</p>
-      <a href="case-studies/donor-funded-africa.html" class="btn-link">View Case →</a>
-    </div>
-    <div class="card">
-      <h3>Global Infrastructure Portfolio</h3>
-      <p>Cross‑regional insights and the global need for resilient infrastructure.</p>
-      <a href="case-studies/global-infrastructure.html" class="btn-link">View Cases →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ACCESS: CONTACT -->
-<section class="section">
-  <h2>Work With Us</h2>
-  <p>
-    We support infrastructure programs across energy, transportation, water, public facilities, telecom, and emerging sectors.
-    Engage us for PMO systems, procurement governance, construction oversight, and risk‑aware delivery.
-  </p>
-  <a href="contact/contact.html" class="btn-primary">Contact Us</a>
-</section>
-
-<!-- FUTURE VISION -->
-<section class="section section-muted">
-  <p>
-    Building the operating system for global infrastructure — one system, one project, one insight at a time.
-  </p>
-</section>
-
-<footer>
-  <p>© 2026 Global Infrastructure Advisory. All rights reserved.</p>
-</footer>
-
-</body>
-</html>
 style.css
 /* ============================
    HOMEPAGE LAYOUT ENHANCEMENTS
@@ -701,5 +496,3 @@ style.css
     font-size: 1.8rem;
   }
 }
-
-

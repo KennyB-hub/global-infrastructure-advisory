@@ -1,0 +1,216 @@
+GIA-Website/
+│
+├── assets/
+│   ├── css/
+│   ├── js/
+│   ├── img/
+│   └── icons/
+│
+├── components/
+│   ├── header.html
+│   └── footer.html
+│
+├── pages/
+│   ├── index.html
+│   │
+│   ├── about/
+│   │   ├── founder-bio.html
+│   │   ├── philosophy.html
+│   │   └── global-footprint.html
+│   │
+│   ├── services/
+│   │   ├── federal-acquisition.html
+│   │   ├── procurement-compliance.html
+│   │   ├── construction-oversight.html
+│   │   ├── pmo-systems-governance.html
+│   │   ├── risk-management.html
+│   │   └── monitoring-evaluation.html
+│   │
+│   ├── pmo-systems/
+│   │   ├── pmo-charter.html
+│   │   ├── procurement-sop.html
+│   │   ├── maturity-model.html
+│   │   ├── risk-framework.html
+│   │   ├── oversight-handbook.html
+│   │   └── me-framework.html
+│   │
+│   ├── templates-tools/
+│   │   ├── template-shop.html
+│   │   ├── toolkits.html
+│   │   ├── frameworks.html
+│   │   └── downloadables.html
+│   │
+│   ├── case-studies/
+│   │   ├── federal-facilities-program.html
+│   │   ├── donor-funded-africa.html
+│   │   ├── construction-middle-east.html
+│   │   └── additional-case.html
+│   │
+│   ├── capabilities/
+│   │   ├── capabilities-statement.html
+│   │   ├── proposal-deck.html
+│   │   ├── pmo-operating-manual.html
+│   │   └── training-curriculum.html
+│   │
+│   └── contact/
+│       └── contact.html
+
+components/header.html
+<header class="bg-white shadow-sm">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+        <a href="/GIA-Website/pages/index.html" class="flex items-center space-x-3">
+            <img src="/GIA-Website/assets/img/logo.png" alt="Global Infrastructure Advisory" class="h-8 md:h-10">
+            <div class="flex flex-col leading-tight">
+                <span class="text-sm md:text-base font-semibold text-slate-900">Global Infrastructure Advisory</span>
+                <span class="text-xs md:text-sm text-slate-500">Building Beyond Borders</span>
+            </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="space-x-6 hidden md:flex">
+            <a href="/GIA-Website/pages/index.html" class="text-slate-700 hover:text-slate-900">Home</a>
+            <a href="/GIA-Website/pages/about/founder-bio.html" class="text-slate-700 hover:text-slate-900">About</a>
+            <a href="/GIA-Website/pages/services/federal-acquisition.html" class="text-slate-700 hover:text-slate-900">Services</a>
+            <a href="/GIA-Website/pages/pmo-systems/pmo-charter.html" class="text-slate-700 hover:text-slate-900">PMO Systems</a>
+            <a href="/GIA-Website/pages/templates-tools/template-shop.html" class="text-slate-700 hover:text-slate-900">Templates & Tools</a>
+            <a href="/GIA-Website/pages/case-studies/federal-facilities-program.html" class="text-slate-700 hover:text-slate-900">Case Studies</a>
+            <a href="/GIA-Website/pages/capabilities/capabilities-statement.html" class="text-slate-700 hover:text-slate-900">Capabilities</a>
+            <a href="/GIA-Website/pages/contact/contact.html" class="text-slate-700 hover:text-slate-900">Contact</a>
+        </nav>
+
+        <!-- CTA Buttons -->
+        <div class="space-x-4 hidden md:flex">
+            <a href="/GIA-Website/pages/capabilities/capabilities-statement.html" class="btn bg-slate-600 text-white hover:bg-emerald-600">Capabilities Statement</a>
+            <a href="/GIA-Website/pages/contact/contact.html" class="btn bg-emerald-600 text-white hover:bg-emerald-700">Schedule Advisory Call</a>
+        </div>
+    </div>
+</header>
+<nav class="main-nav">
+  <ul>
+    <li><a href="/index.html">Home</a></li>
+
+    <li class="dropdown">
+      <a href="#">About</a>
+      <ul>
+        <li><a href="/about/founder-bio.html">Founder Bio</a></li>
+        <li><a href="/about/philosophy.html">Philosophy</a></li>
+        <li><a href="/about/global-footprint.html">Global Footprint</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#">Services</a>
+      <ul>
+        <li><a href="/services/federal-acquisition.html">Federal Acquisition</a></li>
+        <li><a href="/services/procurement-compliance.html">Procurement Compliance</a></li>
+        <li><a href="/services/construction-oversight.html">Construction Oversight</a></li>
+        <li><a href="/services/pmo-systems-governance.html">PMO Systems & Governance</a></li>
+        <li><a href="/services/risk-management.html">Risk Management</a></li>
+        <li><a href="/services/monitoring-evaluation.html">Monitoring & Evaluation</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#">PMO Systems</a>
+      <ul>
+        <li><a href="/pmo-systems/pmo-charter.html">PMO Charter</a></li>
+        <li><a href="/pmo-systems/procurement-sop.html">Procurement SOP</a></li>
+        <li><a href="/pmo-systems/maturity-model.html">Maturity Model</a></li>
+        <li><a href="/pmo-systems/risk-framework.html">Risk Framework</a></li>
+        <li><a href="/pmo-systems/oversight-handbook.html">Oversight Handbook</a></li>
+        <li><a href="/pmo-systems/me-framework.html">M&E Framework</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#">Templates & Tools</a>
+      <ul>
+        <li><a href="/templates-tools/template-shop.html">Template Shop</a></li>
+        <li><a href="/templates-tools/toolkits.html">Toolkits</a></li>
+        <li><a href="/templates-tools/frameworks.html">Frameworks</a></li>
+        <li><a href="/templates-tools/downloadables.html">Downloadables</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#">Case Studies</a>
+      <ul>
+        <li><a href="/case-studies/federal-facilities-program.html">Federal Facilities Program</a></li>
+        <li><a href="/case-studies/donor-funded-africa.html">Donor-Funded Infrastructure (Africa)</a></li>
+        <li><a href="/case-studies/construction-middle-east.html">Construction Oversight (Middle East)</a></li>
+        <li><a href="/case-studies/additional-case.html">Additional Case Pages</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#">Capabilities</a>
+      <ul>
+        <li><a href="/capabilities/capabilities-statement.html">Capabilities Statement</a></li>
+        <li><a href="/capabilities/proposal-deck.html">Proposal Deck</a></li>
+        <li><a href="/capabilities/pmo-operating-manual.html">PMO Operating Manual</a></li>
+        <li><a href="/capabilities/training-curriculum.html">Training Curriculum</a></li>
+      </ul>
+    </li>
+
+    <li><a href="/contact/contact.html">Contact</a></li>
+  </ul>
+</nav>
+components/footer.html
+<footer class="py-12 bg-slate-900 text-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+
+            <!-- Brand -->
+            <div>
+                <div class="flex items-center space-x-3 mb-4">
+                    <img src="/GIA-Website/assets/img/logo.png" alt="Global Infrastructure Advisory" class="h-10">
+                    <div class="leading-tight">
+                        <p class="text-sm font-semibold">Global Infrastructure Advisory</p>
+                        <p class="text-xs text-slate-400">Building Beyond Borders</p>
+                    </div>
+                </div>
+                <p class="text-slate-400 text-sm">
+                    Advisory, compliance, and delivery support for donor-funded infrastructure and global development programs.
+                </p>
+            </div>
+
+            <!-- Explore -->
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Explore</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="/GIA-Website/pages/index.html" class="text-slate-400 hover:text-white">Home</a></li>
+                    <li><a href="/GIA-Website/pages/services/federal-acquisition.html" class="text-slate-400 hover:text-white">Services</a></li>
+                    <li><a href="/GIA-Website/pages/pmo-systems/pmo-charter.html" class="text-slate-400 hover:text-white">PMO Systems</a></li>
+                    <li><a href="/GIA-Website/pages/case-studies/federal-facilities-program.html" class="text-slate-400 hover:text-white">Case Studies</a></li>
+                </ul>
+            </div>
+
+            <!-- Resources -->
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Resources</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="/GIA-Website/pages/templates-tools/template-shop.html" class="text-slate-400 hover:text-white">Templates & Tools</a></li>
+                    <li><a href="/GIA-Website/pages/capabilities/capabilities-statement.html" class="text-slate-400 hover:text-white">Capabilities</a></li>
+                    <li><a href="/GIA-Website/pages/about/founder-bio.html" class="text-slate-400 hover:text-white">About</a></li>
+                    <li><a href="/GIA-Website/pages/contact/contact.html" class="text-slate-400 hover:text-white">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                <ul class="space-y-2 text-sm">
+                    <li class="text-slate-400">info@giadvisory.com</li>
+                    <li class="text-slate-400">+1 (800) 123-4567</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="text-center text-slate-500 mt-10 text-sm">
+            © 2024 Global Infrastructure Advisory. All Rights Reserved.
+        </div>
+
+    </div>
+</footer>

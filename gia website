@@ -34,7 +34,13 @@ Global-Infrastructure-Advisory
     <title>Global Infrastructure Advisory | Workforce Opportunities</title>
 </head>
 <body class="antialiased bg-slate-100">
-
+<header>...</header>
+<div id="header"></div>
+<script>
+  fetch('/GIA-Website/components/header.html')
+    .then(res => res.text())
+    .then(html => document.getElementById('header').innerHTML = html);
+</script>
 <!-- Header -->
 <header class="bg-white shadow-sm">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
@@ -149,11 +155,19 @@ Global-Infrastructure-Advisory
 
     </div>
 </main>
-
+<footer>...</footer>
+<div id="footer"></div>
+<script>
+  fetch('/GIA-Website/components/footer.html')
+    .then(res => res.text())
+    .then(html => document.getElementById('footer').innerHTML = html);
+</script>
 <!-- Footer -->
 <footer class="py-10 bg-slate-900 text-white mt-10">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+
+            <!-- Brand -->
             <div>
                 <div class="flex items-center space-x-3 mb-3">
                     <img src="/GIA-Website/assets/img/logo.png" alt="Global Infrastructure Advisory" class="h-10">
@@ -166,15 +180,19 @@ Global-Infrastructure-Advisory
                     Advisory, compliance, and delivery support for donor-funded infrastructure and global development programs.
                 </p>
             </div>
+
+            <!-- Explore -->
             <div>
                 <h4 class="text-lg font-semibold mb-4">Explore</h4>
                 <ul class="space-y-1 text-sm">
                     <li><a href="/GIA-Website/pages/index.html" class="text-slate-400 hover:text-white">Home</a></li>
                     <li><a href="#" class="text-slate-400 hover:text-white">Sectors</a></li>
                     <li><a href="#" class="text-slate-400 hover:text-white">Programs</a></li>
-                    <li><a href="#" class="text-slate-400 hover:text-white">Contact</a></li>
+                    <li><a href="/GIA-Website/pages/contact/contact.html" class="text-slate-400 hover:text-white">Contact</a></li>
                 </ul>
             </div>
+
+            <!-- Legal -->
             <div>
                 <h4 class="text-lg font-semibold mb-4">Legal</h4>
                 <ul class="space-y-1 text-sm">
@@ -182,19 +200,25 @@ Global-Infrastructure-Advisory
                     <li><a href="#" class="text-slate-400 hover:text-white">Terms of Service</a></li>
                 </ul>
             </div>
+
+            <!-- Contact -->
             <div>
                 <h4 class="text-lg font-semibold mb-4">Contact</h4>
                 <ul class="space-y-1 text-sm">
-                    <li class="text-slate-400 text-sm">info@giadvisory.com</li>
-                    <li class="text-slate-400 text-sm">+1 (800) 123-4567</li>
+                    <li class="text-slate-400">info@globalinfrastructureadvisory.com</li>
+                    <li class="text-slate-400">+1 (800) 123-4567</li>
                 </ul>
             </div>
+
         </div>
+
+        <!-- Legal Line -->
         <div class="text-center text-slate-500 mt-8 text-sm">
-            Building Beyond Borders © 2024 Global Infrastructure Advisory. All Rights Reserved.
+            © 2026 Global Infrastructure Advisory. Built in West Virginia. EIN: 41‑4721740
         </div>
     </div>
 </footer>
+
 
 <script>
     const API_URL = 'https://api.globalinfrastructureadvisory.com/api/opportunities';
