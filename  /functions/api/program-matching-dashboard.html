@@ -1,0 +1,139 @@
+program-matching-dashboard.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIA | Program Matching Dashboard</title>
+    <!-- Tailwind CSS for the "Professional" look -->
+    <script src="https://tailwindcss.com"></script>
+    <link href="https://cloudflare.com" rel="stylesheet">
+</head>
+<body class="bg-slate-50 font-sans text-slate-900">
+
+    <!-- Top Navigation Bar -->
+    <nav class="bg-white border-b border-slate-200 px-8 py-4 flex justify-between items-center shadow-sm">
+        <div class="flex items-center space-x-3">
+            <div class="bg-blue-600 p-2 rounded-lg">
+                <i class="fas fa-network-wired text-white text-xl"></i>
+            </div>
+            <h1 class="text-xl font-bold tracking-tight text-slate-800">Global Infrastructure Advisory</h1>
+        </div>
+        <div class="flex items-center space-x-4 text-sm font-medium text-slate-500">
+            <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs">Engine v1.0 Live</span>
+            <button class="hover:text-blue-600">Documentation</button>
+            <button class="bg-slate-800 text-white px-4 py-2 rounded-md hover:bg-slate-700 transition">Settings</button>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto p-8">
+        <!-- Header Section -->
+        <div class="mb-10">
+            <h2 class="text-3xl font-extrabold text-slate-900 mb-2">Workforce Matching Engine</h2>
+            <p class="text-slate-500 max-w-2xl">Analyze sector adjacency and candidate suitability for donor-aligned infrastructure programs.</p>
+        </div>
+
+        <!-- Dashboard Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Left Column: Opportunity Details -->
+            <div class="lg:col-span-1 space-y-6">
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <h3 class="font-bold text-slate-800 mb-4 flex items-center">
+                        <i class="fas fa-bullseye text-blue-500 mr-2"></i> Active Opportunity
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="text-xs font-semibold uppercase text-slate-400">Primary Sector</label>
+                            <p class="font-medium text-slate-700" id="opp-sector">Infrastructure</p>
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold uppercase text-slate-400">Target Region</label>
+                            <p class="font-medium text-slate-700">Global / Multilingual</p>
+                        </div>
+                        <button class="w-full bg-blue-50 text-blue-600 font-semibold py-2 rounded-lg border border-blue-100 hover:bg-blue-100 transition">
+                            Change Opportunity
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Matching Results -->
+            <div class="lg:col-span-2">
+                <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                    <div class="px-6 py-4 border-b border-slate-100 bg-slate-50/50 flex justify-between items-center">
+                        <h3 class="font-bold text-slate-800">Ranked Candidates</h3>
+                        <span class="text-xs text-slate-400">Based on SECTOR_ADJACENCY Logic</span>
+                    </div>
+                    
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="text-xs uppercase text-slate-400 border-b border-slate-100">
+                                <th class="px-6 py-4 font-semibold">Candidate</th>
+                                <th class="px-6 py-4 font-semibold">Candidate Sector</th>
+                                <th class="px-6 py-4 font-semibold text-center">Match Score</th>
+                                <th class="px-6 py-4 font-semibold">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="results-body" class="divide-y divide-slate-100 text-sm">
+                            <!-- Rows will be injected by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // YOUR LOGIC INTEGRATED HERE
+        const SECTOR_ADJACENCY = { 
+            infrastructure: ["construction", "transportation", "energy", "water"],
+            construction: ["infrastructure", "energy"],
+            energy: ["infrastructure", "construction", "utilities"]
+            // ... (rest of your sectors)
+        };
+
+        const mockCandidates = [
+            { name: "Alex Rivera", sector: "Infrastructure" },
+            { name: "Jordan Smith", sector: "Construction" },
+            { name: "Sam Taylor", sector: "Agriculture" }
+        ];
+
+    
+const API_URL = '/api/opportunities'; 
+async function fetchOpportunities()
+    const res = await fetch(API_URL); 
+
+        const opportunitySector = "infrastructure";
+
+        function getScore(c, o) {
+            if (c.toLowerCase() === o.toLowerCase()) return { score: 100, label: 'Primary Match', color: 'bg-green-500' };
+            if (SECTOR_ADJACENCY[o]?.includes(c.toLowerCase())) return { score: 80, label: 'Adjacent', color: 'bg-blue-500' };
+            return { score: 40, label: 'Low Alignment', color: 'bg-slate-300' };
+        }
+
+        const tableBody = document.getElementById('results-body');
+        
+        mockCandidates.forEach(candidate => {
+            const result = getScore(candidate.sector, opportunitySector);
+            tableBody.innerHTML += `
+                <tr class="hover:bg-slate-50 transition">
+                    <td class="px-6 py-4 font-bold text-slate-700">${candidate.name}</td>
+                    <td class="px-6 py-4 text-slate-500">${candidate.sector}</td>
+                    <td class="px-6 py-4">
+                        <div class="flex items-center justify-center space-x-2">
+                            <div class="w-full bg-slate-100 rounded-full h-2 max-w-[100px]">
+                                <div class="${result.color} h-2 rounded-full" style="width: ${result.score}%"></div>
+                            </div>
+                            <span class="font-bold text-slate-700">${result.score}%</span>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded border border-slate-200">${result.label}</span>
+                    </td>
+                </tr>
+            `;
+        });
+    </script>
+</body>
+</html>

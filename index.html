@@ -64,7 +64,13 @@ Global-Infrastructure-Advisory
         </div>
     </div>
 </header>
-
+<section class="hero">
+  <h1>Global Infrastructure Advisory</h1>
+  <p>AI-driven workforce matching for global projects.</p>
+  <a href="program-matching-dashboard.html" class="cta-button">
+    Launch Matching Engine
+  </a>
+</section>
 <!-- Hero -->
 <section class="bg-slate-900 text-white">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
@@ -222,7 +228,7 @@ Global-Infrastructure-Advisory
 
 <script>
     const API_URL = 'https://api.globalinfrastructureadvisory.com/api/opportunities';
-    const API_KEY = 'YOUR_API_KEY_HERE'; // <-- replace with your real key
+    const API_URL = 'https://pages.dev'; // <-- replace with your real key
 
     const state = {
         all: [],
@@ -297,6 +303,20 @@ Global-Infrastructure-Advisory
         els.container.innerHTML = '';
 
         if (!state.filtered.length) {
+          // Calculate the match on the fly using your sector logic
+const matchResult = scoreSectorAdjacency(userPrimarySector, item.sector); 
+
+card.innerHTML = `
+    <div class="flex justify-between items-start">
+        <h3 class="text-lg font-semibold text-slate-900 mb-1">${item.title}</h3>
+        <!-- THIS BADGE makes you stand out -->
+        <span class="px-2 py-1 rounded text-xs font-bold ${matchResult.score >= 80 ? 'bg-green-100 text-green-700' : 'bg-slate-100 text-slate-600'}">
+            ${matchResult.score}% Match
+        </span>
+    </div>
+    ... rest of your card code ...
+`;
+
             els.empty.classList.remove('hidden');
             return;
         }
