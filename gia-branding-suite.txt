@@ -471,24 +471,6 @@ jobs:
 /sitemap.xml
 https://www.globalinfrastructureadvisory.com/sitemap.xml
 Sitemap: https://www.globalinfrastructureadvisory.com/sitemap.xml
-GlobalInfrastructureAdvisory/
-│
-├── index.html
-├── about.html
-├── services.html
-├── contact.html
-│
-├── assets/
-│   ├── css/
-│   │   └── style.css
-│   ├── img/
-│   │   ├── logo.png
-│   │   └── flags/
-│   └── js/
-│       └── main.js
-│
-└── templates/
-    └── components.html
 
 GET /api/programs
 
@@ -833,7 +815,7 @@ index.html
     </p>
 
     <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-      <a href="mailto:info@yourdomain.com"
+      <a href="mailto:info@globalinfrastructureadvisory.com"
          class="rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-500/30 hover:bg-emerald-400">
         Email our advisory team
       </a>
@@ -849,7 +831,7 @@ index.html
         <p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
           Email
         </p>
-        <p class="mt-1 text-sm text-slate-200">info@yourdomain.com</p>
+        <p class="mt-1 text-sm text-slate-200">info@globalinfrastructureadvisory.com</p>
       </div>
 
       <div>
@@ -2784,29 +2766,6 @@ index.html
 
 </body>
 </html>
-
-/global-infrastructure-advisory
-│
-├── index.html
-│
-├── /pages
-│   ├── capabilities.html
-│   ├── contact.html
-│   ├── infrastructure-advisory.html
-│   ├── services.html        (placeholder)
-│   ├── case-studies.html    (placeholder)
-│   ├── privacy.html         (placeholder)
-│   ├── terms.html           (placeholder)
-│
-├── /assets
-│   ├── /css
-│   │   └── styles.css       (optional custom overrides)
-│   ├── /img
-│   │   └── (logo, icons, etc.)
-│
-├── tailwind.config.js
-│
-└── staticwebapp.config.json
 
 <html>
 <html lang="en">
@@ -5332,7 +5291,6 @@ module.exports = {
     Explore engagement models →
   </a>
 </div>
-_________________________________________________________________________________________________
 
 <!-- Language Switcher (Activated) -->
 <div class="relative ml-4">
@@ -5437,27 +5395,35 @@ ________________________________________________________________________________
     © 2026 Global Infrastructure Advisory. All rights reserved.
   </p>
 </footer>
+
+Add in
 Homepage
-_Add_in_________
 <meta name="description" content="Global Infrastructure Advisory provides engineering-minded PMO systems, procurement frameworks, oversight tools, digital infrastructure, and multi-sector advisory for global infrastructure portfolios.">
+
 Services
 Add in
 <meta name="description" content="Explore PMO systems, procurement, oversight, audit documentation, capital planning, digital infrastructure, and technical operations services for global infrastructure programs.">
+
 Sectors
 Add in
 <meta name="description" content="We support transport, water, energy, public facilities, housing, digital infrastructure, and climate resilience sectors worldwide.">
+
 Sectors
 Add in
 <meta name="description" content="We support transport, water, energy, public facilities, housing, digital infrastructure, and climate resilience sectors worldwide.">
+
 Case Studies
 Add in
 <meta name="description" conteSectors
+
 Add in
 <meta name="description" content="We support transport, water, energy, public facilities, housing, digital infrastructure, and climate resilience sectors worldwide.">
 nt="Real-world case studies across transport, water, energy, public facilities, and multi-sector infrastructure programs.">
+
 How We Work
 Add in
 <meta name="description" content="Engagement models for global infrastructure delivery: working sessions, advisory sprints, PMO systems, procurement frameworks, oversight, and digital deployments.">
+
 Contact
 Add in
 <meta name="description" content="Contact Global Infrastructure Advisory for PMO, procurement, oversight, digital infrastructure, and multi-sector advisory support.">
@@ -5471,6 +5437,7 @@ TRANSPORT CASE STUDY (MODULAR BLOCK)
     Read case study →
   </a>
 </div>
+
 WATER CASE STUDY (MODULAR BLOCK)
 <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-6">
   <h3 class="text-sm font-semibold text-slate-100">Water Supply & Treatment Expansion</h3>
@@ -5481,6 +5448,7 @@ WATER CASE STUDY (MODULAR BLOCK)
     Read case study →
   </a>
 </div>
+
 ENERGY CASE STUDY (MODULAR BLOCK)
 <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-6">
   <h3 class="text-sm font-semibold text-slate-100">Grid Modernization & Renewable Integration</h3>
@@ -5491,6 +5459,7 @@ ENERGY CASE STUDY (MODULAR BLOCK)
     Read case study →
   </a>
 </div>
+
 PUBLIC FACILITIES CASE STUDY (MODULAR BLOCK)
 <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-6">
   <h3 class="text-sm font-semibold text-slate-100">Public Facilities Reconstruction Program</h3>
@@ -5501,6 +5470,7 @@ PUBLIC FACILITIES CASE STUDY (MODULAR BLOCK)
     Read case study →
   </a>
 </div>
+
 ANSYS‑STYLE BLUEPRINT SAMPLES (MULTIPLE TYPES) drop any where
 Structural Blueprint
 
@@ -5510,6 +5480,7 @@ Structural Blueprint
     ANSYS-style wireframe showing beams, load paths, and stress zones for contractor clarity.
   </p>
 </div>
+
 Civil / Road Blueprint
 <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-6">
   <h3 class="text-sm font-semibold text-slate-100">Road & Drainage Blueprint</h3>
@@ -5517,6 +5488,7 @@ Civil / Road Blueprint
     Cross-sections, grading, drainage channels, and utility corridors in blueprint format.
   </p>
 </div>
+
 Water Infrastructure Blueprint
 <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-6">
   <h3 class="text-sm font-semibold text-slate-100">Water System Blueprint</h3>
@@ -5524,6 +5496,7 @@ Water Infrastructure Blueprint
     Treatment plant flow diagrams, pipe networks, valves, and pressure zones in ANSYS-style visuals.
   </p>
 </div>
+
 Public Facility Blueprint
 <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-6">
   <h3 class="text-sm font-semibold text-slate-100">Public Facility Blueprint</h3>
@@ -5531,6 +5504,7 @@ Public Facility Blueprint
     Hospital, school, and admin building layouts with structural and MEP overlays.
   </p>
 </div>
+
 Digital Twin Blueprint
 <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-6">
   <h3 class="text-sm font-semibold text-slate-100">Digital Twin Mesh Blueprint</h3>
@@ -5538,6 +5512,7 @@ Digital Twin Blueprint
     Mesh overlays, sensor nodes, GIS layers, and monitoring points in ANSYS-style visualization.
   </p>
 </div>
+
 Oil & Gas Pipeline Blueprint (Modular Block)
 <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-6">
   <h3 class="text-sm font-semibold text-slate-100">Oil & Gas Pipeline Blueprint</h3>
@@ -5546,6 +5521,7 @@ Oil & Gas Pipeline Blueprint (Modular Block)
     stations, pump stations, and right-of-way geometry in blueprint format for contractor clarity.
   </p>
 </div>
+
 Underground Mine Blueprint (Modular Block)
 <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-6">
   <h3 class="text-sm font-semibold text-slate-100">Underground Mine Blueprint</h3>
@@ -5554,8 +5530,8 @@ Underground Mine Blueprint (Modular Block)
     and geological layers in blueprint mesh format for engineering and contractor coordination.
   </p>
 </div>
-BLUEPRINT SHOWCASE (MODULAR PAGE LAYOUT)
 
+BLUEPRINT SHOWCASE (MODULAR PAGE LAYOUT)
 <section class="border-b border-slate-900 bg-slate-950 py-16">
   <div class="mx-auto max-w-6xl px-4">
     <p class="text-xs uppercase tracking-[0.22em] text-emerald-300 font-semibold">
@@ -5637,6 +5613,7 @@ BLUEPRINT SHOWCASE (MODULAR PAGE LAYOUT)
     </div>
   </div>
 </section>
+
 DIGITAL TWIN & BLUEPRINT SYSTEMS — SERVICE ADD‑ON (MODULAR BLOCK)
 <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-6">
   <h3 class="text-sm font-semibold text-slate-100">Digital Twin & Blueprint Systems</h3>
@@ -5650,9 +5627,8 @@ DIGITAL TWIN & BLUEPRINT SYSTEMS — SERVICE ADD‑ON (MODULAR BLOCK)
     Explore engagement models →
   </a>
 </div>
-______________________________________________________________________________________________
-PIPELINE BLUEPRINT CASE STUDY (MODULAR BLOCK)
 
+PIPELINE BLUEPRINT CASE STUDY (MODULAR BLOCK)
 <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-6">
   <h3 class="text-sm font-semibold text-slate-100">Oil & Gas Pipeline Corridor Program</h3>
   <p class="mt-2 text-xs text-slate-400">
@@ -5663,6 +5639,7 @@ PIPELINE BLUEPRINT CASE STUDY (MODULAR BLOCK)
     Read case study →
   </a>
 </div>
+
 UNDERGROUND MINE BLUEPRINT CASE STUDY (MODULAR BLOCK)
 <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-6">
   <h3 class="text-sm font-semibold text-slate-100">Underground Mine Digital Blueprint System</h3>
@@ -5675,6 +5652,7 @@ UNDERGROUND MINE BLUEPRINT CASE STUDY (MODULAR BLOCK)
     Read case study →
   </a>
 </div>
+
 HOMEPAGE TILE — “Blueprint Systems
 <!-- Blueprint Systems Tile -->
 <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-6">
@@ -5687,8 +5665,8 @@ HOMEPAGE TILE — “Blueprint Systems
     Explore blueprint systems →
   </a>
 </div>
-OSHA STANDARD FOR ALL SUBCONTRACTORS and Contractor's
 
+OSHA STANDARD FOR ALL SUBCONTRACTORS and Contractor's
 <!-- OSA Standard for Subcontractors -->
 <section class="border border-slate-800 bg-slate-900/60 rounded-xl p-6">
   <h3 class="text-sm font-semibold text-slate-100">OSA Standard for Subcontractors</h3>
@@ -5824,8 +5802,8 @@ Subcontractor Onboarding Packet (Modular Blocks)
     <li>• List of competent persons</li>
   </ul>
 </div>
-Pre‑Mobilization Requirements
 
+Pre‑Mobilization Requirements
 <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-6">
   <h3 class="text-sm font-semibold text-slate-100">Pre‑Mobilization Requirements</h3>
   <ul class="mt-2 text-xs text-slate-400 space-y-1">
@@ -5836,6 +5814,7 @@ Pre‑Mobilization Requirements
     <li>• Emergency contact roster</li>
   </ul>
 </div>
+
 Daily Requirements
 <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-6">
   <h3 class="text-sm font-semibold text-slate-100">Daily Requirements</h3>
@@ -5847,6 +5826,7 @@ Daily Requirements
     <li>• Incident & near‑miss reporting</li>
   </ul>
 </div>
+
 Safety Blueprint Module (ANSYS‑Style)
 <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-6">
   <h3 class="text-sm font-semibold text-slate-100">Safety Blueprint Overlay</h3>
@@ -5856,6 +5836,7 @@ Safety Blueprint Module (ANSYS‑Style)
     supervision team clarity.
   </p>
 </div>
+
 Homepage Tile — Safety & Compliance
 <!-- Safety & Compliance Tile -->
 <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-6">
@@ -5869,14 +5850,15 @@ Homepage Tile — Safety & Compliance
     Explore safety standards →
   </a>
 </div>
-SUBCONTRACTOR REQUIREMENTS PAGE (MODULAR LAYOUT)
 
+SUBCONTRACTOR REQUIREMENTS PAGE (MODULAR LAYOUT)
 <section class="border-b border-slate-900 bg-slate-950 py-16">
   <div class="mx-auto max-w-6xl px-4">
     <p class="text-xs uppercase tracking-[0.22em] text-emerald-300 font-semibold">
       Subcontractor Requirements
     </p>
     <h1 class="mt-3 text-3xl font-semibold text-slate-50">
+
       Requirements for subcontractors working under Global Infrastructure Advisory frameworks.
     </h1>
     <p class="mt-4 max-w-2xl text-sm text-slate-300">
@@ -5941,8 +5923,8 @@ SUBCONTRACTOR REQUIREMENTS PAGE (MODULAR LAYOUT)
 
   </div>
 </section>
-PIPELINE & ENERGY CORRIDORS SECTOR PAGE (MODULAR LAYOUT
 
+PIPELINE & ENERGY CORRIDORS SECTOR PAGE (MODULAR LAYOUT
 <section class="border-b border-slate-900 bg-slate-950 py-16">
   <div class="mx-auto max-w-6xl px-4">
     <p class="text-xs uppercase tracking-[0.22em] text-emerald-300 font-semibold">
@@ -5952,6 +5934,7 @@ PIPELINE & ENERGY CORRIDORS SECTOR PAGE (MODULAR LAYOUT
       Advisory for oil, gas, and energy transmission corridors.
     </h1>
     <p class="mt-4 max-w-2xl text-sm text-slate-300">
+
       We support pipeline and energy corridor programs with PMO systems, procurement frameworks, oversight
       protocols, digital twins, and ANSYS-style blueprint environments for contractor coordination.
     </p>
@@ -5987,8 +5970,8 @@ PIPELINE & ENERGY CORRIDORS SECTOR PAGE (MODULAR LAYOUT
 
   </div>
 </section>
-MINING & EXTRACTIVES SECTOR PAGE (MODULAR LAYOUT)
 
+MINING & EXTRACTIVES SECTOR PAGE (MODULAR LAYOUT)
 <section class="border-b border-slate-900 bg-slate-950 py-16">
   <div class="mx-auto max-w-6xl px-4">
     <p class="text-xs uppercase tracking-[0.22em] text-emerald-300 font-semibold">
@@ -5998,6 +5981,7 @@ MINING & EXTRACTIVES SECTOR PAGE (MODULAR LAYOUT)
       Advisory for underground, open‑pit, and extractive operations.
     </h1>
     <p class="mt-4 max-w-2xl text-sm text-slate-300">
+
       We support mining programs with oversight systems, safety frameworks, digital twins, and ANSYS-style
       blueprint environments for shafts, tunnels, ventilation, and geological layers.
     </p>
@@ -6033,8 +6017,8 @@ MINING & EXTRACTIVES SECTOR PAGE (MODULAR LAYOUT)
 
   </div>
 </section>
-DIGITAL TWIN ARCHITECTURE PAGE (MODULAR LAYOUT)
 
+DIGITAL TWIN ARCHITECTURE PAGE (MODULAR LAYOUT)
 <section class="border-b border-slate-900 bg-slate-950 py-16">
   <div class="mx-auto max-w-6xl px-4">
     <p class="text-xs uppercase tracking-[0.22em] text-emerald-300 font-semibold">
@@ -6079,8 +6063,8 @@ DIGITAL TWIN ARCHITECTURE PAGE (MODULAR LAYOUT)
 
   </div>
 </section>
-OSA PDF CONTENT (TEXT‑ONLY, READY FOR EXPORT)
 
+OSA PDF CONTENT (TEXT‑ONLY, READY FOR EXPORT)
 Operational Standards Agreement (OSA)
 -------------------------------------
 
@@ -6373,17 +6357,19 @@ Contractor portal login mockup
     </p>
   </div>
 </section>
-Blueprint viewer concept
 
+Blueprint viewer concept
 <section class="border-b border-slate-900 bg-slate-950 py-16">
   <div class="mx-auto max-w-6xl px-4">
     <p class="text-xs uppercase tracking-[0.22em] text-emerald-300 font-semibold">
+
       Blueprint Viewer
     </p>
     <h2 class="mt-3 text-2xl font-semibold text-slate-50">
       Interactive blueprint viewer for contractors and supervision teams.
     </h2>
     <p class="mt-3 max-w-2xl text-sm text-slate-300">
+
       Concept for a browser-based viewer that overlays ANSYS-style meshes, safety zones, and GIS layers on
       top of engineering drawings for real-time coordination.
     </p>
@@ -6392,35 +6378,40 @@ Blueprint viewer concept
       <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-5">
         <h3 class="text-sm font-semibold text-slate-100">Layer Controls</h3>
         <p class="mt-2">
+
           Toggle structural, civil, pipeline, mining, safety, and digital twin layers on and off.
         </p>
       </div>
       <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-5">
         <h3 class="text-sm font-semibold text-slate-100">Mesh & Hazard Overlays</h3>
         <p class="mt-2">
+
           Display ANSYS-style meshes, hazard zones, exclusion areas, and access routes directly on the plan.
         </p>
       </div>
       <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-5">
         <h3 class="text-sm font-semibold text-slate-100">Field Annotations</h3>
         <p class="mt-2">
+
           Supervision teams add comments, photos, and QC/QA evidence pinned to specific blueprint locations.
         </p>
       </div>
     </div>
   </div>
 </section>
-Digital twin API architecture (diagram-style section)
 
+Digital twin API architecture (diagram-style section)
 <section class="border-b border-slate-900 bg-slate-950 py-16">
   <div class="mx-auto max-w-6xl px-4">
     <p class="text-xs uppercase tracking-[0.22em] text-emerald-300 font-semibold">
+
       Digital Twin API Architecture
     </p>
     <h2 class="mt-3 text-2xl font-semibold text-slate-50">
       API-driven architecture for digital twin and blueprint systems.
     </h2>
     <p class="mt-3 max-w-2xl text-sm text-slate-300">
+
       Conceptual architecture showing how field systems, sensors, GIS, and blueprint environments exchange
       data through secure APIs.
     </p>
@@ -6456,8 +6447,8 @@ Digital twin API architecture (diagram-style section)
     </div>
   </div>
 </section>
-Safety management system page
 
+Safety management system page
 <section class="border-b border-slate-900 bg-slate-950 py-16">
   <div class="mx-auto max-w-6xl px-4">
     <p class="text-xs uppercase tracking-[0.22em] text-emerald-300 font-semibold">
@@ -6517,11 +6508,10 @@ Safety management system page
         Safety audits, corrective actions, trend analysis, and lessons learned across the portfolio.
       </p>
     </div>
-
   </div>
 </section>
-GLOBAL INFRASTRUCTURE OPERATING SYSTEM — SYSTEMS MAP
 
+GLOBAL INFRASTRUCTURE OPERATING SYSTEM — SYSTEMS MAP
 <section class="border-b border-slate-900 bg-slate-950 py-20">
   <div class="mx-auto max-w-6xl px-4">
     
@@ -6532,6 +6522,7 @@ GLOBAL INFRASTRUCTURE OPERATING SYSTEM — SYSTEMS MAP
       Integrated Operating System for Infrastructure Delivery
     </h1>
     <p class="mt-4 max-w-3xl text-sm text-slate-300">
+
       A unified architecture connecting PMO governance, contractor oversight, safety management, blueprint 
       environments, digital twins, and field reporting into one defensible, engineering‑grade delivery system.
     </p>
@@ -6543,6 +6534,7 @@ GLOBAL INFRASTRUCTURE OPERATING SYSTEM — SYSTEMS MAP
       <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-6">
         <h3 class="text-sm font-semibold text-slate-100">PMO Operating System</h3>
         <p class="mt-2 text-xs text-slate-400">
+
           Governance, workflows, procurement pathways, reporting cycles, and portfolio controls.
         </p>
         <ul class="mt-4 space-y-1 text-xs text-slate-500">
@@ -6628,6 +6620,7 @@ GLOBAL INFRASTRUCTURE OPERATING SYSTEM — SYSTEMS MAP
     </div>
   </div>
 </section>
+
 Global Infrastructure Operating System — Homepage Hero
 <section class="bg-slate-950 border-b border-slate-900 py-24">
   <div class="mx-auto max-w-6xl px-6">
@@ -6635,6 +6628,7 @@ Global Infrastructure Operating System — Homepage Hero
       Global Infrastructure Operating System
     </p>
     <h1 class="mt-4 text-4xl font-semibold text-slate-50">
+
       A unified operating system for PMOs, contractors, safety, digital twins, and blueprint environments.
     </h1>
     <p class="mt-6 max-w-3xl text-sm text-slate-300">
@@ -6741,8 +6735,8 @@ GLOBAL INFRASTRUCTURE OPERATING SYSTEM — SYSTEMS MAP
 - Real-time dashboards and alerts
 
 7. Field Reporting
+
 - Daily logs, evidence uploads, blueprint-linked annotations
-________________________________________________________________________________________________________
 PMO → Contractor → Field → Digital Twin Workflow Diagram (Modular Layout)
 
 <section class="bg-slate-950 border-b border-slate-900 py-20">
@@ -6796,8 +6790,8 @@ Blueprint Systems + Digital Twin Combined Service Offering
     <li>• PMO reporting and audit-ready documentation</li>
   </ul>
 </div>
-BUY AMERICAN COMPLIANCE — MODULAR BLOCK
 
+BUY AMERICAN COMPLIANCE — MODULAR BLOCK
 <!-- Buy American Compliance Block -->
 <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-6">
   <h3 class="text-sm font-semibold text-slate-100">Buy American Compliance</h3>
@@ -6820,8 +6814,8 @@ BUY AMERICAN COMPLIANCE — MODULAR BLOCK
     alignment with U.S. federal expectations.
   </p>
 </div>
-U.S. SOURCING REQUIREMENTS PAGE (MODULAR LAYOUT)
 
+U.S. SOURCING REQUIREMENTS PAGE (MODULAR LAYOUT)
 <section class="bg-slate-950 border-b border-slate-900 py-20">
   <div class="mx-auto max-w-6xl px-6">
     <p class="text-xs uppercase tracking-[0.22em] text-emerald-300 font-semibold">
@@ -6831,6 +6825,7 @@ U.S. SOURCING REQUIREMENTS PAGE (MODULAR LAYOUT)
       U.S. sourcing expectations for federally aligned infrastructure programs.
     </h1>
     <p class="mt-4 max-w-3xl text-sm text-slate-300">
+
       For eligible U.S.-funded procurements, contractors and subcontractors must prioritize U.S.-made
       materials, equipment, and components. These requirements are integrated into our procurement pathways,
       contractor oversight, and PMO governance systems.
@@ -6845,6 +6840,7 @@ U.S. SOURCING REQUIREMENTS PAGE (MODULAR LAYOUT)
     <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-6">
       <h3 class="text-sm font-semibold text-slate-100">Priority Sourcing</h3>
       <p class="mt-2 text-xs text-slate-400">
+
         U.S.-manufactured materials and equipment prioritized for eligible procurements.
       </p>
     </div>
@@ -6946,8 +6942,8 @@ U.S. SOURCING REQUIREMENTS PAGE (MODULAR LAYOUT)
 
   </div>
 </section>
+
 COMPLIANCE DASHBOARD CONCEPT (MODULAR LAYOUT)
-
 <section class="bg-slate-950 border-b border-slate-900 py-20">
   <div class="mx-auto max-w-6xl px-6">
     <p class="text-xs uppercase tracking-[0.22em] text-emerald-300 font-semibold">
@@ -6957,10 +6953,10 @@ COMPLIANCE DASHBOARD CONCEPT (MODULAR LAYOUT)
       Real-time compliance monitoring for contractors and subcontractors.
     </h2>
     <p class="mt-4 max-w-3xl text-sm text-slate-300">
+
       A conceptual dashboard integrating safety compliance, U.S. sourcing alignment, documentation status,
       blueprint-linked evidence, and digital twin alerts.
     </p>
-
     <div class="mt-10 grid gap-8 md:grid-cols-3 text-xs text-slate-400">
 
       <!-- Safety -->
@@ -7020,8 +7016,8 @@ U.S. Sourcing Checklist (Modular Block)
     This checklist is integrated into our PMO, procurement, and contractor oversight workflows.
   </p>
 </div>
-Buy American Evidence Upload Module
 
+Buy American Evidence Upload Module
 <!-- Buy American Evidence Upload Module -->
 <section class="rounded-xl border border-slate-800 bg-slate-900/60 p-6">
   <h3 class="text-sm font-semibold text-slate-100">Buy American Evidence Upload</h3>
@@ -7060,8 +7056,8 @@ Buy American Evidence Upload Module
     </button>
   </form>
 </section>
-Compliance API Concept (Modular Architecture Block)
 
+Compliance API Concept (Modular Architecture Block)
 <!-- Compliance API Concept -->
 <section class="rounded-xl border border-slate-800 bg-slate-900/60 p-6">
   <h3 class="text-sm font-semibold text-slate-100">Compliance API Architecture</h3>
@@ -7105,8 +7101,8 @@ Compliance API Concept (Modular Architecture Block)
 
   </div>
 </section>
-Procurement Pathway Diagram (Modular Layout)
 
+Procurement Pathway Diagram (Modular Layout)
 <!-- Procurement Pathway Diagram -->
 <section class="bg-slate-950 border border-slate-900 rounded-xl p-8">
   <h3 class="text-sm font-semibold text-slate-100">Procurement Pathway</h3>
@@ -7139,8 +7135,8 @@ Procurement Pathway Diagram (Modular Layout)
 
   </div>
 </section>
-BUY AMERICAN COMPLIANCE DASHBOARD
 
+BUY AMERICAN COMPLIANCE DASHBOARD
 <section class="bg-slate-950 border-b border-slate-900 py-20">
   <div class="mx-auto max-w-6xl px-6">
     <p class="text-xs uppercase tracking-[0.22em] text-emerald-300 font-semibold">
@@ -7185,8 +7181,8 @@ BUY AMERICAN COMPLIANCE DASHBOARD
     </div>
   </div>
 </section>
-PROCUREMENT EVIDENCE ARCHIVE MODULE
 
+PROCUREMENT EVIDENCE ARCHIVE MODULE
 <section class="rounded-xl border border-slate-800 bg-slate-900/60 p-8">
   <h3 class="text-sm font-semibold text-slate-100">Procurement Evidence Archive</h3>
   <p class="mt-2 text-xs text-slate-400">
@@ -7222,8 +7218,8 @@ PROCUREMENT EVIDENCE ARCHIVE MODULE
 
   </div>
 </section>
-SOURCING VERIFICATION WORKFLOW
 
+SOURCING VERIFICATION WORKFLOW
 <section class="bg-slate-950 border border-slate-900 rounded-xl p-8">
   <h3 class="text-sm font-semibold text-slate-100">Sourcing Verification Workflow</h3>
   <p class="mt-2 text-xs text-slate-400">
@@ -7254,8 +7250,8 @@ SOURCING VERIFICATION WORKFLOW
 
   </div>
 </section>
-CONTRACTOR PERFORMANCE SCORECARD
 
+CONTRACTOR PERFORMANCE SCORECARD
 <section class="bg-slate-950 border-b border-slate-900 py-20">
   <div class="mx-auto max-w-6xl px-6">
     <p class="text-xs uppercase tracking-[0.22em] text-emerald-300 font-semibold">
@@ -7294,8 +7290,8 @@ CONTRACTOR PERFORMANCE SCORECARD
     </div>
   </div>
 </section>
-COMPLIANCE API + DIGITAL TWIN INTEGRATION MAP
 
+COMPLIANCE API + DIGITAL TWIN INTEGRATION MAP
 <section class="bg-slate-950 border border-slate-900 rounded-xl p-10">
   <p class="text-xs uppercase tracking-[0.22em] text-emerald-300 font-semibold">
     Compliance API + Digital Twin Integration
@@ -7359,8 +7355,8 @@ COMPLIANCE API + DIGITAL TWIN INTEGRATION MAP
 
   </div>
 </section>
-CONTRACTOR RISK INDEX (SCORING MODEL)
 
+CONTRACTOR RISK INDEX (SCORING MODEL)
 <section class="bg-slate-950 border border-slate-900 rounded-xl p-10">
   <p class="text-xs uppercase tracking-[0.22em] text-emerald-300 font-semibold">
     Contractor Risk Index
@@ -7417,8 +7413,8 @@ CONTRACTOR RISK INDEX (SCORING MODEL)
 
   </div>
 </section>
-PORTFOLIO COMPLIANCE HEATMAP
 
+PORTFOLIO COMPLIANCE HEATMAP
 <section class="bg-slate-950 border border-slate-900 rounded-xl p-10">
   <p class="text-xs uppercase tracking-[0.22em] text-emerald-300 font-semibold">
     Portfolio Compliance Heatmap
@@ -7449,8 +7445,8 @@ PORTFOLIO COMPLIANCE HEATMAP
 
   </div>
 </section>
-SOURCING EXCEPTIONS REVIEW BOARD MODULE
 
+SOURCING EXCEPTIONS REVIEW BOARD MODULE
 <section class="bg-slate-950 border border-slate-900 rounded-xl p-10">
   <p class="text-xs uppercase tracking-[0.22em] text-emerald-300 font-semibold">
     Sourcing Exceptions Review Board
@@ -7481,8 +7477,8 @@ SOURCING EXCEPTIONS REVIEW BOARD MODULE
 
   </div>
 </section>
-COMPLIANCE COMMAND CENTER PAGE
 
+COMPLIANCE COMMAND CENTER PAGE
 <section class="bg-slate-950 border-b border-slate-900 py-20">
   <div class="mx-auto max-w-6xl px-6">
     <p class="text-xs uppercase tracking-[0.22em] text-emerald-300 font-semibold">
@@ -7543,8 +7539,8 @@ COMPLIANCE COMMAND CENTER PAGE
 
   </div>
 </section>
-DIGITAL TWIN + COMPLIANCE DASHBOARD (COMBINED LAYOUT)
 
+DIGITAL TWIN + COMPLIANCE DASHBOARD (COMBINED LAYOUT)
 <section class="bg-slate-950 border-b border-slate-900 py-20">
   <div class="mx-auto max-w-6xl px-6">
     <p class="text-xs uppercase tracking-[0.22em] text-emerald-300 font-semibold">
@@ -7690,6 +7686,7 @@ PMO GOVERNANCE FRAMEWORK PAGE
 
   </div>
 </section>
+
 GLOBAL INFRASTRUCTURE OPERATING SYSTEM (GIOS)
 ---------------------------------------------
 
@@ -7795,6 +7792,7 @@ CONTRACTOR PORTAL LOGIN SYSTEM — BACKEND ARCHITECTURE
 
   </div>
 </section>
+
 DIGITAL TWIN HOSTING STRATEGY
 -----------------------------
 
@@ -7957,6 +7955,7 @@ Endpoints:
      - safety_status
      - documentation_status
      - risk_index
+
 CONTRACTOR PORTAL DATABASE SCHEMA
 ---------------------------------
 
@@ -8019,6 +8018,7 @@ TABLE: compliance_scores
 - oversight_score
 - risk_index
 - date
+
 BLUEPRINT RENDERING ENGINE ARCHITECTURE
 ---------------------------------------
 
@@ -8064,6 +8064,7 @@ BLUEPRINT RENDERING ENGINE ARCHITECTURE
    - Compliance API
    - Contractor Portal
    - PMO Dashboards
+
 Global Infrastructure Operating System – full technical whitepaper (outline text)
 
 TITLE
@@ -8129,6 +8130,7 @@ Technical Architecture Whitepaper
 
 8. Conclusion
 - GIOS as a repeatable, exportable operating model
+
 DIGITAL TWIN DATA GOVERNANCE FRAMEWORK
 
 1. Purpose
@@ -8199,6 +8201,7 @@ CONTRACTOR PORTAL AUTHENTICATION & SECURITY MODEL
 
 7. Integration
 - Shared identity with Compliance Command Center and Digital Twin dashboards (SSO-capable)
+
 CONTRACTOR PORTAL AUTHENTICATION & SECURITY MODEL
 
 1. Objectives
@@ -8444,7 +8447,6 @@ Kenneth Bennett — Branded CEO Profile Block
   </div>
 </section>
 
-
   <!-- Global header: logo top-right on every page -->
   <header class="global-header">
     <div class="global-header__logo">
@@ -8596,7 +8598,7 @@ Engineered to Build Beyond Borders
 
 GLOBAL INFRASTRUCTURE ADVISORY                                             [LOGO]
 
-© 2026 Global Infrastructure Advisory                             www.yoursite.com
+© 2026 Global Infrastructure Advisory          www.globalinfrastructureadvisory.com
 
 GLOBAL INFRASTRUCTURE ADVISORY
 Engineered to Build Beyond Borders
@@ -8691,7 +8693,7 @@ Engineered to Build Beyond Borders
 
 GLOBAL INFRASTRUCTURE ADVISORY                                             [LOGO]
 
-© 2026 Global Infrastructure Advisory                             www.yoursite.com
+© 2026 Global Infrastructure Advisory           www.globalinfrastructureadvisory.com
 
 GLOBAL INFRASTRUCTURE ADVISORY
 <html>
@@ -8957,110 +8959,3 @@ async function loadOpportunities() {
     </div>
   `).join("");
 }
-
-loadOpportunities();
-</script>
-
-</body>
-</html>
-🟩 Step 1 — Open ONLY the Correct Project Folder
-Now that cleanup is complete:
-
-Open File Explorer
-
-Navigate to:
-
-Code
-C:\Users\Kenny\GlobalInfrastructureAdvisory\
-Right‑click the folder
-
-Select:
-
-Code
-Open with Code
-This should open ONE VS Code window — nothing else.
-
-If only one window opens, tell me:
-
-“VS Code opened clean.”
-
-If more than one opens, don’t panic — I’ll fix that too.
-
-🟦 Step 2 — Confirm the Folder Structure Exists
-Inside VS Code, your Explorer panel should show:
-
-Code
-GlobalInfrastructureAdvisory/
-│
-├── GIA-Website/
-│   ├── assets/
-│   │   ├── css/
-│   │   ├── js/
-│   │   ├── img/
-│   │   └── icons/
-│   ├── components/
-│   ├── pages/
-│
-├── backend/
-│   ├── routes/
-│   ├── config/
-│   ├── scripts/
-│   └── sql/
-│
-├── docs/
-│
-└── .github/
-    └── workflows/
-If this structure is present, we’re ready to place files.
-
-If anything is missing, I’ll help you recreate it.
-
-🟧 Step 3 — We Begin Placing Files (Safely)
-Once you confirm VS Code is stable, we will place:
-
-Website HTML
-index.html
-
-workforce.html
-
-program-registry.html
-
-CSS & JS
-assets/css/style.css
-
-assets/js/main.js
-
-Backend
-routes/feed.js
-
-routes/rss.js
-
-routes/programs.js
-
-routes/opportunities.js
-
-routes/products.js
-
-routes/users.js
-
-routes/logs.js
-
-config/db.js
-
-server.js
-
-Documentation
-All .md and .html docs into /docs
-
-Workflows
-deploy-backend.yml
-
-sitemap.yml
-
-We will do this one category at a time so nothing gets mixed or misplaced.
-
-🟩 Your Next Step
-Tell me:
-
-“VS Code opened clean.”
-Once you confirm that, we begin placing the first set of files — the website HTML pages — into the correct folders.
