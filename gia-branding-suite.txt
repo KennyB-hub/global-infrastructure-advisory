@@ -1,477 +1,3 @@
-C:\Users\Kenny\GlobalInfrastructureAdvisory\
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Admin Dashboard – GIA</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-  body { font-family: Arial; margin: 0; display: flex; height: 100vh; }
-  .sidebar { width: 220px; background: #0a7a5a; color: #fff; padding: 20px; }
-  .sidebar h2 { margin-top: 0; }
-  .sidebar a { display: block; color: #fff; margin: 10px 0; text-decoration: none; }
-  .main { flex: 1; padding: 20px; overflow-y: auto; }
-  table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-  th, td { padding: 8px; border-bottom: 1px solid #ddd; }
-</style>
-</head>
-<body>
-
-<div class="sidebar">
-  <h2>GIA Admin</h2>
-  <a href="#" onclick="showView('programs')">Programs</a>
-  <a href="#" onclick="showView('opportunities')">Opportunities</a>
-  <a href="#" onclick="showView('products')">Products</a>
-  <a href="#" onclick="showView('users')">Users</a>
-  <a href="#" onclick="showView('logs')">Logs</a>
-</div>
-
-<div class="main">
-  <h1 id="view-title">Programs</h1>
-  <div id="view-content"></div>
-</div>
-
-<script>
-const API = "https://api.globalinfrastructureadvisory.com";
-
-async function fetchJSON(path) {
-  const res = await fetch(API + path, {
-    headers: { "Authorization": "Bearer " + (localStorage.getItem("gia_token") || "") }
-  });
-  if (!res.ok) throw new Error("Request failed");
-  return res.json();
-}
-
-async function showView(view) {
-  document.getElementById("view-title").textContent = view.charAt(0).toUpperCase() + view.slice(1);
-  const content = document.getElementById("view-content");
-
-  if (view === "programs") {
-    const programs = await fetchJSON("/api/programs");
-    content.innerHTML = `
-      <table>
-        <thead><tr><th>Slug</th><th>Name</th><th>Region</th><th>Active</th></tr></thead>
-        <tbody>
-          ${programs.map(p => `
-            <tr>
-              <td>${p.slug}</td>
-              <td>${p.name}</td>
-              <td>${p.region || ""}</td>
-              <td>${p.active ? "Yes" : "No"}</td>
-            </tr>
-          `).join("")}
-        </tbody>
-      </table>
-    `;
-  }
-
-  if (view === "opportunities") {
-    const opps = await fetchJSON("/api/opportunities");
-    content.innerHTML = `
-      <table>
-        <thead><tr><th>Title</th><th>Type</th><th>Program</th><th>Org</th><th>Location</th></tr></thead>
-        <tbody>
-          ${opps.map(o => `
-            <tr>
-              <td>${o.title}</td>
-              <td>${o.type}</td>
-              <td>${o.program_area}</td>
-              <td>${o.organization || ""}</td>
-              <td>${o.location || ""}</td>
-            </tr>
-          `).join("")}
-        </tbody>
-      </table>
-    `;
-  }
-
-  if (view === "products") {
-    const products = await fetchJSON("/api/products");
-    content.innerHTML = `
-      <table>
-        <thead><tr><th>Key</th><th>Name</th><th>Program</th><th>Price</th><th>Active</th></tr></thead>
-        <tbody>
-          ${products.map(p => `
-            <tr>
-              <td>${p.product_key}</td>
-              <td>${p.product_name}</td>
-              <td>${p.program_area}</td>
-              <td>${p.price}</td>
-              <td>${p.active ? "Yes" : "No"}</td>
-            </tr>
-          `).join("")}
-        </tbody>
-      </table>
-    `;
-  }
-
-  if (view === "users") {
-    const users = await fetchJSON("/api/users");
-    content.innerHTML = `
-      <table>
-        <thead><tr><th>Email</th><th>Role</th><th>Created</th></tr></thead>
-        <tbody>
-          ${users.map(u => `
-            <tr>
-              <td>${u.email}</td>
-              <td>${u.role}</td>
-              <td>${u.created_at}</td>
-            </tr>
-          `).join("")}
-        </tbody>
-      </table>
-    `;
-  }
-
-  if (view === "logs") {
-    const logs = await fetchJSON("/api/logs"); // you can define this later
-    content.innerHTML = `
-      <pre>${JSON.stringify(logs, null, 2)}</pre>
-    `;
-  }
-}
-
-showView("programs");
-</script>
-
-</body>
-</html>
-name: Deploy Backend
-
-on:
-  push:
-    branches:
-      - main
-    paths:
-      - "backend/**"
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
-      - name: Install dependencies
-        working-directory: backend
-        run: npm install
-
-      - name: Run tests (optional)
-        working-directory: backend
-        run: npm test || echo "No tests"
-
-      # Example: deploy via Render CLI / Railway / Fly.io
-      # Replace this step with your provider's CLI or API call
-      - name: Deploy backend
-        working-directory: backend
-        run: |
-          echo "Call your deploy command here (render, railway, fly, etc.)"
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Program Registry Admin – GIA</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-  body { font-family: Arial; padding: 20px; }
-  table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-  th, td { padding: 10px; border-bottom: 1px solid #ddd; }
-  input, textarea { width: 100%; padding: 8px; margin-top: 5px; }
-  .btn { padding: 10px 15px; background: #0a7a5a; color: #fff; border: none; cursor: pointer; }
-</style>
-</head>
-<body>
-
-<h1>Program Registry Admin</h1>
-
-<div>
-  <h3>Add New Program</h3>
-  <input id="slug" placeholder="Slug (e.g., wv-ireland)">
-  <input id="name" placeholder="Program Name">
-  <input id="region" placeholder="Region">
-  <input id="languages" placeholder="Languages (en,es,fr)">
-  <textarea id="description" placeholder="Description"></textarea>
-  <button class="btn" onclick="addProgram()">Add Program</button>
-</div>
-
-<h2>Existing Programs</h2>
-<table>
-  <thead>
-    <tr><th>Slug</th><th>Name</th><th>Region</th><th>Active</th></tr>
-  </thead>
-  <tbody id="programs-body"></tbody>
-</table>
-
-<script>
-async function loadPrograms() {
-  const res = await fetch("https://api.globalinfrastructureadvisory.com/api/programs", {
-    headers: { "Authorization": "Bearer " + localStorage.getItem("gia_token") }
-  });
-  const programs = await res.json();
-  document.getElementById("programs-body").innerHTML = programs.map(p => `
-    <tr>
-      <td>${p.slug}</td>
-      <td>${p.name}</td>
-      <td>${p.region}</td>
-      <td>${p.active ? "Yes" : "No"}</td>
-    </tr>
-  `).join("");
-}
-
-async function addProgram() {
-  const body = {
-    slug: slug.value,
-    name: name.value,
-    region: region.value,
-    languages_supported: languages.value,
-    description: description.value
-  };
-
-  await fetch("https://api.globalinfrastructureadvisory.com/api/programs", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": "Bearer " + localStorage.getItem("gia_token")
-    },
-    body: JSON.stringify(body)
-  });
-
-  loadPrograms();
-}
-
-loadPrograms();
-</script>
-
-</body>
-</html>
-import express from "express";
-import pool from "../config/db.js";
-
-const router = express.Router();
-
-router.get("/feed/products.xml", async (req, res) => {
-  try {
-    const baseUrl = "https://www.globalinfrastructureadvisory.com";
-
-    const products = await pool.query(`
-      SELECT product_key, product_name, price, program_area, delivery_url
-      FROM products
-      WHERE active = TRUE
-    `);
-
-    let xml = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
-<channel>
-  <title>GIA Product Feed</title>
-  <link>${baseUrl}</link>
-  <description>Digital products and templates</description>
-`;
-
-    products.rows.forEach(p => {
-      xml += `
-  <item>
-    <g:id>${p.product_key}</g:id>
-    <g:title><![CDATA[${p.product_name}]]></g:title>
-    <g:description><![CDATA[${p.program_area}]]></g:description>
-    <g:link>${baseUrl}${p.delivery_url}</g:link>
-    <g:price>${p.price} USD</g:price>
-    <g:condition>new</g:condition>
-    <g:availability>in_stock</g:availability>
-  </item>`;
-    });
-
-    xml += `
-</channel>
-</rss>`;
-
-    res.header("Content-Type", "application/xml");
-    res.send(xml);
-
-  } catch (err) {
-    console.error("Product feed error:", err);
-    res.status(500).send("Error generating product feed");
-  }
-});
-
-export default router;
-import express from "express";
-import pool from "../config/db.js";
-
-const router = express.Router();
-
-router.get("/rss/opportunities.xml", async (req, res) => {
-  try {
-    const baseUrl = "https://www.globalinfrastructureadvisory.com";
-
-    const result = await pool.query(`
-      SELECT id, title, type, program_area, organization, location, link, notes, created_at
-      FROM opportunities
-      ORDER BY created_at DESC
-      LIMIT 50
-    `);
-
-    let rss = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
-<channel>
-  <title>GIA Opportunities Feed</title>
-  <link>${baseUrl}</link>
-  <description>Jobs, contracts, and training opportunities</description>
-`;
-
-    result.rows.forEach(o => {
-      rss += `
-  <item>
-    <title><![CDATA[${o.title}]]></title>
-    <link>${o.link || baseUrl + "/opportunities.html?id=" + o.id}</link>
-    <description><![CDATA[${o.notes || ""}]]></description>
-    <category>${o.program_area}</category>
-    <pubDate>${new Date(o.created_at).toUTCString()}</pubDate>
-  </item>`;
-    });
-
-    rss += `
-</channel>
-</rss>`;
-
-    res.header("Content-Type", "application/xml");
-    res.send(rss);
-
-  } catch (err) {
-    console.error("RSS error:", err);
-    res.status(500).send("Error generating RSS feed");
-  }
-});
-
-export default router;
-.github/workflows/sitemap.yml
-name: Rebuild Sitemap
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  build-sitemap:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
-
-      - name: Install Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Generate sitemap
-        run: node scripts/generate-sitemap.js
-
-      - name: Commit sitemap
-        run: |
-          git config --global user.name "GIA Automation"
-          git config --global user.email "actions@github.com"
-          git add sitemap.xml
-          git commit -m "Auto-update sitemap" || echo "No changes"
-          git push
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- Core Pages -->
-  <url>
-    <loc>https://www.globalinfrastructureadvisory.com/</loc>
-    <priority>1.0</priority>
-  </url>
-
-  <url>
-    <loc>https://www.globalinfrastructureadvisory.com/index.html</loc>
-    <priority>1.0</priority>
-  </url>
-
-  <url>
-    <loc>https://www.globalinfrastructureadvisory.com/about.html</loc>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://www.globalinfrastructureadvisory.com/services.html</loc>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://www.globalinfrastructureadvisory.com/contact.html</loc>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Programs -->
-  <url>
-    <loc>https://www.globalinfrastructureadvisory.com/wv-ireland-alliance.html</loc>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://www.globalinfrastructureadvisory.com/program-dashboard.html</loc>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Workforce & Veterans -->
-  <url>
-    <loc>https://www.globalinfrastructureadvisory.com/veterans-workforce.html</loc>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://www.globalinfrastructureadvisory.com/opportunities.html</loc>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Digital Products -->
-  <url>
-    <loc>https://www.globalinfrastructureadvisory.com/templates.html</loc>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://www.globalinfrastructureadvisory.com/download-gate.html</loc>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Internal Tools (optional for indexing) -->
-  <url>
-    <loc>https://www.globalinfrastructureadvisory.com/founder-control-panel.html</loc>
-    <priority>0.5</priority>
-  </url>
-
-  <url>
-    <loc>https://www.globalinfrastructureadvisory.com/wv-ireland-dashboard.html</loc>
-    <priority>0.5</priority>
-  </url>
-
-  <!-- Legal -->
-  <url>
-    <loc>https://www.globalinfrastructureadvisory.com/privacy-policy.html</loc>
-    <priority>0.3</priority>
-  </url>
-
-  <url>
-    <loc>https://www.globalinfrastructureadvisory.com/terms-of-use.html</loc>
-    <priority>0.3</priority>
-  </url>
-
-</urlset>
-/sitemap.xml
-https://www.globalinfrastructureadvisory.com/sitemap.xml
-Sitemap: https://www.globalinfrastructureadvisory.com/sitemap.xml
-
 GET /api/programs
 
 GET /api/opportunities
@@ -480,14 +6,53 @@ GET /api/products
 
 GET /api/users
 
-GET /api/logs
+ GET /api/logs  
+                                 🌍  
+<header class="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/80 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+   🌐 English | Español | Français | العربية | 中文 | Português
+    <div class="flex items-center gap-2">
+      <div class="h-9 w-9 rounded-sm bg-emerald-500/10 ring-1 ring-emerald-400/40 flex items-center justify-center">
+        <span class="text-sm font-semibold tracking-tight text-emerald-300">GIA</span>
+      </div>
+      <div>
+        <p class="text-sm font-semibold tracking-tight text-slate-50">Global Infrastructure Advisory</p>
+      </div>
+    </div>
 
-🌐 English | Español | Français | العربية | 中文 | Português
+    <!-- Desktop Nav & Language Picker -->
+    <div class="hidden items-center gap-8 md:flex">
+      <nav class="flex gap-6 text-sm text-slate-300">
+        <a href="#hero" data-i18n="home" class="hover:text-emerald-300 transition">Home</a>
+        <a href="#capabilities" data-i18n="capabilities" class="hover:text-emerald-300 transition">Capabilities</a>
+        <a href="#approach" class="hover:text-emerald-300 transition">How We Work</a>
+        <a href="#contact" data-i18n="contact" class="hover:text-emerald-300 transition">Contact</a>
+      </nav>
+      
+      <!-- Language Buttons -->
+      <div class="flex gap-2 border-l border-slate-700 pl-6 text-[10px] font-bold text-slate-500">
+        <button onclick="setLanguage('en')" class="hover:text-emerald-400">EN</button>
+        <button onclick="setLanguage('es')" class="hover:text-emerald-400">ES</button>
+        <button onclick="setLanguage('fr')" class="hover:text-emerald-400">FR</button>
+        <button onclick="setLanguage('ar')" class="hover:text-emerald-400">العربية</button>
+      </div>
+    </div>
 
-Home | Capabilities | Services | Case Studies | Technical Operations | Contact
+i18n/
+├── en.json  # English (Master)
+├── es.json  # Spanish
+├── fr.json  # French
+├── pt.json  # Portuguese
+├── ar.json  # Arabic
+├── sw.json  # Swahili
+├── hi.json  # Hindi
+├── zh.json  # Chinese
+├── he.json  # Hebrew (Right-to-Left / RTL support)
+└── ru.json  # Russian
+<script src="js/language-switcher.js"></script>
+<script src="js/menu-bar.js"></script>
 
 index.html
-
 <html>
 <html lang="en" class="h-full bg-slate-950">
 <head>
