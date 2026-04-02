@@ -10,9 +10,6 @@ contact.html
 
 <body class="bg-slate-100">
 
-<!-- Header -->
-<div id="header"></div>
-
 <!-- Hero Section -->
 <section class="bg-slate-900 text-white py-20">
     <div class="container mx-auto px-4">
@@ -30,48 +27,30 @@ contact.html
         <h2 class="text-2xl font-bold text-slate-900 mb-6">Get in Touch</h2>
         <p class="text-slate-700 mb-10 leading-relaxed">
             Whether you're a government agency, donor-funded program, PMO, contractor, or global development partner,
-            GIA is ready to support your infrastructure delivery needs. Reach out using the information below.
+            GIA is ready to support your infrastructure delivery needs.
         </p>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-
-            <!-- Contact Info -->
-            <div class="p-6 bg-slate-50 rounded-lg shadow-sm">
-                <h3 class="text-xl font-semibold mb-4">Contact Information</h3>
-                <ul class="space-y-3 text-slate-700 text-sm">
-                    <li><strong>Email:</strong> info@globalinfrastructureadvisory.com</li>
-                    <li><strong>Phone:</strong> +1 (800) 123-4567</li>
-                    <li><strong>Location:</strong> Global Operations</li>
-                </ul>
-            </div>
-
-            <!-- Inquiry Form (Static for now) -->
-            <div class="p-6 bg-slate-50 rounded-lg shadow-sm">
-                <h3 class="text-xl font-semibold mb-4">Send a Message</h3>
-
-                <form>
-                    <label class="block mb-2 text-sm font-medium text-slate-700">Name</label>
-                    <input type="text" class="w-full p-2 mb-4 border rounded" placeholder="Your Name">
-
-                    <label class="block mb-2 text-sm font-medium text-slate-700">Email</label>
-                    <input type="email" class="w-full p-2 mb-4 border rounded" placeholder="Your Email">
-
-                    <label class="block mb-2 text-sm font-medium text-slate-700">Message</label>
-                    <textarea class="w-full p-2 mb-4 border rounded" rows="4" placeholder="How can we help?"></textarea>
-
-                    <button class="btn bg-emerald-600 text-white hover:bg-emerald-700 w-full">
-                        Submit
-                    </button>
-                </form>
-            </div>
-
+        <!-- Centered Contact Info -->
+        <div class="p-8 bg-slate-50 rounded-lg shadow-sm border border-slate-200">
+            <h3 class="text-xl font-semibold mb-6 text-slate-800">Direct Contact</h3>
+            <ul class="space-y-4 text-slate-700">
+                <li class="flex items-center">
+                    <strong class="w-24">Email:</strong> 
+                    <a href="mailto:info@globalinfrastructureadvisory.com" class="text-emerald-700 hover:underline">info@globalinfrastructureadvisory.com</a>
+                </li>
+                <li class="flex items-center">
+                    <strong class="w-24">Phone:</strong> 
+                    <span>+1 (800) 123-4567</span>
+                </li>
+                <li class="flex items-center">
+                    <strong class="w-24">Location:</strong> 
+                    <span>Global Operations</span>
+                </li>
+            </ul>
         </div>
 
     </div>
 </section>
-
-<!-- Footer -->
-<div id="footer"></div>
 
 </body>
 </html>
