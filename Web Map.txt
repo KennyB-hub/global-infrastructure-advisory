@@ -1,0 +1,36 @@
+/
+├── Home
+├── About
+│   ├── Founder Bio
+│   ├── Philosophy
+│   └── Global Footprint
+├── Services
+│   ├── Federal Acquisition
+│   ├── Procurement Compliance
+│   ├── Construction Oversight
+│   ├── PMO Systems & Governance
+│   ├── Risk Management
+│   └── Monitoring & Evaluation
+├── PMO Systems
+│   ├── PMO Charter
+│   ├── Procurement SOP
+│   ├── Maturity Model
+│   ├── Risk Framework
+│   ├── Oversight Handbook
+│   └── M&E Framework
+├── Templates & Tools
+│   ├── Template Shop
+│   ├── Toolkits
+│   ├── Frameworks
+│   └── Downloadables
+├── Case Studies
+│   ├── Federal Facilities Program
+│   ├── Donor-Funded Infrastructure (Africa)
+│   ├── Construction Oversight (Middle East)
+│   └── Additional Case Pages
+├── Capabilities
+│   ├── Capabilities Statement
+│   ├── Proposal Deck
+│   ├── PMO Operating Manual
+│   └── Training Curriculum
+└── Contact
