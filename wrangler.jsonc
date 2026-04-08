@@ -16,3 +16,14 @@
     "enabled": true
   }
 }
+"kv_namespaces": [{
+                    "binding": "KV_BINDING",
+                    "id": "97426b03b961419ba8ca6df016a6039f"
+                 }]
+"d1_databases": [
+  {
+    "binding": "DB",
+    "database_name": "GIA_DB",
+    "database_id": "56c33622-1dff-4458-bf42-c1aa544edc27" 
+  }
+]
