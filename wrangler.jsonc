@@ -1,7 +1,7 @@
 {
   "name": "fancy-unit-1831",
   "main": "index.ts",
-  "compatibility_date": "2024-04-03",
+  "compatibility_date": "2026-04-08",
   "compatibility_flags": [
     "nodejs_compat"
   ],
@@ -11,5 +11,8 @@
   },
   "vars": {
     "ENVIRONMENT": "production"
+  },
+  "observability": {
+    "enabled": true
   }
 }
