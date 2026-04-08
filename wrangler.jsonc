@@ -2,17 +2,24 @@
   "name": "fancy-unit-1831",
   "main": "index.ts",
   "compatibility_date": "2026-04-08",
-  "compatibility_flags": [
-    "nodejs_compat"
+  "ai": {
+    "binding": "intelligence"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "GIA_KV",
+      "id": "PASTE_YOUR_KV_ID_HERE"
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_id": "PASTE_YOUR_D1_ID_HERE"
+    }
   ],
   "assets": {
     "directory": "./",
     "binding": "ASSETS"
-  },
-  "vars": {
-    "ENVIRONMENT": "production"
-  },
-  "observability": {
-    "enabled": true
   }
 }
+
