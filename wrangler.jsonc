@@ -1,14 +1,30 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "fancy-unit-1831",
-  "compatibility_date": "2026-04-06",
-  "observability": {
-    "enabled": true
-  },
-  "assets": {
-    "directory": "."
-  },
+  "name": "gia-intelligence-worker",
+  "main": "index.ts",
+  "compatibility_date": "2026-04-08",
   "compatibility_flags": [
     "nodejs_compat"
-  ]
+  ],
+  "ai": {
+    "binding": "AI" 
+  },
+  "kv_namespaces": [
+    {
+      "binding": "GIA_KV",
+      "id": "97426b03b961419ba8ca6df016a6039f"
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_id": "56c33622-1dff-4458-bf42-c1aa544edc27"
+    }
+  ],
+  "assets": {
+    "directory": "./",
+    "binding": "ASSETS"
+  },
+  "observability": {
+    "enabled": true
+  }
 }
