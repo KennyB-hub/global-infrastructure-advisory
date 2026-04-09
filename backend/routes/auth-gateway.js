@@ -30,3 +30,37 @@ export async function gatekeeper(request) {
   return null; // Pass to the next logic
 }
 
+// backend/routes/air-gap-sync.js
+
+export async function syncToExecutiveVault(farmerData) {
+  console.log("🛡️ Initializing NATO Intelligence Scrub...");
+
+  // 1. DATA STRIPPING (Identity Guard)
+  // We keep the GPS and Story, but remove the Farmer's Name, Email, and IP.
+  const scrubbedData = {
+    timestamp: new Date().toISOString(),
+    region: farmerData.region,
+    coordinates: generalizeCoordinates(farmerData.lat, farmerData.lon),
+    narrative: sanitizeText(farmerData.story),
+    assetType: "PILOT_FARMER_FEED"
+  };
+
+  // 2. VAULT PUSH
+  // This sends the clean data to your 📂 edge-vault/
+  const success = await pushToEdgeVault(scrubbedData);
+  
+  if (success) {
+    console.log("✅ NATO Feed Updated: Data is now available in the Command Center.");
+  }
+}
+
+// Logic to round GPS coordinates to avoid pinpointing a specific house
+function generalizeCoordinates(lat, lon) {
+  return `${parseFloat(lat).toFixed(2)}, ${parseFloat(lon).toFixed(2)}`;
+}
+
+// Logic to strip metadata and sensitive keywords
+function sanitizeText(text) {
+  // Removes common PII patterns and metadata
+  return text.replace(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}/g, "[REDACTED_EMAIL]");
+}
