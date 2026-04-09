@@ -29,3 +29,19 @@ export default {
     console.log("GIA Heartbeat Pulse: Verified.");
   }
 };
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
+
+    // If trying to access hubs, check for your secret key
+    if (url.pathname.startsWith("/hubs/")) {
+      const secret = url.searchParams.get("key");
+      if (secret !== "packard-1899-1949") { // Change this to a word only you know
+        return new Response("Unauthorized GIA Access", { status: 401 });
+      }
+    }
+
+    // ... (rest of your AI and GPS code stays the same)
+    return await env.ASSETS.fetch(request);
+  }
+}
