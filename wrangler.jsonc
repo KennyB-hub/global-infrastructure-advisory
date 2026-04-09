@@ -10,15 +10,18 @@
   "kv_namespaces": [
     {
       "binding": "A_TEAM_STORAGE",
-      "id": "fany-unit-1831"
+      "id": "packard-1831"
     }
   ],
   "d1_databases": [
     {
       "binding": "DB",
       "database_name": "intelligence-service",
-      "database_id": "PASTE_YOUR_D1_ID_HERE"
+      "database_id": "613d4d7f2581c022cf0c2c5dbd8db446806a71340bedf2c7363da515784c7969"
+      "database_id": "2ffdfea3379ab652c4008a577c8891e557cce05287b83a7c17ff6efda593cc41"
+      "database_id": "e5b68eec2566e7d43110bfb17f2aebdfcba554a564557c4247ad060947e091a1"
+      "database_id": "dc8650514285bec0127463c7b96f7e2daebb0578bf10e9b8db33420e97375005"
     }
   ]
 }
-  
+
