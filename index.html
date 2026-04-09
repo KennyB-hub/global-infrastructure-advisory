@@ -66,7 +66,17 @@
         if (!query) return;
 
         // Show User Input
-        windowEl.innerHTML += `<div class="text-right"><p class="inline-block bg-slate-200 p-2 rounded-lg text-slate-900"><strong>Contractor:</strong> ${query}</p></div>`;
+        const userRow = document.createElement('div');
+        userRow.className = 'text-right';
+        const userBubble = document.createElement('p');
+        userBubble.className = 'inline-block bg-slate-200 p-2 rounded-lg text-slate-900';
+        const userLabel = document.createElement('strong');
+        userLabel.textContent = 'Contractor: ';
+        const userText = document.createTextNode(query);
+        userBubble.appendChild(userLabel);
+        userBubble.appendChild(userText);
+        userRow.appendChild(userBubble);
+        windowEl.appendChild(userRow);
         const loadingId = "ai-loading-" + Date.now();
         windowEl.innerHTML += `<p class="italic text-emerald-500" id="${loadingId}">GIA System is thinking...</p>`;
         input.value = '';
