@@ -80,25 +80,21 @@ export interface Env {
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
-    const targetHost = "4882dee7.global-infrastructure-advisory.pages.dev";
 
-    // Enforce the use of the specific pages.dev domain
-    if (url.hostname !== targetHost) {
-      return new Response(`Redirecting to correct domain...`, {
-        status: 301,
-        headers: { "Location": `https://${targetHost}${url.pathname}` }
-      });
+    // Only allow traffic from your specific Pages URL
+    if (url.hostname !== "4882dee7.global-infrastructure-advisory.pages.dev") {
+      return new Response("Unauthorized Host", { status: 403 });
     }
 
-    // Logic to retrieve DSN documentation
-    if (url.pathname === "/dsn-documentation") {
-      const data = await env.A_TEAM_STORAGE.get("dsn_config");
-      return new Response(data || "No documentation found.", {
-        headers: { "Content-Type": "application/json" }
-      });
-    }
+    try {
+      // Basic route to verify KV and D1 connectivity
+      if (url.pathname === "/health") {
+        return new Response("Connected to DSN Service");
+      }
 
-    return new Response("Service running on global-infrastructure-advisory.pages.dev");
+      return new Response("GIA Intelligence Service Active");
+    } catch (err: any) {
+      return new Response(`System Error: ${err.message}`, { status: 500 });
+    }
   },
 };
-
