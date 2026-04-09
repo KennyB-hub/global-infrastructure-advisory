@@ -1,35 +1,24 @@
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "packard-1831",
-  "main": "index.ts", // "global-infrastructure-advisory.pages.dev";
-  "compatibility_date": "2026-04-08",
-  "compatibility_flags": [
-    "nodejs_compat"
-  ],
-  "ai": { 
-    "binding": "intelligence" 
-  },
-  "kv_namespaces": [ // "A-Team_Storage";
+{
+  "name": "gia-worker",
+  "main": "src/index.ts",
+  "compatibility_date": "2024-04-03",
+  "routes": [
     {
-      "binding": "GIA_KV",
-      "id": "97426b03b961419ba8ca6df016a6039f"
+      "pattern": "4882dee7.global-infrastructure-advisory.pages.dev/*"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "A_TEAM_STORAGE",
+      "id": "fany-unit-1831"
     }
   ],
   "d1_databases": [
     {
-      "binding": "DB", 
-      "database_name": "Intelligence-service",
-      "database_id": "56c33622-1dff-4458-bf42-c1aa544edc27"
+      "binding": "DB",
+      "database_name": "intelligence-service",
+      "database_id": "PASTE_YOUR_D1_ID_HERE"
     }
-  ],
-  "assets": {
-    "directory": "./",
-    "binding": "ASSETS"
-  },
-  "observability": {
-    "enabled": true
-  }
+  ]
 }
-
-  }
-}
-
+  
