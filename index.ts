@@ -34,3 +34,35 @@ export default {
     console.log("GIA Security Pulse: Active & Guarded.");
   }
 };
+
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
+
+    // 1. SECURITY SHIELD (Bots)
+    // ... your bot blocking code ...
+
+    // 2. THE BRIDGE: Route specific requests to Azure
+    if (url.pathname.startsWith("/api/v1/heavy-data")) {
+      // Your private tunnel endpoint (only accessible via Worker)
+      const azureBackend = "https://globalnfrastructreavisory.com"; 
+
+      const response = await fetch(`${azureBackend}${url.pathname}`, {
+        method: request.method,
+        headers: {
+          "X-GIA-Secret": env.AZURE_SERVICE_TOKEN, // Verify Worker to Azure
+          "Authorization": request.headers.get("Authorization") // Pass identity
+        },
+        body: request.body // Pass along the data
+      });
+      return response;
+    }
+
+    // 3. ASSETS: If it's not an API call, serve the UI
+    return await env.ASSETS.fetch(request);
+  },
+
+  async scheduled(event, env, ctx) {
+    // ... your 15-minute sync pulse ...
+  }
+};
