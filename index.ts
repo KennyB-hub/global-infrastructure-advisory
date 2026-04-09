@@ -66,3 +66,30 @@ export default {
     // ... your 15-minute sync pulse ...
   }
 };
+
+export interface Env {
+  A_TEAM_STORAGE: KVNamespace;
+  DB: D1Database;
+}
+
+export default {
+  async fetch(request: Request, env: Env): Promise<Response> {
+    const url = new URL(request.url);
+
+    // Ensure we are only serving the specific domain
+    if (url.hostname !== "global-infrastructure-advisory.pages.dev" && 
+        url.hostname !== "://globalinfrastructureadvisory.com") {
+      return new Response("Not Found", { status: 404 });
+    }
+
+    // Example logic to retrieve DSN documentation from KV
+    if (url.pathname === "/dsn-docs") {
+      const docs = await env.A_TEAM_STORAGE.get("dsn_documentation");
+      return new Response(docs || "Documentation not found", {
+        headers: { "content-type": "text/plain" },
+      });
+    }
+
+    return new Response("GIA Intelligence Service Active");
+  },
+};
