@@ -1,12 +1,12 @@
 {
-  "name": "fancy-unit-1831",
+  "name": "gia-intelligence-worker",
   "main": "index.ts",
   "compatibility_date": "2026-04-08",
   "compatibility_flags": [
     "nodejs_compat"
   ],
   "ai": {
-    "binding": "intelligence"
+    "binding": "AI" 
   },
   "kv_namespaces": [
     {
@@ -28,4 +28,3 @@
     "enabled": true
   }
 }
-
