@@ -1,13 +1,13 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "fancy-unit-1831",
+  "name": "gia-infrastructure-platform",
   "main": "index.ts",
   "compatibility_date": "2026-04-08",
   "compatibility_flags": [
     "nodejs_compat"
   ],
-  "ai": {
-    "binding": "AI" 
+  "ai": { 
+    "binding": "intelligence" 
   },
   "kv_namespaces": [
     {
@@ -29,3 +29,4 @@
     "enabled": true
   }
 }
+
