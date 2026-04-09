@@ -1,4 +1,3 @@
-// Import the files we just made in the routes folder
 import { gatekeeper } from './routes/auth-gateway.js';
 import { handleFarmerRequest } from './routes/farmer-routes.js';
 import { handleExecutiveRequest } from './routes/executive-routes.js';
