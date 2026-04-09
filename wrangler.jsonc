@@ -1,5 +1,6 @@
 {
-  "name": "gia-intelligence-worker",
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "gia-infrastructure-platform",
   "main": "index.ts",
   "compatibility_date": "2026-04-08",
   "compatibility_flags": [
