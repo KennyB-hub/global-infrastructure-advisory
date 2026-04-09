@@ -2,24 +2,29 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
-    // AI Intelligence Route
-    if (url.pathname === "/api/ai-chat") {
-      const { prompt } = await request.json();
-      const answer = await env.intelligence.run("@cf/meta/llama-3-8b-instruct", {
-        prompt: `GIA System Assistant: ${prompt}`
+    if (url.pathname === "/api/ai-chat" && request.method === "POST") {
+      const { prompt, lat, lon, contractorId } = await request.json();
+
+      // 1. SAVE TO DATABASE (D1)
+      await env.DB.prepare(
+        "INSERT INTO job_sites (contractor_id, latitude, longitude) VALUES (?, ?, ?)"
+      ).bind(contractorId, lat, lon).run();
+
+      // 2. ASK THE AI
+      const aiResponse = await env.intelligence.run("@cf/meta/llama-3-8b-instruct", {
+        prompt: `System: Contractor at GPS ${lat}, ${lon}. Query: ${prompt}`
       });
-      return new Response(JSON.stringify(answer));
+
+      return new Response(JSON.stringify({ response: aiResponse.response }));
     }
 
-    // TOP SECURITY: Forced Routing
-    // This tells the worker: "If they ask for the home page, ONLY give them the clean index.html"
-    if (url.pathname === "/" || url.pathname === "/index") {
-       return await env.ASSETS.fetch(new Request(new URL("/index.html", url.origin)));
-    }
-
-    // Standard Asset Fetching
     return await env.ASSETS.fetch(request);
   },
+
+  async scheduled(event, env, ctx) {
+    console.log("GIA System Pulse: All Sectors Synchronized.");
+  }
+};
 
   async scheduled(event, env, ctx) {
     // Your 1-minute Heartbeat stays here
