@@ -1,0 +1,22 @@
+name = "gia-intelligence-worker"
+main = "src/index.ts"
+compatibility_date = "2024-04-03"
+
+# Custom Domain Routing
+[[routes]]
+pattern = "globalinfrastructureadvisory.com"
+custom_domain = true
+
+[[routes]]
+pattern = "://globalinfrastructureadvisory.com"
+custom_domain = true
+
+# Bindings
+[[kv_namespaces]]
+binding = "A_TEAM_STORAGE"
+id = "fany-unit-1831"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "intelligence-service"
+database_id = "your-d1-database-id-here" # Replace with actual D1 ID
