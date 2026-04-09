@@ -1,8 +1,6 @@
-{
- {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "fancy-unit-1831",
-  "main": "index.ts", // 🛠️ Fixed: Points to your code, not the EIN
+  "main": "index.ts", // "global-infrastructure-advisory.pages.dev";
   "compatibility_date": "2026-04-08",
   "compatibility_flags": [
     "nodejs_compat"
@@ -10,7 +8,7 @@
   "ai": { 
     "binding": "intelligence" 
   },
-  "kv_namespaces": [ // 🛠️ Fixed label: Must be 'kv_namespaces'
+  "kv_namespaces": [ // "A-Team_Storage";
     {
       "binding": "GIA_KV",
       "id": "97426b03b961419ba8ca6df016a6039f"
@@ -19,7 +17,7 @@
   "d1_databases": [
     {
       "binding": "DB", 
-      "database_name": "global-infrastructure-db",
+      "database_name": "Intelligence-service",
       "database_id": "56c33622-1dff-4458-bf42-c1aa544edc27"
     }
   ],
