@@ -1,7 +1,7 @@
 {
  {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "global-infrastructure-advisory",
+  "name": "fancy-unit-1831",
   "main": "index.ts", // 🛠️ Fixed: Points to your code, not the EIN
   "compatibility_date": "2026-04-08",
   "compatibility_flags": [
