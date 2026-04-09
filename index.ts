@@ -81,20 +81,21 @@ export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
 
-    // Only allow traffic from your specific Pages URL
+    // Lock down to your specific pages.dev domain
     if (url.hostname !== "4882dee7.global-infrastructure-advisory.pages.dev") {
       return new Response("Unauthorized Host", { status: 403 });
     }
 
     try {
-      // Basic route to verify KV and D1 connectivity
-      if (url.pathname === "/health") {
-        return new Response("Connected to DSN Service");
+      // Basic check to see if we're connected to KV
+      if (url.pathname === "/test-kv") {
+        const value = await env.A_TEAM_STORAGE.get("test_key");
+        return new Response(`KV Connection: ${value || "No data yet"}`);
       }
 
-      return new Response("GIA Intelligence Service Active");
+      return new Response("GIA Intelligence Service: Online and Connected");
     } catch (err: any) {
-      return new Response(`System Error: ${err.message}`, { status: 500 });
+      return new Response(`Connection Error: ${err.message}`, { status: 500 });
     }
   },
 };
