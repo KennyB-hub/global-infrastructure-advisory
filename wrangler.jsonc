@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "gia-infrastructure-platform",
+  "name": "global-infrastructure-advisory", // 🛡️ Matches your EIN exactly
   "main": "index.ts",
   "compatibility_date": "2026-04-08",
   "compatibility_flags": [
