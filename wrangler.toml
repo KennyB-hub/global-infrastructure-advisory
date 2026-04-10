@@ -1,22 +1,41 @@
-name = "gia-intelligence-worker"
+name = "gia-worker"
 main = "src/index.ts"
-compatibility_date = "2024-04-03"
+compatibility_date = "2026-04-09"
 
-# Custom Domain Routing
+# Directs traffic from both your Preview and Workers.dev URLs
 [[routes]]
-pattern = "globalinfrastructureadvisory.com"
-custom_domain = true
+pattern = "4882dee7.global-infrastructure-advisory.pages.dev/*"
 
 [[routes]]
-pattern = "://globalinfrastructureadvisory.com"
-custom_domain = true
+pattern = "*.workers.dev/*"
 
-# Bindings
+# Bindings - Restored and Corrected
 [[kv_namespaces]]
 binding = "A_TEAM_STORAGE"
-id = "fany-unit-1831"
+id = "packard-1831"
 
 [[d1_databases]]
 binding = "DB"
 database_name = "intelligence-service"
-database_id = "your-d1-database-id-here" # Replace with actual D1 ID
+database_id = "bf78ceff5a188d528944a0e0f41f40a99e5ee2191d71daedf4259cb4d37f8eff" # Get this from Storage > D1 > intelligence-service
+
+name = "gia-worker"
+main = "src/index.ts"
+compatibility_date = "2026-04-09"
+
+# Directs traffic from both your Preview and Workers.dev URLs
+[[routes]]
+pattern = "4882dee7.global-infrastructure-advisory.pages.dev/*"
+
+[[routes]]
+pattern = "*.workers.dev/*"
+
+# Bindings - Restored and Corrected
+[[kv_namespaces]]
+binding = "A_TEAM_STORAGE"
+id = "packard-1831"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "intelligence-service"
+database_id = "a3b8bdf89dee2cdd0559f0cdd72add2b3d198ab9825bd035f9d5202289dac9b0 " # Get this from Storage > D1 > intelligence-service
