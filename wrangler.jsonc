@@ -1,16 +1,7 @@
 {
-  "name": "gia-intelligence-worker",
-  "main": "src/index.ts",
-  "compatibility_date": "2026-04-09",
-  "routes": [
-    {
-      "pattern": "global-infrastructure-advisory.pages.dev/*"
-    },
-    {
-      "pattern": "://globalinfrastructureadvisory.com*",
-      "custom_domain": true
-    }
-  ],
+  "name": "global-infrastructure-advisory",
+  "main": "index.ts",
+  "compatibility_date": "2024-04-03",
   "kv_namespaces": [
     {
       "binding": "A_TEAM_STORAGE",
@@ -25,4 +16,3 @@
     }
   ]
 }
-
