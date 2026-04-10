@@ -76,28 +76,20 @@ export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
 
-    // 1. Health Check
-    // Visit: https://globalinfrastructureadvisory.com
     if (url.pathname === "/status") {
-      return new Response("GIA Worker: Active. Storage: packard-1831 Connected.", {
-        headers: { "Content-Type": "text/plain" }
-      });
+      return new Response("GIA CONNECTION SUCCESSFUL. Storage: packard-1831 Connected.");
     }
 
-    // 2. Fetch Documentation Logic
     try {
       if (url.pathname === "/dsn-docs") {
-        // This looks in your 'packard-1831' KV for documentation
         const docs = await env.A_TEAM_STORAGE.get("dsn_documentation");
         return new Response(docs || "No documentation found in KV.", {
           headers: { "Content-Type": "text/plain" }
         });
       }
-
-      // Default landing response
-      return new Response(`Global Infrastructure Advisory Portal Active on ${url.hostname}`);
+      return new Response("Global Infrastructure Advisory Portal Active");
     } catch (err: any) {
-      return new Response(`System Error: ${err.message}`, { status: 500 });
+      return new Response("System Error: " + err.message, { status: 500 });
     }
   },
 };
