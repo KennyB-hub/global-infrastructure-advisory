@@ -1,19 +1,24 @@
-name = "gia-intelligence-worker"
+name = "gia-intelligence"
 main = "src/index.ts"
-compatibility_date = "2026-09-04"
+compatibility_date = "2026-04-09"
 
-# Direct traffic from your preview domain
+# Allow both your preview and main domain
 [[routes]]
 pattern = "global-infrastructure-advisory.pages.dev/*"
 
-# KV Storage: packard-1831
+[[routes]]
+pattern = "://globalinfrastructureadvisory.com*"
+custom_domain = true
+
+# KV Binding
 [[kv_namespaces]]
 binding = "A_TEAM_STORAGE"
 id = "a3b8bdf89dee2cdd0559f0cdd72add2b3d198ab9825bd035f9d5202289dac9b0"
 
-# D1 Database: intelligence-service
+# D1 Binding
 [[d1_databases]]
 binding = "DB"
 database_name = "intelligence-service"
 database_id = "54471039eb52c159c2efaf00063d59d9"
+
 
