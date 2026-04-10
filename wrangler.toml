@@ -1,26 +1,19 @@
-name = "gia-worker"
+name = "gia-intelligence-worker"
 main = "src/index.ts"
-compatibility_date = "2024-04-03"
+compatibility_date = "2026-09-04"
 
-# Capture both the Apex and the WWW domains
-[[routes]]
-pattern = "://globalinfrastructureadvisory.com*"
-custom_domain = true
-
-[[routes]]
-pattern = "www.://globalinfrastructureadvisory.com*"
-custom_domain = true
-
-# Keep your Pages Preview alive too
+# Direct traffic from your preview domain
 [[routes]]
 pattern = "global-infrastructure-advisory.pages.dev/*"
 
-# Bindings (Using your specific IDs)
+# KV Storage: packard-1831
 [[kv_namespaces]]
 binding = "A_TEAM_STORAGE"
 id = "a3b8bdf89dee2cdd0559f0cdd72add2b3d198ab9825bd035f9d5202289dac9b0"
 
+# D1 Database: intelligence-service
 [[d1_databases]]
 binding = "DB"
 database_name = "intelligence-service"
 database_id = "54471039eb52c159c2efaf00063d59d9"
+
