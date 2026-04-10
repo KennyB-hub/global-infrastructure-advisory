@@ -76,25 +76,29 @@ export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
 
-    // 1. Connection Check
-    if (url.pathname === "/status") {
-      return new Response("GIA SYSTEM ONLINE. Door 1 is Open.", {
-        headers: { "Content-Type": "text/plain" }
-      });
+    // 1. Professional Status Page for Donors/Admin
+    if (url.hostname === "4882dee7.global-infrastructure-advisory.pages.dev" || url.pathname === "/status") {
+       return new Response("GIA DEEP MIND INTERFACE: SECURE & ACTIVE", {
+         headers: { "Content-Type": "text/plain", "X-GIA-Protected": "true" }
+       });
     }
 
     try {
-      // 2. DSN Docs Check
+      // 2. Serving your Bootstrap DSN Docs
       if (url.pathname === "/dsn-docs") {
         const docs = await env.A_TEAM_STORAGE.get("dsn_documentation");
-        return new Response(docs || "packard-1831 storage is empty.", {
-          headers: { "Content-Type": "text/plain" }
+        return new Response(docs || "System Ready. Awaiting Deep Mind Data.", {
+          headers: { 
+            "Content-Type": "text/plain",
+            "Access-Control-Allow-Origin": "*" // Allows your Bootstrap frontend to talk to the AI
+          }
         });
       }
-      
-      return new Response("Global Infrastructure Advisory Portal Active");
+
+      return new Response("Global Infrastructure Advisory: Portal Online");
     } catch (err: any) {
-      return new Response("System Error: " + err.message, { status: 500 });
+      // Professional error handling so it doesn't look "broken" to donors
+      return new Response("Service Temporarily Shielded: " + err.message, { status: 500 });
     }
   },
 };
