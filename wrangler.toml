@@ -1,41 +1,26 @@
 name = "gia-worker"
 main = "src/index.ts"
-compatibility_date = "2026-04-09"
+compatibility_date = "2024-04-03"
 
-# Directs traffic from both your Preview and Workers.dev URLs
+# Capture both the Apex and the WWW domains
 [[routes]]
-pattern = "4882dee7.global-infrastructure-advisory.pages.dev/*"
+pattern = "://globalinfrastructureadvisory.com*"
+custom_domain = true
 
 [[routes]]
-pattern = "*.workers.dev/*"
+pattern = "www.://globalinfrastructureadvisory.com*"
+custom_domain = true
 
-# Bindings - Restored and Corrected
+# Keep your Pages Preview alive too
+[[routes]]
+pattern = "global-infrastructure-advisory.pages.dev/*"
+
+# Bindings (Using your specific IDs)
 [[kv_namespaces]]
 binding = "A_TEAM_STORAGE"
-id = "packard-1831"
+id = "a3b8bdf89dee2cdd0559f0cdd72add2b3d198ab9825bd035f9d5202289dac9b0"
 
 [[d1_databases]]
 binding = "DB"
 database_name = "intelligence-service"
-database_id = "bf78ceff5a188d528944a0e0f41f40a99e5ee2191d71daedf4259cb4d37f8eff" # Get this from Storage > D1 > intelligence-service
-
-name = "gia-worker"
-main = "src/index.ts"
-compatibility_date = "2026-04-09"
-
-# Directs traffic from both your Preview and Workers.dev URLs
-[[routes]]
-pattern = "4882dee7.global-infrastructure-advisory.pages.dev/*"
-
-[[routes]]
-pattern = "*.workers.dev/*"
-
-# Bindings - Restored and Corrected
-[[kv_namespaces]]
-binding = "A_TEAM_STORAGE"
-id = "packard-1831"
-
-[[d1_databases]]
-binding = "DB"
-database_name = "intelligence-service"
-database_id = "a3b8bdf89dee2cdd0559f0cdd72add2b3d198ab9825bd035f9d5202289dac9b0 " # Get this from Storage > D1 > intelligence-service
+database_id = "54471039eb52c159c2efaf00063d59d9"
