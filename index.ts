@@ -76,17 +76,22 @@ export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
 
+    // 1. Connection Check
     if (url.pathname === "/status") {
-      return new Response("GIA CONNECTION SUCCESSFUL. Storage: packard-1831 Connected.");
+      return new Response("GIA SYSTEM ONLINE. Door 1 is Open.", {
+        headers: { "Content-Type": "text/plain" }
+      });
     }
 
     try {
+      // 2. DSN Docs Check
       if (url.pathname === "/dsn-docs") {
         const docs = await env.A_TEAM_STORAGE.get("dsn_documentation");
-        return new Response(docs || "No documentation found in KV.", {
+        return new Response(docs || "packard-1831 storage is empty.", {
           headers: { "Content-Type": "text/plain" }
         });
       }
+      
       return new Response("Global Infrastructure Advisory Portal Active");
     } catch (err: any) {
       return new Response("System Error: " + err.message, { status: 500 });
