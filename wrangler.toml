@@ -1,19 +1,21 @@
-name = "gia-intelligence"
-main = "src/index.ts"
-compatibility_date = "2026-04-09"
-
-# Allow both your preview and main domain
-[[routes]]
-pattern = "global-infrastructure-advisory.pages.dev/*"
-
-[[routes]]
-pattern = "://globalinfrastructureadvisory.com*"
-custom_domain = true
-
-# KV Binding
-[[kv_namespaces]]
-binding = "A_TEAM_STORAGE"
-id = "a3b8bdf89dee2cdd0559f0cdd72add2b3d198ab9825bd035f9d5202289dac9b0"
+{
+  "name": "global-infrastructure-advisory",
+  "main": "index.ts", 
+  "compatibility_date": "2024-04-03",
+  "kv_namespaces": [
+    {
+      "binding": "A_TEAM_STORAGE",
+      "id": "a3b8bdf89dee2cdd0559f0cdd72add2b3d198ab9825bd035f9d5202289dac9b0"
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "intelligence-service",
+      "database_id": "54471039eb52c159c2efaf00063d59d9"
+    }
+  ]
+}
 
 # D1 Binding
 [[d1_databases]]
