@@ -1,26 +1,27 @@
 {
-  "name": "gia-worker",
+  "name": "gia-intelligence-worker",
   "main": "src/index.ts",
-  "compatibility_date": "2024-04-03",
+  "compatibility_date": "2026-04-09",
   "routes": [
     {
-      "pattern": "4882dee7.global-infrastructure-advisory.pages.dev/*"
+      "pattern": "global-infrastructure-advisory.pages.dev/*"
+    },
+    {
+      "pattern": "://globalinfrastructureadvisory.com*",
+      "custom_domain": true
     }
   ],
   "kv_namespaces": [
     {
       "binding": "A_TEAM_STORAGE",
-      "id": "packard-1831"
+      "id": "a3b8bdf89dee2cdd0559f0cdd72add2b3d198ab9825bd035f9d5202289dac9b0"
     }
   ],
   "d1_databases": [
     {
       "binding": "DB",
       "database_name": "intelligence-service",
-      "database_id": "613d4d7f2581c022cf0c2c5dbd8db446806a71340bedf2c7363da515784c7969"
-      "database_id": "2ffdfea3379ab652c4008a577c8891e557cce05287b83a7c17ff6efda593cc41"
-      "database_id": "e5b68eec2566e7d43110bfb17f2aebdfcba554a564557c4247ad060947e091a1"
-      "database_id": "dc8650514285bec0127463c7b96f7e2daebb0578bf10e9b8db33420e97375005"
+      "database_id": "54471039eb52c159c2efaf00063d59d9"
     }
   ]
 }
