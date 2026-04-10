@@ -72,18 +72,16 @@ export interface Env {
   DB: D1Database;
 }
 
-export interface Env {
-  A_TEAM_STORAGE: KVNamespace;
-  DB: D1Database;
-}
-
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
 
     // 1. Health Check
+    // Visit: https://globalinfrastructureadvisory.com
     if (url.pathname === "/status") {
-      return new Response("GIA Worker: Active. Storage: packard-1831 Connected.");
+      return new Response("GIA Worker: Active. Storage: packard-1831 Connected.", {
+        headers: { "Content-Type": "text/plain" }
+      });
     }
 
     // 2. Fetch Documentation Logic
@@ -96,9 +94,10 @@ export default {
         });
       }
 
+      // Default landing response
       return new Response(`Global Infrastructure Advisory Portal Active on ${url.hostname}`);
     } catch (err: any) {
-      return new Response(`Error: ${err.message}`, { status: 500 });
+      return new Response(`System Error: ${err.message}`, { status: 500 });
     }
   },
 };
