@@ -18,15 +18,15 @@
 
         if (query) {
             // 1. Show the user's command immediately
-            const commandLine = document.createElement('p');
-            commandLine.className = 'text-white';
-            const commandLabel = document.createElement('b');
+            commandLine.innerHTML = "<b>> COMMAND:</b> ";
+            commandLine.className = "text-white";
+            const queryText = document.createElement('span');
+            queryText.textContent = query; // <--- This safely escapes the meta-characters
             commandLabel.textContent = '> COMMAND:';
             commandLine.appendChild(commandLabel);
-            commandLine.appendChild(document.createTextNode(' ' + query));
+            commandLine.appendChild(queryText);
             display.appendChild(commandLine);
             
-            // 2. "Crank the engine" - Send the query to your Cloudflare Worker
             try {
                 const response = await fetch('/api/deep-mind', {
                     method: 'POST',
