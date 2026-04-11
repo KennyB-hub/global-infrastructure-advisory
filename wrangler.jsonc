@@ -32,12 +32,9 @@
       "database_name": "v12",
       "database_id": "701e8250-541c-474a-b44f-d0abfe9ab7ef"
     }
-  ],
-  "observability": {
-    "enabled": true,
-    "head_sampling_rate": 1
-  }
+  ]
 }
+
 
 export default {
   async fetch(request, env) {
