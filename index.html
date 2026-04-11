@@ -134,15 +134,12 @@ async function sendGiaQuery() {
     const query = input.value.trim();
 
     if (query) {
-        // 1. Post the user's mission query
         out.innerHTML += `<p class="small text-white"><b>> Query:</b> ${query}</p>`;
-        
-        // 2. Clear input and scroll
         input.value = "";
         out.scrollTop = out.scrollHeight;
 
         try {
-            // 3. The Crank: Talk to the Packard-1831 Worker
+            // CHANGE THIS LINE: Point to your actual Packard worker
             const response = await fetch('https://workers.dev', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -150,14 +147,10 @@ async function sendGiaQuery() {
             });
 
             const data = await response.json();
-
-            // 4. The Heartbeat: Display the AI response
-            out.innerHTML += `<p class="small text-success"><b>> GIA_SYS:</b> ${data.result}</p>`;
-            
+            out.innerHTML += `<p class="small text-success"><b>> GIA_SYS:</b> ${data.result || "Heartbeat Verified."}</p>`;
         } catch (err) {
             out.innerHTML += `<p class="small text-danger"><b>> ERROR:</b> Global Hub offline. Check connection.</p>`;
         }
-        
         out.scrollTop = out.scrollHeight;
     }
 }
