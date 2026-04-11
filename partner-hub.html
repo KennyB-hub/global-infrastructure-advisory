@@ -1,0 +1,76 @@
+<!-- Inside partner-hub.html -->
+<section class="container my-5 p-4 bg-dark rounded border border-info shadow-lg">
+    <h4 class="text-info fw-bold"><div class="pulse"></div> SECURE PARTNER INTERFACE</h4>
+    <div id="partner-chat" class="bg-black p-3 rounded mb-3 border border-secondary" style="height: 300px; overflow-y: auto; color: #00d4ff; font-family: 'Courier New', monospace;">
+        <p class="small italic text-muted">Authenticating via GIA Secure Edge...</p>
+    </div>
+    <div class="input-group">
+        <input type="text" id="partner-query" class="form-control bg-dark text-white border-secondary" placeholder="Enter secure coordinate or command...">
+        <button class="btn btn-info" onclick="executePartnerCommand()">Execute</button>
+    </div>
+</section>
+
+<script>
+    async function executePartnerCommand() {
+        const input = document.getElementById('partner-query');
+        const display = document.getElementById('partner-chat');
+        const query = input.value.trim();
+
+        if (query) {
+            // 1. Show the user's command immediately
+            display.innerHTML += `<p class="text-white"><b>> COMMAND:</b> ${query}</p>`;
+            
+            // 2. "Crank the engine" - Send the query to your Cloudflare Worker
+            try {
+                const response = await fetch('/api/deep-mind', {
+                    method: 'POST',
+                    body: JSON.stringify({ mission: query }),
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                
+                const data = await response.json();
+                
+                // 3. Display the AI's "Deep Mind" response
+                display.innerHTML += `<p class="text-success"><b>> GIA_INTELLIGENCE:</b> ${data.result}</p>`;
+            } catch (err) {
+                display.innerHTML += `<p class="text-danger"><b>> ERROR:</b> Link to Global Hub severed.</p>`;
+            }
+
+            // 4. Reset for next command
+            display.scrollTop = display.scrollHeight;
+            input.value = "";
+        }
+    }
+</script>
+
+<section id="secure-tools" class="py-5 container">
+    <div class="row g-4">
+        <!-- Agri-Tech Section -->
+        <div class="col-md-4" id="agri-tech">
+            <div class="card p-4 text-center border-success bg-dark text-white">
+                <h3>🌾 Agri-Tech</h3>
+                <p class="text-secondary small">Live Soil Telemetry & Yield Mapping</p>
+                <!-- This fires your specific worker/map logic -->
+                <button class="btn btn-success" onclick="initiateAgriMap()">Launch Satellite View</button>
+            </div>
+        </div>
+
+        <!-- Blueprint Section -->
+        <div class="col-md-4" id="blueprints">
+            <div class="card p-4 text-center border-info bg-dark text-white">
+                <h3>🏗️ Blueprints</h3>
+                <p class="text-secondary small">AI Site Engineering & CAD Generation</p>
+                <button class="btn btn-info" onclick="generateSiteBlueprint()">Start AI Architect</button>
+            </div>
+        </div>
+
+        <!-- Compliance Section -->
+        <div class="col-md-4" id="compliance">
+            <div class="card p-4 text-center border-secondary bg-dark text-white">
+                <h3>📋 Compliance</h3>
+                <p class="text-secondary small">SAM.GOV & EIN Trade Verification</p>
+                <button class="btn btn-outline-light" onclick="location.href='docs/compliance-vault.pdf'">Open Vault</button>
+            </div>
+        </div>
+    </div>
+</section>
