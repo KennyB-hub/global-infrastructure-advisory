@@ -12,3 +12,10 @@ export default {
     return new Response("GIA Intelligence Engine Online.");
   }
 }
+
+if (url.pathname === "/api/contractors") {
+    const { results } = await env.DB.prepare("SELECT * FROM contractors").all();
+    return new Response(JSON.stringify({ results }), {
+        headers: { "content-type": "application/json", "Access-Control-Allow-Origin": "*" }
+    });
+}
