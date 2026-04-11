@@ -8,7 +8,7 @@ This policy applies to:
 
 All repositories under the Global Infrastructure Advisory GitHub account or organization
 
-All contributors with write or administrative access
+All contributors with write or administrative access get info kennybennett11477@gmail.com
 
 All code, documentation, and digital assets stored in GitHub
 
