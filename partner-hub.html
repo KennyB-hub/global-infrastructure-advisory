@@ -18,7 +18,13 @@
 
         if (query) {
             // 1. Show the user's command immediately
-            display.innerHTML += `<p class="text-white"><b>> COMMAND:</b> ${query}</p>`;
+            const commandLine = document.createElement('p');
+            commandLine.className = 'text-white';
+            const commandLabel = document.createElement('b');
+            commandLabel.textContent = '> COMMAND:';
+            commandLine.appendChild(commandLabel);
+            commandLine.appendChild(document.createTextNode(' ' + query));
+            display.appendChild(commandLine);
             
             // 2. "Crank the engine" - Send the query to your Cloudflare Worker
             try {
@@ -31,9 +37,21 @@
                 const data = await response.json();
                 
                 // 3. Display the AI's "Deep Mind" response
-                display.innerHTML += `<p class="text-success"><b>> GIA_INTELLIGENCE:</b> ${data.result}</p>`;
+                const aiLine = document.createElement('p');
+                aiLine.className = 'text-success';
+                const aiLabel = document.createElement('b');
+                aiLabel.textContent = '> GIA_INTELLIGENCE:';
+                aiLine.appendChild(aiLabel);
+                aiLine.appendChild(document.createTextNode(' ' + (data.result ?? '')));
+                display.appendChild(aiLine);
             } catch (err) {
-                display.innerHTML += `<p class="text-danger"><b>> ERROR:</b> Link to Global Hub severed.</p>`;
+                const errorLine = document.createElement('p');
+                errorLine.className = 'text-danger';
+                const errorLabel = document.createElement('b');
+                errorLabel.textContent = '> ERROR:';
+                errorLine.appendChild(errorLabel);
+                errorLine.appendChild(document.createTextNode(' Link to Global Hub severed.'));
+                display.appendChild(errorLine);
             }
 
             // 4. Reset for next command
