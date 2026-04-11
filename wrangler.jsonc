@@ -1,9 +1,20 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "gia-global-platform",
+  "name": "global-infrastructure-advisory",
   "main": "index.js",
   "compatibility_date": "2024-04-01",
   "ai": {
     "binding": "AI"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "gia-platform",
+      "database_id": "YOUR_D1_UUID_HERE"
+    }
+  ],
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
   }
 }
