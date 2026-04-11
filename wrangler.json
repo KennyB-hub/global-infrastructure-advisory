@@ -16,21 +16,7 @@
       "binding": "DB",
       "database_name": "gia-platform",
       "database_id": "0e5832f8-ca6a-4796-8053-429f3bfdbbee"
-    },
-    {
-      "binding": "INTEL_SVC",
-      "database_name": "intelligence-service",
-      "database_id": "56c33622-1dff-4458-bf42-c1aa544edc27"
-    },
-    {
-      "binding": "RESILIENCE",
-      "database_name": "resilience",
-      "database_id": "c12374bc-f828-481a-aeaa-27822f7aaea3"
-    },
-    {
-      "binding": "V12_CORE",
-      "database_name": "v12",
-      "database_id": "701e8250-541c-474a-b44f-d0abfe9ab7ef"
     }
   ]
 }
+
