@@ -92,3 +92,65 @@
         </div>
     </div>
 </section>
+
+async function executePartnerCommand() {
+    const input = document.getElementById('partner-query');
+    const display = document.getElementById('partner-chat');
+    const query = input.value.trim();
+
+    if (query) {
+        // --- 1. SECURE INPUT (The Spark) ---
+        const commandLine = document.createElement('p');
+        commandLine.className = "text-white mb-1";
+        
+        const commandLabel = document.createElement('b');
+        commandLabel.textContent = '> COMMAND: ';
+        commandLabel.className = "text-info"; 
+
+        const queryText = document.createElement('span');
+        queryText.textContent = query; // CodeQL Safe
+
+        commandLine.appendChild(commandLabel);
+        commandLine.appendChild(queryText);
+        display.appendChild(commandLine);
+        
+        // Clear input and scroll
+        input.value = "";
+        display.scrollTop = display.scrollHeight;
+
+        // --- 2. CLOUDFLARE ENGINE (The Crank) ---
+        try {
+            // Show a "thinking" pulse
+            const pulse = document.createElement('p');
+            pulse.className = "text-muted small italic heartbeat";
+            pulse.textContent = "> GIA Deep Mind analyzing mission parameters...";
+            pulse.id = "temp-pulse";
+            display.appendChild(pulse);
+
+            const response = await fetch('/api/deep-mind', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ query: query })
+            });
+
+            if (!response.ok) throw new Error('Engine Stall');
+
+            const data = await response.json();
+            
+            // Remove the pulse and show the result
+            document.getElementById('temp-pulse').remove();
+            
+            const responseLine = document.createElement('p');
+            responseLine.className = "text-success small";
+            responseLine.innerHTML = `<b>> GIA_SYS:</b> ${data.result}`;
+            display.appendChild(responseLine);
+
+        } catch (err) {
+            // --- 3. ERROR HANDLING (The Check Engine Light) ---
+            if(document.getElementById('temp-pulse')) document.getElementById('temp-pulse').remove();
+            display.innerHTML += `<p class="text-danger small"><b>> ERROR:</b> Link to Global Hub severed. [${err.message}]</p>`;
+        }
+
+        display.scrollTop = display.scrollHeight;
+    }
+}
