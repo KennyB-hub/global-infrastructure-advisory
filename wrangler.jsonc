@@ -38,3 +38,27 @@
     "head_sampling_rate": 1
   }
 }
+
+export default {
+  async fetch(request, env) {
+    const { query } = await request.json();
+
+    try {
+      // 1. TRY AZURE (Once it's up)
+      // const azureResponse = await fetch(env.AZURE_ENDPOINT, { ... });
+      // return azureResponse;
+
+      // 2. FAILOVER TO CLOUDFLARE AI (The "Bridge")
+      const aiResponse = await env.AI.run("@cf/google/gemma-4-27b-it", {
+        prompt: `GIA Mission Query: ${query}`
+      });
+
+      return new Response(JSON.stringify({ result: aiResponse.response }), {
+        headers: { "content-type": "application/json" }
+      });
+
+    } catch (err) {
+      return new Response(JSON.stringify({ error: "System Idle" }), { status: 500 });
+    }
+  }
+};
