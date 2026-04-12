@@ -1,191 +1,75 @@
-founder-bio.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Founder Bio — Global Infrastructure Advisory</title>
-    <link rel="stylesheet" href="/GIA-Website/assets/css/style.css">
+    <title>GIA | Global Infrastructure Advisory</title>
+    <link href="https://jsdelivr.net" rel="stylesheet">
+    <style>
+        body { background-color: #0b0f19; color: #ffffff; font-family: 'Inter', sans-serif; }
+        .hero-section { padding: 100px 0; background: linear-gradient(rgba(11, 15, 25, 0.8), rgba(11, 15, 25, 0.8)); }
+        .card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); transition: 0.3s; height: 100%; }
+        .card:hover { transform: translateY(-10px); border-color: #00d4ff; background: rgba(0, 212, 255, 0.05); }
+        .badge-ai { background-color: #00d4ff; color: #0b0f19; font-weight: bold; cursor: pointer; }
+        .pulse { width: 12px; height: 12px; background: #10b981; border-radius: 50%; display: inline-block; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: scale(0.95); opacity: 0.7; } 70% { transform: scale(1.2); opacity: 0.3; } 100% { transform: scale(0.95); opacity: 0; } }
+    </style>
 </head>
+<body>
+    <nav class="navbar navbar-dark bg-dark border-bottom border-secondary">
+        <div class="container">
+            <a class="navbar-brand fw-bold">GLOBAL INFRASTRUCTURE ADVISORY</a>
+            <div>
+                <span class="badge badge-ai" id="ai-trigger">DEEP MIND AI ACTIVE <div class="pulse"></div></span>
+            </div>
+        </div>
+    </nav>
 
-<body class="bg-slate-100">
+    <header class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-3 fw-bold mb-4">Building Beyond Borders</h1>
+            <p class="lead mb-5 text-secondary">Harnessing custom intelligence to architect global trade infrastructure.</p>
+            <div class="d-grid gap-3 d-md-flex justify-content-md-center">
+                <button class="btn btn-info btn-lg px-5" onclick="location.href='#trade-tools'">Access Trade Tools</button>
+                <button class="btn btn-outline-light btn-lg px-5" onclick="location.href='philosophy.html'">Our Philosophy</button>
+            </div>
+        </div>
+    </header>
 
-    <!-- Header -->
-    <div id="header"></div>
-
-    <!-- Hero -->
-    <section class="bg-slate-900 text-white py-20">
-        <div class="container mx-auto px-4">
-            <h1 class="text-4xl font-bold">Founder Biography</h1>
-            <p class="text-slate-300 mt-3 max-w-2xl">
-                Leadership grounded in engineering discipline, procurement integrity, and global development experience.
-            </p>
+    <section id="trade-tools" class="py-5 container">
+        <div class="row g-4">
+            <div class="col-md-4"><div class="card p-4 text-center"><h3>🌾 Agri-Tech</h3><p class="text-secondary small">Yield mapping and soil telemetry.</p><button class="btn btn-sm btn-outline-success">Open Map</button></div></div>
+            <div class="col-md-4"><div class="card p-4 text-center"><h3>🏗️ Blueprints</h3><p class="text-secondary small">AI-driven site engineering.</p><button class="btn btn-sm btn-outline-info">Generate</button></div></div>
+            <div class="col-md-4"><div class="card p-4 text-center"><h3>📋 Compliance</h3><p class="text-secondary small">Trade and Gov trade docs.</p><button class="btn btn-sm btn-outline-secondary">View Docs</button></div></div>
         </div>
     </section>
 
-    <!-- Content -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4 max-w-4xl">
-
-            <h2 class="text-2xl font-bold text-slate-900 mb-4">A Career Built on Infrastructure Delivery</h2>
-            <p class="text-slate-700 mb-6 leading-relaxed">
-                The founder of Global Infrastructure Advisory brings a multidisciplinary background spanning engineering,
-                federal acquisition, donor-funded procurement, construction oversight, and PMO governance. With experience
-                across Africa, the Middle East, Asia-Pacific, and U.S. federal programs, the founder has supported
-                infrastructure delivery environments ranging from remote field operations to national-scale capital programs.
-            </p>
-
-            <h2 class="text-2xl font-bold text-slate-900 mb-4">Engineering-Minded Leadership</h2>
-            <p class="text-slate-700 mb-6 leading-relaxed">
-                With a foundation in engineering and systems thinking, the founder has built PMO operating models,
-                procurement SOPs, risk frameworks, and oversight systems used by government agencies, donor-funded
-                programs, and global development organizations.
-            </p>
-
-            <h2 class="text-2xl font-bold text-slate-900 mb-4">Global Development & Donor-Funded Expertise</h2>
-            <p class="text-slate-700 mb-6 leading-relaxed">
-                Experience includes USAID, MCC, World Bank–aligned procurement, and multi-donor infrastructure programs.
-                The founder has supported construction oversight, compliance, and risk management across sectors including
-                transportation, energy, water, health, and education.
-            </p>
-
-            <h2 class="text-2xl font-bold text-slate-900 mb-4">Commitment to Integrity & Capacity Building</h2>
-            <p class="text-slate-700 leading-relaxed">
-                A core belief of GIA is that infrastructure delivery must be transparent, accountable, and sustainable.
-                The founder is committed to strengthening local systems, building institutional capacity, and ensuring
-                infrastructure investments deliver long-term impact.
-            </p>
-
+    <section class="container my-5 p-4 bg-white rounded text-dark shadow-lg">
+        <h4 class="fw-bold"><div class="pulse"></div> GIA System Interface</h4>
+        <div id="chat-window" class="bg-light p-3 rounded mb-3 border" style="height: 150px; overflow-y: auto;">
+            <p class="text-muted small italic">System Heartbeat Verified. Awaiting coordinate input...</p>
+        </div>
+        <div class="input-group">
+            <input type="text" id="user-input" class="form-control" placeholder="Mission Query...">
+            <button class="btn btn-dark" onclick="sendGiaQuery()">Execute</button>
         </div>
     </section>
 
-    <!-- Footer -->
-    <div id="footer"></div>
+    <footer class="py-5 border-top border-secondary text-center text-secondary">
+        <p>&copy; 2026 GIA | EIN: 41-4721740 | SAM.GOV Verified</p>
+        <a href="founder-bio.html" class="text-secondary text-decoration-none">Leadership Bio</a>
+    </footer>
 
-</body>
-</html>
-philosophy.html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Philosophy — Global Infrastructure Advisory</title>
-    <link rel="stylesheet" href="/GIA-Website/assets/css/style.css">
-</head>
-
-<body class="bg-slate-100">
-
-    <!-- Header -->
-    <div id="header"></div>
-
-    <!-- Hero -->
-    <section class="bg-emerald-700 text-white py-20">
-        <div class="container mx-auto px-4">
-            <h1 class="text-4xl font-bold">Our Philosophy</h1>
-            <p class="text-emerald-200 mt-3 max-w-2xl">
-                Infrastructure is more than construction — it is governance, systems, accountability, and long-term impact.
-            </p>
-        </div>
-    </section>
-
-    <!-- Content -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4 max-w-4xl">
-
-            <h2 class="text-2xl font-bold text-slate-900 mb-4">Infrastructure as a System</h2>
-            <p class="text-slate-700 mb-6 leading-relaxed">
-                GIA approaches infrastructure not as isolated projects, but as interconnected systems requiring governance,
-                procurement integrity, risk management, and operational discipline. Our philosophy is rooted in engineering
-                logic and programmatic structure.
-            </p>
-
-            <h2 class="text-2xl font-bold text-slate-900 mb-4">Integrity in Procurement</h2>
-            <p class="text-slate-700 mb-6 leading-relaxed">
-                Procurement is the foundation of infrastructure delivery. We believe in transparent, compliant, and
-                defensible procurement processes that protect public funds and ensure fair competition.
-            </p>
-
-            <h2 class="text-2xl font-bold text-slate-900 mb-4">Capacity Building as a Core Outcome</h2>
-            <p class="text-slate-700 mb-6 leading-relaxed">
-                Every engagement should leave institutions stronger. We prioritize knowledge transfer, local ownership,
-                and sustainable systems that continue functioning long after external support ends.
-            </p>
-
-            <h2 class="text-2xl font-bold text-slate-900 mb-4">Global Perspective, Local Understanding</h2>
-            <p class="text-slate-700 leading-relaxed">
-                GIA blends global best practices with local realities. We understand the complexities of delivering
-                infrastructure in challenging environments and tailor solutions to each country’s context.
-            </p>
-
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <div id="footer"></div>
-
-</body>
-</html>
-global-footprint.html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Footprint — Global Infrastructure Advisory</title>
-    <link rel="stylesheet" href="/GIA-Website/assets/css/style.css">
-</head>
-
-<body class="bg-slate-100">
-
-    <!-- Header -->
-    <div id="header"></div>
-
-    <!-- Hero -->
-    <section class="bg-slate-800 text-white py-20">
-        <div class="container mx-auto px-4">
-            <h1 class="text-4xl font-bold">Global Footprint</h1>
-            <p class="text-slate-300 mt-3 max-w-2xl">
-                Experience across Africa, the Middle East, Asia-Pacific, and U.S. federal programs.
-            </p>
-        </div>
-    </section>
-
-    <!-- Content -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4 max-w-4xl">
-
-            <h2 class="text-2xl font-bold text-slate-900 mb-4">Where We Work</h2>
-            <p class="text-slate-700 mb-6 leading-relaxed">
-                GIA has supported infrastructure delivery environments across multiple regions, including:
-            </p>
-
-            <ul class="list-disc pl-6 text-slate-700 mb-8 space-y-2">
-                <li>Africa — donor-funded infrastructure, procurement governance, construction oversight</li>
-                <li>Middle East — engineering compliance, risk management, capital program oversight</li>
-                <li>Asia-Pacific — PMO systems, monitoring & evaluation frameworks</li>
-                <li>United States — federal acquisition, facilities programs, compliance systems</li>
-            </ul>
-
-            <h2 class="text-2xl font-bold text-slate-900 mb-4">Sector Experience</h2>
-            <p class="text-slate-700 mb-6 leading-relaxed">
-                Our work spans multiple infrastructure sectors:
-            </p>
-
-            <ul class="list-disc pl-6 text-slate-700 space-y-2">
-                <li>Transportation</li>
-                <li>Energy</li>
-                <li>Water & Sanitation</li>
-                <li>Health Facilities</li>
-                <li>Education Infrastructure</li>
-                <li>Public Buildings & Capital Programs</li>
-            </ul>
-
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <div id="footer"></div>
-
+    <script>
+        // THE GHOST GATE: Click 'Deep Mind' 5 times to reveal Sovereign Portal
+        let count = 0; document.getElementById('ai-trigger').addEventListener('click', () => {
+            count++; if (count === 5) { window.location.href = "/saxon-gateway-alpha"; }
+        });
+        function sendGiaQuery() {
+            const out = document.getElementById('chat-window');
+            <link href="https://jsdelivr.net" rel="stylesheet"> ${document.getElementById('user-input').value}</p>`;
+            out.scrollTop = out.scrollHeight; <p class="small text-success">Heartbeat Response: Data integrated to Global Hub.</p>`;
+        }
+    </script>
 </body>
 </html>

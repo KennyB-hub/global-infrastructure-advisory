@@ -1,0 +1,84 @@
+<section class="container my-5 text-white">
+    <div class="row align-items-center mb-5">
+        <div class="col-md-7">
+            <h1 class="display-5 fw-bold text-success">🌾 Agri-Tech Telemetry</h1>
+            <p class="lead text-secondary">Global Soil Intelligence & Satellite Yield Mapping</p>
+        </div>
+        <div class="col-md-5 text-md-end">
+            <div class="p-3 border border-success rounded bg-dark">
+                <small class="text-uppercase text-success fw-bold">Live Satellite Link</small>
+                <div class="d-flex align-items-center justify-content-md-end">
+                    <div class="pulse me-2"></div>
+                    <span id="sat-status" class="font-monospace">SYNCING...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <!-- Main Map/Visualizer -->
+        <div class="col-lg-8">
+            <div class="card bg-dark border-secondary" style="height: 500px;">
+                <div class="card-header border-secondary d-flex justify-content-between">
+                    <span>Field Visualization: Region Alpha</span>
+                    <button class="btn btn-sm btn-outline-success" onclick="refreshTelemetry()">Refresh Sweep</button>
+                </div>
+                <div id="telemetry-display" class="card-body d-flex align-items-center justify-content-center">
+                    <p class="text-muted italic">Awaiting GIA Deep Mind coordinate injection...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Feeds -->
+        <div class="col-lg-4">
+            <div class="card bg-dark border-secondary mb-4">
+                <div class="card-body">
+                    <h6 class="text-success fw-bold">SOIL PH / MOISTURE</h6>
+                    <hr class="border-secondary">
+                    <div id="soil-stats">
+                        <p class="small text-secondary">No data in buffer. Execute sync.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card bg-dark border-secondary">
+                <div class="card-body">
+                    <h6 class="text-info fw-bold">MISSION LOGS</h6>
+                    <div id="agri-logs" class="small font-monospace" style="height: 150px; overflow-y: auto;">
+                        <p class="text-muted">> System ready.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    async function refreshTelemetry() {
+        const log = document.getElementById('agri-logs');
+        const stats = document.getElementById('soil-stats');
+        
+        log.innerHTML += `<p class="text-white">> Initiating GIA satellite sweep...</p>`;
+        
+        try {
+            // Pointing to your Packard Worker
+            const response = await fetch('https://workers.dev');
+            const data = await response.json();
+
+            // Simulate soil telemetry response
+            stats.innerHTML = `
+                <div class="d-flex justify-content-between"><span>Moisture:</span><span class="text-info">42%</span></div>
+                <div class="d-flex justify-content-between"><span>Nitrogen:</span><span class="text-info">Optimal</span></div>
+                <div class="d-flex justify-content-between"><span>Soil Temp:</span><span class="text-info">18.4°C</span></div>
+            `;
+            
+            log.innerHTML += `<p class="text-success">> Data integrated successfully.</p>`;
+            document.getElementById('sat-status').textContent = 'LINK ACTIVE';
+            
+        } catch (err) {
+            log.innerHTML += `<p class="text-danger">> ERROR: Satellite link severed.</p>`;
+        }
+        log.scrollTop = log.scrollHeight;
+    }
+
+    window.onload = refreshTelemetry;
+</script>

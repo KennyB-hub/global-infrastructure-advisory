@@ -1,0 +1,22 @@
+{
+  "name": "global-infrastructure-advisory",
+  "main": "index.js",
+  "compatibility_date": "2024-04-01",
+  "ai": {
+    "binding": "AI"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "A_TEAM_STORAGE",
+      "id": "97426b03b961419ba8ca6df016a6039f"
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "gia-platform",
+      "database_id": "0e5832f8-ca6a-4796-8053-429f3bfdbbee"
+    }
+  ]
+}
+
