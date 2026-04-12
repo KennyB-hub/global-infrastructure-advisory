@@ -1,7 +1,7 @@
 {
   "name": "global-infrastructure-advisory",
   "main": "index.js",
-  "compatibility_date": "2024-04-01",
+  "compatibility_date": "2026-04-12",
   "ai": {
     "binding": "AI"
   },
