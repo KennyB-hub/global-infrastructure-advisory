@@ -30,23 +30,38 @@ contact.html
             GIA is ready to support your infrastructure delivery needs.
         </p>
 
-        <!-- Centered Contact Info -->
-        <div class="p-8 bg-slate-50 rounded-lg shadow-sm border border-slate-200">
-            <h3 class="text-xl font-semibold mb-6 text-slate-800">Direct Contact</h3>
-            <ul class="space-y-4 text-slate-700">
-                <li class="flex items-center">
-                    <strong class="w-24">Email:</strong> 
-                    <a href="mailto:info@globalinfrastructureadvisory.com" class="text-emerald-700 hover:underline">info@globalinfrastructureadvisory.com</a>
-                </li>
-                <li class="flex items-center">
-                    <strong class="w-24">Phone:</strong> 
-                    <span>+1 (800) 123-4567</span>
-                </li>
-                <li class="flex items-center">
-                    <strong class="w-24">Location:</strong> 
-                    <span>Global Operations</span>
-                </li>
-            </ul>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+            <!-- Contact Info -->
+            <div class="p-6 bg-slate-50 rounded-lg shadow-sm">
+                <h3 class="text-xl font-semibold mb-4">Contact Information</h3>
+                <ul class="space-y-3 text-slate-700 text-sm">
+                    <li><strong>Email:</strong>kennebennett@gmail.com</li>
+                    <li><strong>Phone:</strong> +1 (304) 613-4111</li>
+                    <li><strong>Location:</strong> Global Operations</li>
+                </ul>
+            </div>
+
+            <!-- Inquiry Form (Static for now) -->
+            <div class="p-6 bg-slate-50 rounded-lg shadow-sm">
+                <h3 class="text-xl font-semibold mb-4">Send a Message</h3>
+
+                <form>
+                    <label class="block mb-2 text-sm font-medium text-slate-700">Name</label>
+                    <input type="text" class="w-full p-2 mb-4 border rounded" placeholder="Your Name">
+
+                    <label class="block mb-2 text-sm font-medium text-slate-700">Email</label>
+                    <input type="email" class="w-full p-2 mb-4 border rounded" placeholder="Your Email">
+
+                    <label class="block mb-2 text-sm font-medium text-slate-700">Message</label>
+                    <textarea class="w-full p-2 mb-4 border rounded" rows="4" placeholder="How can we help?"></textarea>
+
+                    <button class="btn bg-emerald-600 text-white hover:bg-emerald-700 w-full">
+                        Submit
+                    </button>
+                </form>
+            </div>
+
         </div>
 
     </div>
