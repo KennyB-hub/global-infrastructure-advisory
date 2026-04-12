@@ -4,3 +4,50 @@
 !.dev.vars.example
 .env*
 !.env.example
+# Node / Build
+node_modules/
+dist/
+build/
+.cache/
+
+# Cloudflare Workers
+.wrangler/
+.wrangler/state/
+.wrangler/tmp/
+
+# Secrets & Keys
+*.env
+.env*
+secrets.json
+config.local.json
+private-keys/
+keyvault/
+credentials/
+tokens/
+
+# AI Logic (private)
+ai/private/
+ai/secure/
+ai/models/private/
+ai/workflows/internal/
+
+# Government / Restricted Data
+secure-docs/
+restricted/
+compliance/
+gov-data/
+internal-data/
+
+# Logs
+*.log
+logs/
+debug.log
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# VS Code Ghost Files Prevention
+.vscode/
+.history/
+workspaceStorage/
