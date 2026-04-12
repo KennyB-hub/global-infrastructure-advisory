@@ -20,3 +20,49 @@
   ]
 }
 
+async function sendGiaQuery() {
+    const input = document.getElementById('user-input');
+    const out = document.getElementById('chat-window');
+    const query = input.value.trim();
+
+    if (!query) return;
+
+    // 1. Update UI to show query and "Processing" state
+    out.innerHTML += `<div class="query-line">> QUERY: ${query}</div>`;
+    out.innerHTML += `<div id="loading" class="sys-line">> GIA_SYS: Accessing Global Hub...</div>`;
+    
+    input.value = "";
+    out.scrollTop = out.scrollHeight;
+
+    try {
+        // 2. Execute fetch to your Cloudflare Worker
+        const response = await fetch('https://your-worker-name.workers.dev', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ query: query })
+        });
+
+        if (!response.ok) throw new Error('Network status: ' + response.status);
+
+        const data = await response.json();
+        
+        // 3. Remove loading indicator and show result
+        document.getElementById('loading').remove();
+        out.innerHTML += `<div class="sys-line">> GIA_SYS: ${data.result || "Heartbeat Verified. No data returned."}</div><br>`;
+
+    } catch (err) {
+        // 4. Handle offline/error states
+        const loadingEl = document.getElementById('loading');
+        if (loadingEl) loadingEl.remove();
+        
+        out.innerHTML += `<div class="error-line">> ERROR: Global Hub offline. Protocol 404.</div><br>`;
+        console.error("GIA System Error:", err);
+    }
+
+    out.scrollTop = out.scrollHeight;
+}
+
+// 5. Add 'Enter' key listener for the input field
+document.getElementById('user-input').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') sendGiaQuery();
+});
