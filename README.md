@@ -1,24 +1,24 @@
-GitHub Governance Policy (Internal Documentation)
-Global Infrastructure Advisory — Repository Governance Policy
+GLOBAL INFRASTRUCTURE ADVISORY
+Repository Governance Policy (Public Summary)
 1. Purpose
 This policy defines the governance, security, and operational standards for all GitHub repositories maintained by Global Infrastructure Advisory. It ensures consistency, integrity, and compliance across all digital assets supporting advisory, engineering, and donor‑funded program delivery.
 
 2. Scope
 This policy applies to:
 
-All repositories under the Global Infrastructure Advisory GitHub account or organization
+All repositories under the Global Infrastructure Advisory GitHub organization
 
-All contributors with write or administrative access get info kennybennett11477@gmail.com
+All contributors with write or administrative access
 
 All code, documentation, and digital assets stored in GitHub
 
 3. Repository Structure & Ownership
 3.1 Repository Types
-Public Repositories:  
-Used for the corporate website and non‑sensitive assets.
+Public Repositories  
+Used for the corporate website, documentation, and non‑sensitive assets.
 
-Private Repositories:  
-Used for internal tools, client portal development, and proprietary templates.
+Private Repositories  
+Used for internal tools, secure infrastructure logic, client portal development, and proprietary templates.
 
 3.2 Ownership
 Each repository must have:
@@ -39,7 +39,8 @@ MFA required for all users
 Fine‑grained personal access tokens only
 
 5. Branch Protection
-5.1 Required Rules for main
+Required rules for the main branch:
+
 Require pull request before merging
 
 Require status checks to pass (CodeQL + Pages)
@@ -70,7 +71,8 @@ Enabled for all repositories
 Push protection enabled for all contributors
 
 7. Repository Features
-7.1 Disabled Features
+The following features are disabled to maintain a clean, professional, non‑interactive public presence:
+
 Wikis
 
 Issues
@@ -80,8 +82,6 @@ Discussions
 Sponsorships
 
 Models
-
-These features are disabled to maintain a clean, professional, non‑interactive public presence.
 
 8. Incident Response
 If a security issue is detected:
@@ -99,11 +99,9 @@ Document the incident
 Notify leadership if required
 
 9. Review Cycle
-This policy must be reviewed annually or after any major security event.
+This policy is reviewed annually or after any major security event.
 
-2. Security & Compliance Page (Public Website)
-For your Digital Infrastructure section on your website
-Security & Compliance
+Security & Compliance (Public Summary)
 Global Infrastructure Advisory maintains an enterprise‑grade digital environment designed to protect client information, ensure operational continuity, and support donor‑funded and federal‑aligned programs.
 
 Infrastructure Security
