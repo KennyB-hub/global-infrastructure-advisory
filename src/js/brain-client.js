@@ -6,8 +6,16 @@ async function sendGiaQuery() {
     if (!query) return;
 
     // Show query + loading state
-    out.innerHTML += '<div class="query-line">> QUERY: ' + query + '</div>';
-    out.innerHTML += '<div id="loading" class="sys-line">> GIA_SYS: Accessing Global Hub...</div>';
+    const queryLine = document.createElement('div');
+    queryLine.className = 'query-line';
+    queryLine.textContent = '> QUERY: ' + query;
+    out.appendChild(queryLine);
+
+    const loadingLine = document.createElement('div');
+    loadingLine.id = 'loading';
+    loadingLine.className = 'sys-line';
+    loadingLine.textContent = '> GIA_SYS: Accessing Global Hub...';
+    out.appendChild(loadingLine);
     
     input.value = "";
     out.scrollTop = out.scrollHeight;
@@ -24,7 +32,10 @@ async function sendGiaQuery() {
         const loading = document.getElementById('loading');
         if (loading) loading.remove();
 
-        out.innerHTML += '<div class="ai-line">> GIA_AI: ' + result.response + '</div>';
+        const aiLine = document.createElement('div');
+        aiLine.className = 'ai-line';
+        aiLine.textContent = '> GIA_AI: ' + result.response;
+        out.appendChild(aiLine);
         out.scrollTop = out.scrollHeight;
 
     } catch (err) {
