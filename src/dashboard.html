@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GIA | Deep Mind Mission‑Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        :root {
+            --bg: #020617;
+            --panel: rgba(15, 23, 42, 0.85);
+            --border: rgba(148, 163, 184, 0.25);
+            --accent: #38bdf8;
+            --accent-strong: #0ea5e9;
+            --text-main: #e5e7eb;
+            --text-dim: #94a3b8;
+            --radius: 14px;
+            --radius-lg: 18px;
+            --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            display: flex;
+            height: 100vh;
+            background: radial-gradient(circle at top, #020617 0%, #000 100%);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            overflow: hidden;
+        }
+
+        /* SIDEBAR */
+        aside {
+            width: 280px;
+            background: var(--panel);
+            border-right: 1px solid var(--border);
+            padding: 28px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            backdrop-filter: blur(20px);
+        }
+
+        .logo-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            text-align: center;
+        }
+
+        .logo-block img {
+            width: 70px;
+            filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.6));
+        }
+
+        .logo-block span {
+            font-size: 0.7rem;
+            letter-spacing: 0.16em;
+            color: var(--text-dim);
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .nav-item {
+            padding: 12px 14px;
+            border-radius: var(--radius);
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.2s;
+        }
+
+        .nav-item:hover,
+        .nav-item.active {
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--accent);
+        }
+
+        .status-pill {
+            margin-top: auto;
+            padding: 10px;
+            border-radius: var(--radius-pill);
+            text-align: center;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-size: 0.75rem;
+        }
+
+        /* MAIN AREA */
+        main {
+            flex: 1;
+            padding: 32px;
+            overflow-y: auto;
+        }
+
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 28px;
+        }
+
+        .header-bar h2 {
+            font-size: 1.4rem;
+            letter-spacing: 0.04em;
+        }
+
+        .timestamp {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        /* GRID */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            padding: 18px;
+            border-radius: var(--radius-lg);
+        }
+
+        .stat-card p {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            margin-bottom: 6px;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .stat-up {
+            font-size: 0.8rem;
+            color: #10b981;
+        }
+
+        /* TELEMETRY */
+        .telemetry {
+            background: #000;
+            border: 1px solid var(--accent);
+            border-radius: var(--radius);
+            padding: 16px;
+            font-family: "Courier New", monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            height: 220px;
+            overflow-y: auto;
+            opacity: 0.85;
+        }
+
+        .line::before { content: "> "; }
+
+        .alert {
+            color: #f87171;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside>
+        <div class="logo-block">
+            <img src="assets/gia-logo.png" alt="GIA Logo">
+            <span>GLOBAL INFRASTRUCTURE ADVISORY</span>
+        </div>
+
+        <nav>
+            <a class="nav-item active">🛰️ Space Views</a>
+            <a class="nav-item">🌐 3D Mapping</a>
+            <a class="nav-item">🌾 Agri‑Tech</a>
+            <a class="nav-item">🚧 Work Zones</a>
+            <a class="nav-item">⚙️ System Core</a>
+        </nav>
+
+        <div class="status-pill">DEEP MIND CORE: ACTIVE</div>
+    </aside>
+
+    <!-- MAIN -->
+    <main>
+        <div class="header-bar">
+            <h2>Deep Mind Mission‑Control</h2>
+            <div class="timestamp">13 APR 2026 · 03:27 PM EDT</div>
+        </div>
+
+        <!-- STATS -->
+        <div class="stat-grid">
+            <div class="stat-card">
+                <p>Active Satellites</p>
+                <div class="stat-value">142 <span class="stat-up">+4.2%</span></div>
+            </div>
+
+            <div class="stat-card">
+                <p>Processing Power (PFLOPS)</p>
+                <div class="stat-value">89.4</div>
+            </div>
+
+            <div class="stat-card">
+                <p>Network Health</p>
+                <div class="stat-value" style="font-size:1.2rem;">● OPTIMAL</div>
+            </div>
+        </div>
+
+        <!-- TELEMETRY -->
+        <h3 style="margin-bottom: 12px; font-size: 1rem;">Live Telemetry Feed</h3>
+        <div class="telemetry">
+            <div class="line">Connecting to orbital node SV‑882...</div>
+            <div class="line">Fetching 3D spatial data for Sector 7G...</div>
+            <div class="line">Soil analysis: Nitrogen levels stable.</div>
+            <div class="line">Neural weights updated: +0.0042 accuracy.</div>
+            <div class="line alert">[ALERT] Work Zone B‑4 movement detected outside schedule.</div>
+            <div class="line">Scanning for anomalies...</div>
+        </div>
+    </main>
+
+</body>
+</html>
