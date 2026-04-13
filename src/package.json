@@ -1,0 +1,8 @@
+{
+  "name": "gia-website",
+  "version": "1.0.0",
+  "description": "Global Infrastructure Advisory public website",
+  "scripts": {
+    "build": "echo 'No build step required'"
+  }
+}
