@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GIA | Sectors & Programs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Same design system as index.html -->
+    <style>
+        /* You can copy this whole <style> block from index.html to keep them in sync.
+           For brevity, it's identical to index.html. */
+
+        :root {
+            --bg: #020617;
+            --bg-elevated: rgba(15, 23, 42, 0.9);
+            --bg-soft: rgba(15, 23, 42, 0.7);
+            --accent: #38bdf8;
+            --accent-soft: rgba(56, 189, 248, 0.25);
+            --accent-strong: #0ea5e9;
+            --accent-warn: #f97316;
+            --border: rgba(148, 163, 184, 0.35);
+            --text-main: #e5e7eb;
+            --text-dim: #9ca3af;
+            --text-soft: #6b7280;
+            --radius-lg: 18px;
+            --radius-md: 12px;
+            --radius-pill: 999px;
+            --shadow-soft: 0 24px 80px rgba(15, 23, 42, 0.85);
+            --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            background: radial-gradient(circle at top, #020617 0%, #020617 40%, #000 100%);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .page-shell {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px 20px 64px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .top-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand-block {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-logo {
+            height: 40px;
+            width: auto;
+            display: block;
+            filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.6));
+        }
+
+        .brand-text {
+            font-size: 0.75rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 18px;
+            font-size: 0.85rem;
+            color: var(--text-soft);
+        }
+
+        .nav-link {
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            transition: 0.18s ease;
+        }
+
+        .nav-link:hover {
+            border-color: var(--accent-soft);
+            color: var(--text-main);
+            background: rgba(15, 23, 42, 0.9);
+        }
+
+        .nav-link--primary {
+            border-color: var(--accent-soft);
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.18), rgba(15, 23, 42, 0.9));
+            color: var(--accent-strong);
+            box-shadow: 0 0 24px rgba(56, 189, 248, 0.35);
+        }
+
+        .section {
+            margin-top: 10px;
+            padding: 22px 24px;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            background: rgba(15, 23, 42, 0.9);
+            box-shadow: 0 18px 60px rgba(15, 23, 42, 0.9);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 16px;
+            margin-bottom: 18px;
+        }
+
+        .section-title {
+            font-size: 0.95rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--text-soft);
+        }
+
+        .section-sub {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        .pill-muted {
+            padding: 5px 10px;
+            border-radius: var(--radius-pill);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            font-size: 0.75rem;
+            color: var(--text-soft);
+        }
+
+        .sectors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .sector-card {
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), #020617);
+            padding: 16px 16px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sector-icon {
+            font-size: 1.2rem;
+        }
+
+        .sector-label {
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .sector-body {
+            font-size: 0.8rem;
+            color: var(--text-soft);
+        }
+
+        .sector-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 6px;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+        }
+
+        .sector-chip {
+            padding: 4px 8px;
+            border-radius: var(--radius-pill);
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            color: var(--accent-strong);
+            font-size: 0.72rem;
+        }
+
+        .page-footer {
+            margin-top: 10px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(31, 41, 55, 0.9);
+            font-size: 0.75rem;
+            color: var(--text-soft);
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 880px) {
+            .top-nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-shell">
+        <!-- Top navigation -->
+        <header class="top-nav">
+            <div class="brand-block">
+                <img src="assets/gia-logo.png" alt="Global Infrastructure Advisory logo" class="brand-logo">
+                <div class="brand-text">GLOBAL INFRASTRUCTURE ADVISORY</div>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Overview</a>
+                <a href="sectors.html" class="nav-link nav-link--primary">Sectors</a>
+                <a href="#" class="nav-link">Public Tools</a>
+                <a href="#" class="nav-link">Docs</a>
+            </nav>
+        </header>
+
+        <!-- Sectors section -->
+        <section class="section">
+            <div class="section-header">
+                <div>
+                    <div class="section-title">SECTORS &amp; PROGRAMS</div>
+                    <div class="section-sub">
+                        Public‑facing description of how GIA Deep Mind Infrastructure is applied across domains.
+                    </div>
+                </div>
+                <div class="pill-muted">
+                    Public Layer · No operational telemetry exposed
+                </div>
+            </div>
+
+            <div class="sectors-grid">
+                <article class="sector-card">
+                    <div class="sector-icon">🛰️</div>
+                    <div class="sector-label">Orbital Infrastructure</div>
+                    <p class="sector-body">
+                        Support for satellite constellations, orbital corridors, and DSN‑aligned mission planning.
+                        Public view exposes only non‑sensitive orbital overlays.
+                    </p>
+                    <div class="sector-meta">
+                        <span>Partners: space agencies, operators</span>
+                        <span class="sector-chip">Space‑grade</span>
+                    </div>
+                </article>
+
+                <article class="sector-card">
+                    <div class="sector-icon">🌐</div>
+                    <div class="sector-label">National &amp; Regional Mapping</div>
+                    <p class="sector-body">
+                        Multi‑layer mapping for corridors, utilities, and development zones, with internal layers
+                        reserved for government and emergency operations.
+                    </p>
+                    <div class="sector-meta">
+                        <span>Public + secure layers</span>
+                        <span class="sector-chip">Layered Access</span>
+                    </div>
+                </article>
+
+                <article class="sector-card">
+                    <div class="sector-icon">🌾</div>
+                    <div class="sector-label">Agri‑Tech &amp; Food Systems</div>
+                    <p class="sector-body">
+                        Land‑use, soil, and climate overlays to support resilient agriculture, with deeper analytics
+                        available only on the locked mission‑control side.
+                    </p>
+                    <div class="sector-meta">
+                        <span>Farm‑to‑region scale</span>
+                        <span class="sector-chip">Resilience</span>
+                    </div>
+                </article>
+
+                <article class="sector-card">
+                    <div class="sector-icon">🚧</div>
+                    <div class="sector-label">Work Zones &amp; Critical Sites</div>
+                    <p class="sector-body">
+                        Public‑safe indicators for active work zones and planned projects, while live telemetry and
+                        anomaly detection remain inside the secure Deep Mind dashboard.
+                    </p>
+                    <div class="sector-meta">
+                        <span>Public awareness</span>
+                        <span class="sector-chip">Secure Core</span>
+                    </div>
+                </article>
+
+                <article class="sector-card">
+                    <div class="sector-icon">⚙️</div>
+                    <div class="sector-label">System Core &amp; Governance</div>
+                    <p class="sector-body">
+                        Governance, policy, and long‑horizon planning for infrastructure, with a strict separation
+                        between public documentation and internal decision logic.
+                    </p>
+                    <div class="sector-meta">
+                        <span>Policy &amp; oversight</span>
+                        <span class="sector-chip">Gov‑grade</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="page-footer">
+            <span>© 2026 Global Infrastructure Advisory — Deep Mind Infrastructure Network</span>
+            <span>Internal mission‑control remains locked behind Cloudflare + Deep Mind Zero‑Trust.</span>
+        </footer>
+    </div>
+</body>
+</html>
