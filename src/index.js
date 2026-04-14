@@ -1,24 +1,39 @@
-export default {
-  async fetch(request, env, ctx): Promise<Response> {
-    // write a key-value pair
-    await env.KV.put('KEY', 'VALUE');
+<script>
+    async function refreshTelemetry() {
+        const log = document.getElementById('agri-logs');
+        const stats = document.getElementById('soil-stats');
+        
+        log.innerHTML += `<p class="text-white">> Initiating GIA satellite sweep...</p>`;
+        
+        try {
+            // Connect to your Packard Worker (Deep Mind endpoint)
+            const response = await fetch(
+                'https://packard-1831.global-infrastructure-advisorypagedev.workers.dev/api/deep-mind',
+                {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ query: "soil telemetry sweep" })
+                }
+            );
 
-    // read a key-value pair
-    const value = await env.KV.get('KEY');
+            const data = await response.json();
 
-    // list all key-value pairs
-    const allKeys = await env.KV.list();
+            // Simulated soil telemetry response
+            stats.innerHTML = `
+                <div class="d-flex justify-content-between"><span>Moisture:</span><span class="text-info">42%</span></div>
+                <div class="d-flex justify-content-between"><span>Nitrogen:</span><span class="text-info">Optimal</span></div>
+                <div class="d-flex justify-content-between"><span>Soil Temp:</span><span class="text-info">18.4°C</span></div>
+            `;
+            
+            log.innerHTML += `<p class="text-success">> Data integrated successfully.</p>`;
+            document.getElementById('sat-status').textContent = 'LINK ACTIVE';
+            
+        } catch (err) {
+            log.innerHTML += `<p class="text-danger">> ERROR: Satellite link severed.</p>`;
+        }
 
-    // delete a key-value pair
-    await env.KV.delete('KEY');
+        log.scrollTop = log.scrollHeight;
+    }
 
-    // return a Workers response
-    return new Response(
-      JSON.stringify({
-        value: value,
-        allKeys: allKeys,
-      }),
-    );
-  },
-
-} satisfies ExportedHandler<{ KV: KVNamespace }>;
+    window.onload = refreshTelemetry;
+</script>
