@@ -1,0 +1,4 @@
+User-agent: *                    
+Disallow: /hubs/
+Disallow: /api/
+Disallow: /admin/
