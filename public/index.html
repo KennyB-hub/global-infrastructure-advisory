@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GIA | Deep Mind Infrastructure</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        :root {
+            --bg: #020617;
+            --bg-elevated: rgba(15, 23, 42, 0.9);
+            --bg-soft: rgba(15, 23, 42, 0.7);
+            --accent: #38bdf8;
+            --accent-soft: rgba(56, 189, 248, 0.25);
+            --accent-strong: #0ea5e9;
+            --accent-warn: #f97316;
+            --border: rgba(148, 163, 184, 0.35);
+            --text-main: #e5e7eb;
+            --text-dim: #9ca3af;
+            --text-soft: #6b7280;
+            --radius-lg: 18px;
+            --radius-md: 12px;
+            --radius-pill: 999px;
+            --shadow-soft: 0 24px 80px rgba(15, 23, 42, 0.85);
+            --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            background: radial-gradient(circle at top, #020617 0%, #020617 40%, #000 100%);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .page-shell {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px 20px 64px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        /* Top nav */
+        .top-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand-block {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-logo {
+            height: 40px;
+            width: auto;
+            display: block;
+            filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.6));
+        }
+
+        .brand-text {
+            font-size: 0.75rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 18px;
+            font-size: 0.85rem;
+            color: var(--text-soft);
+        }
+
+        .nav-link {
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            transition: 0.18s ease;
+        }
+
+        .nav-link:hover {
+            border-color: var(--accent-soft);
+            color: var(--text-main);
+            background: rgba(15, 23, 42, 0.9);
+        }
+
+        .nav-link--primary {
+            border-color: var(--accent-soft);
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.18), rgba(15, 23, 42, 0.9));
+            color: var(--accent-strong);
+            box-shadow: 0 0 24px rgba(56, 189, 248, 0.35);
+        }
+
+        /* Hero shell */
+        .hero-shell {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+            gap: 40px;
+            align-items: center;
+            position: relative;
+            padding: 32px 24px;
+            border-radius: var(--radius-lg);
+            background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 55%),
+                        radial-gradient(circle at bottom right, rgba(15, 23, 42, 0.9), #020617);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            box-shadow: var(--shadow-soft);
+            overflow: hidden;
+        }
+
+        .hero-shell::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(148, 163, 184, 0.12) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.35;
+            mask-image: radial-gradient(circle at center, black 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-main {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .hero-kicker {
+            font-size: 0.8rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent-strong);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-kicker-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 999px;
+            background: var(--accent);
+            box-shadow: 0 0 12px var(--accent);
+        }
+
+        .hero-title {
+            font-size: clamp(2.4rem, 3vw, 3rem);
+            line-height: 1.05;
+            letter-spacing: 0.02em;
+        }
+
+        .hero-title span {
+            color: var(--accent-strong);
+        }
+
+        .hero-body {
+            font-size: 0.98rem;
+            color: var(--text-soft);
+            max-width: 34rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .btn-primary {
+            padding: 11px 22px;
+            border-radius: var(--radius-pill);
+            border: 1px solid var(--accent-soft);
+            background: linear-gradient(135deg, var(--accent-strong), #0369a1);
+            color: #0b1120;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 18px 40px rgba(8, 47, 73, 0.9);
+            transition: 0.18s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 24px 60px rgba(8, 47, 73, 1);
+        }
+
+        .btn-secondary {
+            padding: 11px 20px;
+            border-radius: var(--radius-pill);
+            border: 1px solid var(--border);
+            background: rgba(15, 23, 42, 0.9);
+            color: var(--text-main);
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.18s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-soft);
+            color: var(--accent-strong);
+        }
+
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 10px;
+            font-size: 0.78rem;
+            color: var(--text-soft);
+        }
+
+        .hero-meta-pill {
+            padding: 6px 10px;
+            border-radius: var(--radius-pill);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            background: rgba(15, 23, 42, 0.85);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-meta-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: var(--accent);
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        /* Right: orbital preview */
+        .hero-orbit {
+            position: relative;
+            z-index: 1;
+            height: 260px;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            background: radial-gradient(circle at center, rgba(15, 23, 42, 0.9), #020617);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .orbit-grid {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(var(--accent-soft) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.4;
+            mask-image: radial-gradient(circle at center, black 0%, transparent 70%);
+        }
+
+        .orbit-core {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 1px solid rgba(148, 163, 184, 0.5);
+            box-shadow: 0 0 40px rgba(56, 189, 248, 0.6);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at center, rgba(15, 23, 42, 0.9), #020617);
+        }
+
+        .orbit-core::before {
+            content: "";
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 999px;
+            background: var(--accent-strong);
+            box-shadow: 0 0 18px var(--accent-strong);
+        }
+
+        .orbit-ring {
+            position: absolute;
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            border: 1px dashed rgba(148, 163, 184, 0.4);
+            transform: rotateX(65deg);
+        }
+
+        .orbit-node {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: var(--accent);
+            box-shadow: 0 0 14px var(--accent);
+        }
+
+        .orbit-node:nth-child(1) { transform: translate(60px, -10px); }
+        .orbit-node:nth-child(2) { transform: translate(-40px, -40px); }
+        .orbit-node:nth-child(3) { transform: translate(-70px, 20px); }
+        .orbit-node:nth-child(4) { transform: translate(30px, 50px); }
+
+        .orbit-tag {
+            position: absolute;
+            bottom: 14px;
+            left: 16px;
+            padding: 6px 10px;
+            border-radius: var(--radius-pill);
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            font-size: 0.72rem;
+            color: var(--text-soft);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .orbit-tag span {
+            color: var(--accent-strong);
+            font-weight: 500;
+        }
+
+        /* Section shells */
+        .section {
+            margin-top: 10px;
+            padding: 22px 24px;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            background: rgba(15, 23, 42, 0.9);
+            box-shadow: 0 18px 60px rgba(15, 23, 42, 0.9);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 16px;
+            margin-bottom: 18px;
+        }
+
+        .section-title {
+            font-size: 0.95rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--text-soft);
+        }
+
+        .section-sub {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        .pill-muted {
+            padding: 5px 10px;
+            border-radius: var(--radius-pill);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            font-size: 0.75rem;
+            color: var(--text-soft);
+        }
+
+        /* Sectors grid */
+        .sectors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .sector-card {
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), #020617);
+            padding: 16px 16px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sector-icon {
+            font-size: 1.2rem;
+        }
+
+        .sector-label {
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .sector-body {
+            font-size: 0.8rem;
+            color: var(--text-soft);
+        }
+
+        .sector-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 6px;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+        }
+
+        .sector-chip {
+            padding: 4px 8px;
+            border-radius: var(--radius-pill);
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            color: var(--accent-strong);
+            font-size: 0.72rem;
+        }
+
+        /* Footer */
+        .page-footer {
+            margin-top: 10px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(31, 41, 55, 0.9);
+            font-size: 0.75rem;
+            color: var(--text-soft);
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 880px) {
+            .hero-shell {
+                grid-template-columns: minmax(0, 1fr);
+            }
+            .hero-orbit {
+                order: -1;
+                height: 220px;
+            }
+            .top-nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-shell">
+        <!-- Top navigation -->
+        <header class="top-nav">
+            <div class="brand-block">
+                <!-- Replace src with your logo path in the repo -->
+                <img src="assets/gia-logo.png" alt="Global Infrastructure Advisory logo" class="brand-logo">
+                <div class="brand-text">GLOBAL INFRASTRUCTURE ADVISORY</div>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link nav-link--primary">Overview</a>
+                <a href="sectors.html" class="nav-link">Sectors</a>
+                <a href="#" class="nav-link">Public Tools</a>
+                <a href="#" class="nav-link">Docs</a>
+            </nav>
+        </header>
+
+        <!-- Hero -->
+        <section class="hero-shell">
+            <div class="hero-main">
+                <div class="hero-kicker">
+                    <span class="hero-kicker-dot"></span>
+                    GLOBAL INFRASTRUCTURE ADVISORY
+                </div>
+                <h1 class="hero-title">
+                    Building Beyond<br>
+                    <span>Borders &amp; Orbits</span>
+                </h1>
+                <p class="hero-body">
+                    GIA Deep Mind Infrastructure is a space‑grade, zero‑trust platform for mapping, monitoring, and
+                    orchestrating critical systems on Earth and in orbit—built for governments, operators, and
+                    future‑facing infrastructure partners.
+                </p>
+                <div class="hero-actions">
+                    <a href="#" class="btn-primary">View DSN Documentation</a>
+                    <a href="sectors.html" class="btn-secondary">
+                        Explore Sectors
+                    </a>
+                </div>
+                <div class="hero-meta">
+                    <div class="hero-meta-pill">
+                        <span class="hero-meta-dot"></span>
+                        Deep Mind Core: Active
+                    </div>
+                    <div class="hero-meta-pill">
+                        Zero‑Trust Surface: Cloudflare + Internal AI
+                    </div>
+                </div>
+            </div>
+
+            <aside class="hero-orbit" aria-label="Orbital network preview">
+                <div class="orbit-grid"></div>
+                <div class="orbit-core"></div>
+                <div class="orbit-ring"></div>
+                <div class="orbit-node"></div>
+                <div class="orbit-node"></div>
+                <div class="orbit-node"></div>
+                <div class="orbit-node"></div>
+                <div class="orbit-tag">
+                    Live DSN Mesh: <span>142 Nodes</span>
+                </div>
+            </aside>
+        </section>
+
+        <!-- High-level capabilities -->
+        <section class="section">
+            <div class="section-header">
+                <div>
+                    <div class="section-title">CAPABILITIES</div>
+                    <div class="section-sub">
+                        A unified Deep Mind layer across space, land, and work zones.
+                    </div>
+                </div>
+                <div class="pill-muted">
+                    Space‑grade · Zero‑Trust · Operator‑Ready
+                </div>
+            </div>
+
+            <div class="sectors-grid">
+                <article class="sector-card">
+                    <div class="sector-icon">🛰️</div>
+                    <div class="sector-label">Orbital &amp; Space Views</div>
+                    <p class="sector-body">
+                        Real‑time orbital awareness, satellite tasking context, and DSN‑aligned telemetry streams for
+                        space‑grade operations.
+                    </p>
+                    <div class="sector-meta">
+                        <span>Latency‑aware routing</span>
+                        <span class="sector-chip">Space‑grade</span>
+                    </div>
+                </article>
+
+                <article class="sector-card">
+                    <div class="sector-icon">🌐</div>
+                    <div class="sector-label">3D Global Mapping</div>
+                    <p class="sector-body">
+                        High‑resolution, 3D‑aware mapping surfaces for infrastructure, corridors, and critical
+                        development zones.
+                    </p>
+                    <div class="sector-meta">
+                        <span>Earth &amp; near‑orbit</span>
+                        <span class="sector-chip">Zero‑Trust</span>
+                    </div>
+                </article>
+
+                <article class="sector-card">
+                    <div class="sector-icon">🌾</div>
+                    <div class="sector-label">Agri‑Tech &amp; Land Systems</div>
+                    <p class="sector-body">
+                        Soil, crop, and land‑use intelligence for resilient agriculture and long‑horizon planning.
+                    </p>
+                    <div class="sector-meta">
+                        <span>Field‑level insights</span>
+                        <span class="sector-chip">Gov‑ready</span>
+                    </div>
+                </article>
+
+                <article class="sector-card">
+                    <div class="sector-icon">🚧</div>
+                    <div class="sector-label">Work Zones &amp; Safety</div>
+                    <p class="sector-body">
+                        Live work‑zone telemetry, anomaly detection, and safety‑first routing for crews and contractors.
+                    </p>
+                    <div class="sector-meta">
+                        <span>Operator dashboards</span>
+                        <span class="sector-chip">Deep Mind</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="page-footer">
+            <span>© 2026 Global Infrastructure Advisory — Deep Mind Infrastructure Network</span>
+            <span>Public Layer · Internal mission‑control is protected by dual Zero‑Trust.</span>
+        </footer>
+    </div>
+</body>
+</html>
+

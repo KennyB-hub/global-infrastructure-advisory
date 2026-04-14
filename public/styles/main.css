@@ -1,0 +1,91 @@
+/* ============================
+   2050 DEEP-MIND SECTOR CARD
+   ============================ */
+
+.sector-card {
+    position: relative;
+    background: rgba(10, 15, 25, 0.55); /* deep glass */
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(14px) saturate(160%);
+    border-radius: 1.1rem;
+    padding: 1.8rem;
+    transition:
+        transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 0.28s ease,
+        box-shadow 0.28s ease,
+        background 0.28s ease;
+    box-shadow:
+        0 0 0 rgba(16, 185, 129, 0); /* no glow by default */
+}
+
+/* HOVER — magnetic lift + neon edge + orbital glow */
+.sector-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(16, 185, 129, 0.55);
+    background: rgba(10, 15, 25, 0.75);
+
+    box-shadow:
+        0 0 22px rgba(16, 185, 129, 0.35),
+        0 0 48px rgba(16, 185, 129, 0.18),
+        inset 0 0 14px rgba(16, 185, 129, 0.12);
+}
+
+/* ORBITAL SHIMMER */
+.sector-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    background: radial-gradient(
+        circle at 30% 20%,
+        rgba(16, 185, 129, 0.18),
+        transparent 60%
+    );
+    transition: opacity 0.3s ease;
+}
+
+.sector-card:hover::after {
+    opacity: 0.7;
+}
+
+/* TEXT */
+.sector-card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: #e2e8f0;
+    margin-bottom: 0.6rem;
+}
+
+.sector-card p,
+.sector-card li {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+
+/* BULLETS */
+.sector-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sector-card li {
+    position: relative;
+    padding-left: 1.1rem;
+    margin-bottom: 0.4rem;
+}
+
+.sector-card li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #4ade80, #22c55e);
+}
