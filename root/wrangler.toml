@@ -14,12 +14,6 @@ binding = "AI"
 binding = "A_TEAM_STORAGE"
 id = "97426b03b961419ba8ca6df016a6039f"
 
-{
-  "name": "global-infrastructure-advisory",
-  "main": "src/worker.js",
-  "compatibility_date": "2026-04-15",
-  "assets": {
-    "directory": "./public"
-  }
-}
+[assets]
+directory = "./public"
 
