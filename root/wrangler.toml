@@ -13,7 +13,7 @@ compatibility_date = "2024-12-01"
 
 # Bindings for your AI engine
 [ai]
-binding = "AI"
+binding = "AI" 006eb7beeef45ea15cb6117216a39d6d
 
 # Environment variables for trust zones, auditing, etc.
 [vars]
