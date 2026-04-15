@@ -4,7 +4,7 @@ compatibility_date = "2024-04-01"
 
 [[d1_databases]]
 binding = "DB"
-database_name = "gia-platform"
+database_name = "global-infrastructure-advisory"
 database_id = "0e5832f8-ca6a-4796-8053-429f3bfdbbee"
 
 [ai]
@@ -13,3 +13,16 @@ binding = "AI"
 [[kv_namespaces]]
 binding = "A_TEAM_STORAGE"
 id = "97426b03b961419ba8ca6df016a6039f"
+
+name = "global-infrastructure-advisory"
+main = "src/index.js"
+compatibility_date = "2024-04-15"
+
+[assets]
+directory = "./public" # Or "./pages" depending on which holds your site files
+
+name = "global-infrastructure-advisory"
+main = "src/index.js"
+compatibility_date = "2024-04-15"
+
+
