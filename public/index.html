@@ -460,17 +460,86 @@
         <!-- Top navigation -->
         <header class="top-nav">
             <div class="brand-block">
-                <!-- Replace src with your logo path in the repo -->
-                <img src="assets/gia-logo.png" alt="Global Infrastructure Advisory logo" class="brand-logo">
-                <div class="brand-text">GLOBAL INFRASTRUCTURE ADVISORY</div>
+                <div class="hero-kicker-dot"></div>
+                <span class="brand-text">GIA Intelligence Engine</span>
             </div>
             <nav class="nav-links">
-                <a href="index.html" class="nav-link nav-link--primary">Overview</a>
-                <a href="sectors.html" class="nav-link">Sectors</a>
-                <a href="#" class="nav-link">Public Tools</a>
-                <a href="#" class="nav-link">Docs</a>
+                <a href="#" class="nav-link">Sectors</a>
+                <a href="#" class="nav-link">Infrastructure</a>
+                <a href="#" class="nav-link nav-link--primary">System Active</a>
             </nav>
         </header>
+
+        <!-- Main Dashboard Section -->
+        <main class="hero-shell">
+            <div class="hero-main">
+                <div class="hero-kicker">
+                    <div class="hero-kicker-dot"></div>
+                    Satellite Link: <span id="sat-status">INITIALIZING</span>
+                </div>
+                <h1 class="hero-title">Deep Mind <span>Infrastructure</span></h1>
+                <p class="hero-body">Integrated soil telemetry and GPS mapping for global agricultural sectors.</p>
+                
+                <!-- Telemetry Readout (Target for your Script) -->
+                <div id="soil-stats" class="hero-meta-pill" style="display:block; min-width: 200px; padding: 15px; margin-top: 20px;">
+                    <p style="color: var(--text-soft)">Waiting for satellite sweep...</p>
+                </div>
+
+                <div class="hero-actions">
+                    <button class="btn-primary" onclick="refreshTelemetry()">Manual Sweep</button>
+                    <button class="btn-secondary">Export Data</button>
+                </div>
+            </div>
+
+            <!-- Logs / Terminal Output -->
+            <div class="hero-orbit">
+                <div class="orbit-grid"></div>
+                <div id="agri-logs" style="font-family: monospace; font-size: 0.75rem; padding: 20px; width: 100%; height: 100%; overflow-y: auto;">
+                    <p class="text-dim">> System ready...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- The Satellite Sweep Script -->
+    <script>
+        async function refreshTelemetry() {
+            const log = document.getElementById('agri-logs');
+            const stats = document.getElementById('soil-stats');
+            const status = document.getElementById('sat-status');
+            
+            log.innerHTML += `<p style="color: #38bdf8">> Initiating GIA satellite sweep...</p>`;
+            
+            try {
+                const response = await fetch('/api/deep-mind', {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ query: "soil telemetry sweep" })
+                });
+
+                const data = await response.json();
+
+                stats.innerHTML = `
+                    <div style="display:flex; justify-content:space-between"><span>Moisture:</span><span style="color:#38bdf8">42%</span></div>
+                    <div style="display:flex; justify-content:space-between"><span>Nitrogen:</span><span style="color:#38bdf8">Optimal</span></div>
+                    <div style="display:flex; justify-content:space-between"><span>Soil Temp:</span><span style="color:#38bdf8">18.4°C</span></div>
+                `;
+                
+                log.innerHTML += `<p style="color: #22c55e">> Data integrated successfully.</p>`;
+                status.textContent = 'LINK ACTIVE';
+                status.style.color = '#22c55e';
+                
+            } catch (err) {
+                log.innerHTML += `<p style="color: #f97316">> ERROR: Satellite link severed.</p>`;
+            }
+
+            log.scrollTop = log.scrollHeight;
+        }
+
+        window.onload = refreshTelemetry;
+    </script>
+</body>
+</html>
 
         <!-- Hero -->
         <section class="hero-shell">
