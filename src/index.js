@@ -8,7 +8,7 @@
         try {
             // Connect to your Packard Worker (Deep Mind endpoint)
             const response = await fetch(
-                'https://packard-1831.global-infrastructure-advisorypagedev.workers.dev/api/deep-mind',
+                'https://global-infrastructure-advisory.global-infrastructure-advisorypagedev.workers.dev/api/deep-mind',
                 {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
