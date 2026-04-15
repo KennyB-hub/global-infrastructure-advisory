@@ -1,42 +1,35 @@
-<script>
-    async function refreshTelemetry() {
-        const log = document.getElementById('agri-logs');
-        const stats = document.getElementById('soil-stats');
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
+
+    // 1. CATCH THE SATELLITE SWEEP (Deep Mind Endpoint)
+    if (url.pathname === "/api/deep-mind" && request.method === "POST") {
+      try {
+        // Here is where your soil telemetry/GPS logic lives
+        const data = {
+          status: "success",
+          telemetry: "integrated",
+          timestamp: new Date().toISOString()
+        };
         
-        log.innerHTML += `<p class="text-white">> Initiating GIA satellite sweep...</p>`;
-        
-        try {
-            // Connect to your Packard Worker (Deep Mind endpoint)
-            const response = await fetch(
-                'https://global-infrastructure-advisory.global-infrastructure-advisorypagedev.workers.dev/api/deep-mind',
-                {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ query: "soil telemetry sweep" })
-                }
-            );
-
-            const data = await response.json();
-
-            // Simulated soil telemetry response
-            stats.innerHTML = `
-                <div class="d-flex justify-content-between"><span>Moisture:</span><span class="text-info">42%</span></div>
-                <div class="d-flex justify-content-between"><span>Nitrogen:</span><span class="text-info">Optimal</span></div>
-                <div class="d-flex justify-content-between"><span>Soil Temp:</span><span class="text-info">18.4°C</span></div>
-            `;
-            
-            log.innerHTML += `<p class="text-success">> Data integrated successfully.</p>`;
-            document.getElementById('sat-status').textContent = 'LINK ACTIVE';
-            
-        } catch (err) {
-            log.innerHTML += `<p class="text-danger">> ERROR: Satellite link severed.</p>`;
-        }
-
-        log.scrollTop = log.scrollHeight;
+        return new Response(JSON.stringify(data), {
+          headers: { "Content-Type": "application/json" }
+        });
+      } catch (err) {
+        return new Response("Internal Brain Error", { status: 500 });
+      }
     }
 
-    window.onload = refreshTelemetry;
-</script>
+    // 2. CATCH THE HEARTBEAT
+    if (url.pathname === "/api/heartbeat") {
+       return new Response("OK", { status: 200 });
+    }
+
+    // 3. SHOW THE PUBLIC SIDE (index.html)
+    // This serves the file where your <script> lives
+    return await env.ASSETS.fetch(request);
+  }
+};
 
 curl --request POST 'https://api.cloudflare.com/client/v4/accounts/006eb7beeef45ea15cb6117216a39d6d/access/policies' \
   --header 'Authorization: Bearer $API_TOKEN' \
