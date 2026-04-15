@@ -22,25 +22,30 @@ export default {
     }
 
         // 3. AI: Deep Mind Bridge
-    if (request.method === "POST" && url.pathname === "/api/deep-mind") {
-      try {
-        const { query } = await request.json();
-        const aiResponse = await env.AI.run("@cf/google/gemma-4-26b-it", {
-          prompt: `GIA System Intelligence Query: ${query}`,
-          max_tokens: 512
-        });
+   if (request.method === "POST" && url.pathname === "/api/deep-mind") {
+  try {
+    const { query } = await request.json();
+    
+    // Correct Model Name: @cf/google/gemma-4-26b-a4b-it
+    const aiResponse = await env.AI.run("@cf/google/gemma-4-26b-a4b-it", {
+      prompt: `GIA System Intelligence Query: ${query}`,
+      max_tokens: 512
+    });
 
-        return new Response(JSON.stringify({ result: aiResponse.response }), {
-          headers: { 
-            "content-type": "application/json", 
-            "Access-Control-Allow-Origin": "*" 
-          }
-        });
-      } catch (err) {
-        // FAIL-SAFE: If AI stalls, tell the UI to try again
-        return new Response(JSON.stringify({ result: "Deep Mind offline. Reconnecting..." }), { status: 500 });
+    return new Response(JSON.stringify({ result: aiResponse.response }), {
+      headers: { 
+        "content-type": "application/json", 
+        "Access-Control-Allow-Origin": "*" // Allows the UI to connect
       }
-    }
+    });
+  } catch (err) {
+    // If the AI stalls, send a clean error JSON so the UI knows what happened
+    return new Response(JSON.stringify({ result: "Satellite sweep failed: Deep Mind offline." }), { 
+      status: 500,
+      headers: { "Access-Control-Allow-Origin": "*" }
+    });
+  }
+}
 
     // FINAL FALLBACK: This serves your public/index.html
     return await env.ASSETS.fetch(request);
