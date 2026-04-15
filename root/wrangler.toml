@@ -25,4 +25,10 @@ name = "global-infrastructure-advisory"
 main = "src/index.js"
 compatibility_date = "2024-04-15"
 
+name = "global-infrastructure-advisory"
+main = "src/index.js"
+compatibility_date = "2024-04-15"
+
+[assets]
+directory = "./public"
 
