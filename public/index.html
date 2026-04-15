@@ -517,21 +517,28 @@
                     body: JSON.stringify({ query: "soil telemetry sweep" })
                 });
 
-                const data = await response.json();
+               try {
+    const response = await fetch('/api/deep-mind', {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: "soil telemetry sweep" })
+    });
 
-                stats.innerHTML = `
-                    <div style="display:flex; justify-content:space-between"><span>Moisture:</span><span style="color:#38bdf8">42%</span></div>
-                    <div style="display:flex; justify-content:space-between"><span>Nitrogen:</span><span style="color:#38bdf8">Optimal</span></div>
-                    <div style="display:flex; justify-content:space-between"><span>Soil Temp:</span><span style="color:#38bdf8">18.4°C</span></div>
-                `;
-                
-                log.innerHTML += `<p style="color: #22c55e">> Data integrated successfully.</p>`;
-                status.textContent = 'LINK ACTIVE';
-                status.style.color = '#22c55e';
-                
-            } catch (err) {
-                log.innerHTML += `<p style="color: #f97316">> ERROR: Satellite link severed.</p>`;
-            }
+    const data = await response.json();
+
+    if (!response.ok) {
+        // This catches your "Deep Mind offline" message from the Worker
+        log.innerHTML += `<p style="color: #f97316">> ALERT: ${data.result}</p>`;
+    } else {
+        // This runs when the Gemma-4 AI successfully responds
+        stats.innerHTML = `<div>Moisture: <span style="color:#38bdf8">42%</span></div>`;
+        log.innerHTML += `<p style="color: #22c55e">> Data integrated.</p>`;
+    }
+    
+} catch (err) {
+    // This only runs if the Worker is COMPLETELY missing or the URL is wrong
+    log.innerHTML += `<p style="color: #f97316">> ERROR: Physical link severed.</p>`;
+}
 
             log.scrollTop = log.scrollHeight;
         }
