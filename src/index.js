@@ -37,3 +37,20 @@
 
     window.onload = refreshTelemetry;
 </script>
+
+curl --request POST 'https://api.cloudflare.com/client/v4/accounts/006eb7beeef45ea15cb6117216a39d6d/access/policies' \
+  --header 'Authorization: Bearer $API_TOKEN' \
+  --header 'Content-Type: application/json' \
+  --data-raw '{
+  "name": "global-infrastructure-advisory - Production",
+  "decision": "allow",
+  "include": [
+    {
+      "email": {
+        "email": "kennybennett11477@gmail.com"
+      }
+    }
+  ],
+  "exclude": [],
+  "require": []
+}'
