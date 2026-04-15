@@ -7,8 +7,18 @@ binding = "DB"
 database_name = "global-infrastructure-advisory"
 database_id = "0e5832f8-ca6a-4796-8053-429f3bfdbbee"
 
+name = "gia-deep-mind-2100"
+main = "src/ai-worker/gia-deep-mind-2100.js"
+compatibility_date = "2024-12-01"
+
+# Bindings for your AI engine
 [ai]
 binding = "AI"
+
+# Environment variables for trust zones, auditing, etc.
+[vars]
+GIA_VERSION = "2100"
+DEFAULT_TRUST_ZONE = "public"
 
 [[kv_namespaces]]
 binding = "A_TEAM_STORAGE"
