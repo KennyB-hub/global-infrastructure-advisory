@@ -19,8 +19,10 @@ export const AI = {
         try {
             const result = await runAI(input);
             return result;
-        } catch (err) {
-            return {
+        } const response = await env.AI.run('@cf/meta/llama-3-8b-instruct', {
+    prompt: "Analyze global infrastructure for year 5678"
+});
+
                 error: "AI engine failure",
                 details: err.message,
                 trustZone: input.trustZone || "public"
