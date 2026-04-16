@@ -1,4 +1,4 @@
-// src/ai/engine.js
+global-infrastructure
 import { generateIdentityAnchor } from "../identity.ts";
 
 export const AI = {
