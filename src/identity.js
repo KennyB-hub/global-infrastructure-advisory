@@ -24,7 +24,8 @@ export async function generateIdentityAnchor(ein: string, secretSalt: string): P
  * Project: Global Infrastructure Advisory (GIA)
  */
 
-export const GIA_IDENTITY = {
+export const GIA_IDENTITY = { ... };
+
   name: "Global Infrastructure Advisory",
   manifesto: "Building Beyond Borders with Deep Mind AI",
   deployment_epoch: "2050",
