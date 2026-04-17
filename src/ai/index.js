@@ -105,3 +105,18 @@ export async function runAI(input) {
         }
     };
 }
+
+export default {
+  async fetch(request, env, ctx) {
+    if (request.method === "POST") {
+      const input = await request.json();
+      // Pass the 'env' so the engine can see your D1 (GLOBAL_DB)
+      const result = await runAI({ ...input, env }); 
+      return new Response(JSON.stringify(result), {
+        headers: { "Content-Type": "application/json" }
+      });
+    }
+    // Static assets (your public folder) are handled automatically by Cloudflare
+    return env.ASSETS.fetch(request);
+  }
+}
