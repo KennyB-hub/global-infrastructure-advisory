@@ -1,0 +1,24 @@
+<style>
+  :root { --glass: rgba(15, 23, 42, 0.7); --neon: #ffaa00; }
+  body { background: #020617; color: white; font-family: 'JetBrains Mono', monospace; }
+  .hud-container { display: grid; grid-template-columns: 1fr 3fr; gap: 20px; padding: 20px; }
+  .glass-card { 
+    background: var(--glass); backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; padding: 20px;
+  }
+  .status-line { border-left: 3px solid var(--neon); padding-left: 10px; margin-bottom: 10px; }
+</style>
+<div class="hud-container">
+  <div class="glass-card">
+    <h2 style="color: var(--neon)">GOV_STATUS</h2>
+    <div class="status-line">3D Mapping: ONLINE</div>
+    <div class="status-line">Telemetry: ACTIVE</div>
+  </div>
+  <div class="glass-card">
+    <h1>Strategic Infrastructure Dashboard</h1>
+    <p>Visualizing Global Infrastructure Assets (Epoch 2050)</p>
+    <div style="height: 300px; border: 1px dashed var(--neon); display: flex; align-items: center; justify-content: center;">
+       [SYSTEM_MAPPING_FEED_ACTIVE]
+    </div>
+  </div>
+</div>
