@@ -77,48 +77,8 @@ enabled = true
 persist = true
 head_sampling_rate = 1
 
-🔹 Basic Online Check 
-bashcurl -X GET "https://global-infrastructure-advisory.global-infrastructure-advisory.workers.dev" \
-  -H "Accept: application/json"
-🔹 Standard AI Query
-bash
-curl -X POST "https://global-infrastructure-advisory.global-infrastructure-advisory.workers.dev" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "query": "Run system diagnostics",
-    "trustZone": "public"
-  }'
-🔹 Internal Trust Zone
-bash
-curl -X POST "https://global-infrastructure-advisory.global-infrastructure-advisory.workers.dev" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "query": "List internal modules",
-    "trustZone": "internal"
-  }'
-🔹 Admin Trust Zone
-bash
-curl -X POST "https://global-infrastructure-advisory.global-infrastructure-advisory.workers.dev" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "query": "Show audit log tail",
-    "trustZone": "admin"
-  }'
-🔹 Invalid JSON (Failure Mode Test)
-bash
-curl -X POST "https://global-infrastructure-advisory.global-infrastructure-advisory.workers.dev" \
-  -H "Content-Type: application/json" \
-  -d 'INVALID_JSON'
-🔹 Missing Query Field
-bash
-curl -X POST "https://global-infrastructure-advisory.global-infrastructure-advisory.workers.dev" \
-  -H "Content-Type: application/json" \
-  -d '{}'
-🔹 Stress Test (Large Payload)
-bash
-curl -X POST "https://global-infrastructure-advisory.global-infrastructure-advisory.workers.dev" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "query": "'"$(printf 'A%.0s' {1..5000})"'",
-    "trustZone": "public"
-  }'
+name = "gia-deep-mind-2100"
+main = "src/ai/index.js"  # <--- Points to your AI core
+
+[assets]
+directory = "./public"   # <--- Points to your frontend/images
