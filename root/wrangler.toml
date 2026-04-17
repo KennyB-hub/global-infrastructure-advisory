@@ -62,20 +62,11 @@ database_id = "701e8250-541c-474a-b44f-d0abfe9ab7ef_ID_00000005-00000000-0000504
 [assets]
 directory = "main = "src/ai/index.js"
 
-[observability]
-enabled = false
-head_sampling_rate = 1
-
 [observability.logs]
 enabled = true
 head_sampling_rate = 1
 persist = true
 invocation_logs = true
-
-[observability.traces]
-enabled = true
-persist = true
-head_sampling_rate = 1
 
 name = "gia-deep-mind-2100"
 main = "src/ai/index.js"  # <--- Points to your AI core
