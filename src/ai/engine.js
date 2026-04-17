@@ -1,68 +1,47 @@
 /**
- * engine.js
- * ----------
- * Final assembly layer for Deep Mind AI.
- * This file exposes a single function: AI.run(input)
- * Everything else (policies, workflows, tools, filters, hooks)
- * is wired through the orchestrator.
+ * engine.js - The GIA-2100 Resonance Core (Merged & Unified)
  */
-
 import { runAI } from "./index.js";
+// This imports your hashing logic for the Lasso of Truth
+import { generateIdentityAnchor } from "../identity.js"; 
 
-export const AI = {
-    /**
-     * Main entrypoint for all AI operations.
-     * @param {Object} input - The request payload.
-     * @returns {Promise<Object>} - Safe, validated AI output.
-     */
-    async run(input = {}) {
-        try {
-            const result = await runAI(input);
-            return result;
-        } const response = await env.AI.run('@cf/meta/llama-3-8b-instruct', {
-    prompt: "Analyze global infrastructure for year 5678"
-});
-
-                error: "AI engine failure",
-                details: err.message,
-                trustZone: input.trustZone || "public"
-            };
-        }
-    }
-};
-
-// src/ai/engine.js
 export const AI = {
     async run(payload, env) {
         const { query, trustZone, identityHash } = payload;
 
-        // 1. Tesla-Style Resonance Check
-        // Instead of a massive LLM call, we check the Global Cache for existing patterns
-        const cachedInsight = await env.GLOBAL_CACHE.get(`resonance:${query}`);
-        if (cachedInsight) return { source: "cache", data: JSON.parse(cachedInsight) };
+        try {
+            // 1. Identity Verification (The Lasso of Truth)
+            if (trustZone === "admin") {
+                const masterAnchor = await generateIdentityAnchor(env.ADMIN_EIN, env.SECRET_SALT);
+                if (identityHash !== masterAnchor) {
+                    return { error: "Seven of Nine Protocol: Identity Match Failure" };
+                }
+            }
 
-        // 2. Trust Zone Enforcement (The "Lasso of Truth")
-        if (trustZone === "admin" && !identityHash) {
-            return { error: "Identity Anchor Required for Admin Access" };
+            // 2. Tesla-Style Resonance Check (Global Cache)
+            const cachedInsight = await env.GLOBAL_CACHE.get(`resonance:${query}`);
+            if (cachedInsight) return { source: "cache", data: JSON.parse(cachedInsight) };
+
+            // 3. Orchestrator Logic (Orchestrator handles Guardrails/Hooks)
+            const orchestratorResult = await runAI({ ...payload, env });
+            
+            // 4. Log to D1 Database (Herstory)
+            await env.GLOBAL_DB.prepare(
+                "INSERT INTO logs (query, trust_zone, insight, status) VALUES (?, ?, ?, ?)"
+            ).bind(query || "GIA_SYSTEM_PING", trustZone, JSON.stringify(orchestratorResult), "Success").run();
+
+            return {
+                status: "Success",
+                engine: "GIA-2100-Resonance",
+                output: orchestratorResult
+            };
+
+        } catch (err) {
+            return {
+                error: "AI engine failure",
+                details: err.message,
+                trustZone: trustZone || "public"
+            };
         }
-
-        // 3. The "Deep Mind" Logic (Connecting the Dots)
-        // Here is where we bridge the 1880s with the year 5678
-        const logicCore = {
-            timestamp: Date.now(),
-            perspective: "Universal Connectivity",
-            action: `Analyzing ${query} through the GIA lens...`
-        };
-
-        // For now, we log it to the D1 Database for "Herstory"
-        await env.GLOBAL_DB.prepare(
-            "INSERT INTO logs (query, zone, result) VALUES (?, ?, ?)"
-        ).bind(query, trustZone, JSON.stringify(logicCore)).run();
-
-        return {
-            status: "Success",
-            engine: "GIA-2100-Resonance",
-            insight: logicCore
-        };
     }
 };
