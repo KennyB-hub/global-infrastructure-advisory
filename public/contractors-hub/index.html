@@ -1,0 +1,21 @@
+<style>
+  :root { --glass: rgba(20, 20, 30, 0.8); --work-neon: #FFA500; }
+  body { background: #0a0a0c; color: #fff; font-family: 'JetBrains Mono', monospace; }
+  .zone-layout { display: flex; flex-direction: column; align-items: center; padding: 50px; }
+  .tactical-panel { 
+    width: 80%; background: var(--glass); backdrop-filter: blur(10px);
+    border: 1px solid var(--work-neon); border-left: 10px solid var(--work-neon);
+    padding: 30px; border-radius: 5px;
+  }
+</style>
+<div class="zone-layout">
+  <div class="tactical-panel">
+    <h1>WORK ZONE DELTA-9</h1>
+    <p>Autonomous Layout Status: <span style="color: var(--work-neon);">PRINTING [74%]</span></p>
+    <hr style="border-color: rgba(255, 165, 0, 0.3);">
+    <div style="display: flex; justify-content: space-between;">
+      <span>Excavator Fleet: ACTIVE</span>
+      <span>Safety Protocol: LEVEL 1</span>
+    </div>
+  </div>
+</div>
