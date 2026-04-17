@@ -1,0 +1,23 @@
+<style>
+  :root { --glass: rgba(10, 20, 15, 0.7); --agri-neon: #39FF14; }
+  body { background: #010a01; color: #f0f0f0; font-family: 'Inter', sans-serif; margin: 0; }
+  .agri-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 40px; }
+  .glass-card { 
+    background: var(--glass); backdrop-filter: blur(12px);
+    border: 1px solid rgba(57, 255, 20, 0.2); border-radius: 15px; padding: 25px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  }
+  .bio-stat { color: var(--agri-neon); font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; }
+</style>
+<div class="agri-grid">
+  <div class="glass-card">
+    <h2 style="color: var(--agri-neon);">Crop Telemetry</h2>
+    <p>Satellite NDVI Index: <span class="bio-stat">0.82 (OPTIMAL)</span></p>
+    <p>Soil Moisture: <span class="bio-stat">24%</span></p>
+  </div>
+  <div class="glass-card">
+    <h2>Agri-Tech AI</h2>
+    <p>Predictive Pest Analysis: <span style="color: #ffaa00;">NO THREATS</span></p>
+    <button style="background: var(--agri-neon); border: none; padding: 10px; width: 100%; border-radius: 5px; cursor: pointer;">DEPLOY DRONE SQUAD</button>
+  </div>
+</div>
