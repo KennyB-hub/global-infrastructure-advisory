@@ -1,0 +1,19 @@
+<style>
+  :root { --glass: rgba(255, 255, 255, 0.05); --glow: #00f2ff; }
+  body { background: radial-gradient(circle at top, #0f172a, #020617); color: #fff; font-family: 'Inter', sans-serif; text-align: center; }
+  .portal-frame { 
+    margin: 50px auto; max-width: 800px; padding: 40px;
+    background: var(--glass); backdrop-filter: blur(20px);
+    border-radius: 30px; border: 1px solid rgba(0, 242, 255, 0.2);
+    box-shadow: 0 0 40px rgba(0, 242, 255, 0.1);
+  }
+  .orb { width: 100px; height: 100px; background: var(--glow); filter: blur(50px); position: absolute; top: -50px; left: 50%; transform: translateX(-50%); }
+</style>
+<div class="portal-frame">
+  <div class="orb"></div>
+  <h1 style="text-shadow: 0 0 10px var(--glow)">GIA Public Portal</h1>
+  <p>Universal Access to Global Intelligence</p>
+  <button style="background: none; border: 1px solid var(--glow); color: var(--glow); padding: 15px 30px; border-radius: 50px; cursor: pointer;">
+    INITIALIZE TELEMETRY
+  </button>
+</div>
