@@ -5,6 +5,7 @@
  * Respects GIA Repository Governance & Lasso of Truth.
  */
 
+import { checkAILoad } from "./governor.js";
 import { GIA_IDENTITY } from '../identity.js';
 import { runDecisionEngine } from "./decision-engine.js";
 import tools from "./tools/index.js";
