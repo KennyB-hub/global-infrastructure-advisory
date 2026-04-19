@@ -7,3 +7,15 @@ export async function run(input) {
     // ...attach your real outputs here
   };
 }
+
+import * as GovMappingEngine from "./engines/gov-mapping.js";
+
+// inside classifyDomain:
+if (text.includes("federal") || text.includes("municipal") || text.includes("zoning")) {
+  return "gov_mapping_engine";
+}
+
+// inside switch(domain):
+case "gov_mapping_engine":
+  result = await GovMappingEngine.run(input);
+  break;
