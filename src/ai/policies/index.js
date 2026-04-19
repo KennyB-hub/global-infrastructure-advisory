@@ -101,4 +101,35 @@ const policies = {
     }
 };
 
+const publicPolicy = {
+  name: "Public Zone Policy",
+  validate(input) {
+    const errors = [];
+    if (input.containsPII) errors.push("PII not allowed in public zone.");
+    return { valid: errors.length === 0, errors };
+  }
+};
+
+const internalPolicy = {
+  name: "Internal Zone Policy",
+  validate() {
+    return { valid: true, errors: [] };
+  }
+};
+
+const governmentPolicy = {
+  name: "Government Zone Policy",
+  validate(input) {
+    const errors = [];
+    if (!input.classification) errors.push("Missing classification level.");
+    return { valid: errors.length === 0, errors };
+  }
+};
+
+export default {
+  public: publicPolicy,
+  internal: internalPolicy,
+  government: governmentPolicy
+};
+
 export default policies;
