@@ -16,6 +16,7 @@ import * as MathEngine from "./engines/math.js";
 import * as MappingEngine from "./engines/mapping.js";
 import * as DataEngine from "./engines/data.js";
 import * as LogicEngine from "./engines/logic.js";
+import * as AgDataEngine from "./engines/ag-data.js";
 
 /**
  * Domain classifier — Seven‑of‑Nine style logic node
@@ -27,6 +28,11 @@ export function classifyDomain(inputText = "") {
   if (text.includes("risk")) return "risk_workflow";
   if (text.includes("traffic")) return "traffic_flow";
   if (text.includes("agriculture")) return "agriculture_logic";
+  if (text.includes("farm")) return "agricultre-logic"; 
+  if text.includes("soil") return "ag_data_engine";
+  if text.includes("crop")) return "agricultre-logic";
+  if text.includes("yield")) return "ag_data_engine";
+  
 
   // New domains
   if (text.includes("calculate") || text.includes("math")) return "math_engine";
@@ -100,9 +106,13 @@ export async function runDecisionEngine(input) {
 
       case "logic_engine":
         result = await LogicEngine.run(input);
+        break; 
+
+      case "ag_data_engine":
+        result = await AgDataEngine.run(input);
         break;
 
-      default:
+       default:
         // Fallback to workflow system
         const workflow = workflows[domain] || workflows["default"];
         if (!workflow) {
