@@ -13,13 +13,15 @@ const rules = {
       "general_reasoning"
     ],
     allowedEngines: [
-      "math_engine",
-      "mapping_engine",
-      "data_engine",
-      "logic_engine",
-      "gov_mapping_engine",
-      "gov_data_engine"
-    ]
+  "math_engine",
+  "mapping_engine",
+  "data_engine",
+  "logic_engine",
+  "gov_mapping_engine",
+  "gov_data_engine",
+  "science_engine",
+  "ag_data_engine"  
+]
   },
   government: {
     allowedWorkflows: ["gov_infrastructure_workflow"],
