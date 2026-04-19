@@ -14,6 +14,7 @@
 import securityTools from "./security/index.js";
 import govTools from "./gov/index.js";
 import publicTools from "./public/index.js";
+import { agTools } from "./ag-tools.js";
 
 // Core tools (safe, read-only)
 import { safeAnalyze } from "./analyzer.js";
@@ -40,4 +41,7 @@ const tools = {
     }
 };
 
-export default tools;
+export default {
+  ...otherTools,
+  agTools
+};
