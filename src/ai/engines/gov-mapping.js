@@ -1,21 +1,38 @@
-// src/ai/engines/gov-mapping.js
+// Government Mapping Engine
+// Geospatial reasoning for government / infrastructure contexts.
+
 export async function run(input) {
-  // Use your existing government datasets, tables, GIS, etc.
+  const query = (input.query || "").toLowerCase();
+  const intent = detectMappingIntent(query);
+
   return {
     type: "gov_mapping_result",
-    message: "Government mapping engine executed.",
-    // ...attach your real outputs here
+    intent,
+    region: input.region || "unspecified",
+    layers: suggestLayers(intent),
+    message: "Government mapping engine scaffold. Plug in GIS / datasets here."
   };
 }
 
-import * as GovMappingEngine from "./engines/gov-mapping.js";
-
-// inside classifyDomain:
-if (text.includes("federal") || text.includes("municipal") || text.includes("zoning")) {
-  return "gov_mapping_engine";
+function detectMappingIntent(text) {
+  if (text.includes("zoning")) return "zoning_map";
+  if (text.includes("flood") || text.includes("fema")) return "flood_risk_map";
+  if (text.includes("traffic")) return "traffic_flow_map";
+  if (text.includes("utility") || text.includes("water") || text.includes("power")) return "utilities_map";
+  return "general_gov_mapping";
 }
 
-// inside switch(domain):
-case "gov_mapping_engine":
-  result = await GovMappingEngine.run(input);
-  break;
+function suggestLayers(intent) {
+  switch (intent) {
+    case "zoning_map":
+      return ["parcels", "zoning_districts", "land_use"];
+    case "flood_risk_map":
+      return ["fema_flood_zones", "elevation", "waterways"];
+    case "traffic_flow_map":
+      return ["road_network", "traffic_counts", "signals"];
+    case "utilities_map":
+      return ["water_lines", "power_lines", "sewer", "gas"];
+    default:
+      return ["base_map", "boundaries", "transportation"];
+  }
+}
