@@ -66,3 +66,29 @@ database_id = "56c33622-1dff-4458-bf42-c1aa544edc27_ID_0000000e-00000002-0000504
 binding = "GLOBAL_DB"
 database_name = "v12"
 database_id = "701e8250-541c-474a-b44f-d0abfe9ab7ef_ID_00000005-00000000-0000504f-2cfcae0220f6d3b39e3f4f10fcc35821
+
+name = "global-infrastructure-advisory"
+main = "src/index.js"
+compatibility_date = "2026-04-22"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+
+[vars]
+PROJECT_NAME = "GIA Suite 2050"
+
+[observability]
+enabled = false
+head_sampling_rate = 1
+
+[observability.logs]
+enabled = true
+head_sampling_rate = 1
+persist = true
+invocation_logs = true
+
+[observability.traces]
+enabled = true
+persist = true
+head_sampling_rate = 1
