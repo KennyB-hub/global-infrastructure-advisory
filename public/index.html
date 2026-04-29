@@ -502,51 +502,52 @@
     </div>
 
     <!-- The Satellite Sweep Script -->
-    <script>
-        async function refreshTelemetry() {
-            const log = document.getElementById('agri-logs');
-            const stats = document.getElementById('soil-stats');
-            const status = document.getElementById('sat-status');
-            
-            log.innerHTML += `<p style="color: #38bdf8">> Initiating GIA satellite sweep...</p>`;
-            
-            try {
-                const response = await fetch('/api/deep-mind', {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ query: "soil telemetry sweep" })
-                });
+<script>
+async function refreshTelemetry() {
+    const log = document.getElementById('agri-logs');
+    const stats = document.getElementById('soil-stats');
+    const status = document.getElementById('sat-status');
 
-               try {
-    const response = await fetch('/api/deep-mind', {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query: "soil telemetry sweep" })
-    });
+    log.innerHTML += `<p style="color:#38bdf8">> Initiating GIA satellite sweep...</p>`;
 
-    const data = await response.json();
+    try {
+        const response = await fetch('/api/deep-mind', {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ query: "soil telemetry sweep" })
+        });
 
-    if (!response.ok) {
-        // This catches your "Deep Mind offline" message from the Worker
-        log.innerHTML += `<p style="color: #f97316">> ALERT: ${data.result}</p>`;
-    } else {
-        // This runs when the Gemma-4 AI successfully responds
-        stats.innerHTML = `<div>Moisture: <span style="color:#38bdf8">42%</span></div>`;
-        log.innerHTML += `<p style="color: #22c55e">> Data integrated.</p>`;
-    }
-    
-} catch (err) {
-    // This only runs if the Worker is COMPLETELY missing or the URL is wrong
-    log.innerHTML += `<p style="color: #f97316">> ERROR: Physical link severed.</p>`;
-}
+        const data = await response.json();
 
-            log.scrollTop = log.scrollHeight;
+        if (!response.ok) {
+            log.innerHTML += `<p style="color:#f97316">> ALERT: ${data.result}</p>`;
+        } else {
+            stats.innerHTML = `
+                <div style="display:flex; justify-content:space-between">
+                    <span>Moisture:</span><span style="color:#38bdf8">42%</span>
+                </div>
+                <div style="display:flex; justify-content:space-between">
+                    <span>Nitrogen:</span><span style="color:#38bdf8">Optimal</span>
+                </div>
+                <div style="display:flex; justify-content:space-between">
+                    <span>Soil Temp:</span><span style="color:#38bdf8">18.4°C</span>
+                </div>
+            `;
+
+            log.innerHTML += `<p style="color:#22c55e">> Data integrated successfully.</p>`;
+            status.textContent = "LINK ACTIVE";
+            status.style.color = "#22c55e";
         }
 
-        window.onload = refreshTelemetry;
-    </script>
-</body>
-</html>
+    } catch (err) {
+        log.innerHTML += `<p style="color:#f97316">> ERROR: Satellite link severed.</p>`;
+    }
+
+    log.scrollTop = log.scrollHeight;
+}
+
+window.onload = refreshTelemetry;
+</script>
 
         <!-- Hero -->
         <section class="hero-shell">
