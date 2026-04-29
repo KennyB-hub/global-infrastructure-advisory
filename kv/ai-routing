@@ -4,5 +4,5 @@
   "GEO_ENGINE_ENABLED": true,
   "MATCHING_ENGINE_ENABLED": true,
   "GPS_API_KEY": "YOUR_GPS_KEY_HERE",
-  "GIA_MASTER_KEY": "kennybennett11477@gmail.com"
+  "GIA_MASTER_KEY": "MASTER_KEY"
 }
