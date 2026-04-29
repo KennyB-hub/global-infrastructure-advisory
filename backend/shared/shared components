@@ -1,0 +1,38 @@
+// frontend/src/hubs/FarmerHub/IdentityCard.js
+import React from 'react';
+
+export default function IdentityCard({ userEmail }) {
+  return (
+    <div style={{
+      background: 'white',
+      borderRadius: '12px',
+      padding: '15px',
+      display: 'flex',
+      alignItems: 'center',
+      boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+      borderLeft: '5px solid #2d5a27', // The GIA Green
+      maxWidth: '350px'
+    }}>
+      {/* 1. YOUR LOGO */}
+      <img 
+        src="/assets/gia-logo.png" 
+        alt="GIA Intelligence" 
+        style={{ width: '50px', marginRight: '15px' }} 
+      />
+
+      {/* 2. USER DETAILS */}
+      <div style={{ textAlign: 'left' }}>
+        <div style={{ fontSize: '0.8rem', fontWeight: 'bold', color: '#666', textTransform: 'uppercase' }}>
+          Verified Field Personnel
+        </div>
+        <div style={{ fontSize: '1rem', color: '#333', fontWeight: '600' }}>
+          {userEmail || "pilot-farmer@gia.com"}
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', marginTop: '4px' }}>
+          <span style={{ height: '8px', width: '8px', backgroundColor: '#4CAF50', borderRadius: '50%', marginRight: '5px' }}></span>
+          <span style={{ fontSize: '0.75rem', color: '#4CAF50' }}>Secure World A Access</span>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Global Infrastructure Advisory</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header>
+    <img src="/gia-logo.png" alt="GIA Logo" />
+    <h1>Global Infrastructure Advisory</h1>
+  </header>
+  <main>
+    <p>Engineering-grade global infrastructure marketplace and advisory platform.</p>
+    <a href="/admin/">Admin Portal</a>
+  </main>
+</body>
+</html>

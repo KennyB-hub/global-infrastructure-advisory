@@ -1,0 +1,156 @@
+<!-- Inside partner-hub.html -->
+<section class="container my-5 p-4 bg-dark rounded border border-info shadow-lg">
+    <h4 class="text-info fw-bold"><div class="pulse"></div> SECURE PARTNER INTERFACE</h4>
+    <div id="partner-chat" class="bg-black p-3 rounded mb-3 border border-secondary" style="height: 300px; overflow-y: auto; color: #00d4ff; font-family: 'Courier New', monospace;">
+        <p class="small italic text-muted">Authenticating via GIA Secure Edge...</p>
+    </div>
+    <div class="input-group">
+        <input type="text" id="partner-query" class="form-control bg-dark text-white border-secondary" placeholder="Enter secure coordinate or command...">
+        <button class="btn btn-info" onclick="executePartnerCommand()">Execute</button>
+    </div>
+</section>
+
+<script>
+    async function executePartnerCommand() {
+        const input = document.getElementById('partner-query');
+        const display = document.getElementById('partner-chat');
+        const query = input.value.trim();
+
+        if (query) {
+            // 1. Show the user's command immediately
+            commandLine.innerHTML = "<b>> COMMAND:</b> ";
+            commandLine.className = "text-white";
+            const queryText = document.createElement('span');
+            queryText.textContent = query; // <--- This safely escapes the meta-characters
+            commandLabel.textContent = '> COMMAND:';
+            commandLine.appendChild(commandLabel);
+            commandLine.appendChild(queryText);
+            display.appendChild(commandLine);
+            
+            try {
+                const response = await fetch('/api/deep-mind', {
+                    method: 'POST',
+                    body: JSON.stringify({ mission: query }),
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                
+                const data = await response.json();
+                
+                // 3. Display the AI's "Deep Mind" response
+                const aiLine = document.createElement('p');
+                aiLine.className = 'text-success';
+                const aiLabel = document.createElement('b');
+                aiLabel.textContent = '> GIA_INTELLIGENCE:';
+                aiLine.appendChild(aiLabel);
+                aiLine.appendChild(document.createTextNode(' ' + (data.result ?? '')));
+                display.appendChild(aiLine);
+            } catch (err) {
+                const errorLine = document.createElement('p');
+                errorLine.className = 'text-danger';
+                const errorLabel = document.createElement('b');
+                errorLabel.textContent = '> ERROR:';
+                errorLine.appendChild(errorLabel);
+                errorLine.appendChild(document.createTextNode(' Link to Global Hub severed.'));
+                display.appendChild(errorLine);
+            }
+
+            // 4. Reset for next command
+            display.scrollTop = display.scrollHeight;
+            input.value = "";
+        }
+    }
+</script>
+
+<section id="secure-tools" class="py-5 container">
+    <div class="row g-4">
+        <!-- Agri-Tech Section -->
+        <div class="col-md-4" id="agri-tech">
+            <div class="card p-4 text-center border-success bg-dark text-white">
+                <h3>🌾 Agri-Tech</h3>
+                <p class="text-secondary small">Live Soil Telemetry & Yield Mapping</p>
+                <!-- This fires your specific worker/map logic -->
+                <button class="btn btn-success" onclick="initiateAgriMap()">Launch Satellite View</button>
+            </div>
+        </div>
+
+        <!-- Blueprint Section -->
+        <div class="col-md-4" id="blueprints">
+            <div class="card p-4 text-center border-info bg-dark text-white">
+                <h3>🏗️ Blueprints</h3>
+                <p class="text-secondary small">AI Site Engineering & CAD Generation</p>
+                <button class="btn btn-info" onclick="generateSiteBlueprint()">Start AI Architect</button>
+            </div>
+        </div>
+
+        <!-- Compliance Section -->
+        <div class="col-md-4" id="compliance">
+            <div class="card p-4 text-center border-secondary bg-dark text-white">
+                <h3>📋 Compliance</h3>
+                <p class="text-secondary small">SAM.GOV & EIN Trade Verification</p>
+                <button class="btn btn-outline-light" onclick="location.href='docs/compliance-vault.pdf'">Open Vault</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+async function executePartnerCommand() {
+    const input = document.getElementById('partner-query');
+    const display = document.getElementById('partner-chat');
+    const query = input.value.trim();
+
+    if (query) {
+        // --- 1. SECURE INPUT (The Spark) ---
+        const commandLine = document.createElement('p');
+        commandLine.className = "text-white mb-1";
+        
+        const commandLabel = document.createElement('b');
+        commandLabel.textContent = '> COMMAND: ';
+        commandLabel.className = "text-info"; 
+
+        const queryText = document.createElement('span');
+        queryText.textContent = query; // CodeQL Safe
+
+        commandLine.appendChild(commandLabel);
+        commandLine.appendChild(queryText);
+        display.appendChild(commandLine);
+        
+        // Clear input and scroll
+        input.value = "";
+        display.scrollTop = display.scrollHeight;
+
+        // --- 2. CLOUDFLARE ENGINE (The Crank) ---
+        try {
+            // Show a "thinking" pulse
+            const pulse = document.createElement('p');
+            pulse.className = "text-muted small italic heartbeat";
+            pulse.textContent = "> GIA Deep Mind analyzing mission parameters...";
+            pulse.id = "temp-pulse";
+            display.appendChild(pulse);
+
+            const response = await fetch('/api/deep-mind', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ query: query })
+            });
+
+            if (!response.ok) throw new Error('Engine Stall');
+
+            const data = await response.json();
+            
+            // Remove the pulse and show the result
+            document.getElementById('temp-pulse').remove();
+            
+            const responseLine = document.createElement('p');
+            responseLine.className = "text-success small";
+            responseLine.innerHTML = `<b>> GIA_SYS:</b> ${data.result}`;
+            display.appendChild(responseLine);
+
+        } catch (err) {
+            // --- 3. ERROR HANDLING (The Check Engine Light) ---
+            if(document.getElementById('temp-pulse')) document.getElementById('temp-pulse').remove();
+            display.innerHTML += `<p class="text-danger small"><b>> ERROR:</b> Link to Global Hub severed. [${err.message}]</p>`;
+        }
+
+        display.scrollTop = display.scrollHeight;
+    }
+}

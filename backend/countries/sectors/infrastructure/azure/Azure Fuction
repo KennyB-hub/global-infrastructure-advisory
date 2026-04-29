@@ -1,0 +1,18 @@
+module.exports = async function (context, req) {
+    const taskData = req.body; // The AI Worker's output
+
+    if (taskData) {
+        // This "outDatabase" matches the binding name in function.json
+        context.bindings.outDatabase = JSON.stringify({
+            id: new Date().getTime().toString(),
+            type: taskData.type,
+            status: "Completed",
+            timestamp: new Date().toISOString(),
+            details: taskData.details
+        });
+
+        context.res = { status: 201, body: "Task logged to Cosmos DB." };
+    } else {
+        context.res = { status: 400, body: "No task data provided." };
+    }
+};
