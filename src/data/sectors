@@ -1,0 +1,20 @@
+{
+  "sectors": [
+    {
+      "id": "energy-power",
+      "title": "Energy & Power",
+      "description": "Supporting electrification, renewable energy, and grid modernization across emerging markets.",
+      "features": [
+        "Grid modernization",
+        "Renewable energy",
+        "Transmission & distribution",
+        "Electrification programs"
+      ],
+      "links": {
+        "programs": "/pages/programs.html",
+        "workforce": "/pages/workforce.html"
+      }
+    }
+  ]
+}
+
