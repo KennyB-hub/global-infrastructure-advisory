@@ -2,6 +2,12 @@
    2050 DEEP-MIND SECTOR CARD
    ============================ */
 
+   /* Legacy Bridge - ensures main content area is spaced correctly */
+main { 
+    padding: 2rem; 
+    display: block; 
+}
+
 .sector-card {
     position: relative;
     background: rgba(10, 15, 25, 0.55); /* deep glass */
@@ -88,4 +94,26 @@
     height: 6px;
     border-radius: 999px;
     background: linear-gradient(135deg, #4ade80, #22c55e);
+}
+
+.brand-logo {
+  height: 32px;
+  width: auto;
+  filter: drop-shadow(0 0 8px var(--accent-soft));
+  transition: filter 0.3s ease;
+}
+
+.brand-logo:hover {
+  filter: drop-shadow(0 0 12px var(--accent));
+}
+
+
+/* Add this for high-security alerts */
+.sector-card.status-locked {
+    border-color: rgba(239, 68, 68, 0.4); /* Red glow */
+}
+
+.sector-card.status-locked:hover {
+    box-shadow: 0 0 22px rgba(239, 68, 68, 0.35);
+    border-color: rgba(239, 68, 68, 0.7);
 }

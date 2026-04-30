@@ -96,3 +96,12 @@
         }
     ]
 }
+
+// --- 9. Enterprise Repo Cleanup ---
+{
+  "label": "Enterprise Cleanup",
+  "type": "shell",
+  "command": "npm run clean",
+  "problemMatcher": [],
+  "detail": "Moves 200+ files to their proper Enterprise/Gov homes."
+}
