@@ -1,21 +1,33 @@
-document.getElementById("header").innerHTML = `
-    <header class="bg-white shadow">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="/GIA-Website/index.html" class="text-xl font-bold">Global Infrastructure Advisory</a>
-            <nav class="space-x-6">
-                <a href="/GIA-Website/template-shop.html">Templates</a>
-                <a href="/GIA-Website/toolkits.html">Toolkits</a>
-                <a href="/GIA-Website/frameworks.html">Frameworks</a>
-                <a href="/GIA-Website/downloadables.html">Downloadables</a>
-            </nav>
-        </div>
-    </header>
-`;
+// 2050 Space-Grade Layout Loader
+document.addEventListener("DOMContentLoaded", () => {
+  const headerEl = document.getElementById("header");
+  const footerEl = document.getElementById("footer");
 
-document.getElementById("footer").innerHTML = `
-    <footer class="bg-slate-900 text-white py-6 mt-16">
-        <div class="container mx-auto px-4 text-center text-sm">
-            © 2026 Global Infrastructure Advisory — All Rights Reserved
+  if (headerEl) {
+    headerEl.innerHTML = `
+      <header class="top-nav">
+        <div class="brand-block">
+          <img src="/assets/branding/logos/gia-logo-dark.svg" alt="GIA" class="brand-logo">
+          <span class="brand-text">GIA Intelligence Engine</span>
         </div>
-    </footer>
-`;
+        <nav class="nav-links">
+          <a href="/index.html" class="nav-link">Home</a>
+          <a href="/pages/sectors.html" class="nav-link">Sectors</a>
+          <a href="/pages/templates-tools/additional-case.html" class="nav-link">Templates</a>
+          <a href="/admin/admin-mission-control.html" class="nav-link nav-link--primary">System Active</a>
+        </nav>
+      </header>
+    `;
+  }
+
+  if (footerEl) {
+    footerEl.innerHTML = `
+      <footer class="page-footer">
+        <div class="footer-content">
+          © 2026 Global Infrastructure Advisory — <span style="color: var(--accent-strong)">V12 Deep Mind Core</span>
+        </div>
+      </footer>
+    `;
+  }
+});
+

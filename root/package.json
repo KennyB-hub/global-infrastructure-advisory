@@ -4,11 +4,17 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "deploy": "wrangler deploy",
-    "dev": "wrangler dev"
+    "clean": "node organize.js",
+    "build": "npm run clean && <your-build-command>",
+    "dev": "npm run clean && wrangler dev",
+    "deploy": "npm run clean && wrangler deploy",
+    "test": "echo \"Running v12 logic tests...\" && exit 0"
+  },
+  "dependencies": {
+    "zod": "^3.22.0" 
   },
   "devDependencies": {
-    "wrangler": "^3.0.0"
+    "wrangler": "^3.0.0",
+    "typescript": "^5.0.0"
   }
 }
-

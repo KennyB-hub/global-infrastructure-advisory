@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>GIA | Deep Mind Infrastructure</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/Main.css">
+    <title>GIA | Deep Mind Infrastructure</title>
 
     <style>
         :root {
@@ -30,6 +31,55 @@
             margin: 0;
             padding: 0;
         }
+
+        <script type="module">
+    // Import your enterprise data layers
+    import config from './data/config.json' assert { type: 'json' };
+    import { mockSectors } from './data/mock_data.js';
+
+    const logContainer = document.getElementById('agri-logs');
+    const statsContainer = document.getElementById('soil-stats');
+    const satStatus = document.getElementById('sat-status');
+
+    // 1. Terminal Logger for the "Orbital" window
+    function addLog(message, type = 'dim') {
+        const p = document.createElement('p');
+        p.style.color = type === 'warn' ? 'var(--accent-warn)' : 'var(--text-dim)';
+        p.innerHTML = `> [${new Date().toLocaleTimeString()}] ${message}`;
+        logContainer.prepend(p); // Newest logs at the top
+    }
+
+    // 2. Telemetry Refresh Logic (Deep Mind v12)
+    window.refreshTelemetry = async () => {
+        satStatus.innerText = "SWEEPING...";
+        addLog("Initializing Satellite Sweep...", 'warn');
+        
+        // Simulate AI Engine Reasoning Delay
+        setTimeout(() => {
+            const randomSector = mockSectors[Math.floor(Math.random() * mockSectors.length)];
+            
+            // Update UI with "Deep Mind" reasoning
+            satStatus.innerText = "LINK ESTABLISHED";
+            statsContainer.innerHTML = `
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <div class="hero-kicker" style="font-size: 0.7rem">Active Sector: ${randomSector.name}</div>
+                    <div style="font-size: 1.2rem; color: var(--accent)">Moisture: ${Math.floor(Math.random() * 40 + 20)}%</div>
+                    <div style="font-size: 0.8rem; color: var(--text-soft)">Logic Engine: ${config.engine} v${config.version}</div>
+                </div>
+            `;
+            
+            addLog(`Telemetry received for ${randomSector.name}`);
+            addLog(`Trust Zone Verified: ${randomSector.status}`, 'dim');
+        }, 1200);
+    };
+
+    // 3. Initial Boot sequence
+    window.onload = () => {
+        addLog("GIA Core Booting...");
+        addLog(`System Mode: ${config.environment}`);
+        setTimeout(() => refreshTelemetry(), 500);
+    };
+</script>
 
         body {
             min-height: 100vh;
@@ -544,7 +594,7 @@
         }
 
         window.onload = refreshTelemetry;
-    </script>
+    <script type="module" src="../src/logic/sector.js"></script>
 </body>
 </html>
 
@@ -671,4 +721,3 @@
     </div>
 </body>
 </html>
-

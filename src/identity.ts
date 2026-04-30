@@ -3,7 +3,7 @@
  * Uses SHA-256 for a fixed-size, deterministic cryptographic thumbprint.
  */
 export async function generateIdentityAnchor(ein: string, secretSalt: string): Promise<string> {
-    // 1. Normalize the EIN (414721740)
+    // 1. Normalize the EIN ( )
     const cleanEIN = ein.replace(/-/g, "");
     
     // 2. Blend the EIN with your secret salt (Tesla-style resonance)
