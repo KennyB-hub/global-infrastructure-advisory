@@ -1,4 +1,0 @@
-export async function geoRoute(entity, env) {
-  // Uses GPS / geo keys (you will wire in)
-  return { ...entity, routed: true };
-}

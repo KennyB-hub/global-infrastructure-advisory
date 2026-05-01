@@ -1,0 +1,53 @@
+admin.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GIA Deep Mind – Admin Dashboard Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/Main.css">
+</head>
+<body>
+  <div class="page-shell" style="display:flex; align-items:center; justify-content:center; min-height:100vh;">
+    <div class="hero-main" style="max-width:420px; width:100%;">
+      <div class="hero-kicker">
+        <span class="hero-kicker-dot"></span>
+        ADMIN ACCESS · CLEARANCE REQUIRED
+      </div>
+      <h1 class="hero-title">
+        Admin Dashboard<br>
+        <span>Secure Entry</span>
+      </h1>
+      <p class="hero-body">
+        This console is aligned to employment, HR, payments, veterans, education, and multi‑sector operations.
+        Access is restricted and requires valid credentials and a one‑time encrypted key.
+      </p>
+
+      <form class="admin-login-form" method="post" action="/admin/login" style="margin-top:1.5rem;">
+        <label class="form-label">
+          Email
+          <input type="email" name="email" required class="form-input">
+        </label>
+
+        <label class="form-label">
+          Password
+          <input type="password" name="password" required class="form-input">
+        </label>
+
+        <label class="form-label">
+          One‑Time Key
+          <input type="text" name="otp" required class="form-input" placeholder="Enter one‑time access key">
+        </label>
+
+        <button type="submit" class="btn-primary" style="width:100%; margin-top:1rem;">
+          Enter Admin Console
+        </button>
+
+        <p class="text-dim" style="margin-top:0.75rem; font-size:0.75rem;">
+          One‑time keys are generated per session and must be validated server‑side. Do not reuse or share keys.
+        </p>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

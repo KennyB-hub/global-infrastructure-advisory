@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GIA Admin Mission Control</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/Main.css">
+</head>
+
+<body>
+  <!-- © 2026 Global Infrastructure Advisory | Admin Mission Control -->
+
+  <header class="top-nav">
+    <div class="brand-block">
+      <div class="hero-kicker-dot"></div>
+      <span class="brand-text">GIA Admin Console</span>
+    </div>
+  </header>
+
+  <main class="section">
+    <h1 class="section-title">ADMIN MISSION CONTROL</h1>
+    <p class="section-sub">System Pulse · Dispatches · AI Worker Activity</p>
+
+    <div class="dashboard-grid">
+
+      <div class="status-card">
+        <h3>SYSTEM PULSE</h3>
+        <div id="heartbeat-status">PRIMARY GSA: <span class="status-live">ONLINE</span></div>
+        <div id="ai-load">AI WORKFORCE LOAD: <span class="load-pct">0%</span></div>
+      </div>
+
+      <div class="map-container">
+        <h3>ACTIVE DISPATCHES (RANK 1)</h3>
+        <div id="emergency-map" style="height: 400px; background: #1a1a1a;"></div>
+      </div>
+
+      <div class="task-feed">
+        <h3>AI WORKER ACTIVITY</h3>
+        <ul id="live-logs"></ul>
+      </div>
+
+    </div>
+  </main>
+
+</body>
+</html>
