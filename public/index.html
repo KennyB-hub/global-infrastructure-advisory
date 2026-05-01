@@ -31,55 +31,65 @@
             margin: 0;
             padding: 0;
         }
+    </style>
+</head>
 
-        <script type="module">
-    // Import your enterprise data layers
-    import config from './data/config.json' assert { type: 'json' };
-    import { mockSectors } from './data/mock_data.js';
+<body>
 
-    const logContainer = document.getElementById('agri-logs');
-    const statsContainer = document.getElementById('soil-stats');
-    const satStatus = document.getElementById('sat-status');
+    <!-- Your HTML UI stays here -->
+    <div id="sat-status"></div>
+    <div id="soil-stats"></div>
+    <div id="agri-logs"></div>
 
-    // 1. Terminal Logger for the "Orbital" window
-    function addLog(message, type = 'dim') {
-        const p = document.createElement('p');
-        p.style.color = type === 'warn' ? 'var(--accent-warn)' : 'var(--text-dim)';
-        p.innerHTML = `> [${new Date().toLocaleTimeString()}] ${message}`;
-        logContainer.prepend(p); // Newest logs at the top
-    }
+    <!-- FIXED: JS MODULE GOES HERE, NOT INSIDE <style> -->
+    <script type="module">
+        import config from './data/config.json' assert { type: 'json' };
+        import { mockSectors } from './data/mock_data.js';
 
-    // 2. Telemetry Refresh Logic (Deep Mind v12)
-    window.refreshTelemetry = async () => {
-        satStatus.innerText = "SWEEPING...";
-        addLog("Initializing Satellite Sweep...", 'warn');
-        
-        // Simulate AI Engine Reasoning Delay
-        setTimeout(() => {
-            const randomSector = mockSectors[Math.floor(Math.random() * mockSectors.length)];
-            
-            // Update UI with "Deep Mind" reasoning
-            satStatus.innerText = "LINK ESTABLISHED";
-            statsContainer.innerHTML = `
-                <div style="display: flex; flex-direction: column; gap: 8px;">
-                    <div class="hero-kicker" style="font-size: 0.7rem">Active Sector: ${randomSector.name}</div>
-                    <div style="font-size: 1.2rem; color: var(--accent)">Moisture: ${Math.floor(Math.random() * 40 + 20)}%</div>
-                    <div style="font-size: 0.8rem; color: var(--text-soft)">Logic Engine: ${config.engine} v${config.version}</div>
-                </div>
-            `;
-            
-            addLog(`Telemetry received for ${randomSector.name}`);
-            addLog(`Trust Zone Verified: ${randomSector.status}`, 'dim');
-        }, 1200);
-    };
+        const logContainer = document.getElementById('agri-logs');
+        const statsContainer = document.getElementById('soil-stats');
+        const satStatus = document.getElementById('sat-status');
 
-    // 3. Initial Boot sequence
-    window.onload = () => {
-        addLog("GIA Core Booting...");
-        addLog(`System Mode: ${config.environment}`);
-        setTimeout(() => refreshTelemetry(), 500);
-    };
-</script>
+        // 1. Terminal Logger for the "Orbital" window
+        function addLog(message, type = 'dim') {
+            const p = document.createElement('p');
+            p.style.color = type === 'warn' ? 'var(--accent-warn)' : 'var(--text-dim)';
+            p.innerHTML = `> [${new Date().toLocaleTimeString()}] ${message}`;
+            logContainer.prepend(p);
+        }
+
+        // 2. Telemetry Refresh Logic (Deep Mind v12)
+        window.refreshTelemetry = async () => {
+            satStatus.innerText = "SWEEPING...";
+            addLog("Initializing Satellite Sweep...", 'warn');
+
+            setTimeout(() => {
+                const randomSector = mockSectors[Math.floor(Math.random() * mockSectors.length)];
+
+                satStatus.innerText = "LINK ESTABLISHED";
+                statsContainer.innerHTML = `
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <div class="hero-kicker" style="font-size: 0.7rem">Active Sector: ${randomSector.name}</div>
+                        <div style="font-size: 1.2rem; color: var(--accent)">Moisture: ${Math.floor(Math.random() * 40 + 20)}%</div>
+                        <div style="font-size: 0.8rem; color: var(--text-soft)">Logic Engine: ${config.engine} v${config.version}</div>
+                    </div>
+                `;
+
+                addLog(`Telemetry received for ${randomSector.name}`);
+                addLog(`Trust Zone Verified: ${randomSector.status}`);
+            }, 1200);
+        };
+
+        // 3. Initial Boot sequence
+        window.onload = () => {
+            addLog("GIA Core Booting...");
+            addLog(`System Mode: ${config.environment}`);
+            setTimeout(() => refreshTelemetry(), 500);
+        };
+    </script>
+
+</body>
+</html>
 
         body {
             min-height: 100vh;
@@ -506,6 +516,7 @@
     </style>
 </head>
 <body>
+
     <div class="page-shell">
         <!-- Top navigation -->
         <header class="top-nav">
@@ -551,50 +562,47 @@
         </main>
     </div>
 
-    <!-- The Satellite Sweep Script -->
-    <script>
-        async function refreshTelemetry() {
-            const log = document.getElementById('agri-logs');
-            const stats = document.getElementById('soil-stats');
-            const status = document.getElementById('sat-status');
-            
-            log.innerHTML += `<p style="color: #38bdf8">> Initiating GIA satellite sweep...</p>`;
-            
-            try {
-                const response = await fetch('/api/deep-mind', {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ query: "soil telemetry sweep" })
-                });
+   <!-- The Satellite Sweep Script -->
+<script>
+async function refreshTelemetry() {
+    const log = document.getElementById('agri-logs');
+    const stats = document.getElementById('soil-stats');
+    const status = document.getElementById('sat-status');
 
-               try {
-    const response = await fetch('/api/deep-mind', {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query: "soil telemetry sweep" })
-    });
+    log.innerHTML += `<p style="color: #38bdf8">> Initiating GIA satellite sweep...</p>`;
 
-    const data = await response.json();
+    try {
+        const response = await fetch('/api/deep-mind', {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ query: "soil telemetry sweep" })
+        });
 
-    if (!response.ok) {
-        // This catches your "Deep Mind offline" message from the Worker
-        log.innerHTML += `<p style="color: #f97316">> ALERT: ${data.result}</p>`;
-    } else {
-        // This runs when the Gemma-4 AI successfully responds
-        stats.innerHTML = `<div>Moisture: <span style="color:#38bdf8">42%</span></div>`;
-        log.innerHTML += `<p style="color: #22c55e">> Data integrated.</p>`;
-    }
-    
-} catch (err) {
-    // This only runs if the Worker is COMPLETELY missing or the URL is wrong
-    log.innerHTML += `<p style="color: #f97316">> ERROR: Physical link severed.</p>`;
-}
+        const data = await response.json();
 
-            log.scrollTop = log.scrollHeight;
+        if (!response.ok) {
+            log.innerHTML += `<p style="color: #f97316">> ALERT: ${data.result}</p>`;
+        } else {
+            stats.innerHTML = `
+                <div>Moisture: <span style="color:#38bdf8">42%</span></div>
+                <div>Nitrogen: <span style="color:#38bdf8">Optimal</span></div>
+                <div>Soil Temp: <span style="color:#38bdf8">18.4°C</span></div>
+            `;
+            log.innerHTML += `<p style="color: #22c55e">> Data integrated.</p>`;
         }
 
-        window.onload = refreshTelemetry;
-    <script type="module" src="../src/logic/sector.js"></script>
+    } catch (err) {
+        log.innerHTML += `<p style="color: #f97316">> ERROR: Physical link severed.</p>`;
+    }
+
+    log.scrollTop = log.scrollHeight;
+}
+
+window.onload = refreshTelemetry;
+</script>
+
+<script type="module" src="../src/logic/sector.js"></script>
+
 </body>
 </html>
 
@@ -720,4 +728,4 @@
         </footer>
     </div>
 </body>
-</html>
+</html> 
