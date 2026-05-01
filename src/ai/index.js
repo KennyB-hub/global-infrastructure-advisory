@@ -12,6 +12,7 @@
  *  - hooks
  */
 
+import { basicSecurityGuard } from "../backend/security/worker-guard.js";
 import { runDecisionEngine } from "./decision-engine.js";
 import tools from "./tools/index.js";
 import policies from "./policies/index.js";
