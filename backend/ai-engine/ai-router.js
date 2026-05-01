@@ -24,9 +24,14 @@ export async function processAIRequest(input, env) {
     case "decision":
       return runDecisionEngine(input, context)
 
-    default:
-      return {
-        status: "unknown_intent",
-        message: "The AI engine could not classify this request."
-      }
-  }
+    if (url.pathname === "/system/uptime" && request.method === "GET") {
+    return new Response(JSON.stringify({
+        uptimeMs: Date.now() - START_TIME,
+        coldStart: START_TIME,
+        timestamp: Date.now()
+    }), {
+        status: 200,
+        headers: { "Content-Type": "application/json" }
+    });
+}
+
