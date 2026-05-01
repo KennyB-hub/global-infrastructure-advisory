@@ -1,3 +1,4 @@
+let START_TIME = Date.now();
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);

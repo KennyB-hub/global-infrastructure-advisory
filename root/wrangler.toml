@@ -3,6 +3,10 @@
 ###############################
 name = "global-infrastructure-advisory"
 main = "src/index.ts"
+[env.debug]
+name = "gia-debug"
+main = "src/ai-worker/debug-worker.js"
+
 compatibility_date = "2024-12-01"
 
 ###############################
