@@ -53,3 +53,6 @@ id = "97426b03b961419ba8ca6df016a6039f_ID_97426b03b961419ba8ca6df016a6039f"
 binding = "GLOBAL_DB"
 database_name = "global-db"
 database_id = "c12374bc-f828-481a-aeaa-27822f7aaea3_ID_0000000e-00000002-0000504f-c94fdb368788110e99a01cd9f5728ba9
+
+[triggers]
+crons = ["*/5 * * * *"] # Runs every 5 minutes

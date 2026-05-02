@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GIA Deep Mind – Admin Dashboard Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css"> <!-- Reusing main styles for consistency -->
+    <link rel="stylesheet" href="./css/admin.css">
+</head>
+<body>
+    <div class="page-shell" style="display:flex; align-items:center; justify-content:center; min-height:100vh;">
+        <div class="hero-main" style="max-width:420px; width:100%;">
+            <div class="hero-kicker">
+                <span class="hero-kicker-dot"></span> ADMIN ACCESS · CLEARANCE REQUIRED
+            </div>
+            <h1 class="hero-title">Admin Dashboard<br><span>Secure Entry</span></h1>
+            
+            <p class="hero-body">
+                Restricted access for HR, Payments, and Veteran Operations. 
+                Multi-sector protocols active.
+            </p>
+
+            <div id="login-status" style="margin-top: 10px; font-size: 0.8rem; min-height: 1.2rem;"></div>
+
+            <form class="admin-login-form" id="adminLoginForm" style="margin-top:1.5rem;">
+                <div style="margin-bottom: 1rem;">
+                    <label class="section-sub">Email</label>
+                    <input type="email" id="email" required class="btn-secondary" style="width: 100%; text-align: left; cursor: text;">
+                </div>
+                
+                <div style="margin-bottom: 1rem;">
+                    <label class="section-sub">Password</label>
+                    <input type="password" id="password" required class="btn-secondary" style="width: 100%; text-align: left; cursor: text;">
+                </div>
+
+                <div style="margin-bottom: 1rem; display: flex; gap: 10px; align-items: flex-end;">
+                    <div style="flex-grow: 1;">
+                        <label class="section-sub">One‑Time Key</label>
+                        <input type="text" id="otp" required class="btn-secondary" style="width: 100%; text-align: left; cursor: text;" placeholder="Request Key First">
+                    </div>
+                    <button type="button" id="requestKeyBtn" class="pill-muted" style="height: 44px; cursor: pointer;">Request Key</button>
+                </div>
+
+                <button type="submit" class="btn-primary" style="width:100%; margin-top:1rem;">
+                    Verify Clearance & Enter
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="./js/admin-auth.js"></script>
+</body>
+</html>
