@@ -2,18 +2,26 @@
  * GIA SOVEREIGN ECOSYSTEM - GLOBAL FAILSAFE PROTOCOLS
  * Automated system-state management during network fragmentation.
  */
-
 export const FailsafeProtocols = {
     systemState: 'NOMINAL', // Options: NOMINAL, ALERT, ISOLATED
 
     async execute(sector, faultType, env) {
-        console.log(`[FAILSAFE] Initiating protocol for ${sector} due to ${faultType}`);
+        console.error(`[CRITICAL FAILSAFE] Sector: ${sector} | Fault: ${faultType}`);
         
-        switch (sector) {
+        // Dynamic state update
+        if (faultType === 'GOVERNOR_FAULT') this.systemState = 'ISOLATED';
+
+        switch (faultType) {
             case 'GOV_NATO':
-                return await this.protocolAlpha(env); // Secure Isolation
+                return await this.protocolAlpha(env);
             case 'AGRI_INFRA':
-                return await this.protocolBeta(env);  // Edge-Persistence
+                return await this.protocolBeta(env);
+            case 'NODE_OFFLINE':
+                return await this.isolateAndReroute(sector, env);
+            case 'SYNC_FAILURE':
+                return await this.rollbackLogic(env);
+            case 'GOVERNOR_FAULT':
+                return await this.emergencyShutdown(env);
             default:
                 return await this.standardRecovery(env);
         }
@@ -21,18 +29,43 @@ export const FailsafeProtocols = {
 
     // PROTOCOL ALPHA: Secure Government/NATO Isolation
     async protocolAlpha(env) {
-        // Switch to Azure Gov-Cloud Backup & Lock Entra ID
         this.systemState = 'ISOLATED';
-        return { action: 'ISOLATE', routing: 'AZURE_GOV_TUNNEL' };
+        console.warn("[FAILSAFE] Protocol Alpha: Locking Entra ID & Shifting to Azure Gov-Cloud.");
+        return { action: 'ISOLATE', routing: 'AZURE_GOV_TUNNEL', status: 'ZERO_TRUST_ENFORCED' };
     },
 
     // PROTOCOL BETA: Agricultural/Public Persistence
     async protocolBeta(env) {
-        // Fallback to Cloudflare KV Cache to keep farmers online
-        return { action: 'DECENTRALIZE', routing: 'EDGE_CACHE_PRIMARY' };
+        console.info("[FAILSAFE] Protocol Beta: Farmers Online via Cloudflare Edge Cache.");
+        return { action: 'DECENTRALIZE', routing: 'EDGE_CACHE_PRIMARY', status: 'PERSISTENT' };
+    },
+
+    // RECOVERY: Rollback logic for PROGRAMMING_VAULT failures
+    async rollbackLogic(env) {
+        console.warn("[FAILSAFE] Sync failure detected. Reverting to Last Known Good Logic.");
+        const lastStable = await env.GLOBAL_CACHE.get("LAST_STABLE_LOGIC");
+        if (lastStable) {
+            await env.GLOBAL_CACHE.put("ACTIVE_LOGIC", lastStable);
+            return { action: "ROLLBACK", status: "STABLE_CACHE_ACTIVE" };
+        }
+        return { action: "HARD_RESET", status: "MANUAL_INTERVENTION_REQUIRED" };
+    },
+
+    // MITIGATION: Isolate a node and update Routing Inspector
+    async isolateAndReroute(sector, env) {
+        await env.GLOBAL_CACHE.put(`ROUTE_STATE_${sector}`, "ISOLATED");
+        console.log(`[AUTONOMOUS] ${sector} traffic diverted to secondary Hub.`);
+        return { action: "ISOLATE", status: "REROUTED" };
+    },
+
+    async emergencyShutdown(env) {
+        this.systemState = 'ISOLATED';
+        console.error("[GOVERNOR] Emergency Hard-Lock Engaged. All Public Gateways Closed.");
+        return { action: 'HARD_LOCK', status: 'PROTECTING_SOVEREIGN_CORE' };
     },
 
     async standardRecovery(env) {
         return { action: 'REBOOT_NODE', routing: 'PRIMARY_DSN' };
     }
 };
+

@@ -1,67 +1,68 @@
 /**
  * GIA SOVEREIGN AUTOMATION
- * Scheduled task orchestrator for "Lights-Out" operation.
+ * Manages heartbeats, failsafes, and dual-KV synchronization.
  */
-import { manageRemoteNode } from '../infrastructure/ssh-manager.js';
 import { FailsafeProtocols } from './failsafe-protocols.js';
 
 export const AutomationTasks = {
     /**
-     * The Master Diagnostic Loop
-     * Triggered by the Cloudflare Cron (wrangler.toml)
+     * Main loop triggered every 5 minutes via Cron
      */
     async runDailyOps(env) {
-        console.log("[SYSTEM] Starting Autonomous Cycle...");
+        console.log("[SYSTEM] Starting Autonomous Diagnostic Cycle...");
 
-        const tasks = [
-            this.checkNodeHealth(env),
-            this.syncSectorData(env),
-            this.pruneSystemLogs(env)
-        ];
+        const results = await Promise.allSettled([
+            this.checkGlobalNodeHealth(env),
+            this.syncProgrammingVault(env),
+            this.monitorWorkerEfficiency(env)
+        ]);
 
-        return Promise.allSettled(tasks);
+        return results;
     },
 
     /**
-     * Heartbeat check for NATO/Gov and Agri Hubs
+     * Heartbeat: Pings NATO/Gov and Sector Nodes
      */
-    async checkNodeHealth(env) {
-        // Fetch your node list from your config/registry
-        const nodes = ['NATO-Primary', 'Agri-Hub-US-01']; 
-
+    async checkGlobalNodeHealth(env) {
+        // This pulls from your GLOBAL_CACHE (KV 1)
+        const nodes = await env.GLOBAL_CACHE.get("NODE_REGISTRY", { type: "json" }) || [];
+        
         for (const node of nodes) {
-            const start = Date.now();
             try {
-                // If a node is slow (> 1.5s), it's "having a bad day"
-                const status = await fetch(`https://${node}.gia.int/health`);
-                const latency = Date.now() - start;
-
-                if (!status.ok || latency > 1500) {
-                    console.warn(`[FAILSAFE] Node ${node} is lazy (${latency}ms). Resetting...`);
-                    await manageRemoteNode(node, "systemctl restart gia-worker", env);
-                }
+                const response = await fetch(node.endpoint, { method: 'HEAD', signal: AbortSignal.timeout(2000) });
+                if (!response.ok) throw new Error("Latency Breach");
             } catch (err) {
-                // Node is totally down - Trigger Failsafe
-                await FailsafeProtocols.execute(node, 'CONNECTION_LOST', env);
+                console.error(`[FAILSAFE] Node ${node.name} compromised. Triggering Protocol...`);
+                await FailsafeProtocols.execute(node.sector, 'NODE_OFFLINE', env);
             }
         }
     },
 
     /**
-     * Syncs telemetry between Azure Core and Cloudflare Edge
+     * Programming Sync: Moves logic from GitHub Vault to Global Cache
      */
-    async syncSectorData(env) {
-        // Pull latest workforce/infrastructure updates from Azure
-        // Push "scrubbed" public updates to Cloudflare KV for the Hologram
-        console.log("[SYSTEM] Synchronizing Global Sector Mesh...");
+    async syncProgrammingVault(env) {
+        console.log("[SYSTEM] Checking PROGRAMMING_VAULT for GitHub updates...");
+        
+        // Pull the "New" programming you added from GitHub
+        const newLogic = await env.PROGRAMMING_VAULT.get("LATEST_BUILD");
+        
+        if (newLogic) {
+            // Push to the Active GLOBAL_CACHE (KV 1) so the platform uses it
+            await env.GLOBAL_CACHE.put("ACTIVE_LOGIC", newLogic);
+            console.log("[SYSTEM] Active Logic updated from Programming Vault.");
+        }
     },
 
     /**
-     * Cleans up debug workers to prevent "memory bloat"
+     * Oversight: Identifies "Lazy" AI Workers
      */
-    async pruneSystemLogs(env) {
-        // Logic to keep the Intelligence-Debug logs clean
-        const oneDayAgo = Date.now() - (24 * 60 * 60 * 1000);
-        // await env.DB.prepare("DELETE FROM logs WHERE timestamp < ?").bind(oneDayAgo).run();
+    async monitorWorkerEfficiency(env) {
+        const stats = await env.GLOBAL_CACHE.get("WORKER_STATS", { type: "json" });
+        if (stats && stats.latency > 1500) {
+            console.warn("[GOVERNOR] AI Worker fatigue detected. Resetting logic-gates...");
+            // Logic to clear temp state and force a fresh "Logic Reset"
+            await env.GLOBAL_CACHE.delete("TEMP_COMPUTE_STATE");
+        }
     }
 };

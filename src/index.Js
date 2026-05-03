@@ -1,95 +1,101 @@
-import { handleDeepMind } from './ai-engine/logic-engine.js';
-import { FailsafeProtocols } from './system/failsafe-protocols.js';
-import { AutomationTasks } from './system/automation-tasks.js';
-
 /**
- * GIA v12 GOVERNOR 
- * Autonomous Sovereign Orchestrator
+ * GIA v12 GOVERNOR & ORCHESTRATOR
+ * Master Entrypoint for Sovereign Infrastructure
  */
-export default { 
-  1. THE HEARTBEAT (Autonomous System Check) { 
-    ctx.waitUntil(AutomationTasks.runDailyOps(env)); },
 
-  // 2. THE COMMAND INTERFACE (External Requests)
-  async fetch(request, env) {
-    // The Governor initializes the request context
-    const url = new URL(request.url);
+import { runDecisionEngine } from "./ai-engine/decision-engine.js";
+import tools from "./ai-engine/tools/index.js";
+import policies from "./ai-engine/policies/index.js";
+import workflows from "./ai-engine/workflow/index.js";
+import { filterAIOutput } from "./ai-engine/filters/code-filter.js";
+import { beforeExecution } from "./ai-engine/hooks/before-execution.js";
+import { afterExecution } from "./ai-engine/hooks/after-execution.js";
+import { validateAIOutput } from "./ai-engine/validation/schema-guard.js";
+import { AutomationTasks } from './system/automation-tasks.js';
+import { FailsafeProtocols } from './system/failsafe-protocols.js';
 
-    try {
-      // --- GOVERNOR ROUTING LAYER ---
-      
-      // AI Telemetry Route
-      if (url.pathname === "/api/deep-mind") {
-        return await handleDeepMind(request, env);
-      }
+export default {
+    // 1. THE HEARTBEAT (Autonomous Cron Trigger)
+    async scheduled(event, env, ctx) {
+        console.log("[GOVERNOR] Heartbeat Active: Initiating Diagnostics...");
+        ctx.waitUntil(AutomationTasks.runDailyOps(env));
+    },
 
-      // Admin / Clearance Route (Placeholder)
-      if (url.pathname.startsWith("/api/admin")) {
-        // return await handleAdmin(request, env);
-      }
+    // 2. THE COMMAND INTERFACE (Main Gateway)
+    async fetch(request, env) {
+        const url = new URL(request.url);
 
-      // Default Status: Confirms the Governor is watching the link
-      return new Response("GIA v12 Governor Online | Sovereign Link: STABLE", {
-        status: 200,
-        headers: { "Content-Type": "text/plain" }
-      });
+        try {
+            // --- ROUTING LAYER ---
 
-    } catch (err) {
-      // THE GOVERNOR'S FAILSAFE CATCH
-      console.error(`[GOVERNOR CRITICAL] ${err.message}`);
-      
-      // Auto-trigger Failsafe Protocol if the Governor hits a snag
-      await FailsafeProtocols.execute('GLOBAL', 'GOVERNOR_FAULT', env);
+            // AI / Deep Mind Telemetry Route
+            if (url.pathname === "/api/deep-mind") {
+                const input = await request.json();
+                const aiResponse = await runAI(input, env);
+                return new Response(JSON.stringify(aiResponse), {
+                    status: aiResponse.error ? 400 : 200,
+                    headers: { "Content-Type": "application/json" }
+                });
+            }
 
-      return new Response(JSON.stringify({ 
-        error: "Governor Failure", 
-        details: err.message,
-        status: "FAILSAFE_ACTIVE"
-      }), { 
-        status: 500, 
-        headers: { "Content-Type": "application/json" } 
-      });
+            // Default Governor Status Response
+            return new Response("GIA v12 Governor Online | Sovereign Link: STABLE", {
+                status: 200,
+                headers: { "Content-Type": "text/plain" }
+            });
+
+        } catch (err) {
+            console.error(`[GOVERNOR CRITICAL] ${err.message}`);
+            // Auto-trigger Failsafe Protocol Alpha
+            await FailsafeProtocols.execute('GLOBAL', 'GOVERNOR_FAULT', env);
+            
+            return new Response(JSON.stringify({ 
+                error: "Governor Failure", 
+                details: err.message, 
+                status: "FAILSAFE_ACTIVE" 
+            }), { 
+                status: 500, 
+                headers: { "Content-Type": "application/json" } 
+            });
+        }
     }
-  }
 };
 
-// --- AUTONOMOUS DIAGNOSTICS (The Background Heartbeat) ---
-async function runAutonomousDiagnostics(env) {
-    console.log("[GOVERNOR] Scanning NATO/GOV Hubs and Local DSN Nodes...");
-    try {
-        // This is where your AI "Pings" the world while you are away
-        // await checkGlobalConnectivity(env);
-    } catch (err) {
-        console.error("[GOVERNOR DIAGNOSTIC ERROR]", err);
-    }
+/**
+ * CORE ORCHESTRATION LOGIC
+ * Manages TrustZones and AI Lifecycle
+ */
+async function runAI(input, env) {
+    const trustZone = input.trustZone || "public";
+
+    // 1. Policy validation
+    const policy = policies[trustZone];
+    if (!policy) return { error: `Invalid TrustZone: ${trustZone}`, trustZone };
+
+    const policyCheck = policy.validate(input);
+    if (!policyCheck.valid) return { error: "Policy violation", details: policyCheck.errors };
+
+    // 2. Lifecycle: Before Execution
+    const startAudit = beforeExecution(input);
+
+    // 3. Execution: Decision Engine
+    const decisionResult = await runDecisionEngine({ ...input, trustZone, workflows, tools, env });
+    if (decisionResult.error) return { ...decisionResult, audit: { start: startAudit } };
+
+    const rawOutput = decisionResult.output;
+
+    // 4. Security: Filter & Schema Guard
+    if (!filterAIOutput(rawOutput).valid) return { error: "Output blocked by code filter" };
+    if (!validateAIOutput(rawOutput).valid) return { error: "Schema validation failed" };
+
+    // 5. Lifecycle: Complete Audit
+    const endAudit = afterExecution(input, rawOutput);
+
+    return {
+        success: true,
+        trustZone,
+        output: rawOutput,
+        audit: { start: startAudit, end: endAudit }
+    };
 }
 
-// --- DEEP MIND ROUTE HANDLER ---
-async function handleDeepMind(request, env) {
-    try {
-        const body = await request.json();
-
-        // Example: call your AI engine (Gemma, Deep Mind, etc.)
-        // Replace this with your real engine logic
-        const result = {
-            moisture: "42%",
-            nitrogen: "Optimal",
-            temperature: "18.4°C",
-            status: "Deep Mind Telemetry OK"
-        };
-
-        return new Response(JSON.stringify(result), {
-            status: 200,
-            headers: { "Content-Type": "application/json" }
-        });
-
-    } catch (err) {
-        return new Response(JSON.stringify({
-            result: "Deep Mind offline",
-            error: err.message
-        }), {
-            status: 503,
-            headers: { "Content-Type": "application/json" }
-        });
-    }
-}

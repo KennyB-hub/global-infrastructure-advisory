@@ -1,58 +1,42 @@
 ###############################
-# MAIN PLATFORM WORKER
+# MAIN PLATFORM WORKER (The Governor)
 ###############################
 name = "global-infrastructure-advisory"
-main = "src/index.ts"
+main = "src/index.js" # Changed .ts to .js to match your files
+compatibility_date = "2024-12-01"
+
+# The Heartbeat Trigger
+[triggers]
+crons = ["*/5 * * * *"]
+
+###############################
+# GLOBAL DATA STORAGE
+###############################
+[[d1_databases]]
+binding = "GLOBAL_DB"
+database_name = "global-db"
+database_id = "c12374bc-f828-481a-aeaa-27822f7aaea3" # Use your primary ID
+
+[[kv_namespaces]]
+binding = "GLOBAL_CACHE"
+id = "97426b03b961419ba8ca6df016a6039f"
+
+# Programming Vault (To be linked to GitHub later)
+[[kv_namespaces]]
+binding = "PROGRAMMING_VAULT"
+id = "YOUR_NEW_KV_ID_HERE" # Create a new namespace in the dashboard for this
+
+###############################
+# SERVICE BINDINGS (Internal Engines)
+###############################
+[[services]]
+binding = "DEEP_MIND_AI"
+service = "gia-deep-mind-2100"
+
+[[services]]
+binding = "EMERGENCY_ROUTER"
+service = "emergency-router"
+
 [env.debug]
 name = "gia-debug"
 main = "src/ai-worker/debug-worker.js"
-
-compatibility_date = "2024-12-01"
-
-###############################
-# AI ENGINE WORKER
-###############################
-[[services]]
-name = "gia-deep-mind-2100"
-main = "src/ai-worker/gia-deep-mind-2100.js"
-route = "yourdomain.com/ai/*"
-
-###############################
-# AUTH WORKER
-###############################
-[[d1_databases]]
-binding = "GLOBAL_DB"
-database_name = "global-db"
-database_id = "c12374bc-f828-481a-aeaa-27822f7aaea3_ID_0000000e-00000002-0000504f-c94fdb368788110e99a01cd9f5728ba9
-###############################
-# PROJECT SEARCH WORKER
-###############################
- D1 Database
-[[[d1_databases]]
-binding = "GLOBAL_DB"
-database_name = "global-db"
-database_id = "701e8250-541c-474a-b44f-d0abfe9ab7ef_ID_00000005-00000000-0000504f-2cfcae0220f6d3b39e3f4f10fcc35821
-###############################
-# EMERGENCY ROUTER WORKER
-###############################
-[[services]]
-name = "emergency-router"
-main = "workers/emergency-router.js"
-route = "yourdomain.com/emergency/*"
-
-###############################
-# FIELD ENGINE GPS WORKER
-###############################
-[[kv_namespaces]]
-binding = "GLOBAL_CACHE"
-id = "97426b03b961419ba8ca6df016a6039f_ID_97426b03b961419ba8ca6df016a6039f"
-###############################
-# INTAKE WORKER
-###############################
-[[d1_databases]]
-binding = "GLOBAL_DB"
-database_name = "global-db"
-database_id = "c12374bc-f828-481a-aeaa-27822f7aaea3_ID_0000000e-00000002-0000504f-c94fdb368788110e99a01cd9f5728ba9
-
-[triggers]
-crons = ["*/5 * * * *"] # Runs every 5 minutes
