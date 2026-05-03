@@ -1,4 +1,4 @@
-// /backend/security/middleware.js
+// /src/security/middleware.js
 import { validateToken } from "./validate-token.js";
 import { requireAdmin } from "./require-admin.js";
 

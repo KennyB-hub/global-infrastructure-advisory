@@ -1,4 +1,4 @@
-// backend/ai-engine/sandbox-bridge.js
+// /ai-engine/sandbox-bridge.js
 
 import { basicSecurityGuard } from "../backend/security/worker-guard.js";
 import { AI as SandboxAI } from "../../src/ai/ai-engine.js"

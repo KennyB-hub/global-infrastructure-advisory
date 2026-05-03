@@ -1,4 +1,4 @@
-// backend/storage-routing/contractor-vault/vault-config.js
+// /storage-routing/contractor-vault/vault-config.js
 
 export const vaultSettings = {
   storageType: "R2_BUCKET",

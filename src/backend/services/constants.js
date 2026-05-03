@@ -1,4 +1,4 @@
-// /backend/services/constants.js
+// /services/constants.js
 export const CONSTANTS = {
   VERSION: "1.0.0",
   DISPATCH: {

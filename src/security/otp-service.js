@@ -1,4 +1,4 @@
-// /backend/security/otp-service.js
+// /src/security/otp-service.js
 export class OTPService {
   constructor(env) {
     this.env = env;

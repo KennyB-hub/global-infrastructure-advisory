@@ -1,4 +1,4 @@
-// /backend/workers/protected-routes.js
+// /workers/protected-routes.js
 export async function protectedRoutes(request, env, ctx, user) {
   const url = new URL(request.url);
 

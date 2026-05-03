@@ -1,4 +1,4 @@
-// /backend/workers/admin-endpoints.js
+// /workers/admin-endpoints.js
 import { secure } from "../security/middleware.js";
 import { requireAdmin } from "../security/require-admin.js";
 import { TokenService } from "../security/token-service.js";

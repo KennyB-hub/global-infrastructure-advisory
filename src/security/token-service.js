@@ -1,4 +1,4 @@
-// /backend/security/token-service.js
+// /src/security/token-service.js
 import { SignJWT, jwtVerify } from "jose";
 
 export class TokenService {

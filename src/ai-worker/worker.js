@@ -1,10 +1,10 @@
 let START_TIME = Date.now();
 
-import { systemStatus } from "../../backend/system/system-endpoints.js";
-import { diagnostics } from "../../backend/system/diagnostics.js";
-import { uptime } from "../../backend/system/uptime.js";
-import { fullReport } from "../../backend/system/full-report.js";
-import { systemThreatReport } from "../../backend/system/threat-report.js";
+import { systemStatus } from "../../src/system/system-endpoints.js";
+import { diagnostics } from "../../src/system/diagnostics.js";
+import { uptime } from "../../src/system/uptime.js";
+import { fullReport } from "../../src/system/full-report.js";
+import { systemThreatReport } from "../../src/system/threat-report.js";
 
 export default {
   async fetch(request, env) {

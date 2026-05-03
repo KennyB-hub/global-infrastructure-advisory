@@ -1,4 +1,4 @@
-// /backend/ai/schema-guard.js
+// /ai/schema-guard.js
 export class SchemaGuard {
   validate(input) {
     if (!input || typeof input !== "object") {

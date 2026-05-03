@@ -1,4 +1,4 @@
-// /backend/security/session-service.js
+// /src/security/session-service.js
 export class SessionService {
   constructor(env) {
     this.env = env;

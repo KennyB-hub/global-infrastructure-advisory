@@ -1,4 +1,4 @@
-// /backend/security/validate-token.js
+// /src/security/validate-token.js
 import { TokenService } from "./token-service.js";
 
 export async function validateToken(request) {

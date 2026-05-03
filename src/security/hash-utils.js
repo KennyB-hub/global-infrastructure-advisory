@@ -1,4 +1,4 @@
-// /backend/security/hash-utils.js
+// /src/security/hash-utils.js
 export class HashUtils {
   async hash(password) {
     const encoder = new TextEncoder();

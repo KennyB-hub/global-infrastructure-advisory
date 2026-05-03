@@ -1,4 +1,4 @@
-// backend/ai-engine/error-handler.js
+// /ai-engine/error-handler.js
 
 export function handleError(err) {
   return {

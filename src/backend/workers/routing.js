@@ -1,4 +1,4 @@
-// /backend/workers/routing.js
+// /workers/routing.js
 import { secure } from "../security/middleware.js";
 import { protectedRoutes } from "./protected-routes.js";
 import { adminEndpoints } from "./admin-endpoints.js";

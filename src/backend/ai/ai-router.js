@@ -1,6 +1,6 @@
-// backend/ai-engine/ai-router.js
+// src/ai-engine/ai-router.js
 
-import { basicSecurityGuard } from "../backend/security/worker-guard.js";
+import { basicSecurityGuard } from "../src/security/worker-guard.js";
 import { matchIntent } from "./ai-matching.js"
 import { runGeoTask } from "./ai-geo.js"
 import { runUtilityTask } from "./ai-utilities.js"

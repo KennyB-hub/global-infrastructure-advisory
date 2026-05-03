@@ -1,4 +1,4 @@
-// /backend/services/request-parser.js
+// /services/request-parser.js
 export class RequestParser {
   static async json(request) {
     try {
