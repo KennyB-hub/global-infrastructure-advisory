@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GIA Admin Dashboard</title>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #020611, #000);
+    font-family: "Orbitron", sans-serif;
+    color: #9fd4ff;
+  }
+
+  header {
+    padding: 20px;
+    background: rgba(0, 20, 40, 0.8);
+    border-bottom: 1px solid #1e90ff55;
+    text-align: center;
+    font-size: 24px;
+    letter-spacing: 3px;
+    color: #7fc8ff;
+  }
+
+  .container {
+    padding: 40px;
+  }
+
+  .card {
+    background: rgba(10, 20, 40, 0.7);
+    border: 1px solid #1e90ff55;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #1e90ff33;
+  }
+
+  button {
+    padding: 12px 20px;
+    background: #1e90ff;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  button:hover {
+    background: #4ecbff;
+    box-shadow: 0 0 15px #4ecbff88;
+  }
+
+  #status {
+    margin-top: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+  }
+</style>
+
+</head>
+<body>
+
+<header>GIA ADMIN DASHBOARD</header>
+
+<div class="container">
+
+  <div class="card">
+    <h2>System Controls</h2>
+    <button id="checkHealth">Check System Health</button>
+  </div>
+
+  <div class="card">
+    <h2>AI Cortex</h2>
+    <button id="testCortex">Run Cortex Diagnostic</button>
+  </div>
+
+  <div id="status"></div>
+
+</div>
+
+<script src="/admin/dashboard.js"></script>
+</body>
+</html>
