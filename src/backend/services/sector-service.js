@@ -1,4 +1,4 @@
-// /backend/services/sector-service.js
+// /services/sector-service.js
 import { LogicEngine } from "../ai/engines/logic-engine.js";
 
 export class SectorService {

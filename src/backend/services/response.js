@@ -1,4 +1,4 @@
-// /backend/services/response.js
+// /services/response.js
 export class ResponseBuilder {
   static json(data, status = 200) {
     return new Response(JSON.stringify(data), {

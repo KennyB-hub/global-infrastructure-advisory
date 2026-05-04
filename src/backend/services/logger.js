@@ -1,4 +1,4 @@
-// /backend/services/logger.js
+// /services/logger.js
 export class Logger {
   static info(message, data = {}) {
     console.log(JSON.stringify({ level: "info", message, ...data }));

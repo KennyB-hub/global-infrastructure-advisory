@@ -1,4 +1,4 @@
-// backend/ai-engine/ai-core.js
+// /ai-engine/ai-core.js
 
 import { basicSecurityGuard } from "../backend/security/worker-guard.js";
 import { routeAIRequest } from "./ai-router.js"
