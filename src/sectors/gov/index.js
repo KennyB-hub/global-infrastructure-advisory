@@ -1,9 +1,7 @@
-import { generateRecommendations } from "./generateRecommendations.js";
-import { sectorAnalysis } from "./sectorAnalysis.js";
-import { formatAdvisory } from "./formatAdvisory.js";
-
-export default {
-    generateRecommendations,
-    sectorAnalysis,
-    formatAdvisory
-};
+/**
+ * GIA Government Sector Organ
+ * Handles civic infrastructure, public systems, and gov coordination.
+ */
+export function governmentStatus() {
+  return { sector: "government", status: "operational", timestamp: Date.now() };
+}

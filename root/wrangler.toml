@@ -2,15 +2,25 @@ name = "gia-global"
 main = "src/backend/workers/index.js"
 compatibility_date = "2024-05-01"
 
+# -----------------------------
+# GLOBAL ROUTING MAP
+# -----------------------------
 routes = [
+  # Public-facing hubs
   { pattern = "globalinfrastructureadvisory.com/public/*", zone_name = "globalinfrastructureadvisory.com" },
   { pattern = "globalinfrastructureadvisory.com/contractor/*", zone_name = "globalinfrastructureadvisory.com" },
   { pattern = "globalinfrastructureadvisory.com/farmer/*", zone_name = "globalinfrastructureadvisory.com" },
   { pattern = "globalinfrastructureadvisory.com/gov/*", zone_name = "globalinfrastructureadvisory.com" },
   { pattern = "globalinfrastructureadvisory.com/deepgov/*", zone_name = "globalinfrastructureadvisory.com" },
   { pattern = "globalinfrastructureadvisory.com/admin/*", zone_name = "globalinfrastructureadvisory.com" },
-  { pattern = "globalinfrastructureadvisory.com/system/*", zone_name = "globalinfrastructureadvisory.com" }
+  { pattern = "globalinfrastructureadvisory.com/system/*", zone_name = "globalinfrastructureadvisory.com" },
+
+  # -----------------------------
+  # NEW: Emergency Work Order API
+  # -----------------------------
+  { pattern = "globalinfrastructureadvisory.com/ewo/dispatch", zone_name = "globalinfrastructureadvisory.com" }
 ]
+
 
 ###############################
 # MAIN PLATFORM WORKER (The Governor)

@@ -1,0 +1,8 @@
+{
+  "sector": "public_safety",
+  "description": "Emergency services and public safety infrastructure",
+  "endpoints": {
+    "status": "/public_safety/status",
+    "dispatch": "/public_safety/dispatch"
+  }
+}

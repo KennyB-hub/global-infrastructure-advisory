@@ -1,0 +1,8 @@
+{
+  "sector": "telecom",
+  "description": "Telecommunications infrastructure and network systems",
+  "endpoints": {
+    "status": "/telecom/status",
+    "dispatch": "/telecom/dispatch"
+  }
+}

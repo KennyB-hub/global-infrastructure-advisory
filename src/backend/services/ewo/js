@@ -1,0 +1,38 @@
+{
+  "ewo_id": "GISA-EWO-2026-000001",
+  "priority_rank": 1,
+  "priority_label": "MISSION CRITICAL",
+  "asset_id": "TOWER-PA-00421",
+  "lat": 40.4406,
+  "lon": -79.9959,
+  "region": "US-PA-ALLEGHENY",
+  "sector": "telecom",
+  "infra_type": "5G_TOWER",
+  "cross_sector_impact": ["public_safety", "agriculture", "logistics"],
+  "incident_code": "TEL-TOWER-OUTAGE",
+  "incident_description": "Complete loss of service from tower affecting rural coverage.",
+  "severity": "HIGH",
+  "risk_class": "LIFELINE_INFRASTRUCTURE",
+  "required_action": "Dispatch tower crew, restore power/backhaul, verify coverage.",
+  "eta_stabilize": "4h",
+  "lead_entity": "CONTRACTOR-ALPHA-NETWORKS",
+  "assigned_units": ["CREW-12", "RF-ENG-03"],
+  "auth_token": "ABC123XYZ",
+  "command_channel": "NOC-TELECOM-CHANNEL-1",
+  "primary_objective": "Restore minimum viable service to affected region.",
+  "secondary_objectives": [
+    "Verify redundancy paths.",
+    "Log root cause for post-incident review."
+  ],
+  "constraints": [
+    "Severe weather in region.",
+    "Limited access to tower road."
+  ],
+  "dependencies": [
+    "Power utility confirmation.",
+    "Backhaul fiber status."
+  ],
+  "issued_by": "GIA-SYSTEM",
+  "routed_via": "GISA-GLOBAL-ROUTER",
+  "origin_system": "GIA-CORTEX"
+}
