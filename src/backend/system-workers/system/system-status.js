@@ -1,13 +1,9 @@
-export async function onRequest(context) {
-    const now = Date.now();
+import { systemStatusReport } from "src/backend/system/system-status.js";
 
-    const report = {
-        timestamp: new Date(now).toISOString(),
-        uptime: context.env?.UPTIME || "unknown",
-        environment: context.env?.ENVIRONMENT || "production",
-        healthy: true,
-        status: "ok"
-    };
+export async function onRequest(context) {
+    const manifest = context.env?.MANIFEST || {};
+
+    const report = systemStatusReport(manifest);
 
     return new Response(JSON.stringify({
         system: "status",
