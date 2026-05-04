@@ -1,0 +1,9 @@
+export { onRequest as status } from "./system-status.js";
+export { onRequest as diagnostics } from "./diagnostics.js";
+export { onRequest as infrastructure } from "./system-infrastructure.js";
+export { onRequest as routing } from "./system-routing.js";
+export { onRequest as storage } from "./system-storage.js";
+export { onRequest as health } from "./system-health.js";
+export { onRequest as fullReport } from "./full-report.js";
+export { onRequest as threat } from "./threat-report.js";
+export { onRequest as endpoints } from "./system-endpoints.js";
