@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-employee">
+<head>
+  <meta charset="UTF-8" />
+  <title>GIA — Payroll Hub</title>
+  <link rel="stylesheet" href="/assets/css/_root.css" />
+  <link rel="stylesheet" href="/assets/css/themes.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="top-nav">
+      <div id="payroll-progress" class="pill-muted hidden">Processing…</div>
+      <div class="brand-block">
+        <img src="/assets/logo.svg" class="brand-logo" alt="GIA" />
+        <div>
+          <div class="brand-text">Global Infrastructure Advisory</div>
+          <div class="brand-text">Payroll Hub</div>
+        </div>
+      </div>
+      <div id="payroll-modal" class="modal hidden">
+  <div class="modal-content">
+    <h2>Confirm Payroll Run</h2>
+    <p>This will execute payroll for all active employees. Continue?</p>
+    <div class="modal-actions">
+      <button class="btn-secondary" id="modal-cancel">Cancel</button>
+      <button class="btn-primary" id="modal-confirm">Run Payroll</button>
+    </div>
+  </div>
+</div>
+      <nav class="nav-links" id="pay-nav"></nav>
+    </header>
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Payroll Runs</div>
+          <div class="section-sub">Recent and pending</div>
+        </div>
+        <div class="pill-muted" id="pay-meta">Loading…</div>
+      </div>
+      <section class="section">
+  <div class="section-header">
+    <div>
+      <div class="section-title">Payroll History</div>
+      <div class="section-sub">Completed payroll runs</div>
+    </div>
+    <div class="pill-muted" id="pay-history-meta">Loading…</div>
+  </div>
+  <div class="sectors-grid" id="pay-history-grid"></div>
+   <div class="sector-meta">
+  <button class="btn-secondary" onclick="viewStub('${r.id}')">Pay Stub</button>
+</div>
+
+    <button class="btn-primary" id="btn-run-payroll">Run Payroll</button>
+
+      <div class="sectors-grid" id="pay-grid"></div>
+    </section>
+
+    <footer class="page-footer">
+      <span>GIA Payroll Hub · 2050 Interface</span>
+      <span id="pay-footer-status">AI link: connecting…</span>
+    </footer>
+  </div>
+
+  <script type="module" src="/hubs/payroll/dashboard.js"></script>
+</body>
+</html>

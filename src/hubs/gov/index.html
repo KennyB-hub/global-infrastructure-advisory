@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-gov">
+<head>
+  <meta charset="UTF-8" />
+  <title>GIA — Government Hub</title>
+  <link rel="stylesheet" href="/assets/css/_root.css" />
+  <link rel="stylesheet" href="/assets/css/themes.css" />
+</head>
+
+<body>
+  <div class="page-shell">
+
+    <!-- Top Navigation -->
+    <header class="top-nav">
+      <div class="brand-block">
+        <img src="/assets/logo.svg" class="brand-logo" alt="GIA" />
+        <div>
+          <div class="brand-text">Global Infrastructure Advisory</div>
+          <div class="brand-text">Government Hub</div>
+        </div>
+      </div>
+      <nav class="nav-links" id="gov-nav"></nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero-shell">
+      <div class="hero-main">
+        <div class="hero-kicker">
+          <span class="hero-kicker-dot"></span>
+          Strategic Oversight
+        </div>
+
+        <h1 class="hero-title">
+          AI‑driven <span>infrastructure oversight</span> for public governance.
+        </h1>
+
+        <p class="hero-body">
+          View high‑level sector status, global maps, and emergency work orders from a sovereign AI platform.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn-primary" id="btn-gov-sectors">Sectors</button>
+          <button class="btn-secondary" id="btn-gov-map">Global Map</button>
+        </div>
+      </div>
+
+      <div class="hero-orbit">
+        <canvas id="hologram-canvas"></canvas>
+        <div id="agri-logs">
+          <div id="gov-logs"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sectors -->
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Sectors</div>
+          <div class="section-sub">High‑level national infrastructure view</div>
+        </div>
+        <div class="pill-muted" id="gov-meta-sectors">No data</div>
+      </div>
+      <div class="sectors-grid" id="gov-sectors-grid"></div>
+    </section>
+
+    <!-- EWO Dispatch -->
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Emergency Work Orders</div>
+          <div class="section-sub">AI‑assisted emergency routing</div>
+        </div>
+      </div>
+
+      <div class="hero-actions">
+        <input id="gov-ewo-sector" placeholder="sector-id"
+          style="padding:8px 10px;border-radius:999px;border:1px solid var(--border);background:var(--bg-soft);color:var(--text-main);min-width:140px;" />
+
+        <input id="gov-ewo-desc" placeholder="description"
+          style="padding:8px 10px;border-radius:999px;border:1px solid var(--border);background:var(--bg-soft);color:var(--text-main);min-width:200px;" />
+
+        <button class="btn-primary" id="btn-gov-ewo">Dispatch EWO</button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+      <span>GIA Government Hub · 2050 Interface</span>
+      <span id="gov-footer-status">AI link: connecting…</span>
+    </footer>
+
+  </div>
+
+  <script type="module" src="/hubs/gov/dashboard.js"></script>
+</body>
+</html>
