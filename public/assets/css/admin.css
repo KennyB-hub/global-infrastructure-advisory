@@ -1,0 +1,70 @@
+/* GIA Admin 2050 - UI Layer */
+body {
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle at center, #020611, #000);
+    font-family: "Orbitron", "Inter", sans-serif;
+    color: #9fd4ff;
+}
+
+header {
+    padding: 20px;
+    background: rgba(0, 20, 40, 0.8);
+    border-bottom: 1px solid rgba(30, 144, 255, 0.3);
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 5px;
+    color: #7fc8ff;
+    text-transform: uppercase;
+}
+
+.container {
+    padding: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.card {
+    background: rgba(10, 20, 40, 0.5);
+    border: 1px solid rgba(30, 144, 255, 0.2);
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(30, 144, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+h2 {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    color: #38bdf8;
+}
+
+button {
+    padding: 12px 24px;
+    background: #1e90ff;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background: #4ecbff;
+    box-shadow: 0 0 20px rgba(78, 203, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+#status {
+    margin-top: 20px;
+    white-space: pre-wrap;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: #4ecbff;
+    line-height: 1.6;
+} 

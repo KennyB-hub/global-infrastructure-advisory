@@ -1,3 +1,23 @@
+// 1. Import your restored Audit Engine from the Enterprise Hub
+import { sovereignAudit } from './audit-engine.js'; 
+
+// 2. Update the persist function inside Decision Engine
+async function persistDecisionLog(input, output, zone, env) {
+    const auditToken = await sovereignAudit.generateEntry({
+        sector: input.sector,
+        decision: output,
+        trustZone: zone,
+        governorVersion: "v12-Enterprise"
+    }, env);
+
+    // Instead of a local file, push to your Secure Enterprise Log Endpoint
+    await env.GLOBAL_DB.prepare(
+        "INSERT INTO system_audit (id, zone, payload) VALUES (?, ?, ?)"
+    ).bind(auditToken.id, zone, auditToken.signedPayload).run();
+
+    return auditToken.id;
+}
+
     // --- 7. Return safe, validated output ---
     log("Decision engine completed successfully.");
 
@@ -41,24 +61,4 @@ async function persistDecisionLog(input, output, zone) {
         output: result,
         trustZone
     };
-}
-
-// 1. Import your restored Audit Engine from the Enterprise Hub
-import { sovereignAudit } from './audit-engine.js'; 
-
-// 2. Update the persist function inside Decision Engine
-async function persistDecisionLog(input, output, zone, env) {
-    const auditToken = await sovereignAudit.generateEntry({
-        sector: input.sector,
-        decision: output,
-        trustZone: zone,
-        governorVersion: "v12-Enterprise"
-    }, env);
-
-    // Instead of a local file, push to your Secure Enterprise Log Endpoint
-    await env.GLOBAL_DB.prepare(
-        "INSERT INTO system_audit (id, zone, payload) VALUES (?, ?, ?)"
-    ).bind(auditToken.id, zone, auditToken.signedPayload).run();
-
-    return auditToken.id;
 }
