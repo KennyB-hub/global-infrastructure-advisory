@@ -1,0 +1,10 @@
+roadmap.json 
+{
+    "version": "1.0",
+    "phases": [
+        "Backend Intelligence",
+        "AI Intelligence Layer",
+        "Worker Integration",
+        "Public Deployment"
+    ]
+}

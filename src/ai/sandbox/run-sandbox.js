@@ -6,6 +6,7 @@
  * no access to production secrets, and full error isolation.
  */
 
+import { basicSecurityGuard } from "../backend/security/worker-guard.js";
 import vm from "node:vm";
 import path from "node:path";
 import fs from "node:fs";

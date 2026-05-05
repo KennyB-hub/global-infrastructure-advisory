@@ -1,0 +1,8 @@
+{
+  "sector": "rail",
+  "description": "rail & infrastructure",
+  "endpoints": {
+    "status": "/rail/status",
+    "dispatch": "/rail/dispatch"
+  }
+}

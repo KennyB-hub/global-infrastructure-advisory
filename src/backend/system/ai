@@ -1,0 +1,14 @@
+// src/backend/workers/system/system-ai.js
+import { getAiRoutingMap } from "../../system/ai-routing.js";
+
+export async function onRequest() {
+    const report = getAiRoutingMap();
+
+    return new Response(JSON.stringify({
+        system: "ai-routing",
+        status: "ok",
+        report
+    }, null, 2), {
+        headers: { "Content-Type": "application/json" }
+    });
+}

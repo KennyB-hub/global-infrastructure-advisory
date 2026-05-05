@@ -1,0 +1,8 @@
+{
+  "sector": "disaster_response",
+  "description": "Disaster response & recovery infrastructure",
+  "endpoints": {
+    "status": "/disaster_response/status",
+    "dispatch": "/disaster_response/dispatch"
+  }
+}
