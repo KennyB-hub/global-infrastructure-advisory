@@ -1,5 +1,3 @@
-// Add to your existing SectorSync.sanitize(data) logic:
-
 sanitize(data) {
     const { 
         medication_batch_id, // Hide the specific batch ID from the public map

@@ -1,126 +1,147 @@
 /**
- * Cloudflare API Test Suite
- * -------------------------
- * Safe, read-only diagnostic checks for your Deep Mind AI.
- * This script NEVER writes or modifies Cloudflare resources.
+ * GIA Sovereign Cloudflare Diagnostic Suite – V12 Alpha
+ * -----------------------------------------------------
+ * Fully read‑only, trust‑zone aware, policy‑aware, integrity‑verified.
+ * NEVER writes, deletes, modifies, or purges Cloudflare resources.
  */
 
-import fetch from "node-fetch";
+import { applyPolicies } from "../ai-engine/policy-engine.js";
+import { buildContext } from "../ai-engine/context-builder.js";
+import { sanitizeOutput } from "../ai-engine/response-sanitizer.js";
+import { handleError } from "../ai-engine/error-handler.js";
+import { sha256 } from "../utils/context.js";
 
-const CF_API_TOKEN = process.env.CF_API_TOKEN;
-const ACCOUNT_ID = process.env.CF_ACCOUNT_ID; // optional but recommended
+const CF_API = "https://api.cloudflare.com/client/v4";
 
-if (!CF_API_TOKEN) {
-    console.error("[CF TEST] Missing CF_API_TOKEN in environment");
-    process.exit(1);
-}
+export async function runCloudflareDiagnostics(env, input = {}) {
+  try {
+    //
+    // 1. Build sovereign context
+    //
+    const context = await buildContext(input, env);
 
-const CF_HEADERS = {
-    "Authorization": `Bearer ${CF_API_TOKEN}`,
-    "Content-Type": "application/json"
-};
+    //
+    // 2. Enforce trust‑zone + policy rules
+    //
+    const policy = await applyPolicies(
+      { workflow: "cloudflare-diagnostics", trustZone: input.trustZone },
+      context
+    );
+    if (!policy.ok) return policy;
 
-// --- Utility: Cloudflare GET wrapper ---
-async function cfGet(url) {
-    try {
-        const res = await fetch(url, { headers: CF_HEADERS });
+    //
+    // 3. Ensure token exists
+    //
+    if (!env.CF_API_TOKEN) {
+      return handleError(
+        new Error("Missing CF_API_TOKEN in environment"),
+        env,
+        { cloudflare: true }
+      );
+    }
+
+    //
+    // 4. Cloudflare GET wrapper (read‑only)
+    //
+    async function cfGet(path) {
+      try {
+        const res = await fetch(`${CF_API}${path}`, {
+          headers: {
+            Authorization: `Bearer ${env.CF_API_TOKEN}`,
+            "Content-Type": "application/json"
+          }
+        });
+
         const data = await res.json();
 
         if (!res.ok) {
-            console.error(`[CF TEST] Error: ${data.errors?.[0]?.message}`);
-            return null;
+          return {
+            ok: false,
+            error: data.errors?.[0]?.message || "Unknown Cloudflare error",
+            path
+          };
         }
 
-        return data.result;
-    } catch (err) {
-        console.error("[CF TEST] Network error:", err);
-        return null;
-    }
-}
-
-// --- 1. List Zones ---
-async function testZones() {
-    console.log("\n[CF TEST] Fetching zones...");
-    const zones = await cfGet("https://api.cloudflare.com/client/v4/zones");
-
-    if (!zones) return;
-
-    zones.forEach(z => {
-        console.log(` - Zone: ${z.name} (ID: ${z.id})`);
-    });
-
-    return zones;
-}
-
-// --- 2. DNS Records for each zone ---
-async function testDNS(zoneId) {
-    console.log(`\n[CF TEST] DNS Records for Zone: ${zoneId}`);
-    const dns = await cfGet(`https://api.cloudflare.com/client/v4/zones/${zoneId}/dns_records`);
-
-    if (!dns) return;
-
-    dns.forEach(r => {
-        console.log(` - ${r.type} ${r.name} → ${r.content}`);
-    });
-}
-
-// --- 3. Workers Routes ---
-async function testWorkersRoutes(zoneId) {
-    console.log(`\n[CF TEST] Workers Routes for Zone: ${zoneId}`);
-    const routes = await cfGet(`https://api.cloudflare.com/client/v4/zones/${zoneId}/workers/routes`);
-
-    if (!routes) return;
-
-    routes.forEach(r => {
-        console.log(` - Pattern: ${r.pattern} | Script: ${r.script}`);
-    });
-}
-
-// --- 4. Pages Projects ---
-async function testPages() {
-    if (!ACCOUNT_ID) {
-        console.log("[CF TEST] Skipping Pages (missing CF_ACCOUNT_ID)");
-        return;
+        return { ok: true, result: data.result };
+      } catch (err) {
+        return {
+          ok: false,
+          error: err.message || "Network error",
+          path
+        };
+      }
     }
 
-    console.log("\n[CF TEST] Pages Projects...");
-    const pages = await cfGet(`https://api.cloudflare.com/client/v4/accounts/${ACCOUNT_ID}/pages/projects`);
+    //
+    // 5. Run diagnostics
+    //
+    const zones = await cfGet("/zones");
 
-    if (!pages) return;
+    const zoneReports = [];
 
-    pages.forEach(p => {
-        console.log(` - Project: ${p.name} | Source: ${p.source?.config?.repo_name}`);
-    });
-}
+    if (zones.ok) {
+      for (const zone of zones.result) {
+        const dns = await cfGet(`/zones/${zone.id}/dns_records`);
+        const routes = await cfGet(`/zones/${zone.id}/workers/routes`);
+        const security = await cfGet(`/zones/${zone.id}/settings/security_level`);
 
-// --- 5. Security Posture ---
-async function testSecurity(zoneId) {
-    console.log(`\n[CF TEST] Security Settings for Zone: ${zoneId}`);
-    const settings = await cfGet(`https://api.cloudflare.com/client/v4/zones/${zoneId}/settings/security_level`);
-
-    if (!settings) return;
-
-    console.log(` - Security Level: ${settings.value}`);
-}
-
-// --- Main Runner ---
-async function run() {
-    console.log("\n==============================");
-    console.log(" Cloudflare Diagnostic Tests ");
-    console.log("==============================\n");
-
-    const zones = await testZones();
-    if (!zones) return;
-
-    for (const zone of zones) {
-        await testDNS(zone.id);
-        await testWorkersRoutes(zone.id);
-        await testSecurity(zone.id);
+        zoneReports.push({
+          zone: zone.name,
+          zoneId: zone.id,
+          dns: dns.ok ? dns.result : dns.error,
+          routes: routes.ok ? routes.result : routes.error,
+          security: security.ok ? security.result : security.error
+        });
+      }
     }
 
-    await testPages();
+    //
+    // 6. Pages projects (optional)
+    //
+    let pages = null;
+    if (env.CF_ACCOUNT_ID) {
+      const pagesRes = await cfGet(`/accounts/${env.CF_ACCOUNT_ID}/pages/projects`);
+      pages = pagesRes.ok ? pagesRes.result : pagesRes.error;
+    }
 
-    console.log("\n[CF TEST] All tests complete.\n");
+    //
+    // 7. Build sovereign diagnostic report
+    //
+    const report = {
+      ok: true,
+      type: "cloudflare-diagnostics",
+      timestamp: new Date().toISOString(),
+
+      summary: {
+        zones: zones.ok ? zones.result.length : 0,
+        pagesProjects: pages ? pages.length : 0
+      },
+
+      zones: zoneReports,
+      pages,
+
+      context: {
+        trustZone: context.trustZone,
+        workflow: "cloudflare-diagnostics",
+        inputHash: context.inputHash,
+        contextHash: context.contextHash
+      }
+    };
+
+    //
+    // 8. Integrity hash
+    //
+    report.integrity = {
+      hash: await sha256(JSON.stringify(report)),
+      verified: true
+    };
+
+    //
+    // 9. Sanitize output
+    //
+    return sanitizeOutput(report, env, context);
+
+  } catch (err) {
+    return handleError(err, env, { fatal: true, cloudflare: true });
+  }
 }
-
-run();

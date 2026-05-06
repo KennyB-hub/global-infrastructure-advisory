@@ -1,33 +1,34 @@
 // src/ai/logic-engine.js
+// Core Logic Engine for Deep Mind Telemetry + AI Reasoning Layer
 
-export async function handleDeepMind(request, env) {
+export async function logicEngine(input, context) {
     try {
-        const body = await request.json();
-        
-        // This is where your Sovereign AI logic lives
-        // In the future, you can pull this data from your Azure Math Engine
+        // Example: Pull from Azure Math / Geo endpoints if needed
+        // const math = await fetch(context.endpoints.azure_math).then(r => r.json());
+
         const result = {
             moisture: "42%",
             nitrogen: "Optimal",
             temperature: "18.4°C",
             status: "Deep Mind Telemetry OK",
-            timestamp: Date.now()
+            timestamp: Date.now(),
+            node: context.node?.name || null,
+            platform: context.platformId,
+            trustZone: context.trustZone
         };
 
-        return new Response(JSON.stringify(result), {
-            status: 200,
-            headers: { 
-                "Content-Type": "application/json",
-                "GIA-Sovereign-ID": "Alpha-9" // Metadata for your Routing Inspector
-            }
-        });
+        return {
+            ok: true,
+            type: "logic-core",
+            result
+        };
+
     } catch (err) {
-        return new Response(JSON.stringify({ 
-            result: "Deep Mind offline", 
-            error: err.message 
-        }), { 
-            status: 503, 
-            headers: { "Content-Type": "application/json" } 
-        });
+        return {
+            ok: false,
+            type: "logic-core",
+            error: "Deep Mind offline",
+            details: err.message
+        };
     }
 }
