@@ -1,0 +1,142 @@
+{
+  "system": "GIA Sovereign System Map – V12 Alpha",
+  "version": "12.0-alpha",
+  "timestamp": "2026-05-05T00:00:00Z",
+
+  "platform": {
+    "id": "GIA-PLATFORM",
+    "version": "12.0-alpha",
+    "failsafe": "level-3",
+    "active_sectors": [
+      "public",
+      "contractor",
+      "farmer",
+      "employee",
+      "admin",
+      "gov",
+      "deepgov",
+      "system"
+    ],
+    "endpoints": {
+      "azure_math": "/api/azure/math",
+      "azure_geo": "/api/azure/geo",
+      "decision_engine": "/api/decision",
+      "cortex": "/api/cortex",
+      "deep_mind": "/api/deep-mind"
+    }
+  },
+
+  "trust_zones": {
+    "public": { "level": 1, "allowed": ["read"], "restricted": ["write", "admin"] },
+    "contractor": { "level": 2, "allowed": ["read", "limited-write"], "restricted": ["admin"] },
+    "farmer": { "level": 2, "allowed": ["read", "limited-write"], "restricted": ["admin"] },
+    "employee": { "level": 3, "allowed": ["read", "write"], "restricted": ["admin"] },
+    "admin": { "level": 4, "allowed": ["read", "write", "admin"], "restricted": [] },
+    "gov": { "level": 5, "allowed": ["read", "write", "secure"], "restricted": ["deepgov"] },
+    "deepgov": { "level": 6, "allowed": ["sovereign"], "restricted": [] },
+    "system": { "level": 7, "allowed": ["root"], "restricted": [] }
+  },
+
+  "nodes": [
+    {
+      "name": "GOV_NATO",
+      "sector": "gov",
+      "hostname": "gov-nato.gia",
+      "port": 443,
+      "tls": true
+    },
+    {
+      "name": "AGRI_INFRA",
+      "sector": "farmer",
+      "hostname": "agri-infra.gia",
+      "port": 443,
+      "tls": true
+    },
+    {
+      "name": "AI_LOGIC",
+      "sector": "system",
+      "hostname": "ai-logic.gia",
+      "port": 443,
+      "tls": true
+    },
+    {
+      "name": "DEEP-MIND-CORE",
+      "sector": "deepgov",
+      "hostname": "deep-mind-core.gia",
+      "port": 443,
+      "tls": true
+    }
+  ],
+
+  "clusters": [
+    {
+      "name": "DEEP-MIND-CORE",
+      "sector": "deepgov",
+      "status": "healthy",
+      "health_score": 98
+    },
+    {
+      "name": "AI_LOGIC",
+      "sector": "system",
+      "status": "healthy",
+      "health_score": 96
+    },
+    {
+      "name": "AGRI_INFRA",
+      "sector": "farmer",
+      "status": "healthy",
+      "health_score": 94
+    },
+    {
+      "name": "GOV_NATO",
+      "sector": "gov",
+      "status": "healthy",
+      "health_score": 97
+    }
+  ],
+
+  "organs": {
+    "system": [
+      "/system/status",
+      "/system/health",
+      "/system/full-report",
+      "/system/security",
+      "/system/routing",
+      "/system/storage",
+      "/system/infrastructure",
+      "/system/trust",
+      "/system/uptime",
+      "/system/map"
+    ],
+    "ai": [
+      "/api/decision",
+      "/api/cortex",
+      "/api/deep-mind",
+      "/api/ai"
+    ],
+    "public": ["/public/*"],
+    "contractor": ["/contractor/*"],
+    "farmer": ["/farmer/*"],
+    "employee": ["/employee/*"],
+    "admin": ["/admin/*"],
+    "gov": ["/gov/*"],
+    "deepgov": ["/deepgov/*"]
+  },
+
+  "ai_subsystem": {
+    "decision_engine": {
+      "endpoint": "/api/decision",
+      "status": "ready"
+    },
+    "cortex": {
+      "endpoint": "/api/cortex",
+      "status": "ready"
+    },
+    "deep_mind": {
+      "endpoint": "/api/deep-mind",
+      "status": "ready"
+    }
+  },
+
+  "notes": "This is the Sovereign System Map. All routing, trust, AI execution, and system operations must comply with this topology."
+}

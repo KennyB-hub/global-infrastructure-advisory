@@ -1,8 +1,12 @@
-export function normalizePath(path) {
-    if (!path) return "";
+// src/backend/infrastructure/utils/normalize-path.js
 
-    return path
-        .replace(/\\/g, "/")
-        .replace(/\/+/g, "/")
-        .trim();
+export function normalizePath(path) {
+  if (!path) return "/";
+  return (
+    "/" +
+    path
+      .trim()
+      .replace(/^\/+/, "")
+      .replace(/\/+/g, "/")
+  );
 }

@@ -64,6 +64,33 @@
       <div class="sectors-grid" id="gov-sectors-grid"></div>
     </section>
 
+        <!-- Sector Analysis -->
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Sector Analysis</div>
+          <div class="section-sub">AI‑driven sector intelligence for government oversight</div>
+        </div>
+      </div>
+
+      <div class="gov-analysis-grid">
+        <div class="analysis-inputs">
+          <input id="gov-sector-input" placeholder="Enter sector (power, water, telecom…)"
+            style="padding:8px 10px;border-radius:999px;border:1px solid var(--border);background:var(--bg-soft);color:var(--text-main);min-width:240px;" />
+
+          <textarea id="gov-sector-data" placeholder="Optional JSON data for deeper analysis"
+            style="padding:10px;border-radius:12px;border:1px solid var(--border);background:var(--bg-soft);color:var(--text-main);min-height:120px;min-width:280px;"></textarea>
+
+          <button class="btn-primary" id="btn-gov-sector-analysis">Run Analysis</button>
+        </div>
+
+        <div id="gov-sector-result" class="analysis-result hologram-surface"
+          style="padding:20px;border-radius:16px;border:1px solid var(--border);background:var(--bg-soft);color:var(--text-main);">
+          <div class="placeholder-text">Sector analysis results will appear here.</div>
+        </div>
+      </div>
+    </section>
+
     <!-- EWO Dispatch -->
     <section class="section">
       <div class="section-header">

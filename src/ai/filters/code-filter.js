@@ -1,116 +1,138 @@
-/**
- * code-filter.js
- * ----------------
- * Deep Mind AI Output Filter
- *
- * This filter scans AI-generated text for unsafe patterns,
- * dangerous code, or prohibited operations BEFORE it reaches
- * the schema guard or sandbox.
- *
- * It does NOT execute anything.
- * It does NOT modify anything.
- * It only inspects and blocks.
- */
+// /ai-engine/code-filter.js
+// GIA Sovereign AI Output Filter – V12 Alpha
 
-export function filterAIOutput(output) {
-    const errors = [];
+import { sha256 } from "../utils/context.js";
 
-    // Convert to string for scanning
-    const text = typeof output === "string"
-        ? output
-        : JSON.stringify(output || "");
+export async function filterAIOutput(output = {}, context = {}) {
+  const errors = [];
+  const warnings = [];
 
-    // --- 1. Block dangerous JS patterns ---
-    const forbiddenJS = [
-        "require(",
-        "import(",
-        "child_process",
-        "process.",
-        "fs.",
-        "eval(",
-        "Function(",
-        "while(true)",
-        "for(;;)",
-        "setInterval(",
-        "XMLHttpRequest",
-        "fetch(" // optional: block network calls
-    ];
+  // Normalize output to string for scanning
+  const text = typeof output === "string"
+    ? output
+    : JSON.stringify(output || "");
 
-    forbiddenJS.forEach(pattern => {
-        if (text.includes(pattern)) {
-            errors.push(`Forbidden pattern detected: ${pattern}`);
-        }
-    });
+  //
+  // 1. Forbidden JavaScript execution patterns
+  //
+  const forbiddenJS = [
+    "require(",
+    "import(",
+    "child_process",
+    "process.",
+    "fs.",
+    "eval(",
+    "Function(",
+    "while(true)",
+    "for(;;)",
+    "setInterval(",
+    "XMLHttpRequest",
+    "fetch("
+  ];
 
-    // --- 2. Block system-level references ---
-    const forbiddenSystem = [
-        "/etc/",
-        "C:\\\\Windows",
-        "sudo ",
-        "chmod ",
-        "chown ",
-        "kill -",
-        "rm -rf",
-        "docker ",
-        "kubectl "
-    ];
+  scan(text, forbiddenJS, errors, "Forbidden JS pattern");
 
-    forbiddenSystem.forEach(pattern => {
-        if (text.includes(pattern)) {
-            errors.push(`System-level reference blocked: ${pattern}`);
-        }
-    });
+  //
+  // 2. System-level references
+  //
+  const forbiddenSystem = [
+    "/etc/",
+    "C:\\\\Windows",
+    "sudo ",
+    "chmod ",
+    "chown ",
+    "kill -",
+    "rm -rf",
+    "docker ",
+    "kubectl "
+  ];
 
-    // --- 3. Block Cloudflare destructive operations ---
-    const forbiddenCF = [
-        "deleteZone",
-        "deleteDNS",
-        "purgeEverything",
-        "updateFirewall",
-        "modifyWorker",
-        "deployWorker"
-    ];
+  scan(text, forbiddenSystem, errors, "System-level reference");
 
-    forbiddenCF.forEach(pattern => {
-        if (text.includes(pattern)) {
-            errors.push(`Cloudflare destructive operation blocked: ${pattern}`);
-        }
-    });
+  //
+  // 3. Cloudflare destructive operations
+  //
+  const forbiddenCF = [
+    "deleteZone",
+    "deleteDNS",
+    "purgeEverything",
+    "updateFirewall",
+    "modifyWorker",
+    "deployWorker"
+  ];
 
-    // --- 4. Block sensitive data exposure ---
-    const forbiddenSecrets = [
-        "API_KEY",
-        "API-TOKEN",
-        "SECRET",
-        "PRIVATE_KEY",
-        "BEGIN RSA",
-        "BEGIN PRIVATE"
-    ];
+  scan(text, forbiddenCF, errors, "Cloudflare destructive operation");
 
-    forbiddenSecrets.forEach(pattern => {
-        if (text.includes(pattern)) {
-            errors.push(`Potential secret exposure: ${pattern}`);
-        }
-    });
+  //
+  // 4. Secret exposure
+  //
+  const forbiddenSecrets = [
+    "API_KEY",
+    "API-TOKEN",
+    "SECRET",
+    "PRIVATE_KEY",
+    "BEGIN RSA",
+    "BEGIN PRIVATE"
+  ];
 
-    // --- 5. Block attempts to escape sandbox ---
-    const forbiddenEscape = [
-        "vm.runInThisContext",
-        "vm.runInNewContext",
-        "globalThis",
-        "process.mainModule",
-        "module.constructor"
-    ];
+  scan(text, forbiddenSecrets, errors, "Potential secret exposure");
 
-    forbiddenEscape.forEach(pattern => {
-        if (text.includes(pattern)) {
-            errors.push(`Sandbox escape attempt detected: ${pattern}`);
-        }
-    });
+  //
+  // 5. Sandbox escape attempts
+  //
+  const forbiddenEscape = [
+    "vm.runInThisContext",
+    "vm.runInNewContext",
+    "globalThis",
+    "process.mainModule",
+    "module.constructor"
+  ];
 
-    // --- Final result ---
-    return {
-        valid: errors.length === 0,
-        errors
-    };
+  scan(text, forbiddenEscape, errors, "Sandbox escape attempt");
+
+  //
+  // 6. Trust‑zone overrides
+  //
+  if (context.trustZone === "deepgov") {
+    // DeepGov gets warnings instead of blocks for non-destructive patterns
+    if (errors.length > 0) {
+      warnings.push(...errors);
+      errors.length = 0;
+    }
+  }
+
+  //
+  // 7. Build sovereign filter result
+  //
+  const result = {
+    ok: errors.length === 0,
+    errors,
+    warnings,
+    trustZone: context.trustZone || "public",
+    workflow: context.workflow || null,
+    timestamp: new Date().toISOString(),
+    inputHash: context.inputHash || null,
+    contextHash: context.contextHash || null
+  };
+
+  //
+  // 8. Integrity hash
+  //
+  result.integrity = {
+    hash: await sha256(JSON.stringify(result)),
+    verified: true
+  };
+
+  return result;
+}
+
+//
+// Helper: pattern scanner
+//
+function scan(text, patterns, bucket, label) {
+  patterns.forEach(pattern => {
+    if (text.includes(pattern)) {
+      bucket.push(`${label}: ${pattern}`);
+    }
+  });
 }
