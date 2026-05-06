@@ -1,19 +1,20 @@
-// 2050 V12 Alpha — Contractor Listing Engine
+// 2050 V12 Alpha — Workforce Listing Engine
 // Global Infrastructure Platform — Workforce Data Layer
 
-import { buildSovereignMetadata } from "../system/metadata.js";
-import { computeIntegrityHash } from "../system/integrity.js";
-import { applyPolicy } from "../system/policy-engine.js";
-import { buildAIContext } from "../system/ai-context.js";
+import { requireRole } from "../../system/trust/api-trust.js";
+import { buildSovereignMetadata } from "../../system/metadata.js";
+import { computeIntegrityHash } from "../../system/integrity.js";
+import { applyPolicy } from "../../system/policy-engine.js";
+import { buildAIContext } from "../../system/ai-context.js";
 
-export async function listContractors(request, env) {
-  const path = "/data/contractors/list";
+export async function listWorkforce(request, env) {
+  const path = "/api/workforce/list";
 
   // ---------------------------------------------------------
   // 1. Sovereign Metadata
   // ---------------------------------------------------------
   const sovereign = buildSovereignMetadata({
-    api: "contractor-list",
+    api: "workforce-list",
     version: "2050.V12A",
     node: env?.NODE_ID,
     cluster: env?.CLUSTER_ID,
@@ -22,12 +23,18 @@ export async function listContractors(request, env) {
   });
 
   // ---------------------------------------------------------
-  // 2. Policy Engine Enforcement
+  // 2. Trust‑Zone Enforcement (admin-level)
+  // ---------------------------------------------------------
+  const trust = requireRole("admin", request, env);
+  if (!trust.allowed) return trust.response;
+
+  // ---------------------------------------------------------
+  // 3. Policy Engine Enforcement
   // ---------------------------------------------------------
   const policy = applyPolicy({
     request,
     path,
-    zone: "admin" // contractor data is privileged
+    zone: "admin"
   });
 
   if (!policy.allowed) {
@@ -35,38 +42,38 @@ export async function listContractors(request, env) {
   }
 
   // ---------------------------------------------------------
-  // 3. AI Context
+  // 4. AI Context
   // ---------------------------------------------------------
   const ai = buildAIContext({
     request,
     path,
-    workflow: "contractor-list",
+    workflow: "workforce-list",
     trustZone: "admin"
   });
 
   // ---------------------------------------------------------
-  // 4. Execute DB Query Safely
+  // 5. Execute DB Query Safely
   // ---------------------------------------------------------
-  let results = [];
+  let workforce = [];
   try {
     const stmt = await env.DB.prepare("SELECT * FROM contractors");
     const data = await stmt.all();
-    results = data.results || [];
+    workforce = data.results || [];
   } catch (err) {
     return sovereignError("DB_ERROR", err.message, sovereign);
   }
 
   // ---------------------------------------------------------
-  // 5. Payload
+  // 6. Payload
   // ---------------------------------------------------------
   const payload = {
-    count: results.length,
-    contractors: results,
+    count: workforce.length,
+    workforce,
     timestamp: Date.now()
   };
 
   // ---------------------------------------------------------
-  // 6. Sovereign Success Response
+  // 7. Sovereign Success Response
   // ---------------------------------------------------------
   return new Response(
     JSON.stringify({
@@ -86,7 +93,7 @@ export async function listContractors(request, env) {
 // ---------------------------------------------------------
 // V12 Alpha — Unified Error Model
 // ---------------------------------------------------------
-function sovereignError(code, message, sovereign) {
+function sovereignError(code, message, sovereign, status = 400) {
   const body = {
     ok: false,
     error: { code, message },
@@ -95,7 +102,7 @@ function sovereignError(code, message, sovereign) {
   };
 
   return new Response(JSON.stringify(body), {
-    status: 400,
+    status,
     headers: { "Content-Type": "application/json" }
   });
 }

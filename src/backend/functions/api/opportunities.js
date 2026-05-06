@@ -1,69 +1,96 @@
 // /functions/api/opportunities.js
+// 2050 V12 Alpha — Opportunities Listing
+
+import { buildSovereignMetadata } from "../../system/metadata.js";
+import { computeIntegrityHash } from "../../system/integrity.js";
+import { applyPolicy } from "../../system/policy-engine.js";
+import { buildAIContext } from "../../system/ai-context.js";
+import { requireRole } from "../../system/trust/api-trust.js";
+
 export async function onRequestGet(context) {
-    // This is where your REAL data lives
-    const opportunities = [
-        { 
-            id: 1, 
-            title: "Grid Modernization Project", 
-            program: "Energy Transition", 
-            region: "Sub-Saharan Africa", 
-            sector: "Energy",
-            type: "Infrastructure",
-            deadline: "2024-12-31",
-            description: "Implementing smart grid tech for regional stability."
-        },
-        { 
-            id: 2, 
-            title: "Urban Water Expansion", 
-            program: "WASH Initiative", 
-            region: "Southeast Asia", 
-            sector: "Water",
-            type: "Construction",
-            deadline: "2024-10-15",
-            description: "Upgrading treatment plants and distribution networks."
-        }
-    ];
+  const request = context.request;
+  const env = context.env;
+  const path = "/api/opportunities";
 
-    return new Response(JSON.stringify(opportunities), {
-        headers: { 
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*" 
-        }
-    });
-}
-// /functions/api/match.js
-export async function onRequestPost(context) {
-  try {
-    // 1. Get the data sent from your dashboard
-    const { candidate, opportunity } = await context.request.json();
+  const sovereign = buildSovereignMetadata({
+    api: "opportunities-list",
+    version: "2050.V12A",
+    node: env?.NODE_ID,
+    cluster: env?.CLUSTER_ID,
+    path,
+    method: "GET"
+  });
 
-    // 2. Your SECTOR_ADJACENCY logic (Imported or pasted here)
-    const SECTOR_ADJACENCY = { 
-        infrastructure: ["construction", "transportation", "energy", "water"],
-        construction: ["infrastructure", "energy"]
-    };
+  const trust = requireRole("public", request, env);
+  if (!trust.allowed) return trust.response;
 
-    // 3. Run your scoring engine
-    const c = candidate.sector.toLowerCase();
-    const o = opportunity.sector.toLowerCase();
-    
-    let score = 40;
-    let reason = "Low Alignment";
+  const policy = applyPolicy({ request, path, zone: "public" });
+  if (!policy.allowed) return sovereignError("POLICY_BLOCKED", policy.reason, sovereign);
 
-    if (c === o) {
-        score = 100;
-        reason = "Primary Match";
-    } else if (SECTOR_ADJACENCY[o]?.includes(c)) {
-        score = 80;
-        reason = "Adjacent";
+  const ai = buildAIContext({
+    request,
+    path,
+    workflow: "opportunities-list",
+    trustZone: "public"
+  });
+
+  const opportunities = [
+    { 
+      id: 1, 
+      title: "Grid Modernization Project", 
+      program: "Energy Transition", 
+      region: "Sub-Saharan Africa", 
+      sector: "Energy",
+      type: "Infrastructure",
+      deadline: "2024-12-31",
+      description: "Implementing smart grid tech for regional stability."
+    },
+    { 
+      id: 2, 
+      title: "Urban Water Expansion", 
+      program: "WASH Initiative", 
+      region: "Southeast Asia", 
+      sector: "Water",
+      type: "Construction",
+      deadline: "2024-10-15",
+      description: "Upgrading treatment plants and distribution networks."
     }
+  ];
 
-    // 4. Return the result as JSON
-    return new Response(JSON.stringify({ score, reason }), {
-      headers: { "Content-Type": "application/json" }
-    });
+  const payload = {
+    opportunities,
+    count: opportunities.length,
+    timestamp: Date.now()
+  };
 
-  } catch (err) {
-    return new Response(JSON.stringify({ error: err.message }), { status: 500 });
-  }
+  return new Response(
+    JSON.stringify({
+      ok: true,
+      payload,
+      sovereign,
+      ai,
+      integrity: computeIntegrityHash(payload)
+    }),
+    {
+      status: 200,
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      }
+    }
+  );
+}
+
+function sovereignError(code, message, sovereign) {
+  const body = {
+    ok: false,
+    error: { code, message },
+    sovereign,
+    integrity: computeIntegrityHash({ code, message })
+  };
+
+  return new Response(JSON.stringify(body), {
+    status: 400,
+    headers: { "Content-Type": "application/json" }
+  });
 }
