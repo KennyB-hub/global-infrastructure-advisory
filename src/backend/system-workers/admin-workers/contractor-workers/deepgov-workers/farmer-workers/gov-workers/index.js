@@ -1,5 +1,5 @@
-// /workers/admin/access.js
-// GIA Sovereign Admin Access Endpoint – V12 Alpha
+// /workers/gov/index.js
+// GIA Sovereign Gov Worker – V12 Alpha
 
 import { basicSecurityGuard } from "../../src/security/worker-guard.js";
 import { PolicyEngine } from "../../src/ai-engine/policy-engine.js";
@@ -13,7 +13,7 @@ function json(data, status = 200) {
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
-      "GIA-Trust-Zone": "admin",
+      "GIA-Trust-Zone": "gov",
       "GIA-Version": "v12-alpha"
     }
   });
@@ -21,24 +21,26 @@ function json(data, status = 200) {
 
 export async function onRequest(context) {
   const request = context.request;
+  const env = context.env;
+  const url = new URL(request.url);
 
   //
   // 1. Worker Guard (V12 Alpha)
   //
-  const guard = basicSecurityGuard(request, context.env);
+  const guard = basicSecurityGuard(request, env);
   if (guard) return guard;
 
   //
-  // 2. Extract trust zone from headers
+  // 2. Extract trust zone
   //
   const trustZone = request.headers.get("GIA-Trust-Zone") || "public";
 
   //
-  // 3. Policy check for admin-only workflow
+  // 3. Policy check for gov workflows
   //
   const decision = await policy.check({
     trustZone,
-    workflow: "admin-access",
+    workflow: "gov-access",
     action: "view"
   });
 
@@ -49,7 +51,7 @@ export async function onRequest(context) {
         type: "policy-deny",
         reason: decision.reason,
         trustZone,
-        workflow: "admin-access",
+        workflow: "gov-access",
         timestamp: new Date().toISOString(),
         integrity: {
           hash: await sha256(JSON.stringify(decision)),
@@ -61,25 +63,50 @@ export async function onRequest(context) {
   }
 
   //
-  // 4. Success response
+  // 4. Gov Status Endpoint
   //
-  const payload = {
-    ok: true,
-    zone: "admin",
-    access: "admin-only",
-    status: "ok",
+  if (url.pathname.endsWith("/gov/status")) {
+    const payload = {
+      ok: true,
+      zone: "gov",
+      endpoint: "status",
+      status: "ok",
+      timestamp: new Date().toISOString(),
+      meta: {
+        trustZone,
+        workflow: "gov-access",
+        version: "v12-alpha"
+      }
+    };
+
+    payload.integrity = {
+      hash: await sha256(JSON.stringify(payload)),
+      verified: true
+    };
+
+    return json(payload);
+  }
+
+  //
+  // 5. Fallback
+  //
+  const fallback = {
+    ok: false,
+    zone: "gov",
+    status: "not-found",
+    path: url.pathname,
     timestamp: new Date().toISOString(),
     meta: {
       trustZone,
-      workflow: "admin-access",
+      workflow: "gov-access",
       version: "v12-alpha"
     }
   };
 
-  payload.integrity = {
-    hash: await sha256(JSON.stringify(payload)),
+  fallback.integrity = {
+    hash: await sha256(JSON.stringify(fallback)),
     verified: true
   };
 
-  return json(payload);
+  return json(fallback, 404);
 }

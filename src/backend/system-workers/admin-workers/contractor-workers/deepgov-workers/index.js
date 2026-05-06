@@ -1,5 +1,5 @@
-// /workers/admin/access.js
-// GIA Sovereign Admin Access Endpoint – V12 Alpha
+// /workers/deepgov/index.js
+// GIA Sovereign DeepGov Worker – V12 Alpha
 
 import { basicSecurityGuard } from "../../src/security/worker-guard.js";
 import { PolicyEngine } from "../../src/ai-engine/policy-engine.js";
@@ -13,7 +13,7 @@ function json(data, status = 200) {
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
-      "GIA-Trust-Zone": "admin",
+      "GIA-Trust-Zone": "deepgov",
       "GIA-Version": "v12-alpha"
     }
   });
@@ -21,25 +21,27 @@ function json(data, status = 200) {
 
 export async function onRequest(context) {
   const request = context.request;
+  const env = context.env;
+  const url = new URL(request.url);
 
   //
   // 1. Worker Guard (V12 Alpha)
   //
-  const guard = basicSecurityGuard(request, context.env);
+  const guard = basicSecurityGuard(request, env);
   if (guard) return guard;
 
   //
-  // 2. Extract trust zone from headers
+  // 2. Extract trust zone
   //
   const trustZone = request.headers.get("GIA-Trust-Zone") || "public";
 
   //
-  // 3. Policy check for admin-only workflow
+  // 3. DeepGov override check
   //
   const decision = await policy.check({
     trustZone,
-    workflow: "admin-access",
-    action: "view"
+    workflow: "deepgov-access",
+    action: "override"
   });
 
   if (!decision.allowed) {
@@ -49,7 +51,7 @@ export async function onRequest(context) {
         type: "policy-deny",
         reason: decision.reason,
         trustZone,
-        workflow: "admin-access",
+        workflow: "deepgov-access",
         timestamp: new Date().toISOString(),
         integrity: {
           hash: await sha256(JSON.stringify(decision)),
@@ -61,17 +63,19 @@ export async function onRequest(context) {
   }
 
   //
-  // 4. Success response
+  // 4. DeepGov Sovereign Response
   //
   const payload = {
     ok: true,
-    zone: "admin",
-    access: "admin-only",
-    status: "ok",
+    zone: "deepgov",
+    access: "sovereign-only",
+    path: url.pathname,
+    status: "override-granted",
     timestamp: new Date().toISOString(),
     meta: {
       trustZone,
-      workflow: "admin-access",
+      workflow: "deepgov-access",
+      override: true,
       version: "v12-alpha"
     }
   };
