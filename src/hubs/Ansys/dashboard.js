@@ -1,11 +1,14 @@
 import { api } from "../shared/api-client.js";
 import { getRole } from "../shared/role.js";
+import { KeyEngine } from "../../system/security/key-engine.js";
+import { dbQuery } from "../../system/db/db-access.js";
 
 const navEl = document.getElementById("ansys-nav");
 const gridEl = document.getElementById("ansys-grid");
 const metaEl = document.getElementById("ansys-meta");
 const footerStatus = document.getElementById("ansys-footer-status");
 const logsEl = document.getElementById("ansys-logs");
+const keyEngine = new KeyEngine(env);
 
 async function initNav() {
   const who = await api("/api/auth/whoami");

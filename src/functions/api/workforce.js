@@ -6,9 +6,12 @@ import { buildSovereignMetadata } from "../../system/metadata.js";
 import { computeIntegrityHash } from "../../system/integrity.js";
 import { applyPolicy } from "../../system/policy-engine.js";
 import { buildAIContext } from "../../system/ai-context.js";
+import { KeyEngine } from "../../system/security/key-engine.js";
+import { dbQuery } from "../../system/db/db-access.js";
 
 export async function listWorkforce(request, env) {
   const path = "/api/workforce/list";
+  const keyEngine = new KeyEngine(env);
 
   // ---------------------------------------------------------
   // 1. Sovereign Metadata

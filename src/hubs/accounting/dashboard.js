@@ -1,12 +1,16 @@
 import { api } from "../shared/api-client.js";
 import { getRole } from "../shared/role.js";
 import { buildNav } from "../shared/nav-engine.js";
+import { KeyEngine } from "../../system/security/key-engine.js";
+import { dbQuery } from "../../system/db/db-access.js";
 
 const navEl = document.getElementById("acct-nav");
 const summaryGrid = document.getElementById("acct-summary-grid");
 const ledgerGrid = document.getElementById("acct-ledger-grid");
 const metaEl = document.getElementById("acct-meta");
 const footerStatus = document.getElementById("acct-footer-status");
+const keyEngine = new KeyEngine(env);
+const rows = await dbQuery(env, session.db, "SELECT * FROM table WHERE id = ?", [id]);
 
 async function initNav() {
   const who = await api("/api/auth/whoami");

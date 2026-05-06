@@ -1,6 +1,8 @@
 import { api } from "../shared/api-client.js";
 import { getRole } from "../shared/role.js";
 import { buildNav } from "../shared/nav-engine.js";
+import { KeyEngine } from "../../system/security/key-engine.js";
+import { dbQuery } from "../../system/db/db-access.js";
 
 const navEl = document.getElementById("staff-nav");
 const tasksGrid = document.getElementById("staff-tasks-grid");
@@ -9,6 +11,8 @@ const metaTasks = document.getElementById("staff-meta-tasks");
 const metaJobs = document.getElementById("staff-meta-jobs");
 const footerStatus = document.getElementById("staff-footer-status");
 const logsEl = document.getElementById("staff-logs");
+const keyEngine = new KeyEngine(env);
+const rows = await dbQuery(env, session.db, "SELECT * FROM table WHERE id = ?", [id]);
 
 async function initNav() {
   const who = await api("/api/auth/whoami");

@@ -1,11 +1,15 @@
 import { api } from "../shared/api-client.js";
 import { getRole } from "../shared/role.js";
+import { KeyEngine } from "../../system/security/key-engine.js";
+import { dbQuery } from "../../system/db/db-access.js";
 
 const navEl = document.getElementById("gov-nav");
 const sectorsGrid = document.getElementById("gov-sectors-grid");
 const metaSectors = document.getElementById("gov-meta-sectors");
 const footerStatus = document.getElementById("gov-footer-status");
 const logsEl = document.getElementById("gov-logs");
+const keyEngine = new KeyEngine(env);
+const rows = await dbQuery(env, session.db, "SELECT * FROM table WHERE id = ?", [id]);
 
 // ---------------------------------------------------------
 // NAVIGATION

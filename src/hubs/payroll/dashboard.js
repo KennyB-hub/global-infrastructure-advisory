@@ -1,6 +1,8 @@
 import { api } from "../shared/api-client.js";
 import { getRole } from "../shared/role.js";
 import { buildNav } from "../shared/nav-engine.js";
+import { KeyEngine } from "../../system/security/key-engine.js";
+import { dbQuery } from "../../system/db/db-access.js";
 
 const navEl = document.getElementById("pay-nav");
 const gridEl = document.getElementById("pay-grid");
@@ -9,6 +11,8 @@ const footerStatus = document.getElementById("pay-footer-status");
 const modal = document.getElementById("payroll-modal");
 const modalCancel = document.getElementById("modal-cancel");
 const modalConfirm = document.getElementById("modal-confirm");
+const keyEngine = new KeyEngine(env);
+const rows = await dbQuery(env, session.db, "SELECT * FROM table WHERE id = ?", [id]);
 
 async function runPayroll() {
   const progress = document.getElementById("payroll-progress");
