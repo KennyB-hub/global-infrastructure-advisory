@@ -1,7 +1,7 @@
 // src/ai-engine/ai-router.js
 // GIA Sovereign AI Router – V12 Alpha
 
-import { basicSecurityGuard } from "../src/security/worker-guard.js";
+import { basicSecurityGuard } from "../security/worker-guard.js";
 import { validatePayload, validateTrustZone } from "./validator.js";
 import { matchIntent } from "./ai-matching.js";
 import { buildContext } from "./context-builder.js";
@@ -25,11 +25,13 @@ import { ZoningEngine } from "./zoning-engine.js";
 import { SectorAnalysisEngine } from "./sector-analysis.js";
 
 const sectorAnalysisEngine = new SectorAnalysisEngine();
-const science = new ScienceEngine();
-const geothermal = new GeothermalEngine();
-const renewables = new RenewablesEngine();
-const buildingCode = new BuildingCodeEngine();
-const zoning = new ZoningEngine();
+const scienceEngine = new ScienceEngine();
+const geothermalEngine = new GeothermalEngine();
+const renewablesEngine = new RenewablesEngine();
+const buildingCodeEngine = new BuildingCodeEngine();
+const zoningEngine = new ZoningEngine();
+const engineeringEngine = new EngineeringEngine();
+const mechanicsEngine = new MechanicsEngine();
 
 export async function processAIRequest(request, env) {
   try {
@@ -70,8 +72,6 @@ export async function processAIRequest(request, env) {
     // 5. Build sovereign context
     //
     const context = await buildContext(input, env);
-    const engineeringEngine = new EngineeringEngine();
-    const mechanicsEngine = new MechanicsEngine();
 
     //
     // 6. Determine intent
@@ -105,37 +105,39 @@ export async function processAIRequest(request, env) {
       // NEW V12 Alpha Engines
       //
       case "science":
-        result = await science.process(input, env, context);
+        result = await scienceEngine.process(input, env, context);
         break;
 
-      // inside router:
       case "engineering-analysis":
-  return engineeringEngine.process(input, env, context);
+        result = await engineeringEngine.process(input, env, context);
+        break;
 
       case "mechanics-analysis":
-        return mechanicsEngine.process(input, env, context);
+        result = await mechanicsEngine.process(input, env, context);
+        break;
 
       case "geothermal":
-        result = await geothermal.process(input, env, context);
+        result = await geothermalEngine.process(input, env, context);
         break;
 
       case "renewables":
       case "solar":
       case "wind":
-        result = await renewables.process(input, env, context);
+        result = await renewablesEngine.process(input, env, context);
         break;
 
       case "building-code":
-        result = await buildingCode.process(input, env, context);
+        result = await buildingCodeEngine.process(input, env, context);
         break;
 
       case "zoning":
-        result = await zoning.process(input, env, context);
+        result = await zoningEngine.process(input, env, context);
         break;
-      
+
       case "sector-analysis":
-        return await sectorAnalysisEngine.process(input, env, context);
-  
+        result = await sectorAnalysisEngine.process(input, env, context);
+        break;
+
       default:
         result = {
           ok: true,

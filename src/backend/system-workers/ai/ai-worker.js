@@ -1,86 +1,121 @@
 // /workers/ai/ai-worker.js
 // GIA Sovereign AI Worker – V12 Alpha
 
-import { AI } from "../../backend/ai/engine.js";
-import { 
-  validatePayload, 
-  validateTrustZone, 
-  validateEndpoint 
-} from "../../backend/utils/validator.js";
+import { basicSecurityGuard } from "../../src/security/worker-guard.js";
+import { PolicyEngine } from "../../src/ai-engine/policy-engine.js";
+import { buildContext } from "../../src/ai-engine/context-builder.js";
+import { sanitizeOutput } from "../../src/ai-engine/response-sanitizer.js";
+import { handleError } from "../../src/ai-engine/error-handler.js";
+import { processAIRequest } from "../../src/ai-engine/ai-router.js";
+import { sha256 } from "../../src/ai-engine/utils/crypto.js";
 
-import { makeOk, makeError } from "../../backend/utils/context.js";
+const policy = new PolicyEngine();
 
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
 
-    // GET → debug metadata
+    //
+    // 1. GET → Debug metadata
+    //
     if (request.method !== "POST") {
-      return new Response(JSON.stringify({
+      const payload = {
         system: "ai-worker",
         status: "online",
-        instructions: "POST JSON to run AI with V12 Alpha validation"
-      }, null, 2), { headers: { "Content-Type": "application/json" } });
+        version: "v12-alpha",
+        instructions: "POST JSON to run AI with sovereign validation",
+        timestamp: new Date().toISOString()
+      };
+
+      payload.integrity = {
+        hash: await sha256(JSON.stringify(payload)),
+        verified: true
+      };
+
+      return new Response(JSON.stringify(payload, null, 2), {
+        headers: { "Content-Type": "application/json" }
+      });
     }
 
-    // Parse JSON
+    //
+    // 2. Worker Guard (V12 Alpha)
+    //
+    const guard = basicSecurityGuard(request, env);
+    if (guard) return guard;
+
+    //
+    // 3. Parse JSON
+    //
     let payload;
     try {
       payload = await request.json();
     } catch (err) {
-      return makeError("Invalid JSON body", env, { message: err.message });
+      return handleError(new Error("Invalid JSON body"), env);
     }
 
     //
-    // 1. Validate trust zone
+    // 4. Trust Zone
     //
-    const trustCheck = await validateTrustZone(env, payload.trustZone || "public", 1);
-    if (!trustCheck.ok) return new Response(JSON.stringify(trustCheck, null, 2));
+    const trustZone = payload.trustZone || "public";
 
     //
-    // 2. Validate endpoint
+    // 5. Policy Check (AI Invocation)
     //
-    const endpointCheck = await validateEndpoint(env, {
-      path: url.pathname,
-      method: request.method
+    const decision = await policy.check({
+      trustZone,
+      workflow: payload.workflow || "general",
+      action: "invoke"
     });
-    if (!endpointCheck.ok) return new Response(JSON.stringify(endpointCheck, null, 2));
+
+    if (!decision.allowed) {
+      return new Response(JSON.stringify({
+        ok: false,
+        type: "policy-deny",
+        reason: decision.reason,
+        trustZone,
+        workflow: payload.workflow || "general",
+        timestamp: new Date().toISOString(),
+        integrity: {
+          hash: await sha256(JSON.stringify(decision)),
+          verified: true
+        }
+      }, null, 2), {
+        status: 403,
+        headers: { "Content-Type": "application/json" }
+      });
+    }
 
     //
-    // 3. Validate payload schema
+    // 6. Build Sovereign Context
     //
-    const schemaCheck = await validatePayload(env, payload, {
-      input: { required: true, type: "object" },
-      trustZone: { required: true, type: "string" },
-      workflow: { required: false, type: "string" }
-    });
-    if (!schemaCheck.ok) return new Response(JSON.stringify(schemaCheck, null, 2));
+    const context = await buildContext(payload, env);
 
     //
-    // 4. Run AI engine
+    // 7. Route to AI Engine (V12 Alpha Router)
     //
     let result;
     try {
-      result = await AI.run(payload, env);
+      result = await processAIRequest(request, env, ctx);
     } catch (err) {
-      return makeError("AI engine threw an exception", env, { message: err.message });
+      return handleError(err, env, { fatal: true });
     }
 
     //
-    // 5. Validate AI output
+    // 8. Sanitize Output (sovereign-grade)
     //
-    const outputCheck = await validatePayload(env, result, {
-      type: { required: true, type: "string" },
-      content: { required: true, type: "string" }
-    });
-    if (!outputCheck.ok) return new Response(JSON.stringify(outputCheck, null, 2));
+    const final = await sanitizeOutput(result, env, context);
 
     //
-    // 6. Return sovereign‑grade response
+    // 9. Return Sovereign Response
     //
-    const final = await makeOk({ payload, result }, env);
+    final.integrity = {
+      hash: await sha256(JSON.stringify(final)),
+      verified: true
+    };
+
     return new Response(JSON.stringify(final, null, 2), {
       headers: { "Content-Type": "application/json" }
     });
   }
 };
+
