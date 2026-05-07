@@ -4,20 +4,23 @@
 import { runMatchingEngine } from "./ai-matching.js";
 import { runDecisionEngine } from "./ai-decision.js";
 import { runDeepMind } from "./ai-cortex.js";
+import { runAIM } from "./ai-aim.js";
 
-export function routeAI(task) {
+export function routeAI(task, env) {
   switch (task.type) {
+    case "aim":
+      return runAIM(task, env);
+
     case "match":
-      return runMatchingEngine(task);
+      return runMatchingEngine(task, env);
+
     case "decision":
-      return runDecisionEngine(task);
+      return runDecisionEngine(task, env);
+
     case "deep-mind":
-      return runDeepMind(task);
+      return runDeepMind(task, env);
+
     default:
-      return {
-        ok: false,
-        error: "UNKNOWN_AI_TASK",
-        task
-      };
+      return { ok: false, error: "UNKNOWN_AI_TASK" };
   }
 }

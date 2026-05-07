@@ -93,3 +93,18 @@ document.getElementById("btn-agri-map").addEventListener("click", loadAgriMap);
     logsEl.innerText = `Error: ${e.message}`;
   }
 })();
+
+const result = await runAITask({
+  task: {
+    type: "aim",
+    mode: "agriculture-research",
+    query: "What crops are optimal for this soil + climate?",
+    dataset: {
+      soil: farmer.soil,
+      climate: farmer.climate,
+      region: farmer.region,
+      market: farmer.market
+    }
+  },
+  context
+});
