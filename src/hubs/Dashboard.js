@@ -1,8 +1,13 @@
 // frontend/src/hubs/FarmerHub/Dashboard.js
 import React, { useState, useEffect } from 'react';
+import { KeyEngine } from "../../system/security/key-engine.js";
+import { dbQuery } from "../../system/db/db-access.js";
 
 export default function FarmerDashboard() {
   const [status, setStatus] = useState("Awaiting GPS...");
+  const keyEngine = new KeyEngine(env);
+  const trust = requireRole("public", request, env);
+// no session key required for public browsing
 
   const sendPing = async () => {
     setStatus("Syncing with GIA...");

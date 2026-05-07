@@ -1,14 +1,18 @@
 import { api } from "../shared/api-client.js";
 import { getRole } from "../shared/role.js";
 import { buildNav } from "../shared/nav-engine.js";
+import { KeyEngine } from "../../system/security/key-engine.js";
+import { dbQuery } from "../../system/db/db-access.js";
 
 const navEl = document.getElementById("system-nav");
 const organsGrid = document.getElementById("system-organs-grid");
 const routesGrid = document.getElementById("system-routes-grid");
 const metaOrgans = document.getElementById("system-meta-organs");
 const metaRoutes = document.getElementById("system-meta-routes");
-const footerStatus = document.getElementById("system-footer-status");
-const logsEl = document.getElementById("system-logs");
+const keyEngine = new KeyEngine(env);
+const rows = await dbQuery(env, session.db, "SELECT * FROM table WHERE id = ?", [id]);
+const trust = requireRole("public", request, env);
+// no session key required for public browsing
 
 async function initNav() {
   const who = await api("/api/auth/whoami");

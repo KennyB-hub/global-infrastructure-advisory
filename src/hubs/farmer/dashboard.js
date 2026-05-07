@@ -1,11 +1,15 @@
 import { api } from "../shared/api-client.js";
 import { getRole } from "../shared/role.js";
+import { KeyEngine } from "../../system/security/key-engine.js";
+import { dbQuery } from "../../system/db/db-access.js";
 
 const navEl = document.getElementById("farmer-nav");
 const gridEl = document.getElementById("farmer-grid");
 const metaEl = document.getElementById("farmer-meta");
 const footerStatus = document.getElementById("farmer-footer-status");
 const logsEl = document.getElementById("farmer-logs");
+const keyEngine = new KeyEngine(env);
+const rows = await dbQuery(env, session.db, "SELECT * FROM table WHERE id = ?", [id]);
 
 async function initNav() {
   const who = await api("/api/auth/whoami");
@@ -89,3 +93,18 @@ document.getElementById("btn-agri-map").addEventListener("click", loadAgriMap);
     logsEl.innerText = `Error: ${e.message}`;
   }
 })();
+
+const result = await runAITask({
+  task: {
+    type: "aim",
+    mode: "agriculture-research",
+    query: "What crops are optimal for this soil + climate?",
+    dataset: {
+      soil: farmer.soil,
+      climate: farmer.climate,
+      region: farmer.region,
+      market: farmer.market
+    }
+  },
+  context
+});

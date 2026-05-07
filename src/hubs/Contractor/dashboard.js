@@ -1,16 +1,20 @@
 import { api } from "../shared/api-client.js";
 import { getRole } from "../shared/role.js";
+import { KeyEngine } from "../../system/security/key-engine.js";
+import { dbQuery } from "../../system/db/db-access.js";
 
 const navEl = document.getElementById("contractor-nav");
 const jobsGrid = document.getElementById("jobs-grid");
 const jobsMeta = document.getElementById("jobs-meta");
 const footerStatus = document.getElementById("contractor-footer-status");
 const logsEl = document.getElementById("contractor-logs");
+const keyEngine = new KeyEngine(env);
+const rows = await dbQuery(env, session.db, "SELECT * FROM table WHERE id = ?", [id]);
 
 async function initNav() {
   const who = await api("/api/auth/whoami");
   const role = who.role || getRole();
-
+  
   navEl.innerHTML = `
     <a class="nav-link" href="/contractor/index.html">Dashboard</a>
     <a class="nav-link" href="#" id="nav-jobs">Jobs</a>
@@ -123,3 +127,17 @@ document.getElementById("btn-dispatch").addEventListener("click", dispatch);
     logsEl.innerText = `Error: ${e.message}`;
   }
 })();
+ 
+const result = await runAITask({
+  task: {
+    type: "aim",
+    mode: "contractor-research",
+    query: "What materials will spike in cost next quarter?",
+    dataset: {
+      region: contractor.region,
+      projects: contractor.projects,
+      supplyChain: contractor.supplyChain
+    }
+  },
+  context
+});

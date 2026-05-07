@@ -1,6 +1,9 @@
 // 2050 V12 Alpha — Sovereign One-Time Session Key Engine
 // Zone-bound, DB-bound, IP-bound, UA-bound, workflow-bound
 
+// 2050 V12 Alpha — Sovereign One-Time Session Key Engine
+// Zone-bound, DB-bound, IP-bound, UA-bound, workflow-bound
+
 export class KeyEngine {
   constructor(env) {
     this.env = env;
@@ -112,4 +115,3 @@ export class KeyEngine {
     };
   }
 }
-

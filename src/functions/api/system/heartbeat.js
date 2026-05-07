@@ -11,10 +11,13 @@ import { runAITask } from "../../../system/ai-worker.js";
 import { embedText } from "../../../system/ai-embedding.js";
 import { rememberShortTerm, recallShortTerm } from "../../../system/ai-memory.js";
 import { checkAISafety } from "../../../system/ai-safety.js";
+import { KeyEngine } from "../../system/security/key-engine.js";
+import { dbQuery } from "../../system/db/db-access.js";
 
 export async function onRequestGet(context) {
   const { request, env } = context;
   const path = "/api/system/heartbeat";
+  const keyEngine = new KeyEngine(env);
 
   // ---------------------------------------------------------
   // 1. Sovereign Metadata
