@@ -3,6 +3,7 @@
 
 import { basicSecurityGuard } from "../../src/security/worker-guard.js";
 import { PolicyEngine } from "../../src/ai-engine/policy-engine.js";
+import { enforceAIPolicy } from "../../src/ai-engine/enforce-ai-policy.js";
 import { buildContext } from "../../src/ai-engine/context-builder.js";
 import { sanitizeOutput } from "../../src/ai-engine/response-sanitizer.js";
 import { handleError } from "../../src/ai-engine/error-handler.js";
@@ -57,26 +58,28 @@ export default {
     // 4. Trust Zone
     //
     const trustZone = payload.trustZone || "public";
+    const workflow = payload.workflow || "general";
 
     //
-    // 5. Policy Check (AI Invocation)
+    // 5. AI‑Policy (Sovereign Enforcement + Cyber Logging)
     //
-    const decision = await policy.check({
+    const aiPolicy = await enforceAIPolicy({
       trustZone,
-      workflow: payload.workflow || "general",
-      action: "invoke"
+      workflow,
+      request,
+      env
     });
 
-    if (!decision.allowed) {
+    if (!aiPolicy.allowed) {
       return new Response(JSON.stringify({
         ok: false,
         type: "policy-deny",
-        reason: decision.reason,
+        reason: aiPolicy.reason,
         trustZone,
-        workflow: payload.workflow || "general",
+        workflow,
         timestamp: new Date().toISOString(),
         integrity: {
-          hash: await sha256(JSON.stringify(decision)),
+          hash: await sha256(JSON.stringify(aiPolicy)),
           verified: true
         }
       }, null, 2), {
@@ -118,4 +121,3 @@ export default {
     });
   }
 };
-
