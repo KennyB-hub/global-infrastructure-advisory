@@ -1,4 +1,8 @@
-export function enforceAIPolicy({ trustZone, workflow }) {
+// 2050 V12 Alpha — AI Policy Engine with Cyber Logging
+
+import { DBService } from "../db/db-service.js";
+
+export async function enforceAIPolicy({ trustZone, workflow, request, env }) {
   const blocked = [
     // --- Public cannot access sensitive workflows ---
     { trustZone: "public", workflow: "gov-sectors" },
@@ -27,9 +31,27 @@ export function enforceAIPolicy({ trustZone, workflow }) {
     r => r.trustZone === trustZone && r.workflow === workflow
   );
 
-  if (hit) {
-    return { allowed: false, reason: "AI_POLICY_BLOCKED" };
-  }
+  // If allowed, return early
+  if (!hit) return { allowed: true };
 
-  return { allowed: true };
+  // If blocked, log to Cyber DB
+  const db = new DBService(env);
+
+  await db.query("system",
+    `INSERT INTO security_events 
+      (ts, zone, workflow, event_type, ip, ua, severity, meta)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+    [
+      Date.now(),
+      trustZone,
+      workflow,
+      "AI_POLICY_BLOCKED",
+      request.headers.get("CF-Connecting-IP") || null,
+      request.headers.get("User-Agent") || null,
+      "medium",
+      JSON.stringify({ reason: "AI_POLICY_BLOCKED" })
+    ]
+  );
+
+  return { allowed: false, reason: "AI_POLICY_BLOCKED" };
 }

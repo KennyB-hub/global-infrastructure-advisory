@@ -1,4 +1,3 @@
-mapping-3d-engine.js
 export class Mapping3DEngine {
   generateMesh(points) {
     return {

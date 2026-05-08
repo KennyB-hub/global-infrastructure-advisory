@@ -1,15 +1,11 @@
 import { api } from "../shared/api-client.js";
 import { getRole } from "../shared/role.js";
-import { KeyEngine } from "../../system/security/key-engine.js";
-import { dbQuery } from "../../system/db/db-access.js";
 
 const navEl = document.getElementById("public-nav");
 const sectorsGrid = document.getElementById("sectors-grid");
 const sectorsMeta = document.getElementById("sectors-meta");
 const footerStatus = document.getElementById("public-footer-status");
 const logsEl = document.getElementById("public-logs");
-const keyEngine = new KeyEngine(env);
-const rows = await dbQuery(env, session.db, "SELECT * FROM table WHERE id = ?", [id]);
 
 document.getElementById("btn-login").addEventListener("click", () => {
   window.location.href = "/public/auth/login.html";

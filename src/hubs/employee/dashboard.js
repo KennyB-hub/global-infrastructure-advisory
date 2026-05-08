@@ -1,15 +1,11 @@
 import { api } from "../shared/api-client.js";
 import { getRole } from "../shared/role.js";
-import { KeyEngine } from "../../system/security/key-engine.js";
-import { dbQuery } from "../../system/db/db-access.js";
 
 const navEl = document.getElementById("employee-nav");
 const gridEl = document.getElementById("employee-grid");
 const metaEl = document.getElementById("employee-meta");
 const footerStatus = document.getElementById("employee-footer-status");
 const logsEl = document.getElementById("employee-logs");
-const keyEngine = new KeyEngine(env);
-const rows = await dbQuery(env, session.db, "SELECT * FROM table WHERE id = ?", [id]);
 
 async function initNav() {
   const who = await api("/api/auth/whoami");

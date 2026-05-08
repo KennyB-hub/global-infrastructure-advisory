@@ -1,4 +1,3 @@
-/mapping-2d-engine.js
 export class Mapping2DEngine {
   constructor() {
     this.precision = 50; // 50 ft public-safe precision
