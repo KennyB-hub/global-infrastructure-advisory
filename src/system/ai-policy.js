@@ -4,37 +4,65 @@ import { DBService } from "../db/db-service.js";
 
 export async function enforceAIPolicy({ trustZone, workflow, request, env }) {
   const blocked = [
-    // --- Public cannot access sensitive workflows ---
+    //
+    // PUBLIC RESTRICTIONS
+    //
     { trustZone: "public", workflow: "gov-sectors" },
     { trustZone: "public", workflow: "system-heartbeat" },
     { trustZone: "public", workflow: "gov-intel" },
 
-    // --- Public cannot use AIM at all ---
+    // Public cannot use ANY AIM mode
     { trustZone: "public", workflow: "aim-farmer" },
     { trustZone: "public", workflow: "aim-contractor" },
     { trustZone: "public", workflow: "aim-gov" },
     { trustZone: "public", workflow: "aim-apps" },
+    { trustZone: "public", workflow: "aim-defense" },
 
-    // --- Farmer cannot access contractor or gov AIM ---
+    // Public cannot access cyber defense
+    { trustZone: "public", workflow: "cyber-defense" },
+
+    //
+    // FARMER RESTRICTIONS
+    //
     { trustZone: "farmer", workflow: "aim-contractor" },
     { trustZone: "farmer", workflow: "aim-gov" },
+    { trustZone: "farmer", workflow: "aim-defense" },
+    { trustZone: "farmer", workflow: "cyber-defense" },
 
-    // --- Contractor cannot access farmer or gov AIM ---
+    //
+    // CONTRACTOR RESTRICTIONS
+    //
     { trustZone: "contractor", workflow: "aim-farmer" },
     { trustZone: "contractor", workflow: "aim-gov" },
+    { trustZone: "contractor", workflow: "aim-defense" },
+    { trustZone: "contractor", workflow: "cyber-defense" },
 
-    // --- Gov can access all AIM modes (optional) ---
-    // No blocks for gov
+    //
+    // APPS RESTRICTIONS
+    //
+    { trustZone: "apps", workflow: "aim-gov" },
+    { trustZone: "apps", workflow: "aim-defense" },
+    { trustZone: "apps", workflow: "cyber-defense" }
+
+    //
+    // GOV + SYSTEM have NO blocks here.
+    // They are allowed to run:
+    // - aim-gov
+    // - aim-defense
+    // - cyber-defense
+    // - gov-intel
+    // - system-heartbeat
+    //
   ];
 
   const hit = blocked.find(
     r => r.trustZone === trustZone && r.workflow === workflow
   );
 
-  // If allowed, return early
+  // Allowed → exit early
   if (!hit) return { allowed: true };
 
-  // If blocked, log to Cyber DB
+  // Blocked → log to Cyber DB
   const db = new DBService(env);
 
   await db.query("system",

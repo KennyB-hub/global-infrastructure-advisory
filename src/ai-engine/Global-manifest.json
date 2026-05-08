@@ -117,6 +117,12 @@
       "category": "resilience",
       "enabled": true
     },
+    {   
+      "id": "space",
+      "title": "Orbital Infrastructure",
+      "description": "Supporting satellite arrays and lunar base power grids...",
+      "features": ["Orbital Solar", "Lunar WASH systems"]
+    },
     {
       "id": "disaster_response",
       "label": "Disaster Response & Recovery",

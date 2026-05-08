@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS keys (
+  id            TEXT PRIMARY KEY,
+  label         TEXT,
+  trust_zone    TEXT,      -- public/farmer/contractor/apps/gov/system
+  scopes        TEXT,      -- JSON array of allowed workflows/scopes
+  status        TEXT,      -- active, revoked, expired
+  created_ts    INTEGER,
+  expires_ts    INTEGER,
+  last_used_ts  INTEGER,
+  created_by    TEXT
+);
