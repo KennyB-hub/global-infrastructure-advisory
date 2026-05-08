@@ -128,6 +128,19 @@
       "label": "Disaster Response & Recovery",
       "category": "resilience",
       "enabled": true
-    }
-  ]
-}
+    },
+    {
+      "id": "education_rd",
+      "label": "Education, Research & Development",
+      "category": "knowledge",
+      "enabled": true,
+      "description": "Universities, research labs, STEM programs, innovation hubs, and scientific development pipelines.",
+      "features": [
+      "STEM Education",
+      "Research Pipelines",
+      "AI-Assisted Experiments",
+      "Scholarly Knowledge Graph",
+      "Innovation Hub Tools",
+      "Youth-to-University Pathways"
+    ]
+  }
