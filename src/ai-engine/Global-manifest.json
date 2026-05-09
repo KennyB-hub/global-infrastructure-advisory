@@ -142,5 +142,28 @@
       "Scholarly Knowledge Graph",
       "Innovation Hub Tools",
       "Youth-to-University Pathways"
-    ]
-  }
+    },
+    {
+      "ruleId": "R1",
+      "description": "Administrative data may only be used for statistical purposes.",
+      "condition": "data.sourceSystem == \"ADMIN\" && data.intendedUse == \"STATISTICAL\"",
+      "effect": "ALLOW"
+    },
+    {
+      "ruleId": "R2",
+      "description": "Operational use of administrative data is prohibited.",
+      "condition": "data.sourceSystem == \"ADMIN\" && data.intendedUse == \"OPERATIONAL\"",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "R3",
+      "description": "Only gov or deepgov may access this dataset.",
+      "condition": "action.resourceId == \"DATASET_X\" && (actor.trustZone == \"gov\" || actor.trustZone == \"deepgov\")",
+      "effect": "ALLOW"
+    },
+  ]
+}
+
+
+
+  

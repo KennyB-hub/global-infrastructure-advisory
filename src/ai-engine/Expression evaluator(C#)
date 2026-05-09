@@ -1,0 +1,4 @@
+public interface IExpressionEvaluator
+{
+    bool Evaluate(string expression, object context);
+}

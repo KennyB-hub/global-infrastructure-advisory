@@ -1,0 +1,77 @@
+public sealed class EnforcementRequest
+{
+    public string RequestId { get; set; } = Guid.NewGuid().ToString();
+    public DateTimeOffset Timestamp { get; set; } = DateTimeOffset.UtcNow;
+
+    public ActorContext Actor { get; set; } = default!;
+    public ActionContext Action { get; set; } = default!;
+    public DataContext DataContext { get; set; } = default!;
+    public AiContext AiContext { get; set; } = default!;
+    public EnvironmentContext Environment { get; set; } = default!;
+}
+
+public sealed class ActorContext
+{
+    public string UserId { get; set; } = default!;
+    public string[] Roles { get; set; } = Array.Empty<string>();
+    public string TrustZone { get; set; } = default!; // public|farmer|contractor|employee|admin|gov|deepgov|system
+    public string Hub { get; set; } = default!;       // AdminHub|GovHub|SystemHub|...
+}
+
+public sealed class ActionContext
+{
+    public string Type { get; set; } = default!;        // READ|WRITE|EXECUTE|DEPLOY|MATCH|SURVEY
+    public string Name { get; set; } = default!;        // RunAIModel|AccessDataset|...
+    public string ResourceType { get; set; } = default!; // DATASET|MODEL|WORKFLOW|DOCUMENT|ENDPOINT
+    public string ResourceId { get; set; } = default!;
+}
+
+public sealed class DataContext
+{
+    public bool ContainsHumanSubjects { get; set; }
+    public bool ContainsPii { get; set; }
+    public bool ContainsClassified { get; set; }
+    public string SourceSystem { get; set; } = default!; // HR|Payroll|Zoning|NCES|DHS|...
+    public string IntendedUse { get; set; } = default!;  // STATISTICAL|OPERATIONAL|RESEARCH|EVALUATION
+}
+
+public sealed class AiContext
+{
+    public string? ModelId { get; set; }
+    public string ModelType { get; set; } = "LLM"; // LLM|ML|RULE_ENGINE
+    public bool ExplainabilityRequired { get; set; } = true;
+    public bool HumanInLoopRequired { get; set; } = true;
+}
+
+public sealed class EnvironmentContext
+{
+    public string Ip { get; set; } = default!;
+    public string Location { get; set; } = default!;
+    public string ClientType { get; set; } = default!; // WEB|API|BATCH
+    public string Version { get; set; } = "v12-alpha";
+}
+
+public sealed class EnforcementResponse
+{
+    public string RequestId { get; set; } = default!;
+    public string Decision { get; set; } = default!; // ALLOW|DENY|REQUIRE_HUMAN_REVIEW
+    public List<PolicyHit> PolicyHits { get; set; } = new();
+    public List<EnforcementCondition> Conditions { get; set; } = new();
+    public string Explanation { get; set; } = default!;
+    public DateTimeOffset Timestamp { get; set; } = DateTimeOffset.UtcNow;
+}
+
+public sealed class PolicyHit
+{
+    public string PolicyId { get; set; } = default!;
+    public string PolicyName { get; set; } = default!;
+    public string RuleId { get; set; } = default!;
+    public string Effect { get; set; } = default!; // ALLOW|DENY|CONDITION
+    public string Reason { get; set; } = default!;
+}
+
+public sealed class EnforcementCondition
+{
+    public string Type { get; set; } = default!;    // HUMAN_REVIEW|ADDITIONAL_JUSTIFICATION|...
+    public string Details { get; set; } = default!;
+}
