@@ -1,0 +1,37 @@
+{
+  "policyId": "ENERGY_WIND_TURBINE_SAFETY_V1",
+  "name": "Wind Turbine Safety Policy Pack",
+  "version": "1.0.0",
+  "source": "AIEE",
+  "scope": {
+    "resourceTypes": ["TURBINE", "WIND_FARM", "SUBSTATION"],
+    "actions": ["START", "STOP", "MAINTENANCE", "ACCESS", "CONTROL"],
+    "trustZones": ["public", "contractor", "employee", "admin", "gov", "deepgov", "system"]
+  },
+  "rules": [
+    {
+      "ruleId": "TURBINE_MECH_001",
+      "description": "Prevent rotor overspeed.",
+      "condition": "data.rotorRpm > data.maxSafeRpm",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "TURBINE_WEATHER_002",
+      "description": "High wind shutdown required.",
+      "condition": "data.windSpeed > data.cutoutWindSpeed",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "TURBINE_WORKER_003",
+      "description": "Only certified turbine technicians may climb.",
+      "condition": "!actor.roles.Contains(\"TURBINE_TECH\") && action.type == \"MAINTENANCE\"",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "TURBINE_CYBER_004",
+      "description": "Critical turbine assets require gov or deepgov trust zone.",
+      "condition": "data.assetCritical == true && actor.trustZone != \"gov\" && actor.trustZone != \"deepgov\"",
+      "effect": "DENY"
+    }
+  ]
+}

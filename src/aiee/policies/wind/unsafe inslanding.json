@@ -1,0 +1,6 @@
+{
+  "ruleId": "GRID_TOPO_001",
+  "description": "Prevent unintentional islanding.",
+  "condition": "data.isIslandingRisk == true && action.name == \"OpenBreaker\"",
+  "effect": "DENY"
+}

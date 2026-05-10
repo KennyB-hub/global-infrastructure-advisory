@@ -1,0 +1,11 @@
+public class AieeContext
+{
+    public Actor Actor { get; set; }
+    public ActionDescriptor Action { get; set; }
+    public dynamic Data { get; set; }
+    public EnvironmentContext Env { get; set; }
+
+    public GlobalCode Ai_GlobalCode { get; set; }     // ai.globalCode
+    public GiiContext Ai_GiiContext { get; set; }     // ai.giiContext
+    public AutonomyContext Ai_Autonomy { get; set; }  // ai.autonomy
+}

@@ -1,0 +1,103 @@
+{
+  "policyId": "TELECOM_INFRASTRUCTURE_V1",
+  "name": "Telecom Infrastructure Policy Pack",
+  "version": "1.0.0",
+  "source": "AIEE",
+  "scope": {
+    "resourceTypes": ["CELL_TOWER", "FIBER_NETWORK", "MICROWAVE_LINK", "DATA_CENTER", "SATELLITE_GROUND", "PUBLIC_SAFETY_NETWORK"],
+    "actions": ["CONTROL", "MONITOR", "DISPATCH", "ROUTE", "MAINTENANCE", "SHUTOFF"],
+    "trustZones": ["public", "contractor", "employee", "admin", "gov", "deepgov", "system"]
+  },
+  "rules": [
+    {
+      "ruleId": "TEL_TOWER_001",
+      "description": "Prevent unsafe tower operations during high wind or structural instability.",
+      "condition": "data.windSpeed > data.maxWindSpeed || data.structureIntegrity < data.minIntegrity",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "TEL_TOWER_002",
+      "description": "Only certified tower technicians may climb or perform tower maintenance.",
+      "condition": "action.name == \"MAINTENANCE\" && !actor.roles.Contains(\"TOWER_TECH\")",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "TEL_RF_001",
+      "description": "Prevent RF output exceeding safe FCC limits.",
+      "condition": "data.rfOutput > data.maxRfOutput",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "TEL_FIBER_001",
+      "description": "Prevent unsafe fiber splice or cut operations without authorization.",
+      "condition": "action.name == \"CutFiber\" && !actor.roles.Contains(\"FIBER_TECH\")",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "TEL_FIBER_002",
+      "description": "Fiber signal loss above threshold requires human review.",
+      "condition": "data.signalLossDb > data.maxSignalLossDb",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "TEL_BACKHAUL_001",
+      "description": "Prevent microwave backhaul misalignment beyond safe tolerance.",
+      "condition": "data.alignmentError > data.maxAlignmentError",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "TEL_BACKHAUL_002",
+      "description": "Backhaul congestion above critical threshold requires human review.",
+      "condition": "data.backhaulLoadPercent > 95",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "TEL_SAT_001",
+      "description": "Satellite ground station operations require gov, deepgov, or system trust zone.",
+      "condition": "data.satelliteCritical == true && actor.trustZone != \"gov\" && actor.trustZone != \"deepgov\" && actor.trustZone != \"system\"",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "TEL_911_001",
+      "description": "Emergency 911 traffic must be prioritized over all other routing.",
+      "condition": "data.callType == \"911\" && action.name == \"RouteCall\" && data.priority != \"HIGH\"",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "TEL_PUBLIC_SAFETY_001",
+      "description": "Public safety network operations require human review during outages.",
+      "condition": "data.networkType == \"PUBLIC_SAFETY\" && data.outageDetected == true",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "TEL_RURAL_001",
+      "description": "Rural broadband systems require priority protection and review.",
+      "condition": "data.isRuralSystem == true && data.systemHealth < data.minHealthThreshold",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "TEL_DATA_CENTER_001",
+      "description": "Prevent unsafe temperature or power conditions in telecom data centers.",
+      "condition": "data.tempC > data.maxTempC || data.powerLoadPercent > 100",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "TEL_CYBER_001",
+      "description": "Unauthorized remote access to telecom control systems is denied.",
+      "condition": "env.clientType == \"REMOTE\" && !actor.roles.Contains(\"AUTHORIZED_REMOTE\")",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "TEL_CYBER_002",
+      "description": "Critical telecom SCADA/NOC operations require gov, deepgov, or system trust zone.",
+      "condition": "data.scadaCritical == true && actor.trustZone != \"gov\" && actor.trustZone != \"deepgov\" && actor.trustZone != \"system\"",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "TEL_CYBER_003",
+      "description": "Anomalous behavior in telecom telemetry requires human review.",
+      "condition": "data.behaviorScore > data.anomalyThreshold",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    }
+  ]
+}

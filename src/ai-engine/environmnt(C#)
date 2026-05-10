@@ -1,0 +1,6 @@
+public class EnvironmentContext
+{
+    public string ClientType { get; set; } // LOCAL, REMOTE, API
+    public string Location { get; set; }   // ISO region code
+    public DateTime Timestamp { get; set; }
+}

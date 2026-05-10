@@ -1,0 +1,109 @@
+{
+  "policyId": "WATER_WASTEWATER_V1",
+  "name": "Wastewater Infrastructure Policy Pack",
+  "version": "1.0.0",
+  "source": "AIEE",
+  "scope": {
+    "resourceTypes": ["WASTEWATER_SYSTEM", "TREATMENT_PLANT", "LIFT_STATION", "SLUDGE_SYSTEM", "CSO_SYSTEM"],
+    "actions": ["CONTROL", "MONITOR", "DISPATCH", "TREAT", "DISCHARGE", "MAINTENANCE", "SHUTOFF"],
+    "trustZones": ["public", "contractor", "employee", "admin", "gov", "deepgov", "system"]
+  },
+  "rules": [
+    {
+      "ruleId": "WW_TREAT_001",
+      "description": "Prevent discharge of untreated or partially treated wastewater.",
+      "condition": "action.name == \"Discharge\" && data.treatmentStatus != \"TREATED\"",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "WW_TREAT_002",
+      "description": "High pathogen levels require immediate shutdown and human review.",
+      "condition": "data.pathogenCount > data.maxPathogenCount",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "WW_CHEM_001",
+      "description": "Prevent unsafe chemical dosing in wastewater treatment.",
+      "condition": "data.chemicalDose > data.maxChemicalDose",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "WW_TOX_001",
+      "description": "High toxicity index requires human review.",
+      "condition": "data.toxicityIndex > data.maxToxicityIndex",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "WW_FLOW_001",
+      "description": "Prevent unsafe flow rates that may damage wastewater infrastructure.",
+      "condition": "data.flowRate > data.maxFlowRate",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "WW_PRESSURE_001",
+      "description": "Prevent unsafe pressure levels in wastewater systems.",
+      "condition": "data.pressurePsi > data.maxPressurePsi || data.pressurePsi < data.minPressurePsi",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "WW_LIFT_001",
+      "description": "Lift station pump failures require immediate shutdown.",
+      "condition": "data.pumpStatus == \"FAULT\"",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "WW_LIFT_002",
+      "description": "Critical lift station operations require human review.",
+      "condition": "action.name == \"StartPump\" && data.pumpCritical == true",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "WW_SLUDGE_001",
+      "description": "Prevent unsafe sludge processing conditions.",
+      "condition": "data.sludgeTempF > data.maxSludgeTempF",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "WW_CSO_001",
+      "description": "Combined sewer overflow risk requires human review.",
+      "condition": "data.csoRisk == \"HIGH\"",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "WW_ENV_001",
+      "description": "Prevent discharge during high environmental risk conditions.",
+      "condition": "data.environmentalRisk == \"HIGH\"",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "WW_RURAL_001",
+      "description": "Rural wastewater systems require priority protection and review.",
+      "condition": "data.isRuralSystem == true && data.systemHealth < data.minHealthThreshold",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "WW_SCADA_001",
+      "description": "SCADA control of wastewater systems requires gov, deepgov, or system trust zone.",
+      "condition": "data.scadaCritical == true && actor.trustZone != \"gov\" && actor.trustZone != \"deepgov\" && actor.trustZone != \"system\"",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "WW_CYBER_001",
+      "description": "Unauthorized remote access to wastewater control systems is denied.",
+      "condition": "env.clientType == \"REMOTE\" && !actor.roles.Contains(\"AUTHORIZED_REMOTE\")",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "WW_CYBER_002",
+      "description": "Anomalous behavior in wastewater telemetry requires human review.",
+      "condition": "data.behaviorScore > data.anomalyThreshold",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "WW_WORKER_001",
+      "description": "Only certified wastewater technicians may perform maintenance.",
+      "condition": "action.name == \"MAINTENANCE\" && !actor.roles.Contains(\"WASTEWATER_TECH\")",
+      "effect": "DENY"
+    }
+  ]
+}
