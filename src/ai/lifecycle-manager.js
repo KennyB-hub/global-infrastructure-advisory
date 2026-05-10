@@ -1,10 +1,14 @@
 // template-lifecycle-manager.js
-// V12 Alpha – Template Lifecycle Manager (Security-Aware)
+// V12 Alpha – Template Lifecycle Manager (Security + History + Corrected)
 
 const fs = require("fs");
 const path = require("path");
+
 const registryPath = path.join(__dirname, "document-template-registry.json");
+
 const { enforceSecurity } = require("./template-lifecycle-security");
+const { enforcePolicy } = require("./template-security-policy-enforcer");
+const { recordTemplateChange } = require("../api/template-change-history-api");
 
 function loadRegistry() {
   return JSON.parse(fs.readFileSync(registryPath, "utf8"));
@@ -23,15 +27,18 @@ async function activateTemplate(templateId) {
   const template = registry.templates.find((t) => t.templateId === templateId);
   if (!template) throw new Error(`Template not found: ${templateId}`);
 
-  // Deactivate all templates in the same docType + trustZone family
+  // 1. Security classification
+  await enforceSecurity(templateId);
+
+  // 2. Hard security policy enforcement
+  enforcePolicy(templateId);
+
+  // 3. Activate this template, deprecate siblings
   registry.templates.forEach((t) => {
     if (t.docType === template.docType && t.trustZone === template.trustZone) {
       t.status = t.templateId === templateId ? "active" : "deprecated";
     }
   });
-
-  // Apply security enforcement AFTER activation
-  await enforceSecurity(templateId);
 
   saveRegistry(registry);
   return template;
@@ -88,6 +95,9 @@ async function rollbackTemplate(templateId) {
     throw new Error(`Previous template not found: ${target.previousTemplateId}`);
   }
 
+  // Record rollback event
+  recordTemplateChange(target, previous);
+
   // Activate previous version (security enforced inside)
   return await activateTemplate(previous.templateId);
 }
@@ -127,8 +137,12 @@ async function promoteTemplate(templateId, newFile, newPlaceholders) {
   // Insert new version
   registry.templates.push(newTemplate);
 
+  // Record version change
+  recordTemplateChange(oldTemplate, newTemplate);
+
   // Apply security enforcement to the new version
   await enforceSecurity(newTemplateId);
+  enforcePolicy(newTemplateId);
 
   saveRegistry(registry);
   return newTemplate;

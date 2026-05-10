@@ -56,6 +56,7 @@ async function autoRepairTemplate(template, expectedPlaceholders) {
   const repairedHtml = await repairHtml(originalHtml, expectedPlaceholders);
 
   saveTemplate(template.file, repairedHtml);
+  recordTemplateChange(template, { ...template, file: repairedFile });
 
   return {
     status: "repaired",

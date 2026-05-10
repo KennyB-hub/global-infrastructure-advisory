@@ -5,6 +5,7 @@ const fs = require("fs");
 const path = require("path");
 const registryPath = path.join(__dirname, "document-template-registry.json");
 const { classifyTemplateSecurity } = require("./template-security-classifier");
+const { enforcePolicyOnTemplate } = require("./template-security-policy-enforcer");
 
 function loadRegistry() {
   return JSON.parse(fs.readFileSync(registryPath, "utf8"));
@@ -30,6 +31,8 @@ async function enforceSecurity(templateId) {
   template.riskScore = security.riskScore;
   template.recommendedTrustZone = security.recommendedTrustZone;
   template.securityReasoning = security.reasoning;
+  // after template.securityLevel / riskScore / recommendedTrustZone are set:
+  enforcePolicyOnTemplate(template);
 
   // Auto-escalate trustZone if needed
   if (template.trustZone !== security.recommendedTrustZone) {
