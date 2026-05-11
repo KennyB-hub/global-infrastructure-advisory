@@ -1,0 +1,21 @@
+{
+  "requestId": "uuid",
+  "decision": "ALLOW|DENY|REQUIRE_HUMAN_REVIEW",
+  "policyHits": [
+    {
+      "policyId": "string",
+      "policyName": "OSTP_Scientific_Integrity",
+      "ruleId": "string",
+      "effect": "ALLOW|DENY|CONDITION",
+      "reason": "string"
+    }
+  ],
+  "conditions": [
+    {
+      "type": "HUMAN_REVIEW",
+      "details": "GovHub supervisor approval required"
+    }
+  ],
+  "explanation": "string",
+  "timestamp": "ISO-8601"
+}

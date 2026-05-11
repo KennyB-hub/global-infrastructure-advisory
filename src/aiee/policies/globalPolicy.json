@@ -1,0 +1,862 @@
+[
+  {
+    "policyId": "ENERGY_GRID_STABILITY_V2",
+    "name": "Grid Stability Policy Pack",
+    "version": "2.0.0",
+    "source": "AIEE",
+    "scope": {
+      "resourceTypes": ["GRID", "SUBSTATION", "LINE", "BUS"],
+      "actions": ["CONTROL", "SWITCH", "DISPATCH", "BLACKSTART"],
+      "trustZones": ["public", "contractor", "employee", "admin", "gov", "deepgov", "system"]
+    },
+      {
+        "ruleId": "GRID_FREQ_001",
+        "description": "Prevent unsafe frequency excursions.",
+        "condition": "data.gridFrequency < ai.globalCode.energy.grid.minFrequency || data.gridFrequency > ai.globalCode.energy.grid.maxFrequency || ai.giiContext.systemicRiskScore > 0.7 || ai.autonomy.level < 2",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "GRID_FREQ_002",
+        "description": "Rapid frequency deviation requires human review.",
+        "condition": "Math.abs(data.freqDeltaPerSecond) > ai.globalCode.energy.grid.maxFreqDeltaPerSecond || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 2",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "GRID_VOLT_001",
+        "description": "Prevent unsafe bus voltage levels.",
+        "condition": "data.busVoltage < ai.globalCode.energy.grid.minVoltageKv || data.busVoltage > ai.globalCode.energy.grid.maxVoltageKv || ai.giiContext.sectorRiskScore > 0.75 || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "GRID_LOAD_001",
+        "description": "Prevent line overload beyond thermal rating.",
+        "condition": "data.lineLoadingPercent > ai.globalCode.energy.grid.maxLineLoadingPercent || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 2",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "GRID_LOAD_002",
+        "description": "Emergency loading requires human review.",
+        "condition": "data.lineLoadingPercent > ai.globalCode.energy.grid.emergencyLoadingPercent && data.emergencyMode == true || ai.giiContext.systemicRiskScore > 0.8 || ai.autonomy.level < 2",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "GRID_TOPO_001",
+        "description": "Prevent unintentional islanding.",
+        "condition": "data.isIslandingRisk == true && action.name == \"OpenBreaker\" || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 2",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "GRID_TOPO_002",
+        "description": "Critical bus switching requires human review.",
+        "condition": "data.busCritical == true && action.name == \"OpenBreaker\" || ai.giiContext.systemicRiskScore > 0.85 || ai.autonomy.level < 2",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "GRID_BLACKSTART_001",
+        "description": "Blackstart restricted to deepgov/system with high autonomy.",
+        "condition": "action.name == \"Blackstart\" && (actor.trustZone != \"deepgov\" && actor.trustZone != \"system\") || ai.autonomy.level < 3 || ai.giiContext.systemicRiskScore > 0.9",
+        "effect": "DENY"
+      },
+  {
+    "policyId": "ENERGY_PIPELINE_V2",
+    "name": "Pipeline Energy Policy Pack",
+    "version": "2.0.0",
+    "source": "AIEE",
+    "scope": {
+      "resourceTypes": ["PIPELINE", "COMPRESSOR_STATION", "PUMP_STATION", "ENERGY_CORRIDOR"],
+      "actions": ["CONTROL", "MONITOR", "DISPATCH", "SHUTOFF", "MAINTENANCE"],
+      "trustZones": ["public", "contractor", "employee", "admin", "gov", "deepgov", "system"]
+    },
+      {
+        "ruleId": "PIPE_PRESSURE_001",
+        "description": "Prevent pipeline overpressure beyond safe operating limits.",
+        "condition": "data.pressurePsi > ai.globalCode.pipeline.pressure.maxPressurePsi || ai.giiContext.sectorRiskScore > 0.75 || ai.autonomy.level < 2",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "PIPE_PRESSURE_002",
+        "description": "Rapid pressure change indicates potential leak and requires human review.",
+        "condition": "Math.abs(data.pressureDeltaPerSecond) > ai.globalCode.pipeline.pressure.maxPressureDropRate || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 2",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "PIPE_LEAK_001",
+        "description": "Detected leak requires immediate shutdown.",
+        "condition": "data.leakDetected == true || ai.giiContext.systemicRiskScore > 0.8",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "PIPE_FLOW_001",
+        "description": "Prevent unsafe flow rate exceeding pipeline design.",
+        "condition": "data.flowRate > ai.globalCode.pipeline.flow.maxFlowRate || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 2",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "PIPE_TEMP_001",
+        "description": "Prevent unsafe temperature conditions in pipeline or pump station.",
+        "condition": "data.temperatureF > ai.globalCode.pipeline.temperature.maxTemperatureF || ai.giiContext.sectorRiskScore > 0.8 || ai.autonomy.level < 2",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "PIPE_CORROSION_001",
+        "description": "Corrosion risk above threshold requires human review.",
+        "condition": "data.corrosionIndex > ai.globalCode.pipeline.integrity.maxCorrosionRate || ai.giiContext.systemicRiskScore > 0.7 || ai.autonomy.level < 1",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "PIPE_VALVE_001",
+        "description": "Critical valve operations require human review.",
+        "condition": "action.name == \"OpenValve\" && data.valveCritical == true || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 2",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "PIPE_VALVE_002",
+        "description": "Unauthorized valve operations are denied.",
+        "condition": "action.name == \"OpenValve\" && !actor.roles.Contains(\"PIPELINE_TECH\") || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "PIPE_SHUTOFF_001",
+        "description": "Emergency shutoff allowed only when leak or rupture is detected.",
+        "condition": "action.name == \"EmergencyShutoff\" && data.leakDetected != true && data.ruptureDetected != true || ai.autonomy.level < 2",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "PIPE_RUPTURE_001",
+        "description": "Pipeline rupture requires immediate shutdown.",
+        "condition": "data.ruptureDetected == true || ai.giiContext.systemicRiskScore > 0.85",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "PIPE_SCADA_001",
+        "description": "SCADA control of pipeline requires gov, deepgov, or system trust zone with sufficient autonomy.",
+        "condition": "data.scadaCritical == true && (actor.trustZone != \"gov\" && actor.trustZone != \"deepgov\" && actor.trustZone != \"system\" || ai.autonomy.level < 2)",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "PIPE_CYBER_001",
+        "description": "Unauthorized remote access to pipeline control systems is denied.",
+        "condition": "env.clientType == \"REMOTE\" && !actor.roles.Contains(\"AUTHORIZED_REMOTE\") || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "PIPE_CYBER_002",
+        "description": "Anomalous behavior in pipeline telemetry requires human review.",
+        "condition": "data.behaviorScore > data.anomalyThreshold || ai.giiContext.systemicRiskScore > 0.7",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "PIPE_ENV_001",
+        "description": "Environmental protection: prevent operations during high spill risk.",
+        "condition": "data.environmentalRisk == \"HIGH\" || ai.giiContext.sectorRiskScore > 0.8",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "PIPE_WORKER_001",
+        "description": "Only certified pipeline technicians may perform maintenance.",
+        "condition": "action.name == \"MAINTENANCE\" && !actor.roles.Contains(\"PIPELINE_TECH\") || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+  {
+    "policyId": "ENERGY_TRANSMISSION_SUBSTATION_V2",
+    "name": "Transmission & Substation Policy Pack",
+    "version": "2.0.0",
+    "source": "AIEE",
+    "scope": {
+      "resourceTypes": ["TRANSMISSION_LINE", "SUBSTATION", "TRANSFORMER", "BREAKER", "BUS"],
+      "actions": ["CONTROL", "SWITCH", "DISPATCH", "MAINTENANCE", "ISOLATE"],
+      "trustZones": ["public", "contractor", "employee", "admin", "gov", "deepgov", "system"]
+    },
+      {
+        "ruleId": "TRANS_VOLT_001",
+        "description": "Prevent unsafe high-voltage operations outside global safe limits.",
+        "condition": "data.voltageKv < ai.globalCode.energy.grid.minVoltageKv || data.voltageKv > ai.globalCode.energy.grid.maxVoltageKv || ai.giiContext.sectorRiskScore > 0.75 || ai.autonomy.level < 2",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TRANS_LOAD_001",
+        "description": "Prevent transformer overload beyond thermal rating.",
+        "condition": "data.transformerLoadingPercent > ai.globalCode.energy.substation.maxTransformerLoadingPercent || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 2",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TRANS_LOAD_002",
+        "description": "Emergency transformer loading requires human review.",
+        "condition": "data.transformerLoadingPercent > ai.globalCode.energy.substation.emergencyTransformerLoadingPercent && data.emergencyMode == true || ai.giiContext.systemicRiskScore > 0.8 || ai.autonomy.level < 2",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "TRANS_BREAKER_001",
+        "description": "Prevent breaker operations that risk arc-flash or unsafe switching.",
+        "condition": "data.arcFlashRisk == \"HIGH\" && action.name == \"OpenBreaker\" || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 2",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TRANS_BREAKER_002",
+        "description": "Critical breaker operations require human review.",
+        "condition": "data.breakerCritical == true && action.name == \"OpenBreaker\" || ai.giiContext.systemicRiskScore > 0.85 || ai.autonomy.level < 2",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "TRANS_TOPO_001",
+        "description": "Prevent switching that causes unintentional islanding.",
+        "condition": "data.isIslandingRisk == true && action.name == \"OpenBreaker\" || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 2",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TRANS_TOPO_002",
+        "description": "Topology changes on critical buses require human review.",
+        "condition": "data.busCritical == true && action.name == \"SwitchBus\" || ai.giiContext.systemicRiskScore > 0.8 || ai.autonomy.level < 2",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "TRANS_FAULT_001",
+        "description": "Detected line or transformer fault requires immediate isolation.",
+        "condition": "data.faultDetected == true || ai.giiContext.cascadingFailureRisk == true",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TRANS_TEMP_001",
+        "description": "Prevent transformer overheating beyond global safe temperature.",
+        "condition": "data.transformerTempC > ai.globalCode.energy.substation.maxTransformerTempC || ai.giiContext.sectorRiskScore > 0.75 || ai.autonomy.level < 2",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TRANS_GROUND_001",
+        "description": "Ground faults require immediate human review.",
+        "condition": "data.groundFaultDetected == true || ai.giiContext.systemicRiskScore > 0.7",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "TRANS_SCADA_001",
+        "description": "SCADA control requires gov, deepgov, or system trust zone with sufficient autonomy.",
+        "condition": "data.scadaCritical == true && (actor.trustZone != \"gov\" && actor.trustZone != \"deepgov\" && actor.trustZone != \"system\" || ai.autonomy.level < 2)",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TRANS_CYBER_001",
+        "description": "Unauthorized remote access to transmission control systems is denied.",
+        "condition": "env.clientType == \"REMOTE\" && !actor.roles.Contains(\"AUTHORIZED_REMOTE\") || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TRANS_CYBER_002",
+        "description": "Critical transmission SCADA/NOC operations require gov, deepgov, or system trust zone.",
+        "condition": "data.scadaCritical == true && (actor.trustZone != \"gov\" && actor.trustZone != \"deepgov\" && actor.trustZone != \"system\" || ai.autonomy.level < 2)",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TRANS_CYBER_003",
+        "description": "Anomalous behavior in transmission telemetry requires human review.",
+        "condition": "data.behaviorScore > data.anomalyThreshold || ai.giiContext.systemicRiskScore > 0.7",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "TRANS_WORKER_001",
+        "description": "Only certified high-voltage technicians may perform maintenance.",
+        "condition": "action.name == \"MAINTENANCE\" && !actor.roles.Contains(\"HV_TECH\") || ai.autonomy.level < 1",
+        "effect": "DENY"
+  },
+  {
+    "policyId": "HOUSING_BUILDING_CODE_V2",
+    "name": "Housing & Building Code Policy Pack",
+    "version": "2.0.0",
+    "source": "AIEE",
+    "scope": {
+      "resourceTypes": ["BUILDING", "STRUCTURE", "HOUSING_UNIT", "PERMIT", "INSPECTION", "ZONING_AREA"],
+      "actions": ["CONSTRUCT", "MODIFY", "INSPECT", "OCCUPY", "DEMOLISH", "PERMIT", "MAINTENANCE"],
+      "trustZones": ["public", "contractor", "employee", "admin", "gov", "deepgov", "system"]
+    },
+      {
+        "ruleId": "BLDG_ZONING_001",
+        "description": "Prevent construction that violates zoning classification.",
+        "condition": "data.zoningAllowed == false && action.name == \"CONSTRUCT\" || ai.giiContext.sectorRiskScore > 0.8 || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "BLDG_ZONING_002",
+        "description": "Zoning variances require human review.",
+        "condition": "data.requiresVariance == true && action.name == \"CONSTRUCT\" || ai.giiContext.systemicRiskScore > 0.75",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "BLDG_STRUCT_001",
+        "description": "Prevent construction when structural load exceeds global safe limits.",
+        "condition": "data.structuralLoad > ai.globalCode.building.structural.maxStructuralLoad || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 2",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "BLDG_STRUCT_002",
+        "description": "Detected structural defect requires immediate review.",
+        "condition": "data.structuralDefectDetected == true || ai.giiContext.systemicRiskScore > 0.7",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+            {
+        "ruleId": "BLDG_FIRE_001",
+        "description": "Prevent occupancy if fire suppression systems are offline.",
+        "condition": "data.fireSuppressionStatus != \"OPERATIONAL\" && action.name == \"OCCUPY\" || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "BLDG_FIRE_002",
+        "description": "Fire alarm faults require human review.",
+        "condition": "data.fireAlarmFault == true || ai.giiContext.sectorRiskScore > 0.7",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "BLDG_ELEC_001",
+        "description": "Prevent unsafe electrical load beyond panel rating.",
+        "condition": "data.electricalLoad > ai.globalCode.building.electrical.maxElectricalLoad || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "BLDG_ELEC_002",
+        "description": "Electrical system faults require human review.",
+        "condition": "data.electricalFaultDetected == true || ai.giiContext.systemicRiskScore > 0.7",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "BLDG_PLUMB_001",
+        "description": "Prevent occupancy if plumbing system is non-functional.",
+        "condition": "data.plumbingStatus != \"OPERATIONAL\" && action.name == \"OCCUPY\" || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "BLDG_HVAC_001",
+        "description": "Prevent unsafe HVAC operations during extreme temperatures.",
+        "condition": "data.hvacStatus != \"OPERATIONAL\" && data.extremeTemp == true || ai.giiContext.sectorRiskScore > 0.8 || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "BLDG_ADA_001",
+        "description": "Prevent occupancy if ADA accessibility requirements are not met.",
+        "condition": "data.adaCompliant == false && action.name == \"OCCUPY\" || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "BLDG_INSPECT_001",
+        "description": "Inspections must be performed by certified inspectors.",
+        "condition": "action.name == \"INSPECT\" && !actor.roles.Contains(\"CERTIFIED_INSPECTOR\") || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "BLDG_PERMIT_001",
+        "description": "Construction or modification requires an approved permit.",
+        "condition": "(action.name == \"CONSTRUCT\" || action.name == \"MODIFY\") && data.permitApproved != true || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "BLDG_PERMIT_002",
+        "description": "Permit overrides require human review.",
+        "condition": "data.permitOverrideRequested == true || ai.giiContext.systemicRiskScore > 0.7",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "BLDG_DEMO_001",
+        "description": "Demolition requires structural clearance and safety checks.",
+        "condition": "action.name == \"DEMOLISH\" && data.structuralClearance != true || ai.autonomy.level < 2",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "BLDG_RURAL_001",
+        "description": "Rural housing systems require priority protection and review.",
+        "condition": "data.isRuralHousing == true && data.systemHealth < ai.globalCode.building.structural.minRuralHealthThreshold || ai.giiContext.sectorRiskScore > 0.8",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "BLDG_CYBER_001",
+        "description": "Unauthorized remote access to smart building systems is denied.",
+        "condition": "env.clientType == \"REMOTE\" && !actor.roles.Contains(\"AUTHORIZED_REMOTE\") || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "BLDG_CYBER_002",
+        "description": "Critical building automation systems require gov, deepgov, or system trust zone.",
+        "condition": "data.automationCritical == true && (actor.trustZone != \"gov\" && actor.trustZone != \"deepgov\" && actor.trustZone != \"system\") || ai.autonomy.level < 2",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "BLDG_CYBER_003",
+        "description": "Anomalous behavior in building telemetry requires human review.",
+        "condition": "data.behaviorScore > data.anomalyThreshold || ai.giiContext.systemicRiskScore > 0.7",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "policyId": "TELECOM_INFRASTRUCTURE_V2",
+        "name": "Telecom Infrastructure Policy Pack",
+        "version": "2.0.0",
+        "source": "AIEE",
+        "scope": {
+        "resourceTypes": ["CELL_TOWER", "FIBER_NETWORK", "MICROWAVE_LINK", "DATA_CENTER", "SATELLITE_GROUND", "PUBLIC_SAFETY_NETWORK"],
+        "actions": ["CONTROL", "MONITOR", "DISPATCH", "ROUTE", "MAINTENANCE", "SHUTOFF"],
+        "trustZones": ["public", "contractor", "employee", "admin", "gov", "deepgov", "system"]
+      },
+      {
+        "ruleId": "TEL_TOWER_001",
+        "description": "Prevent unsafe tower operations during high wind or structural instability.",
+        "condition": "data.windSpeed > ai.globalCode.telecom.tower.maxWindSpeed || data.structureIntegrity < ai.globalCode.telecom.tower.minStructureIntegrity || ai.giiContext.sectorRiskScore > 0.75 || ai.autonomy.level < 2",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TEL_TOWER_002",
+        "description": "Only certified tower technicians may perform tower maintenance.",
+        "condition": "action.name == \"MAINTENANCE\" && !actor.roles.Contains(\"TOWER_TECH\") || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TEL_RF_001",
+        "description": "Prevent RF output exceeding global safe limits.",
+        "condition": "data.rfOutput > ai.globalCode.telecom.rf.maxRfOutput || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TEL_FIBER_001",
+        "description": "Prevent unsafe fiber splice or cut operations without authorization.",
+        "condition": "action.name == \"CutFiber\" && !actor.roles.Contains(\"FIBER_TECH\") || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TEL_FIBER_002",
+        "description": "Fiber signal loss above global threshold requires human review.",
+        "condition": "data.signalLossDb > ai.globalCode.telecom.fiber.maxSignalLossDb || ai.giiContext.systemicRiskScore > 0.7",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "TEL_BACKHAUL_001",
+        "description": "Prevent microwave backhaul misalignment beyond safe tolerance.",
+        "condition": "data.alignmentError > ai.globalCode.telecom.satellite.maxDishAlignmentError || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 2",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TEL_BACKHAUL_002",
+        "description": "Backhaul congestion above critical threshold requires human review.",
+        "condition": "data.backhaulLoadPercent > ai.globalCode.telecom.backhaul.maxLoadPercent || ai.giiContext.systemicRiskScore > 0.75",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "TEL_SAT_001",
+        "description": "Satellite ground station operations require gov, deepgov, or system trust zone.",
+        "condition": "data.satelliteCritical == true && (actor.trustZone != \"gov\" && actor.trustZone != \"deepgov\" && actor.trustZone != \"system\") || ai.autonomy.level < 2",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TEL_911_001",
+        "description": "Emergency 911 traffic must be prioritized over all other routing.",
+        "condition": "data.callType == \"911\" && action.name == \"RouteCall\" && data.priority != \"HIGH\" || ai.giiContext.cascadingFailureRisk == true",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TEL_PUBLIC_SAFETY_001",
+        "description": "Public safety network operations require human review during outages.",
+        "condition": "data.networkType == \"PUBLIC_SAFETY\" && data.outageDetected == true || ai.giiContext.systemicRiskScore > 0.7",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "TEL_RURAL_001",
+        "description": "Rural broadband systems require priority protection and review.",
+        "condition": "data.isRuralSystem == true && data.systemHealth < ai.globalCode.telecom.rural.minHealthThreshold || ai.giiContext.sectorRiskScore > 0.8",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "TEL_DATA_CENTER_001",
+        "description": "Prevent unsafe temperature or power conditions in telecom data centers.",
+        "condition": "data.tempC > ai.globalCode.telecom.datacenter.maxTempC || data.powerLoadPercent > ai.globalCode.telecom.datacenter.maxPowerLoadPercent || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 2",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TEL_CYBER_001",
+        "description": "Unauthorized remote access to telecom control systems is denied.",
+        "condition": "env.clientType == \"REMOTE\" && !actor.roles.Contains(\"AUTHORIZED_REMOTE\") || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TEL_CYBER_002",
+        "description": "Critical telecom SCADA/NOC operations require gov, deepgov, or system trust zone.",
+        "condition": "data.scadaCritical == true && (actor.trustZone != \"gov\" && actor.trustZone != \"deepgov\" && actor.trustZone != \"system\") || ai.autonomy.level < 2",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TEL_CYBER_003",
+        "description": "Anomalous behavior in telecom telemetry requires human review.",
+        "condition": "data.behaviorScore > data.anomalyThreshold || ai.giiContext.systemicRiskScore > 0.7",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+
+  {
+    "policyId": "TRANSPORT_INFRASTRUCTURE_V2",
+    "name": "Transportation Infrastructure Policy Pack",
+    "version": "2.0.0",
+    "source": "AIEE",
+    "scope": {
+      "resourceTypes": ["ROAD", "BRIDGE", "TUNNEL", "RAIL_SYSTEM", "AIRPORT", "SEAPORT", "TRAFFIC_CONTROL", "LOGISTICS_CORRIDOR"],
+      "actions": ["CONTROL", "MONITOR", "DISPATCH", "ROUTE", "MAINTENANCE", "SHUTOFF", "RESTRICT"],
+      "trustZones": ["public", "contractor", "employee", "admin", "gov", "deepgov", "system"]
+    },
+      {
+        "ruleId": "TRANS_ROAD_001",
+        "description": "Prevent unauthorized road closures.",
+        "condition": "action.name == \"CloseRoad\" && !actor.roles.Contains(\"TRANSPORT_ADMIN\") || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TRANS_ROAD_002",
+        "description": "Road surface conditions below global safety threshold require review.",
+        "condition": "data.roadConditionIndex < ai.globalCode.transport.road.minConditionIndex || ai.giiContext.sectorRiskScore > 0.75",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "TRANS_BRIDGE_001",
+        "description": "Prevent operations on structurally unsafe bridges.",
+        "condition": "data.bridgeIntegrity < ai.globalCode.transport.bridge.minIntegrity || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 2",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TRANS_BRIDGE_002",
+        "description": "Bridge overload risk requires human review.",
+        "condition": "data.loadPercent > ai.globalCode.transport.bridge.maxLoadPercent || ai.giiContext.systemicRiskScore > 0.7",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "TRANS_TUNNEL_001",
+        "description": "Prevent unsafe tunnel ventilation conditions.",
+        "condition": "data.airQualityIndex > ai.globalCode.transport.tunnel.maxAirQualityIndex || ai.giiContext.sectorRiskScore > 0.8 || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TRANS_RAIL_001",
+        "description": "Prevent unsafe rail switching operations.",
+        "condition": "data.switchFault == true && action.name == \"SwitchTrack\" || ai.autonomy.level < 2",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TRANS_RAIL_002",
+        "description": "Hazardous cargo routing requires human review.",
+        "condition": "data.cargoType == \"HAZMAT\" && action.name == \"RouteTrain\" || ai.giiContext.systemicRiskScore > 0.75",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "TRANS_RAIL_003",
+        "description": "Prevent rail operations during detected track defects.",
+        "condition": "data.trackDefectDetected == true || ai.giiContext.cascadingFailureRisk == true",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TRANS_AIRPORT_001",
+        "description": "Runway operations require safe visibility and weather conditions.",
+        "condition": "data.visibility < ai.globalCode.transport.airport.minVisibility || data.windSpeed > ai.globalCode.transport.airport.maxWindSpeed || ai.autonomy.level < 2",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TRANS_AIRPORT_002",
+        "description": "Critical runway closures require human review.",
+        "condition": "action.name == \"CloseRunway\" && data.runwayCritical == true || ai.giiContext.systemicRiskScore > 0.8",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "TRANS_SEAPORT_001",
+        "description": "Prevent unsafe port operations during high tide or storm surge.",
+        "condition": "data.stormSurgeRisk == \"HIGH\" || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 2",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TRANS_SEAPORT_002",
+        "description": "Hazardous cargo loading requires human review.",
+        "condition": "data.cargoType == \"HAZMAT\" && action.name == \"LoadCargo\" || ai.giiContext.systemicRiskScore > 0.75",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "TRANS_TRAFFIC_001",
+        "description": "Traffic signal overrides require authorized personnel.",
+        "condition": "action.name == \"OverrideSignal\" && !actor.roles.Contains(\"TRAFFIC_CONTROL\") || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TRANS_TRAFFIC_002",
+        "description": "Emergency vehicle routing must be prioritized.",
+        "condition": "data.vehicleType == \"EMERGENCY\" && action.name == \"RouteVehicle\" && data.priority != \"HIGH\" || ai.giiContext.cascadingFailureRisk == true",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TRANS_LOGISTICS_001",
+        "description": "Prevent routing of heavy freight through restricted corridors.",
+        "condition": "data.freightWeight > ai.globalCode.transport.logistics.maxCorridorWeight || ai.autonomy.level < 2",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TRANS_AUTONOMOUS_001",
+        "description": "Autonomous vehicle corridor operations require safe sensor conditions.",
+        "condition": "data.sensorHealth < ai.globalCode.transport.autonomous.minSensorHealth || ai.giiContext.systemicRiskScore > 0.7",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TRANS_CYBER_001",
+        "description": "Unauthorized remote access to transportation control systems is denied.",
+        "condition": "env.clientType == \"REMOTE\" && !actor.roles.Contains(\"AUTHORIZED_REMOTE\") || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TRANS_CYBER_002",
+        "description": "Critical transportation SCADA/NOC operations require gov, deepgov, or system trust zone.",
+        "condition": "data.scadaCritical == true && (actor.trustZone != \"gov\" && actor.trustZone != \"deepgov\" && actor.trustZone != \"system\") || ai.autonomy.level < 2",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TRANS_CYBER_003",
+        "description": "Anomalous behavior in transportation telemetry requires human review.",
+        "condition": "data.behaviorScore > data.anomalyThreshold || ai.giiContext.systemicRiskScore > 0.7",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "TRANS_WORKER_001",
+        "description": "Only certified transportation technicians may perform maintenance.",
+        "condition": "action.name == \"MAINTENANCE\" && !actor.roles.Contains(\"TRANSPORT_TECH\") || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+      {
+        "policyId": "WATER_WASTEWATER_V2",
+        "name": "Wastewater Infrastructure Policy Pack",
+        "version": "2.0.0",
+        "source": "AIEE",
+        "scope": {
+        "resourceTypes": ["WASTEWATER_SYSTEM", "TREATMENT_PLANT", "LIFT_STATION", "SLUDGE_SYSTEM", "CSO_SYSTEM"],
+        "actions": ["CONTROL", "MONITOR", "DISPATCH", "TREAT", "DISCHARGE", "MAINTENANCE", "SHUTOFF"],
+        "trustZones": ["public", "contractor", "employee", "admin", "gov", "deepgov", "system"]
+      },
+      {
+        "ruleId": "WW_TREAT_001",
+        "description": "Prevent discharge of untreated or partially treated wastewater.",
+        "condition": "action.name == \"Discharge\" && data.treatmentStatus != \"TREATED\" || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 2",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "WW_TREAT_002",
+        "description": "High pathogen levels require immediate shutdown and review.",
+        "condition": "data.pathogenCount > ai.globalCode.wastewater.treatment.maxPathogenCount || ai.giiContext.systemicRiskScore > 0.75",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "WW_CHEM_001",
+        "description": "Prevent unsafe chemical dosing in wastewater treatment.",
+        "condition": "data.chemicalDose > ai.globalCode.wastewater.treatment.maxChemicalDose || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "WW_TOX_001",
+        "description": "High toxicity index requires human review.",
+        "condition": "data.toxicityIndex > ai.globalCode.wastewater.treatment.maxToxicityIndex || ai.giiContext.sectorRiskScore > 0.7",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "WW_FLOW_001",
+        "description": "Prevent unsafe flow rates that may damage wastewater infrastructure.",
+        "condition": "data.flowRate > ai.globalCode.wastewater.flow.maxFlowRate || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 2",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "WW_PRESSURE_001",
+        "description": "Prevent unsafe pressure levels in wastewater systems.",
+        "condition": "data.pressurePsi > ai.globalCode.wastewater.pressure.maxPressurePsi || data.pressurePsi < ai.globalCode.wastewater.pressure.minPressurePsi || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "WW_LIFT_001",
+        "description": "Lift station pump failures require immediate shutdown.",
+        "condition": "data.pumpStatus == \"FAULT\" || ai.giiContext.cascadingFailureRisk == true",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "WW_LIFT_002",
+        "description": "Critical lift station operations require human review.",
+        "condition": "action.name == \"StartPump\" && data.pumpCritical == true || ai.giiContext.systemicRiskScore > 0.7",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "WW_SLUDGE_001",
+        "description": "Prevent unsafe sludge processing conditions.",
+        "condition": "data.sludgeTempF > ai.globalCode.wastewater.sludge.maxSludgeTempF || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "WW_CSO_001",
+        "description": "Combined sewer overflow risk requires human review.",
+        "condition": "data.csoRisk == \"HIGH\" || ai.giiContext.sectorRiskScore > 0.75",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "WW_ENV_001",
+        "description": "Prevent discharge during high environmental risk conditions.",
+        "condition": "data.environmentalRisk == \"HIGH\" || ai.giiContext.cascadingFailureRisk == true",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "WW_RURAL_001",
+        "description": "Rural wastewater systems require priority protection and review.",
+        "condition": "data.isRuralSystem == true && data.systemHealth < ai.globalCode.wastewater.rural.minHealthThreshold || ai.giiContext.sectorRiskScore > 0.8",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "WW_SCADA_001",
+        "description": "SCADA control requires gov, deepgov, or system trust zone with sufficient autonomy.",
+        "condition": "data.scadaCritical == true && (actor.trustZone != \"gov\" && actor.trustZone != \"deepgov\" && actor.trustZone != \"system\" || ai.autonomy.level < 2)",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "WW_CYBER_001",
+        "description": "Unauthorized remote access to wastewater control systems is denied.",
+        "condition": "env.clientType == \"REMOTE\" && !actor.roles.Contains(\"AUTHORIZED_REMOTE\") || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "WW_CYBER_002",
+        "description": "Anomalous behavior in wastewater telemetry requires human review.",
+        "condition": "data.behaviorScore > data.anomalyThreshold || ai.giiContext.systemicRiskScore > 0.7",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "WW_WORKER_001",
+        "description": "Only certified wastewater technicians may perform maintenance.",
+        "condition": "action.name == \"MAINTENANCE\" && !actor.roles.Contains(\"WASTEWATER_TECH\") || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+        {
+    "policyId": "WATER_INFRASTRUCTURE_V2",
+    "name": "Water Infrastructure Policy Pack",
+    "version": "2.0.0",
+    "source": "AIEE",
+    "scope": {
+      "resourceTypes": ["WATER_SYSTEM", "TREATMENT_PLANT", "PUMP_STATION", "RESERVOIR", "WASTEWATER_SYSTEM", "STORMWATER_SYSTEM"],
+      "actions": ["CONTROL", "MONITOR", "DISPATCH", "TREAT", "SHUTOFF", "MAINTENANCE"],
+      "trustZones": ["public", "contractor", "employee", "admin", "gov", "deepgov", "system"]
+    },
+      {
+        "ruleId": "WATER_QUALITY_001",
+        "description": "Prevent distribution of water that fails minimum global quality standards.",
+        "condition": "data.contaminationLevel > ai.globalCode.water.quality.maxContamination || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 2",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "WATER_QUALITY_002",
+        "description": "Detected biological contamination requires immediate shutdown and review.",
+        "condition": "data.biologicalContamination == true || ai.giiContext.systemicRiskScore > 0.75",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "WATER_CHEM_001",
+        "description": "Prevent unsafe chemical dosing in treatment processes.",
+        "condition": "data.chemicalDose > ai.globalCode.water.quality.maxChemicalDose || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "WATER_PRESSURE_001",
+        "description": "Prevent unsafe pressure levels in water distribution systems.",
+        "condition": "data.pressurePsi > ai.globalCode.water.pressure.maxPressurePsi || data.pressurePsi < ai.globalCode.water.pressure.minPressurePsi || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "WATER_FLOW_001",
+        "description": "Prevent unsafe flow rates that may damage infrastructure.",
+        "condition": "data.flowRate > ai.globalCode.water.flow.maxFlowRate || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 2",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "WATER_PUMP_001",
+        "description": "Pump failures require immediate shutdown.",
+        "condition": "data.pumpStatus == \"FAULT\" || ai.giiContext.cascadingFailureRisk == true",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "WATER_PUMP_002",
+        "description": "Critical pump operations require human review.",
+        "condition": "action.name == \"StartPump\" && data.pumpCritical == true || ai.giiContext.systemicRiskScore > 0.7",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "WATER_LEVEL_001",
+        "description": "Prevent reservoir overflow or unsafe low levels.",
+        "condition": "data.waterLevel > ai.globalCode.water.storage.maxReservoirLevel || data.waterLevel < ai.globalCode.water.storage.minReservoirLevel || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "WATER_WASTE_001",
+        "description": "Prevent untreated wastewater discharge.",
+        "condition": "action.name == \"Discharge\" && data.wastewaterTreatmentStatus != \"TREATED\" || ai.autonomy.level < 2",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "WATER_WASTE_002",
+        "description": "High toxicity in wastewater requires human review.",
+        "condition": "data.toxicityIndex > ai.globalCode.wastewater.treatment.maxToxicityIndex || ai.giiContext.sectorRiskScore > 0.7",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "WATER_STORM_001",
+        "description": "Stormwater overflow risk requires human review.",
+        "condition": "data.stormwaterRisk == \"HIGH\" || ai.giiContext.systemicRiskScore > 0.75",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "WATER_RURAL_001",
+        "description": "Rural water systems require priority protection and review.",
+        "condition": "data.isRuralSystem == true && data.systemHealth < ai.globalCode.water.rural.minHealthThreshold || ai.giiContext.sectorRiskScore > 0.8",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "WATER_CYBER_001",
+        "description": "SCADA control requires gov, deepgov, or system trust zone with sufficient autonomy.",
+        "condition": "data.scadaCritical == true && (actor.trustZone != \"gov\" && actor.trustZone != \"deepgov\" && actor.trustZone != \"system\" || ai.autonomy.level < 2)",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "WATER_CYBER_002",
+        "description": "Unauthorized remote access to water control systems is denied.",
+        "condition": "env.clientType == \"REMOTE\" && !actor.roles.Contains(\"AUTHORIZED_REMOTE\") || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "WATER_CYBER_003",
+        "description": "Anomalous behavior in water telemetry requires human review.",
+        "condition": "data.behaviorScore > data.anomalyThreshold || ai.giiContext.systemicRiskScore > 0.7",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "WATER_WORKER_001",
+        "description": "Only certified water technicians may perform maintenance.",
+        "condition": "action.name == \"MAINTENANCE\" && !actor.roles.Contains(\"WATER_TECH\") || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+  {
+    "policyId": "ENERGY_WIND_TURBINE_SAFETY_V2",
+    "name": "Wind Turbine Safety Policy Pack",
+    "version": "2.0.0",
+    "source": "AIEE",
+    "scope": {
+      "resourceTypes": ["TURBINE", "WIND_FARM", "SUBSTATION"],
+      "actions": ["START", "STOP", "MAINTENANCE", "ACCESS", "CONTROL"],
+      "trustZones": ["public", "contractor", "employee", "admin", "gov", "deepgov", "system"]
+    },
+      {
+        "ruleId": "TURBINE_MECH_001",
+        "description": "Prevent rotor overspeed beyond global safe limits.",
+        "condition": "data.rotorRpm > ai.globalCode.energy.wind.maxRotorRpm || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 2",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TURBINE_WEATHER_002",
+        "description": "High wind shutdown requires human review.",
+        "condition": "data.windSpeed > ai.globalCode.energy.wind.cutoutWindSpeed || ai.giiContext.systemicRiskScore > 0.75",
+        "effect": "REQUIRE_HUMAN_REVIEW"
+      },
+      {
+        "ruleId": "TURBINE_WORKER_003",
+        "description": "Only certified turbine technicians may climb or perform maintenance.",
+        "condition": "action.name == \"MAINTENANCE\" && !actor.roles.Contains(\"TURBINE_TECH\") || ai.autonomy.level < 1",
+        "effect": "DENY"
+      },
+      {
+        "ruleId": "TURBINE_CYBER_004",
+        "description": "Critical turbine assets require gov, deepgov, or system trust zone with sufficient autonomy.",
+        "condition": "data.assetCritical == true && (actor.trustZone != \"gov\" && actor.trustZone != \"deepgov\" && actor.trustZone != \"system\") || ai.autonomy.level < 2",
+        "effect": "DENY"
+      }
+    ]
+  }

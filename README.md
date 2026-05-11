@@ -156,3 +156,28 @@ Federal acquisition security expectations
 Donor‑funded program requirements
 
 Industry best practices for secure development
+
+Global Infrastructure Advisory — Policy Enforcement Commitment
+Global Infrastructure Advisory is committed to upholding the highest standards of scientific integrity, ethical AI behavior, and evidence‑based governance. Our platform integrates the following authorities directly into its operational logic:
+
+OSTP Scientific Integrity Policy
+
+OMB M‑14‑06
+
+OMB M‑20‑12
+
+DHS Computer Matching Programs
+
+NCES Data Ethics Guide
+
+Common Rule
+
+OGE Misconduct Reporting
+
+OMB Survey Design Standards
+
+IC AI Ethics Principles
+
+IC AI Ethics Framework
+
+These authorities form the foundation of a self‑auditing, self‑correcting governance system designed to operate responsibly for centuries.

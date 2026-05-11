@@ -1,1 +1,49 @@
+{
+  "embeddingsId": "GLOBAL_EMBEDDINGS_V12_ALPHA",
+  "version": "1.0.0",
+  "model": "text-embedding-3-large",
+  "dimensions": 3072,
+  "vectorStore": "r2-object-storage",
+  "indexes": [
+    {
+      "name": "farmer_docs",
+      "chunkSize": 512,
+      "overlap": 64,
+      "trustZone": "public",
+      "autonomyLevel": 1
+    },
+    {
+      "name": "contractor_docs",
+      "chunkSize": 512,
+      "overlap": 64,
+      "trustZone": "contractor",
+      "autonomyLevel": 1
+    },
+    {
+      "name": "public_docs",
+      "chunkSize": 512,
+      "overlap": 64,
+      "trustZone": "public",
+      "autonomyLevel": 1
+    },
+    {
+      "name": "gov_docs",
+      "chunkSize": 512,
+      "overlap": 64,
+      "trustZone": "gov",
+      "autonomyLevel": 2
+    },
+    {
+      "name": "deepgov_docs",
+      "chunkSize": 512,
+      "overlap": 64,
+      "trustZone": "deepgov",
+      "autonomyLevel": 3
+    }
+  ],
+  "security": {
+    "trustZone": "system",
+    "autonomyLevel": 3
+  }
+}
 

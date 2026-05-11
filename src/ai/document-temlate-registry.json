@@ -1,0 +1,62 @@
+{
+  "registryId": "GLOBAL_DOCUMENT_TEMPLATE_REGISTRY_V12_ALPHA",
+  "version": "1.0.0",
+  "description": "Unified registry for all document templates across trustZones and sectors.",
+  "templates": [
+    {
+      "templateId": "FARMER_IRRIGATION_SAFETY_V1",
+      "name": "Farmer Irrigation Safety Sheet",
+      "file": "farmer-irrigation-safety.html",
+      "trustZone": "farmer",
+      "sector": "water",
+      "docType": "safety",
+      "placeholders": ["name", "farmName", "location", "date"],
+      "version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "templateId": "CONTRACTOR_ONBOARDING_PACKET_V1",
+      "name": "Contractor Onboarding Packet",
+      "file": "contractor-onboarding.html",
+      "trustZone": "contractor",
+      "sector": "building",
+      "docType": "program",
+      "placeholders": ["contractorName", "company", "licenseId", "startDate"],
+      "version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "templateId": "PUBLIC_WATER_QUALITY_REPORT_V1",
+      "name": "Public Water Quality Report",
+      "file": "public-water-quality.html",
+      "trustZone": "public",
+      "sector": "water",
+      "docType": "report",
+      "placeholders": ["city", "reportDate", "contaminantLevels"],
+      "version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "templateId": "GOV_COMPLIANCE_REPORT_V1",
+      "name": "Government Compliance Report",
+      "file": "gov-compliance-report.html",
+      "trustZone": "gov",
+      "sector": "energy",
+      "docType": "policy",
+      "placeholders": ["agency", "reportDate", "complianceStatus", "notes"],
+      "version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "templateId": "DEEPGOV_CRITICAL_EVENT_BRIEF_V1",
+      "name": "DeepGov Critical Event Brief",
+      "file": "deepgov-critical-event.html",
+      "trustZone": "deepgov",
+      "sector": "telecom",
+      "docType": "policy",
+      "placeholders": ["eventId", "timestamp", "severity", "intelSummary"],
+      "version": "1.0.0",
+      "status": "active"
+    }
+  ]
+}

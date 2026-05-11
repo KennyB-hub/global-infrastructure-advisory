@@ -1,0 +1,11 @@
+public class GiiContext
+{
+    public double SystemicRiskScore { get; set; }      // 0–1
+    public double SectorRiskScore { get; set; }        // 0–1
+    public string Sector { { get; set; }               // "ENERGY", "WATER", etc.
+    public string AssetId { get; set; }
+    public bool CascadingFailureRisk { get; set; }
+    public string[] AffectedSectors { get; set; }
+    public string[] RecommendedActions { get; set; }
+    public int TimeHorizonMinutes { get; set; }
+}

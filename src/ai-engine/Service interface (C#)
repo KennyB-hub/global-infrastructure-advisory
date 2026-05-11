@@ -1,0 +1,6 @@
+public interface IEnforcementEngine
+{
+    Task<EnforcementResponse> EvaluateAsync(
+        EnforcementRequest request,
+        CancellationToken cancellationToken = default);
+}

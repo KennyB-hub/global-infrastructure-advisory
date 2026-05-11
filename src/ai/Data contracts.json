@@ -1,0 +1,35 @@
+{
+  "requestId": "uuid",
+  "timestamp": "ISO-8601",
+  "actor": {
+    "userId": "string",
+    "roles": ["Admin", "Contractor", "Gov"],
+    "trustZone": "public|farmer|contractor|employee|admin|gov|deepgov|system",
+    "hub": "PublicHub|FarmerHub|AdminHub|SystemHub|..."
+  },
+  "action": {
+    "type": "READ|WRITE|EXECUTE|EVALUATE|DEPLOY|MATCH|SURVEY",
+    "name": "CreateEvaluationPlan|RunAIModel|AccessDataset|...",
+    "resourceType": "DATASET|MODEL|WORKFLOW|DOCUMENT|ENDPOINT",
+    "resourceId": "string"
+  },
+  "dataContext": {
+    "containsHumanSubjects": true,
+    "containsPII": true,
+    "containsClassified": false,
+    "sourceSystem": "HR|Payroll|Zoning|NCES|DHS|...",
+    "intendedUse": "STATISTICAL|OPERATIONAL|RESEARCH|EVALUATION"
+  },
+  "aiContext": {
+    "modelId": "string",
+    "modelType": "LLM|ML|RULE_ENGINE",
+    "explainabilityRequired": true,
+    "humanInLoopRequired": true
+  },
+  "environment": {
+    "ip": "string",
+    "location": "string",
+    "clientType": "WEB|API|BATCH",
+    "version": "v12-alpha"
+  }
+}
