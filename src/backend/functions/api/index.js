@@ -6,6 +6,7 @@ import { handleSectorStatus } from "./sector-status.js";
 import { handleGlobalMap, handleSectorMap } from "./map.js";
 import { handleAuthLogin } from "./auth-login.js";
 import { handleAuthCallback } from "./auth-callback.js";
+import { openIncidentsFromAlerts } from "../ai/incident-response-workflow.js";
 
 // --- V12 Alpha Utility Imports (you already have these in your system layer) ---
 import { buildSovereignMetadata } from "../system/metadata.js";
@@ -78,6 +79,12 @@ export async function handleApiRequest(request, env, ctx) {
     if (path === "/api/map/global") {
       return sovereignWrap(await handleGlobalMap(request), sovereign, ai);
     }
+     
+    // Incident Scan (Dashboard Button)
+if (path === "/api/security/incidents/scan" && request.method === "POST") {
+  const incidents = openIncidentsFromAlerts();
+  return sovereignWrap({ created: incidents.length, incidents }, sovereign, ai);
+}
 
     // Auth Login
     if (path === "/api/auth/login") {
