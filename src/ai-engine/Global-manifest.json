@@ -160,7 +160,7 @@
       "description": "Only gov or deepgov may access this dataset.",
       "condition": "action.resourceId == \"DATASET_X\" && (actor.trustZone == \"gov\" || actor.trustZone == \"deepgov\")",
       "effect": "ALLOW"
-    },
+    }
   ]
 }
 
