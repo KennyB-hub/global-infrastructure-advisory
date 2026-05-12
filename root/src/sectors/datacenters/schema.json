@@ -1,0 +1,8 @@
+{
+  "sector": "datacenters",
+  "description": "datacenters & infrastructure",
+  "endpoints": {
+    "status": "/datacenters/status",
+    "dispatch": "/datacenters/dispatch"
+  }
+}

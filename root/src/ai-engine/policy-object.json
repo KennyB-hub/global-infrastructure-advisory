@@ -1,0 +1,31 @@
+{
+  "policyId": "OMB_M-14-06_ADMIN_DATA_USE",
+  "name": "Administrative Data for Statistical Purposes",
+  "version": "1.0.0",
+  "source": "OMB_M-14-06",
+  "scope": {
+    "resourceTypes": ["DATASET"],
+    "actions": ["READ", "MATCH"],
+    "trustZones": ["gov", "deepgov", "system"]
+  },
+  "rules": [
+    {
+      "ruleId": "R1",
+      "description": "Administrative data may only be used for statistical purposes.",
+      "condition": "dataContext.intendedUse == 'STATISTICAL'",
+      "effect": "ALLOW"
+    },
+    {
+      "ruleId": "R2",
+      "description": "Operational use of administrative data is prohibited.",
+      "condition": "dataContext.intendedUse == 'OPERATIONAL'",
+      "effect": "DENY"
+    }
+  ],
+  "metadata": {
+    "createdAt": "ISO-8601",
+    "updatedAt": "ISO-8601",
+    "author": "System",
+    "tags": ["OMB", "ADMIN_DATA", "STATISTICAL"]
+  }
+}

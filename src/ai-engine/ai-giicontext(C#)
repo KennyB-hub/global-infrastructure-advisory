@@ -1,9 +1,0 @@
-public class GiiContext
-{
-    public double SystemicRiskScore { get; set; }
-    public double SectorRiskScore { get; set; }
-    public bool CascadingFailureRisk { get; set; }
-    public string[] AffectedSectors { get; set; }
-    public string[] RecommendedActions { get; set; }
-    public int TimeHorizonMinutes { get; set; }
-}

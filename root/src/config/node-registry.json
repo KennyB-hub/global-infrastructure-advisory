@@ -1,0 +1,33 @@
+{
+  "clusters": [
+    {
+      "name": "NATO-EU-PRIMARY",
+      "hostname": "hub.nato-aligned.gia.int",
+      "port": 443,
+      "tls": true,
+      "sector": "GOV_NATO"
+    },
+    {
+      "name": "AGRI-SEC-US",
+      "hostname": "field-node-01.gia.ag",
+      "port": 42069,
+      "sector": "AGRI_INFRA"
+    }
+  ]
+}
+
+{
+  "system_defaults": {
+    "max_latency_ms": 1500,
+    "retry_threshold": 3,
+    "auto_reboot_on_lazy": true
+  },
+  "clusters": [
+    {
+      "name": "DEEP-MIND-CORE",
+      "sector": "AI_LOGIC",
+      "status": "ACTIVE",
+      "health_score": 100
+    }
+  ]
+}

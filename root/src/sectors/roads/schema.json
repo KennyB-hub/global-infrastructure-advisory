@@ -1,0 +1,8 @@
+{
+  "sector": "roads",
+  "description": "roads & extraction infrastructure",
+  "endpoints": {
+    "status": "/roads/status",
+    "dispatch": "/roads/dispatch"
+  }
+}

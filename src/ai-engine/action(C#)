@@ -1,6 +1,0 @@
-public class ActionDescriptor
-{
-    public string Name { get; set; }       // e.g., "OpenBreaker"
-    public string Category { get; set; }   // CONTROL, MONITOR, DISPATCH, etc.
-    public string Sector { get; set; }     // ENERGY, WATER, TELECOM, etc.
-}

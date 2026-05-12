@@ -1,0 +1,123 @@
+/**
+ * debug-worker.js
+ * ----------------
+ * Transparent debugging Worker for GIA Deep Mind 2100.
+ * No trust-zones, no governor, no policy filters.
+ * Logs everything and returns raw AI engine output.
+ */
+
+// /workers/debug/debug-worker.js
+// GIA Sovereign Debug Worker – V12 Alpha
+// Raw AI execution surface (no trust zones, no filters)
+
+import { AI } from "../ai/engine.js";
+
+import systemManifest from "../../config/system-manifest.json" assert { type: "json" };
+import nodeRegistry from "../../config/node-registry.json" assert { type: "json" };
+import clusterHealth from "../../config/cluster-health.json" assert { type: "json" };
+
+// Unified JSON responder
+function json(data, status = 200) {
+  return new Response(JSON.stringify(data, null, 2), {
+    status,
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "GIA-Platform-ID": systemManifest.platform_id,
+      "GIA-Version": systemManifest.version
+    }
+  });
+}
+
+export default {
+  async fetch(request, env, ctx) {
+    const url = new URL(request.url);
+
+    //
+    // 1. DEBUG METADATA
+    //
+    const debugInfo = {
+      worker: "debug-worker",
+      method: request.method,
+      path: url.pathname,
+      timestamp: new Date().toISOString(),
+      cf: request.cf || null,
+
+      platform: {
+        id: systemManifest.platform_id,
+        version: systemManifest.version,
+        failsafe: systemManifest.failsafe_level
+      },
+
+      nodes: nodeRegistry.clusters.map(c => ({
+        name: c.name,
+        sector: c.sector,
+        hostname: c.hostname,
+        port: c.port,
+        tls: c.tls
+      })),
+
+      clusters: clusterHealth.clusters.map(c => ({
+        name: c.name,
+        sector: c.sector,
+        status: c.status,
+        health_score: c.health_score
+      })),
+
+      ai: {
+        engineAvailable: typeof AI?.run === "function",
+        binding: AI?.binding || "unknown"
+      }
+    };
+
+    //
+    // 2. GET → return debug metadata
+    //
+    if (request.method !== "POST") {
+      return json({
+        message: "Debug Worker online",
+        instructions: "Send POST with JSON to test AI engine.",
+        debug: debugInfo
+      });
+    }
+
+    //
+    // 3. Parse JSON
+    //
+    let payload;
+    try {
+      payload = await request.json();
+    } catch (err) {
+      return json({
+        error: "Invalid JSON body",
+        details: err.message,
+        debug: debugInfo
+      }, 400);
+    }
+
+    //
+    // 4. RAW AI EXECUTION (no trust zones, no filters)
+    //
+    let result;
+    try {
+      result = await AI.run(payload, env);
+    } catch (err) {
+      return json({
+        error: "AI engine threw an exception",
+        details: err.message,
+        stack: err.stack,
+        payload,
+        debug: debugInfo
+      }, 500);
+    }
+
+    //
+    // 5. Return raw engine output + sovereign debug metadata
+    //
+    return json({
+      debug: debugInfo,
+      payload,
+      result
+    });
+  }
+};

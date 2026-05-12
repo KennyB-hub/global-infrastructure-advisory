@@ -1,0 +1,8 @@
+{
+  "sector": "ports",
+  "description": "ports & extraction infrastructure",
+  "endpoints": {
+    "status": "/ports/status",
+    "dispatch": "/ports/dispatch"
+  }
+}

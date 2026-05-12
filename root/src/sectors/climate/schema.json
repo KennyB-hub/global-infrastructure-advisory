@@ -1,0 +1,8 @@
+{
+  "sector": "climate",
+  "description": "Climate & environmental resilience",
+  "endpoints": {
+    "status": "/climate/status",
+    "dispatch": "/climate/dispatch"
+  }
+}
