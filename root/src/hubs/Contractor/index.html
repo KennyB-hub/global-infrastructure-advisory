@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-contractor">
+<head>
+  <meta charset="UTF-8" />
+  <title>GIA — Contractor Hub</title>
+  <link rel="stylesheet" href="/assets/css/_root.css" />
+  <link rel="stylesheet" href="/assets/css/themes.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="top-nav">
+      <div class="brand-block">
+        <img src="/assets/logo.svg" class="brand-logo" alt="GIA" />
+        <div>
+          <div class="brand-text">Global Infrastructure Advisory</div>
+          <div class="brand-text">Contractor Hub</div>
+        </div>
+      </div>
+      <nav class="nav-links" id="contractor-nav"></nav>
+    </header>
+
+    <section class="hero-shell">
+      <div class="hero-main">
+        <div class="hero-kicker">
+          <span class="hero-kicker-dot"></span>
+          Operational Infrastructure
+        </div>
+        <h1 class="hero-title">
+          AI‑guided <span>field operations</span> for critical infrastructure.
+        </h1>
+        <p class="hero-body">
+          See live sector status, accept jobs, and dispatch actions directly into the infrastructure fabric.
+        </p>
+        <div class="hero-actions">
+          <button class="btn-primary" id="btn-load-jobs">View Jobs</button>
+          <button class="btn-secondary" id="btn-sector-status">Sector Status</button>
+        </div>
+      </div>
+
+      <div class="hero-orbit">
+        <canvas id="hologram-canvas"></canvas>
+        <div id="agri-logs">
+          <div id="contractor-logs"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Jobs</div>
+          <div class="section-sub">AI‑prioritized work orders</div>
+        </div>
+        <div class="pill-muted" id="jobs-meta">No jobs loaded</div>
+      </div>
+      <div class="sectors-grid" id="jobs-grid"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Dispatch</div>
+          <div class="section-sub">Send actions into live sectors</div>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <input id="dispatch-sector" placeholder="sector-id" style="padding:8px 10px;border-radius:999px;border:1px solid var(--border);background:var(--bg-soft);color:var(--text-main);min-width:140px;" />
+        <input id="dispatch-action" placeholder="action" style="padding:8px 10px;border-radius:999px;border:1px solid var(--border);background:var(--bg-soft);color:var(--text-main);min-width:160px;" />
+        <button class="btn-primary" id="btn-dispatch">Dispatch</button>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <span>GIA Contractor Hub · 2050 Interface</span>
+      <span id="contractor-footer-status">AI link: connecting…</span>
+    </footer>
+  </div>
+
+  <script type="module" src="/hubs/contractor/dashboard.js"></script>
+</body>
+</html>

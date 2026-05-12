@@ -1,0 +1,225 @@
+{
+  "ai": {
+    "globalCode": {
+      "building": {
+        "structural": {
+          "maxStructuralLoad": 120.0,
+          "seismicDesignCoefficient": 0.35,
+          "windDesignSpeed": 120.0,
+          "snowLoad": 40.0
+        },
+        "fire": {
+          "maxEgressDistance": 30.0,
+          "minExitCount": 2,
+          "sprinklerRequired": true
+        },
+        "accessibility": {
+          "requiresRamp": true,
+          "minDoorWidthInches": 36,
+          "elevatorRequiredAboveFloors": 3
+        },
+        "energyEfficiency": {
+          "minRValueWall": 13.0,
+          "minRValueRoof": 30.0,
+          "maxUValueWindow": 0.32
+        }
+      },
+
+      "energy": {
+        "grid": {
+          "minFrequency": 59.5,
+          "maxFrequency": 60.5,
+          "maxVoltageKv": 500.0,
+          "maxLineLoadingPercent": 100.0
+        },
+        "generation": {
+          "maxRampRateMwPerMin": 50.0,
+          "minSpinningReservePercent": 10.0,
+          "maxThermalOutputPercent": 100.0
+        },
+        "substation": {
+          "maxTransformerLoadingPercent": 100.0,
+          "maxTransformerTempC": 110.0,
+          "maxArcFlashRisk": 0.7
+        },
+        "pipeline": {
+          "maxPressurePsi": 1200.0,
+          "minPressurePsi": 200.0,
+          "maxFlowRate": 10000.0
+        }
+      },
+
+      "water": {
+        "quality": {
+          "maxContamination": 0.01,
+          "maxPathogenCount": 100,
+          "maxToxicityIndex": 1.0,
+          "maxTurbidity": 5.0
+        },
+        "pressure": {
+          "minPressurePsi": 40.0,
+          "maxPressurePsi": 120.0
+        },
+        "storage": {
+          "minReservoirLevel": 0.2,
+          "maxReservoirLevel": 0.95
+        }
+      },
+
+      "wastewater": {
+        "treatment": {
+          "minTreatmentLevel": "SECONDARY",
+          "maxPathogenCount": 200,
+          "maxToxicityIndex": 1.5
+        },
+        "flow": {
+          "maxFlowRate": 8000.0
+        },
+        "cso": {
+          "maxCsoEventsPerYear": 4
+        }
+      },
+
+      "telecom": {
+        "rf": {
+          "maxRfOutput": 100.0
+        },
+        "fiber": {
+          "maxSignalLossDb": 20.0
+        },
+        "tower": {
+          "maxWindSpeed": 80.0,
+          "minStructureIntegrity": 0.8
+        },
+        "satellite": {
+          "maxDishAlignmentError": 2.0
+        }
+      },
+
+      "transport": {
+        "road": {
+          "minConditionIndex": 0.6,
+          "maxPavementTemperatureC": 60.0
+        },
+        "bridge": {
+          "minIntegrity": 0.8,
+          "maxLoadPercent": 100.0
+        },
+        "rail": {
+          "maxAxleLoad": 32.5,
+          "maxTrackTemperatureC": 55.0
+        },
+        "airport": {
+          "minVisibility": 0.5,
+          "maxWindSpeed": 40.0
+        },
+        "seaport": {
+          "maxStormSurgeRisk": 0.7,
+          "maxWaveHeightMeters": 4.0
+        }
+      },
+
+      "pipeline": {
+        "pressure": {
+          "maxPressurePsi": 1200.0,
+          "minPressurePsi": 200.0
+        },
+        "flow": {
+          "maxFlowRate": 10000.0
+        },
+        "integrity": {
+          "maxCorrosionRate": 0.1,
+          "maxLeakRate": 0.0
+        }
+      },
+
+      "agriculture": {
+        "waterUse": {
+          "maxIrrigationVolumePerDay": 1000.0
+        },
+        "chemicalUse": {
+          "maxPesticideRate": 1.0,
+          "maxFertilizerRate": 2.0
+        },
+        "animalWelfare": {
+          "minSpacePerAnimalSqFt": 10.0
+        }
+      },
+
+      "environment": {
+        "emissions": {
+          "maxCo2PerMwh": 500.0,
+          "maxNoXPerMwh": 1.0
+        },
+        "airQuality": {
+          "maxPM25": 35.0,
+          "maxPM10": 50.0
+        },
+        "waterDischarge": {
+          "maxBod": 30.0,
+          "maxCod": 125.0
+        }
+      },
+
+      "cyber": {
+        "auth": {
+          "minPasswordLength": 12,
+          "mfaRequired": true
+        },
+        "network": {
+          "maxOpenPorts": 10,
+          "maxFailedLogins": 5
+        },
+        "logging": {
+          "minRetentionDays": 365
+        }
+      },
+
+      "mining": {
+        "underground": {
+          "minVentilationCfmPerPerson": 100.0,
+          "maxGasConcentrationMethanePercent": 1.0,
+          "maxGasConcentrationCoPercent": 0.005,
+          "maxDustMgPerM3": 1.5,
+          "maxSeismicActivityIndex": 0.7,
+          "minRoofSupportFactor": 1.5
+        },
+        "openPit": {
+          "maxSlopeAngleDegrees": 55.0,
+          "minBenchWidthMeters": 8.0,
+          "maxHaulRoadGradientPercent": 10.0,
+          "maxWallDeformationRateMmPerDay": 5.0
+        },
+        "blasting": {
+          "maxExplosiveChargeKg": 500.0,
+          "minStandoffDistanceMeters": 300.0,
+          "maxVibrationMmPerSec": 12.0,
+          "maxAirblastDb": 133.0
+        },
+        "tailings": {
+          "maxPorePressureKpa": 150.0,
+          "maxWaterLevelPercent": 90.0,
+          "minFreeboardMeters": 1.5,
+          "maxSlopeFactorOfSafety": 1.3
+        },
+        "equipment": {
+          "maxLoadTonnes": 240.0,
+          "maxSpeedKph": 40.0,
+          "minBrakeEfficiencyPercent": 85.0
+        },
+        "workerSafety": {
+          "maxShiftHours": 12,
+          "minEscapeRouteCount": 2,
+          "minPpeCompliancePercent": 100.0
+        },
+        "environment": {
+          "maxWaterDischargePh": 9.0,
+          "minWaterDischargePh": 6.0,
+          "maxHeavyMetalsMgPerL": 0.1,
+          "maxDustEmissionsMgPerM3": 2.0
+        }
+      }
+    }
+  }
+}
+

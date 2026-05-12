@@ -1,0 +1,20 @@
+{
+  "protocol": "MCP",
+  "identity": {
+    "required": true,
+    "type": "DID",
+    "resolution": "DID:METHOD:EXPANSION",
+    "binding": "Each new node must have a unique DID before joining."
+  },
+  "credentials": {
+    "type": "VerifiableCredential",
+    "requiredClaims": [
+      "role",
+      "trustZone",
+      "orgId",
+      "capabilities",
+      "jurisdiction"
+    ],
+    "revocationCheck": true
+  }
+}

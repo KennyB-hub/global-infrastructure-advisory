@@ -1,8 +1,0 @@
-{
-  "sector": "oil_gas",
-  "description": "oil_gas & extraction infrastructure",
-  "endpoints": {
-    "status": "/oil_gas/status",
-    "dispatch": "/oil_gas/dispatch"
-  }
-}

@@ -1,0 +1,8 @@
+{
+  "sector": "water",
+  "description": "Water treatment and distribution infrastructure",
+  "endpoints": {
+    "status": "/water/status",
+    "dispatch": "/water/dispatch"
+  }
+}

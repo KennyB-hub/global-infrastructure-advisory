@@ -1,8 +1,0 @@
-{
-  "sector": "cloud",
-  "description": "cloud & infrastructure",
-  "endpoints": {
-    "status": "/cloud/status",
-    "dispatch": "/cloud/dispatch"
-  }
-}

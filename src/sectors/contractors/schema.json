@@ -1,8 +1,0 @@
-{
-  "sector": "contractors",
-  "description": "Contractor workforce and dispatch sector",
-  "endpoints": {
-    "status": "/contractors/status",
-    "dispatch": "/contractors/dispatch"
-  }
-}

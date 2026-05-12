@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-employee">
+<head>
+  <meta charset="UTF-8" />
+  <title>GIA — Staff Activity Heatmap</title>
+  <link rel="stylesheet" href="/assets/css/_root.css" />
+  <link rel="stylesheet" href="/assets/css/themes.css" />
+  <style>
+    #heatmap-grid {
+      display: grid;
+      grid-template-columns: repeat(24, minmax(0, 1fr));
+      gap: 4px;
+      margin-top: 12px;
+    }
+    .heat-cell {
+      height: 26px;
+      border-radius: 6px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.35);
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="top-nav">
+      <div class="brand-block">
+        <img src="/assets/logo.svg" class="brand-logo" alt="GIA" />
+        <div>
+          <div class="brand-text">Global Infrastructure Advisory</div>
+          <div class="brand-text">Staff Activity Heatmap</div>
+        </div>
+      </div>
+      <nav class="nav-links" id="heatmap-nav"></nav>
+    </header>
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Staff Activity</div>
+          <div class="section-sub">Hourly activity across the last 24h</div>
+        </div>
+        <div class="pill-muted" id="heatmap-meta">Loading…</div>
+      </div>
+      <div id="heatmap-grid"></div>
+    </section>
+
+    <footer class="page-footer">
+      <span>GIA Staff Activity · 2050 Interface</span>
+      <span id="heatmap-footer-status">AI link: connecting…</span>
+    </footer>
+  </div>
+
+  <script type="module" src="/hubs/staff/heatmap.js"></script>
+</body>
+</html>

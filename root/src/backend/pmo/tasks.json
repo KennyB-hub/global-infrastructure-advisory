@@ -1,0 +1,8 @@
+{
+    "tasks": [
+        "Implement backend routing",
+        "Implement AI hubs",
+        "Implement diagnostics",
+        "Implement system endpoints"
+    ]
+}

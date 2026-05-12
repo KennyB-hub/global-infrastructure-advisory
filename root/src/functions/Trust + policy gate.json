@@ -1,0 +1,74 @@
+{
+  "workerId": "9-of-12",
+  "name": "ExpansionWorker",
+  "version": "V12-Alpha",
+  "purpose": "Expand the Collective safely across clouds, regions, satellites, and infrastructure zones while enforcing trust, sovereignty, and policy boundaries.",
+
+  "coreCycle": [
+    {
+      "function": "discoverCandidates",
+      "inputs": ["demandSignals", "economicSignals", "policySignals"],
+      "outputs": ["candidateSet"]
+    },
+    {
+      "function": "evaluateEconomics",
+      "inputs": ["candidateSet"],
+      "outputs": ["viableCandidates"]
+    },
+    {
+      "function": "checkTrustAndPolicy",
+      "inputs": ["viableCandidates", "sovereignPolicy", "trustZones"],
+      "outputs": ["approvedExpansionTargets"]
+    },
+    {
+      "function": "planExpansion",
+      "inputs": ["approvedExpansionTargets"],
+      "outputs": ["expansionPlan"]
+    },
+    {
+      "function": "executeExpansion",
+      "inputs": ["expansionPlan"],
+      "outputs": ["expansionResults"]
+    },
+    {
+      "function": "monitorExpansion",
+      "inputs": ["expansionResults"],
+      "outputs": ["performanceMetrics", "complianceReports"]
+    },
+    {
+      "function": "refineStrategy",
+      "inputs": ["performanceMetrics", "complianceReports"],
+      "outputs": ["strategyAdjustments"]
+    },
+    {
+      "function": "iterateExpansion",
+      "inputs": ["strategyAdjustments"],
+      "outputs": ["updatedExpansionPlan"]
+    },
+    {
+      "function": "evaluateExpansionOutcomes",
+      "inputs": ["updatedExpansionPlan", "performanceMetrics"],
+      "outputs": ["finalEvaluationReport"]
+    },
+    {
+      "function": "documentLessonsLearned",
+      "inputs": ["finalEvaluationReport"],
+      "outputs": ["knowledgeBaseEntry"]
+    },
+    {
+      "function": "planNextIteration",
+      "inputs": ["knowledgeBaseEntry"],
+      "outputs": ["nextIterationPlan"]
+    }
+  ],
+
+  "recursionRule": "Each new iteration re-enters coreCycle using nextIterationPlan. No nested cycles. No infinite recursion.",
+
+  "sovereignSafety": {
+    "noForcedAssimilation": true,
+    "optInOnly": true,
+    "humanApprovalRequiredForNewOrgs": true,
+    "trustZoneBoundariesEnforced": true,
+    "policyViolationHardStop": true
+  }
+}
