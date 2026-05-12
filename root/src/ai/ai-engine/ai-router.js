@@ -1,16 +1,19 @@
 // src/ai-engine/ai-router.js
 // GIA Sovereign AI Router – V12 Alpha
 
-import { sovereignWorkerGuard } from "../system/security/worker-guard.js";
+import { sovereignWorkerGuard } from "../../system/security/worker-guard.js";
 import { validatePayload, validateTrustZone } from "./validator.js";
 import { matchIntent } from "./ai-matching.js";
 import { buildContext } from "./context-builder.js";
 import { sanitizeOutput } from "./response-sanitizer.js";
 import { handleError } from "./error-handler.js";
 import { processUX } from "./unified-ux/unified-ux-core.js";
+import * as organizerWorker from "../workers/organizer/index.js";
+import * as expansionWorker from "../workers/expansion/index.js";
+import * as anysWorker from "../workers/anys/index.js";
 
-import { createLoad, listLoads, updateLoadStatus } from "../ai/load-registry.js";
-import { matchHaulersForLoad } from "../ai/load-matching-engine.js";
+import { createLoad, listLoads, updateLoadStatus } from "../load-registry.js";
+import { matchHaulersForLoad } from "../load-matching-engine.js";
 
 // Core engines
 import { runGeoTask } from "./ai-geo.js";
@@ -165,6 +168,18 @@ export async function processAIRequest(request, env) {
       case "solar":
       case "wind":
         result = await renewablesEngine.process(input, env, context);
+        break;
+
+      case "organizer":
+        result = await organizerWorker.process(input, env, context);
+        break;
+
+      case "expansion":
+        result = await expansionWorker.process(input, env, context);
+        break;
+
+      case "anys":
+        result = await anysWorker.process(input, env, context);
         break;
 
       case "building-code":

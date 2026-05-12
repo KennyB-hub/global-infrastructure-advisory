@@ -1,8 +1,11 @@
 // GIA Sovereign Gateway Entry – V12 Alpha
 // Unifies: API Routing, Trust‑Zone Routing, Decision Engine, Cortex, System Workers
 
-import { handleApiRequest } from "../functions/api/index.js";
-import { getTrustZone, checkTrust } from "../system/trust-middleware.js";
+import { handleApiRequest } from "../../../backend/functions/api/index.js";
+import { getTrustZone, checkTrust } from "../../../backend/system/trust-middleware.js";
+import * as organizerWorker from "./organizer/index.js";
+import * as expansionWorker from "./expansion/index.js";
+import * as anysWorker from "./anys/index.js";
 
 import * as publicWorker from "./public/index.js";
 import * as contractorWorker from "./contractor/index.js";
@@ -13,7 +16,7 @@ import * as adminWorker from "./admin/index.js";
 import * as systemWorker from "./system/index.js";
 
 import { runDecision } from "../engine/decision-engine.js";
-import { Cortex } from "../ai/cortex.js";
+import { Cortex } from "../../../backend/ai/cortex.js";
 
 import systemManifest from "../config/system-manifest.json" assert { type: "json" };
 import nodeRegistry from "../config/node-registry.json" assert { type: "json" };
@@ -111,6 +114,9 @@ export async function onRequest(context) {
   if (zone === "deepgov") return deepgovWorker.onRequest(context);
   if (zone === "admin") return adminWorker.onRequest(context);
   if (zone === "system") return systemWorker.onRequest(context);
+  if (zone === "organizer") return organizerWorker.onRequest(context);
+  if (zone === "expansion") return expansionWorker.onRequest(context);
+  if (zone === "anys") return anysWorker.onRequest(context);
 
   // ---------------------------------------------------------
   // 5. FALLBACK

@@ -4,10 +4,10 @@
 import { basicSecurityGuard } from "../../src/security/worker-guard.js";
 import { PolicyEngine } from "../../src/ai-engine/policy-engine.js";
 import { enforceAIPolicy } from "../../src/ai-engine/enforce-ai-policy.js";
-import { buildContext } from "../../src/ai-engine/context-builder.js";
-import { sanitizeOutput } from "../../src/ai-engine/response-sanitizer.js";
-import { handleError } from "../../src/ai-engine/error-handler.js";
-import { processAIRequest } from "../../src/ai-engine/ai-router.js";
+import { buildContext } from "../../ai-engine/context-builder.js";
+import { sanitizeOutput } from "../../ai-engine/response-sanitizer.js";
+import { handleError } from "../../ai-engine/error-handler.js";
+import { processAIRequest } from "../../ai-engine/ai-router.js";
 import { sha256 } from "../../src/ai-engine/utils/crypto.js";
 
 const policy = new PolicyEngine();
