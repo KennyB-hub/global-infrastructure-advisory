@@ -1,0 +1,26 @@
+{
+  "auditId": "",
+  "timestamp": "",
+  "actor": {
+    "userId": "",
+    "role": "",
+    "trustZone": ""
+  },
+  "action": "",
+  "resource": "",
+  "sector": "",
+  "node": "",
+  "cluster": "",
+  "input": {},
+  "output": {},
+  "security": {
+    "policyChecks": [],
+    "threatLevel": "",
+    "blocked": false
+  },
+  "signature": {
+    "signed": false,
+    "hash": "",
+    "publicKey": ""
+  }
+}

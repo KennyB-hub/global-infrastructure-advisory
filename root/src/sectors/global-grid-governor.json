@@ -1,0 +1,44 @@
+{
+  "governorId": "global-grid-governor-v1",
+  "description": "Top-level coordination and policy engine for the sovereign infrastructure grid.",
+  "version": "v1",
+  "responsibilities": {
+    "sectors": [
+      "infrastructure",
+      "energy",
+      "water",
+      "transport",
+      "telecom"
+    ],
+    "functions": [
+      "policyEnforcement",
+      "crossSectorRouting",
+      "globalTelemetryAggregation",
+      "disasterModeCoordination",
+      "capacityPlanning"
+    ]
+  },
+  "inputs": {
+    "sectorStatus": "array",
+    "globalTelemetry": "object",
+    "alerts": "array",
+    "policies": "object"
+  },
+  "outputs": {
+    "globalDirectives": "array",
+    "sectorOverrides": "array",
+    "escalations": "array"
+  },
+  "logging": {
+    "requires": ["session", "audit", "telemetry"],
+    "mustSignDecisions": true
+  },
+  "safety": {
+    "failsafeModes": ["local-only", "islanded-microgrids", "read-only"],
+    "humanApprovalRequiredFor": [
+      "cross-border-actions",
+      "large-scale-load-shedding",
+      "policy-changes"
+    ]
+  }
+}
