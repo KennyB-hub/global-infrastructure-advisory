@@ -3,7 +3,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const { getEngine } = require("./global-ai-loader");
+const { getEngine } = require("../ai/global-ai-loader");
 
 const securityAI = getEngine("DOCUMENT_ENGINE");
 
