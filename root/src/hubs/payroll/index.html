@@ -3,13 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <title>GIA — Payroll Hub</title>
+
+  <!-- Global Styles -->
   <link rel="stylesheet" href="/assets/css/_root.css" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/hologram.css" />
   <link rel="stylesheet" href="/assets/css/themes.css" />
+
+  <!-- Components -->
+  <link rel="stylesheet" href="/assets/css/components/nav.css" />
+  <link rel="stylesheet" href="/assets/css/components/hero.css" />
+  <link rel="stylesheet" href="/assets/css/components/sector-card.css" />
+
+  <!-- Payroll Theme (inherits employee theme) -->
+  <link rel="stylesheet" href="/assets/css/theme-employee.css" />
+
+  <!-- Language + Layout -->
+  <script src="/assets/js/i18n.js" defer></script>
+  <script src="/assets/js/layout-loader.js" defer></script>
+
+  <!-- Hologram Engine -->
+  <script src="/assets/js/hologram-engine.js" defer></script>
 </head>
+
 <body>
   <div class="page-shell">
+
+    <!-- Top Navigation -->
     <header class="top-nav">
       <div id="payroll-progress" class="pill-muted hidden">Processing…</div>
+
       <div class="brand-block">
         <img src="/assets/logo.svg" class="brand-logo" alt="GIA" />
         <div>
@@ -17,19 +40,23 @@
           <div class="brand-text">Payroll Hub</div>
         </div>
       </div>
+
+      <!-- Confirmation Modal -->
       <div id="payroll-modal" class="modal hidden">
-  <div class="modal-content">
-    <h2>Confirm Payroll Run</h2>
-    <p>This will execute payroll for all active employees. Continue?</p>
-    <div class="modal-actions">
-      <button class="btn-secondary" id="modal-cancel">Cancel</button>
-      <button class="btn-primary" id="modal-confirm">Run Payroll</button>
-    </div>
-  </div>
-</div>
+        <div class="modal-content">
+          <h2>Confirm Payroll Run</h2>
+          <p>This will execute payroll for all active employees. Continue?</p>
+          <div class="modal-actions">
+            <button class="btn-secondary" id="modal-cancel">Cancel</button>
+            <button class="btn-primary" id="modal-confirm">Run Payroll</button>
+          </div>
+        </div>
+      </div>
+
       <nav class="nav-links" id="pay-nav"></nav>
     </header>
 
+    <!-- Payroll Runs -->
     <section class="section">
       <div class="section-header">
         <div>
@@ -38,30 +65,34 @@
         </div>
         <div class="pill-muted" id="pay-meta">Loading…</div>
       </div>
-      <section class="section">
-  <div class="section-header">
-    <div>
-      <div class="section-title">Payroll History</div>
-      <div class="section-sub">Completed payroll runs</div>
-    </div>
-    <div class="pill-muted" id="pay-history-meta">Loading…</div>
-  </div>
-  <div class="sectors-grid" id="pay-history-grid"></div>
-   <div class="sector-meta">
-  <button class="btn-secondary" onclick="viewStub('${r.id}')">Pay Stub</button>
-</div>
 
-    <button class="btn-primary" id="btn-run-payroll">Run Payroll</button>
+      <button class="btn-primary" id="btn-run-payroll">Run Payroll</button>
 
       <div class="sectors-grid" id="pay-grid"></div>
     </section>
 
+    <!-- Payroll History -->
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Payroll History</div>
+          <div class="section-sub">Completed payroll runs</div>
+        </div>
+        <div class="pill-muted" id="pay-history-meta">Loading…</div>
+      </div>
+
+      <div class="sectors-grid" id="pay-history-grid"></div>
+    </section>
+
+    <!-- Footer -->
     <footer class="page-footer">
       <span>GIA Payroll Hub · 2050 Interface</span>
       <span id="pay-footer-status">AI link: connecting…</span>
     </footer>
+
   </div>
 
+  <!-- Hub Logic -->
   <script type="module" src="/hubs/payroll/dashboard.js"></script>
 </body>
 </html>

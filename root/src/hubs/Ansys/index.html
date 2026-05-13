@@ -2,66 +2,94 @@
 <html lang="en" class="theme-ansys">
 <head>
   <meta charset="UTF-8" />
-  <title>GIA — ANSYS Hub</title>
+  <title>GIA — ANSYS Simulation Hub</title>
+
+  <!-- Global Styles -->
   <link rel="stylesheet" href="/assets/css/_root.css" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/hologram.css" />
   <link rel="stylesheet" href="/assets/css/themes.css" />
+
+  <!-- Components -->
+  <link rel="stylesheet" href="/assets/css/components/nav.css" />
+  <link rel="stylesheet" href="/assets/css/components/hero.css" />
+  <link rel="stylesheet" href="/assets/css/components/sector-card.css" />
+
+  <!-- ANSYS Theme -->
+  <link rel="stylesheet" href="/assets/css/theme-ansys.css" />
+
+  <!-- Language + Layout -->
+  <script src="/assets/js/i18n.js" defer></script>
+  <script src="/assets/js/layout-loader.js" defer></script>
+
+  <!-- Hologram Engine -->
+  <script src="/assets/js/hologram-engine.js" defer></script>
 </head>
+
 <body>
   <div class="page-shell">
+
+    <!-- Top Navigation -->
     <header class="top-nav">
       <div class="brand-block">
         <img src="/assets/logo.svg" class="brand-logo" alt="GIA" />
         <div>
           <div class="brand-text">Global Infrastructure Advisory</div>
-          <div class="brand-text">ANSYS Hub</div>
+          <div class="brand-text">ANSYS Simulation Hub</div>
         </div>
       </div>
       <nav class="nav-links" id="ansys-nav"></nav>
     </header>
 
+    <!-- Hero -->
     <section class="hero-shell">
       <div class="hero-main">
         <div class="hero-kicker">
           <span class="hero-kicker-dot"></span>
-          Engineering Simulation
+          Simulation Intelligence
         </div>
+
         <h1 class="hero-title">
-          AI‑assisted <span>simulation intelligence</span> for critical infrastructure.
+          Engineering‑grade <span>3D blueprint intelligence</span>.
         </h1>
+
         <p class="hero-body">
-          Explore blueprints, run simulations, and inspect results in a 2050‑grade engineering cockpit.
+          Upload, preview, and analyze ANSYS‑style engineering blueprints with real‑time metadata extraction.
         </p>
+
         <div class="hero-actions">
-          <button class="btn-primary" id="btn-load-sims">Simulations</button>
-          <button class="btn-secondary" id="btn-system-health">System Health</button>
+          <button class="btn-primary" id="btn-upload">Upload Blueprint</button>
+          <button class="btn-secondary" id="btn-viewer">Open Viewer</button>
         </div>
       </div>
 
       <div class="hero-orbit">
         <canvas id="hologram-canvas"></canvas>
-        <div id="agri-logs">
-          <div id="ansys-logs"></div>
-        </div>
+        <div id="ansys-logs"></div>
       </div>
     </section>
 
+    <!-- Recent Blueprints -->
     <section class="section">
       <div class="section-header">
         <div>
-          <div class="section-title">Simulations</div>
-          <div class="section-sub">Blueprint‑linked scenarios</div>
+          <div class="section-title">Recent Blueprints</div>
+          <div class="section-sub">Latest uploads and simulation‑ready files</div>
         </div>
-        <div class="pill-muted" id="ansys-meta">No simulations loaded</div>
+        <div class="pill-muted" id="ansys-meta">Loading…</div>
       </div>
       <div class="sectors-grid" id="ansys-grid"></div>
     </section>
 
+    <!-- Footer -->
     <footer class="page-footer">
       <span>GIA ANSYS Hub · 2050 Interface</span>
       <span id="ansys-footer-status">AI link: connecting…</span>
     </footer>
+
   </div>
 
+  <!-- Hub Logic -->
   <script type="module" src="/hubs/ansys/dashboard.js"></script>
 </body>
 </html>

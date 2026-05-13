@@ -1,37 +1,22 @@
-const languages = {
-    "en": {
-        "welcome": "Welcome",
-        "thankYou": "Thank you!"
-    },
-    "es": {
-        "welcome": "Bienvenido",
-        "thankYou": "¡Gracias!"
-    },
-    "fr": {
-        "welcome": "Bienvenue",
-        "thankYou": "Merci!"
-    },
-    "ar": {
-        "welcome": "أهلا وسهلا",
-        "thankYou": "شكرا!"
-    },
-    "zh": {
-        "welcome": "欢迎",
-        "thankYou": "谢谢!"
-    },
-    "pt": {
-        "welcome": "Bem-vindo",
-        "thankYou": "Obrigado!"
-    }
-};
+async function switchLanguage(lang) {
+    try {
+        const response = await fetch(`/public/i18n/${lang}.json`);
+        const translations = await response.json();
 
-function switchLanguage(lang) {
-    if (languages[lang]) {
-        document.getElementById('welcome').innerText = languages[lang].welcome;
-        document.getElementById('thank-you').innerText = languages[lang].thankYou;
-    } else {
-        console.warn('Language not supported: ' + lang);
+        // Apply translations to all elements with data-i18n keys
+        document.querySelectorAll("[data-i18n]").forEach(el => {
+            const key = el.getAttribute("data-i18n");
+            if (translations[key]) {
+                el.innerText = translations[key];
+            }
+        });
+
+        // Handle RTL languages
+        const rtlLanguages = ["ar", "he", "fa"];
+        document.documentElement.dir = rtlLanguages.includes(lang) ? "rtl" : "ltr";
+        document.documentElement.lang = lang;
+
+    } catch (err) {
+        console.error("Language not supported:", lang, err);
     }
 }
-
-// Example usage: switchLanguage('es'); // Switch to Español

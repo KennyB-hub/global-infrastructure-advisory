@@ -6,7 +6,6 @@ const navEl = document.getElementById("wa-nav");
 const gridEl = document.getElementById("wa-grid");
 const metaEl = document.getElementById("wa-meta");
 const footerStatus = document.getElementById("wa-footer-status");
-const rows = await dbQuery(env, session.db, "SELECT * FROM table WHERE id = ?", [id]);
 
 async function initNav() {
   const who = await api("/api/auth/whoami");

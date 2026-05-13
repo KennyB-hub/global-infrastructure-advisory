@@ -75,9 +75,6 @@
       "autonomyLevel": 1,
       "trustZone": "admin"
     },
-
-    /* --- V12 ALPHA NEW ENGINES --- */
-
     {
       "engineId": "SCIENCE_ENGINE",
       "name": "Science & Research Engine",
@@ -188,9 +185,6 @@
       "autonomyLevel": 1,
       "trustZone": "admin"
     },
-
-    /* --- V12 ALPHA NEW ENGINES --- */
-
     {
       "engineId": "SCIENCE_ENGINE",
       "name": "Science & Research Engine",

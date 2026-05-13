@@ -389,12 +389,6 @@ select:focus {
     padding: 20px;
   }
 
-  .top-nav {
-    flex-direction: column;
-    gap: 16px;
-    padding: 16px;
-  }
-
   .nav-links {
     width: 100%;
     flex-wrap: wrap;
@@ -411,4 +405,12 @@ select:focus {
   h2 {
     font-size: 1.5rem;
   }
+}
+
+/* RTL Language Support */
+[lang="ar"],
+[lang="he"],
+[lang="fa"] {
+  direction: rtl;
+  text-align: right;
 }

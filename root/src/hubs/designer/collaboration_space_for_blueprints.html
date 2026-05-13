@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-designer">
+<head>
+  <meta charset="UTF-8" />
+  <title>GIA — Designer Hub · Blueprint Collaboration</title>
+
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="/assets/css/_root.css" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/hologram.css" />
+  <link rel="stylesheet" href="/assets/css/themes.css" />
+
+  <!-- Components -->
+  <link rel="stylesheet" href="/assets/css/components/nav.css" />
+  <link rel="stylesheet" href="/assets/css/components/hero.css" />
+  <link rel="stylesheet" href="/assets/css/components/sector-card.css" />
+
+  <!-- Designer Theme -->
+  <link rel="stylesheet" href="/assets/css/theme-designer.css" />
+
+  <!-- Language + Layout -->
+  <script src="/assets/js/i18n.js" defer></script>
+  <script src="/assets/js/layout-loader.js" defer></script>
+
+  <!-- Hologram Engine -->
+  <script src="/assets/js/hologram-engine.js" defer></script>
+</head>
+
+<body>
+  <div class="page-shell">
+
+    <!-- Top Navigation -->
+    <header class="top-nav">
+      <div class="brand-block">
+        <img src="/assets/logo.svg" class="brand-logo" alt="GIA" />
+        <div>
+          <div class="brand-text">Global Infrastructure Advisory</div>
+          <div class="brand-text">Designer Hub</div>
+        </div>
+      </div>
+      <nav class="nav-links" id="designer-nav"></nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero-shell">
+      <div class="hero-main">
+        <div class="hero-kicker">
+          <span class="hero-kicker-dot"></span>
+          Blueprint Collaboration
+        </div>
+
+        <h1 class="hero-title">
+          Real‑time <span>collaborative blueprint workspace</span>.
+        </h1>
+
+        <p class="hero-body">
+          Upload drafts, annotate designs, compare revisions, and collaborate with engineers and AI in a unified 2050‑grade design environment.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn-primary" id="btn-upload">Upload Blueprint</button>
+          <button class="btn-secondary" id="btn-open-workspace">Open Workspace</button>
+        </div>
+      </div>
+
+      <div class="hero-orbit">
+        <canvas id="hologram-canvas"></canvas>
+        <div id="designer-logs"></div>
+      </div>
+    </section>
+
+    <!-- Collaboration Workspace -->
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Blueprint Annotation</div>
+          <div class="section-sub">Draw, mark, comment, and collaborate</div>
+        </div>
+        <div class="pill-muted" id="annot-meta">Ready</div>
+      </div>
+
+      <div class="annotation-shell">
+
+        <!-- Blueprint Canvas -->
+        <div class="annotation-canvas-wrap">
+          <img id="annot-blueprint" src="" alt="Blueprint" />
+          <canvas id="annot-canvas"></canvas>
+        </div>
+
+        <!-- Tools Panel -->
+        <div class="annotation-tools">
+
+          <div class="tool-group">
+            <label>Tools</label>
+            <button class="tool-btn" data-tool="pen">✏️ Pen</button>
+            <button class="tool-btn" data-tool="line">📏 Line</button>
+            <button class="tool-btn" data-tool="arrow">➡️ Arrow</button>
+            <button class="tool-btn" data-tool="rect">▭ Rect</button>
+            <button class="tool-btn" data-tool="circle">◯ Circle</button>
+            <button class="tool-btn" data-tool="comment">💬 Comment</button>
+          </div>
+
+          <div class="tool-group">
+            <label>Color</label>
+            <input type="color" id="annot-color" value="#38bdf8" />
+          </div>
+
+          <div class="tool-group">
+            <label>Stroke</label>
+            <input type="range" id="annot-size" min="1" max="12" value="3" />
+          </div>
+
+          <div class="tool-group">
+            <label>Layers</label>
+            <button class="tool-btn" id="annot-clear">Clear Layer</button>
+            <button class="tool-btn" id="annot-revision">New Revision</button>
+          </div>
+
+          <div class="tool-group">
+            <label>AI Assist</label>
+            <button class="tool-btn tool-ai" id="annot-ai">✨ Analyze Blueprint</button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- AI Blueprint Analyzer -->
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-title">AI Blueprint Analyzer</div>
+          <div class="section-sub">Extract structure, layout, and engineering insights</div>
+        </div>
+        <div class="pill-muted" id="ai-analyze-meta">Idle</div>
+      </div>
+
+      <div class="ai-analyze-shell">
+        <input type="file" id="ai-analyze-upload" accept="image/*,.pdf" />
+        <button class="btn-primary" id="ai-analyze-btn">Analyze</button>
+
+        <div class="ai-analyze-output">
+          <canvas id="ai-analyze-canvas"></canvas>
+          <div id="ai-analyze-report"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+      <span>GIA Designer Hub · 2050 Interface</span>
+      <span id="designer-footer-status">AI link: connecting…</span>
+    </footer>
+
+  </div>
+
+  <!-- Hub Logic -->
+  <script type="module" src="/hubs/designer/collaboration.js"></script>
+</body>
+</html>
