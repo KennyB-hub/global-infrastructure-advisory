@@ -1,0 +1,221 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GIA Marketplace Job Listings Schema",
+  "description": "JSON schema for contractor job marketplace listings in GIA platform",
+  "type": "object",
+  "properties": {
+    "jobId": {
+      "type": "string",
+      "pattern": "^JOB-[0-9]{6}-[A-Z]{3}$",
+      "description": "Unique job identifier (e.g., JOB-202605-AGR)"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 200,
+      "description": "Job title and brief description"
+    },
+    "sector": {
+      "type": "string",
+      "enum": [
+        "agriculture",
+        "infrastructure",
+        "energy",
+        "water",
+        "transportation",
+        "communications",
+        "government",
+        "research",
+        "disaster-response",
+        "environmental"
+      ],
+      "description": "Infrastructure sector classification"
+    },
+    "priority": {
+      "type": "string",
+      "enum": ["critical", "high", "medium", "low"],
+      "description": "Job priority level for dispatch and scheduling"
+    },
+    "deadline": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 formatted deadline for job completion"
+    },
+    "contractor": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Contractor identity in GIA system"
+        },
+        "name": {
+          "type": "string",
+          "description": "Contractor organization name"
+        },
+        "clearanceLevel": {
+          "type": "string",
+          "enum": ["public", "confidential", "secret", "top-secret"],
+          "description": "Required security clearance"
+        },
+        "certifications": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Required certifications (e.g., ANSYS, FAA, EPA)"
+        }
+      },
+      "required": ["id", "name"],
+      "description": "Contractor assignment and qualifications"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "posted",
+        "assigned",
+        "in-progress",
+        "paused",
+        "completed",
+        "cancelled",
+        "archived"
+      ],
+      "description": "Current job lifecycle status"
+    },
+    "location": {
+      "type": "object",
+      "properties": {
+        "sectorId": {
+          "type": "string",
+          "description": "GIA sector identifier"
+        },
+        "latitude": {
+          "type": "number",
+          "minimum": -90,
+          "maximum": 90
+        },
+        "longitude": {
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180
+        },
+        "address": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        }
+      },
+      "required": ["latitude", "longitude"],
+      "description": "Geolocation data for field work"
+    },
+    "trustZoneRequired": {
+      "type": "string",
+      "enum": [
+        "Public",
+        "Farmer",
+        "Contractor",
+        "Employee",
+        "Admin",
+        "Gov",
+        "DeepGov",
+        "System",
+        "ANSYS"
+      ],
+      "description": "Minimum trust zone required to view/accept this job"
+    },
+    "scope": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Detailed job scope and objectives"
+        },
+        "deliverables": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Expected deliverables and outputs"
+        },
+        "estimatedHours": {
+          "type": "number",
+          "minimum": 0
+        },
+        "budget": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "description": "Job scope, deliverables, and resource requirements"
+    },
+    "governance": {
+      "type": "object",
+      "properties": {
+        "owner": {
+          "type": "string",
+          "description": "Government agency or owner entity"
+        },
+        "approvalRequired": {
+          "type": "boolean",
+          "description": "Whether AIEE approval is required for execution"
+        },
+        "policyControls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Applicable policy IDs (from policies directory)"
+        },
+        "scientificIntegrityRequired": {
+          "type": "boolean",
+          "description": "OSTP scientific integrity compliance required"
+        }
+      },
+      "description": "Governance and compliance requirements"
+    },
+    "timestamps": {
+      "type": "object",
+      "properties": {
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "posted": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "assigned": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "completed": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "description": "Lifecycle timestamps"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Searchable tags for discovery"
+    }
+  },
+  "required": [
+    "jobId",
+    "title",
+    "sector",
+    "priority",
+    "deadline",
+    "status",
+    "location",
+    "trustZoneRequired"
+  ],
+  "additionalProperties": false
+}
