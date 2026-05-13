@@ -1,0 +1,77 @@
+{
+  "governorId": "global-grid-governor-v1",
+  "description": "Top-level coordination and policy engine for the sovereign infrastructure grid.",
+  "version": "v1",
+
+  "responsibilities": {
+    "sectors": [
+      "infrastructure",
+      "energy",
+      "water",
+      "transport",
+      "telecom",
+      "public",
+      "humanitarian"
+    ],
+    "functions": [
+      "policyEnforcement",
+      "crossSectorRouting",
+      "globalTelemetryAggregation",
+      "disasterModeCoordination",
+      "capacityPlanning",
+      "workforceCoordination",
+      "contractorDeployment",
+      "humanitarianSupport"
+    ]
+  },
+
+  "engines": {
+    "crossSectorRoutingEngine": "cross-sector-routing-engine-v1",
+    "disasterDeploymentEngine": "global-disaster-deployment-engine-v1",
+    "publicWorkforceEngine": "public-workforce-grid-v1",
+    "contractorMarketplaceEngine": "global-contractor-marketplace-v1"
+  },
+
+  "modules": {
+    "warZoneHumanitarianModule": "war-zone-humanitarian-module-v1",
+    "microgridDirectiveModule": "microgrid-engine-contract-v1",
+    "ruralNodeModule": "rural-node-spec-v1"
+  },
+
+  "inputs": {
+    "sectorStatus": "array",
+    "globalTelemetry": "object",
+    "alerts": "array",
+    "policies": "object",
+    "workforceStatus": "object",
+    "contractorStatus": "object",
+    "humanitarianNeeds": "object"
+  },
+
+  "outputs": {
+    "globalDirectives": "array",
+    "sectorOverrides": "array",
+    "escalations": "array",
+    "deploymentPlans": "array",
+    "humanitarianCorridors": "array"
+  },
+
+  "logging": {
+    "requires": ["session", "audit", "telemetry"],
+    "mustSignDecisions": true
+  },
+
+  "safety": {
+    "failsafeModes": [
+      "local-only",
+      "islanded-microgrids",
+      "read-only"
+    ],
+    "humanApprovalRequiredFor": [
+      "cross-border-actions",
+      "large-scale-load-shedding",
+      "policy-changes",
+      "humanitarian-evacuations"
+    ]
+  }
+}

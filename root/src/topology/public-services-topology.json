@@ -1,0 +1,13 @@
+{
+  "version": "v1",
+  "publicServices": [
+    {
+      "region": "na-appalachia",
+      "services": ["shelter", "water", "transport", "public-safety"]
+    },
+    {
+      "region": "global-war-torn-001",
+      "services": ["shelter", "medical", "food-distribution"]
+    }
+  ]
+}

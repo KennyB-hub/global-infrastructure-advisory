@@ -1,0 +1,103 @@
+{
+  "policyId": "ENERGY_TRANSMISSION_SUBSTATION_V2",
+  "name": "Transmission & Substation Policy Pack",
+  "version": "2.0.0",
+  "source": "AIEE",
+  "scope": {
+    "resourceTypes": ["TRANSMISSION_LINE", "SUBSTATION", "TRANSFORMER", "BREAKER", "BUS"],
+    "actions": ["CONTROL", "SWITCH", "DISPATCH", "MAINTENANCE", "ISOLATE"],
+    "trustZones": ["public", "contractor", "employee", "admin", "gov", "deepgov", "system"]
+  },
+  "rules": [
+  {
+      "ruleId": "TRANS_VOLT_001",
+      "description": "Prevent unsafe high-voltage operations outside global safe limits.",
+      "condition": "data.voltageKv < ai.globalCode.energy.grid.minVoltageKv || data.voltageKv > ai.globalCode.energy.grid.maxVoltageKv || ai.giiContext.sectorRiskScore > 0.75 || ai.autonomy.level < 2",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "TRANS_LOAD_001",
+      "description": "Prevent transformer overload beyond thermal rating.",
+      "condition": "data.transformerLoadingPercent > ai.globalCode.energy.substation.maxTransformerLoadingPercent || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 2",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "TRANS_LOAD_002",
+      "description": "Emergency transformer loading requires human review.",
+      "condition": "data.transformerLoadingPercent > ai.globalCode.energy.substation.emergencyTransformerLoadingPercent && data.emergencyMode == true || ai.giiContext.systemicRiskScore > 0.8 || ai.autonomy.level < 2",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "TRANS_BREAKER_001",
+      "description": "Prevent breaker operations that risk arc-flash or unsafe switching.",
+      "condition": "data.arcFlashRisk == \"HIGH\" && action.name == \"OpenBreaker\" || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 2",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "TRANS_BREAKER_002",
+      "description": "Critical breaker operations require human review.",
+      "condition": "data.breakerCritical == true && action.name == \"OpenBreaker\" || ai.giiContext.systemicRiskScore > 0.85 || ai.autonomy.level < 2",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "TRANS_TOPO_001",
+      "description": "Prevent switching that causes unintentional islanding.",
+      "condition": "data.isIslandingRisk == true && action.name == \"OpenBreaker\" || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 2",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "TRANS_TOPO_002",
+      "description": "Topology changes on critical buses require human review.",
+      "condition": "data.busCritical == true && action.name == \"SwitchBus\" || ai.giiContext.systemicRiskScore > 0.8 || ai.autonomy.level < 2",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "TRANS_FAULT_001",
+      "description": "Detected line or transformer fault requires immediate isolation.",
+      "condition": "data.faultDetected == true || ai.giiContext.cascadingFailureRisk == true",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "TRANS_TEMP_001",
+      "description": "Prevent transformer overheating beyond global safe temperature.",
+      "condition": "data.transformerTempC > ai.globalCode.energy.substation.maxTransformerTempC || ai.giiContext.sectorRiskScore > 0.75 || ai.autonomy.level < 2",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "TRANS_GROUND_001",
+      "description": "Ground faults require immediate human review.",
+      "condition": "data.groundFaultDetected == true || ai.giiContext.systemicRiskScore > 0.7",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "TRANS_SCADA_001",
+      "description": "SCADA control requires gov, deepgov, or system trust zone with sufficient autonomy.",
+      "condition": "data.scadaCritical == true && (actor.trustZone != \"gov\" && actor.trustZone != \"deepgov\" && actor.trustZone != \"system\" || ai.autonomy.level < 2)",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "TRANS_CYBER_001",
+      "description": "Unauthorized remote access to transmission control systems is denied.",
+      "condition": "env.clientType == \"REMOTE\" && !actor.roles.Contains(\"AUTHORIZED_REMOTE\") || ai.autonomy.level < 1",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "TRANS_CYBER_002",
+      "description": "Critical transmission SCADA/NOC operations require gov, deepgov, or system trust zone.",
+      "condition": "data.scadaCritical == true && (actor.trustZone != \"gov\" && actor.trustZone != \"deepgov\" && actor.trustZone != \"system\" || ai.autonomy.level < 2)",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "TRANS_CYBER_003",
+      "description": "Anomalous behavior in transmission telemetry requires human review.",
+      "condition": "data.behaviorScore > data.anomalyThreshold || ai.giiContext.systemicRiskScore > 0.7",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "TRANS_WORKER_001",
+      "description": "Only certified high-voltage technicians may perform maintenance.",
+      "condition": "action.name == \"MAINTENANCE\" && !actor.roles.Contains(\"HV_TECH\") || ai.autonomy.level < 1",
+      "effect": "DENY"
+    }
+  ]
+}
