@@ -1,68 +1,75 @@
 {
   "policyId": "omb-m14-06",
-  "title": "OMB Memorandum M-14-06 — Guidance for Providing and Using Administrative Data for Statistical Purposes",
+  "title": "Guidance for Providing and Using Administrative Data for Statistical Purposes",
   "authority": "Office of Management and Budget (OMB)",
   "memorandumNumber": "M-14-06",
-  "issuedDate": "2014-06-03",
-  "effectiveDate": "2014-06-03",
+  "issuedDate": "2014-02-14",
+  "effectiveDate": "2014-02-14",
   "version": "1.0",
-  "scope": "GIA use of administrative data for statistical, research, and program evaluation purposes",
-  "description": "Establishes practices for federal agencies using administrative data while protecting privacy and maintaining data quality",
+  "scope": "GIA administrative data use for infrastructure statistics and analysis",
+  "description": "Establishes principles for sharing administrative data across federal agencies for statistical research while protecting privacy",
   "principles": [
     {
       "id": "AD-001",
-      "title": "Designated Purpose Limitation",
-      "description": "Administrative data may only be used for declared statistical purposes",
+      "title": "Purpose Limitation",
+      "description": "Administrative data can only be used for explicitly authorized statistical purposes",
       "requirement": "mandatory"
     },
     {
       "id": "AD-002",
-      "title": "Statistical Use vs Operational Use Separation",
-      "description": "Administrative data for statistics must be segregated from operational data systems",
+      "title": "Privacy Protection",
+      "description": "Statistical and operational uses must be strictly separated",
       "requirement": "mandatory"
     },
     {
       "id": "AD-003",
-      "title": "Confidentiality Protection",
-      "description": "All statistical use must protect individual confidentiality through aggregation or de-identification",
+      "title": "Data Security",
+      "description": "Administrative data must be protected from unauthorized access",
       "requirement": "mandatory"
     },
     {
       "id": "AD-004",
-      "title": "Data Quality Assurance",
-      "description": "Administrative data must be validated for accuracy before statistical use",
+      "title": "Interagency Cooperation",
+      "description": "Data sharing agreements required between agencies",
+      "requirement": "mandatory"
+    },
+    {
+      "id": "AD-005",
+      "title": "Transparency",
+      "description": "Document all data flows and uses",
       "requirement": "mandatory"
     }
   ],
-  "applicableDataTypes": [
-    "contractor-performance-data",
-    "farmer-program-data",
-    "employment-statistics",
-    "infrastructure-metrics"
+  "administrativeDataTypes": [
+    "contractor-registration",
+    "employment-records",
+    "facility-permits",
+    "infrastructure-inspections",
+    "grant-administration"
   ],
   "trustZoneApplicability": {
-    "Public": "aggregate-only",
-    "Farmer": "not-applicable",
-    "Contractor": "aggregate-only",
-    "Employee": "statistical-use",
-    "Admin": "statistical-use",
-    "Gov": "statistical-use"
+    "Public": "summary-statistics-only",
+    "Farmer": "aggregate-results",
+    "Contractor": "program-data",
+    "Employee": "analytical-access",
+    "Admin": "operational-access",
+    "Gov": "full-access"
   },
   "controls": [
     {
       "control": "AD-CTL-001",
-      "description": "Block operational use of administrative data marked for statistics only",
+      "description": "Block operational use of data designated statistical-only",
       "checkType": "automated-enforcement"
     },
     {
       "control": "AD-CTL-002",
-      "description": "Verify de-identification before statistical release",
-      "checkType": "automated-audit"
+      "description": "Verify interagency data sharing agreement",
+      "checkType": "gate-review"
     },
     {
       "control": "AD-CTL-003",
-      "description": "Audit all administrative data access for purpose compliance",
-      "checkType": "monthly-review"
+      "description": "Audit all administrative data access",
+      "checkType": "continuous-logging"
     }
   ],
   "references": [

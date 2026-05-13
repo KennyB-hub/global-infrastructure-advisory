@@ -3,40 +3,45 @@ import path from 'path';
 
 // Define the "Mission Control" directory map
 const missionControl = {
-    "root/public": [".html", ".svg"],  // UI Layer
-    "root/src/logic": ["sector.js", "space.js", "engine.js"],        // Core Heartbeat
-    "root/src/data": ["config.json", "schema.js", "mock_data.js"],  // Knowledge Base
-    "root/src/auth": ["identity.ts", "vault"],                     // Security/Gov
-    "root/src/data/logs": [".log", "session_"]                     // AI Thought Streams
+    "public": ["index.html", ".html", ".svg"],
+    "public/css": ["main.css", "admin.css"],
+    "src/logic": ["sector.js", "space.js", "engine.js"],
+    "src/data": ["config.json", "schema.js", "mock_data.js"],
+    "src/auth": ["identity.ts", "vault"],
+    "src/data/logs": [".log", "session_"]
 };
 
-// Create directories
+// Ensure all directories exist
 Object.keys(missionControl).forEach(dir => {
     if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir, { recursive: true });
-        console.log(`✅ [MKDIR] Created directory: ${dir}`);
+        console.log(`📁 [CREATED] Directory: ${dir}`);
     }
 });
 
 // The cleaner logic
 fs.readdirSync('.').forEach(file => {
-    // Skip directories and system files
-    if (fs.statSync(file).isDirectory() || file.startsWith('.')) {
+    // Skip hidden files and node_modules
+    if (file.startsWith('.') || file === 'node_modules' || file === 'organize.js') {
         return;
     }
-    
+
     for (const [targetDir, extensions] of Object.entries(missionControl)) {
-        if (extensions.some(ext => file.endsWith(ext) || file === ext)) {
+        const shouldMove = extensions.some(ext => 
+            file.endsWith(ext) || file === ext
+        );
+
+        if (shouldMove) {
             const destination = path.join(targetDir, file);
-            
-            // Avoid moving if source and destination are the same
-            if (file !== destination) {
+            try {
                 fs.renameSync(file, destination);
-                console.log(`🚀 [LAUNCH] ${file} moved to ${targetDir}`);
+                console.log(`🚀 [LAUNCH] ${file} → ${targetDir}`);
+                break;
+            } catch (err) {
+                console.error(`❌ [ERROR] Failed to move ${file}: ${err.message}`);
             }
-            break;
         }
     }
 });
 
-console.log('✅ Organization complete!');
+console.log(`✅ File organization complete!`);

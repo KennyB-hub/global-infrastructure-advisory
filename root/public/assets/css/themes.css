@@ -1,173 +1,162 @@
-/* GIA Trust Zone Theme Definitions */
+/* GIA Theme System - Trust Zone Theming */
 
 /* PUBLIC THEME */
 .theme-public {
-  --primary: #10b981;
-  --primary-light: #6ee7b7;
-  --primary-dark: #047857;
-  --surface: rgba(240, 253, 250, 0.05);
-}
-
-.theme-public .page-shell {
-  background: linear-gradient(135deg, #051f1f 0%, #0f2f2f 100%);
+  --primary-accent: #4ade80;
+  --primary-accent-strong: #22c55e;
+  --primary-accent-soft: rgba(74, 222, 128, 0.15);
+  --theme-bg: #0f5f3c;
 }
 
 /* FARMER THEME */
 .theme-farmer {
-  --primary: #84cc16;
-  --primary-light: #bef264;
-  --primary-dark: #65a30d;
-  --surface: rgba(250, 251, 229, 0.05);
-}
-
-.theme-farmer .page-shell {
-  background: linear-gradient(135deg, #1f2f1f 0%, #2f3f1f 100%);
+  --primary-accent: #84cc16;
+  --primary-accent-strong: #65a30d;
+  --primary-accent-soft: rgba(132, 204, 22, 0.15);
+  --theme-bg: #1e3a1f;
 }
 
 /* CONTRACTOR THEME */
 .theme-contractor {
-  --primary: #f59e0b;
-  --primary-light: #fcd34d;
-  --primary-dark: #d97706;
-  --surface: rgba(255, 251, 235, 0.05);
-}
-
-.theme-contractor .page-shell {
-  background: linear-gradient(135deg, #2f1f0f 0%, #3f2f1f 100%);
+  --primary-accent: #f59e0b;
+  --primary-accent-strong: #d97706;
+  --primary-accent-soft: rgba(245, 158, 11, 0.15);
+  --theme-bg: #3f2f0f;
 }
 
 /* EMPLOYEE THEME */
 .theme-employee {
-  --primary: #3b82f6;
-  --primary-light: #93c5fd;
-  --primary-dark: #1d4ed8;
-  --surface: rgba(235, 245, 255, 0.05);
-}
-
-.theme-employee .page-shell {
-  background: linear-gradient(135deg, #0f1f3f 0%, #1f2f4f 100%);
+  --primary-accent: #3b82f6;
+  --primary-accent-strong: #2563eb;
+  --primary-accent-soft: rgba(59, 130, 246, 0.15);
+  --theme-bg: #0f1f3f;
 }
 
 /* ADMIN THEME */
 .theme-admin {
-  --primary: #8b5cf6;
-  --primary-light: #d8b4fe;
-  --primary-dark: #6d28d9;
-  --surface: rgba(245, 240, 255, 0.05);
-}
-
-.theme-admin .page-shell {
-  background: linear-gradient(135deg, #1f0f3f 0%, #2f1f4f 100%);
+  --primary-accent: #ef4444;
+  --primary-accent-strong: #dc2626;
+  --primary-accent-soft: rgba(239, 68, 68, 0.15);
+  --theme-bg: #3f0f0f;
 }
 
 /* GOV THEME */
 .theme-gov {
-  --primary: #06b6d4;
-  --primary-light: #67e8f9;
-  --primary-dark: #0891b2;
-  --surface: rgba(240, 249, 255, 0.05);
-}
-
-.theme-gov .page-shell {
-  background: linear-gradient(135deg, #0f2f3f 0%, #1f3f4f 100%);
+  --primary-accent: #8b5cf6;
+  --primary-accent-strong: #7c3aed;
+  --primary-accent-soft: rgba(139, 92, 246, 0.15);
+  --theme-bg: #2e1a47;
 }
 
 /* DEEPGOV THEME */
 .theme-deepgov {
-  --primary: #ec4899;
-  --primary-light: #f472b6;
-  --primary-dark: #be185d;
-  --surface: rgba(255, 240, 245, 0.05);
+  --primary-accent: #06b6d4;
+  --primary-accent-strong: #0891b2;
+  --primary-accent-soft: rgba(6, 182, 212, 0.15);
+  --theme-bg: #082f4a;
 }
 
-.theme-deepgov .page-shell {
-  background: linear-gradient(135deg, #2f0f1f 0%, #3f1f3f 100%);
-}
-
-/* SYSTEM/AIEE THEME */
+/* SYSTEM THEME */
 .theme-system {
-  --primary: #10b981;
-  --primary-light: #6ee7b7;
-  --primary-dark: #047857;
-  --surface: rgba(16, 185, 129, 0.05);
-}
-
-.theme-system .page-shell {
-  background: linear-gradient(135deg, #020617 0%, #0f172a 100%);
-  border: 2px solid var(--primary);
+  --primary-accent: #38bdf8;
+  --primary-accent-strong: #0ea5e9;
+  --primary-accent-soft: rgba(56, 189, 248, 0.15);
+  --theme-bg: #020617;
 }
 
 /* ANSYS THEME */
 .theme-ansys {
-  --primary: #e11d48;
-  --primary-light: #fb7185;
-  --primary-dark: #be185d;
-  --surface: rgba(255, 240, 245, 0.05);
+  --primary-accent: #ec4899;
+  --primary-accent-strong: #db2777;
+  --primary-accent-soft: rgba(236, 72, 153, 0.15);
+  --theme-bg: #3f0f2f;
 }
 
-.theme-ansys .page-shell {
-  background: linear-gradient(135deg, #1f0f1f 0%, #3f0f2f 100%);
+/* Apply theme colors to elements */
+.top-nav {
+  border-bottom-color: var(--primary-accent-soft);
 }
 
-/* Theme-aware components */
-.theme-badge {
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: var(--radius-pill);
-  font-size: 0.75rem;
-  font-weight: 600;
-  background: rgba(var(--primary-rgb), 0.1);
-  color: var(--primary);
-  border: 1px solid var(--primary);
+.nav-link--primary {
+  background: linear-gradient(135deg, var(--primary-accent), var(--primary-accent-strong));
+}
+
+.nav-link--primary:hover {
+  background: linear-gradient(135deg, var(--primary-accent-strong), var(--primary-accent));
+}
+
+.nav-link:hover {
+  color: var(--primary-accent);
+  background: var(--primary-accent-soft);
 }
 
 .btn-primary {
-  background: var(--primary);
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: var(--radius);
-  font-weight: 600;
-  transition: all var(--transition-fast);
+  background: linear-gradient(135deg, var(--primary-accent), var(--primary-accent-strong));
 }
 
 .btn-primary:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 24px var(--primary-accent-soft);
 }
 
 .btn-secondary {
-  background: transparent;
-  color: var(--primary);
-  border: 1px solid var(--primary);
-  padding: 10px 20px;
-  border-radius: var(--radius);
-  font-weight: 600;
-  transition: all var(--transition-fast);
+  color: var(--primary-accent);
+  border-color: var(--primary-accent);
 }
 
 .btn-secondary:hover {
-  background: rgba(var(--primary-rgb), 0.1);
+  background: var(--primary-accent-soft);
+  box-shadow: 0 0 16px var(--primary-accent-soft);
 }
 
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: var(--gap-lg);
-  transition: all var(--transition-normal);
+.sector-card:hover {
+  border-color: var(--primary-accent);
+  box-shadow: 0 0 24px var(--primary-accent-soft);
 }
 
-.card:hover {
-  border-color: var(--primary);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+.sector-card li::before {
+  color: var(--primary-accent-soft);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  :root {
-    --gap-lg: 12px;
-    --gap-xl: 16px;
+.pill-muted {
+  border-color: var(--primary-accent-soft);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--primary-accent);
+  box-shadow: 0 0 0 3px var(--primary-accent-soft);
+}
+
+/* Status indicators by theme */
+.status-indicator {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary-accent);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
   }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Trust Zone Badges */
+.badge-trustzone {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  background: var(--primary-accent-soft);
+  color: var(--primary-accent-strong);
+  border: 1px solid var(--primary-accent);
 }
