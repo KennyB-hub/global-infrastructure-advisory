@@ -1,0 +1,27 @@
+{
+  "version": "v1",
+  "microgrids": [
+    {
+      "id": "mg-appalachia-001",
+      "region": "na-appalachia",
+      "assets": {
+        "solarKw": 120,
+        "batteryKwh": 600,
+        "generatorKw": 80
+      },
+      "stability": "stable",
+      "priority": "normal"
+    },
+    {
+      "id": "mg-warzone-001",
+      "region": "global-war-torn-001",
+      "assets": {
+        "solarKw": 40,
+        "batteryKwh": 200,
+        "generatorKw": 30
+      },
+      "stability": "fragile",
+      "priority": "critical"
+    }
+  ]
+}

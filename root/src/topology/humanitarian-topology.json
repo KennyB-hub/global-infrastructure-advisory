@@ -1,0 +1,10 @@
+{
+  "version": "v1",
+  "humanitarian": [
+    {
+      "region": "global-war-torn-001",
+      "organizations": ["NGO-A", "NGO-B", "UN-aid"],
+      "corridors": ["corridor-alpha", "corridor-bravo"]
+    }
+  ]
+}

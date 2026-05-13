@@ -1,0 +1,54 @@
+{
+  "agricultureWorkerHierarchy": {
+    "rootClusterId": "ag-grid-collective-v1",
+    "workers": [
+      {
+        "id": "7of9",
+        "role": "market-intelligence",
+        "domains": [
+          "price-forecasting",
+          "market-routing",
+          "demand-signals",
+          "feed-cost-modeling"
+        ],
+        "spawns": [
+          "7of9-us",
+          "7of9-eu",
+          "7of9-latam",
+          "7of9-africa",
+          "7of9-asia"
+        ]
+      },
+      {
+        "id": "9of12",
+        "role": "logistics-and-risk",
+        "domains": [
+          "hauler-matching",
+          "corridor-risk",
+          "evacuation-routing",
+          "disease-containment-routing"
+        ],
+        "spawns": [
+          "9of12-transport",
+          "9of12-biosecurity",
+          "9of12-evac"
+        ]
+      },
+      {
+        "id": "12of15",
+        "role": "sustainability-and-compliance",
+        "domains": [
+          "carbon-scoring",
+          "water-and-land-impact",
+          "regulatory-compliance",
+          "reporting-and-audit"
+        ],
+        "spawns": [
+          "12of15-carbon",
+          "12of15-water",
+          "12of15-regions"
+        ]
+      }
+    ]
+  }
+}
