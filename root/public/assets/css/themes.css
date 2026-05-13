@@ -1,183 +1,173 @@
-/* ============================
-   GLOBAL THEME ENGINE (2050)
-   ============================ */
+/* GIA Trust Zone Theme Definitions */
 
-:root {
-  --theme-accent: #38bdf8;
-  --theme-accent-strong: #0ea5e9;
-  --theme-accent-soft: rgba(56, 189, 248, 0.25);
-  --theme-glow: rgba(56, 189, 248, 0.35);
-  --theme-glow-strong: rgba(56, 189, 248, 0.55);
-  --theme-bullet-start: #4ade80;
-  --theme-bullet-end: #22c55e;
-}
-
-/* AGRICULTURE — green */
-.theme-agri {
-  --theme-accent: #4ade80;
-  --theme-accent-strong: #22c55e;
-  --theme-accent-soft: rgba(74, 222, 128, 0.25);
-  --theme-glow: rgba(74, 222, 128, 0.35);
-  --theme-glow-strong: rgba(74, 222, 128, 0.55);
-  --theme-bullet-start: #4ade80;
-  --theme-bullet-end: #22c55e;
-}
-
-/* ENERGY — yellow */
-.theme-energy {
-  --theme-accent: #facc15;
-  --theme-accent-strong: #eab308;
-  --theme-accent-soft: rgba(250, 204, 21, 0.25);
-  --theme-glow: rgba(250, 204, 21, 0.35);
-  --theme-glow-strong: rgba(250, 204, 21, 0.55);
-  --theme-bullet-start: #fde047;
-  --theme-bullet-end: #facc15;
-}
-
-/* TRANSPORT — orange */
-.theme-transport {
-  --theme-accent: #fb923c;
-  --theme-accent-strong: #f97316;
-  --theme-accent-soft: rgba(251, 146, 60, 0.25);
-  --theme-glow: rgba(251, 146, 60, 0.35);
-  --theme-glow-strong: rgba(251, 146, 60, 0.55);
-  --theme-bullet-start: #fb923c;
-  --theme-bullet-end: #f97316;
-}
-
-/* HOUSING — purple */
-.theme-housing {
-  --theme-accent: #c084fc;
-  --theme-accent-strong: #a855f7;
-  --theme-accent-soft: rgba(192, 132, 252, 0.25);
-  --theme-glow: rgba(192, 132, 252, 0.35);
-  --theme-glow-strong: rgba(192, 132, 252, 0.55);
-  --theme-bullet-start: #d8b4fe;
-  --theme-bullet-end: #c084fc;
-}
-
-/* TELECOM — blue */
-.theme-telecom {
-  --theme-accent: #60a5fa;
-  --theme-accent-strong: #3b82f6;
-  --theme-accent-soft: rgba(96, 165, 250, 0.25);
-  --theme-glow: rgba(96, 165, 250, 0.35);
-  --theme-glow-strong: rgba(96, 165, 250, 0.55);
-  --theme-bullet-start: #93c5fd;
-  --theme-bullet-end: #60a5fa;
-}
-
-/* DEEPGOV / HIGH SECURITY — red */
-.theme-deepgov {
-  --theme-accent: #ef4444;
-  --theme-accent-strong: #dc2626;
-  --theme-accent-soft: rgba(239, 68, 68, 0.25);
-  --theme-glow: rgba(239, 68, 68, 0.35);
-  --theme-glow-strong: rgba(239, 68, 68, 0.55);
-  --theme-bullet-start: #fca5a5;
-  --theme-bullet-end: #ef4444;
-}
-
+/* PUBLIC THEME */
 .theme-public {
-  --accent: #38bdf8;
-  --accent-soft: rgba(56, 189, 248, 0.25);
-  --accent-strong: #0ea5e9;
+  --primary: #10b981;
+  --primary-light: #6ee7b7;
+  --primary-dark: #047857;
+  --surface: rgba(240, 253, 250, 0.05);
 }
 
+.theme-public .page-shell {
+  background: linear-gradient(135deg, #051f1f 0%, #0f2f2f 100%);
+}
+
+/* FARMER THEME */
 .theme-farmer {
-  --accent: #22c55e;
-  --accent-soft: rgba(34, 197, 94, 0.25);
-  --accent-strong: #16a34a;
+  --primary: #84cc16;
+  --primary-light: #bef264;
+  --primary-dark: #65a30d;
+  --surface: rgba(250, 251, 229, 0.05);
 }
 
+.theme-farmer .page-shell {
+  background: linear-gradient(135deg, #1f2f1f 0%, #2f3f1f 100%);
+}
+
+/* CONTRACTOR THEME */
 .theme-contractor {
-  --accent: #3b82f6;
-  --accent-soft: rgba(59, 130, 246, 0.25);
-  --accent-strong: #2563eb;
+  --primary: #f59e0b;
+  --primary-light: #fcd34d;
+  --primary-dark: #d97706;
+  --surface: rgba(255, 251, 235, 0.05);
 }
 
+.theme-contractor .page-shell {
+  background: linear-gradient(135deg, #2f1f0f 0%, #3f2f1f 100%);
+}
+
+/* EMPLOYEE THEME */
 .theme-employee {
-  --accent: #a855f7;
-  --accent-soft: rgba(168, 85, 247, 0.25);
-  --accent-strong: #7c3aed;
+  --primary: #3b82f6;
+  --primary-light: #93c5fd;
+  --primary-dark: #1d4ed8;
+  --surface: rgba(235, 245, 255, 0.05);
 }
 
+.theme-employee .page-shell {
+  background: linear-gradient(135deg, #0f1f3f 0%, #1f2f4f 100%);
+}
+
+/* ADMIN THEME */
 .theme-admin {
-  --accent: #0ea5e9;
-  --accent-soft: rgba(14, 165, 233, 0.25);
-  --accent-strong: #0284c7;
+  --primary: #8b5cf6;
+  --primary-light: #d8b4fe;
+  --primary-dark: #6d28d9;
+  --surface: rgba(245, 240, 255, 0.05);
 }
 
-.theme-ansys {
-  --accent: #facc15;
-  --accent-soft: rgba(250, 204, 21, 0.25);
-  --accent-strong: #eab308;
+.theme-admin .page-shell {
+  background: linear-gradient(135deg, #1f0f3f 0%, #2f1f4f 100%);
 }
 
+/* GOV THEME */
 .theme-gov {
-  --accent: #14b8a6;
-  --accent-soft: rgba(20, 184, 166, 0.25);
-  --accent-strong: #0f766e;
+  --primary: #06b6d4;
+  --primary-light: #67e8f9;
+  --primary-dark: #0891b2;
+  --surface: rgba(240, 249, 255, 0.05);
 }
 
-.theme-employee {
-  --accent: #a855f7;
-  --accent-soft: rgba(168, 85, 247, 0.25);
-  --accent-strong: #7c3aed;
+.theme-gov .page-shell {
+  background: linear-gradient(135deg, #0f2f3f 0%, #1f3f4f 100%);
 }
 
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.65);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
+/* DEEPGOV THEME */
+.theme-deepgov {
+  --primary: #ec4899;
+  --primary-light: #f472b6;
+  --primary-dark: #be185d;
+  --surface: rgba(255, 240, 245, 0.05);
 }
 
-.modal.hidden { display: none; }
+.theme-deepgov .page-shell {
+  background: linear-gradient(135deg, #2f0f1f 0%, #3f1f3f 100%);
+}
 
-.modal-content {
-  background: var(--bg-elevated);
+/* SYSTEM/AIEE THEME */
+.theme-system {
+  --primary: #10b981;
+  --primary-light: #6ee7b7;
+  --primary-dark: #047857;
+  --surface: rgba(16, 185, 129, 0.05);
+}
+
+.theme-system .page-shell {
+  background: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+  border: 2px solid var(--primary);
+}
+
+/* ANSYS THEME */
+.theme-ansys {
+  --primary: #e11d48;
+  --primary-light: #fb7185;
+  --primary-dark: #be185d;
+  --surface: rgba(255, 240, 245, 0.05);
+}
+
+.theme-ansys .page-shell {
+  background: linear-gradient(135deg, #1f0f1f 0%, #3f0f2f 100%);
+}
+
+/* Theme-aware components */
+.theme-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: rgba(var(--primary-rgb), 0.1);
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.btn-secondary:hover {
+  background: rgba(var(--primary-rgb), 0.1);
+}
+
+.card {
+  background: var(--surface);
   border: 1px solid var(--border);
-  padding: 24px;
   border-radius: var(--radius-lg);
-  width: 360px;
-  text-align: center;
-}
-.sector-card {
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    background: rgba(10, 15, 25, 0.55);
-    backdrop-filter: blur(14px) saturate(160%);
-    border-radius: 1.1rem;
-    padding: 1.8rem;
-    transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
-                border-color 0.28s ease,
-                box-shadow 0.28s ease,
-                background 0.28s ease;
-    box-shadow: 0 0 0 var(--theme-glow);
+  padding: var(--gap-lg);
+  transition: all var(--transition-normal);
 }
 
-.sector-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    border-color: var(--theme-accent-strong);
-    background: rgba(10, 15, 25, 0.75);
-    box-shadow:
-        0 0 22px var(--theme-glow),
-        0 0 48px var(--theme-glow-strong),
-        inset 0 0 14px var(--theme-accent-soft);
+.card:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
-.sector-card::after {
-    background: radial-gradient(
-        circle at 30% 20%,
-        var(--theme-accent-soft),
-        transparent 60%
-    );
+/* Responsive */
+@media (max-width: 768px) {
+  :root {
+    --gap-lg: 12px;
+    --gap-xl: 16px;
+  }
 }
-
-.sector-card li::before {
-    background: linear-gradient(135deg, var(--theme-bullet-start), var(--theme-bullet-end));
-}
-

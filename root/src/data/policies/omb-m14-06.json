@@ -1,124 +1,72 @@
 {
   "policyId": "omb-m14-06",
-  "title": "Guidance for Providing and Using Administrative Data for Statistical Purposes",
+  "title": "OMB Memorandum M-14-06 — Guidance for Providing and Using Administrative Data for Statistical Purposes",
   "authority": "Office of Management and Budget (OMB)",
   "memorandumNumber": "M-14-06",
-  "issuedDate": "2014-02-28",
-  "effectiveDate": "2014-03-15",
+  "issuedDate": "2014-06-03",
+  "effectiveDate": "2014-06-03",
   "version": "1.0",
-  "scope": "GIA use of federal administrative data for research and statistical analysis",
-  "description": "Establishes standards for accessing, protecting, and using administrative data while maintaining privacy and enabling evidence-based decision making",
+  "scope": "GIA use of administrative data for statistical, research, and program evaluation purposes",
+  "description": "Establishes practices for federal agencies using administrative data while protecting privacy and maintaining data quality",
   "principles": [
     {
-      "id": "M14-001",
-      "title": "Data Access Transparency",
-      "description": "Agencies must document and disclose what administrative data is being accessed",
+      "id": "AD-001",
+      "title": "Designated Purpose Limitation",
+      "description": "Administrative data may only be used for declared statistical purposes",
       "requirement": "mandatory"
     },
     {
-      "id": "M14-002",
-      "title": "Statistical vs. Operational Use Distinction",
-      "description": "Administrative data used for statistics must be clearly separated from operational use",
+      "id": "AD-002",
+      "title": "Statistical Use vs Operational Use Separation",
+      "description": "Administrative data for statistics must be segregated from operational data systems",
       "requirement": "mandatory"
     },
     {
-      "id": "M14-003",
-      "title": "Privacy Protection in Data Sharing",
-      "description": "De-identification standards must be applied to shared administrative data",
+      "id": "AD-003",
+      "title": "Confidentiality Protection",
+      "description": "All statistical use must protect individual confidentiality through aggregation or de-identification",
       "requirement": "mandatory"
     },
     {
-      "id": "M14-004",
-      "title": "Data Governance Agreements",
-      "description": "Formal agreements required when sharing administrative data between agencies",
-      "requirement": "mandatory"
-    },
-    {
-      "id": "M14-005",
-      "title": "Audit and Accountability",
-      "description": "All administrative data access must be logged and auditable",
+      "id": "AD-004",
+      "title": "Data Quality Assurance",
+      "description": "Administrative data must be validated for accuracy before statistical use",
       "requirement": "mandatory"
     }
   ],
   "applicableDataTypes": [
-    "agricultural-production-data",
-    "infrastructure-maintenance-records",
-    "employment-data",
-    "energy-consumption-data",
-    "environmental-monitoring-data",
-    "transportation-statistics"
+    "contractor-performance-data",
+    "farmer-program-data",
+    "employment-statistics",
+    "infrastructure-metrics"
   ],
-  "deIdentificationStandards": {
-    "threshold": "De-identify unless < 5 records affected",
-    "method": "NIST 800-188 or equivalent",
-    "anonymity": "Must prevent re-identification with 95% confidence"
-  },
   "trustZoneApplicability": {
-    "Public": "de-identified-only",
-    "Farmer": "anonymized-aggregate",
-    "Contractor": "site-specific-aggregate",
-    "Employee": "agency-level-identifiable",
-    "Admin": "full-access-with-audit",
-    "Gov": "full-access-with-audit",
-    "DeepGov": "full-access"
+    "Public": "aggregate-only",
+    "Farmer": "not-applicable",
+    "Contractor": "aggregate-only",
+    "Employee": "statistical-use",
+    "Admin": "statistical-use",
+    "Gov": "statistical-use"
   },
-  "dataUseAgreements": [
-    {
-      "type": "cross-agency-statistical-agreement",
-      "required": true,
-      "template": "M14-06-statistical-MOU"
-    }
-  ],
   "controls": [
     {
-      "control": "M14-CTL-001",
-      "description": "Access logging for all administrative data queries",
-      "auditFrequency": "real-time"
-    },
-    {
-      "control": "M14-CTL-002",
-      "description": "De-identification verification before data sharing",
-      "checkType": "automated-scan"
-    },
-    {
-      "control": "M14-CTL-003",
-      "description": "Quarterly review of statistical data usage",
-      "checkType": "human-review"
-    },
-    {
-      "control": "M14-CTL-004",
-      "description": "Block operational use of statistical datasets",
+      "control": "AD-CTL-001",
+      "description": "Block operational use of administrative data marked for statistics only",
       "checkType": "automated-enforcement"
-    }
-  ],
-  "violationScenarios": [
-    {
-      "violation": "Using administrative data for non-statistical purposes",
-      "action": "block-operation-escalate-to-gov"
     },
     {
-      "violation": "Sharing identifiable administrative data without agreement",
-      "action": "block-operation-notify-privacy-officer"
+      "control": "AD-CTL-002",
+      "description": "Verify de-identification before statistical release",
+      "checkType": "automated-audit"
     },
     {
-      "violation": "Inadequate de-identification",
-      "action": "require-human-review"
+      "control": "AD-CTL-003",
+      "description": "Audit all administrative data access for purpose compliance",
+      "checkType": "monthly-review"
     }
   ],
-  "reportingRequirements": {
-    "annualReportRequired": true,
-    "recipient": "OMB",
-    "contentRequirements": [
-      "list-of-statistical-products",
-      "data-access-log-summary",
-      "privacy-incidents",
-      "policy-compliance-status"
-    ]
-  },
   "references": [
     "https://www.whitehouse.gov/omb/memoranda/2014/m-14-06/",
-    "Federal Register 79 FR 5281 (Jan 31, 2014)",
-    "OMB Circular A-130 (2016)",
     "GIA CONSTITUTION.md Article II"
   ],
   "lastReviewed": "2026-05-13",
