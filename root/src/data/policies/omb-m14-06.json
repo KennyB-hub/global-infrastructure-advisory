@@ -1,80 +1,86 @@
 {
   "policyId": "omb-m14-06",
-  "title": "Guidance for Providing and Using Administrative Data for Statistical Purposes",
+  "title": "OMB Memorandum M-14-06 — Guidance for Providing and Using Administrative Data for Statistical Purposes",
   "authority": "Office of Management and Budget (OMB)",
   "memorandumNumber": "M-14-06",
-  "issuedDate": "2014-02-14",
-  "effectiveDate": "2014-02-14",
+  "issuedDate": "2014-04-24",
+  "effectiveDate": "2014-04-24",
   "version": "1.0",
-  "scope": "GIA administrative data use for infrastructure statistics and analysis",
-  "description": "Establishes principles for sharing administrative data across federal agencies for statistical research while protecting privacy",
+  "scope": "GIA use of administrative data for agriculture, contractor, and workforce analytics",
+  "description": "Establishes standards for federal agencies using administrative data for statistical and research purposes",
   "principles": [
     {
       "id": "AD-001",
-      "title": "Purpose Limitation",
-      "description": "Administrative data can only be used for explicitly authorized statistical purposes",
+      "title": "Legal Authority",
+      "description": "Statistical use of administrative data must have clear legal authority",
       "requirement": "mandatory"
     },
     {
       "id": "AD-002",
-      "title": "Privacy Protection",
-      "description": "Statistical and operational uses must be strictly separated",
+      "title": "Transparency and Confidentiality",
+      "description": "Statistical uses must be transparent; confidentiality of individual records must be protected",
       "requirement": "mandatory"
     },
     {
       "id": "AD-003",
-      "title": "Data Security",
-      "description": "Administrative data must be protected from unauthorized access",
+      "title": "Data Quality",
+      "description": "Administrative data must meet defined quality standards for statistical use",
       "requirement": "mandatory"
     },
     {
       "id": "AD-004",
-      "title": "Interagency Cooperation",
-      "description": "Data sharing agreements required between agencies",
+      "title": "Purpose Limitation",
+      "description": "Data collected for administrative purposes may only be used for statistical purposes with safeguards",
       "requirement": "mandatory"
     },
     {
       "id": "AD-005",
-      "title": "Transparency",
-      "description": "Document all data flows and uses",
+      "title": "Data Governance",
+      "description": "Clear data governance structures must define roles and responsibilities",
       "requirement": "mandatory"
     }
   ],
   "administrativeDataTypes": [
-    "contractor-registration",
-    "employment-records",
-    "facility-permits",
-    "infrastructure-inspections",
-    "grant-administration"
+    "farmer-program-data",
+    "contractor-employment-records",
+    "infrastructure-maintenance-logs",
+    "equipment-registration-data",
+    "permit-and-license-data"
   ],
   "trustZoneApplicability": {
-    "Public": "summary-statistics-only",
-    "Farmer": "aggregate-results",
-    "Contractor": "program-data",
-    "Employee": "analytical-access",
-    "Admin": "operational-access",
-    "Gov": "full-access"
+    "Public": "aggregate-only",
+    "Farmer": "program-data-only",
+    "Contractor": "employment-records",
+    "Employee": "analysis-approval",
+    "Admin": "data-governance",
+    "Gov": "statistical-oversight"
   },
   "controls": [
     {
       "control": "AD-CTL-001",
-      "description": "Block operational use of data designated statistical-only",
-      "checkType": "automated-enforcement"
-    },
-    {
-      "control": "AD-CTL-002",
-      "description": "Verify interagency data sharing agreement",
+      "description": "Verify legal authority for each administrative data use",
       "checkType": "gate-review"
     },
     {
+      "control": "AD-CTL-002",
+      "description": "De-identify data when possible before statistical analysis",
+      "checkType": "automated-enforcement"
+    },
+    {
       "control": "AD-CTL-003",
-      "description": "Audit all administrative data access",
+      "description": "Prevent disclosure of individual records in statistical products",
+      "checkType": "automated-validation"
+    },
+    {
+      "control": "AD-CTL-004",
+      "description": "Maintain clear audit trail of all data access and use",
       "checkType": "continuous-logging"
     }
   ],
   "references": [
     "https://www.whitehouse.gov/omb/memoranda/2014/m-14-06/",
-    "GIA CONSTITUTION.md Article II"
+    "Federal Register 79 FR 23503 (April 28, 2014)",
+    "GIA CONSTITUTION.md Article III"
   ],
   "lastReviewed": "2026-05-13",
   "nextReview": "2027-05-13"
