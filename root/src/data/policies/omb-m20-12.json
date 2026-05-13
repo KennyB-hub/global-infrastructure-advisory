@@ -1,0 +1,150 @@
+{
+  "policyId": "omb-m20-12",
+  "title": "Phase 4 Implementation of the Evidence Act: Program Evaluation Standards and Practices",
+  "authority": "Office of Management and Budget (OMB)",
+  "memorandumNumber": "M-20-12",
+  "issuedDate": "2020-04-07",
+  "effectiveDate": "2020-04-07",
+  "version": "1.0",
+  "scope": "GIA evaluation methodology and evidence standards for infrastructure programs",
+  "description": "Establishes evidence standards for program evaluation, ensuring GIA recommendations are grounded in rigorous, unbiased analysis",
+  "principles": [
+    {
+      "id": "EV-001",
+      "title": "Rigorous Evaluation Design",
+      "description": "All program evaluations must use recognized methodologies (RCT, quasi-experimental, observational)",
+      "requirement": "mandatory"
+    },
+    {
+      "id": "EV-002",
+      "title": "Bias Assessment",
+      "description": "All evaluations must document potential biases and mitigation strategies",
+      "requirement": "mandatory"
+    },
+    {
+      "id": "EV-003",
+      "title": "Evidence Quality Tiering",
+      "description": "Evaluate and tier evidence by quality level (Tier 1: RCT, Tier 2: Quasi-exp, Tier 3: Observational)",
+      "requirement": "mandatory"
+    },
+    {
+      "id": "EV-004",
+      "title": "Evaluation Planning",
+      "description": "Comprehensive evaluation plans required before program launch",
+      "requirement": "mandatory"
+    },
+    {
+      "id": "EV-005",
+      "title": "Learning Agenda Development",
+      "description": "All agencies must maintain evidence-building learning agendas",
+      "requirement": "mandatory"
+    }
+  ],
+  "evaluationStandards": {
+    "minimumSampleSize": 30,
+    "confidenceLevel": 0.95,
+    "powerLevel": 0.80,
+    "bias": {
+      "documentation": "required",
+      "mitigationRequired": true
+    }
+  },
+  "trustZoneApplicability": {
+    "Public": "summary-results-only",
+    "Farmer": "aggregate-results",
+    "Contractor": "program-impact-data",
+    "Employee": "evaluation-details",
+    "Admin": "evaluation-methodology",
+    "Gov": "full-evaluation-reports",
+    "DeepGov": "meta-analysis-capability"
+  },
+  "evaluationFramework": [
+    {
+      "stage": "Planning",
+      "requirements": [
+        "clear-program-goals",
+        "theory-of-change",
+        "success-metrics",
+        "evaluation-design",
+        "budget-allocation"
+      ]
+    },
+    {
+      "stage": "Implementation",
+      "requirements": [
+        "data-collection-protocols",
+        "quality-assurance",
+        "baseline-establishment",
+        "comparison-group-maintenance"
+      ]
+    },
+    {
+      "stage": "Analysis",
+      "requirements": [
+        "bias-documentation",
+        "effect-size-calculation",
+        "statistical-testing",
+        "sensitivity-analysis",
+        "confidence-interval-reporting"
+      ]
+    },
+    {
+      "stage": "Reporting",
+      "requirements": [
+        "methods-transparency",
+        "limitations-disclosure",
+        "results-accuracy",
+        "policy-implications"
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "control": "EV-CTL-001",
+      "description": "Verify evaluation plan approved before program execution",
+      "checkType": "gate-review"
+    },
+    {
+      "control": "EV-CTL-002",
+      "description": "Validate bias assessment documentation",
+      "checkType": "automated-audit"
+    },
+    {
+      "control": "EV-CTL-003",
+      "description": "Peer review of evaluation methodology",
+      "checkType": "human-review"
+    },
+    {
+      "control": "EV-CTL-004",
+      "description": "Block publication of unvetted evaluation results",
+      "checkType": "automated-enforcement"
+    }
+  ],
+  "violationScenarios": [
+    {
+      "violation": "Publishing evaluation results without methodology documentation",
+      "action": "block-publication-require-documentation"
+    },
+    {
+      "violation": "Evaluation sample size below statistical minimum",
+      "action": "require-human-review-flag-findings"
+    },
+    {
+      "violation": "Undisclosed bias in evaluation design",
+      "action": "escalate-to-gov-scientific-integrity"
+    }
+  ],
+  "reportingRequirements": {
+    "annualLearningAgenda": true,
+    "evaluationRegistry": true,
+    "resultsDissemination": "public-database-required"
+  },
+  "references": [
+    "https://www.whitehouse.gov/omb/memoranda/2020/m-20-12/",
+    "Federal Register 85 FR 23485 (April 28, 2020)",
+    "Evidence Act of 2016",
+    "GIA CONSTITUTION.md Article III"
+  ],
+  "lastReviewed": "2026-05-13",
+  "nextReview": "2027-05-13"
+}
