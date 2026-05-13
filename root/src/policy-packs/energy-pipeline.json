@@ -1,0 +1,103 @@
+{
+  "policyId": "ENERGY_PIPELINE_V2",
+  "name": "Pipeline Energy Policy Pack",
+  "version": "2.0.0",
+  "source": "AIEE",
+  "scope": {
+    "resourceTypes": ["PIPELINE", "COMPRESSOR_STATION", "PUMP_STATION", "ENERGY_CORRIDOR"],
+    "actions": ["CONTROL", "MONITOR", "DISPATCH", "SHUTOFF", "MAINTENANCE"],
+    "trustZones": ["public", "contractor", "employee", "admin", "gov", "deepgov", "system"]
+  },
+  "rules": [
+    {
+      "ruleId": "PIPE_PRESSURE_001",
+      "description": "Prevent pipeline overpressure beyond safe operating limits.",
+      "condition": "data.pressurePsi > ai.globalCode.pipeline.pressure.maxPressurePsi || ai.giiContext.sectorRiskScore > 0.75 || ai.autonomy.level < 2",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "PIPE_PRESSURE_002",
+      "description": "Rapid pressure change indicates potential leak and requires human review.",
+      "condition": "Math.abs(data.pressureDeltaPerSecond) > ai.globalCode.pipeline.pressure.maxPressureDropRate || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 2",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "PIPE_LEAK_001",
+      "description": "Detected leak requires immediate shutdown.",
+      "condition": "data.leakDetected == true || ai.giiContext.systemicRiskScore > 0.8",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "PIPE_FLOW_001",
+      "description": "Prevent unsafe flow rate exceeding pipeline design.",
+      "condition": "data.flowRate > ai.globalCode.pipeline.flow.maxFlowRate || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 2",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "PIPE_TEMP_001",
+      "description": "Prevent unsafe temperature conditions in pipeline or pump station.",
+      "condition": "data.temperatureF > ai.globalCode.pipeline.temperature.maxTemperatureF || ai.giiContext.sectorRiskScore > 0.8 || ai.autonomy.level < 2",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "PIPE_CORROSION_001",
+      "description": "Corrosion risk above threshold requires human review.",
+      "condition": "data.corrosionIndex > ai.globalCode.pipeline.integrity.maxCorrosionRate || ai.giiContext.systemicRiskScore > 0.7 || ai.autonomy.level < 1",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "PIPE_VALVE_001",
+      "description": "Critical valve operations require human review.",
+      "condition": "action.name == \"OpenValve\" && data.valveCritical == true || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 2",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "PIPE_VALVE_002",
+      "description": "Unauthorized valve operations are denied.",
+      "condition": "action.name == \"OpenValve\" && !actor.roles.Contains(\"PIPELINE_TECH\") || ai.autonomy.level < 1",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "PIPE_SHUTOFF_001",
+      "description": "Emergency shutoff allowed only when leak or rupture is detected.",
+      "condition": "action.name == \"EmergencyShutoff\" && data.leakDetected != true && data.ruptureDetected != true || ai.autonomy.level < 2",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "PIPE_RUPTURE_001",
+      "description": "Pipeline rupture requires immediate shutdown.",
+      "condition": "data.ruptureDetected == true || ai.giiContext.systemicRiskScore > 0.85",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "PIPE_SCADA_001",
+      "description": "SCADA control of pipeline requires gov, deepgov, or system trust zone with sufficient autonomy.",
+      "condition": "data.scadaCritical == true && (actor.trustZone != \"gov\" && actor.trustZone != \"deepgov\" && actor.trustZone != \"system\" || ai.autonomy.level < 2)",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "PIPE_CYBER_001",
+      "description": "Unauthorized remote access to pipeline control systems is denied.",
+      "condition": "env.clientType == \"REMOTE\" && !actor.roles.Contains(\"AUTHORIZED_REMOTE\") || ai.autonomy.level < 1",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "PIPE_CYBER_002",
+      "description": "Anomalous behavior in pipeline telemetry requires human review.",
+      "condition": "data.behaviorScore > data.anomalyThreshold || ai.giiContext.systemicRiskScore > 0.7",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "PIPE_ENV_001",
+      "description": "Environmental protection: prevent operations during high spill risk.",
+      "condition": "data.environmentalRisk == \"HIGH\" || ai.giiContext.sectorRiskScore > 0.8",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "PIPE_WORKER_001",
+      "description": "Only certified pipeline technicians may perform maintenance.",
+      "condition": "action.name == \"MAINTENANCE\" && !actor.roles.Contains(\"PIPELINE_TECH\") || ai.autonomy.level < 1",
+      "effect": "DENY"
+    }
+  ]
+}

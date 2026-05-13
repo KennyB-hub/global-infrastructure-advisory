@@ -2,7 +2,7 @@
    2050 DEEP-MIND SECTOR CARD
    ============================ */
 
-   /* Legacy Bridge - ensures main content area is spaced correctly */
+/* Legacy Bridge - ensures main content area is spaced correctly */
 main { 
     padding: 2rem; 
     display: block; 
@@ -10,7 +10,7 @@ main {
 
 .sector-card {
     position: relative;
-    background: rgba(10, 15, 25, 0.55); /* deep glass */
+    background: rgba(10, 15, 25, 0.55);
     border: 1px solid rgba(255, 255, 255, 0.06);
     backdrop-filter: blur(14px) saturate(160%);
     border-radius: 1.1rem;
@@ -20,8 +20,7 @@ main {
         border-color 0.28s ease,
         box-shadow 0.28s ease,
         background 0.28s ease;
-    box-shadow:
-        0 0 0 rgba(16, 185, 129, 0); /* no glow by default */
+    box-shadow: 0 0 0 rgba(16, 185, 129, 0);
 }
 
 /* HOVER — magnetic lift + neon edge + orbital glow */
@@ -29,7 +28,6 @@ main {
     transform: translateY(-8px) scale(1.02);
     border-color: rgba(16, 185, 129, 0.55);
     background: rgba(10, 15, 25, 0.75);
-
     box-shadow:
         0 0 22px rgba(16, 185, 129, 0.35),
         0 0 48px rgba(16, 185, 129, 0.18),
@@ -96,21 +94,21 @@ main {
     background: linear-gradient(135deg, #4ade80, #22c55e);
 }
 
+/* BRAND LOGO */
 .brand-logo {
-  height: 32px;
-  width: auto;
-  filter: drop-shadow(0 0 8px var(--accent-soft));
-  transition: filter 0.3s ease;
+    height: 32px;
+    width: auto;
+    filter: drop-shadow(0 0 8px var(--accent-soft));
+    transition: filter 0.3s ease;
 }
 
 .brand-logo:hover {
-  filter: drop-shadow(0 0 12px var(--accent));
+    filter: drop-shadow(0 0 12px var(--accent));
 }
 
-
-/* Add this for high-security alerts */
+/* HIGH-SECURITY STATE */
 .sector-card.status-locked {
-    border-color: rgba(239, 68, 68, 0.4); /* Red glow */
+    border-color: rgba(239, 68, 68, 0.4);
 }
 
 .sector-card.status-locked:hover {

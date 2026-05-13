@@ -1,6 +1,82 @@
-/* Global 2050 Hub Themes (built on :root from _root.css) */
+/* ============================
+   GLOBAL THEME ENGINE (2050)
+   ============================ */
 
-/* Base: inherit everything from :root, only override accents per hub */
+:root {
+  --theme-accent: #38bdf8;
+  --theme-accent-strong: #0ea5e9;
+  --theme-accent-soft: rgba(56, 189, 248, 0.25);
+  --theme-glow: rgba(56, 189, 248, 0.35);
+  --theme-glow-strong: rgba(56, 189, 248, 0.55);
+  --theme-bullet-start: #4ade80;
+  --theme-bullet-end: #22c55e;
+}
+
+/* AGRICULTURE — green */
+.theme-agri {
+  --theme-accent: #4ade80;
+  --theme-accent-strong: #22c55e;
+  --theme-accent-soft: rgba(74, 222, 128, 0.25);
+  --theme-glow: rgba(74, 222, 128, 0.35);
+  --theme-glow-strong: rgba(74, 222, 128, 0.55);
+  --theme-bullet-start: #4ade80;
+  --theme-bullet-end: #22c55e;
+}
+
+/* ENERGY — yellow */
+.theme-energy {
+  --theme-accent: #facc15;
+  --theme-accent-strong: #eab308;
+  --theme-accent-soft: rgba(250, 204, 21, 0.25);
+  --theme-glow: rgba(250, 204, 21, 0.35);
+  --theme-glow-strong: rgba(250, 204, 21, 0.55);
+  --theme-bullet-start: #fde047;
+  --theme-bullet-end: #facc15;
+}
+
+/* TRANSPORT — orange */
+.theme-transport {
+  --theme-accent: #fb923c;
+  --theme-accent-strong: #f97316;
+  --theme-accent-soft: rgba(251, 146, 60, 0.25);
+  --theme-glow: rgba(251, 146, 60, 0.35);
+  --theme-glow-strong: rgba(251, 146, 60, 0.55);
+  --theme-bullet-start: #fb923c;
+  --theme-bullet-end: #f97316;
+}
+
+/* HOUSING — purple */
+.theme-housing {
+  --theme-accent: #c084fc;
+  --theme-accent-strong: #a855f7;
+  --theme-accent-soft: rgba(192, 132, 252, 0.25);
+  --theme-glow: rgba(192, 132, 252, 0.35);
+  --theme-glow-strong: rgba(192, 132, 252, 0.55);
+  --theme-bullet-start: #d8b4fe;
+  --theme-bullet-end: #c084fc;
+}
+
+/* TELECOM — blue */
+.theme-telecom {
+  --theme-accent: #60a5fa;
+  --theme-accent-strong: #3b82f6;
+  --theme-accent-soft: rgba(96, 165, 250, 0.25);
+  --theme-glow: rgba(96, 165, 250, 0.35);
+  --theme-glow-strong: rgba(96, 165, 250, 0.55);
+  --theme-bullet-start: #93c5fd;
+  --theme-bullet-end: #60a5fa;
+}
+
+/* DEEPGOV / HIGH SECURITY — red */
+.theme-deepgov {
+  --theme-accent: #ef4444;
+  --theme-accent-strong: #dc2626;
+  --theme-accent-soft: rgba(239, 68, 68, 0.25);
+  --theme-glow: rgba(239, 68, 68, 0.35);
+  --theme-glow-strong: rgba(239, 68, 68, 0.55);
+  --theme-bullet-start: #fca5a5;
+  --theme-bullet-end: #ef4444;
+}
 
 .theme-public {
   --accent: #38bdf8;
@@ -70,3 +146,38 @@
   width: 360px;
   text-align: center;
 }
+.sector-card {
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(10, 15, 25, 0.55);
+    backdrop-filter: blur(14px) saturate(160%);
+    border-radius: 1.1rem;
+    padding: 1.8rem;
+    transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.28s ease,
+                box-shadow 0.28s ease,
+                background 0.28s ease;
+    box-shadow: 0 0 0 var(--theme-glow);
+}
+
+.sector-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: var(--theme-accent-strong);
+    background: rgba(10, 15, 25, 0.75);
+    box-shadow:
+        0 0 22px var(--theme-glow),
+        0 0 48px var(--theme-glow-strong),
+        inset 0 0 14px var(--theme-accent-soft);
+}
+
+.sector-card::after {
+    background: radial-gradient(
+        circle at 30% 20%,
+        var(--theme-accent-soft),
+        transparent 60%
+    );
+}
+
+.sector-card li::before {
+    background: linear-gradient(135deg, var(--theme-bullet-start), var(--theme-bullet-end));
+}
+
