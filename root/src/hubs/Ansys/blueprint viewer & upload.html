@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
-<html lang="en" class="theme-employee">
+<html lang="en" class="theme-ansys">
 <head>
   <meta charset="UTF-8" />
-  <title>GIA — HR Hub</title>
+  <title>GIA — Blueprint Viewer & Uploader</title>
 
   <!-- Global Styles -->
   <link rel="stylesheet" href="/assets/css/_root.css" />
@@ -12,11 +13,10 @@
 
   <!-- Components -->
   <link rel="stylesheet" href="/assets/css/components/nav.css" />
-  <link rel="stylesheet" href="/assets/css/components/hero.css" />
   <link rel="stylesheet" href="/assets/css/components/sector-card.css" />
 
-  <!-- HR Theme (inherits employee theme) -->
-  <link rel="stylesheet" href="/assets/css/theme-employee.css" />
+  <!-- ANSYS Theme -->
+  <link rel="stylesheet" href="/assets/css/theme-ansys.css" />
 
   <!-- Language + Layout -->
   <script src="/assets/js/i18n.js" defer></script>
@@ -35,33 +35,51 @@
         <img src="/assets/logo.svg" class="brand-logo" alt="GIA" />
         <div>
           <div class="brand-text">Global Infrastructure Advisory</div>
-          <div class="brand-text">HR Hub</div>
+          <div class="brand-text">Blueprint Viewer</div>
         </div>
       </div>
-      <nav class="nav-links" id="hr-nav"></nav>
+      <nav class="nav-links" id="bp-nav"></nav>
     </header>
 
-    <!-- People Directory -->
+    <!-- Upload Panel -->
     <section class="section">
       <div class="section-header">
         <div>
-          <div class="section-title">People</div>
-          <div class="section-sub">Staff, contractors, and roles</div>
+          <div class="section-title">Upload Blueprint</div>
+          <div class="section-sub">PDF, PNG, JPG, CAD exports</div>
         </div>
-        <div class="pill-muted" id="hr-meta">Loading…</div>
       </div>
-      <div class="sectors-grid" id="hr-grid"></div>
+
+      <div class="sector-card">
+        <input type="file" id="bp-upload" accept=".pdf,.png,.jpg,.jpeg,.svg" />
+        <button class="btn-primary" id="bp-upload-btn">Upload</button>
+      </div>
+    </section>
+
+    <!-- Viewer Panel -->
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Blueprint Viewer</div>
+          <div class="section-sub">High‑resolution engineering preview</div>
+        </div>
+      </div>
+
+      <div class="sector-card">
+        <img id="bp-preview" style="max-width:100%; display:none;" />
+        <div id="bp-meta"></div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="page-footer">
-      <span>GIA HR Hub · 2050 Interface</span>
-      <span id="hr-footer-status">AI link: connecting…</span>
+      <span>GIA Blueprint Viewer · 2050 Interface</span>
+      <span id="bp-footer-status">AI link: connecting…</span>
     </footer>
 
   </div>
 
   <!-- Hub Logic -->
-  <script type="module" src="/hubs/hr/dashboard.js"></script>
+  <script type="module" src="/hubs/ansys/blueprint-viewer.js"></script>
 </body>
 </html>

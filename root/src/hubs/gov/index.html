@@ -3,8 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <title>GIA — Government Hub</title>
+
+  <!-- Global Styles -->
   <link rel="stylesheet" href="/assets/css/_root.css" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/hologram.css" />
   <link rel="stylesheet" href="/assets/css/themes.css" />
+
+  <!-- Components -->
+  <link rel="stylesheet" href="/assets/css/components/nav.css" />
+  <link rel="stylesheet" href="/assets/css/components/hero.css" />
+  <link rel="stylesheet" href="/assets/css/components/sector-card.css" />
+
+  <!-- Government Theme -->
+  <link rel="stylesheet" href="/assets/css/theme-gov.css" />
+
+  <!-- Language + Layout -->
+  <script src="/assets/js/i18n.js" defer></script>
+  <script src="/assets/js/layout-loader.js" defer></script>
+
+  <!-- Hologram Engine -->
+  <script src="/assets/js/hologram-engine.js" defer></script>
 </head>
 
 <body>
@@ -64,7 +83,7 @@
       <div class="sectors-grid" id="gov-sectors-grid"></div>
     </section>
 
-        <!-- Sector Analysis -->
+    <!-- Sector Analysis -->
     <section class="section">
       <div class="section-header">
         <div>
@@ -111,6 +130,45 @@
       </div>
     </section>
 
+    <section class="section">
+  <div class="section-header">
+    <div>
+      <div class="section-title">AI Routing Engine</div>
+      <div class="section-sub">Optimal paths for crews, materials, and relief</div>
+    </div>
+    <div class="pill-muted" id="route-meta">Idle</div>
+  </div>
+
+  <div class="route-shell">
+    <div class="route-inputs">
+      <label class="field-label">Origin</label>
+      <input id="route-origin" placeholder="e.g., substation-12 or lat,lon" />
+
+      <label class="field-label">Destination</label>
+      <input id="route-dest" placeholder="e.g., hospital-3 or lat,lon" />
+
+      <label class="field-label">Mode</label>
+      <select id="route-mode">
+        <option value="road">Road</option>
+        <option value="offroad">Off‑road / utility</option>
+        <option value="air">Air / drone</option>
+        <option value="mixed">Mixed</option>
+      </select>
+
+      <label class="field-label">Constraints (optional)</label>
+      <textarea id="route-constraints"
+        placeholder="avoid flooded zones, prioritize hospitals, max travel time 3h"></textarea>
+
+      <button class="btn-primary" id="btn-route-generate">Generate Route</button>
+    </div>
+
+    <div class="route-output">
+      <canvas id="route-canvas"></canvas>
+      <div id="route-report"></div>
+    </div>
+  </div>
+</section>
+
     <!-- Footer -->
     <footer class="page-footer">
       <span>GIA Government Hub · 2050 Interface</span>
@@ -119,6 +177,7 @@
 
   </div>
 
+  <!-- Hub Logic -->
   <script type="module" src="/hubs/gov/dashboard.js"></script>
 </body>
 </html>

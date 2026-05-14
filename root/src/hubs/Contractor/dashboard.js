@@ -123,17 +123,23 @@ document.getElementById("btn-dispatch").addEventListener("click", dispatch);
     logsEl.innerText = `Error: ${e.message}`;
   }
 })();
- 
-const result = await runAITask({
-  task: {
-    type: "aim",
-    mode: "contractor-research",
-    query: "What materials will spike in cost next quarter?",
-    dataset: {
-      region: contractor.region,
-      projects: contractor.projects,
-      supplyChain: contractor.supplyChain
-    }
-  },
-  context
-});
+async function runContractorResearch() {
+  const contractor = await api("/api/contractor/profile");
+
+  const result = await runAITask({
+    task: {
+      type: "aim",
+      mode: "contractor-research",
+      query: "What materials will spike in cost next quarter?",
+      dataset: {
+        region: contractor.region,
+        projects: contractor.projects,
+        supplyChain: contractor.supplyChain
+      }
+    },
+    context: { user: contractor.id }
+  });
+
+  console.log("AI Research Result:", result);
+}
+
