@@ -130,6 +130,45 @@
       </div>
     </section>
 
+    <section class="section">
+  <div class="section-header">
+    <div>
+      <div class="section-title">AI Routing Engine</div>
+      <div class="section-sub">Optimal paths for crews, materials, and relief</div>
+    </div>
+    <div class="pill-muted" id="route-meta">Idle</div>
+  </div>
+
+  <div class="route-shell">
+    <div class="route-inputs">
+      <label class="field-label">Origin</label>
+      <input id="route-origin" placeholder="e.g., substation-12 or lat,lon" />
+
+      <label class="field-label">Destination</label>
+      <input id="route-dest" placeholder="e.g., hospital-3 or lat,lon" />
+
+      <label class="field-label">Mode</label>
+      <select id="route-mode">
+        <option value="road">Road</option>
+        <option value="offroad">Off‑road / utility</option>
+        <option value="air">Air / drone</option>
+        <option value="mixed">Mixed</option>
+      </select>
+
+      <label class="field-label">Constraints (optional)</label>
+      <textarea id="route-constraints"
+        placeholder="avoid flooded zones, prioritize hospitals, max travel time 3h"></textarea>
+
+      <button class="btn-primary" id="btn-route-generate">Generate Route</button>
+    </div>
+
+    <div class="route-output">
+      <canvas id="route-canvas"></canvas>
+      <div id="route-report"></div>
+    </div>
+  </div>
+</section>
+
     <!-- Footer -->
     <footer class="page-footer">
       <span>GIA Government Hub · 2050 Interface</span>

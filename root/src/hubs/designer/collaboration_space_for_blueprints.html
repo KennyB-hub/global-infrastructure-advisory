@@ -145,7 +145,58 @@
         </div>
       </div>
     </section>
+    
+    <section class="section">
+  <div class="section-header">
+    <div>
+      <div class="section-title">AI Site Layout Generator</div>
+      <div class="section-sub">From terrain and constraints to a proposed site plan</div>
+    </div>
+    <div class="pill-muted" id="site-layout-meta">Idle</div>
+  </div>
 
+  <div class="site-layout-shell">
+    <div class="site-layout-inputs">
+      <label class="field-label">Site Source</label>
+      <select id="site-source">
+        <option value="image">Upload aerial/landscape image</option>
+        <option value="coords">Enter coordinates</option>
+      </select>
+
+      <div id="site-image-block">
+        <label class="field-label">Aerial / Landscape Image</label>
+        <input type="file" id="site-image" accept="image/*" />
+      </div>
+
+      <div id="site-coords-block" class="hidden">
+        <label class="field-label">Coordinates</label>
+        <input id="site-lat" placeholder="Latitude" />
+        <input id="site-lon" placeholder="Longitude" />
+      </div>
+
+      <label class="field-label">Layout Type</label>
+      <select id="site-layout-type">
+        <option value="house">House / Small Facility</option>
+        <option value="datacenter">Datacenter</option>
+        <option value="mine">Mine Portal</option>
+        <option value="pipeline">Pipeline Corridor</option>
+        <option value="mixed">Mixed Infrastructure Pad</option>
+      </select>
+
+      <label class="field-label">Constraints (optional)</label>
+      <textarea id="site-constraints"
+        placeholder="e.g., avoid north slope, keep 50m from road, prioritize drainage, max footprint 200m x 150m"></textarea>
+
+      <button class="btn-primary" id="btn-generate-site-layout">Generate Layout</button>
+    </div>
+
+    <div class="site-layout-output">
+      <canvas id="site-layout-canvas"></canvas>
+      <div id="site-layout-report"></div>
+    </div>
+  </div>
+</section>
+ 
     <!-- Footer -->
     <footer class="page-footer">
       <span>GIA Designer Hub · 2050 Interface</span>

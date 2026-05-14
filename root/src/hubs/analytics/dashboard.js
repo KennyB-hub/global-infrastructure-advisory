@@ -6,6 +6,74 @@ const navEl = document.getElementById("wa-nav");
 const gridEl = document.getElementById("wa-grid");
 const metaEl = document.getElementById("wa-meta");
 const footerStatus = document.getElementById("wa-footer-status");
+// ---------------------------------------------------------
+// ⭐ AI ROUTING ENGINE UI
+// ---------------------------------------------------------
+const routeOrigin = document.getElementById("route-origin");
+const routeDest = document.getElementById("route-dest");
+const routeMode = document.getElementById("route-mode");
+const routeConstraints = document.getElementById("route-constraints");
+const routeBtn = document.getElementById("btn-route-generate");
+const routeCanvas = document.getElementById("route-canvas");
+const routeCtx = routeCanvas?.getContext("2d");
+const routeReport = document.getElementById("route-report");
+const routeMeta = document.getElementById("route-meta");
+
+routeBtn?.addEventListener("click", async () => {
+  if (!routeCtx) return;
+
+  routeMeta.textContent = "Computing route…";
+
+  const origin = routeOrigin.value.trim();
+  const dest = routeDest.value.trim();
+  const mode = routeMode.value;
+  const constraints = routeConstraints.value.trim();
+
+  // Base canvas
+  routeCanvas.width = 800;
+  routeCanvas.height = 400;
+  routeCtx.fillStyle = "#020617";
+  routeCtx.fillRect(0, 0, routeCanvas.width, routeCanvas.height);
+
+  // Demo route line
+  routeCtx.strokeStyle = "#22c55e";
+  routeCtx.lineWidth = 3;
+  routeCtx.beginPath();
+  routeCtx.moveTo(60, routeCanvas.height - 60);
+  routeCtx.lineTo(routeCanvas.width * 0.4, routeCanvas.height * 0.6);
+  routeCtx.lineTo(routeCanvas.width - 60, 60);
+  routeCtx.stroke();
+
+  // Endpoints
+  routeCtx.fillStyle = "#e5e7eb";
+  routeCtx.beginPath();
+  routeCtx.arc(60, routeCanvas.height - 60, 6, 0, Math.PI * 2);
+  routeCtx.fill();
+  routeCtx.beginPath();
+  routeCtx.arc(routeCanvas.width - 60, 60, 6, 0, Math.PI * 2);
+  routeCtx.fill();
+
+  // Report
+  routeReport.innerHTML = `
+    <h3>Proposed Route</h3>
+    <p><strong>Origin:</strong> ${origin || "N/A"}</p>
+    <p><strong>Destination:</strong> ${dest || "N/A"}</p>
+    <p><strong>Mode:</strong> ${mode}</p>
+    ${
+      constraints
+        ? `<p><strong>Constraints:</strong> ${constraints}</p>`
+        : ""
+    }
+    <p><strong>AI Notes (demo):</strong></p>
+    <ul>
+      <li>Route avoids high‑risk zones where possible.</li>
+      <li>Path optimized for ${mode} travel.</li>
+      <li>Waypoints left for staging and resupply.</li>
+    </ul>
+  `;
+
+  routeMeta.textContent = "Route generated (demo)";
+});
 
 async function initNav() {
   const who = await api("/api/auth/whoami");

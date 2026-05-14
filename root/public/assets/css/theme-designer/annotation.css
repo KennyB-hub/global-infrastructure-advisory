@@ -97,3 +97,69 @@
   font-weight: 600;
 }
 
+.site-layout-shell {
+  margin-top: 20px;
+  display: flex;
+  gap: 24px;
+}
+
+.site-layout-inputs {
+  width: 320px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.field-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.site-layout-inputs input,
+.site-layout-inputs select,
+.site-layout-inputs textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-soft);
+  color: var(--text-main);
+  font-size: 0.9rem;
+}
+
+.site-layout-inputs textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.site-layout-output {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#site-layout-canvas {
+  width: 100%;
+  min-height: 260px;
+  background: #020617;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+}
+
+#site-layout-report {
+  background: var(--bg-panel);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  padding: 16px;
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+.hidden {
+  display: none;
+}
