@@ -1,4 +1,3 @@
-threat-engine.js
 // Simple, structured threat analysis stub.
 // You can expand rules later without changing the interface.
 export function analyzeThreat(input, context = {}) {

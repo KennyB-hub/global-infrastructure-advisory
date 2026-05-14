@@ -5,10 +5,7 @@ export default {
     const url = new URL(request.url);
 
     if (url.pathname === "/admin/login" && request.method === "POST") {
-      const form = await request.formData();
-      const email = form.get("email");
-      const password = form.get("password");
-      const otp = form.get("otp");
+      const { email, password, otp } = await request.json();
 
       const keyEngine = new KeyEngine(env);
 
