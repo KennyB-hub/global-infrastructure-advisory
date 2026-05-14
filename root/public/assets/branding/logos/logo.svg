@@ -1,54 +1,21 @@
-<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <!-- Top arc (slightly inside outer circle for better spacing) -->
-    <path id="top-arc"
-          d="M 96 256
-             A 160 160 0 0 1 416 256" />
-    <!-- Bottom arc (mirrored for lower text) -->
-    <path id="bottom-arc"
-          d="M 416 256
-             A 160 160 0 0 1 96 256" />
-  </defs>
-
-  <!-- Outer seal circle -->
-  <circle cx="256" cy="256" r="200"
-          fill="none"
-          stroke="#111827"
-          stroke-width="8" />
-
-  <!-- Inner circle (visual boundary for center mark) -->
-  <circle cx="256" cy="256" r="150"
-          fill="none"
-          stroke="#9ca3af"
-          stroke-width="2" />
-
-  <!-- TOP TEXT: GLOBAL INFRASTRUCTURE & ENGINEERING -->
-  <text font-family="Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
-        font-size="18"
-        letter-spacing="3"
-        fill="#111827">
-    <textPath href="#top-arc" startOffset="50%" text-anchor="middle">
-      GLOBAL INFRASTRUCTURE &amp; ENGINEERING
-    </textPath>
-  </text>
-
-  <!-- BOTTOM TEXT: BEYOND BORDERS (smaller) -->
-  <text font-family="Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
-        font-size="14"
-        letter-spacing="4"
-        fill="#111827">
-    <textPath href="#bottom-arc" startOffset="50%" text-anchor="middle">
-      BEYOND BORDERS
-    </textPath>
-  </text>
-
-  <!-- CENTER MARK: PLACE YOUR GLOBE + BRIDGE SVG HERE -->
-  <g id="center-mark">
-    <!-- Example placeholder: replace with your real logo paths -->
-    <circle cx="256" cy="256" r="80"
-            fill="none"
-            stroke="#4b5563"
-            stroke-width="3" />
-    <!-- Paste your existing globe/bridge SVG content inside this group -->
-  </g>
-</svg>
+<text text-anchor="middle" font-family="Montserrat, sans-serif"
+      font-weight="600" font-size="26"
+      letter-spacing="0.04em">
+  <textPath href="#arcPath">GLOBAL INFRASTRUCTURE</textPath>
+</text>
+<path id="arcPath" d="M60,80 A90,90 0 0,1 240,80" fill="none"/>
+<g transform="translate(150,150) scale(0.9)">
+  <!-- Paste your logo paths here -->
+</g>
+<text x="150" y="250" text-anchor="middle"
+      font-family="Montserrat, sans-serif"
+      font-weight="500" font-size="20"
+      letter-spacing="0.02em">
+  Infrastructure & Engineering
+</text>
+<text x="150" y="275" text-anchor="middle"
+      font-family="Montserrat, sans-serif"
+      font-weight="600" font-size="18"
+      letter-spacing="0.02em">
+  Built Beyond Borders
+</text>
