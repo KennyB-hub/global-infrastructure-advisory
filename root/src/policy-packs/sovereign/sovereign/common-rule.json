@@ -1,0 +1,165 @@
+{
+  "policyId": "common-rule",
+  "title": "Federal Policy for the Protection of Human Research Subjects",
+  "authority": "Department of Health and Human Services (HHS), Office for Human Research Protections (OHRP)",
+  "regulationNumber": "45 CFR 46",
+  "version": "2018-revision",
+  "effectiveDate": "2019-01-21",
+  "scope": "GIA workflows involving human research subjects or identifiable human data",
+  "description": "Establishes protections for human research subjects including consent, review, and risk assessment requirements",
+  "principles": [
+    {
+      "id": "HR-001",
+      "title": "Respect for Persons",
+      "description": "Human subjects must be treated as autonomous agents capable of deliberation and choice",
+      "requirement": "mandatory"
+    },
+    {
+      "id": "HR-002",
+      "title": "Beneficence",
+      "description": "Maximize benefits and minimize harms to research subjects",
+      "requirement": "mandatory"
+    },
+    {
+      "id": "HR-003",
+      "title": "Justice",
+      "description": "Benefits and burdens of research must be fairly distributed",
+      "requirement": "mandatory"
+    },
+    {
+      "id": "HR-004",
+      "title": "Informed Consent",
+      "description": "Subjects must provide voluntary, informed consent before research participation",
+      "requirement": "mandatory"
+    },
+    {
+      "id": "HR-005",
+      "title": "IRB Review",
+      "description": "Research involving human subjects must receive Institutional Review Board approval",
+      "requirement": "mandatory"
+    }
+  ],
+  "applicableWorkflows": [
+    "farmer-data-collection",
+    "gps-tracking-programs",
+    "environmental-health-research",
+    "infrastructure-impact-studies",
+    "workforce-development-programs"
+  ],
+  "riskCategories": {
+    "minimal_risk": {
+      "description": "No greater risk than ordinary life",
+      "irbReviewRequired": "expedited",
+      "consentRequired": true
+    },
+    "moderate_risk": {
+      "description": "Minor discomfort or inconvenience",
+      "irbReviewRequired": "full",
+      "consentRequired": true,
+      "dataMonitoringRequired": true
+    },
+    "greater_than_minimal_risk": {
+      "description": "Risk of harm greater than everyday activities",
+      "irbReviewRequired": "full",
+      "consentRequired": true,
+      "dataMonitoringRequired": true,
+      "aieeApprovalRequired": true
+    }
+  },
+  "consentRequirements": [
+    {
+      "element": "study-purpose",
+      "mandatory": true
+    },
+    {
+      "element": "procedures",
+      "mandatory": true
+    },
+    {
+      "element": "discomforts-and-risks",
+      "mandatory": true
+    },
+    {
+      "element": "benefits",
+      "mandatory": true
+    },
+    {
+      "element": "alternative-procedures",
+      "mandatory": false
+    },
+    {
+      "element": "confidentiality-protections",
+      "mandatory": true
+    },
+    {
+      "element": "contact-for-questions",
+      "mandatory": true
+    },
+    {
+      "element": "voluntary-nature",
+      "mandatory": true
+    }
+  ],
+  "trustZoneApplicability": {
+    "Public": "no-research-allowed",
+    "Farmer": "consent-required-minimal-risk-only",
+    "Contractor": "consent-required-minimal-risk-only",
+    "Employee": "can-design-research",
+    "Admin": "can-approve-irbr",
+    "Gov": "regulatory-oversight",
+    "DeepGov": "policy-development"
+  },
+  "irbRequirements": [
+    {
+      "requirement": "Board composition (5+ members, diverse expertise)",
+      "status": "mandatory"
+    },
+    {
+      "requirement": "Conflict of interest disclosure",
+      "status": "mandatory"
+    },
+    {
+      "requirement": "Continuing review (at least annually)",
+      "status": "mandatory"
+    },
+    {
+      "requirement": "Adverse event reporting",
+      "status": "mandatory"
+    }
+  ],
+  "controls": [
+    {
+      "control": "HR-CTL-001",
+      "description": "Block research workflows without IRB approval documentation",
+      "checkType": "gate-review"
+    },
+    {
+      "control": "HR-CTL-002",
+      "description": "Verify informed consent document compliance",
+      "checkType": "automated-audit"
+    },
+    {
+      "control": "HR-CTL-003",
+      "description": "Monitor data access for consent compliance",
+      "checkType": "automated-enforcement"
+    },
+    {
+      "control": "HR-CTL-004",
+      "description": "Annual continuing review enforcement",
+      "checkType": "calendar-alert"
+    }
+  ],
+  "violationReporting": {
+    "escalationPath": "Audit Log -> IRB -> HHS OHRP",
+    "timeToReport": "within-5-business-days"
+  },
+  "references": [
+    "https://www.hhs.gov/ohrp/regulations-and-policy/regulations/45-cfr-46/index.html",
+    "45 CFR 46 (2018 Revision)",
+    "Declaration of Helsinki",
+    "Belmont Report",
+    "GIA CONSTITUTION.md Article III"
+  ],
+  "lastReviewed": "2026-05-13",
+  "nextReview": "2027-05-13"
+}

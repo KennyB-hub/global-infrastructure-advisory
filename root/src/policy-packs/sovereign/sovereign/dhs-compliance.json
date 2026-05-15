@@ -1,0 +1,138 @@
+{
+  "policyId": "dhs-compliance",
+  "title": "Department of Homeland Security Compliance and Computer Matching Programs",
+  "authority": "Department of Homeland Security (DHS), Office of Compliance",
+  "scope": "GIA infrastructure protection and computer-assisted data matching operations",
+  "description": "Establishes DHS compliance standards for critical infrastructure operations and data matching between federal systems",
+  "principles": [
+    {
+      "id": "DHS-001",
+      "title": "Critical Infrastructure Protection",
+      "description": "All infrastructure operations must maintain security and operational resilience",
+      "requirement": "mandatory"
+    },
+    {
+      "id": "DHS-002",
+      "title": "Computer Matching Agreement",
+      "description": "Formal CMA required before matching data between systems",
+      "requirement": "mandatory"
+    },
+    {
+      "id": "DHS-003",
+      "title": "Notice and Validation",
+      "description": "Data matching must include accuracy verification and subject notification",
+      "requirement": "mandatory"
+    },
+    {
+      "id": "DHS-004",
+      "title": "Data Quality Standards",
+      "description": "Source data must meet accuracy and completeness standards",
+      "requirement": "mandatory"
+    },
+    {
+      "id": "DHS-005",
+      "title": "Security Incident Reporting",
+      "description": "All security incidents must be reported to DHS",
+      "requirement": "mandatory"
+    }
+  ],
+  "appliesTo": [
+    "infrastructure-monitoring-operations",
+    "cross-agency-contractor-vetting",
+    "critical-facility-coordination",
+    "emergency-response-data-sharing",
+    "infrastructure-threat-assessment"
+  ],
+  "computerMatchingAgreement": {
+    "required": true,
+    "template": "DHS-CMA-standard",
+    "mustInclude": [
+      "purpose-and-authority",
+      "data-sources",
+      "matching-criteria",
+      "accuracy-procedures",
+      "security-standards",
+      "dispute-resolution",
+      "termination-clauses"
+    ],
+    "duration": "3-years-renewable"
+  },
+  "dataMatchingStandards": {
+    "threshold": "95% accuracy minimum",
+    "verification": "required-before-use",
+    "auditTrail": "complete-and-immutable",
+    "notificationRequired": true
+  },
+  "trustZoneApplicability": {
+    "Public": "not-applicable",
+    "Farmer": "aggregate-results-only",
+    "Contractor": "site-specific-matching",
+    "Employee": "program-level-matching",
+    "Admin": "full-matching-oversight",
+    "Gov": "interagency-coordination",
+    "DeepGov": "strategic-data-fusion"
+  },
+  "infraProtectionStandards": [
+    {
+      "category": "energy-sector",
+      "standards": ["NERC-CIP", "FERC-requirements"],
+      "enforcement": "continuous-audit"
+    },
+    {
+      "category": "water-sector",
+      "standards": ["AWWA-security", "EPA-guidelines"],
+      "enforcement": "quarterly-review"
+    },
+    {
+      "category": "transportation-sector",
+      "standards": ["FMCSA-standards", "DOT-directives"],
+      "enforcement": "quarterly-review"
+    },
+    {
+      "category": "communications-sector",
+      "standards": ["FCC-requirements", "CISA-standards"],
+      "enforcement": "continuous-audit"
+    }
+  ],
+  "controls": [
+    {
+      "control": "DHS-CTL-001",
+      "description": "Block data matching without signed CMA",
+      "checkType": "automated-enforcement"
+    },
+    {
+      "control": "DHS-CTL-002",
+      "description": "Verify data accuracy before use",
+      "checkType": "automated-validation"
+    },
+    {
+      "control": "DHS-CTL-003",
+      "description": "Monitor infrastructure operations for anomalies",
+      "checkType": "continuous-monitoring"
+    },
+    {
+      "control": "DHS-CTL-004",
+      "description": "Log all critical infrastructure access",
+      "checkType": "real-time-audit"
+    }
+  ],
+  "incidentReporting": {
+    "types": [
+      "security-breach",
+      "unauthorized-access",
+      "data-loss",
+      "operational-failure",
+      "malicious-activity"
+    ],
+    "timeToReport": "immediately",
+    "recipient": "DHS-CISA"
+  },
+  "references": [
+    "Computer Matching and Privacy Protection Act of 1988 (5 USC 552a)",
+    "OMB Circular A-108 (Federal Agency Responsibilities for Review, Reporting, and Publication)",
+    "DHS Policy Directive 2400.01G (FISMA Compliance)",
+    "GIA CONSTITUTION.md Article II"
+  ],
+  "lastReviewed": "2026-05-13",
+  "nextReview": "2027-05-13"
+}

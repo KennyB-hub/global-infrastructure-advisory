@@ -1,0 +1,102 @@
+{
+  "policyId": "ostp-scientific-integrity",
+  "title": "OSTP Scientific Integrity Policy",
+  "authority": "Executive Office of the President, Office of Science and Technology Policy",
+  "effectiveDate": "2023-01-01",
+  "version": "2.0",
+  "scope": "Global Infrastructure Advisory AI systems and scientific operations",
+  "description": "Ensures all GIA operations maintain scientific integrity, transparency, and freedom from political interference",
+  "principles": [
+    {
+      "id": "SI-001",
+      "title": "Transparency and Openness",
+      "description": "Methods must be transparent, reproducible, and openly documented",
+      "enforcedBy": "AIEE",
+      "violation": "block-operation"
+    },
+    {
+      "id": "SI-002",
+      "title": "Data Integrity",
+      "description": "Data must not be fabricated, suppressed, or misrepresented",
+      "enforcedBy": "AIEE",
+      "violation": "block-operation"
+    },
+    {
+      "id": "SI-003",
+      "title": "Freedom from Political Pressure",
+      "description": "Scientific conclusions must not be altered for political purposes",
+      "enforcedBy": "AIEE",
+      "violation": "escalate-to-gov"
+    },
+    {
+      "id": "SI-004",
+      "title": "Peer Review",
+      "description": "High-impact research findings must undergo independent review",
+      "enforcedBy": "AIEE",
+      "violation": "require-human-review"
+    },
+    {
+      "id": "SI-005",
+      "title": "Conflict of Interest Disclosure",
+      "description": "All personnel must disclose conflicts that could bias analysis",
+      "enforcedBy": "OGE-reporting",
+      "violation": "require-disclosure"
+    }
+  ],
+  "applicableAreas": [
+    "data-analysis",
+    "modeling",
+    "decision-engine-output",
+    "policy-recommendations",
+    "research-conclusions"
+  ],
+  "trustZoneApplicability": {
+    "Public": "advisory",
+    "Farmer": "required",
+    "Contractor": "required",
+    "Employee": "required",
+    "Admin": "required",
+    "Gov": "required",
+    "DeepGov": "required",
+    "System": "required"
+  },
+  "controls": [
+    {
+      "control": "SI-CTL-001",
+      "description": "All analytical methods must be documented and auditable",
+      "checkType": "automated-audit"
+    },
+    {
+      "control": "SI-CTL-002",
+      "description": "Data sources must be cited and verifiable",
+      "checkType": "automated-audit"
+    },
+    {
+      "control": "SI-CTL-003",
+      "description": "High-impact decisions require review by System trust zone",
+      "checkType": "human-review"
+    },
+    {
+      "control": "SI-CTL-004",
+      "description": "Temporal data manipulation is prohibited",
+      "checkType": "automated-block"
+    }
+  ],
+  "violationReporting": {
+    "escalationPath": "Audit Log -> Gov Hub -> OSTP",
+    "mustReport": [
+      "suspected-falsification",
+      "suppressed-findings",
+      "political-pressure-evidence",
+      "methodology-violations"
+    ],
+    "timeToReport": "immediately"
+  },
+  "references": [
+    "https://www.whitehouse.gov/ostp/news-updates/2022/01/27/scientific-integrity/",
+    "Federal Register Notice 88 FR 1659 (Jan 12, 2023)",
+    "GIA CONSTITUTION.md Article II"
+  ],
+  "lastReviewed": "2026-05-13",
+  "nextReview": "2027-05-13"
+}
