@@ -2,6 +2,7 @@
     "version": "0.2.0",
     "configurations": [
 
+
         // --- 1. Attach to Microsoft Edge ---
         {
             "name": "Attach to Edge",
@@ -74,6 +75,33 @@
             "type": "node",
             "request": "launch",
             "program": "${workspaceFolder}/src/ai/decision-engine.js",
+            "cwd": "${workspaceFolder}",
+            "skipFiles": ["<node_internals>/**"]
+        },
+
+        {
+            "name": "Debug Geo Engine",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/backend/utilities/dns/geo/geo-logic/geo-engine.js",
+            "cwd": "${workspaceFolder}",
+            "skipFiles": ["<node_internals>/**"]
+        },
+
+        {
+            "name": "Debug Matching Engine",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/backend/matching/test-matching.js",
+            "cwd": "${workspaceFolder}",
+            "skipFiles": ["<node_internals>/**"]
+        },
+
+        {
+            "name": "Debug Schema Registry",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/backend/data/schema-registry.js",
             "cwd": "${workspaceFolder}",
             "skipFiles": ["<node_internals>/**"]
         }
