@@ -3,6 +3,7 @@
 
 import { SevenStack } from "../stack/seven-stack";
 import { RescueRequest, GroundRescueRequest } from "../rescue/seven-rescue-commander";
+import { NAPEvent } from "../sectors/nap-sectors";
 
 export type ExternalSystem = "CAD" | "C2" | "SCADA" | "NACI" | "NAP";
 
