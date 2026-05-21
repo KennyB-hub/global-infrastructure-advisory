@@ -32,6 +32,11 @@ import { ZoningEngine } from "./zoning-engine.js";
 import { SectorAnalysisEngine } from "./sector-analysis.js";
 import { enforceAIPolicy } from "./ai-policy.js";
 
+// Autonomous task management (Seven-of-Nine)
+import { enqueueTask, getNextPendingTask, updateTask } from "./autonomous/task-queue.js";
+import { getTaskHandler } from "./autonomous/task-registry.js";
+import { runSevenOfNineOnce } from "./autonomous/seven-of-nine.js";
+
 const sectorAnalysisEngine = new SectorAnalysisEngine();
 const scienceEngine = new ScienceEngine();
 const geothermalEngine = new GeothermalEngine();
@@ -193,6 +198,79 @@ export async function processAIRequest(request, env) {
       case "sector-analysis":
         result = await sectorAnalysisEngine.process(input, env, context);
         break;
+
+      // --- Autonomous Task Management (Seven-of-Nine) ---
+
+      case "task-enqueue": {
+        const task = enqueueTask(input.taskType, input.payload);
+        result = {
+          ok: true,
+          type: "task-enqueue",
+          task
+        };
+        break;
+      }
+
+      case "task-status": {
+        const taskId = input.taskId;
+        let tasks = [];
+        try {
+          // Load tasks to find specific task or all tasks
+          const fs = await import("fs");
+          const path = await import("path");
+          const queuePath = path.join(process.cwd(), "data/task-queue.json");
+          if (fs.existsSync(queuePath)) {
+            tasks = JSON.parse(fs.readFileSync(queuePath, "utf8"));
+          }
+        } catch {
+          tasks = [];
+        }
+        
+        const targetTask = taskId ? tasks.find(t => t.id === taskId) : null;
+        result = {
+          ok: true,
+          type: "task-status",
+          task: targetTask || null,
+          allTasks: taskId ? undefined : tasks
+        };
+        break;
+      }
+
+      case "task-process": {
+        // Manually trigger Seven-of-Nine to process next pending task
+        await runSevenOfNineOnce();
+        result = {
+          ok: true,
+          type: "task-process",
+          message: "Task processor executed (one cycle)"
+        };
+        break;
+      }
+
+      case "task-list": {
+        let tasks = [];
+        try {
+          const fs = await import("fs");
+          const path = await import("path");
+          const queuePath = path.join(process.cwd(), "data/task-queue.json");
+          if (fs.existsSync(queuePath)) {
+            tasks = JSON.parse(fs.readFileSync(queuePath, "utf8"));
+          }
+        } catch {
+          tasks = [];
+        }
+        
+        const filter = input.status || null;
+        const filtered = filter ? tasks.filter(t => t.status === filter) : tasks;
+        
+        result = {
+          ok: true,
+          type: "task-list",
+          tasks: filtered,
+          total: filtered.length
+        };
+        break;
+      }
 
       default:
         result = {
