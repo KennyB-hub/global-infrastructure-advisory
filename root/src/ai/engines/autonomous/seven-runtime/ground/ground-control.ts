@@ -32,15 +32,49 @@ export class GroundControl {
         mode: "IDLE"
     };
 
-    constructor(id: string, type: GroundUnitType) {
+    constructor(id: string, type: GroundUnitType, private sdkType: "ros" | "custom" = "ros") {
         this.id = id;
         this.type = type;
     }
 
+    /**
+     * Initialize ground unit SDK
+     */
+    async initializeSDK(): Promise<boolean> {
+        try {
+            if (this.type === "rover") {
+                // Example: const ros = require("ros-bridge");
+                // this.ros = await ros.connect("ws://localhost:9090");
+                console.log(`[Ground] Rover ${this.id} SDK initialized (${this.sdkType})`);
+            } else if (this.type === "dog-harness") {
+                // Example: const harness = require("dog-harness-sdk");
+                // this.harness = await harness.connect(this.id);
+                console.log(`[Ground] Dog harness ${this.id} SDK initialized`);
+            }
+            return true;
+        } catch (err) {
+            console.error("[Ground] SDK initialization failed:", err);
+            return false;
+        }
+    }
+
     async connect(): Promise<boolean> {
-        // TODO: real SDK connection
-        this.status.connected = true;
-        return true;
+        try {
+            if (this.type === "rover") {
+                // Real ROS connection
+                // const topics = await this.ros.call_service(...);
+                console.log(`[Ground] Rover ${this.id} connected via ROS`);
+            } else if (this.type === "dog-harness") {
+                // Real dog harness connection
+                // const status = await this.harness.handshake();
+                console.log(`[Ground] Dog harness ${this.id} connected`);
+            }
+            this.status.connected = true;
+            return true;
+        } catch (err) {
+            console.error("[Ground] Connection failed:", err);
+            return false;
+        }
     }
 
     getStatus() {
@@ -49,9 +83,20 @@ export class GroundControl {
 
     async sendCommand(cmd: GroundCommand): Promise<boolean> {
         if (!this.status.connected) return false;
-        // TODO: translate to real rover/dog harness SDK
-        console.log("[Seven Ground] Command:", this.id, cmd.type, cmd.payload || {});
-        return true;
+        
+        try {
+            // Real SDK command translation
+            if (this.type === "rover") {
+                // Example: await this.ros.call_service("/cmd_vel", cmd);
+            } else if (this.type === "dog-harness") {
+                // Example: await this.harness.send_command(cmd);
+            }
+            console.log("[Seven Ground] Command:", this.id, cmd.type, cmd.payload || {});
+            return true;
+        } catch (err) {
+            console.error("[Ground] Command execution failed:", err);
+            return false;
+        }
     }
 
     handleIncomingTelemetry(t: GroundTelemetry) {

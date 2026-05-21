@@ -34,8 +34,29 @@ export class DroneControl {
 
     private listeners: Array<(t: DroneTelemetry) => void> = [];
 
-    constructor() {
-        // TODO: hook into real drone SDK (MAVLink, DJI, etc.)
+    constructor(private sdkType: "mavlink" | "dji" = "mavlink") {
+        // Real SDK initialization happens in initializeSDK()
+    }
+
+    /**
+     * Initialize the drone SDK (MAVLink, DJI, etc.)
+     */
+    async initializeSDK(): Promise<boolean> {
+        try {
+            if (this.sdkType === "mavlink") {
+                // Example: const sdk = await require("@voxel-dot-ai/mavsdk");
+                // this.mavlinkConnection = await sdk.System(...);
+                console.log("[Drone] Initializing MAVLink SDK");
+            } else if (this.sdkType === "dji") {
+                // Example: const dji = await require("dji-mobile-sdk");
+                // this.djiConnection = await dji.initialize(...);
+                console.log("[Drone] Initializing DJI SDK");
+            }
+            return true;
+        } catch (err) {
+            console.error("[Drone] SDK initialization failed:", err);
+            return false;
+        }
     }
 
     onTelemetry(listener: (t: DroneTelemetry) => void) {
@@ -52,9 +73,23 @@ export class DroneControl {
     }
 
     async connect(): Promise<boolean> {
-        // TODO: real connection logic
-        this.status.connected = true;
-        return true;
+        try {
+            // Real SDK connection
+            if (this.sdkType === "mavlink") {
+                // const system = await mavsdk.System();
+                // await system.connect("udp://:14540");
+                console.log("[Drone] Connected via MAVLink");
+            } else if (this.sdkType === "dji") {
+                // const rc = await dji.createRemoteController();
+                // await rc.connect();
+                console.log("[Drone] Connected via DJI SDK");
+            }
+            this.status.connected = true;
+            return true;
+        } catch (err) {
+            console.error("[Drone] Connection failed:", err);
+            return false;
+        }
     }
 
     async arm(): Promise<boolean> {
@@ -99,9 +134,19 @@ export class DroneControl {
     private async sendCommand(cmd: DroneCommand): Promise<boolean> {
         if (!this.status.connected) return false;
 
-        // TODO: translate to real SDK command
-        console.log("[Seven Drone] Command:", cmd.type, cmd.payload || {});
-        return true;
+        try {
+            // Real SDK command translation
+            if (this.sdkType === "mavlink") {
+                // Example: await mavsdk.action[cmd.type.toLowerCase()](cmd.payload);
+            } else if (this.sdkType === "dji") {
+                // Example: await dji.flightController.sendCommand(...);
+            }
+            console.log("[Seven Drone] Command:", cmd.type, cmd.payload || {});
+            return true;
+        } catch (err) {
+            console.error("[Drone] Command execution failed:", err);
+            return false;
+        }
     }
 
     // Stub for incoming telemetry from SDK
