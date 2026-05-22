@@ -1,61 +1,34 @@
-<!-- Inside contractor.html -->
+<!-- Seven-of-Nine Public Explanation -->
 <section class="container my-5">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="text-white fw-bold">🏗️ Contractor Fleet Command</h2>
-        <span class="badge bg-info p-2">Sovereign Intel Active</span>
-    </div>
-
-    <!-- The Data Table -->
     <div class="card bg-dark border-secondary shadow-lg">
-        <div class="card-body p-0">
-            <table class="table table-dark table-hover mb-0">
-                <thead class="text-secondary">
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Sector</th>
-                        <th>Country</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody id="contractor-list">
-                    <!-- Your D1 data will crank into here -->
-                </tbody>
-            </table>
+        <div class="card-body text-white">
+
+            <h3 class="fw-bold mb-3">🧠 Seven‑of‑Nine — Operational Intelligence Layer</h3>
+
+            <p class="text-secondary">
+                Seven‑of‑Nine is the intelligence core that supports GIA’s field operations, contractor oversight,
+                and multi‑sector coordination. She is not a replacement for human judgment — she is the system that
+                explains, clarifies, and protects.
+            </p>
+
+            <p class="text-secondary">
+                Seven monitors operational data, contractor activity, infrastructure signals, and environmental
+                conditions to provide real‑time insights such as:
+            </p>
+
+            <ul class="text-secondary">
+                <li>⚡ Status changes across global contractor fleets</li>
+                <li>📍 Location‑based alerts and boundary intelligence</li>
+                <li>🛰️ Infrastructure or connectivity degradation</li>
+                <li>🚨 Disaster‑response routing (fire, flood, severe weather)</li>
+                <li>📡 Drone‑assisted mapping and field visibility</li>
+            </ul>
+
+            <p class="text-secondary mt-3">
+                Seven’s purpose is simple: <b>to give humans clarity when conditions get complex.</b>
+                She speaks plainly, acts predictably, and supports operators without ever replacing them.
+            </p>
+
         </div>
     </div>
 </section>
-
-<script>
-    async function syncContractorData() {
-        const list = document.getElementById('contractor-list');
-        
-        try {
-            // Pointing to your live Packard Worker
-            const response = await fetch('https://workers.dev');
-            const data = await response.json();
-
-            if (data.results.length === 0) {
-                list.innerHTML = '<tr><td colspan="5" class="text-center p-4">No contractors currently in the global roster.</td></tr>';
-                return;
-            }
-
-            // Inject the contractors into the table
-            list.innerHTML = data.results.map(c => `
-                <tr>
-                    <td class="font-monospace text-info">${c.id}</td>
-                    <td><b>${c.name}</b></td>
-                    <td><span class="badge bg-secondary">${c.sector}</span></td>
-                    <td>${c.country}</td>
-                    <td><div class="pulse-small"></div> Active</td>
-                </tr>
-            `).join('');
-
-        } catch (err) {
-            list.innerHTML = '<tr><td colspan="5" class="text-danger p-4 text-center">Connection to GIA D1 failed. Verify credentials.</td></tr>';
-        }
-    }
-
-    // Crank the engine as soon as the page loads
-    window.onload = syncContractorData;
-</script>

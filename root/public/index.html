@@ -8,6 +8,7 @@
 </head>
 <body>
     <div class="page-shell">
+
         <!-- Top navigation -->
         <header class="top-nav">
             <div class="brand-block">
@@ -17,7 +18,10 @@
             <nav class="nav-links">
                 <a href="#" class="nav-link">Sectors</a>
                 <a href="#" class="nav-link">Infrastructure</a>
-                <!-- Added Admin Link to Nav -->
+
+                <!-- Seven-of-Nine Intelligence Link -->
+                <a href="pages/seven-of-nine.html" class="nav-link text-info">Seven‑of‑Nine</a>
+
                 <a href="admin-2050.html" class="nav-link">2050 Admin</a> 
                 <a href="#" class="nav-link nav-link--primary">System Active</a>
             </nav>
@@ -29,7 +33,10 @@
                 <div class="hero-kicker">
                     <div class="hero-kicker-dot"></div> 
                     Satellite Link: <span id="sat-status">INITIALIZING</span>
+                    <br>
+                    Seven‑of‑Nine: <span class="text-info" id="seven-status">ONLINE</span>
                 </div>
+
                 <h1 class="hero-title">Deep Mind <span>Infrastructure</span></h1>
                 <p class="hero-body">Integrated soil telemetry and GPS mapping for global agricultural sectors.</p>
 
@@ -39,19 +46,22 @@
 
                 <div class="hero-actions">
                     <button class="btn-primary" onclick="refreshTelemetry()">Manual Sweep</button>
-                    <!-- Linked Admin Dashboard here as a secondary action -->
                     <a href="admin-2050.html" class="btn-secondary">2050 Admin Dashboard</a>
                     <button class="btn-secondary">Export Data</button>
+
+                    <!-- ⭐ Voice Flight Button Added -->
+                    <button id="voice-flight-btn" class="btn-secondary">🎤 Voice Flight</button>
                 </div>
             </div>
 
             <!-- Terminal Output + Hologram Canvas -->
             <div class="hero-orbit" id="hologram-container">
                 <div class="orbit-grid"></div>
-                <!-- VITAL: The canvas for your 3D Hologram -->
                 <canvas id="hologram-canvas"></canvas>
+
                 <div id="agri-logs">
                     <p class="text-dim">> System ready...</p>
+                    <p class="text-info">> SEVEN: Monitoring soil telemetry and boundary signals...</p>
                 </div>
             </div>
         </main>
@@ -65,6 +75,7 @@
                 </div>
                 <div class="pill-muted">Space‑grade · Zero‑Trust</div>
             </div>
+
             <div class="sectors-grid">
                 <article class="sector-card">
                     <div class="sector-icon">🛰️</div>
@@ -92,10 +103,15 @@
         <footer class="page-footer">
             <span>© 2026 Global Infrastructure Advisory</span>
             <span>Public Layer · Internal mission‑control protected.</span>
+            <span class="text-info">Seven‑of‑Nine · Operational Intelligence Layer</span>
         </footer>
     </div>
 
     <!-- Logic Script -->
     <script type="module" src="js/telemetry.js"></script>
+
+    <!-- ⭐ Voice Flight Script Added -->
+    <script src="js/voice-flight.js"></script>
+
 </body>
 </html>
