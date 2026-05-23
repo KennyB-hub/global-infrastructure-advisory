@@ -6,6 +6,7 @@ import { OrchestratorMissionRequest } from "../drone/drone-orchestrator";
 import { DisasterType } from "../safety/disaster-profile";
 import { SevenNarrator } from "../voice/seven-narrator";
 
+import { GroundControl } from "../ground/ground-control";
 import { GeoThermalSearch, ThermalSample } from "../sensors/search-thermal";
 import { RescueUnit } from "./rescue-unit";
 
@@ -34,9 +35,8 @@ export interface RescueRequest {
 export interface GroundRescueRequest {
     sector: RescueSector;
     disaster: DisasterType;
-    unit: RescueUnit;          // drone, rover, or dog-harness via adapters
-    samples: ThermalSample[];  // thermal data from sensors
-}
+    unit: RescueUnit;          // now generic: drone, rover, dog-harness
+    samples: ThermalSample[];
 
 export class SevenRescueCommander {
     private seven: SevenRuntime;
@@ -84,10 +84,17 @@ export class SevenRescueCommander {
     }
 
     // ---------------------------------------------------------
-    // GROUND RESCUE (ROVER / DOG-HARNESS / GROUND-DRONE)
+    // GROUND RESCUE (ROVER + DOG HARNESS)
     // ---------------------------------------------------------
     async launchGroundSearch(req: GroundRescueRequest) {
+        // Analyze thermal samples for human signatures
         const hits = this.geoThermal.analyze(req.samples);
+    
+        await req.unit.connect();
+await req.unit.sendCommand({
+    type: "GOTO",
+    payload: { lat: best.lat, lon: best.lon }
+});
 
         if (hits.length === 0) {
             await this.narrator.handleEvent({
@@ -100,15 +107,19 @@ export class SevenRescueCommander {
             return { hits: [] };
         }
 
+        // Pick highest-confidence hit
         const best = hits.sort((a, b) => b.confidence - a.confidence)[0];
 
+        // Connect ground unit
         await req.unit.connect();
 
+        // Send rover/dog to target
         await req.unit.sendCommand({
             type: "GOTO",
             payload: { lat: best.lat, lon: best.lon }
         });
 
+        // Narrator informs responders/victims
         await this.narrator.handleEvent({
             type: "RESCUE_INBOUND",
             sector: req.sector,
@@ -119,3 +130,4 @@ export class SevenRescueCommander {
         return { hits, target: best };
     }
 }
+
