@@ -1,16 +1,38 @@
-// © 2026 Global Infrastructure Advisory
-// Seven Runtime — Voice Event Bus
+// system/voice/voice-bus.ts
 
-import { SevenNarrator, NarratorEvent } from "./seven-narrator";
+import { generateSevenResponse } from "./response-engine.js";
+import { orchestrateMission } from "../mission/mission-orchestrator.js";
 
-export class VoiceBus {
-    private narrator: SevenNarrator;
+export const VoiceBus = {
+  async dispatch(payload) {
+    const { text, role, sessionId, sensors, resources } = payload;
 
-    constructor(narrator: SevenNarrator) {
-        this.narrator = narrator;
+    // Mission detection
+    const missionKeywords = [
+      "fire","flood","tornado","earthquake",
+      "collapse","chemical","injury","disaster",
+      "explosion","hazmat","rescue","evacuate"
+    ];
+
+    const isMission = missionKeywords.some(k =>
+      text.toLowerCase().includes(k)
+    );
+
+    if (isMission) {
+      return orchestrateMission({
+        text,
+        role,
+        sessionId,
+        sensors,
+        resources
+      });
     }
 
-    async emit(ev: NarratorEvent) {
-        return this.narrator.handleEvent(ev);
-    }
-}
+    // Normal command
+    return generateSevenResponse({
+      text,
+      role,
+      sessionId
+    });
+  }
+};
