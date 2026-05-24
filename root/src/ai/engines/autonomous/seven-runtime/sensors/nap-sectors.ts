@@ -1,7 +1,6 @@
 // © 2026 Global Infrastructure Advisory
 // Seven Runtime — Neighborhood Action Program (NAP) Sector Group
 
-<<<<<<< HEAD
 export type NAPAgency =
     | "code-enforcement"
     | "public-works"
@@ -14,18 +13,3 @@ export interface NAPEvent {
     type: string;
     payload: any;
 }
-
-=======
-export type NAPAgency =
-    | "code-enforcement"
-    | "public-works"
-    | "police"
-    | "fire"
-    | "ems";
-
-export interface NAPEvent {
-    agency: NAPAgency;
-    type: string;
-    payload: any;
-}
->>>>>>> 8af3cf37716f0a4a0a0653b41876073990567f4c
