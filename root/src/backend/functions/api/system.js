@@ -10,6 +10,7 @@ import { SevenStack } from "../../seven-runtime/stack/seven-stack.js";
 import { handleSystemHealth, handleSystemUptime } from "./system-diagnostics.js";
 import createVoiceRouter from "./routes/voice.js";
 import createAuditRouter from "./routes/audit.js";
+import createStateRouter from "./routes/state.js";
 
 const app = express();
 app.use(cors());
@@ -41,6 +42,7 @@ app.get("/api/system/uptime", (req, res) => {
 // VOICE ROUTES
 // ---------------------------------------------------------
 app.use("/api/voice", createVoiceRouter(stack));
+app.use("/api/system/state", createStateRouter(stack));
 
 // ---------------------------------------------------------
 // INFRASTRUCTURE AUDIT ENGINE

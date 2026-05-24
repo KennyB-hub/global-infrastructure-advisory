@@ -1,20 +1,27 @@
 // © 2026 Global Infrastructure Advisory
-// Seven Runtime — Full Stack Wiring (Air + Ground + Voice + Rescue)
+// Seven Runtime — Full Stack Wiring (Air + Ground + Voice + Rescue + Sync)
 
 import { TerrainModel } from "../drone/terrain-routing";
 import { SevenRuntime } from "../seven";
 
-import { DroneRegistry, DronePlugin } from "../drone/drone-registry";
-import { GroundRegistry, GroundPlugin } from "../ground/ground-registry";
+import { DroneRegistry } from "../drone/drone-registry";
+import { GroundRegistry } from "../ground/ground-registry";
 
-import { DroneRescueUnit, GroundRescueUnit } from "../rescue/adapters";
-import { RescueUnit } from "../rescue/rescue-unit";
+import { DroneRescueUnit } from "../rescue/adapters/drone-rescue-unit";
+import { GroundRescueUnit } from "../rescue/adapters/ground-rescue-unit";
 
 import { SevenNarrator, NarratorSink } from "../voice/seven-narrator";
 import { SevenRescueCommander } from "../rescue/seven-rescue-commander";
 
 import { NAPEvent } from "../sectors/nap-sectors";
 import { SevenInterop } from "../interop/seven-interop";
+
+import { ConnectionMonitor } from "../core/connection-monitor";
+import { EventQueue } from "../core/event-queue";
+
+import { HybridMode } from "../hybrid/hybrid-mode";
+import { SatelliteContinuityLayer } from "../sync/satellite-continuity";
+import { GeoFallbackEngine } from "../geo/geo-fallback-engine";
 
 export class SevenStack {
     readonly runtime: SevenRuntime;
@@ -24,20 +31,75 @@ export class SevenStack {
     readonly rescue: SevenRescueCommander;
     readonly interop: SevenInterop;
 
+    readonly connectionMonitor: ConnectionMonitor;
+    readonly eventQueue: EventQueue;
+    readonly satelliteContinuity: SatelliteContinuityLayer;
+    readonly geoFallback: GeoFallbackEngine;
+    readonly hybridMode: HybridMode;
+
     constructor(terrain: TerrainModel, sink: NarratorSink) {
         this.runtime = new SevenRuntime(terrain);
 
-        this.droneRegistry = new DroneRegistry();
-        this.groundRegistry = new GroundRegistry();
-
+        // Voice
         this.narrator = new SevenNarrator(sink);
+        const speakFn = (msg: string) => this.narrator.say(msg);
+
+        // Registries
+        this.droneRegistry = new DroneRegistry(speakFn);
+        this.groundRegistry = new GroundRegistry(speakFn);
+
+        // Rescue Commander
         this.rescue = new SevenRescueCommander(this.runtime, this.narrator);
 
+        // Connectivity + Sync
+        this.connectionMonitor = new ConnectionMonitor();
+        this.eventQueue = new EventQueue();
+
+        this.satelliteContinuity = new SatelliteContinuityLayer(
+            this.connectionMonitor,
+            this.eventQueue,
+            speakFn
+        );
+
+        this.geoFallback = new GeoFallbackEngine(speakFn);
+
+        this.hybridMode = new HybridMode(
+            this.connectionMonitor,
+            this.eventQueue,
+            speakFn,
+            this.satelliteContinuity
+        );
+
+        // Interop (NAP, CAD, C2, SCADA, etc.)
         this.interop = new SevenInterop(this);
     }
 
     // ---------------------------------------------------------
-    // NAP (Neighborhood Action Program)
+    // RESCUE UNIT LOOKUP
+    // ---------------------------------------------------------
+    getRescueUnit(id: string) {
+        const drone = this.droneRegistry.get(id);
+        if (drone) return new DroneRescueUnit(drone);
+
+        const ground = this.groundRegistry.get(id);
+        if (ground) return new GroundRescueUnit(ground);
+
+        return null;
+    }
+
+    // ---------------------------------------------------------
+    // REGISTRATION HELPERS
+    // ---------------------------------------------------------
+    registerDrone(plugin) {
+        this.droneRegistry.register(plugin);
+    }
+
+    registerGroundUnit(plugin) {
+        this.groundRegistry.register(plugin);
+    }
+
+    // ---------------------------------------------------------
+    // NAP / Sector Event Handling
     // ---------------------------------------------------------
     async handleNAP(event: NAPEvent) {
         return this.interop.handleEvent({
@@ -48,31 +110,27 @@ export class SevenStack {
     }
 
     // ---------------------------------------------------------
-    // REGISTRATION
+    // VOICE HELPERS
     // ---------------------------------------------------------
-    registerDrone(plugin: DronePlugin) {
-        this.droneRegistry.register(plugin);
-        this.runtime.registerDrone(plugin); // wires into SwarmController
+    speak(text: string) {
+        return this.narrator.say(text);
     }
 
-    registerGroundUnit(plugin: GroundPlugin) {
-        this.groundRegistry.register(plugin);
-    }
+    async reportStatus() {
+        const conn = this.connectionMonitor.getStatus();
+        const mode = this.hybridMode.getMode();
+        const cont = this.satelliteContinuity.getStatus();
 
-    // ---------------------------------------------------------
-    // RESCUE UNIT LOOKUP
-    // ---------------------------------------------------------
-    getRescueUnit(id: string): RescueUnit | null {
-        const drone = this.droneRegistry.get(id);
-        if (drone) {
-            return new DroneRescueUnit(drone.id, drone.control);
-        }
+        const phrase = [
+            "System status report.",
+            `Connection ${conn.state} via ${conn.transport}.`,
+            `Hybrid mode ${mode}.`,
+            cont.mode === "SATELLITE_ONLY"
+                ? "Satellite continuity active."
+                : "Ground networks available."
+        ].join(" ");
 
-        const ground = this.groundRegistry.get(id);
-        if (ground) {
-            return new GroundRescueUnit(ground.id, ground.control);
-        }
-
-        return null;
+        await this.narrator.say(phrase);
     }
 }
+

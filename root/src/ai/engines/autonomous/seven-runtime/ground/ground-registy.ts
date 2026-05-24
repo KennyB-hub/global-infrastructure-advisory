@@ -6,7 +6,7 @@ import { GroundControl } from "./ground-control";
 export interface GroundPlugin {
     id: string;
     name: string;
-    type: "rover" | "dog-harness";
+    type: "rover" | "dog-harness" | "ugv" | "utility" | "custom";
     control: GroundControl;
 }
 
