@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <a href="/index.html" class="nav-link">Home</a>
           <a href="/pages/sectors.html" class="nav-link">Sectors</a>
           <a href="/pages/templates-tools/additional-case.html" class="nav-link">Templates</a>
+          <a href="/dashboard" class="nav-link">System Dashboard</a>
           <a href="/admin/admin-mission-control.html" class="nav-link nav-link--primary">System Active</a>
         </nav>
       </header>
@@ -30,4 +31,3 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   }
 });
-

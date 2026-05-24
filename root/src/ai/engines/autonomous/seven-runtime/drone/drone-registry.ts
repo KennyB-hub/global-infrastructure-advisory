@@ -1,31 +1,16 @@
 // © 2026 Global Infrastructure Advisory
-// Seven Runtime — Drone Registration & Plug-In System
+// Seven Runtime — Drone Plug‑In Interface
 
 import { DroneControl } from "./drone-control";
 
 export interface DronePlugin {
-    id: string;
-    name: string;
+    id: string;                     // unique hardware ID
+    name: string;                   // human-readable name
     type: "quad" | "vtol" | "fixed-wing" | "heavy-lift" | "thermal" | "lidar";
-    control: DroneControl;
+    control: DroneControl;          // unified control interface
+
+    connect?(): Promise<void>;      // optional hardware connect
+    disconnect?(): Promise<void>;   // optional hardware disconnect
+    getTelemetry?(): Promise<any>;  // optional telemetry feed
 }
 
-export class DroneRegistry {
-    private drones: Map<string, DronePlugin> = new Map();
-
-    register(plugin: DronePlugin) {
-        this.drones.set(plugin.id, plugin);
-    }
-
-    unregister(id: string) {
-        this.drones.delete(id);
-    }
-
-    get(id: string) {
-        return this.drones.get(id);
-    }
-
-    list() {
-        return [...this.drones.values()];
-    }
-}

@@ -1,7 +1,7 @@
 // © 2026 Global Infrastructure Advisory
 // Seven Runtime — Ground Unit Control (Rover / Dog Harness)
 
-export type GroundUnitType = "rover" | "dog-harness";
+export type GroundUnitType = "rover" | "dog-harness" | "ugv" | "custom" | "utility";
 
 export interface GroundTelemetry {
     lat: number;
