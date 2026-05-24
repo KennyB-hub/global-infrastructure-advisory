@@ -1,144 +1,68 @@
-// 2050 V12 Alpha — System Diagnostics
-// Global Infrastructure Platform — System Layer
+// © 2026 Global Infrastructure Advisory
+// Seven Backend — Unified API Gateway
 
-import { requireRole } from "../../system/trust/api-trust.js";
-import { buildSovereignMetadata } from "../../system/metadata.js";
-import { computeIntegrityHash } from "../../system/integrity.js";
-import { applyPolicy } from "../../system/policy-engine.js";
-import { buildAIContext } from "../../system/ai-context.js";
-import { getUptime } from "../../system/uptime.js"; // your real uptime module
+import express from "express";
+import cors from "cors";
+
+import { TerrainModel } from "../../seven-runtime/drone/terrain-routing.js";
+import { SevenStack } from "../../seven-runtime/stack/seven-stack.js";
+
+import { handleSystemHealth, handleSystemUptime } from "./system-diagnostics.js";
+import createVoiceRouter from "./routes/voice.js";
+import createAuditRouter from "./routes/audit.js";
+
+const app = express();
+app.use(cors());
+app.use(express.json());
 
 // ---------------------------------------------------------
-// SYSTEM HEALTH
+// Seven Runtime Initialization
 // ---------------------------------------------------------
-export async function handleSystemHealth(request, env) {
-  const path = "/api/system/health";
+const terrain = new TerrainModel();
+const stack = new SevenStack(terrain, {
+    speak: (msg) => console.log("[Seven Voice]", msg)
+});
 
-  // 1. Sovereign Metadata
-  const sovereign = buildSovereignMetadata({
-    api: "system-health",
-    version: "2050.V12A",
-    node: env?.NODE_ID,
-    cluster: env?.CLUSTER_ID,
-    path,
-    method: "GET"
-  });
+// Attach stack to env for handlers
+const env = { stack };
 
-  // 2. Trust‑Zone Enforcement (admin-level)
-  const trust = requireRole("admin", request, env);
-  if (!trust.allowed) return trust.response;
+// ---------------------------------------------------------
+// SYSTEM ROUTES
+// ---------------------------------------------------------
+app.get("/api/system/health", (req, res) => {
+    handleSystemHealth(req, env).then(r => pipe(r, res));
+});
 
-  // 3. Policy Engine
-  const policy = applyPolicy({ request, path, zone: "admin" });
-  if (!policy.allowed) {
-    return sovereignError("POLICY_BLOCKED", policy.reason, sovereign);
-  }
+app.get("/api/system/uptime", (req, res) => {
+    handleSystemUptime(req, env).then(r => pipe(r, res));
+});
 
-  // 4. AI Context
-  const ai = buildAIContext({
-    request,
-    path,
-    workflow: "system-health",
-    trustZone: "admin"
-  });
+// ---------------------------------------------------------
+// VOICE ROUTES
+// ---------------------------------------------------------
+app.use("/api/voice", createVoiceRouter(stack));
 
-  // 5. Payload
-  const payload = {
-    status: "ok",
-    services: {
-      api: "ok",
-      routing: "ok",
-      sectors: "ok"
-    },
-    timestamp: Date.now()
-  };
+// ---------------------------------------------------------
+// INFRASTRUCTURE AUDIT ENGINE
+// ---------------------------------------------------------
+app.use("/api/audit", createAuditRouter(stack));
 
-  // 6. Sovereign Success Response
-  return new Response(
-    JSON.stringify({
-      ok: true,
-      payload,
-      sovereign,
-      ai,
-      integrity: computeIntegrityHash(payload)
-    }),
-    { status: 200, headers: { "Content-Type": "application/json" } }
-  );
+// ---------------------------------------------------------
+// RESPONSE PIPE
+// ---------------------------------------------------------
+function pipe(workerResponse, expressResponse) {
+    workerResponse.text().then(body => {
+        expressResponse
+            .status(workerResponse.status)
+            .set(Object.fromEntries(workerResponse.headers))
+            .send(body);
+    });
 }
 
 // ---------------------------------------------------------
-// SYSTEM UPTIME
+// START SERVER
 // ---------------------------------------------------------
-export async function handleSystemUptime(request, env) {
-  const path = "/api/system/uptime";
-
-  // 1. Sovereign Metadata
-  const sovereign = buildSovereignMetadata({
-    api: "system-uptime",
-    version: "2050.V12A",
-    node: env?.NODE_ID,
-    cluster: env?.CLUSTER_ID,
-    path,
-    method: "GET"
-  });
-
-  // 2. Trust‑Zone Enforcement (system-level)
-  const trust = requireRole("system", request, env);
-  if (!trust.allowed) return trust.response;
-
-  // 3. Policy Engine
-  const policy = applyPolicy({ request, path, zone: "system" });
-  if (!policy.allowed) {
-    return sovereignError("POLICY_BLOCKED", policy.reason, sovereign);
-  }
-
-  // 4. AI Context
-  const ai = buildAIContext({
-    request,
-    path,
-    workflow: "system-uptime",
-    trustZone: "system"
-  });
-
-  // 5. Real Uptime Module
-  let uptimeMs;
-  try {
-    uptimeMs = getUptime(); // your real uptime engine
-  } catch (err) {
-    return sovereignError("UPTIME_ENGINE_FAILURE", err.message, sovereign);
-  }
-
-  const payload = {
-    uptime_ms: uptimeMs,
-    timestamp: Date.now()
-  };
-
-  // 6. Sovereign Success Response
-  return new Response(
-    JSON.stringify({
-      ok: true,
-      payload,
-      sovereign,
-      ai,
-      integrity: computeIntegrityHash(payload)
-    }),
-    { status: 200, headers: { "Content-Type": "application/json" } }
-  );
-}
-
-// ---------------------------------------------------------
-// V12 Alpha — Unified Error Model
-// ---------------------------------------------------------
-function sovereignError(code, message, sovereign, status = 400) {
-  const body = {
-    ok: false,
-    error: { code, message },
-    sovereign,
-    integrity: computeIntegrityHash({ code, message })
-  };
-
-  return new Response(JSON.stringify(body), {
-    status,
-    headers: { "Content-Type": "application/json" }
-  });
-}
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+    console.log(`Seven Backend running on port ${PORT}`);
+});
