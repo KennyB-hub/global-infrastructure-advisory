@@ -3,10 +3,6 @@ main = "src/ai/workers/system-worker/index.js"
 compatibility_date = "2024-12-01"
 compatibility_flags = ["nodejs_compat"]
 
-[site]
-bucket = "./public"
-entry-point = "src"
-
 [triggers]
 crons = ["*/5 * * * *"]
 
