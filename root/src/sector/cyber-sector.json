@@ -1,0 +1,25 @@
+{
+  "sector": "cyber",
+  "description": "Cybersecurity sector overlay for GIA.",
+  "riskLevel": "critical",
+  "requiredPolicies": [
+    "scientific-integrity-operations",
+    "dhs-compliance",
+    "omb-m20-12-evidence-act",
+    "federal-policy-human-subjects"
+  ],
+  "requiredTraining": [
+    "cyber-ethics",
+    "incident-response",
+    "data-protection",
+    "zero-trust"
+  ],
+  "requiredCertifications": [
+    "Security+",
+    "CySA+",
+    "CISSP",
+    "OSCP"
+  ],
+  "trustZoneMinimum": "Contractor",
+  "auditFrequency": "real-time"
+}
