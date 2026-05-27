@@ -1,6 +1,6 @@
 {
-  "id": "building_code",
-  "name": "Building and Housing Infrastructure",
+  "id": "public_safety",
+  "name": "Public Safety Infrastructure",
   "version": "1.0",
   "failureModes": [],
   "repairModels": {},

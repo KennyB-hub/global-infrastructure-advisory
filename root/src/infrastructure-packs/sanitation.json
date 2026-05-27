@@ -1,6 +1,6 @@
 {
-  "id": "building_code",
-  "name": "Building and Housing Infrastructure",
+  "id": "sanitation",
+  "name": "Sanitation and Waste Infrastructure",
   "version": "1.0",
   "failureModes": [],
   "repairModels": {},

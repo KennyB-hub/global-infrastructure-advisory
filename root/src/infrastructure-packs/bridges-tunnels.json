@@ -1,6 +1,6 @@
 {
-  "id": "building_code",
-  "name": "Building and Housing Infrastructure",
+  "id": "bridges_tunnels",
+  "name": "Bridges and Tunnels Infrastructure",
   "version": "1.0",
   "failureModes": [],
   "repairModels": {},

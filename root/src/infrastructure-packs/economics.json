@@ -1,0 +1,13 @@
+{
+  "id": "economics",
+  "name": "Economics Infrastructure",
+  "version": "1.0",
+  "failureModes": [],
+  "repairModels": {},
+  "costs": { "materials": {}, "labor": {}, "equipment": {} },
+  "economics": {
+    "regionalMultiplier": 1.0,
+    "notes": "Global economic parameters for infra cost modeling"
+  },
+  "regulatory": { "primary": [], "notes": "" }
+}

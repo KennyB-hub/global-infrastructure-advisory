@@ -1,0 +1,127 @@
+{
+  "policyId": "HOUSING_BUILDING_CODE_V2",
+  "name": "Housing & Building Code Policy Pack",
+  "version": "2.0.0",
+  "source": "AIEE",
+  "scope": {
+    "resourceTypes": ["BUILDING", "STRUCTURE", "HOUSING_UNIT", "PERMIT", "INSPECTION", "ZONING_AREA"],
+    "actions": ["CONSTRUCT", "MODIFY", "INSPECT", "OCCUPY", "DEMOLISH", "PERMIT", "MAINTENANCE"],
+    "trustZones": ["public", "contractor", "employee", "admin", "gov", "deepgov", "system"]
+  },
+  "rules": [
+    {
+      "ruleId": "BLDG_ZONING_001",
+      "description": "Prevent construction that violates zoning classification.",
+      "condition": "data.zoningAllowed == false && action.name == \"CONSTRUCT\" || ai.giiContext.sectorRiskScore > 0.8 || ai.autonomy.level < 1",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "BLDG_ZONING_002",
+      "description": "Zoning variances require human review.",
+      "condition": "data.requiresVariance == true && action.name == \"CONSTRUCT\" || ai.giiContext.systemicRiskScore > 0.75",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "BLDG_STRUCT_001",
+      "description": "Prevent construction when structural load exceeds global safe limits.",
+      "condition": "data.structuralLoad > ai.globalCode.building.structural.maxStructuralLoad || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 2",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "BLDG_STRUCT_002",
+      "description": "Detected structural defect requires immediate review.",
+      "condition": "data.structuralDefectDetected == true || ai.giiContext.systemicRiskScore > 0.7",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "BLDG_FIRE_001",
+      "description": "Prevent occupancy if fire suppression systems are offline.",
+      "condition": "data.fireSuppressionStatus != \"OPERATIONAL\" && action.name == \"OCCUPY\" || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 1",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "BLDG_FIRE_002",
+      "description": "Fire alarm faults require human review.",
+      "condition": "data.fireAlarmFault == true || ai.giiContext.sectorRiskScore > 0.7",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "BLDG_ELEC_001",
+      "description": "Prevent unsafe electrical load beyond panel rating.",
+      "condition": "data.electricalLoad > ai.globalCode.building.electrical.maxElectricalLoad || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 1",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "BLDG_ELEC_002",
+      "description": "Electrical system faults require human review.",
+      "condition": "data.electricalFaultDetected == true || ai.giiContext.systemicRiskScore > 0.7",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "BLDG_PLUMB_001",
+      "description": "Prevent occupancy if plumbing system is non-functional.",
+      "condition": "data.plumbingStatus != \"OPERATIONAL\" && action.name == \"OCCUPY\" || ai.autonomy.level < 1",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "BLDG_HVAC_001",
+      "description": "Prevent unsafe HVAC operations during extreme temperatures.",
+      "condition": "data.hvacStatus != \"OPERATIONAL\" && data.extremeTemp == true || ai.giiContext.sectorRiskScore > 0.8 || ai.autonomy.level < 1",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "BLDG_ADA_001",
+      "description": "Prevent occupancy if ADA accessibility requirements are not met.",
+      "condition": "data.adaCompliant == false && action.name == \"OCCUPY\" || ai.autonomy.level < 1",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "BLDG_INSPECT_001",
+      "description": "Inspections must be performed by certified inspectors.",
+      "condition": "action.name == \"INSPECT\" && !actor.roles.Contains(\"CERTIFIED_INSPECTOR\") || ai.autonomy.level < 1",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "BLDG_PERMIT_001",
+      "description": "Construction or modification requires an approved permit.",
+      "condition": "(action.name == \"CONSTRUCT\" || action.name == \"MODIFY\") && data.permitApproved != true || ai.autonomy.level < 1",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "BLDG_PERMIT_002",
+      "description": "Permit overrides require human review.",
+      "condition": "data.permitOverrideRequested == true || ai.giiContext.systemicRiskScore > 0.7",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "BLDG_DEMO_001",
+      "description": "Demolition requires structural clearance and safety checks.",
+      "condition": "action.name == \"DEMOLISH\" && data.structuralClearance != true || ai.autonomy.level < 2",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "BLDG_RURAL_001",
+      "description": "Rural housing systems require priority protection and review.",
+      "condition": "data.isRuralHousing == true && data.systemHealth < ai.globalCode.building.structural.minRuralHealthThreshold || ai.giiContext.sectorRiskScore > 0.8",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "BLDG_CYBER_001",
+      "description": "Unauthorized remote access to smart building systems is denied.",
+      "condition": "env.clientType == \"REMOTE\" && !actor.roles.Contains(\"AUTHORIZED_REMOTE\") || ai.autonomy.level < 1",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "BLDG_CYBER_002",
+      "description": "Critical building automation systems require gov, deepgov, or system trust zone.",
+      "condition": "data.automationCritical == true && (actor.trustZone != \"gov\" && actor.trustZone != \"deepgov\" && actor.trustZone != \"system\") || ai.autonomy.level < 2",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "BLDG_CYBER_003",
+      "description": "Anomalous behavior in building telemetry requires human review.",
+      "condition": "data.behaviorScore > data.anomalyThreshold || ai.giiContext.systemicRiskScore > 0.7",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    }
+  ]
+}
