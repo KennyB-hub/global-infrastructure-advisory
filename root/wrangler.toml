@@ -1,5 +1,5 @@
 name = "global-infrastructure-advisory"
-main = "src/ai/workers/system-worker/index.js"
+main = "root/src/ai/workers/system-worker/index.js"
 compatibility_date = "2024-12-01"
 compatibility_flags = ["nodejs_compat"]
 
