@@ -1,16 +1,23 @@
-// workers/ewo-worker.js
-// GIA EWO Gateway Worker – V12 Alpha
+// workers/ewo-worker.ts
+// GIA EWO Gateway Worker – V12 Alpha (TypeScript)
 
-import { handleEWORequest } from "../backend/system/ewo/ewo-router.js";
-import { getTrustZone, checkTrust } from "../system/trust-middleware.js";
+import { handleEWORequest } from "../backend/system/ewo/ewo-router";
+import { getTrustZone, checkTrust } from "../system/trust-middleware";
 
-import systemManifest from "../config/system-manifest.json" assert { type: "json" };
-import nodeRegistry from "../config/node-registry.json" assert { type: "json" };
+import systemManifest from "../config/system-manifest.json";
+import nodeRegistry from "../config/node-registry.json";
+
+import { buildEvent } from "../system/cyber/event-builder";
+import { cyberHook } from "../system/cyber/worker-hook";
 
 // ---------------------------------------------------------
 // Unified JSON Response
 // ---------------------------------------------------------
-function json(data, status = 200, extraHeaders = {}) {
+function json(
+  data: Record<string, any>,
+  status: number = 200,
+  extraHeaders: Record<string, string> = {}
+): Response {
   return new Response(JSON.stringify(data, null, 2), {
     status,
     headers: {
@@ -26,22 +33,40 @@ function json(data, status = 200, extraHeaders = {}) {
 // ---------------------------------------------------------
 // Node Resolver (sector → physical cluster)
 // ---------------------------------------------------------
-function resolveNode(sector) {
+function resolveNode(sector?: string) {
   if (!sector) return null;
   const s = String(sector).toUpperCase();
-  return nodeRegistry.clusters.find(c => c.sector.toUpperCase() === s) || null;
+  return nodeRegistry.clusters.find(
+    (c: any) => c.sector.toUpperCase() === s
+  ) || null;
 }
 
 // ---------------------------------------------------------
 // MAIN WORKER
 // ---------------------------------------------------------
 export default {
-  async fetch(request, env, ctx) {
+  async fetch(request: Request, env: any, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
     const path = url.pathname;
 
     // Determine trust zone
     const trustZone = getTrustZone(path);
+
+    // Cyber event for every request
+    const event = buildEvent({
+      source: "ewo-gateway",
+      sector: "system",
+      trustZone,
+      type: "access_attempt",
+      metadata: {
+        path,
+        method: request.method,
+        ip: request.headers.get("cf-connecting-ip")
+      }
+    });
+
+    // Cyber engine enforcement
+    await cyberHook(event);
 
     // ---------------------------------------------------------
     // 1. EWO DISPATCH (PRIMARY)
@@ -76,7 +101,7 @@ export default {
           node: node?.name || null,
           result
         });
-      } catch (err) {
+      } catch (err: any) {
         return json(
           {
             ok: false,
@@ -116,3 +141,4 @@ export default {
     );
   }
 };
+

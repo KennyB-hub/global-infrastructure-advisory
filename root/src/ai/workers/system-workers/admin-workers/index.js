@@ -1,14 +1,23 @@
-// /workers/admin/index.js
-// GIA Sovereign Admin Worker – V12 Alpha
+// /workers/admin/index.ts
+// GIA Sovereign Admin Worker – V12 Alpha (TypeScript)
 
-import { basicSecurityGuard } from "../../src/security/worker-guard.js";
-import { PolicyEngine } from "../../src/ai-engine/policy-engine.js";
-import { TokenService } from "../../src/security/token-service.js";
-import { HashUtils } from "../../src/security/hash-utils.js";
+import { basicSecurityGuard } from "../../src/security/worker-guard";
+import { PolicyEngine } from "../../src/ai-engine/policy-engine";
+import { TokenService } from "../../src/security/token-service";
+import { HashUtils } from "../../src/security/hash-utils";
+
+import { buildEvent } from "../../src/system/cyber/event-builder";
+import { cyberHook } from "../../src/system/cyber/worker-hook";
 
 const policy = new PolicyEngine();
 
-function json(data, status = 200) {
+// ---------------------------------------------------------
+// Unified JSON Response
+// ---------------------------------------------------------
+function json(
+  data: Record<string, any>,
+  status: number = 200
+): Response {
   return new Response(JSON.stringify(data, null, 2), {
     status,
     headers: {
@@ -20,7 +29,14 @@ function json(data, status = 200) {
   });
 }
 
-export async function adminEndpoints(request, env, ctx) {
+// ---------------------------------------------------------
+// MAIN ADMIN WORKER
+// ---------------------------------------------------------
+export async function adminEndpoints(
+  request: Request,
+  env: any,
+  ctx: ExecutionContext
+): Promise<Response> {
   const url = new URL(request.url);
 
   //
@@ -30,22 +46,41 @@ export async function adminEndpoints(request, env, ctx) {
   if (guard) return guard;
 
   //
-  // 2. Admin Login
+  // 2. Cyber Engine Hook (Admin Worker)
+  //
+  const event = buildEvent({
+    source: "admin-worker",
+    sector: "admin",
+    trustZone: "admin",
+    type: "access_attempt",
+    metadata: {
+      path: url.pathname,
+      method: request.method,
+      ip: request.headers.get("cf-connecting-ip")
+    }
+  });
+
+  await cyberHook(event);
+
+  //
+  // 3. Admin Login
   //
   if (url.pathname === "/admin/login" && request.method === "POST") {
     try {
       const { email, password } = await request.json();
 
       const stored = await env.ADMINS.get(email);
-      if (!stored)
+      if (!stored) {
         return json({ ok: false, error: "Invalid credentials" }, 401);
+      }
 
       const admin = JSON.parse(stored);
       const hash = new HashUtils();
 
       const valid = await hash.compare(password, admin.password);
-      if (!valid)
+      if (!valid) {
         return json({ ok: false, error: "Invalid credentials" }, 401);
+      }
 
       const tokenService = new TokenService(env);
       const token = await tokenService.issue({
@@ -65,13 +100,13 @@ export async function adminEndpoints(request, env, ctx) {
           version: "v12-alpha"
         }
       });
-    } catch (err) {
+    } catch (err: any) {
       return json({ ok: false, error: err.message }, 500);
     }
   }
 
   //
-  // 3. Admin Dashboard (Protected)
+  // 4. Admin Dashboard (Protected)
   //
   if (url.pathname === "/admin/dashboard") {
     const decision = await policy.check({
@@ -80,8 +115,9 @@ export async function adminEndpoints(request, env, ctx) {
       action: "view"
     });
 
-    if (!decision.allowed)
+    if (!decision.allowed) {
       return json({ ok: false, error: decision.reason }, 403);
+    }
 
     return json({
       ok: true,
@@ -96,7 +132,7 @@ export async function adminEndpoints(request, env, ctx) {
   }
 
   //
-  // 4. Fallback
+  // 5. Fallback
   //
   return json({ ok: false, error: "Admin route not found" }, 404);
 }

@@ -1,5 +1,5 @@
-// /workers/admin/access.ts
-// GIA Sovereign Admin Access Endpoint – V12 Alpha (TypeScript)
+// /workers/deepgov/index.ts
+// GIA Sovereign DeepGov Worker – V12 Alpha (TypeScript)
 
 import { basicSecurityGuard } from "../../src/security/worker-guard";
 import { PolicyEngine } from "../../src/ai-engine/policy-engine";
@@ -22,44 +22,44 @@ function json(
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
-      "GIA-Trust-Zone": "admin",
+      "GIA-Trust-Zone": "deepgov",
       "GIA-Version": "v12-alpha"
     }
   });
 }
 
 // ---------------------------------------------------------
-// MAIN WORKER
+// MAIN DEEPGOV WORKER
 // ---------------------------------------------------------
-export async function onRequest(context: {
-  request: Request;
-  env: any;
-  waitUntil: (p: Promise<any>) => void;
-}): Promise<Response> {
+export async function onRequest(
+  context: { request: Request; env: any; waitUntil: (p: Promise<any>) => void }
+): Promise<Response> {
   const request = context.request;
+  const env = context.env;
+  const url = new URL(request.url);
 
   //
   // 1. Worker Guard (V12 Alpha)
   //
-  const guard = basicSecurityGuard(request, context.env);
+  const guard = basicSecurityGuard(request, env);
   if (guard) return guard;
 
   //
-  // 2. Extract trust zone from headers
+  // 2. Extract trust zone
   //
   const trustZone = request.headers.get("GIA-Trust-Zone") || "public";
 
   //
-  // 3. Cyber Engine Hook (Admin Gateway)
+  // 3. Cyber Engine Hook (DeepGov Worker)
   //
   const event = buildEvent({
-    source: "admin-access-worker",
-    sector: "admin",
+    source: "deepgov-worker",
+    sector: "deepgov",
     trustZone,
     type: "access_attempt",
     metadata: {
+      path: url.pathname,
       method: request.method,
-      path: new URL(request.url).pathname,
       ip: request.headers.get("cf-connecting-ip")
     }
   });
@@ -67,12 +67,12 @@ export async function onRequest(context: {
   await cyberHook(event);
 
   //
-  // 4. Policy check for admin-only workflow
+  // 4. DeepGov override check
   //
   const decision = await policy.check({
     trustZone,
-    workflow: "admin-access",
-    action: "view"
+    workflow: "deepgov-access",
+    action: "override"
   });
 
   if (!decision.allowed) {
@@ -81,7 +81,7 @@ export async function onRequest(context: {
       type: "policy-deny",
       reason: decision.reason,
       trustZone,
-      workflow: "admin-access",
+      workflow: "deepgov-access",
       timestamp: new Date().toISOString()
     };
 
@@ -98,17 +98,19 @@ export async function onRequest(context: {
   }
 
   //
-  // 5. Success response
+  // 5. DeepGov Sovereign Response
   //
   const payload = {
     ok: true,
-    zone: "admin",
-    access: "admin-only",
-    status: "ok",
+    zone: "deepgov",
+    access: "sovereign-only",
+    path: url.pathname,
+    status: "override-granted",
     timestamp: new Date().toISOString(),
     meta: {
       trustZone,
-      workflow: "admin-access",
+      workflow: "deepgov-access",
+      override: true,
       version: "v12-alpha"
     }
   };

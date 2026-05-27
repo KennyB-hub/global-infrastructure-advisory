@@ -1,23 +1,28 @@
 /**
- * debug-worker.js
+ * debug-worker.ts
  * ----------------
  * Transparent debugging Worker for GIA Deep Mind 2100.
  * No trust-zones, no governor, no policy filters.
  * Logs everything and returns raw AI engine output.
  */
 
-// /workers/debug/debug-worker.js
+// /workers/debug/debug-worker.ts
 // GIA Sovereign Debug Worker – V12 Alpha
 // Raw AI execution surface (no trust zones, no filters)
 
-import { AI } from "../ai/engine.js";
+import { AI } from "../ai/engine";
 
-import systemManifest from "../../config/system-manifest.json" assert { type: "json" };
-import nodeRegistry from "../../config/node-registry.json" assert { type: "json" };
-import clusterHealth from "../../config/cluster-health.json" assert { type: "json" };
+import systemManifest from "../../config/system-manifest.json";
+import nodeRegistry from "../../config/node-registry.json";
+import clusterHealth from "../../config/cluster-health.json";
 
+// ---------------------------------------------------------
 // Unified JSON responder
-function json(data, status = 200) {
+// ---------------------------------------------------------
+function json(
+  data: Record<string, any>,
+  status: number = 200
+): Response {
   return new Response(JSON.stringify(data, null, 2), {
     status,
     headers: {
@@ -29,8 +34,15 @@ function json(data, status = 200) {
   });
 }
 
+// ---------------------------------------------------------
+// MAIN DEBUG WORKER
+// ---------------------------------------------------------
 export default {
-  async fetch(request, env, ctx) {
+  async fetch(
+    request: Request,
+    env: any,
+    ctx: ExecutionContext
+  ): Promise<Response> {
     const url = new URL(request.url);
 
     //
@@ -41,7 +53,7 @@ export default {
       method: request.method,
       path: url.pathname,
       timestamp: new Date().toISOString(),
-      cf: request.cf || null,
+      cf: (request as any).cf || null,
 
       platform: {
         id: systemManifest.platform_id,
@@ -49,7 +61,7 @@ export default {
         failsafe: systemManifest.failsafe_level
       },
 
-      nodes: nodeRegistry.clusters.map(c => ({
+      nodes: nodeRegistry.clusters.map((c: any) => ({
         name: c.name,
         sector: c.sector,
         hostname: c.hostname,
@@ -57,7 +69,7 @@ export default {
         tls: c.tls
       })),
 
-      clusters: clusterHealth.clusters.map(c => ({
+      clusters: clusterHealth.clusters.map((c: any) => ({
         name: c.name,
         sector: c.sector,
         status: c.status,
@@ -66,7 +78,7 @@ export default {
 
       ai: {
         engineAvailable: typeof AI?.run === "function",
-        binding: AI?.binding || "unknown"
+        binding: (AI as any)?.binding || "unknown"
       }
     };
 
@@ -84,31 +96,37 @@ export default {
     //
     // 3. Parse JSON
     //
-    let payload;
+    let payload: any;
     try {
       payload = await request.json();
-    } catch (err) {
-      return json({
-        error: "Invalid JSON body",
-        details: err.message,
-        debug: debugInfo
-      }, 400);
+    } catch (err: any) {
+      return json(
+        {
+          error: "Invalid JSON body",
+          details: err.message,
+          debug: debugInfo
+        },
+        400
+      );
     }
 
     //
     // 4. RAW AI EXECUTION (no trust zones, no filters)
     //
-    let result;
+    let result: any;
     try {
       result = await AI.run(payload, env);
-    } catch (err) {
-      return json({
-        error: "AI engine threw an exception",
-        details: err.message,
-        stack: err.stack,
-        payload,
-        debug: debugInfo
-      }, 500);
+    } catch (err: any) {
+      return json(
+        {
+          error: "AI engine threw an exception",
+          details: err.message,
+          stack: err.stack,
+          payload,
+          debug: debugInfo
+        },
+        500
+      );
     }
 
     //

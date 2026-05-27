@@ -1,13 +1,22 @@
-// /workers/contractor/index.js
-// GIA Sovereign Contractor Worker – V12 Alpha
+// /workers/contractor/index.ts
+// GIA Sovereign Contractor Worker – V12 Alpha (TypeScript)
 
-import { basicSecurityGuard } from "../../src/security/worker-guard.js";
-import { PolicyEngine } from "../../src/ai-engine/policy-engine.js";
-import { sha256 } from "../../src/ai-engine/utils/crypto.js";
+import { basicSecurityGuard } from "../../src/security/worker-guard";
+import { PolicyEngine } from "../../src/ai-engine/policy-engine";
+import { sha256 } from "../../src/ai-engine/utils/crypto";
+
+import { buildEvent } from "../../src/system/cyber/event-builder";
+import { cyberHook } from "../../src/system/cyber/worker-hook";
 
 const policy = new PolicyEngine();
 
-function json(data, status = 200) {
+// ---------------------------------------------------------
+// Unified JSON Response
+// ---------------------------------------------------------
+function json(
+  data: Record<string, any>,
+  status: number = 200
+): Response {
   return new Response(JSON.stringify(data, null, 2), {
     status,
     headers: {
@@ -19,7 +28,12 @@ function json(data, status = 200) {
   });
 }
 
-export async function onRequest(context) {
+// ---------------------------------------------------------
+// MAIN CONTRACTOR WORKER
+// ---------------------------------------------------------
+export async function onRequest(
+  context: { request: Request; env: any; waitUntil: (p: Promise<any>) => void }
+): Promise<Response> {
   const request = context.request;
   const env = context.env;
   const url = new URL(request.url);
@@ -36,7 +50,24 @@ export async function onRequest(context) {
   const trustZone = request.headers.get("GIA-Trust-Zone") || "public";
 
   //
-  // 3. Contractor must authenticate
+  // 3. Cyber Engine Hook (Contractor Worker)
+  //
+  const event = buildEvent({
+    source: "contractor-worker",
+    sector: "contractor",
+    trustZone,
+    type: "access_attempt",
+    metadata: {
+      path: url.pathname,
+      method: request.method,
+      ip: request.headers.get("cf-connecting-ip")
+    }
+  });
+
+  await cyberHook(event);
+
+  //
+  // 4. Contractor must authenticate
   //
   const auth = request.headers.get("Authorization");
   if (!auth) {
@@ -53,7 +84,7 @@ export async function onRequest(context) {
   }
 
   //
-  // 4. Policy check for contractor workflows
+  // 5. Policy check for contractor workflows
   //
   const decision = await policy.check({
     trustZone,
@@ -62,16 +93,20 @@ export async function onRequest(context) {
   });
 
   if (!decision.allowed) {
+    const denyPayload = {
+      ok: false,
+      type: "policy-deny",
+      reason: decision.reason,
+      trustZone,
+      workflow: "contractor-access",
+      timestamp: new Date().toISOString()
+    };
+
     return json(
       {
-        ok: false,
-        type: "policy-deny",
-        reason: decision.reason,
-        trustZone,
-        workflow: "contractor-access",
-        timestamp: new Date().toISOString(),
+        ...denyPayload,
         integrity: {
-          hash: await sha256(JSON.stringify(decision)),
+          hash: await sha256(JSON.stringify(denyPayload)),
           verified: true
         }
       },
@@ -80,7 +115,7 @@ export async function onRequest(context) {
   }
 
   //
-  // 5. Contractor Status Endpoint
+  // 6. Contractor Status Endpoint
   //
   if (url.pathname.endsWith("/contractor/status")) {
     const payload = {
@@ -96,7 +131,7 @@ export async function onRequest(context) {
       }
     };
 
-    payload.integrity = {
+    payload["integrity"] = {
       hash: await sha256(JSON.stringify(payload)),
       verified: true
     };
@@ -105,7 +140,7 @@ export async function onRequest(context) {
   }
 
   //
-  // 6. Fallback
+  // 7. Fallback
   //
   const fallback = {
     ok: false,
@@ -120,7 +155,7 @@ export async function onRequest(context) {
     }
   };
 
-  fallback.integrity = {
+  fallback["integrity"] = {
     hash: await sha256(JSON.stringify(fallback)),
     verified: true
   };
