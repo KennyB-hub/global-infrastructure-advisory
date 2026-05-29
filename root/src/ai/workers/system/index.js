@@ -4,6 +4,7 @@
 import { basicSecurityGuard } from "../../src/security/worker-guard.js";
 import { PolicyEngine } from "../../src/ai-engine/policy-engine.js";
 import { sha256 } from "../../src/ai-engine/utils/crypto.js";
+import { SectorEngine } from "../../src/backend/sector/sector-engine.js";
 
 import { verifyDidVcIdentity } from "../../backend/system/identity/did-vc-verifier.js";
 import { enforceMCP } from "../../backend/system/mcp/mcp-enforcer.js";
@@ -22,6 +23,7 @@ import { organizerWorker } from "../organizer/index.js";
 import { anysWorker } from "../anys/index.js";
 import { govViewWorker } from "../govview/index.js";
 import { opportunityScannerWorker } from "../opportunity/index.js";
+import * as fccWorker from "../fcc/index.js";
 
 const policy = new PolicyEngine();
 
@@ -41,6 +43,7 @@ export async function onRequest(context) {
   const request = context.request;
   const env = context.env;
   const url = new URL(request.url);
+  const sectorEngine = new SectorEngine(env, env.NODE_REGISTRY);
 
   // ---------------------------------------------------------
   // WORKER MAP
@@ -58,7 +61,8 @@ export async function onRequest(context) {
     anys: anysWorker,
     govview: govViewWorker,
     opportunity: opportunityScannerWorker,
-    cyber: cyberWorker
+    cyber: cyberWorker,
+    fcc: fccWorker
   };
 
   // ---------------------------------------------------------
