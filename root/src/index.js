@@ -11,54 +11,90 @@ import { filterAIOutput } from "./ai-engine/filters/code-filter.js";
 import { beforeExecution } from "./ai-engine/hooks/before-execution.js";
 import { afterExecution } from "./ai-engine/hooks/after-execution.js";
 import { validateAIOutput } from "./ai-engine/validation/schema-guard.js";
-import { AutomationTasks } from './system/automation-tasks.js';
-import { FailsafeProtocols } from './system/failsafe-protocols.js';
+import { AutomationTasks } from "./system/automation-tasks.js";
+import { FailsafeProtocols } from "./system/failsafe-protocols.js";
+
+// NEW API ROUTERS
+import { handleCyberApi } from "./system/api/cyber.js";
+import { handleGovViewApi } from "./system/api/gov-view.js";
+import { handleOpportunityApi } from "./system/api/opportunity.js";
+import { handleMarketplaceApi } from "./system/api/marketplace.js";
+import { handleSectorMatchApi } from "./system/api/sector-match.js";
 
 export default {
-    // 1. THE HEARTBEAT (Autonomous Cron Trigger)
-    async scheduled(event, env, ctx) {
-        console.log("[GOVERNOR] Heartbeat Active: Initiating Diagnostics...");
-        ctx.waitUntil(AutomationTasks.runDailyOps(env));
-    },
+  // 1. THE HEARTBEAT (Autonomous Cron Trigger)
+  async scheduled(event, env, ctx) {
+    console.log("[GOVERNOR] Heartbeat Active: Initiating Diagnostics...");
+    ctx.waitUntil(AutomationTasks.runDailyOps(env));
+  },
 
-    // 2. THE COMMAND INTERFACE (Main Gateway)
-    async fetch(request, env) {
-        const url = new URL(request.url);
+  // 2. THE COMMAND INTERFACE (Main Gateway)
+  async fetch(request, env) {
+    const url = new URL(request.url);
 
-        try {
-            // --- ROUTING LAYER ---
+    try {
+      // ---------------------------------------------------------
+      // ROUTING LAYER
+      // ---------------------------------------------------------
 
-            // AI / Deep Mind Telemetry Route
-            if (url.pathname === "/api/deep-mind") {
-                const input = await request.json();
-                const aiResponse = await runAI(input, env);
-                return new Response(JSON.stringify(aiResponse), {
-                    status: aiResponse.error ? 400 : 200,
-                    headers: { "Content-Type": "application/json" }
-                });
-            }
+      if (url.pathname.startsWith("/api/cyber")) {
+        return handleCyberApi(request, env);
+      }
 
-            // Default Governor Status Response
-            return new Response("GIA v12 Governor Online | Sovereign Link: STABLE", {
-                status: 200,
-                headers: { "Content-Type": "text/plain" }
-            });
+      if (url.pathname.startsWith("/api/gov/view")) {
+        return handleGovViewApi(request, env);
+      }
 
-        } catch (err) {
-            console.error(`[GOVERNOR CRITICAL] ${err.message}`);
-            // Auto-trigger Failsafe Protocol Alpha
-            await FailsafeProtocols.execute('GLOBAL', 'GOVERNOR_FAULT', env);
-            
-            return new Response(JSON.stringify({ 
-                error: "Governor Failure", 
-                details: err.message, 
-                status: "FAILSAFE_ACTIVE" 
-            }), { 
-                status: 500, 
-                headers: { "Content-Type": "application/json" } 
-            });
+      if (url.pathname.startsWith("/api/opportunities")) {
+        return handleOpportunityApi(request, env);
+      }
+
+      if (url.pathname.startsWith("/api/marketplace")) {
+        return handleMarketplaceApi(request, env);
+      }
+
+      if (url.pathname.startsWith("/api/sector/match")) {
+        return handleSectorMatchApi(request, env);
+      }
+
+      // ---------------------------------------------------------
+      // AI / Deep Mind Telemetry Route
+      // ---------------------------------------------------------
+      if (url.pathname === "/api/deep-mind") {
+        const input = await request.json();
+        const aiResponse = await runAI(input, env);
+        return new Response(JSON.stringify(aiResponse), {
+          status: aiResponse.error ? 400 : 200,
+          headers: { "Content-Type": "application/json" }
+        });
+      }
+
+      // ---------------------------------------------------------
+      // DEFAULT GOVERNOR STATUS RESPONSE
+      // ---------------------------------------------------------
+      return new Response("GIA v12 Governor Online | Sovereign Link: STABLE", {
+        status: 200,
+        headers: { "Content-Type": "text/plain" }
+      });
+
+    } catch (err) {
+      console.error(`[GOVERNOR CRITICAL] ${err.message}`);
+
+      await FailsafeProtocols.execute("GLOBAL", "GOVERNOR_FAULT", env);
+
+      return new Response(
+        JSON.stringify({
+          error: "Governor Failure",
+          details: err.message,
+          status: "FAILSAFE_ACTIVE"
+        }),
+        {
+          status: 500,
+          headers: { "Content-Type": "application/json" }
         }
+      );
     }
+  }
 };
 
 /**
@@ -66,35 +102,42 @@ export default {
  * Manages TrustZones and AI Lifecycle
  */
 async function runAI(input, env) {
-    const trustZone = input.trustZone || "public";
+  const trustZone = input.trustZone || "public";
 
-    // 1. Policy validation
-    const policy = policies[trustZone];
-    if (!policy) return { error: `Invalid TrustZone: ${trustZone}`, trustZone };
+  const policy = policies[trustZone];
+  if (!policy) return { error: `Invalid TrustZone: ${trustZone}`, trustZone };
 
-    const policyCheck = policy.validate(input);
-    if (!policyCheck.valid) return { error: "Policy violation", details: policyCheck.errors };
+  const policyCheck = policy.validate(input);
+  if (!policyCheck.valid)
+    return { error: "Policy violation", details: policyCheck.errors };
 
-    // 2. Lifecycle: Before Execution
-    const startAudit = beforeExecution(input);
+  const startAudit = beforeExecution(input);
 
-    // 3. Execution: Decision Engine
-    const decisionResult = await runDecisionEngine({ ...input, trustZone, workflows, tools, env });
-    if (decisionResult.error) return { ...decisionResult, audit: { start: startAudit } };
+  const decisionResult = await runDecisionEngine({
+    ...input,
+    trustZone,
+    workflows,
+    tools,
+    env
+  });
 
-    const rawOutput = decisionResult.output;
+  if (decisionResult.error)
+    return { ...decisionResult, audit: { start: startAudit } };
 
-    // 4. Security: Filter & Schema Guard
-    if (!filterAIOutput(rawOutput).valid) return { error: "Output blocked by code filter" };
-    if (!validateAIOutput(rawOutput).valid) return { error: "Schema validation failed" };
+  const rawOutput = decisionResult.output;
 
-    // 5. Lifecycle: Complete Audit
-    const endAudit = afterExecution(input, rawOutput);
+  if (!filterAIOutput(rawOutput).valid)
+    return { error: "Output blocked by code filter" };
 
-    return {
-        success: true,
-        trustZone,
-        output: rawOutput,
-        audit: { start: startAudit, end: endAudit }
-    };
+  if (!validateAIOutput(rawOutput).valid)
+    return { error: "Schema validation failed" };
+
+  const endAudit = afterExecution(input, rawOutput);
+
+  return {
+    success: true,
+    trustZone,
+    output: rawOutput,
+    audit: { start: startAudit, end: endAudit }
+  };
 }

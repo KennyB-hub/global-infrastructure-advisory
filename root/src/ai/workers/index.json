@@ -1,16 +1,84 @@
 {
   "workers": [
-    { "id": "public-worker", "file": "public/index.js", "roles": ["public"] },
-    { "id": "contractor-worker", "file": "contractor/index.js", "roles": ["contractor"] },
-    { "id": "farmer-worker", "file": "farmer/index.js", "roles": ["agriculture"] },
-    { "id": "gov-worker", "file": "gov/index.js", "roles": ["government"] },
-    { "id": "deepgov-worker", "file": "deepgov/index.js", "roles": ["policy"] },
-    { "id": "admin-worker", "file": "admin/index.js", "roles": ["admin"] },
-    { "id": "system-worker", "file": "system/index.js", "roles": ["system"] },
-    { "id": "expansion-worker", "file": "expansion/index.js", "roles": ["expansion"] },
-    { "id": "organizer-worker", "file": "organizer/index.js", "roles": ["organizer"] },
-    { "id": "anys-worker", "file": "anys/index.js", "roles": ["any"] },
-    { "id": "govview-worker", "file": "govView.worker.js", "roles": ["government", "analysis"] },
-    { "id": "opportunity-scanner-worker", "file": "opportunityScanner.worker.js", "roles": ["matching", "marketplace"] }
+    {
+      "id": "public-worker",
+      "file": "public/index.js",
+      "roles": ["public", "general", "info"]
+    },
+    {
+      "id": "contractor-worker",
+      "file": "contractor/index.js",
+      "roles": ["contractor", "vendor", "labor"]
+    },
+    {
+      "id": "farmer-worker",
+      "file": "farmer/index.js",
+      "roles": ["agriculture", "field", "ops"]
+    },
+    {
+      "id": "employee-worker",
+      "file": "employee/index.js",
+      "roles": ["employee", "internal"]
+    },
+    {
+      "id": "admin-worker",
+      "file": "admin/index.js",
+      "roles": ["admin", "system"]
+    },
+    {
+      "id": "gov-worker",
+      "file": "gov/index.js",
+      "roles": ["government", "compliance"]
+    },
+    {
+      "id": "deepgov-worker",
+      "file": "deepgov/index.js",
+      "roles": ["policy", "regulation", "federal"]
+    },
+    {
+      "id": "system-worker",
+      "file": "system/index.js",
+      "roles": ["core", "routing", "internal"]
+    },
+    {
+      "id": "expansion-worker",
+      "file": "expansion/index.js",
+      "roles": ["expansion", "infrastructure", "deployment"]
+    },
+    {
+      "id": "organizer-worker",
+      "file": "organizer/index.js",
+      "roles": ["organizer", "structure", "ops"]
+    },
+    {
+      "id": "anys-worker",
+      "file": "anys/index.js",
+      "roles": ["any", "fallback", "universal"]
+    },
+    {
+      "id": "govview-worker",
+      "file": "govView.worker.js",
+      "roles": ["government", "analysis", "budget", "contracts"]
+    },
+    {
+      "id": "opportunity-scanner-worker",
+      "file": "opportunityScanner.worker.js",
+      "roles": ["matching", "jobs", "contracts", "marketplace"]
+    },
+    {
+      "id": "marketplace-engine-worker",
+      "file": "marketplace.engine.js",
+      "roles": ["marketplace", "unified", "global"]
+    },
+    {
+      "id": "sector-matching-worker",
+      "file": "sector-matching.engine.js",
+      "roles": ["sector", "matching", "intelligence"]
+    },
+    {
+  "id": "cyber-worker",
+  "file": "cyber/index.js",
+  "roles": ["cyber", "security", "soc"]
+    }
   ]
 }

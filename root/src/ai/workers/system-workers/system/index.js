@@ -5,6 +5,7 @@
 import { basicSecurityGuard } from "../../src/security/worker-guard.js";
 import { PolicyEngine } from "../../src/ai-engine/policy-engine.js";
 import { sha256 } from "../../src/ai-engine/utils/crypto.js";
+import * as cyberWorker from "./cyber/index.js";
 
 const policy = new PolicyEngine();
 
@@ -24,6 +25,21 @@ export async function onRequest(context) {
   const request = context.request;
   const env = context.env;
   const url = new URL(request.url);
+  const workerMap = {
+  public: publicWorker,
+  contractor: contractorWorker,
+  farmer: farmerWorker,
+  gov: govWorker,
+  deepgov: deepgovWorker,
+  admin: adminWorker,
+  system: systemWorker,
+  expansion: expansionWorker,
+  organizer: organizerWorker,
+  anys: anysWorker,
+  govview: govViewWorker,
+  opportunity: opportunityScannerWorker,
+  cyber: cyberWorker
+};
 
   //
   // 1. Worker Guard (V12 Alpha)
