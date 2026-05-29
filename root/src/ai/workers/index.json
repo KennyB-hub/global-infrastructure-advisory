@@ -1,0 +1,16 @@
+{
+  "workers": [
+    { "id": "public-worker", "file": "public/index.js", "roles": ["public"] },
+    { "id": "contractor-worker", "file": "contractor/index.js", "roles": ["contractor"] },
+    { "id": "farmer-worker", "file": "farmer/index.js", "roles": ["agriculture"] },
+    { "id": "gov-worker", "file": "gov/index.js", "roles": ["government"] },
+    { "id": "deepgov-worker", "file": "deepgov/index.js", "roles": ["policy"] },
+    { "id": "admin-worker", "file": "admin/index.js", "roles": ["admin"] },
+    { "id": "system-worker", "file": "system/index.js", "roles": ["system"] },
+    { "id": "expansion-worker", "file": "expansion/index.js", "roles": ["expansion"] },
+    { "id": "organizer-worker", "file": "organizer/index.js", "roles": ["organizer"] },
+    { "id": "anys-worker", "file": "anys/index.js", "roles": ["any"] },
+    { "id": "govview-worker", "file": "govView.worker.js", "roles": ["government", "analysis"] },
+    { "id": "opportunity-scanner-worker", "file": "opportunityScanner.worker.js", "roles": ["matching", "marketplace"] }
+  ]
+}
