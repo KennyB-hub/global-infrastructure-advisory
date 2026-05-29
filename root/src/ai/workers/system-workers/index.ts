@@ -14,7 +14,7 @@ import * as farmerWorker from "./farmer/index.js";
 import * as govWorker from "./gov/index.js";
 import * as deepgovWorker from "./deepgov/index.js";
 import * as adminWorker from "./admin/index.js";
-import * as systemWorker from "./system/index.js";
+import * as systemWorker from "../system/index.js";
 
 // NEW WORKERS
 import * as govViewWorker from "./govView.worker.js";
@@ -29,6 +29,7 @@ import nodeRegistry from "../config/node-registry.json" assert { type: "json" };
 // ---------------------------------------------------------
 //  Identity + Policy Imports (NEW)
 // ---------------------------------------------------------
+import * as cyberWorker from "./cyber/index.js";
 import { resolveDID } from "../../../backend/identity/did-resolver.js";
 import { verifyVC } from "../../../backend/identity/vc-verifier.js";
 import { enforceMCP } from "../../../backend/system/mcp-policy.js";
@@ -68,6 +69,36 @@ const workerMap = {
   govview: govViewWorker,
   opportunity: opportunityScannerWorker
 };
+
+// Zero-Trust Pre-Execution Check
+const cyberEvent = {
+  eventType: "request",
+  data: {
+    path: url.pathname,
+    method: request.method,
+    ip: request.headers.get("CF-Connecting-IP") || undefined,
+    action: "route_request",
+    resource: workerId,
+    requests: 1 // you can wire real metrics later
+  }
+};
+
+const cyberResult = await cyberWorker.handle(cyberEvent, {
+  env,
+  trustZone,
+  authValid: true // later: wire real auth/DID/VC
+});
+
+if (cyberResult.threat.level === "critical" || cyberResult.threat.level === "high") {
+  return json(
+    {
+      error: "Request blocked by Zero-Trust routing",
+      threat: cyberResult.threat,
+      trust: cyberResult.trust
+    },
+    403
+  );
+}
 
 // ---------------------------------------------------------
 //  Main System Worker Handler

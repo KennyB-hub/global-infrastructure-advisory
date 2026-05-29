@@ -1,15 +1,24 @@
-// /backend/ai/identity.js
+// backend/ai/identity.js
+// Cortex v12 — Identity Context Builder
+
 export class Identity {
   constructor(env) {
     this.env = env;
   }
 
-  getMetadata(request) {
+  /**
+   * buildContext(context)
+   * Accepts upstream identity context (already verified)
+   * and normalizes it for AI workflows.
+   */
+  async buildContext(context = {}) {
     return {
-      ip: request.headers.get("CF-Connecting-IP") || "unknown",
-      ua: request.headers.get("User-Agent") || "unknown",
-      timestamp: Date.now(),
-      source: "AI-CORTEX"
+      subject: context.subject || "anonymous",
+      trustZone: context.trustZone || "public",
+      claims: context.claims || {},
+      threat: context.threat || { level: "none" },
+      mcp: context.mcp || { allowed: true, policy: "default" },
+      timestamp: new Date().toISOString()
     };
   }
 }

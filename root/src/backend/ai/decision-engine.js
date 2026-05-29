@@ -1,15 +1,14 @@
 // src/backend/ai/decision-engine.js
-// GIA Sovereign Decision Engine – V12 Alpha
-
-import { validatePayload, validateTrustZone } from "../utils/validator.js";
-import { makeOk, makeError } from "../utils/context.js";
+// GIA Sovereign Decision Engine – V12 Sovereign Edition
 
 import workflows from "./workflows/index.js";
 import policies from "./policies/index.js";
+import { validatePayload, validateTrustZone } from "../utils/validator.js";
+import { makeOk, makeError } from "../utils/context.js";
 
-export async function runDecisionEngine(input, env) {
+export async function runDecisionEngine(input, env, nodeRegistry = {}) {
   //
-  // 1. Validate input schema
+  // 1. Validate base schema
   //
   const schemaCheck = await validatePayload(env, input, {
     trustZone: { required: true, type: "string" },
@@ -25,10 +24,12 @@ export async function runDecisionEngine(input, env) {
   if (!trustCheck.ok) return trustCheck;
 
   //
-  // 3. Apply policy
+  // 3. Apply policy for trust zone
   //
   const policy = policies[input.trustZone];
-  if (!policy) return makeError("No policy for trust zone", env, { zone: input.trustZone });
+  if (!policy) {
+    return makeError("No policy for trust zone", env, { zone: input.trustZone });
+  }
 
   const policyCheck = policy.validate(input);
   if (!policyCheck.valid) {
@@ -44,7 +45,19 @@ export async function runDecisionEngine(input, env) {
   }
 
   //
-  // 5. Validate workflow input schema (if defined)
+  // 5. Sovereign Context (identity, threat, mcp, cluster)
+  //
+  const identity = input.identity || {};
+  const threat = input.threat || { level: "none" };
+  const mcp = input.mcp || { allowed: true, policy: "default" };
+
+  // Select cluster based on trust zone
+  const cluster = (nodeRegistry.clusters || []).find(
+    c => c.trustZone === input.trustZone
+  ) || null;
+
+  //
+  // 6. Validate workflow input schema (if defined)
   //
   if (workflow.schema?.input) {
     const wfInputCheck = await validatePayload(env, input.data, workflow.schema.input);
@@ -52,17 +65,28 @@ export async function runDecisionEngine(input, env) {
   }
 
   //
-  // 6. Execute workflow
+  // 7. Execute workflow with full sovereign context
   //
   let result;
   try {
-    result = await workflow.run(input.data, env);
+    result = await workflow.run(
+      {
+        data: input.data,
+        identity,
+        trustZone: input.trustZone,
+        threat,
+        mcp,
+        cluster,
+        nodeRegistry
+      },
+      env
+    );
   } catch (err) {
     return makeError("Workflow execution failed", env, { message: err.message });
   }
 
   //
-  // 7. Validate workflow output schema (if defined)
+  // 8. Validate workflow output schema (if defined)
   //
   if (workflow.schema?.output) {
     const wfOutputCheck = await validatePayload(env, result, workflow.schema.output);
@@ -70,7 +94,18 @@ export async function runDecisionEngine(input, env) {
   }
 
   //
-  // 8. Return sovereign‑grade response
+  // 9. Return sovereign‑grade response
   //
-  return makeOk({ workflow: input.workflow, result }, env);
+  return makeOk(
+    {
+      workflow: input.workflow,
+      result,
+      identity,
+      trustZone: input.trustZone,
+      threat,
+      mcp,
+      cluster
+    },
+    env
+  );
 }

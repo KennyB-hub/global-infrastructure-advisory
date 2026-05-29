@@ -1,4 +1,6 @@
-// /backend/ai/cortex.js
+// backend/ai/cortex.js
+// GIA Cortex v12 — Sovereign Reasoning Engine
+
 import { SchemaGuard } from "./schema-guard.js";
 import { Tools } from "./tools.js";
 import { Workflows } from "./workflows.js";
@@ -13,17 +15,48 @@ export class Cortex {
     this.identity = new Identity(env);
   }
 
-  async process(input) {
+  /**
+   * process(input, context?)
+   * input:  { workflow: string, payload: any, ... }
+   * context: { trustZone, subject, claims, threat, mcp, ... }  // optional
+   */
+  async process(input, context = {}) {
+    // 1. Schema validation (AI safety at the edge of Cortex)
     const safe = this.guard.validate(input);
     if (!safe.valid) {
-      return { error: "Invalid AI request", details: safe.reason };
+      return {
+        ok: false,
+        error: "INVALID_AI_REQUEST",
+        details: safe.reason
+      };
     }
 
+    // 2. Resolve workflow
     const workflow = this.workflows.get(input.workflow);
     if (!workflow) {
-      return { error: "Unknown workflow" };
+      return {
+        ok: false,
+        error: "UNKNOWN_WORKFLOW",
+        workflow: input.workflow
+      };
     }
 
-    return await workflow(input);
+    // 3. Attach identity context (non‑authoritative, for reasoning only)
+    const identityContext = await this.identity.buildContext(context);
+
+    // 4. Execute workflow with tools + env + context
+    const result = await workflow({
+      input,
+      env: this.env,
+      tools: this.tools,
+      identity: identityContext,
+      context
+    });
+
+    return {
+      ok: true,
+      workflow: input.workflow,
+      result
+    };
   }
 }

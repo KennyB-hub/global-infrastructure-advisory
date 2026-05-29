@@ -8,13 +8,25 @@ import { handleAuthLogin } from "./auth-login.js";
 import { handleAuthCallback } from "./auth-callback.js";
 import { openIncidentsFromAlerts } from "../ai/incident-response-workflow.js";
 
-// --- V12 Alpha Utility Imports (you already have these in your system layer) ---
+// --- V12 Alpha Utility Imports ---
 import { buildSovereignMetadata } from "../system/metadata.js";
 import { verifyTrustZone } from "../system/trust.js";
 import { applyPolicy } from "../system/policy-engine.js";
 import { applyCodeFilter } from "../system/code-filter.js";
 import { computeIntegrityHash } from "../system/integrity.js";
 import { buildAIContext } from "../system/ai-context.js";
+import { verifyDidVcIdentity } from "../system/identity/did-vc-verifier.js";
+
+import { runDecisionEngine } from "../../ai-engine/decision-engine.js";
+import { Cortex } from "../../ai-engine/cortex.js";
+import nodeRegistry from "../../config/node-registry.json" assert { type: "json" };
+
+import { enforceMCP } from "../../system/mcp/mcp-enforcer.js";
+import { handleCyberApi } from "./cyber.js";
+import { handleGovViewApi } from "./gov-view.js";
+import { handleOpportunityApi } from "./opportunity.js";
+import { handleMarketplaceApi } from "./marketplace.js";
+import { handleSectorMatchApi } from "./sector-match.js";
 
 export async function handleApiRequest(request, env, ctx) {
   const url = new URL(request.url);
@@ -29,7 +41,8 @@ export async function handleApiRequest(request, env, ctx) {
     node: env.NODE_ID,
     cluster: env.CLUSTER_ID,
     path,
-    method: request.method
+    method: request.method,
+    subject: identity.subject || "anonymous"
   });
 
   // ---------------------------------------------------------
@@ -38,7 +51,7 @@ export async function handleApiRequest(request, env, ctx) {
   const trust = verifyTrustZone({
     request,
     path,
-    zone: "public", // Gateway is public-facing; workers enforce deeper zones
+    zone: "public" // Gateway is public-facing; workers enforce deeper zones
   });
 
   if (!trust.allowed) {
@@ -72,19 +85,32 @@ export async function handleApiRequest(request, env, ctx) {
   });
 
   // ---------------------------------------------------------
-  // 6. Route Table (V12 Alpha)
+  // 6. MCP Enforcement (Gateway-level)
+  // ---------------------------------------------------------
+  const mcp = await enforceMCP({
+    trustZone: trust.zone,
+    method: request.method,
+    threat: { level: "none" } // gateway is low-risk; deep threat handled downstream
+  });
+
+  if (!mcp.allowed) {
+    return sovereignError("MCP_DENIED", mcp.reason || "Blocked by MCP policy", sovereign);
+  }
+
+  // ---------------------------------------------------------
+  // 7. Route Table (V12 Alpha — Expanded)
   // ---------------------------------------------------------
   try {
     // Global Map
     if (path === "/api/map/global") {
       return sovereignWrap(await handleGlobalMap(request), sovereign, ai);
     }
-     
+
     // Incident Scan (Dashboard Button)
-if (path === "/api/security/incidents/scan" && request.method === "POST") {
-  const incidents = openIncidentsFromAlerts();
-  return sovereignWrap({ created: incidents.length, incidents }, sovereign, ai);
-}
+    if (path === "/api/security/incidents/scan" && request.method === "POST") {
+      const incidents = openIncidentsFromAlerts();
+      return sovereignWrap({ created: incidents.length, incidents }, sovereign, ai);
+    }
 
     // Auth Login
     if (path === "/api/auth/login") {
@@ -109,6 +135,70 @@ if (path === "/api/security/incidents/scan" && request.method === "POST") {
     // Sector Map
     if (path.startsWith("/api/map/sector/")) {
       return sovereignWrap(await handleSectorMap(request), sovereign, ai);
+    }
+
+    // -----------------------------------------------------
+    // NEW: Cyber API
+    // -----------------------------------------------------
+    if (path.startsWith("/api/cyber")) {
+      const res = await handleCyberApi(request, env);
+      const payload = await res.json();
+      return sovereignWrap(payload, sovereign, ai);
+    }
+
+    // -----------------------------------------------------
+    // NEW: Gov View API
+    // -----------------------------------------------------
+    if (path.startsWith("/api/gov/view")) {
+      const res = await handleGovViewApi(request, env);
+      const payload = await res.json();
+      return sovereignWrap(payload, sovereign, ai);
+    }
+
+    // -----------------------------------------------------
+    // NEW: Opportunity Scanner API
+    // -----------------------------------------------------
+    if (path.startsWith("/api/opportunities")) {
+      const res = await handleOpportunityApi(request, env);
+      const payload = await res.json();
+      return sovereignWrap(payload, sovereign, ai);
+    }
+
+    // -----------------------------------------------------
+    // NEW: Unified Marketplace API
+    // -----------------------------------------------------
+    if (path.startsWith("/api/marketplace")) {
+      const res = await handleMarketplaceApi(request, env);
+      const payload = await res.json();
+      return sovereignWrap(payload, sovereign, ai);
+    }
+
+    // -----------------------------------------------------
+    // NEW: Sector-Aware Matching API
+    // -----------------------------------------------------
+    if (path.startsWith("/api/sector/match")) {
+      const res = await handleSectorMatchApi(request, env);
+      const payload = await res.json();
+      return sovereignWrap(payload, sovereign, ai);
+    }
+
+    // -----------------------------------------------------
+    // NEW: Decision Engine API
+    // -----------------------------------------------------
+    if (path === "/api/decision" && request.method === "POST") {
+      const body = await request.json();
+      const result = await runDecisionEngine({ ...body, nodeRegistry, env });
+      return sovereignWrap(result, sovereign, ai);
+    }
+
+    // -----------------------------------------------------
+    // NEW: Cortex API
+    // -----------------------------------------------------
+    if (path === "/api/cortex" && request.method === "POST") {
+      const body = await request.json();
+      const cortex = new Cortex(env);
+      const result = await cortex.process(body);
+      return sovereignWrap(result, sovereign, ai);
     }
 
     // Not Found
