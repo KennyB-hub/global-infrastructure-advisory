@@ -5,8 +5,14 @@ import workflows from "./workflows/index.js";
 import policies from "./policies/index.js";
 import { validatePayload, validateTrustZone } from "../utils/validator.js";
 import { makeOk, makeError } from "../utils/context.js";
+import { CryptoV12 } from "../utils/crypto.js"; // ← NEW
 
 export async function runDecisionEngine(input, env, nodeRegistry = {}) {
+  //
+  // 0. Generate trace ID
+  //
+  const traceId = CryptoV12.randomId();
+
   //
   // 1. Validate base schema
   //
@@ -28,12 +34,18 @@ export async function runDecisionEngine(input, env, nodeRegistry = {}) {
   //
   const policy = policies[input.trustZone];
   if (!policy) {
-    return makeError("No policy for trust zone", env, { zone: input.trustZone });
+    return makeError("No policy for trust zone", env, {
+      zone: input.trustZone,
+      traceId
+    });
   }
 
   const policyCheck = policy.validate(input);
   if (!policyCheck.valid) {
-    return makeError("Policy violation", env, { errors: policyCheck.errors });
+    return makeError("Policy violation", env, {
+      errors: policyCheck.errors,
+      traceId
+    });
   }
 
   //
@@ -41,7 +53,10 @@ export async function runDecisionEngine(input, env, nodeRegistry = {}) {
   //
   const workflow = workflows[input.workflow];
   if (!workflow) {
-    return makeError("Workflow not found", env, { workflow: input.workflow });
+    return makeError("Workflow not found", env, {
+      workflow: input.workflow,
+      traceId
+    });
   }
 
   //
@@ -51,10 +66,10 @@ export async function runDecisionEngine(input, env, nodeRegistry = {}) {
   const threat = input.threat || { level: "none" };
   const mcp = input.mcp || { allowed: true, policy: "default" };
 
-  // Select cluster based on trust zone
-  const cluster = (nodeRegistry.clusters || []).find(
-    c => c.trustZone === input.trustZone
-  ) || null;
+  const cluster =
+    (nodeRegistry.clusters || []).find(
+      c => c.trustZone === input.trustZone
+    ) || null;
 
   //
   // 6. Validate workflow input schema (if defined)
@@ -65,28 +80,46 @@ export async function runDecisionEngine(input, env, nodeRegistry = {}) {
   }
 
   //
-  // 7. Execute workflow with full sovereign context
+  // 7. Build integrity payload + token
+  //
+  const sovereignPayload = {
+    data: input.data,
+    identity,
+    trustZone: input.trustZone,
+    threat,
+    mcp,
+    cluster,
+    nodeRegistry,
+    traceId
+  };
+
+  const integritySecret = env.DECISION_ENGINE_SECRET || "DECISION_ENGINE_DEFAULT_SECRET";
+  const integrityToken = await CryptoV12.integrityToken(
+    sovereignPayload,
+    integritySecret
+  );
+
+  //
+  // 8. Execute workflow with full sovereign context
   //
   let result;
   try {
     result = await workflow.run(
       {
-        data: input.data,
-        identity,
-        trustZone: input.trustZone,
-        threat,
-        mcp,
-        cluster,
-        nodeRegistry
+        ...sovereignPayload,
+        integrityToken
       },
       env
     );
   } catch (err) {
-    return makeError("Workflow execution failed", env, { message: err.message });
+    return makeError("Workflow execution failed", env, {
+      message: err.message,
+      traceId
+    });
   }
 
   //
-  // 8. Validate workflow output schema (if defined)
+  // 9. Validate workflow output schema (if defined)
   //
   if (workflow.schema?.output) {
     const wfOutputCheck = await validatePayload(env, result, workflow.schema.output);
@@ -94,7 +127,7 @@ export async function runDecisionEngine(input, env, nodeRegistry = {}) {
   }
 
   //
-  // 9. Return sovereign‑grade response
+  // 10. Return sovereign‑grade response
   //
   return makeOk(
     {
@@ -104,7 +137,9 @@ export async function runDecisionEngine(input, env, nodeRegistry = {}) {
       trustZone: input.trustZone,
       threat,
       mcp,
-      cluster
+      cluster,
+      traceId,
+      integrityToken
     },
     env
   );

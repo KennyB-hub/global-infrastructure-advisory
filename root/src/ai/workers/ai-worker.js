@@ -8,7 +8,8 @@ import { buildContext } from "../../ai-engine/context-builder.js";
 import { sanitizeOutput } from "../../ai-engine/response-sanitizer.js";
 import { handleError } from "../../ai-engine/error-handler.js";
 import { processAIRequest } from "../../ai-engine/ai-router.js";
-import { sha256 } from "../../src/ai-engine/utils/crypto.js";
+import { CryptoV12 } from "../../src/ai-engine/utils/crypto.js";
+
 
 const policy = new PolicyEngine();
 

@@ -1,8 +1,10 @@
-// /workers/farmer/index.ts
-// GIA Sovereign Farmer Worker – V12 Sovereign Edition
+// /workers/admin/index.ts
+// GIA Sovereign Admin Worker – V12 Sovereign Edition
 
 import { basicSecurityGuard } from "../../src/security/worker-guard";
 import { PolicyEngine } from "../../src/ai-engine/policy-engine";
+import { TokenService } from "../../src/security/token-service";
+import { HashUtils } from "../../src/security/hash-utils";
 import { CryptoV12 } from "../../src/ai-engine/utils/crypto.js";
 
 import { buildEvent } from "../../src/system/cyber/event-builder";
@@ -22,27 +24,25 @@ function json(data: Record<string, any>, status: number = 200): Response {
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
-      "GIA-Trust-Zone": "farmer",
+      "GIA-Trust-Zone": "admin",
       "GIA-Version": "v12-sovereign"
     }
   });
 }
 
 // ---------------------------------------------------------
-// MAIN FARMER WORKER
+// MAIN ADMIN WORKER
 // ---------------------------------------------------------
-export async function onRequest(context: {
-  request: Request;
-  env: any;
-  waitUntil: (p: Promise<any>) => void;
-}): Promise<Response> {
-  const request = context.request;
-  const env = context.env;
+export async function adminEndpoints(
+  request: Request,
+  env: any,
+  ctx: ExecutionContext
+): Promise<Response> {
   const url = new URL(request.url);
   const systemTraceId = CryptoV12.randomId();
 
   //
-  // 1. Worker Guard
+  // 1. Worker Guard (V12 Sovereign)
   //
   const guard = basicSecurityGuard(request, env);
   if (guard) return guard;
@@ -57,8 +57,8 @@ export async function onRequest(context: {
   // 3. Cyber Threat Scoring
   //
   const event = buildEvent({
-    source: "farmer-worker",
-    sector: "farmer",
+    source: "admin-worker",
+    sector: "admin",
     trustZone,
     type: "access_attempt",
     metadata: {
@@ -76,6 +76,7 @@ export async function onRequest(context: {
         ok: false,
         type: "zero-trust-block",
         threat: cyberResult.threat,
+        trust: cyberResult.trust,
         systemTraceId,
         timestamp: new Date().toISOString()
       },
@@ -109,7 +110,7 @@ export async function onRequest(context: {
   }
 
   //
-  // 5. Integrity Verification (Decision Engine → Farmer Worker)
+  // 5. Integrity Verification (Decision Engine → Admin Worker)
   //
   let integrityToken: string | null = null;
   let decisionPayload: any = null;
@@ -142,104 +143,95 @@ export async function onRequest(context: {
   }
 
   //
-  // 6. Farmer Authentication
+  // 6. Admin Login
   //
-  const auth = request.headers.get("Authorization");
-  if (!auth) {
-    return json(
-      {
-        ok: false,
-        zone: "farmer",
-        status: "unauthorized",
-        reason: "Missing Authorization header",
+  if (url.pathname === "/admin/login" && request.method === "POST") {
+    try {
+      const { email, password } = decisionPayload || await request.json();
+
+      const stored = await env.ADMINS.get(email);
+      if (!stored) {
+        return json({ ok: false, error: "Invalid credentials", systemTraceId }, 401);
+      }
+
+      const admin = JSON.parse(stored);
+      const hash = new HashUtils();
+
+      const valid = await hash.compare(password, admin.password);
+      if (!valid) {
+        return json({ ok: false, error: "Invalid credentials", systemTraceId }, 401);
+      }
+
+      const tokenService = new TokenService(env);
+      const token = await tokenService.issue({
+        id: admin.id,
+        role: "admin",
+        trustZone: "admin",
+        clearance: "A1"
+      });
+
+      return json({
+        ok: true,
+        type: "admin-login",
+        token,
         systemTraceId,
-        timestamp: new Date().toISOString()
-      },
-      401
-    );
-  }
-
-  //
-  // 7. Policy Check
-  //
-  const decision = await policy.check({
-    trustZone,
-    workflow: "farmer-access",
-    action: "view"
-  });
-
-  if (!decision.allowed) {
-    const denyPayload = {
-      ok: false,
-      type: "policy-deny",
-      reason: decision.reason,
-      trustZone,
-      workflow: "farmer-access",
-      systemTraceId,
-      timestamp: new Date().toISOString()
-    };
-
-    return json(
-      {
-        ...denyPayload,
-        integrity: {
-          hash: await CryptoV12.sha256(JSON.stringify(denyPayload)),
-          verified: true
+        integrityToken,
+        meta: {
+          trustZone: "admin",
+          workflow: "auth",
+          version: "v12-sovereign"
         }
-      },
-      403
-    );
+      });
+    } catch (err: any) {
+      return json({ ok: false, error: err.message, systemTraceId }, 500);
+    }
   }
 
   //
-  // 8. Farmer Status Endpoint
+  // 7. Admin Dashboard (Protected)
   //
-  if (url.pathname.endsWith("/farmer/status")) {
-    const payload = {
+  if (url.pathname === "/admin/dashboard") {
+    const decision = await policy.check({
+      trustZone: "admin",
+      workflow: "admin-dashboard",
+      action: "view"
+    });
+
+    if (!decision.allowed) {
+      return json(
+        {
+          ok: false,
+          error: decision.reason,
+          systemTraceId
+        },
+        403
+      );
+    }
+
+    return json({
       ok: true,
-      zone: "farmer",
-      endpoint: "status",
-      status: "ok",
+      type: "admin-dashboard",
+      message: "Admin Dashboard OK",
       systemTraceId,
       integrityToken,
-      timestamp: new Date().toISOString(),
       meta: {
-        trustZone,
-        workflow: "farmer-access",
+        trustZone: "admin",
+        workflow: "admin-dashboard",
         version: "v12-sovereign"
       }
-    };
-
-    payload["integrity"] = {
-      hash: await CryptoV12.sha256(JSON.stringify(payload)),
-      verified: true
-    };
-
-    return json(payload);
+    });
   }
 
   //
-  // 9. Fallback
+  // 8. Fallback
   //
-  const fallback = {
-    ok: false,
-    zone: "farmer",
-    status: "not-found",
-    path: url.pathname,
-    systemTraceId,
-    integrityToken,
-    timestamp: new Date().toISOString(),
-    meta: {
-      trustZone,
-      workflow: "farmer-access",
-      version: "v12-sovereign"
-    }
-  };
-
-  fallback["integrity"] = {
-    hash: await CryptoV12.sha256(JSON.stringify(fallback)),
-    verified: true
-  };
-
-  return json(fallback, 404);
+  return json(
+    {
+      ok: false,
+      error: "Admin route not found",
+      systemTraceId,
+      integrityToken
+    },
+    404
+  );
 }

@@ -1,29 +1,29 @@
 // /workers/deepgov/index.ts
-// GIA Sovereign DeepGov Worker – V12 Alpha (TypeScript)
+// GIA Sovereign DeepGov Worker – V12 Sovereign Edition
 
 import { basicSecurityGuard } from "../../src/security/worker-guard";
 import { PolicyEngine } from "../../src/ai-engine/policy-engine";
-import { sha256 } from "../../src/ai-engine/utils/crypto";
+import { CryptoV12 } from "../../src/ai-engine/utils/crypto.js";
 
 import { buildEvent } from "../../src/system/cyber/event-builder";
 import { cyberHook } from "../../src/system/cyber/worker-hook";
+
+import { verifyDidVcIdentity } from "../../backend/system/identity/did-vc-verifier";
+import { enforceMCP } from "../../backend/system/mcp/mcp-enforcer";
 
 const policy = new PolicyEngine();
 
 // ---------------------------------------------------------
 // Unified JSON Response
 // ---------------------------------------------------------
-function json(
-  data: Record<string, any>,
-  status: number = 200
-): Response {
+function json(data: Record<string, any>, status: number = 200): Response {
   return new Response(JSON.stringify(data, null, 2), {
     status,
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
       "GIA-Trust-Zone": "deepgov",
-      "GIA-Version": "v12-alpha"
+      "GIA-Version": "v12-sovereign"
     }
   });
 }
@@ -31,26 +31,30 @@ function json(
 // ---------------------------------------------------------
 // MAIN DEEPGOV WORKER
 // ---------------------------------------------------------
-export async function onRequest(
-  context: { request: Request; env: any; waitUntil: (p: Promise<any>) => void }
-): Promise<Response> {
+export async function onRequest(context: {
+  request: Request;
+  env: any;
+  waitUntil: (p: Promise<any>) => void;
+}): Promise<Response> {
   const request = context.request;
   const env = context.env;
   const url = new URL(request.url);
+  const systemTraceId = CryptoV12.randomId();
 
   //
-  // 1. Worker Guard (V12 Alpha)
+  // 1. Worker Guard
   //
   const guard = basicSecurityGuard(request, env);
   if (guard) return guard;
 
   //
-  // 2. Extract trust zone
+  // 2. DID / VC Identity Verification
   //
-  const trustZone = request.headers.get("GIA-Trust-Zone") || "public";
+  const identity = await verifyDidVcIdentity(request, env);
+  const trustZone = identity.trustZone || "public";
 
   //
-  // 3. Cyber Engine Hook (DeepGov Worker)
+  // 3. Cyber Threat Scoring
   //
   const event = buildEvent({
     source: "deepgov-worker",
@@ -64,10 +68,81 @@ export async function onRequest(
     }
   });
 
-  await cyberHook(event);
+  const cyberResult = await cyberHook(event);
+
+  if (cyberResult.threat.level === "high" || cyberResult.threat.level === "critical") {
+    return json(
+      {
+        ok: false,
+        type: "zero-trust-block",
+        threat: cyberResult.threat,
+        systemTraceId,
+        timestamp: new Date().toISOString()
+      },
+      403
+    );
+  }
 
   //
-  // 4. DeepGov override check
+  // 4. MCP Enforcement
+  //
+  const mcp = await enforceMCP({
+    trustZone,
+    method: request.method,
+    threat: cyberResult.threat,
+    sourceCloud: env.CLOUD_PROVIDER,
+    targetCloud: env.TARGET_CLOUD || env.CLOUD_PROVIDER
+  });
+
+  if (!mcp.allowed) {
+    return json(
+      {
+        ok: false,
+        type: "mcp-deny",
+        reason: mcp.reason,
+        policy: mcp.policy,
+        systemTraceId,
+        timestamp: new Date().toISOString()
+      },
+      403
+    );
+  }
+
+  //
+  // 5. Integrity Verification (Decision Engine → DeepGov Worker)
+  //
+  let integrityToken: string | null = null;
+  let decisionPayload: any = null;
+
+  if (request.method === "POST") {
+    try {
+      const body = await request.json();
+      integrityToken = body.integrityToken;
+      decisionPayload = { ...body };
+      delete decisionPayload.integrityToken;
+
+      const secret = env.DECISION_ENGINE_SECRET || "DECISION_ENGINE_DEFAULT_SECRET";
+
+      const valid = await CryptoV12.verifyIntegrity(decisionPayload, secret, integrityToken);
+
+      if (!valid) {
+        return json(
+          {
+            ok: false,
+            type: "integrity-failed",
+            reason: "Integrity token mismatch",
+            systemTraceId
+          },
+          403
+        );
+      }
+    } catch {
+      // No JSON body → skip integrity check
+    }
+  }
+
+  //
+  // 6. DeepGov Override Policy Check
   //
   const decision = await policy.check({
     trustZone,
@@ -82,6 +157,7 @@ export async function onRequest(
       reason: decision.reason,
       trustZone,
       workflow: "deepgov-access",
+      systemTraceId,
       timestamp: new Date().toISOString()
     };
 
@@ -89,7 +165,7 @@ export async function onRequest(
       {
         ...denyPayload,
         integrity: {
-          hash: await sha256(JSON.stringify(denyPayload)),
+          hash: await CryptoV12.sha256(JSON.stringify(denyPayload)),
           verified: true
         }
       },
@@ -98,7 +174,7 @@ export async function onRequest(
   }
 
   //
-  // 5. DeepGov Sovereign Response
+  // 7. DeepGov Sovereign Response
   //
   const payload = {
     ok: true,
@@ -106,19 +182,22 @@ export async function onRequest(
     access: "sovereign-only",
     path: url.pathname,
     status: "override-granted",
+    systemTraceId,
+    integrityToken,
     timestamp: new Date().toISOString(),
     meta: {
       trustZone,
       workflow: "deepgov-access",
       override: true,
-      version: "v12-alpha"
+      version: "v12-sovereign"
     }
   };
 
   payload["integrity"] = {
-    hash: await sha256(JSON.stringify(payload)),
+    hash: await CryptoV12.sha256(JSON.stringify(payload)),
     verified: true
   };
 
   return json(payload);
 }
+

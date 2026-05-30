@@ -3,7 +3,7 @@
 
 import { basicSecurityGuard } from "../../src/security/worker-guard.js";
 import { PolicyEngine } from "../../src/ai-engine/policy-engine.js";
-import { sha256 } from "../../src/ai-engine/utils/crypto.js";
+import { CryptoV12 } from "../../src/ai-engine/utils/crypto.js";
 import { SectorEngine } from "../../src/backend/sector/sector-engine.js";
 
 import { verifyDidVcIdentity } from "../../backend/system/identity/did-vc-verifier.js";
@@ -24,6 +24,7 @@ import { anysWorker } from "../anys/index.js";
 import { govViewWorker } from "../govview/index.js";
 import { opportunityScannerWorker } from "../opportunity/index.js";
 import * as fccWorker from "../fcc/index.js";
+import { CryptoV12 } from "../../src/ai-engine/utils/crypto.js";
 
 const policy = new PolicyEngine();
 
@@ -44,6 +45,7 @@ export async function onRequest(context) {
   const env = context.env;
   const url = new URL(request.url);
   const sectorEngine = new SectorEngine(env, env.NODE_REGISTRY);
+  const systemTraceId = CryptoV12.randomId();
 
   // ---------------------------------------------------------
   // WORKER MAP
@@ -92,6 +94,40 @@ export async function onRequest(context) {
     },
     { env, trustZone, authValid: identity.valid }
   );
+
+  // ---------------------------------------------------------
+// INTEGRITY VERIFICATION (Decision Engine → System Worker)
+// ---------------------------------------------------------
+let decisionPayload = null;
+let integrityToken = null;
+
+if (request.method === "POST") {
+  try {
+    const body = await request.json();
+    integrityToken = body.integrityToken;
+    decisionPayload = body;
+
+    delete decisionPayload.integrityToken;
+
+    const secret = env.DECISION_ENGINE_SECRET || "DECISION_ENGINE_DEFAULT_SECRET";
+
+    const valid = await CryptoV12.verifyIntegrity(decisionPayload, secret, integrityToken);
+
+    if (!valid) {
+      return json(
+        {
+          ok: false,
+          type: "integrity-failed",
+          reason: "Integrity token mismatch",
+          systemTraceId
+        },
+        403
+      );
+    }
+  } catch (err) {
+    // No body or invalid JSON → skip integrity check
+  }
+}
 
   if (cyberResult.threat.level === "high" || cyberResult.threat.level === "critical") {
     return json(

@@ -1,5 +1,5 @@
-// /workers/farmer/index.ts
-// GIA Sovereign Farmer Worker – V12 Sovereign Edition
+// /workers/admin/access.ts
+// GIA Sovereign Admin Access Endpoint – V12 Sovereign Edition (TypeScript)
 
 import { basicSecurityGuard } from "../../src/security/worker-guard";
 import { PolicyEngine } from "../../src/ai-engine/policy-engine";
@@ -22,14 +22,14 @@ function json(data: Record<string, any>, status: number = 200): Response {
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
-      "GIA-Trust-Zone": "farmer",
+      "GIA-Trust-Zone": "admin",
       "GIA-Version": "v12-sovereign"
     }
   });
 }
 
 // ---------------------------------------------------------
-// MAIN FARMER WORKER
+// MAIN WORKER
 // ---------------------------------------------------------
 export async function onRequest(context: {
   request: Request;
@@ -57,13 +57,13 @@ export async function onRequest(context: {
   // 3. Cyber Threat Scoring
   //
   const event = buildEvent({
-    source: "farmer-worker",
-    sector: "farmer",
+    source: "admin-access-worker",
+    sector: "admin",
     trustZone,
     type: "access_attempt",
     metadata: {
-      path: url.pathname,
       method: request.method,
+      path: url.pathname,
       ip: request.headers.get("cf-connecting-ip")
     }
   });
@@ -109,7 +109,7 @@ export async function onRequest(context: {
   }
 
   //
-  // 5. Integrity Verification (Decision Engine → Farmer Worker)
+  // 5. Integrity Verification (Decision Engine → Admin Access Worker)
   //
   let integrityToken: string | null = null;
   let decisionPayload: any = null;
@@ -137,34 +137,16 @@ export async function onRequest(context: {
         );
       }
     } catch {
-      // No JSON body → skip integrity check
+      // No JSON → skip integrity check
     }
   }
 
   //
-  // 6. Farmer Authentication
-  //
-  const auth = request.headers.get("Authorization");
-  if (!auth) {
-    return json(
-      {
-        ok: false,
-        zone: "farmer",
-        status: "unauthorized",
-        reason: "Missing Authorization header",
-        systemTraceId,
-        timestamp: new Date().toISOString()
-      },
-      401
-    );
-  }
-
-  //
-  // 7. Policy Check
+  // 6. Policy Check
   //
   const decision = await policy.check({
     trustZone,
-    workflow: "farmer-access",
+    workflow: "admin-access",
     action: "view"
   });
 
@@ -174,7 +156,7 @@ export async function onRequest(context: {
       type: "policy-deny",
       reason: decision.reason,
       trustZone,
-      workflow: "farmer-access",
+      workflow: "admin-access",
       systemTraceId,
       timestamp: new Date().toISOString()
     };
@@ -192,54 +174,27 @@ export async function onRequest(context: {
   }
 
   //
-  // 8. Farmer Status Endpoint
+  // 7. Success Response
   //
-  if (url.pathname.endsWith("/farmer/status")) {
-    const payload = {
-      ok: true,
-      zone: "farmer",
-      endpoint: "status",
-      status: "ok",
-      systemTraceId,
-      integrityToken,
-      timestamp: new Date().toISOString(),
-      meta: {
-        trustZone,
-        workflow: "farmer-access",
-        version: "v12-sovereign"
-      }
-    };
-
-    payload["integrity"] = {
-      hash: await CryptoV12.sha256(JSON.stringify(payload)),
-      verified: true
-    };
-
-    return json(payload);
-  }
-
-  //
-  // 9. Fallback
-  //
-  const fallback = {
-    ok: false,
-    zone: "farmer",
-    status: "not-found",
-    path: url.pathname,
+  const payload = {
+    ok: true,
+    zone: "admin",
+    access: "admin-only",
+    status: "ok",
     systemTraceId,
     integrityToken,
     timestamp: new Date().toISOString(),
     meta: {
       trustZone,
-      workflow: "farmer-access",
+      workflow: "admin-access",
       version: "v12-sovereign"
     }
   };
 
-  fallback["integrity"] = {
-    hash: await CryptoV12.sha256(JSON.stringify(fallback)),
+  payload["integrity"] = {
+    hash: await CryptoV12.sha256(JSON.stringify(payload)),
     verified: true
   };
 
-  return json(fallback, 404);
+  return json(payload);
 }

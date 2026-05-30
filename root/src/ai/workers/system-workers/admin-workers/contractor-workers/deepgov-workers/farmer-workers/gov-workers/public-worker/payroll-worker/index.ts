@@ -3,7 +3,7 @@
 
 import { basicSecurityGuard } from "../../src/security/worker-guard";
 import { PolicyEngine } from "../../src/ai-engine/policy-engine";
-import { sha256 } from "../../src/ai-engine/utils/crypto";
+import { CryptoV12 } from "../../src/ai-engine/utils/crypto.js";
 
 import { buildEvent } from "../../src/system/cyber/event-builder";
 import { cyberHook } from "../../src/system/cyber/worker-hook";
