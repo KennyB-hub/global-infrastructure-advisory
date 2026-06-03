@@ -53,7 +53,7 @@ Create `.env.seven`:
 # NATS Configuration
 NATS_SERVERS=nats://nats-01:4222,nats://nats-02:4222,nats://nats-03:4222
 NATS_USER=seven
-NATS_PASSWORD=<secure-password>
+NATS_PASSWORD=${NATS_PASSWORD}  # Set via secret manager; do NOT commit actual secrets
 
 # Seven Configuration
 SEVEN_ENVIRONMENT=production
@@ -67,11 +67,11 @@ DB_HOST=postgres.internal
 DB_PORT=5432
 DB_NAME=seven_prod
 DB_USER=seven
-DB_PASSWORD=<secure-password>
+DB_PASSWORD=${DB_PASSWORD}  # Set via secret manager; do NOT commit actual secrets
 
 # Monitoring
 PROMETHEUS_PUSHGATEWAY=http://prometheus:9091
-DATADOG_API_KEY=<api-key>
+DATADOG_API_KEY=${DATADOG_API_KEY}  # Use secret store for this value
 
 # Failsafe Thresholds
 BATTERY_CRITICAL_PCT=10
@@ -315,7 +315,7 @@ npm install dji-mobile-sdk
 
 # Configure API credentials
 export DJI_API_KEY=<your-api-key>
-export DJI_API_SECRET=<your-api-secret>
+export DJI_API_SECRET=${DJI_API_SECRET}  # Set via secret manager
 
 # Test connection
 node scripts/test-dji-connection.js
