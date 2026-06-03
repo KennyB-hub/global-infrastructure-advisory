@@ -314,7 +314,7 @@ const runtime = await initializeSevenRuntime({
 npm install dji-mobile-sdk
 
 # Configure API credentials
-export DJI_API_KEY=<your-api-key>
+export DJI_API_KEY=${DJI_API_KEY}  # Set via secret manager
 export DJI_API_SECRET=${DJI_API_SECRET}  # Set via secret manager
 
 # Test connection
