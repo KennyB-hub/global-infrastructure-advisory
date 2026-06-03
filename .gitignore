@@ -2,3 +2,4 @@ node_modules/
 .env
 *.key
 root/key-12345.json
+.dev.vars
