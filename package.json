@@ -9,13 +9,20 @@
     "dev": "npm run clean && wrangler dev",
     "deploy": "npm run clean && wrangler deploy",
     "start:ws": "node src/backend/ws/run-collar-ws.js",
+    "verify:ws": "node scripts/verify-ws-test.cjs",
     "test": "echo \"Running v12 logic tests...\" && exit 0"
   },
   "dependencies": {
-    "zod": "^3.22.0" 
+    "ioredis": "^5.11.0",
+    "nats": "^2.29.3",
+    "ws": "^8.21.0",
+    "zod": "^3.22.0"
   },
   "devDependencies": {
-    "wrangler": "^3.0.0",
-    "typescript": "^5.0.0"
+    "@types/mocha": "^10.0.10",
+    "mocha": "^11.7.6",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.0.0",
+    "wrangler": "^3.0.0"
   }
 }
