@@ -10,6 +10,9 @@
     "deploy": "npm run clean && wrangler deploy",
     "start:ws": "node src/backend/ws/run-collar-ws.js",
     "verify:ws": "node scripts/verify-ws-test.cjs",
+    "scan:secrets": "node scripts/scan-secrets.cjs",
+    "scan:licenses": "node scripts/license-scan.cjs",
+    "test:cli-sandbox": "node scripts/test-cli-sandbox.cjs",
     "test": "echo \"Running v12 logic tests...\" && exit 0"
   },
   "dependencies": {
