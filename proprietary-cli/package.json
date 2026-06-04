@@ -1,0 +1,11 @@
+{
+  "name": "proprietary-cli",
+  "version": "0.1.0",
+  "private": true,
+  "bin": {
+    "proprietary-cli": "./bin/cli.js"
+  },
+  "scripts": {
+    "start": "node ./bin/cli.js"
+  }
+}
