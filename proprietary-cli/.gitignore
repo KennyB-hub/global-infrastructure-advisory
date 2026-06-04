@@ -1,0 +1,9 @@
+# Ignore secrets and build artifacts for proprietary CLI
+config.json
+.env
+*.key
+*.pem
+node_modules/
+dist/
+logs/
+.DS_Store
