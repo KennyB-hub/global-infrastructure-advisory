@@ -4,6 +4,7 @@
 import { DroneControl } from "./drone-control";
 import { DroneMissionPlanner, MissionPlan } from "./drone-mission-planner";
 import { TerrainAwareRouting } from "./terrain-routing";
+import { writeLog } from "../../../../logs/log-writer.js";
 
 export type SectorType =
     | "cattle"
@@ -73,6 +74,33 @@ export class DroneOrchestrator {
             };
         } else {
             return null;
+        }
+
+        // Geofence enforcement: ensure all planned waypoints fall inside drone's configured geofence
+        if (plan && plan.waypoints && plan.waypoints.length) {
+            for (const wp of plan.waypoints) {
+                if (typeof (this.drone as any).isInsideGeofence === 'function') {
+                    const ok = (this.drone as any).isInsideGeofence(wp.lat, wp.lon);
+                    if (!ok) {
+                        console.warn('[DroneOrchestrator] Mission aborted: waypoint outside geofence', wp);
+                        // Audit the blocked mission
+                        try {
+                            await writeLog('audit', {
+                                auditId: crypto.randomUUID(),
+                                actor: 'DroneOrchestrator',
+                                action: 'MISSION_BLOCKED',
+                                reason: 'outside_geofence',
+                                waypoint: wp,
+                                request: req || null
+                            });
+                        } catch (e) {
+                            console.error('[DroneOrchestrator] Failed to write audit log:', e);
+                        }
+
+                        return null;
+                    }
+                }
+            }
         }
 
         await this.drone.takeoff(req.baseAltAGL + 10);

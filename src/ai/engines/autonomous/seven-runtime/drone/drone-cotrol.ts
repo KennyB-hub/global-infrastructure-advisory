@@ -33,9 +33,21 @@ export class DroneControl {
     };
 
     private listeners: Array<(t: DroneTelemetry) => void> = [];
+    private geofence?: { isInside: (lat: number, lon: number) => boolean };
+    private safetyOverride?: () => Promise<boolean> | boolean;
 
     constructor(private sdkType: "mavlink" | "dji" = "mavlink") {
         // Real SDK initialization happens in initializeSDK()
+    }
+
+    // Allow injecting a geofence checker (must provide isInside(lat, lon) -> boolean)
+    setGeofence(geofence: { isInside: (lat: number, lon: number) => boolean }) {
+        this.geofence = geofence;
+    }
+
+    // Optional external safety override hook. Return false to prevent arming.
+    setSafetyOverride(fn: () => Promise<boolean> | boolean) {
+        this.safetyOverride = fn;
     }
 
     /**
@@ -92,8 +104,49 @@ export class DroneControl {
         }
     }
 
+    // Pre-arm safety checks: telemetry, battery, GPS fix, geofence, external override
+    private async runPreArmChecks(): Promise<{ ok: boolean; reason?: string }> {
+        const t = this.status.lastTelemetry;
+        if (!t) return { ok: false, reason: "no_telemetry" };
+
+        // Battery: require at least 30% to arm
+        if (typeof t.battery === "number" && t.battery < 30) return { ok: false, reason: "battery_low" };
+
+        // GPS: require non-zero lat/lon
+        if (!t.lat || !t.lon) return { ok: false, reason: "gps_fix_missing" };
+
+        // Geofence: if configured, ensure current position is inside allowed area
+        if (this.geofence) {
+            try {
+                const inside = this.geofence.isInside(t.lat, t.lon);
+                if (!inside) return { ok: false, reason: "outside_geofence" };
+            } catch (e) {
+                return { ok: false, reason: "geofence_check_failed" };
+            }
+        }
+
+        // External safety override: if provided and returns false, block arming
+        if (this.safetyOverride) {
+            try {
+                const res = await Promise.resolve(this.safetyOverride());
+                if (res === false) return { ok: false, reason: "safety_override_rejected" };
+            } catch (e) {
+                return { ok: false, reason: "safety_override_error" };
+            }
+        }
+
+        return { ok: true };
+    }
+
     async arm(): Promise<boolean> {
         if (!this.status.connected) return false;
+
+        const checks = await this.runPreArmChecks();
+        if (!checks.ok) {
+            console.warn("[Drone] Pre-arm checks failed:", checks.reason);
+            return false;
+        }
+
         this.status.armed = true;
         return true;
     }
@@ -145,6 +198,16 @@ export class DroneControl {
             return true;
         } catch (err) {
             console.error("[Drone] Command execution failed:", err);
+            return false;
+        }
+    }
+
+    // Expose geofence check to orchestrators: returns true if no geofence configured or point inside
+    isInsideGeofence(lat: number, lon: number): boolean {
+        if (!this.geofence) return true;
+        try {
+            return this.geofence.isInside(lat, lon);
+        } catch (e) {
             return false;
         }
     }

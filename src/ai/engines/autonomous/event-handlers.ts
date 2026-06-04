@@ -3,6 +3,7 @@
 
 import { InfraEvent, EventHandler } from "../event-bus";
 import { getDispatcher } from "../event-dispatcher";
+import { collarStateRedisHandler } from "./collar-state-redis-handler";
 
 // ===== TOWER EVENTS =====
 
@@ -208,5 +209,6 @@ export const eventHandlers = [
   droneAltitudeAnomaly,
   groundUnitLostHandler,
   groundUnitObstacleHandler,
-  groundUnitBatteryHandler
+  groundUnitBatteryHandler,
+  collarStateRedisHandler
 ];

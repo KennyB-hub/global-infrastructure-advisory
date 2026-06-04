@@ -8,6 +8,7 @@
     "build": "npm run clean && <your-build-command>",
     "dev": "npm run clean && wrangler dev",
     "deploy": "npm run clean && wrangler deploy",
+    "start:ws": "node src/backend/ws/run-collar-ws.js",
     "test": "echo \"Running v12 logic tests...\" && exit 0"
   },
   "dependencies": {
