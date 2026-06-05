@@ -1,28 +1,28 @@
 #!/usr/bin/env node
-// Proprietary CLI placeholder
-// Keep secrets out of this repo; use config.json (ignored) for runtime secrets.
+// Seven OS — Proprietary Operator CLI
+// Secrets must stay out of this repo. Use config.json for runtime settings.
 
-const fs = require('fs');
-const path = require('path');
-
-function usage() {
-  console.log('Proprietary CLI — placeholder\\n');
-  console.log('Usage: proprietary-cli <command> [options]\\n');
-  console.log('Commands:\\n  test    — run a quick internal test\\n  help    — show this help');
-}
+import { loadCommands } from "../core/loader.js"
+import { execute } from "../core/executor.js"
+import { log, error } from "../core/logger.js"
 
 async function main() {
-  const cmd = process.argv[2];
-  if (!cmd || cmd === 'help') return usage();
-  if (cmd === 'test') {
-    console.log('Running proprietary CLI internal test...');
-    // Example: check for config.json (ignored in git)
-    const cfgPath = path.join(__dirname, '..', 'config.json');
-    if (fs.existsSync(cfgPath)) console.log('config.json present (ok)');
-    else console.log('config.json missing — use config.example.json as template');
-    return;
-  }
-  usage();
+    const args = process.argv.slice(2)
+
+    if (args.length === 0) {
+        log("Seven OS Operator CLI")
+        log("Usage: seven <command> [options]")
+        return
+    }
+
+    const registry = await loadCommands()
+
+    try {
+        execute(args, registry)
+    } catch (err) {
+        error("Command failed:", err.message)
+        process.exit(1)
+    }
 }
 
-main().catch(err => { console.error(err); process.exit(1); });
+main()
