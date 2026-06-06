@@ -123,7 +123,7 @@ Get all tasks or filter by status.
 
 ## REST API Endpoints (router.js)
 
-New endpoints added to `/src/backend/functions/api/router.js`:
+New endpoints added to `/backend/functions/api/router.js`:
 
 ### POST `/api/autonomous/task/enqueue`
 Enqueue a new task.
@@ -227,6 +227,6 @@ POST /api/autonomous/task/status
 
 ## Files Updated
 
-- ✅ `/src/ai/engines/ai-router.js` - Added autonomous imports and route handlers
-- ✅ `/src/backend/functions/api/router.js` - Added REST endpoints for task management
-- ✅ `/src/ai/engines/AUTONOMOUS_ROUTING.md` - This documentation
+- ✅ `/ai/engines/ai-router.js` - Added autonomous imports and route handlers
+- ✅ `/backend/functions/api/router.js` - Added REST endpoints for task management
+- ✅ `/ai/engines/AUTONOMOUS_ROUTING.md` - This documentation

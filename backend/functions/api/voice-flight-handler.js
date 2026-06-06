@@ -1,20 +1,20 @@
-async function voiceFlightHandler(payload) {
-  const { message } = payload;
+import { VoiceBus } from seven("autonomous/seven/voice/voice-bus.ts");
 
-  // Seven’s intent engine
-  if (message.toLowerCase().includes('diagnostic')) {
-    return {
-      displayText: "> SEVEN: Voice diagnostic complete.",
-      spokenText: "Voice diagnostic complete. All systems operational.",
-      priority: "info"
-    };
-  }
+export async function voiceFlightHandler(payload) {
+  const { message, role, sessionId, sensors, resources } = payload;
+
+  const result = await VoiceBus.process({
+    text: message,
+    role,
+    sessionId,
+    sensors,
+    resources
+  });
 
   return {
-    displayText: "> SEVEN: Command received.",
-    spokenText: "Command received.",
-    priority: "info"
+    displayText: result.displayText,
+    spokenText: result.spokenText,
+    priority: result.priority || "info",
+    actions: result.actions || []
   };
 }
-
-module.exports = { voiceFlightHandler };

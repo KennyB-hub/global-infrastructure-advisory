@@ -1,7 +1,7 @@
 // seven/voice/voice-bus.ts
 
-import { generateSevenResponse } from "./response-engine.js";
-import { orchestrateMission } from "../mission/mission-orchestrator.js";
+import { generateSevenResponse } from ".ai/response-engine.js";
+import { orchestrateMission } from "ai/engines/system/voice/mission/mission-orchestrator.js";
 
 export const VoiceBus = {
   async dispatch({ text, role, sessionId, sensors, resources }) {
