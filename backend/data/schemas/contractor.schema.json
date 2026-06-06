@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Contractor Profile",
+  "description": "Unified contractor schema for all GIA sectors.",
+  "type": "object",
+  "required": ["id", "company", "sector", "services"],
+  "properties": {
+    "id": { "type": "string" },
+    "company": { "type": "string" },
+
+    "sector": {
+      "type": "string",
+      "enum": [
+        "cyber",
+        "energy",
+        "water",
+        "telecom",
+        "transport",
+        "health",
+        "education",
+        "agriculture",
+        "finance",
+        "government",
+        "construction",
+        "geospatial",
+        "environmental"
+      ]
+    },
+
+    "services": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+
+    "certifications": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+
+    "insurance": { "type": "boolean" },
+    "backgroundCheck": { "type": "boolean" },
+
+    "clearanceLevel": {
+      "type": "string",
+      "enum": ["none", "public-trust", "confidential", "secret", "top-secret"]
+    },
+
+    "sectorExperience": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+
+    "employees": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+
+    "trustZone": {
+      "type": "string",
+      "enum": [
+        "Public",
+        "Farmer",
+        "Contractor",
+        "Employee",
+        "Admin",
+        "Gov",
+        "DeepGov",
+        "System"
+      ]
+    },
+
+    "location": { "type": "string" },
+
+    "lastUpdated": { "type": "string", "format": "date-time" }
+  }
+}

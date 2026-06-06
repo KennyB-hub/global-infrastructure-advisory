@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Sector Intern Listing",
+  "description": "Internship schema for all GIA sectors.",
+  "type": "object",
+  "required": ["id", "title", "sector", "skills"],
+  "properties": {
+    "id": { "type": "string" },
+    "title": { "type": "string" },
+    "sector": {
+      "type": "string",
+      "enum": [
+        "cyber",
+        "cloud",
+        "telecom",
+        "energy",
+        "transport",
+        "water",
+        "health",
+        "education",
+        "agriculture",
+        "finance",
+        "government"
+      ]
+    },
+    "skills": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "trainingProvided": { "type": "boolean" },
+    "mentorAssigned": { "type": "boolean" },
+    "durationWeeks": { "type": "number" },
+    "paid": { "type": "boolean" },
+    "remoteAllowed": { "type": "boolean" },
+    "postedAt": { "type": "string", "format": "date-time" }
+  }
+}
