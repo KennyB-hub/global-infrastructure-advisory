@@ -5,7 +5,7 @@ module.exports = {
   apps: [
     {
       name: "collar-ws",
-      script: "src/backend/ws/run-collar-ws.js",
+      script: "backend/ws/run-collar-ws.js",
       cwd: __dirname,
       instances: 1,
       exec_mode: "fork",

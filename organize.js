@@ -11,37 +11,28 @@ const missionControl = {
     "src/data/logs": [".log", "session_"]                       // AI Thought Streams
 };
 
-// Ensure all directories exist
-Object.keys(missionControl).forEach(dir => {
-    if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir, { recursive: true });
-        console.log(`📁 [CREATED] Directory: ${dir}`);
-    }
-});
-
-// The cleaner logic - moves files to correct locations
-fs.readdirSync('.').forEach(file => {
-    // Skip directories and special files
-    if (fs.statSync(file).isDirectory() || file.startsWith('.')) {
-        return;
-    }
-
-    for (const [targetDir, extensions] of Object.entries(missionControl)) {
-        const matches = extensions.some(
-            ext => file.endsWith(ext) || file === ext
-        );
-        
-        if (matches) {
-            try {
-                const destination = path.join(targetDir, file);
-                fs.renameSync(file, destination);
-                console.log(`🚀 [LAUNCH] ${file} moved to ${targetDir}`);
-                break;
-            } catch (err) {
-                console.error(`❌ [ERROR] Failed to move ${file}: ${err.message}`);
-            }
-        }
-    }
-});
-
-console.log("\n✅ File organization complete!");
+// Ensure all const missionControl = {
+  ai: ["*.ts", "*.js"],
+  autonomous: ["*.ts", "*.js"],
+  "seven-runtime": ["*.ts", "*.js"],
+  backend: ["*.ts", "*.js"],
+  functions: ["*.ts", "*.js"],
+  api: ["*.ts", "*.js"],
+  cli: ["*.ts", "*.js"],
+  sandbox: ["*.ts", "*.js"],
+  security: ["*.ts", "*.js"],
+  sectors: ["*.ts", "*.js"],
+  "geo-utilities": ["*.ts", "*.js"],
+  hubs: ["*.ts", "*.js"],
+  hub_logic: ["*.ts", "*.js"],
+  identity: ["*.ts", "*.js"],
+  "infrastructure-packs": ["*.ts", "*.js"],
+  kv: ["*.ts", "*.js"],
+  "policy-packs": ["*.ts", "*.js"],
+  public: ["*.html", "*.css", "*.js"],
+  reports: ["*.json", "*.csv"],
+  scripts: ["*.cjs", "*.js"],
+  system: ["*.ts", "*.js"],
+  templates: ["*.html"],
+  topology: ["*.json"]
+};
