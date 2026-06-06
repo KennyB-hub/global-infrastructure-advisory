@@ -1,15 +1,15 @@
 {
-  "scannedAt": "2026-06-06T20:00:55.819Z",
+  "scannedAt": "2026-06-06T20:16:40.587Z",
   "findings": {
     "MIT": [],
     "Apache-2.0": [],
     "GPL": [],
     "BSD": [],
     "Proprietary": [
-      "autonomous/proprietary-cli/bin/cli.js",
-      "autonomous/proprietary-cli/package.json",
-      "autonomous/proprietary-cli/README.txt",
       "backend/config/govervance/trust-zone-definitions.json",
+      "proprietary-cli/bin/cli.js",
+      "proprietary-cli/package.json",
+      "proprietary-cli/README.txt",
       "README.md",
       "reports/license-scan.json",
       "seven-os/filemap.json"

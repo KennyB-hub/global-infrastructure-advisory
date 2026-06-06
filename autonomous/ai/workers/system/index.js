@@ -1,10 +1,10 @@
 // /workers/system/index.js
 // GIA Sovereign System Worker – V12 Sovereign Edition
 
-import { basicSecurityGuard } from "../../src/security/worker-guard.js";
-import { PolicyEngine } from "../../src/ai-engine/policy-engine.js";
-import { CryptoV12 } from "../../src/ai-engine/utils/crypto.js";
-import { SectorEngine } from "../../src/backend/sector/sector-engine.js";
+import { basicSecurityGuard } from "../../security/worker-guard.js";
+import { PolicyEngine } from "../../autonomous/ai/policy-engine.js";
+import { CryptoV12 } from "../../autonomous/ai/utils/crypto.js";
+import { SectorEngine } from "../../backend/sector/sector-engine.js";
 
 import { verifyDidVcIdentity } from "../../backend/system/identity/did-vc-verifier.js";
 import { enforceMCP } from "../../backend/system/mcp/mcp-enforcer.js";
