@@ -2,18 +2,18 @@
 // Seven Runtime — Unified Sector + Swarm + Disaster Logic
 
 import { DroneControl } from "./drone/drone-control";
-import { DroneMissionPlanner } from "../src/ai/engines/autonomous/seven-runtime/drone/drone-mission-planner";
-import { TerrainAwareRouting, TerrainModel } from "../src/ai/engines/autonomous/seven-runtime/drone/terrain-routing";
-import { DroneOrchestrator, OrchestratorMissionRequest } from "../src/ai/engines/autonomous/seven-runtime/drone/drone-orchestrator";
+import { DroneMissionPlanner } from "./drone/drone-mission-planner";
+import { TerrainAwareRouting, TerrainModel } from "./drone/terrain-routing";
+import { DroneOrchestrator, OrchestratorMissionRequest } from "./drone/drone-orchestrator";
 
-import { SectorSafetyEngine, SafetyContext } from "../src/ai/engines/autonomous/seven-runtime/safety/sector-safety-engine";
-import { DisasterType, DisasterProfiles } from "../src/ai/engines/autonomous/seven-runtime/safety/disaster-profile";
+import { SectorSafetyEngine, SafetyContext } from "./safety/sector-safety-engine";
+import { DisasterType, DisasterProfiles } from "./safety/disaster-profile";
 
 import { FieldHealthScanner, HealthSector, HealthSample } from "./analysis/field-health-scanner";
 
-import { DroneRegistry, DronePlugin } from "../src/ai/engines/autonomous/seven-runtime/drone/drone-registry";
+import { DroneRegistry, DronePlugin } from "./drone/drone-registry";
 import { SwarmController } from "./drone/swarm-controller";
-import { DisasterSwarm } from "../src/ai/engines/autonomous/seven-runtime/disaster/disaster-swarm";
+import { DisasterSwarm } from "./disaster/disaster-swarm";
 
 export class SevenRuntime {
     private droneControl: DroneControl;
