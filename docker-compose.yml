@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  collar-ws:
+    build: .
+    image: gia/collar-ws:latest
+    restart: unless-stopped
+    environment:
+      NATS_URL: "nats://nats:4222"
+      WS_PORT: "8081"
+    ports:
+      - "8081:8081"
+    depends_on:
+      - nats
+    volumes:
+      - ./logs:/usr/src/app/logs
+
+  nats:
+    image: nats:2.9
+    restart: unless-stopped
+    ports:
+      - "4222:4222"

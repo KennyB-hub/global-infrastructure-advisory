@@ -4,6 +4,7 @@ import { handleAIMFarmer } from "../../functions/api/aim/farmer/index.js";
 import { handleAIMGov } from "../../functions/api/aim/gov/index.js";
 import { handleAIMSystem } from "../../functions/api/aim/system/index.js";
 import { processAIRequest } from "../../ai/engines/ai-router.js";
+import { handleGetLatestCollars } from "./collars.js";
 
 export async function router(request) {
   const url = new URL(request.url);
@@ -53,6 +54,12 @@ export async function router(request) {
   // AI ENGINE ENDPOINTS (AI Router)
   if (path === "/api/ai/process") {
     return processAIRequest(request, {});
+  }
+
+  if (path === "/api/autonomous/collars/latest") {
+    // Returns latest collar states from Redis
+    const response = await handleGetLatestCollars(request, {});
+    return response;
   }
 
   return new Response(JSON.stringify({ error: "Unknown endpoint" }), {

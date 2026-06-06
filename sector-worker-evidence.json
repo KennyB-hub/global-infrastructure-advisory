@@ -1,0 +1,128 @@
+{
+  "generated_at": "2026-06-03T17:11:51.845-04:00",
+  "report": [
+    {
+      "path": "src/ai/workers/auth-worker.js",
+      "matches": [
+        {
+          "line": 16,
+          "snippet": "const result = await processAIRequest(\n          {\n            text: \"auth login\",\n            trustZone: \"public\",\n            ...payload\n          },\n          env\n        );"
+        },
+        {
+          "line": 35,
+          "snippet": "const result = await processAIRequest(\n          {\n            text: \"auth verify identity\",\n            trustZone: \"admin\",\n            identityHash: payload.identityHash\n          },\n          env\n        );"
+        }
+      ]
+    },
+    {
+      "path": "src/ai/workers/ai-worker.js",
+      "matches": [
+        {
+          "line": 102,
+          "snippet": "result = await processAIRequest(request, env, ctx);"
+        }
+      ]
+    },
+    {
+      "path": "src/functions/api/voice-flight-handler.js",
+      "matches": [
+        {
+          "line": 19,
+          "snippet": "const result = await VoiceBus.dispatch({ text: message, role, sessionId, sensors, resources });"
+        }
+      ]
+    },
+    {
+      "path": "src/backend/routes/voice-flight.js",
+      "matches": [
+        {
+          "line": 43,
+          "snippet": "const mission = orchestrateMission({ text, role, sessionId, sensors: sensors || {}, resources: resources || {} });"
+        },
+        {
+          "line": 57,
+          "snippet": "const response = await generateSevenResponse({ text, role, sessionId });"
+        }
+      ]
+    },
+    {
+      "path": "src/backend/functions/api/system.js",
+      "matches": [
+        {
+          "line": 22,
+          "snippet": "const terrain = new TerrainModel();\nconst stack = new SevenStack(terrain, { speak: (msg) => console.log(\"[Seven Voice]\", msg) });"
+        }
+      ]
+    },
+    {
+      "path": "src/backend/functions/api/router.js",
+      "matches": [
+        {
+          "line": 32,
+          "snippet": "const response = await processAIRequest({ ...req, json: async () => ({ ...inputBody, workflow: \"task-enqueue\", taskType: inputBody.taskType, payload: inputBody.payload }) }, {});"
+        },
+        {
+          "line": 43,
+          "snippet": "const response = await processAIRequest(request, { workflow: \"task-process\" });"
+        }
+      ]
+    },
+    {
+      "path": "src/ai/engines/system/voice/voice-bus.ts",
+      "matches": [
+        {
+          "line": 20,
+          "snippet": "return orchestrateMission({ text, role, sessionId, sensors, resources });"
+        },
+        {
+          "line": 29,
+          "snippet": "return generateSevenResponse({ text, role, sessionId });"
+        }
+      ]
+    },
+    {
+      "path": "src/backend/ai/ai-worker.js",
+      "matches": [
+        {
+          "line": 12,
+          "snippet": "module.exports.runAI = async function(prompt) {"
+        },
+        {
+          "line": 35,
+          "snippet": "const aiResponse = await fakeAI(finalPrompt);"
+        }
+      ]
+    },
+    {
+      "path": "src/ai/engines/system/voice/mission/mission-orchestrator.js",
+      "matches": [
+        {
+          "line": 9,
+          "snippet": "export function orchestrateMission({ text, role, sessionId, sensors, resources }) {"
+        }
+      ]
+    },
+    {
+      "path": "src/ai/engines/autonomous/seven-runtime/seven.ts",
+      "matches": [
+        {
+          "line": 69,
+          "snippet": "async launchSectorMission(req: OrchestratorMissionRequest, safetyCtx: SafetyContext | null = null, disasterType: DisasterType | null = null) {"
+        }
+      ]
+    },
+    {
+      "path": "src/ai/engines/autonomous/seven-runtime/stack/seven-stack.ts",
+      "matches": [
+        {
+          "line": 41,
+          "snippet": "this.runtime = new SevenRuntime(terrain);"
+        },
+        {
+          "line": 52,
+          "snippet": "this.narrator = new SevenNarrator(sink);"
+        }
+      ]
+    }
+  ]
+}

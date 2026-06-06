@@ -1,0 +1,21 @@
+{
+  "name": "proprietary-cli",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+
+  "bin": {
+    "seven": "./bin/cli.js"
+  },
+
+  "scripts": {
+    "start": "node ./bin/cli.js",
+    "dev": "node ./bin/cli.js",
+    "test": "node ./commands/dev/test.js"
+  },
+
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "inquirer": "^9.2.0"
+  }
+}

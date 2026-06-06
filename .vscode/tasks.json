@@ -2,41 +2,35 @@
     "version": "2.0.0",
     "tasks": [
 
-        // --- 1. Run Local Dev Server (Frontend / Public Layer) ---
         {
-            "label": "Run Dev Server",
+            "label": "[Run_Dev_Server](ca://s?q=Run_Dev_Server)",
             "type": "shell",
             "command": "npm run dev",
             "group": "build",
             "problemMatcher": []
         },
 
-        // --- 2. Run Cloudflare Worker in Dev Mode ---
         {
-            "label": "Wrangler Dev",
+            "label": "[Wrangler_Dev](ca://s?q=Wrangler_Dev)",
             "type": "shell",
             "command": "npx wrangler dev",
             "group": "build",
             "problemMatcher": []
         },
 
-        // --- 3. Run Cloudflare Worker with Inspector (AI Debugging) ---
         {
-            "label": "Wrangler Dev Inspect",
+            "label": "[Wrangler_Dev_Inspect](ca://s?q=Wrangler_Dev_Inspect)",
             "type": "shell",
             "command": "npx wrangler dev --inspect",
             "group": "build",
             "problemMatcher": []
         },
 
-        // --- 4. Cloudflare API Test Suite ---
         {
-            "label": "Cloudflare API Tests",
+            "label": "[Cloudflare_API_Tests](ca://s?q=Cloudflare_API_Tests)",
             "type": "node",
             "command": "node",
-            "args": [
-                "scripts/cloudflare-tests.js"
-            ],
+            "args": ["scripts/cloudflare-tests.js"],
             "options": {
                 "env": {
                     "CF_API_TOKEN": "${env:CF_API_TOKEN}"
@@ -45,14 +39,11 @@
             "problemMatcher": []
         },
 
-        // --- 5. AI Sandbox Execution (Safe Environment) ---
         {
-            "label": "Run AI Sandbox",
+            "label": "[Run_AI_Sandbox](ca://s?q=Run_AI_Sandbox)",
             "type": "node",
             "command": "node",
-            "args": [
-                "sandbox/run-sandbox.js"
-            ],
+            "args": ["sandbox/run-sandbox.js"],
             "options": {
                 "env": {
                     "AI_SANDBOX": "true",
@@ -62,46 +53,36 @@
             "problemMatcher": []
         },
 
-        // --- 6. Validate AI Output (Schema Guard) ---
         {
-            "label": "Validate AI Output",
+            "label": "[Validate_AI_Output](ca://s?q=Validate_AI_Output)",
             "type": "node",
             "command": "node",
-            "args": [
-                "src/ai/validation/schema-guard.js"
-            ],
+            "args": ["src/ai/validation/schema-guard.js"],
             "problemMatcher": []
         },
 
-        // --- 7. Run Decision Engine (AI Brainstem) ---
         {
-            "label": "Run Decision Engine",
+            "label": "[Run_Decision_Engine](ca://s?q=Run_Decision_Engine)",
             "type": "node",
             "command": "node",
-            "args": [
-                "src/ai/decision-engine.js"
-            ],
+            "args": ["src/ai/decision-engine.js"],
             "problemMatcher": []
         },
 
-        // --- 8. Run AI Workflow Tests ---
         {
-            "label": "Run AI Workflow",
+            "label": "[Run_AI_Workflow](ca://s?q=Run_AI_Workflow)",
             "type": "node",
             "command": "node",
-            "args": [
-                "src/ai/workflow/index.js"
-            ],
+            "args": ["src/ai/workflow/index.js"],
             "problemMatcher": []
+        },
+
+        {
+            "label": "[Enterprise_Cleanup](ca://s?q=Enterprise_Cleanup)",
+            "type": "shell",
+            "command": "npm run clean",
+            "problemMatcher": [],
+            "detail": "Moves 200+ files to their proper Enterprise/Gov homes."
         }
     ]
-}
-
-// --- 9. Enterprise Repo Cleanup ---
-{
-  "label": "Enterprise Cleanup",
-  "type": "shell",
-  "command": "npm run clean",
-  "problemMatcher": [],
-  "detail": "Moves 200+ files to their proper Enterprise/Gov homes."
 }

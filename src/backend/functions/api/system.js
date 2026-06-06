@@ -67,4 +67,7 @@ function pipe(workerResponse, expressResponse) {
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log(`Seven Backend running on port ${PORT}`);
+    // Note: WS bridge is no longer auto-started in-process. Run it as a separate process for isolation:
+    //  - node src/backend/ws/collar-ws-nats.js
+    //  - OR: node src/backend/ws/run-collar-ws.js
 });
