@@ -1,7 +1,7 @@
 // © 2026 Global Infrastructure Advisory
 // Seven Runtime — SevenNarrator (Voice + Emo + Events)
 
-import { DisasterProfile } from "../safety/disaster-profile";
+import { DisasterProfile } from "../../src/ai/engines/autonomous/seven-runtime/safety/disaster-profile";
 
 export type NarratorChannel = "operator" | "responder" | "public" | "victim";
 

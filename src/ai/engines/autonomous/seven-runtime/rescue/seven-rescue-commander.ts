@@ -3,7 +3,7 @@
 
 import { SevenRuntime } from "../seven";
 import { OrchestratorMissionRequest } from "../drone/drone-orchestrator";
-import { DisasterType } from "../safety/disaster-profile";
+import { DisasterType } from "../../src/ai/engines/autonomous/seven-runtime/safety/disaster-profile";
 import { SevenNarrator } from "../voice/seven-narrator";
 
 import { GroundControl } from "../ground/ground-control";
