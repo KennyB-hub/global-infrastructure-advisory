@@ -4,7 +4,7 @@
   "findings": [
     {
       "component": "cattle-collar-sync",
-      "path": "src/ai/engines/autonomous/seven-runtime/cattle/cattle-collar-sync.ts",
+      "path": "seven-runtime/cattle/cattle-collar-sync.ts",
       "role": "Poll collars (multiple vendors), normalize state, publish events",
       "evidence": [
         {
@@ -24,7 +24,7 @@
     },
     {
       "component": "cattle vendor adapters",
-      "path": "src/ai/engines/autonomous/seven-runtime/cattle/vendors/gallagher.ts",
+      "path": "seven-runtime/cattle/vendors/gallagher.ts",
       "role": "Adapter that fetches vendor-specific collar payloads and shapes them into CollarState",
       "evidence": [
         { "line": 7, "snippet": "async fetchStates(): Promise<CollarState[]> { // TODO: Replace with real Gallagher API integration" },
@@ -33,7 +33,7 @@
     },
     {
       "component": "event-bus / NATS",
-      "path": "src/ai/engines/autonomous/event-bus.ts",
+      "path": "autonomous/event-bus.ts",
       "role": "Publishes infra events to NATS subjects (seven.events.<source>.<type>) and seven.events.all",
       "evidence": [
         { "line": 36, "snippet": "const subject = `seven.events.${event.source}.${event.type}`;" },
@@ -44,7 +44,7 @@
     },
     {
       "component": "event-dispatcher",
-      "path": "src/ai/engines/autonomous/event-dispatcher.ts",
+      "path": "autonomous/event-dispatcher.ts",
       "role": "Local handler registry that wires EventBus events to internal handlers",
       "evidence": [
         { "line": 22, "snippet": "this.eventBus.registerHandler(eventType, handler);" },
@@ -73,7 +73,7 @@
     },
     {
       "component": "infra.event subscription hint",
-      "path": "src/ai/engines/autonomous/seven-runtime/infra/infra.event.ts",
+      "path": "seven-runtime/infra/infra.event.ts",
       "role": "Example bridge showing bus.subscribe -> sevenHandleEvent(JSON.parse(msg)) — indicates runtime subscribes and routes external events",
       "evidence": [
         { "line": 31, "snippet": "topics.forEach(t => bus.subscribe(t, (msg) => sevenHandleEvent(JSON.parse(msg))));" }
@@ -82,7 +82,7 @@
     },
     {
       "component": "satellite continuity (sync fallback)",
-      "path": "src/ai/engines/autonomous/seven-runtime/sync/satellite-continuity.ts",
+      "path": "seven-runtime/sync/satellite-continuity.ts",
       "role": "Handles offline/resilient delivery of critical events when ground networks are down",
       "evidence": [
         { "line": 30, "snippet": "enterSatelliteOnly(reason: string) { this.status = { mode: 'SATELLITE_ONLY' ... }; this.speak('Satellite continuity mode engaged. Ground systems unavailable.'); }" },

@@ -16,6 +16,7 @@
     "test": "echo \"Running v12 logic tests...\" && exit 0"
   },
   "dependencies": {
+    "glob": "^13.0.6",
     "ioredis": "^5.11.0",
     "nats": "^2.29.3",
     "ws": "^8.21.0",
@@ -23,9 +24,9 @@
   },
   "devDependencies": {
     "@types/mocha": "^10.0.10",
-    "mocha": "^11.7.6",
+    "mocha": "^11.3.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.0.0",
-    "wrangler": "^3.0.0"
+    "wrangler": "^4.98.0"
   }
 }
