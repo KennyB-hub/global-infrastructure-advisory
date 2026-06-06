@@ -24,7 +24,7 @@ import { anysWorker } from "../anys/index.js";
 import { govViewWorker } from "../govview/index.js";
 import { opportunityScannerWorker } from "../opportunity/index.js";
 import * as fccWorker from "../fcc/index.js";
-import { CryptoV12 } from "../../src/ai-engine/utils/crypto.js";
+import { CryptoV12 } from "../../src/ai/utils/crypto.js";
 
 const policy = new PolicyEngine();
 
