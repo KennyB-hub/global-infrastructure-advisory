@@ -1,4 +1,4 @@
-import { DeviceRFProfile, BehaviorSample } from '../../governance/types';
+import { DeviceRFProfile, BehaviorSample } from '../../../autonomous/core/governance/types';
 
 export interface RFObservationLayer {
   registerDeviceProfile(profile: DeviceRFProfile): void;
