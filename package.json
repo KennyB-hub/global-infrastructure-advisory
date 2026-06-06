@@ -4,7 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "scan:all": "npm run scan:secrets && npm run scan:licenses && npm run test:cli-sandbox && npm run verify:ws || exit 0",
     "clean": "node organize.js",
+    "scan:deep": "node seven-runtime/tools/run-repo-audit.js",
     "build": "npm run clean && <your-build-command>",
     "dev": "npm run clean && wrangler dev",
     "deploy": "npm run clean && wrangler deploy",
