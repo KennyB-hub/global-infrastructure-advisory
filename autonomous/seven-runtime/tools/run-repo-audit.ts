@@ -13,7 +13,32 @@ async function main() {
             "pipeline",
             "road",
             "bridge",
-            "tower"
+            "tower",
+            "building",
+            "vehicle",
+            "waterway",
+            "railway",
+            "aeroway",
+            "landuse",
+            "natural",
+            "amenity",
+            "shop",
+            "tourism",
+            "man_made",
+            "boundary",
+            "place",
+            "public_transport",
+            "historic",
+            "military",
+            "office",
+            "emergency",
+            "healthcare",
+            "sport",
+            "telecom",
+            "infrastructure",
+            "geological",
+            "power",
+            "water"
         ]
     });
 
