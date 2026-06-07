@@ -1,0 +1,23 @@
+{
+    {
+
+    "git.autofetch": true,
+    "workbench.editorAssociations": {
+        "*.copilotmd": "vscode.markdown.preview.editor",
+        "*.pma": "default"
+    },
+    "microsoft-sovereign-cloud.environment": "custom",
+        "name": "GIA-Sovereign-Edge",
+        "portal": "https://azure.com",
+        "resourceManager": "https://azure.com",
+        "activeDirectory": "https://microsoftonline.com",
+        "activeDirectoryResourceId": "https://windows.net",
+        "activeDirectoryGraphResourceId": "https://graph.windows.net",
+        "activeDirectoryDataLakeResourceId": "https://datalake.azure.net/",
+        "activeDirectoryKeyVaultResourceId": "https://vault.azure.net",
+        "activeDirectoryServiceEndpointResourceId": "https://management.core.windows.net/",
+        "activeDirectoryGraphApiVersion": "1.6",
+        "activeDirectoryGraphUrl": "https://graph.windows.net/" 
+        
+    }
+}
