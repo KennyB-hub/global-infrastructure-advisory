@@ -12,8 +12,8 @@ const missionControl = {
 };
 
 // Ensure all const missionControl = {
-  ai: ["*.ts", "*.js"],
   autonomous: ["*.ts", "*.js"],
+   ai: ["*.ts", "*.js"],
   "seven-runtime": ["*.ts", "*.js"],
   backend: ["*.ts", "*.js"],
   functions: ["*.ts", "*.js"],
