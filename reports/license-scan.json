@@ -1,5 +1,5 @@
 {
-  "scannedAt": "2026-06-06T21:54:28.445Z",
+  "scannedAt": "2026-06-07T04:21:14.801Z",
   "findings": {
     "MIT": [],
     "Apache-2.0": [],
@@ -8,6 +8,8 @@
     "Proprietary": [
       "backend/config/govervance/trust-zone-definitions.json",
       "proprietary-cli/bin/cli.js",
+      "proprietary-cli/commands/mci/list.ts",
+      "proprietary-cli/commands/zoning/check.js",
       "proprietary-cli/package.json",
       "proprietary-cli/README.txt",
       "README.md",

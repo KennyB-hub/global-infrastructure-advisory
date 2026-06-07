@@ -8,7 +8,7 @@ import { SectorEngine } from "../../backend/sector/sector-engine.js";
 
 import { verifyDidVcIdentity } from "../../backend/system/identity/did-vc-verifier.js";
 import { enforceMCP } from "../../backend/system/mcp/mcp-enforcer.js";
-import * as cyberWorker from "./cyber/index.js";
+import * as cyberWorker from "../cyber/cyber/index.js";
 
 // Worker imports (you already have these)
 import { publicWorker } from "../public/index.js";
@@ -17,7 +17,7 @@ import { farmerWorker } from "../farmer/index.js";
 import { govWorker } from "../gov/index.js";
 import { deepgovWorker } from "../deepgov/index.js";
 import { adminWorker } from "../admin/index.js";
-import { systemWorker } from "../system/index.js";
+import { systemWorker } from "./index.js";
 import { expansionWorker } from "../expansion/index.js";
 import { organizerWorker } from "../organizer/index.js";
 import { anysWorker } from "../anys/index.js";
