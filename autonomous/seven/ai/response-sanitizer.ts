@@ -1,5 +1,5 @@
-// /ai-engine/response-sanitizer.js
-// GIA Sovereign AI Response Sanitizer – V12 Alpha
+// autonomous/seven-os/ai/response-sanitizer.ts
+// GIA Sovereign AI Response Sanitizer – V12 Alpha (TypeScript Version)
 
 import {
   getPlatformContext,
@@ -9,7 +9,47 @@ import {
   sha256
 } from "../utils/context.js";
 
-export async function sanitizeOutput(output = {}, env = {}, context = {}) {
+// ---- Types ----
+
+export interface SanitizedOutput {
+  ok: boolean;
+  timestamp: string;
+  output: any;
+  platform: any;
+  nodes: any;
+  clusters: any;
+  ai: any;
+  context: {
+    workflow: string | null;
+    trustZone: string;
+    inputHash: string | null;
+    contextHash: string | null;
+  };
+  integrity?: {
+    hash: string;
+    verified: boolean;
+  };
+}
+
+export interface EnvContext {
+  [key: string]: any;
+}
+
+export interface AIContext {
+  workflow?: string | null;
+  trustZone?: string;
+  inputHash?: string | null;
+  contextHash?: string | null;
+  [key: string]: any;
+}
+
+// ---- Main Sanitizer ----
+
+export async function sanitizeOutput(
+  output: any = {},
+  env: EnvContext = {},
+  context: AIContext = {}
+): Promise<SanitizedOutput> {
   //
   // 1. Normalize output structure
   //
@@ -28,7 +68,7 @@ export async function sanitizeOutput(output = {}, env = {}, context = {}) {
   //
   // 4. Sovereign metadata
   //
-  const final = {
+  const final: SanitizedOutput = {
     ok: true,
     timestamp: new Date().toISOString(),
 
@@ -58,11 +98,9 @@ export async function sanitizeOutput(output = {}, env = {}, context = {}) {
   return final;
 }
 
-//
-// --- INTERNAL HELPERS ------------------------------------------------------
-//
+// ---- Internal Helpers ----
 
-function normalize(output) {
+function normalize(output: any): any {
   if (typeof output === "string") {
     return { type: "text", content: output };
   }
@@ -78,7 +116,7 @@ function normalize(output) {
   return { type: "unknown", content: String(output) };
 }
 
-function enforceSchema(out) {
+function enforceSchema(out: any): any {
   return {
     type: out.type || "text",
     content: out.content || "",
@@ -87,7 +125,7 @@ function enforceSchema(out) {
   };
 }
 
-function stripUnsafe(out) {
+function stripUnsafe(out: any): any {
   const safe = { ...out };
 
   delete safe.debug;

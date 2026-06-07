@@ -1,5 +1,5 @@
-// src/ai-engine/ai-router.js
-// GIA Sovereign AI Router – V12 Alpha
+// autonomous/seven-os/ai/router.ts
+// GIA Sovereign AI Router – V12 Alpha (TypeScript Version)
 
 import { sovereignWorkerGuard } from "../../system/security/worker-guard.js";
 import { validatePayload, validateTrustZone } from "./validator.js";
@@ -8,6 +8,7 @@ import { buildContext } from "./context-builder.js";
 import { sanitizeOutput } from "./response-sanitizer.js";
 import { handleError } from "./error-handler.js";
 import { processUX } from "./unified-ux/unified-ux-core.js";
+
 import * as organizerWorker from "../workers/organizer/index.js";
 import * as expansionWorker from "../workers/expansion/index.js";
 import * as anysWorker from "../workers/anys/index.js";
@@ -23,7 +24,7 @@ import { runSandboxAI } from "./sandbox-bridge.js";
 import { EngineeringEngine } from "./engineering-engine.js";
 import { MechanicsEngine } from "./mechanics-engine.js";
 
-// New V12 Alpha engines
+// V12 Alpha engines
 import { ScienceEngine } from "./science-engine.js";
 import { GeothermalEngine } from "./geothermal-engine.js";
 import { RenewablesEngine } from "./renewables-engine.js";
@@ -37,6 +38,21 @@ import { enqueueTask, getNextPendingTask, updateTask } from "./autonomous/task-q
 import { getTaskHandler } from "./autonomous/task-registry.js";
 import { runSevenOfNineOnce } from "./autonomous/seven-of-nine.js";
 
+// ---- Type Definitions ----
+
+export interface AIRequest {
+  text?: string;
+  trustZone?: string;
+  workflow?: string;
+  [key: string]: any; // flexible for engines
+}
+
+export interface AIEnv {
+  [key: string]: any;
+}
+
+// ---- Engine Instances ----
+
 const sectorAnalysisEngine = new SectorAnalysisEngine();
 const scienceEngine = new ScienceEngine();
 const geothermalEngine = new GeothermalEngine();
@@ -46,27 +62,23 @@ const zoningEngine = new ZoningEngine();
 const engineeringEngine = new EngineeringEngine();
 const mechanicsEngine = new MechanicsEngine();
 
-export async function processAIRequest(request, env) {
+// ---- Main Router ----
+
+export async function processAIRequest(request: Request, env: AIEnv): Promise<Response> {
   try {
-    //
     // 1. Security guard
-    //
     const sec = sovereignWorkerGuard?.(request, env);
     if (sec) return sec;
 
-    //
     // 2. Parse JSON
-    //
-    let input;
+    let input: AIRequest;
     try {
       input = await request.json();
     } catch {
       return handleError(new Error("Invalid JSON body"), env);
     }
 
-    //
     // 3. Validate base schema
-    //
     const schemaCheck = await validatePayload(env, input, {
       text: { required: false, type: "string" },
       trustZone: { required: false, type: "string" },
@@ -74,32 +86,24 @@ export async function processAIRequest(request, env) {
     });
     if (!schemaCheck.ok) return schemaCheck;
 
-    //
-    // 4. Trust‑zone enforcement
-    //
+    // 4. Trust-zone enforcement
     const zone = input.trustZone || "public";
     const trustCheck = await validateTrustZone(env, zone, 1);
     if (!trustCheck.ok) return trustCheck;
-    
-    if (input.workflow === "ux") {
-  return await processUX(input);
-}
 
-    //
+    if (input.workflow === "ux") {
+      return await processUX(input);
+    }
+
     // 5. Build sovereign context
-    //
     const context = await buildContext(input, env);
 
-    //
     // 6. Determine intent
-    //
     const intent = await matchIntent(input, context);
     const route = intent.intent;
 
-    //
     // 7. Route to correct engine
-    //
-    let result;
+    let result: any;
 
     switch (route) {
       case "geo":
@@ -118,40 +122,35 @@ export async function processAIRequest(request, env) {
         result = await runSandboxAI(input, env, context);
         break;
 
-      // --- NEW: Cattle logistics intents ---
+      // ---- Cattle Logistics ----
 
-      case "cattle-load-create": {
-        const load = createLoad({
-          farmerName: input.farmerName,
-          contactPhone: input.contactPhone,
-          origin: input.origin,
-          destination: input.destination,
-          headCount: input.headCount,
-          weightClass: input.weightClass,
-          earliestPickup: input.earliestPickup,
-          latestPickup: input.latestPickup,
-          notes: input.notes
-        });
+      case "cattle-load-create":
         result = {
           ok: true,
           type: "cattle-load-create",
-          load
+          load: createLoad({
+            farmerName: input.farmerName,
+            contactPhone: input.contactPhone,
+            origin: input.origin,
+            destination: input.destination,
+            headCount: input.headCount,
+            weightClass: input.weightClass,
+            earliestPickup: input.earliestPickup,
+            latestPickup: input.latestPickup,
+            notes: input.notes
+          })
         };
         break;
-      }
 
-      case "cattle-load-match": {
-        const loadId = input.loadId;
-        const matchResult = matchHaulersForLoad(loadId);
+      case "cattle-load-match":
         result = {
           ok: true,
           type: "cattle-load-match",
-          ...matchResult
+          ...matchHaulersForLoad(input.loadId)
         };
         break;
-      }
 
-      // --- V12 Alpha Engines ---
+      // ---- V12 Alpha Engines ----
 
       case "science":
         result = await scienceEngine.process(input, env, context);
@@ -199,45 +198,38 @@ export async function processAIRequest(request, env) {
         result = await sectorAnalysisEngine.process(input, env, context);
         break;
 
-      // --- Autonomous Task Management (Seven-of-Nine) ---
+      // ---- Autonomous Task Management ----
 
-      case "task-enqueue": {
-        const task = enqueueTask(input.taskType, input.payload);
+      case "task-enqueue":
         result = {
           ok: true,
           type: "task-enqueue",
-          task
+          task: enqueueTask(input.taskType, input.payload)
         };
         break;
-      }
 
       case "task-status": {
-        const taskId = input.taskId;
-        let tasks = [];
-        try {
-          // Load tasks to find specific task or all tasks
-          const fs = await import("fs");
-          const path = await import("path");
-          const queuePath = path.join(process.cwd(), "data/task-queue.json");
-          if (fs.existsSync(queuePath)) {
-            tasks = JSON.parse(fs.readFileSync(queuePath, "utf8"));
-          }
-        } catch {
-          tasks = [];
+        const fs = await import("fs");
+        const path = await import("path");
+        const queuePath = path.join(process.cwd(), "data/task-queue.json");
+
+        let tasks: any[] = [];
+        if (fs.existsSync(queuePath)) {
+          tasks = JSON.parse(fs.readFileSync(queuePath, "utf8"));
         }
-        
-        const targetTask = taskId ? tasks.find(t => t.id === taskId) : null;
+
+        const targetTask = input.taskId ? tasks.find(t => t.id === input.taskId) : null;
+
         result = {
           ok: true,
           type: "task-status",
           task: targetTask || null,
-          allTasks: taskId ? undefined : tasks
+          allTasks: input.taskId ? undefined : tasks
         };
         break;
       }
 
-      case "task-process": {
-        // Manually trigger Seven-of-Nine to process next pending task
+      case "task-process":
         await runSevenOfNineOnce();
         result = {
           ok: true,
@@ -245,24 +237,20 @@ export async function processAIRequest(request, env) {
           message: "Task processor executed (one cycle)"
         };
         break;
-      }
 
       case "task-list": {
-        let tasks = [];
-        try {
-          const fs = await import("fs");
-          const path = await import("path");
-          const queuePath = path.join(process.cwd(), "data/task-queue.json");
-          if (fs.existsSync(queuePath)) {
-            tasks = JSON.parse(fs.readFileSync(queuePath, "utf8"));
-          }
-        } catch {
-          tasks = [];
+        const fs = await import("fs");
+        const path = await import("path");
+        const queuePath = path.join(process.cwd(), "data/task-queue.json");
+
+        let tasks: any[] = [];
+        if (fs.existsSync(queuePath)) {
+          tasks = JSON.parse(fs.readFileSync(queuePath, "utf8"));
         }
-        
+
         const filter = input.status || null;
         const filtered = filter ? tasks.filter(t => t.status === filter) : tasks;
-        
+
         result = {
           ok: true,
           type: "task-list",
@@ -281,12 +269,10 @@ export async function processAIRequest(request, env) {
         };
     }
 
-    //
     // 8. Sanitize output
-    //
     return sanitizeOutput(result, env, context);
 
-  } catch (err) {
+  } catch (err: any) {
     return handleError(err, env, { fatal: true });
   }
 }

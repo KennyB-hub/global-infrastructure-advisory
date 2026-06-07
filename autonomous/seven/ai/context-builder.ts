@@ -1,5 +1,5 @@
-// /ai-engine/context-builder.js
-// GIA Sovereign AI Context Builder – V12 Alpha
+// autonomous/seven-os/ai/context-builder.ts
+// GIA Sovereign AI Context Builder – V12 Alpha (TypeScript Version)
 
 import {
   getPlatformContext,
@@ -9,10 +9,65 @@ import {
   sha256
 } from "../utils/context.js";
 
-export async function buildContext(input = {}, env = {}) {
+// ---- Types ----
+
+export interface AIContext {
+  timestamp: number;
+  iso: string;
+  source: string;
+
+  inputSummary: string;
+  inputHash: string;
+
+  platform: any;
+  nodes: any;
+  clusters: any;
+  ai: any;
+
+  trustZone: string;
+  workflow: string | null;
+
+  routing: {
+    colo: string | null;
+    country: string | null;
+    asn: string | null;
+    ip: string | null;
+  };
+
+  audit: {
+    contextVersion: string;
+    integrity: string;
+  };
+
+  contextHash?: string;
+}
+
+export interface BuildContextInput {
+  text?: string;
+  trustZone?: string;
+  workflow?: string;
+  [key: string]: any;
+}
+
+export interface BuildContextEnv {
+  cf?: {
+    colo?: string;
+    country?: string;
+    asn?: string;
+    ip?: string;
+  };
+  [key: string]: any;
+}
+
+// ---- Main Builder ----
+
+export async function buildContext(
+  input: BuildContextInput = {},
+  env: BuildContextEnv = {}
+): Promise<AIContext> {
   const timestamp = Date.now();
 
-  const context = {
+  const context: AIContext = {
     timestamp,
     iso: new Date(timestamp).toISOString(),
     source: "backend-ai-engine",
@@ -31,7 +86,7 @@ export async function buildContext(input = {}, env = {}) {
     trustZone: input.trustZone || "public",
     workflow: input.workflow || null,
 
-    // Routing metadata (if available)
+    // Routing metadata (Cloudflare-style)
     routing: {
       colo: env?.cf?.colo || null,
       country: env?.cf?.country || null,
@@ -52,8 +107,9 @@ export async function buildContext(input = {}, env = {}) {
   return context;
 }
 
-// Helper: summarize input safely
-function summarizeInput(input) {
+// ---- Helper: summarize input safely ----
+
+function summarizeInput(input: any): string {
   if (!input) return "";
   if (typeof input === "string") return input.slice(0, 80);
   if (input.text) return input.text.slice(0, 80);
