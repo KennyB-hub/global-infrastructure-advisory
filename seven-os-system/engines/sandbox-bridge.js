@@ -1,14 +1,17 @@
 // /ai-engine/sandbox-bridge.js
-// GIA Sovereign Sandbox Bridge – V12 Alpha
-
-import { validatePayload } from "../utils/validator.js";
-import { buildContext } from "./context-builder.js";
-import { sanitizeOutput } from "./response-sanitizer.js";
-import { handleError } from "./error-handler.js";
-
-import { AI as SandboxAI } from "../../src/ai/ai-engine.js";
+// GIA Sovereign Sandbox Bridge – V12 Alpha (ESM Safe)
 
 export async function runSandboxAI(input = {}, env = {}) {
+  // Load dependencies dynamically (ESM + CJS compatible)
+  const { validatePayload } = await import("../utils/validator.js");
+  const { buildContext } = await import("./context-builder.js");
+  const { sanitizeOutput } = await import("./response-sanitizer.js");
+  const { handleError } = await import("./error-handler.js");
+
+  // Load AI engine (supports both ESM and CJS)
+  const SandboxAI = await import("../../seven-os/ai/ai-engine.js")
+    .then(m => m.AI || m.default);
+
   //
   // 1. Validate sandbox input (light schema)
   //
@@ -36,7 +39,7 @@ export async function runSandboxAI(input = {}, env = {}) {
   }
 
   //
-  // 4. Sanitize output (so sandbox cannot leak unsafe data)
+  // 4. Sanitize output
   //
   const sanitized = await sanitizeOutput(result, env, context);
 

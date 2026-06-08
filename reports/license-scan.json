@@ -1,5 +1,5 @@
 {
-  "scannedAt": "2026-06-07T07:13:58.290Z",
+  "scannedAt": "2026-06-08T05:30:49.402Z",
   "findings": {
     "MIT": [],
     "Apache-2.0": [],
@@ -14,7 +14,7 @@
       "proprietary-cli/README.txt",
       "README.md",
       "reports/license-scan.json",
-      "seven-os/filemap.json"
+      "seven-os-system/filemap.json"
     ]
   }
 }

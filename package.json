@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+
   "scripts": {
     "scan:all": "npm run scan:secrets && npm run scan:licenses && npm run test:cli-sandbox && npm run verify:ws || exit 0",
     "clean": "node organize.js",
@@ -17,6 +18,7 @@
     "test:cli-sandbox": "node scripts/test-cli-sandbox.cjs",
     "test": "echo \"Running v12 logic tests...\" && exit 0"
   },
+
   "dependencies": {
     "glob": "^13.0.6",
     "ioredis": "^5.11.0",
@@ -24,6 +26,7 @@
     "ws": "^8.21.0",
     "zod": "^3.22.0"
   },
+
   "devDependencies": {
     "@types/mocha": "^10.0.10",
     "mocha": "^8.1.3",
