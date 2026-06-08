@@ -3,7 +3,7 @@
   "summary": "Expanded evidence with full function/context for each call site into Seven/autonomous",
   "entries": [
     {
-      "path": "src/ai/workers/auth-worker.js",
+      "path": "seven-os/ai/workers/auth-worker.js",
       "matches": [
         { "line": 13, "snippet": "if (url.pathname === \"/auth/login\" && request.method === \"POST\") {" },
         { "line": 16, "snippet": "const result = await processAIRequest( { text: \"auth login\", trustZone: \"public\", ...payload }, env );" }
@@ -11,21 +11,21 @@
       "context": "export default { async fetch(request, env) { const url = new URL(request.url); // LOGIN if (url.pathname === \"/auth/login\" && request.method === \"POST\") { const payload = await request.json(); const result = await processAIRequest({ text: \"auth login\", trustZone: \"public\", ...payload }, env); return new Response(JSON.stringify(result), { status: 200, headers: { \"Content-Type\": \"application/json\" } }); } ... } }"
     },
     {
-      "path": "src/ai/workers/ai-worker.js",
+      "path": "seven-os/ai/workers/auth-worker.js",
       "matches": [
         { "line": 102, "snippet": "result = await processAIRequest(request, env, ctx);" }
       ],
       "context": "// 7. Route to AI Engine (V12 Alpha Router)\nlet result;\ntry {\n  result = await processAIRequest(request, env, ctx);\n} catch (err) {\n  return handleError(err, env, { fatal: true });\n}"
     },
     {
-      "path": "src/functions/api/voice-flight-handler.js",
+      "path": "functions/api/voice-flight-handler.js",
       "matches": [
         { "line": 19, "snippet": "const result = await VoiceBus.dispatch({ text: message, role, sessionId, sensors, resources });" }
       ],
       "context": "export async function voiceFlightHandler(payload) { const { message, role = \"farmer\", sessionId = \"local-demo\", sensors = {}, resources = {} } = payload; if (!message) { return { displayText: \"> SEVEN: No input detected.\", spokenText: \"I did not receive any input.\", priority: \"normal\", mode: \"rural\", actions: [] }; } // Route everything through Seven’s unified voice bus const result = await VoiceBus.dispatch({ text: message, role, sessionId, sensors, resources }); return result; }"
     },
     {
-      "path": "src/backend/routes/voice-flight.js",
+      "path": "backend/routes/voice-flight.js",
       "matches": [
         { "line": 42, "snippet": "if (isMission) { const mission = orchestrateMission({ text, role, sessionId, sensors: sensors || {}, resources: resources || {} }); return res.json(mission); }" },
         { "line": 56, "snippet": "const response = await generateSevenResponse({ text, role, sessionId });" }
@@ -33,14 +33,14 @@
       "context": "router.post('/', async (req, res) => { try { const { text, role, sessionId, sensors, resources } = req.body; ... if (isMission) { const mission = orchestrateMission({ text, role, sessionId, sensors: sensors || {}, resources: resources || {} }); return res.json(mission); } // Normal Voice Command → Seven Response Engine const response = await generateSevenResponse({ text, role, sessionId }); return res.json(response); } catch (err) { ... } });"
     },
     {
-      "path": "src/backend/functions/api/system.js",
+      "path": "backend/functions/api/system.js",
       "matches": [
         { "line": 22, "snippet": "const terrain = new TerrainModel(); const stack = new SevenStack(terrain, { speak: (msg) => console.log('[Seven Voice]', msg) });" }
       ],
       "context": "// Seven Runtime Initialization\nconst terrain = new TerrainModel();\nconst stack = new SevenStack(terrain, { speak: (msg) => console.log('[Seven Voice]', msg) });\nconst env = { stack };\n// mounts voice and audit routers: app.use('/api/voice', createVoiceRouter(stack));"
     },
     {
-      "path": "src/backend/functions/api/router.js",
+      "path": "backend/functions/api/router.js",
       "matches": [
         { "line": 29, "snippet": "if (path === \"/api/autonomous/task/enqueue\") { const req = { ...request, url: request.url }; const inputBody = await request.json(); const response = await processAIRequest({ ...req, json: async () => ({ ...inputBody, workflow: \"task-enqueue\", taskType: inputBody.taskType, payload: inputBody.payload }) }, {}); return response; }" },
         { "line": 42, "snippet": "if (path === \"/api/autonomous/task/process\") { const response = await processAIRequest(request, { workflow: \"task-process\" }); return response; }" }
@@ -48,7 +48,7 @@
       "context": "router(request) { ... // autonomous task endpoints map to processAIRequest which routes into AI/autonomous engines; processAIRequest is the canonical gateway into Seven/Seven-of-Nine task processing. }"
     },
     {
-      "path": "src/ai/engines/system/voice/voice-bus.ts",
+      "path": "seven-os/voice/voice-bus.ts",
       "matches": [
         { "line": 19, "snippet": "if (isMission) { return orchestrateMission({ text, role, sessionId, sensors, resources }); }" },
         { "line": 29, "snippet": "return generateSevenResponse({ text, role, sessionId });" }
@@ -56,7 +56,7 @@
       "context": "VoiceBus.dispatch decides whether input is a mission and delegates to orchestrateMission (mission builder/orchestrator) or generateSevenResponse (general voice response) — both are Seven integration points."
     },
     {
-      "path": "src/backend/ai/ai-worker.js",
+      "path": "backend/ai/ai-worker.js",
       "matches": [
         { "line": 12, "snippet": "module.exports.runAI = async function(prompt) {" },
         { "line": 35, "snippet": "const aiResponse = await fakeAI(finalPrompt); return aiResponse;" }
@@ -64,21 +64,21 @@
       "context": "runAI is a generic worker helper used by hubs and other components to call AI. Many workers call runAI or processAIRequest as the proxy into the autonomous/AI stack."
     },
     {
-      "path": "src/ai/engines/system/voice/mission/mission-orchestrator.js",
+      "path": "seven-os/voice/mission/mission-orchestrator.js",
       "matches": [
         { "line": 9, "snippet": "export function orchestrateMission({ text, role, sessionId, sensors, resources }) { const grid = analyzeDisasterGrid({ text, sensors, role }); const plans = buildRescueAndSupplyPlan({ ... }); const mission = buildMissionObject({ grid, plans, role, sessionId }); return mission; }" }
       ],
       "context": "mission orchestrator builds mission objects used by voice and other frontends; orchestrateMission is often the call site that leads to mission actions which may enqueue autonomous tasks or call Seven runtime indirectly."
     },
     {
-      "path": "src/ai/engines/autonomous/seven-runtime/seven.ts",
+      "path": "seven-os/seven-runtime/seven.ts",
       "matches": [
         { "line": 69, "snippet": "async launchSectorMission(req: OrchestratorMissionRequest, safetyCtx: SafetyContext | null = null, disasterType: DisasterType | null = null) { const plan = await this.orchestrator.launchMission(req); ... }" }
       ],
       "context": "SevenRuntime.launchSectorMission is the runtime entrypoint used by higher-level services (SevenStack, safety API, responders) to actually launch drone/ground missions via the orchestrator and safety checks."
     },
     {
-      "path": "src/ai/engines/autonomous/seven-runtime/stack/seven-stack.ts",
+      "path": "seven-os/seven-runtime/stack/seven-stack.ts",
       "matches": [
         { "line": 41, "snippet": "this.runtime = new SevenRuntime(terrain);" },
         { "line": 52, "snippet": "this.narrator = new SevenNarrator(sink); const speakFn = (msg: string) => this.narrator.say(msg);" }

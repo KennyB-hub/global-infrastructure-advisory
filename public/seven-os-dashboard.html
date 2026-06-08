@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Seven‑OS Sovereign Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #05060a;
+      color: #e5e7eb;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid #1f2937;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0b0c10;
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.4rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #93c5fd;
+    }
+    .tagline {
+      font-size: 0.85rem;
+      color: #9ca3af;
+    }
+    main {
+      padding: 1.5rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: #0f172a;
+      border-radius: 0.75rem;
+      border: 1px solid #1f2937;
+      padding: 1rem 1.25rem;
+    }
+    .card h2 {
+      margin: 0 0 0.75rem;
+      font-size: 1rem;
+      color: #bfdbfe;
+    }
+    .metric {
+      display: flex;
+      justify-content: space-between;
+      margin: 0.25rem 0;
+      font-size: 0.9rem;
+    }
+    .metric-label {
+      color: #9ca3af;
+    }
+    .metric-value {
+      font-weight: 600;
+    }
+    .status-ok {
+      color: #22c55e;
+    }
+    .status-warn {
+      color: #facc15;
+    }
+    .status-fail {
+      color: #f97373;
+    }
+    footer {
+      padding: 1rem 2rem;
+      border-top: 1px solid #1f2937;
+      font-size: 0.8rem;
+      color: #6b7280;
+      background: #05060a;
+    }
+    .pill {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      border: 1px solid #374151;
+      margin-left: 0.5rem;
+      color: #9ca3af;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Seven‑OS Sovereign Dashboard</h1>
+      <div class="tagline">Global Infrastructure Advisory · Runtime Integrity & Security Posture</div>
+    </div>
+    <div id="summary-pill" class="pill">Loading…</div>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Repository Integrity</h2>
+      <div class="metric">
+        <span class="metric-label">Deep Repo Audit</span>
+        <span id="metric-scan-deep" class="metric-value">–</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label">Missing Files</span>
+        <span id="metric-missing-files" class="metric-value">–</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label">Orphaned Files</span>
+        <span id="metric-orphaned-files" class="metric-value">–</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Security Posture</h2>
+      <div class="metric">
+        <span class="metric-label">Secret Scan</span>
+        <span id="metric-secrets" class="metric-value">–</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label">License Scan</span>
+        <span id="metric-licenses" class="metric-value">–</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label">Dependency Audit</span>
+        <span id="metric-audit" class="metric-value">–</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label">Critical Vulns</span>
+        <span id="metric-critical" class="metric-value">–</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Runtime & Engines</h2>
+      <div class="metric">
+        <span class="metric-label">CLI Sandbox</span>
+        <span id="metric-cli" class="metric-value">–</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label">WebSocket Engine</span>
+        <span id="metric-ws" class="metric-value">–</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label">Smoke Test</span>
+        <span id="metric-smoke" class="metric-value">–</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Build & Deployment</h2>
+      <div class="metric">
+        <span class="metric-label">Wrangler Dev</span>
+        <span id="metric-dev" class="metric-value">–</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label">Wrangler Deploy</span>
+        <span id="metric-deploy" class="metric-value">–</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label">Last Audit</span>
+        <span id="metric-last-audit" class="metric-value">–</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Seven‑OS · Sovereign Runtime · Diagnostic Surface  
+    · Data source: <code>/api/seven-os/status</code>
+  </footer>
+
+  <script type="module">
+    async function fetchStatus() {
+      try {
+        const res = await fetch("/api/seven-os/status");
+        if (!res.ok) throw new Error("Bad status: " + res.status);
+        const data = await res.json();
+        render(data);
+      } catch (err) {
+        console.error("Failed to load status:", err);
+        document.getElementById("summary-pill").textContent = "Status: offline";
+      }
+    }
+
+    function setStatus(id, value, okThreshold = "ok") {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.textContent = value ?? "–";
+
+      const v = String(value).toLowerCase();
+      el.classList.remove("status-ok", "status-warn", "status-fail");
+
+      if (v === "ok" || v === "pass" || v === "healthy") {
+        el.classList.add("status-ok");
+      } else if (v === "warn" || v === "degraded") {
+        el.classList.add("status-warn");
+      } else if (v === "fail" || v === "error") {
+        el.classList.add("status-fail");
+      }
+    }
+
+    function render(data) {
+      // Summary
+      const summary = document.getElementById("summary-pill");
+      summary.textContent = `Overall: ${data.overallStatus || "unknown"}`;
+
+      // Repo
+      setStatus("metric-scan-deep", data.scanDeepStatus);
+      document.getElementById("metric-missing-files").textContent =
+        data.missingFilesCount ?? "–";
+      document.getElementById("metric-orphaned-files").textContent =
+        data.orphanedFilesCount ?? "–";
+
+      // Security
+      setStatus("metric-secrets", data.secretsStatus);
+      setStatus("metric-licenses", data.licensesStatus);
+      setStatus("metric-audit", data.auditStatus);
+      document.getElementById("metric-critical").textContent =
+        data.vulnCritical ?? "–";
+
+      // Runtime
+      setStatus("metric-cli", data.cliSandboxStatus);
+      setStatus("metric-ws", data.wsStatus);
+      setStatus("metric-smoke", data.smokeStatus);
+
+      // Build / deploy
+      setStatus("metric-dev", data.devStatus);
+      setStatus("metric-deploy", data.deployStatus);
+      document.getElementById("metric-last-audit").textContent =
+        data.lastAuditTimestamp ?? "–";
+    }
+
+    fetchStatus();
+    setInterval(fetchStatus, 60_000); // refresh every minute
+  </script>
+</body>
+</html>

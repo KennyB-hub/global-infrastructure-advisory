@@ -2,7 +2,7 @@
   "generated_at": "2026-06-03T17:11:51.845-04:00",
   "report": [
     {
-      "path": "src/ai/workers/auth-worker.js",
+      "path": "seven-os/ai/workers/auth-worker.js",
       "matches": [
         {
           "line": 16,
@@ -15,7 +15,7 @@
       ]
     },
     {
-      "path": "src/ai/workers/ai-worker.js",
+      "path": "seven-os/ai/workers/ai-worker.js",
       "matches": [
         {
           "line": 102,
@@ -24,7 +24,7 @@
       ]
     },
     {
-      "path": "src/functions/api/voice-flight-handler.js",
+      "path": "seven-os/functions/api/voice-flight-handler.js",
       "matches": [
         {
           "line": 19,
@@ -33,7 +33,7 @@
       ]
     },
     {
-      "path": "src/backend/routes/voice-flight.js",
+      "path": "backend/routes/voice-flight.js",
       "matches": [
         {
           "line": 43,
@@ -46,7 +46,7 @@
       ]
     },
     {
-      "path": "src/backend/functions/api/system.js",
+      "path": "backend/functions/api/system.js",
       "matches": [
         {
           "line": 22,
@@ -55,7 +55,7 @@
       ]
     },
     {
-      "path": "src/backend/functions/api/router.js",
+      "path": "backend/functions/api/router.js",
       "matches": [
         {
           "line": 32,
@@ -68,7 +68,7 @@
       ]
     },
     {
-      "path": "src/ai/engines/system/voice/voice-bus.ts",
+      "path": "seven-os/voice/voice-bus.ts",
       "matches": [
         {
           "line": 20,
@@ -81,7 +81,7 @@
       ]
     },
     {
-      "path": "src/backend/ai/ai-worker.js",
+      "path": "backend/ai/ai-worker.js",
       "matches": [
         {
           "line": 12,
@@ -94,7 +94,7 @@
       ]
     },
     {
-      "path": "src/ai/engines/system/voice/mission/mission-orchestrator.js",
+      "path": "seven-os/voice/mission/mission-orchestrator.js",
       "matches": [
         {
           "line": 9,
@@ -103,7 +103,7 @@
       ]
     },
     {
-      "path": "src/ai/engines/autonomous/seven-runtime/seven.ts",
+      "path": "seven-os/seven-runtime/seven.ts",
       "matches": [
         {
           "line": 69,
@@ -112,7 +112,7 @@
       ]
     },
     {
-      "path": "src/ai/engines/autonomous/seven-runtime/stack/seven-stack.ts",
+      "path": "seven-os/seven-runtime/stack/seven-stack.ts",
       "matches": [
         {
           "line": 41,

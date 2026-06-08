@@ -1,0 +1,16 @@
+{
+  "overallStatus": "OK",
+  "scanDeepStatus": "OK",
+  "missingFilesCount": 0,
+  "orphanedFilesCount": 0,
+  "secretsStatus": "OK",
+  "licensesStatus": "OK",
+  "auditStatus": "OK",
+  "vulnCritical": 0,
+  "cliSandboxStatus": "OK",
+  "wsStatus": "OK",
+  "smokeStatus": "OK",
+  "devStatus": "OK",
+  "deployStatus": "OK",
+  "lastAuditTimestamp": "2026-06-08T15:32:00Z"
+}
