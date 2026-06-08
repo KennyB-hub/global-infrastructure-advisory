@@ -3,7 +3,8 @@
 
 import { loadCommands } from "./core/load-commands.js";
 
-export async function runCLI(args = []) {
+export { runCLI } from "../mci.js";
+  {
   const registry = await loadCommands();
   const cmd = args[0] || "help";
 
@@ -13,3 +14,4 @@ export async function runCLI(args = []) {
 
   console.log(`Unknown command: ${cmd}`);
 }
+
