@@ -1,10 +1,8 @@
 // Seven‑OS CLI Command Registry – V12 Alpha
-// This file exists so the sandbox test can import it.
 
-import { loadCommands } from "../core/load-command.js";
+import { loadCommands } from "../core/load-commands.js";
 
-export { runCLI } from "../mci.js";
-  {
+export async function runCLI(args = []) {
   const registry = await loadCommands();
   const cmd = args[0] || "help";
 
@@ -13,5 +11,5 @@ export { runCLI } from "../mci.js";
   }
 
   console.log(`Unknown command: ${cmd}`);
+  return { ok: false, error: `Unknown command: ${cmd}` };
 }
-
