@@ -1,5 +1,5 @@
 // proprietary-cli/commands/mci/list.ts
-import { listInfrastructureAssets } from "autonomous/seven/core/mci";
+import { listInfrastructureAssets } from "seven-os/ai/mci";
 
 export async function run() {
   const assets = listInfrastructureAssets();
