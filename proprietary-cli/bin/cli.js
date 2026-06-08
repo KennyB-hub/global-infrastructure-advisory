@@ -2,9 +2,9 @@
 // Seven OS — Proprietary Operator CLI
 // Secrets must stay out of this repo. Use config.json for runtime settings.
 
-import { loadCommands } from "../core/load.js";
-import { execute } from "../core/executor.js";
-import { log, error } from "../core/logger.js";
+import { loadCommands } from "../commands/core/load.js";
+import { execute } from "../commands/core/executor.js";
+import { log, error } from "../commands/core/logger.js";
 import { runCLI } from "../commands/index.js";
 import { runSandboxAI } from "seven-os/sandbox";
 

@@ -1,7 +1,7 @@
 // Seven‑OS CLI Command Registry – V12 Alpha
 // This file exists so the sandbox test can import it.
 
-import { loadCommands } from "../core/load-commands.js";
+import { loadCommands } from "./core/load-commands.js";
 
 export async function runCLI(args = []) {
   const registry = await loadCommands();
