@@ -1,6 +1,6 @@
 // Seven‑OS CLI Command Registry – V12 Alpha
 
-import { loadCommands } from "../core/load-commands.js";
+import { loadCommands } from "../core/load-command.js";
 
 export async function runCLI(args = []) {
   const registry = await loadCommands();
