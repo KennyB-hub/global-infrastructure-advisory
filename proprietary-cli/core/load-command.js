@@ -5,9 +5,9 @@ import { fileURLToPath, pathToFileURL } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-export async function loadCommands() {
-    const commands = {};
-    const base = path.join(__dirname, "..", "commands");
+export async function loadCommand() {
+    const command = {};
+    const base = path.join(__dirname, "..", "command");
 
     for (const group of fs.readdirSync(base)) {
         const groupPath = path.join(base, group);
@@ -23,9 +23,9 @@ export async function loadCommands() {
             const command = mod.default || mod;
             const name = command.name || path.parse(file).name;
 
-            commands[name] = command;
+            command[name] = command;
         }
     }
 
-    return commands;
+    return command;
 }
