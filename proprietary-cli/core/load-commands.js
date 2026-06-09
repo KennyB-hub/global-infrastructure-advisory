@@ -10,6 +10,8 @@ async function loadCommands() {
     const base = path.join(__dirname, "..", "commands");
 
     for (const group of fs.readdirSync(base)) {
+        if (group === "index.js") continue; // ← FIX
+
         const groupPath = path.join(base, group);
 
         for (const file of fs.readdirSync(groupPath)) {
