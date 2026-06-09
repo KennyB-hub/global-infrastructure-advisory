@@ -5,8 +5,8 @@ import { fileURLToPath, pathToFileURL } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-export async function loadCommand() {
-    const command = {};
+async function loadCommands() {
+    const commands = {};
     const base = path.join(__dirname, "..", "command");
 
     for (const group of fs.readdirSync(base)) {
@@ -16,16 +16,16 @@ export async function loadCommand() {
             if (!file.endsWith(".js")) continue;
 
             const fullPath = path.join(groupPath, file);
-
-            // Convert Windows path → file:// URL
             const mod = await import(pathToFileURL(fullPath).href);
 
-            const command = mod.default || mod;
-            const name = command.name || path.parse(file).name;
+            const cmd = mod.default || mod;
+            const name = cmd.name || path.parse(file).name;
 
-            command[name] = command;
+            commands[name] = cmd;
         }
     }
 
-    return command;
+    return commands;
 }
+
+export { loadCommands };

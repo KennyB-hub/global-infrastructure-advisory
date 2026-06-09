@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 // Seven OS — Proprietary Operator CL
 
-import { runCLI } from "../command/index.js";
+import { runCLI } from "../commands/index.js";
 
 const args = process.argv.slice(2);
 
 const result = await runCLI(args);
 
 if (result && result.ok === false) {
-  console.error("CLI command failed:", result.error || result);
+  console.error("CLI commands failed:", result.error || result);
 }
