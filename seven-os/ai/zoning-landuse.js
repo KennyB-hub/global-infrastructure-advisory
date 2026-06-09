@@ -1,4 +1,4 @@
-// autonomous/ai/zoning-landuse.js
+// seven-os/ai/zoning-landuse.js
 
 import { getItemById } from "../mci/index.js";
 
