@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Seven OS — Proprietary Operator CL
 
-import { runCLI } from "../command/index.js";
+import { runCLI } from "../commands/index.js";
 
 const args = process.argv.slice(2);
 
