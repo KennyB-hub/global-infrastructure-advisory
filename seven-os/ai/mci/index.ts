@@ -1,4 +1,4 @@
-// autonomous/seven/core/mci/index.ts
+// seven-os/ai/mci/index.ts
 import { loadMci } from "./loader";
 
 const mci = loadMci();

@@ -1,4 +1,4 @@
-// autonomous/seven/core/mci/loader.ts
+// seven-os/ai/mci/loader.ts
 import mci from "./mci.json" assert { type: "json" };
 
 export function loadMci() {

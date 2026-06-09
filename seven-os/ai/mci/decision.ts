@@ -1,4 +1,4 @@
-// autonomous/seven/core/decision/engine.ts
+// seven-os/ai/mci/decision/engine.ts
 import { getItemById } from ".";
 
 export function canActOn(id: string, action: string) {
