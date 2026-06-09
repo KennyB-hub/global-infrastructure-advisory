@@ -7,7 +7,7 @@ const __dirname = path.dirname(__filename);
 
 async function loadCommands() {
     const commands = {};
-    const base = path.join(__dirname, "..", "command");
+    const base = path.join(__dirname, "..", "commands");
 
     for (const group of fs.readdirSync(base)) {
         const groupPath = path.join(base, group);
