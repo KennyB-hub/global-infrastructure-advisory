@@ -2,8 +2,8 @@
 // GIA Sovereign System Worker – V12 Sovereign Edition
 
 import { basicSecurityGuard } from "../../security/worker-guard.js";
-import { PolicyEngine } from "../../autonomous/ai/policy-engine.js";
-import { CryptoV12 } from "../../autonomous/ai/utils/crypto.js";
+import { PolicyEngine } from "../../soven-os/ai/policy-engine.js";
+import { CryptoV12 } from "../../seven-os/ai/utils/crypto.js";
 import { SectorEngine } from "../../backend/sector/sector-engine.js";
 
 import { verifyDidVcIdentity } from "../../backend/system/identity/did-vc-verifier.js";
@@ -24,7 +24,7 @@ import { anysWorker } from "../anys/index.js";
 import { govViewWorker } from "../govview/index.js";
 import { opportunityScannerWorker } from "../opportunity/index.js";
 import * as fccWorker from "../fcc/index.js";
-import { CryptoV12 } from "../../src/ai/utils/crypto.js";
+import { CryptoV12 } from "../../seven-os/ai/utils/crypto.js";
 
 const policy = new PolicyEngine();
 

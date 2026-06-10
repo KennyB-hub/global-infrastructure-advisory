@@ -1,9 +1,11 @@
-// /workers/system/system-routing.js
-// GIA Sovereign Routing Inspector – V12 Alpha
+// /workers/system/system-security.js
+// GIA Sovereign Security Node – V12 Alpha
 
 import { inspectRouting } from "../../security/tools/inspect-routing.js";
-import systemManifest from "../../config/system-manifest.json" assert { type: "json" };
-import nodeRegistry from "../../config/node-registry.json" assert { type: "json" };
+import { threatScan } from "../../security/tools/threat-scan.js";
+
+import systemManifest from "../config/system-manifest.json" assert { type: "json" };
+import nodeRegistry from "../config/node-registry.json" assert { type: "json" };
 import clusterHealth from "../../config/cluster-health.json" assert { type: "json" };
 
 // Unified JSON responder
@@ -23,10 +25,17 @@ function json(data, status = 200, extraHeaders = {}) {
 export async function onRequest(context) {
   const { cf, ai } = context.env;
 
-  // 1. Routing inspector (trust‑zone + worker + AI routing)
-  const routingReport = await inspectRouting(context.request.url, cf, ai);
+  //
+  // 1. SECURITY TOOLS (Threat Scan + Routing Inspector)
+  //
+  const [threats, routing] = await Promise.all([
+    threatScan(cf, ai),
+    inspectRouting(context.request.url, cf, ai)
+  ]);
 
-  // 2. Platform metadata
+  //
+  // 2. PLATFORM METADATA
+  //
   const platform = {
     id: systemManifest.platform_id,
     version: systemManifest.version,
@@ -35,7 +44,9 @@ export async function onRequest(context) {
     endpoints: systemManifest.endpoints
   };
 
-  // 3. Node registry
+  //
+  // 3. NODE REGISTRY
+  //
   const nodes = nodeRegistry.clusters.map(c => ({
     name: c.name,
     sector: c.sector,
@@ -44,7 +55,9 @@ export async function onRequest(context) {
     tls: c.tls
   }));
 
-  // 4. Cluster health
+  //
+  // 4. CLUSTER HEALTH
+  //
   const clusters = clusterHealth.clusters.map(c => ({
     name: c.name,
     sector: c.sector,
@@ -52,18 +65,34 @@ export async function onRequest(context) {
     health_score: c.health_score
   }));
 
-  // 5. Final report
+  //
+  // 5. AI SUBSYSTEM SECURITY STATUS
+  //
+  const aiSecurity = {
+    decisionEngine: "/api/decision",
+    cortex: "/api/cortex",
+    deepMind: "/api/deep-mind",
+    engineAvailable: typeof ai?.run === "function",
+    status: typeof ai?.run === "function" ? "ready" : "offline"
+  };
+
+  //
+  // 6. FINAL SECURITY REPORT
+  //
   const report = {
     timestamp: new Date().toISOString(),
     platform,
     nodes,
     clusters,
-    routing: routingReport,
-    notes: "Routing inspector validates trust‑zones, worker bindings, AI surfaces, and sovereign routing policy."
+    threats,
+    routing,
+    ai: aiSecurity,
+    notes:
+      "Security node evaluates threat intelligence, routing anomalies, AI subsystem readiness, and sovereign policy compliance."
   };
 
   return json({
-    system: "routing",
+    system: "security",
     status: "ok",
     report
   });

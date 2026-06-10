@@ -1,8 +1,8 @@
 // /workers/system/system-health.js
 // GIA Sovereign Health Engine – V12 Alpha
 
-import systemManifest from "../../config/system-manifest.json" assert { type: "json" };
-import nodeRegistry from "../../config/node-registry.json" assert { type: "json" };
+import systemManifest from "../config/system-manifest.json" assert { type: "json" };
+import nodeRegistry from "../config/node-registry.json" assert { type: "json" };
 import clusterHealth from "../../config/cluster-health.json" assert { type: "json" };
 import { sha256 } from "../../utils/context.js";
 

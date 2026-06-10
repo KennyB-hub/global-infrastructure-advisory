@@ -1,10 +1,9 @@
-// /workers/system/system-trust.js
-// GIA Sovereign Trust Zone Node – V12 Alpha
+// /workers/system/system-routing.js
+// GIA Sovereign Routing Inspector – V12 Alpha
 
-import { getTrustZones } from "src/backend/system/trust.js";
-
-import systemManifest from "../../config/system-manifest.json" assert { type: "json" };
-import nodeRegistry from "../../config/node-registry.json" assert { type: "json" };
+import { inspectRouting } from "../../security/tools/inspect-routing.js";
+import systemManifest from "../config/system-manifest.json" assert { type: "json" };
+import nodeRegistry from "../config/node-registry.json" assert { type: "json" };
 import clusterHealth from "../../config/cluster-health.json" assert { type: "json" };
 
 // Unified JSON responder
@@ -22,14 +21,12 @@ function json(data, status = 200, extraHeaders = {}) {
 }
 
 export async function onRequest(context) {
-  //
-  // 1. TRUST ZONE MAP (public, contractor, farmer, gov, deepgov, admin, system)
-  //
-  const trustZones = getTrustZones();
+  const { cf, ai } = context.env;
 
-  //
-  // 2. PLATFORM METADATA
-  //
+  // 1. Routing inspector (trust‑zone + worker + AI routing)
+  const routingReport = await inspectRouting(context.request.url, cf, ai);
+
+  // 2. Platform metadata
   const platform = {
     id: systemManifest.platform_id,
     version: systemManifest.version,
@@ -38,9 +35,7 @@ export async function onRequest(context) {
     endpoints: systemManifest.endpoints
   };
 
-  //
-  // 3. NODE REGISTRY
-  //
+  // 3. Node registry
   const nodes = nodeRegistry.clusters.map(c => ({
     name: c.name,
     sector: c.sector,
@@ -49,9 +44,7 @@ export async function onRequest(context) {
     tls: c.tls
   }));
 
-  //
-  // 4. CLUSTER HEALTH
-  //
+  // 4. Cluster health
   const clusters = clusterHealth.clusters.map(c => ({
     name: c.name,
     sector: c.sector,
@@ -59,33 +52,18 @@ export async function onRequest(context) {
     health_score: c.health_score
   }));
 
-  //
-  // 5. AI SUBSYSTEM TRUST CONTEXT
-  //
-  const ai = {
-    decisionEngine: "/api/decision",
-    cortex: "/api/cortex",
-    deepMind: "/api/deep-mind",
-    engineAvailable: typeof context.env?.AI?.run === "function",
-    status: typeof context.env?.AI?.run === "function" ? "ready" : "offline"
-  };
-
-  //
-  // 6. FINAL TRUST REPORT
-  //
+  // 5. Final report
   const report = {
     timestamp: new Date().toISOString(),
     platform,
     nodes,
     clusters,
-    trustZones,
-    ai,
-    notes:
-      "Trust zones define sovereign access boundaries. All routing, AI execution, and system operations must comply with trust-zone policy."
+    routing: routingReport,
+    notes: "Routing inspector validates trust‑zones, worker bindings, AI surfaces, and sovereign routing policy."
   };
 
   return json({
-    system: "trust",
+    system: "routing",
     status: "ok",
     report
   });

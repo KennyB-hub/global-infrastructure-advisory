@@ -1,11 +1,10 @@
-// /workers/system/system-security.js
-// GIA Sovereign Security Node – V12 Alpha
+// /workers/system/system-storage.js
+// GIA Sovereign Storage Node – V12 Alpha
 
-import { inspectRouting } from "../../security/tools/inspect-routing.js";
-import { threatScan } from "../../security/tools/threat-scan.js";
+import { storageInspector } from "src/backend/infrastructure/tools/storage-inspector.js";
 
-import systemManifest from "../../config/system-manifest.json" assert { type: "json" };
-import nodeRegistry from "../../config/node-registry.json" assert { type: "json" };
+import systemManifest from "../config/system-manifest.json" assert { type: "json" };
+import nodeRegistry from "../config/node-registry.json" assert { type: "json" };
 import clusterHealth from "../../config/cluster-health.json" assert { type: "json" };
 
 // Unified JSON responder
@@ -23,15 +22,12 @@ function json(data, status = 200, extraHeaders = {}) {
 }
 
 export async function onRequest(context) {
-  const { cf, ai } = context.env;
+  const { cf } = context.env;
 
   //
-  // 1. SECURITY TOOLS (Threat Scan + Routing Inspector)
+  // 1. STORAGE DIAGNOSTICS (KV, R2, D1)
   //
-  const [threats, routing] = await Promise.all([
-    threatScan(cf, ai),
-    inspectRouting(context.request.url, cf, ai)
-  ]);
+  const storageReport = await storageInspector(cf);
 
   //
   // 2. PLATFORM METADATA
@@ -66,33 +62,20 @@ export async function onRequest(context) {
   }));
 
   //
-  // 5. AI SUBSYSTEM SECURITY STATUS
-  //
-  const aiSecurity = {
-    decisionEngine: "/api/decision",
-    cortex: "/api/cortex",
-    deepMind: "/api/deep-mind",
-    engineAvailable: typeof ai?.run === "function",
-    status: typeof ai?.run === "function" ? "ready" : "offline"
-  };
-
-  //
-  // 6. FINAL SECURITY REPORT
+  // 5. FINAL STORAGE REPORT
   //
   const report = {
     timestamp: new Date().toISOString(),
     platform,
     nodes,
     clusters,
-    threats,
-    routing,
-    ai: aiSecurity,
+    storage: storageReport,
     notes:
-      "Security node evaluates threat intelligence, routing anomalies, AI subsystem readiness, and sovereign policy compliance."
+      "Storage node inspects KV, R2, and D1 health. All storage operations must comply with sovereign data policy."
   };
 
   return json({
-    system: "security",
+    system: "storage",
     status: "ok",
     report
   });

@@ -1,13 +1,11 @@
-// /workers/system/system-full-report.js
-// GIA Sovereign Full System Report – V12 Alpha
+// /workers/system/system-uptime.js
+// GIA Sovereign Uptime Node – V12 Alpha
 
-import { systemFullReport } from "src/backend/system/system-full-report.js";
-import infra from "../../infrastructure/index.js";
-import { storageInspector } from "src/backend/infrastructure/tools/storage-inspector.js";
-import { inspectRouting } from "src/backend/security/tools/inspect-routing.js";
-
-import systemManifest from "../../config/system-manifest.json" assert { type: "json" };
-import nodeRegistry from "../../config/node-registry.json" assert { type: "json" };
+import { getUptime } from "src/backend/system/uptime.js";
+import { EngineeringEngine } from "./engineering-engine.js";
+import { MechanicsEngine } from "./mechanics-engine.js";
+import systemManifest from "../config/system-manifest.json" assert { type: "json" };
+import nodeRegistry from "../config/node-registry.json" assert { type: "json" };
 import clusterHealth from "../../config/cluster-health.json" assert { type: "json" };
 
 // Unified JSON responder
@@ -23,7 +21,7 @@ function json(data, status = 200, extraHeaders = {}) {
     }
   });
 }
-
+ 
 // ---------------------------------------------------------
 // SYSTEM: Engineering Report
 // ---------------------------------------------------------
@@ -77,25 +75,13 @@ if (url.pathname === "/system/mechanics-report" && request.method === "POST") {
 }
 
 export async function onRequest(context) {
-  const { cf, ai } = context.env;
-  const manifest = context.env?.MANIFEST || {};
+  //
+  // 1. BASE UPTIME REPORT
+  //
+  const uptime = getUptime();
 
   //
-  // 1. BACKEND SYSTEM REPORT (Deep Mind 2100)
-  //
-  const backendReport = systemFullReport(manifest, ai);
-
-  //
-  // 2. INFRASTRUCTURE + SECURITY REPORTS
-  //
-  const [infraReport, storage, routing] = await Promise.all([
-    infra.diagnostics(cf),
-    storageInspector(cf),
-    inspectRouting(context.request.url, cf, ai)
-  ]);
-
-  //
-  // 3. PLATFORM + NODE + CLUSTER METADATA
+  // 2. PLATFORM METADATA
   //
   const platform = {
     id: systemManifest.platform_id,
@@ -105,6 +91,9 @@ export async function onRequest(context) {
     endpoints: systemManifest.endpoints
   };
 
+  //
+  // 3. NODE REGISTRY
+  //
   const nodes = nodeRegistry.clusters.map(c => ({
     name: c.name,
     sector: c.sector,
@@ -113,6 +102,9 @@ export async function onRequest(context) {
     tls: c.tls
   }));
 
+  //
+  // 4. CLUSTER HEALTH
+  //
   const clusters = clusterHealth.clusters.map(c => ({
     name: c.name,
     sector: c.sector,
@@ -121,37 +113,61 @@ export async function onRequest(context) {
   }));
 
   //
-  // 4. AI SUBSYSTEM STATUS
+  // 5. AI SUBSYSTEM STATUS
   //
-  const aiSubsystem = {
+  const ai = {
     decisionEngine: "/api/decision",
     cortex: "/api/cortex",
     deepMind: "/api/deep-mind",
-    status: "ready"
+    engineAvailable: typeof context.env?.AI?.run === "function",
+    status: typeof context.env?.AI?.run === "function" ? "ready" : "offline"
   };
 
+  // ---------------------------------------------------------
+// SYSTEM: Engineering Report
+// ---------------------------------------------------------
+if (url.pathname === "/system/engineering-report" && request.method === "POST") {
+  try {
+    const body = await request.json();
+
+    const input = {
+      domain: body.domain,
+      system: body.system,
+      data: body.data || {},
+      trustZone: "system",
+      workflow: "engineering-analysis"
+    };
+
+    const engineeringEngine = new EngineeringEngine();
+    const mechanicsEngine = new MechanicsEngine();
+
+    const report = await engineeringEngine.process(input, env, {
+      trustZone: "system",
+      workflow: "engineering-analysis"
+    });
+
+    return json(report);
+  } catch (err) {
+    return json({ error: "Engineering Engine Failure", details: err.message }, 500);
+  }
+}
+
   //
-  // 5. FINAL UNIFIED REPORT
+  // 6. FINAL UPTIME REPORT
   //
   const report = {
     timestamp: new Date().toISOString(),
-
     platform,
     nodes,
     clusters,
-
-    backend: backendReport,
-    infrastructure: infraReport,
-    storage,
-    routing,
-
-    ai: aiSubsystem,
-
-    notes: "This is the Sovereign Full System Report. All system operations must comply with trust‑zone and platform policy."
+    uptime,
+    ai,
+    notes:
+      "Uptime node reflects system runtime stability and AI subsystem readiness. All uptime signals feed the Sovereign Health Engine."
   };
 
   return json({
-    system: "full-report",
+    system: "uptime",
     status: "ok",
     report
   });
