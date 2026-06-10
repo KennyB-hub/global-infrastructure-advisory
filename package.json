@@ -16,7 +16,19 @@
     "scan:secrets": "node scripts/scan-secrets.cjs",
     "scan:licenses": "node scripts/license-scan.cjs",
     "test:cli-sandbox": "node scripts/test-cli-sandbox.cjs",
-    "test": "echo \"Running v12 logic tests...\" && exit 0"
+    "test": "echo \"Running v12 logic tests...\" && exit 0",
+    "test:unit": "mocha -r ts-node/register tests/unit/**/*.spec.ts",
+    "test:integration": "mocha -r ts-node/register tests/integration/**/*.spec.ts",
+    "test:api": "mocha -r ts-node/register tests/api/**/*.spec.ts",
+    "lint": "eslint . --ext .ts,.js",
+    "format": "prettier --write .",
+    "typecheck": "tsc --noEmit",
+    "prepare": "husky install",
+    "postinstall": "npm run build",
+    "manifest:global": "node scripts/generate-global-manifest.cjs",
+    "manifest:sector": "node scripts/generate-sector-manifest.cjs",
+    "manifest:policy": "node scripts/generate-policy-manifest.cjs",
+    "manifest:all": "npm run manifest:global && npm run manifest:sector && npm run manifest:policy"
   },
 
   "dependencies": {

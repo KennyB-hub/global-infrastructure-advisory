@@ -11,7 +11,7 @@ let cache = null;
 export function loadGlobalManifest() {
   if (cache) return cache;
 
-  const filePath = path.join(__dirname, "../global-manifest.json");
+  const filePath = path.join(__dirname, "seven-os/sectors/global-manifest.json");
   const raw = fs.readFileSync(filePath, "utf8");
   cache = JSON.parse(raw);
 
