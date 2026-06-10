@@ -4,7 +4,7 @@
 import { MCP } from "../mcp/mcp-client";
 import { DID } from "../identity/did";
 import { VC } from "../identity/vc";
-import { SovereignPolicy } from "../policy/sovereign-policy";
+import { SovereignPolicy } from "../policy-packs/sovereign/sovereign-policy";
 
 export class ExpansionEngine {
   private env: any;
