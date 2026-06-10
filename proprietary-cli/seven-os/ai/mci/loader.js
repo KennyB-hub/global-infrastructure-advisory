@@ -1,27 +1,25 @@
-// seven-os/ai/mci/loader.ts
-import mci from "./mci.json" assert { type: "json" };
+// seven-os/ai/mci/loader.js
+
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+let cache = null;
 
 export function loadMci() {
-  return mci;
-}
-
-
-export type MciDocument = typeof import("./mci.json");
-
-let cache: MciDocument | null = null;
-
-export function loadMci(): MciDocument {
   if (cache) return cache;
 
   const filePath = path.join(__dirname, "mci.json");
   const raw = fs.readFileSync(filePath, "utf-8");
   const parsed = JSON.parse(raw);
 
-  // basic sanity check
   if (!parsed.sectors || typeof parsed.sectors !== "object") {
     throw new Error("MCI: invalid structure (missing sectors)");
   }
 
-  cache = parsed as MciDocument;
+  cache = parsed;
   return cache;
 }

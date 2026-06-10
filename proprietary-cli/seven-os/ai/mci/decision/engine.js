@@ -1,7 +1,8 @@
-// seven-os/ai/mci/decision/engine.ts
-import { getItemById } from ".";
+// seven-os/ai/mci/decision/engine.js
 
-export function canActOn(id: string, action: string) {
+import { getItemById } from "../index.js";
+
+export function canActOn(id, action) {
   const result = getItemById(id);
   if (!result) return { allowed: false, reason: "MCI: unknown asset" };
 
