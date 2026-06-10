@@ -1,0 +1,49 @@
+{
+  "logs": [
+    {
+      "type": "session",
+      "path": "seven-os/ai/logs/session-log.json",
+      "description": "Tracks full request lifecycle"
+    },
+    {
+      "type": "audit",
+      "path": "seven-os/ai/logs/audit-log.json",
+      "description": "Signed compliance-grade audit entries"
+    },
+    {
+      "type": "telemetry",
+      "path": "seven-os/ai/logs/telemetry-log.json",
+      "description": "Engine performance and cluster health"
+    },
+    {
+      "type": "memory",
+      "path": "seven-os/ai/logs/memory-log.json",
+      "description": "AI memory writes, recalls, invalidations"
+    },
+      {
+        "type": "access",
+        "path": "seven-os/ai/logs/access-log.json",
+        "description": "User access and authentication events"
+      },
+      {
+        "type": "error",
+        "path": "seven-os/ai/logs/error-log.json",
+        "description": "System and application error events"
+      },
+        {
+          "type": "debug",
+          "path": "seven-os/ai/logs/debug-log.json",
+          "description": "Verbose logs for debugging purposes"
+        },
+          {
+            "type": "compliance",
+            "path": "seven-os/ai/logs/compliance-log.json",
+            "description": "Regulatory compliance events and checks"
+          },
+              {
+                "type": "performance",
+                "path": "seven-os/ai/logs/performance-log.json",
+                "description": "Detailed performance metrics and traces"
+              }
+  ]
+}
