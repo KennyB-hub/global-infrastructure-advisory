@@ -168,3 +168,7 @@ describe("EventDispatcher", () => {
     expect(sorted[2].id).toBe("h1");
   });
 });
+function expect(result: any) {
+  throw new Error("Function not implemented.");
+}
+

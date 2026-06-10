@@ -1,7 +1,7 @@
 // © 2026 Global Infrastructure Advisory
 // Seven Runtime — Disaster Sector Profile (Fire, Flood, Collapse, Chemical)
 
-import { SafetyContext } from "./sector-safety-engine";
+import { SafetyContext } from ".safety/sector-safety-engine";
 
 export type DisasterType =
     | "fire"
