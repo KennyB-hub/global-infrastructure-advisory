@@ -1,4 +1,4 @@
-// src/system/diagnostics.js
+// seven-os/system/diagnostics.js
 // GIA Sovereign AI Diagnostics – V12 Alpha
 
 import systemManifest from "../config/system-manifest.json" assert { type: "json" };

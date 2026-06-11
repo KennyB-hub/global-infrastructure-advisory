@@ -23,6 +23,12 @@ import { HybridMode } from "../hybrid/hybrid-mode";
 import { SatelliteContinuityLayer } from "../sync/satellite-continuity";
 import { GeoFallbackEngine } from "../geo/geo-fallback-engine";
 
+// ⭐ NEW — Universal Dashboard Renderer
+import { UniversalDashboardRenderer } from "../dashboards/universal/renderer";
+
+// ⭐ NEW — Mission Action Registry
+import { resolveAction } from "../dashboards/universal/actions";
+
 export class SevenStack {
     readonly runtime: SevenRuntime;
     readonly droneRegistry: DroneRegistry;
@@ -36,6 +42,9 @@ export class SevenStack {
     readonly satelliteContinuity: SatelliteContinuityLayer;
     readonly geoFallback: GeoFallbackEngine;
     readonly hybridMode: HybridMode;
+
+    // ⭐ NEW — Universal Dashboard Engine
+    readonly dashboards: UniversalDashboardRenderer;
 
     constructor(terrain: TerrainModel, sink: NarratorSink) {
         this.runtime = new SevenRuntime(terrain);
@@ -72,6 +81,27 @@ export class SevenStack {
 
         // Interop (NAP, CAD, C2, SCADA, etc.)
         this.interop = new SevenInterop(this);
+
+        // ⭐ NEW — Universal Dashboard Renderer Wiring
+        this.dashboards = new UniversalDashboardRenderer(this);
+    }
+
+    // ---------------------------------------------------------
+    // UNIVERSAL DASHBOARD ACCESSOR
+    // ---------------------------------------------------------
+    renderDashboard(context: any) {
+        return this.dashboards.render(context);
+    }
+
+    // ---------------------------------------------------------
+    // MISSION ACTION EXECUTION
+    // ---------------------------------------------------------
+    async executeAction(actionId: string, context: any) {
+        const action = resolveAction(actionId);
+        if (!action) {
+            throw new Error(`Unknown action: ${actionId}`);
+        }
+        return action.execute(this, context);
     }
 
     // ---------------------------------------------------------
@@ -133,4 +163,3 @@ export class SevenStack {
         await this.narrator.say(phrase);
     }
 }
-

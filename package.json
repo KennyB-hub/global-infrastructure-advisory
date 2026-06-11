@@ -6,40 +6,41 @@
 
   "scripts": {
     "scan:all": "npm run scan:secrets && npm run scan:licenses && npm run test:cli-sandbox && npm run verify:ws || exit 0",
+
     "clean": "node organize.js",
+
     "scan:deep": "node seven-runtime/tools/run-repo-audit.js",
-    "build": "npm run clean && <your-build-command>",
-    "dev": "npm run clean && wrangler dev",
-    "deploy": "npm run clean && wrangler deploy",
-    "start:ws": "node backend/ws/run-collar-ws.js",
-    "verify:ws": "node scripts/verify-ws-test.cjs",
     "scan:secrets": "node scripts/scan-secrets.cjs",
     "scan:licenses": "node scripts/license-scan.cjs",
+
     "test:cli-sandbox": "node scripts/test-cli-sandbox.cjs",
+    "verify:ws": "node scripts/verify-ws-test.cjs",
+
+    "start:ws": "node backend/ws/run-collar-ws.js",
+
     "test": "echo \"Running v12 logic tests...\" && exit 0",
     "test:unit": "mocha -r ts-node/register tests/unit/**/*.spec.ts",
     "test:integration": "mocha -r ts-node/register tests/integration/**/*.spec.ts",
     "test:api": "mocha -r ts-node/register tests/api/**/*.spec.ts",
+
     "lint": "eslint . --ext .ts,.js",
     "format": "prettier --write .",
     "typecheck": "tsc --noEmit",
-    "prepare": "husky install",
-    "postinstall": "npm run build",
-    "prepublishOnly": "npm run test && npm run lint && npm run typecheck"
 
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+
+    "clean:modules": "rm -rf node_modules",
+    "reinstall": "rm -rf node_modules && npm install"
   },
 
-  "bin": {
-    "proprietary-cli": "./bin/cli.js"
-  },
-
-    "dependencies": {
+  "dependencies": {
     "glob": "^13.0.6",
     "ioredis": "^5.11.0",
     "nats": "^2.29.3",
     "ws": "^8.21.0",
-    "zod": "^3.22.0"
-
+    "zod": "^3.22.0",
+    "fs-extra": "^11.2.0"
   },
 
   "devDependencies": {
@@ -48,7 +49,5 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.0.0",
     "wrangler": "^4.98.0"
-  
   }
 }
-
