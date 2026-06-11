@@ -1,5 +1,5 @@
 import { IntegrityDrone } from "../utilities/integrity/index.js";
-import { TrustZoneEngine } from "../trust/engine.js";
+import { TrustZoneEngine } from "../../backend/trust/engine.js";
 import { CloudPolicies } from "./cloud-policies.js";
 import { RoutingEngine } from "../network/routing-engine.js";
 

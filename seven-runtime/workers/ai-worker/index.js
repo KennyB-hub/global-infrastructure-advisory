@@ -1,4 +1,4 @@
-// src/backend/workers/index.js
+// seven-runtime/workers/index.js
 import { getTrustZone, checkTrust } from "../system/trust-middleware.js";
 import * as publicWorker from "./public/index.js";
 import * as contractorWorker from "./contractor/index.js";

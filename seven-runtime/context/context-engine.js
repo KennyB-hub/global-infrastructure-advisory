@@ -2,8 +2,8 @@ import { ContextBuilder } from "./context-builder.js";
 import { ContextValidator } from "./context-validator.js";
 import { GeoContext } from "../../utilities/dns/geo/geo-logic/index.js";
 import { SectorOverlays } from "../../sector/overlays/index.js";
-import { PolicyEngine } from "../../policy/engine.js";
-import { AuditEngine } from "../../audit/engine.js";
+import { PolicyEngine } from "../../backend/policy/engine.js";
+import { AuditEngine } from "../../backend/audit/engine.js";
 import { IntegrityDrone } from "../../utilities/integrity/index.js";
 
 export class ContextEngine {
