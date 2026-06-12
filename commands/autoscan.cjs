@@ -1,4 +1,4 @@
-// auto-scan.cjs
+// autoscan.cjs
 // Scans the entire repo and reports where files SHOULD belong.
 // Does NOT move anything. Safe to run anytime.
 
