@@ -33,7 +33,7 @@
     },
     {
       "component": "event-bus / NATS",
-      "path": "autonomous/event-bus.ts",
+      "path": "seven-os/event-bus.ts",
       "role": "Publishes infra events to NATS subjects (seven.events.<source>.<type>) and seven.events.all",
       "evidence": [
         { "line": 36, "snippet": "const subject = `seven.events.${event.source}.${event.type}`;" },
@@ -44,7 +44,7 @@
     },
     {
       "component": "event-dispatcher",
-      "path": "autonomous/event-dispatcher.ts",
+      "path": "seven-os/event-dispatcher.ts",
       "role": "Local handler registry that wires EventBus events to internal handlers",
       "evidence": [
         { "line": 22, "snippet": "this.eventBus.registerHandler(eventType, handler);" },
@@ -53,7 +53,7 @@
     },
     {
       "component": "geo-mapping",
-      "path": "src/backend/utilities/geo/geo-mapping.js",
+      "path": "seven-runtime/utilities/geo/geo-mapping.js",
       "role": "Resolve GPS coordinates to region/subregion/parcel/gridCell used by dashboards and overlays",
       "evidence": [
         { "line": 6, "snippet": "const { lat: nLat, lon: nLon } = GeoNormalize.normalize(lat, lon);" },
@@ -64,10 +64,10 @@
     },
     {
       "component": "dashboard / overlays",
-      "path": "src/backend/sector/overlays/index.js and frontend map code",
-      "role": "Consume location.gridCell from backend context for visual overlays",
+      "path": "seven-runtime/sector/overlays/index.js and frontend map code",
+      "role": "Consume location.gridCell from seven-runtime context for visual overlays",
       "evidence": [
-        { "path": "src/backend/sector/overlays/index.js", "snippet": "gridCell: ctx.location.gridCell" },
+        { "path": "seven-runtime/sector/overlays/index.js", "snippet": "gridCell: ctx.location.gridCell" },
         { "path": "src/frontend/map/map-utils.js", "snippet": "drawSectors(ctx, sectors)" }
       ]
     },
