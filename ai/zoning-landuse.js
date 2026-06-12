@@ -1,6 +1,6 @@
 // seven-os/ai/zoning-landuse.js
 
-import { getItemById } from "../mci/index.js";
+import { getItemById } from "../seven-os/mci/index.js";
 
 /**
  * Base zoning + land use table.
