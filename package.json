@@ -3,37 +3,49 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-
   "scripts": {
     "scan:all": "npm run scan:secrets && npm run scan:licenses && npm run test:cli-sandbox && npm run verify:ws || exit 0",
-
     "clean": "node organize.js",
-
     "scan:deep": "node seven-runtime/tools/run-repo-audit.js",
     "scan:secrets": "node scripts/scan-secrets.cjs",
     "scan:licenses": "node scripts/license-scan.cjs",
-
     "test:cli-sandbox": "node scripts/test-cli-sandbox.cjs",
     "verify:ws": "node scripts/verify-ws-test.cjs",
-
     "start:ws": "node backend/ws/run-collar-ws.js",
-
     "test": "echo \"Running v12 logic tests...\" && exit 0",
     "test:unit": "mocha -r ts-node/register tests/unit/**/*.spec.ts",
     "test:integration": "mocha -r ts-node/register tests/integration/**/*.spec.ts",
     "test:api": "mocha -r ts-node/register tests/api/**/*.spec.ts",
-
     "lint": "eslint . --ext .ts,.js",
     "format": "prettier --write .",
     "typecheck": "tsc --noEmit",
-
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
-
     "clean:modules": "rm -rf node_modules",
-    "reinstall": "rm -rf node_modules && npm install"
+    "reinstall": "rm -rf node_modules && npm install",
+    "auto-scan": "node commands/auto-scan.cjs",
+    "classify-seven-files": "node commands/classify-seven-files.cjs",
+    "cloudflare-tests": "node commands/cloudflare-tests.cjs",
+    "doctor": "node commands/doctor.cjs",
+    "generate-global-manifest": "node commands/generate-global-manifest.cjs",
+    "license-scan": "node commands/license-scan.cjs",
+    "register-commands": "node commands/register-commands.cjs",
+    "scan-secrets": "node commands/scan-secrets.cjs",
+    "smoke-test": "node commands/smoke-test.cjs",
+    "test-cli-sandbox": "node commands/test-cli-sandbox.cjs",
+    "verify-ws-test": "node commands/verify-ws-test.cjs",
+    "ws-simulate": "node commands/ws-simulate.cjs",
+    "ws-simulate2": "node commands/ws-simulate2.cjs",
+    "autoscan": "node commands/autoscan.cjs",
+    "classify": "node commands/classify.cjs",
+    "cleanup": "node commands/cleanup.cjs",
+    "rebuild-os": "node commands/rebuild-os.cjs",
+    "rebuild-runtime": "node commands/rebuild-runtime.cjs",
+    "restore-root": "node commands/restore-root.cjs",
+    "sandbox": "node commands/sandbox.cjs",
+    "sync-routing": "node commands/sync-routing.cjs",
+    "sync-topology": "node commands/sync-topology.cjs"
   },
-
   "dependencies": {
     "glob": "^13.0.6",
     "ioredis": "^5.11.0",
@@ -42,7 +54,6 @@
     "zod": "^3.22.0",
     "fs-extra": "^11.2.0"
   },
-
   "devDependencies": {
     "@types/mocha": "^10.0.10",
     "mocha": "^8.1.3",
