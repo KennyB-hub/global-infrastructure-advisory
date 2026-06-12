@@ -23,7 +23,6 @@
     "deploy": "wrangler deploy",
     "clean:modules": "rm -rf node_modules",
     "reinstall": "rm -rf node_modules && npm install",
-    "auto-scan": "node commands/auto-scan.cjs",
     "classify-seven-files": "node commands/classify-seven-files.cjs",
     "cloudflare-tests": "node commands/cloudflare-tests.cjs",
     "doctor": "node commands/doctor.cjs",
