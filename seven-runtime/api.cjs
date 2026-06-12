@@ -137,7 +137,7 @@ exports._custom = _custom;
 exports._refine = _refine;
 exports._stringbool = _stringbool;
 exports._stringFormat = _stringFormat;
-const checks = __importStar(require("./checks.cjs"));
+const checks = __importStar(require("./scripts/checks.cjs"));
 const schemas = __importStar(require("./schemas.cjs"));
 const util = __importStar(require("./util.cjs"));
 function _string(Class, params) {
