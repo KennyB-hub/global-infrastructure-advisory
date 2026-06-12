@@ -3,7 +3,7 @@
   "summary": "Expanded evidence with full function/context for each call site into Seven/autonomous",
   "entries": [
     {
-      "path": "seven-os/ai/workers/auth-worker.js",
+      "path": "seven-os/workers/auth-worker.js",
       "matches": [
         { "line": 13, "snippet": "if (url.pathname === \"/auth/login\" && request.method === \"POST\") {" },
         { "line": 16, "snippet": "const result = await processAIRequest( { text: \"auth login\", trustZone: \"public\", ...payload }, env );" }
@@ -11,14 +11,14 @@
       "context": "export default { async fetch(request, env) { const url = new URL(request.url); // LOGIN if (url.pathname === \"/auth/login\" && request.method === \"POST\") { const payload = await request.json(); const result = await processAIRequest({ text: \"auth login\", trustZone: \"public\", ...payload }, env); return new Response(JSON.stringify(result), { status: 200, headers: { \"Content-Type\": \"application/json\" } }); } ... } }"
     },
     {
-      "path": "seven-os/ai/workers/auth-worker.js",
+      "path": "seven-os/workers/auth-worker.js",
       "matches": [
         { "line": 102, "snippet": "result = await processAIRequest(request, env, ctx);" }
       ],
       "context": "// 7. Route to AI Engine (V12 Alpha Router)\nlet result;\ntry {\n  result = await processAIRequest(request, env, ctx);\n} catch (err) {\n  return handleError(err, env, { fatal: true });\n}"
     },
     {
-      "path": "functions/api/voice-flight-handler.js",
+      "path": "seven-runtime/api/voice-flight-handler.js",
       "matches": [
         { "line": 19, "snippet": "const result = await VoiceBus.dispatch({ text: message, role, sessionId, sensors, resources });" }
       ],

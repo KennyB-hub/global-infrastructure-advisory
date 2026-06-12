@@ -1,7 +1,7 @@
 // api/boundary.ts
 import { Request, Response } from "express";
-import { saveBoundary, getBoundary } from "../cattle/boundary-service";
-import { PastureBoundary } from "../cattle/boundary-types";
+import { saveBoundary, getBoundary } from "../../../seven-runtime/cattle/boundary-service";
+import { PastureBoundary } from "../../../seven-runtime/cattle/boundary-types";
 
 export async function getPastureBoundaryHandler(req: Request, res: Response) {
   const { pastureId } = req.params;

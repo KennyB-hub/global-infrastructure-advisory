@@ -1,10 +1,10 @@
 // © 2026 Global Infrastructure Advisory
 // Seven Runtime — Live Command Dashboard API (HTTP-ish skeleton)
 
-import { SevenRuntime } from "../seven";
-import { TerrainModel } from "../drone/terrain-routing";
-import { OrchestratorMissionRequest } from "../drone/drone-orchestrator";
-import { DisasterType } from "../safety/disaster-profile";
+import { SevenRuntime } from "../../../seven-runtime/seven";
+import { TerrainModel } from "../../../seven-runtime/drone/terrain-routing";
+import { OrchestratorMissionRequest } from "../../../seven-runtime/drone/drone-orchestrator";
+import { DisasterType } from "../../../seven-runtime/safety/disaster-profile";
 
 export class CommandDashboardAPI {
     private seven: SevenRuntime;
