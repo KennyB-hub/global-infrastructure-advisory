@@ -1,4 +1,4 @@
-import { InfrastructureAuditEngine } from '../src/backend/infrastructure/infrastructure-audit-engine.js';
+import { InfrastructureAuditEngine } from '../seven-runtme/infrastructure/infrastructure-audit-engine.js';
 
 async function main() {
   try {
