@@ -1,7 +1,7 @@
 // © 2026 Global Infrastructure Advisory
 // Seven Runtime — Interoperability Layer (CAD / C2 / SCADA / NACI / NAP)
 
-import { SevenStack } from "../stack/seven-stack";
+import { SevenStack } from "../../seven-runtime/stack/seven-stack";
 import { RescueRequest, GroundRescueRequest } from "../../seven-runtime/rescue/seven-rescue-commander";
 import { NAPEvent } from "../sectors/nap-sectors";
 

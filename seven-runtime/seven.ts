@@ -9,11 +9,11 @@ import { DroneOrchestrator, OrchestratorMissionRequest } from "./drone/drone-orc
 import { SectorSafetyEngine, SafetyContext } from "./safety/sector-safety-engine";
 import { DisasterType, DisasterProfiles } from "./safety/disaster-profile";
 
-import { FieldHealthScanner, HealthSector, HealthSample } from "./analysis/field-health-scanner";
+import { FieldHealthScanner, HealthSector, HealthSample } from "../seven-os/analysis/field-health-scanner";
 
 import { DroneRegistry, DronePlugin } from "./drone/drone-registry";
 import { SwarmController } from "./drone/swarm-controller";
-import { DisasterSwarm } from "./disaster/disaster-swarm";
+import { DisasterSwarm } from "../seven-os/disaster/disaster-swarm";
 
 export class SevenRuntime {
     private droneControl: DroneControl;

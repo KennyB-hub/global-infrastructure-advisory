@@ -2,26 +2,26 @@
 // Seven Runtime — Full Stack Wiring (Air + Ground + Voice + Rescue + Sync)
 
 import { TerrainModel } from "../../seven-runtime/drone/terrain-routing";
-import { SevenRuntime } from "../../seven-runtime/seven";
+import { SevenRuntime } from "../seven";
 
 import { DroneRegistry } from "../../seven-runtime/drone/drone-registry";
 import { GroundRegistry } from "../ground/ground-registry";
 
 import { DroneRescueUnit } from "../rescue/adapters/drone-rescue-unit";
-import { GroundRescueUnit } from "../../seven-runtime/adapters/ground-rescue-unit";
+import { GroundRescueUnit } from "../../seven-os/adapters/ground-rescue-unit";
 
 import { SevenNarrator, NarratorSink } from "../../seven-runtime/voice/seven-narrator";
-import { SevenRescueCommander } from "../rescue/seven-rescue-commander";
+import { SevenRescueCommander } from "../../seven-os/rescue/seven-rescue-commander";
 
 import { NAPEvent } from "../sectors/nap-sectors";
-import { SevenInterop } from "../interop/seven-interop";
+import { SevenInterop } from "../../seven-os/interop/seven-interop";
 
 import { ConnectionMonitor } from "../core/connection-monitor";
 import { EventQueue } from "../core/event-queue";
 
-import { HybridMode } from "../hybrid/hybrid-mode";
-import { SatelliteContinuityLayer } from "../sync/satellite-continuity";
-import { GeoFallbackEngine } from "../../seven-runtime/geo/geo-fallback-engine";
+import { HybridMode } from "../../seven-os/hybrid/hybrid-mode";
+import { SatelliteContinuityLayer } from "../../seven-os/sync/satellite-continuity";
+import { GeoFallbackEngine } from "../geo/geo-fallback-engine";
 
 // ⭐ NEW — Universal Dashboard Renderer
 import { UniversalDashboardRenderer } from "../dashboards/universal/renderer";

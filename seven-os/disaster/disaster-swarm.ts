@@ -2,9 +2,9 @@
 // Seven Runtime — Disaster Swarm Mode
 
 import { SwarmController } from "../drone/swarm-controller";
-import { DisasterType, DisasterProfiles } from "../safety/disaster-profile";
+import { DisasterType, DisasterProfiles } from "../../seven-runtime/safety/disaster-profile";
 import { OrchestratorMissionRequest } from "../drone/drone-orchestrator";
-import { SectorSafetyEngine } from "../safety/sector-safety-engine";
+import { SectorSafetyEngine } from "../../seven-runtime/safety/sector-safety-engine";
 
 export class DisasterSwarm {
     private swarm: SwarmController;
