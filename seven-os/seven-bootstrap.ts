@@ -4,7 +4,7 @@
 import { initEventBus, getEventBus } from "./event-bus";
 import { initDispatcher, getDispatcher } from "./event-dispatcher";
 import { eventHandlers } from "./event-handlers";
-import { natsClient } from "./transports/nats-client";
+import { initNatsClient, getNatsClient } from "./transports/nats-client";
 
 export interface SevenConfig {
   natsServers: string[];
@@ -38,7 +38,7 @@ export class SevenRuntime {
       const natsClient = initNatsClient({
         servers: this.config.natsServers
       });
-      const natsConnected = await natsClient.connect();
+      const natsConnected = await natsClient.connect(this.config.natsServers);
       if (!natsConnected && this.config.environment === "production") {
         console.error("[Seven] NATS connection failed - cannot start");
         return false;
@@ -68,7 +68,6 @@ export class SevenRuntime {
       await eventBus.subscribeToEvents("unit_lost");
       await eventBus.subscribeToEvents("obstacle_detected");
       await eventBus.subscribeToEvents("battery_critical");
-      await natsClient.connect(config.natsServers);
 
       console.log("[Seven] All event subscriptions active");
 
