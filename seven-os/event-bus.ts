@@ -1,7 +1,7 @@
 // © 2026 Global Infrastructure Advisory
 // Seven Runtime — Event Bus (NATS Integration)
 
-import { getNatsClient, NatsClient } from "./nats-client";
+import { getNatsClient, NatsClient } from "./transports/nats-client";
 
 export interface InfraEvent {
   id: string;
