@@ -13,6 +13,7 @@
     "test:cli-sandbox": "node scripts/test-cli-sandbox.cjs",
     "autosorter2": "node commands/autosorter-stage2.cjs",
     "autosorter3": "node commands/autosorter-stage3.cjs",
+    "normalize-domain": "node commands/normalize-domain.cjs",
     "verify:ws": "node scripts/verify-ws-test.cjs",
     "start:ws": "node backend/ws/run-collar-ws.js",
     "test": "echo \"Running v12 logic tests...\" && exit 0",
