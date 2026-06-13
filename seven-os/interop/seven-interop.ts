@@ -2,7 +2,7 @@
 // Seven Runtime — Interoperability Layer (CAD / C2 / SCADA / NACI / NAP)
 
 import { SevenStack } from "../stack/seven-stack";
-import { RescueRequest, GroundRescueRequest } from "../rescue/seven-rescue-commander";
+import { RescueRequest, GroundRescueRequest } from "../../seven-runtime/rescue/seven-rescue-commander";
 import { NAPEvent } from "../sectors/nap-sectors";
 
 export type ExternalSystem = "CAD" | "C2" | "SCADA" | "NACI" | "NAP";

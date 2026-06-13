@@ -11,7 +11,7 @@ import { DroneRescueUnit } from "../rescue/adapters/drone-rescue-unit";
 import { GroundRescueUnit } from "../../seven-runtime/adapters/ground-rescue-unit";
 
 import { SevenNarrator, NarratorSink } from "../../seven-runtime/voice/seven-narrator";
-import { SevenRescueCommander } from "../../seven-runtime/rescue/seven-rescue-commander";
+import { SevenRescueCommander } from "../rescue/seven-rescue-commander";
 
 import { NAPEvent } from "../sectors/nap-sectors";
 import { SevenInterop } from "../interop/seven-interop";
