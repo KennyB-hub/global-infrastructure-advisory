@@ -13,8 +13,9 @@
     "verify:ws": "node scripts/verify-ws-test.cjs",
     "start:ws": "node backend/ws/run-collar-ws.js",
     "test": "echo \"Running v12 logic tests...\" && exit 0",
-      "audit-runtime": "node commands/audit-runtime.cjs"
     "test:unit": "mocha -r ts-node/register tests/unit/**/*.spec.ts",
+    "fix-runtime": "node commands/fix-runtime.cjs",
+    "audit-runtime": "node commands/audit-runtime.cjs",
     "test:integration": "mocha -r ts-node/register tests/integration/**/*.spec.ts",
     "test:api": "mocha -r ts-node/register tests/api/**/*.spec.ts",
     "lint": "eslint . --ext .ts,.js",
