@@ -1,6 +1,7 @@
 {
   "name": "global-infrastructure-advisory",
-  "version": "1.0.0",
+  "description": "GIA Deep Mind Sovereign Infrastructure",
+  "version": "1.2.0",
   "private": true,
   "type": "module",
   "scripts": {
