@@ -27,8 +27,8 @@ exports.$ZodFunction = void 0;
 exports.function = _function;
 const api_js_1 = require("./api.cjs");
 const parse_js_1 = require("./parse.cjs");
-const schemas = __importStar(require("./schemas.cjs"));
-const schemas_js_1 = require("./schemas.cjs");
+const schemas = __importStar(require("../schemas.cjs"));
+const schemas_js_1 = require("../schemas.cjs");
 class $ZodFunction {
     constructor(def) {
         this._def = def;

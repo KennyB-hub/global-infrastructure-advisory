@@ -28,8 +28,8 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.coerce = exports.ZodMiniISODuration = exports.ZodMiniISOTime = exports.ZodMiniISODate = exports.ZodMiniISODateTime = exports.iso = exports.locales = exports.NEVER = exports.TimePrecision = exports.toJSONSchema = exports.flattenError = exports.formatError = exports.prettifyError = exports.treeifyError = exports.regexes = exports.clone = exports.function = exports.$brand = exports.$input = exports.$output = exports.config = exports.registry = exports.globalRegistry = exports.core = void 0;
 exports.core = __importStar(require("../core/index.cjs"));
-__exportStar(require("./parse.cjs"), exports);
-__exportStar(require("./schemas.cjs"), exports);
+__exportStar(require("../parse.cjs"), exports);
+__exportStar(require("../schemas.cjs"), exports);
 __exportStar(require("./checks.cjs"), exports);
 var index_js_1 = require("../core/index.cjs");
 Object.defineProperty(exports, "globalRegistry", { enumerable: true, get: function () { return index_js_1.globalRegistry; } });
