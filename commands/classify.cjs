@@ -22,6 +22,17 @@ const TARGETS = {
   runtime: "seven-runtime/"
 };
 
+// Protected folders (never classify or move)
+const PROTECTED = [
+  "commands/",
+  "utilities/",
+  "domain/",
+  "api/",
+  "sector-logic/",
+  "infrastructure/",
+  "backend/api/"
+];
+
 // Walk entire repo
 function walk(dir, fileList = []) {
   const files = fs.readdirSync(dir);
@@ -53,24 +64,24 @@ function run() {
   const cjsFiles = allFiles.filter((f) => f.endsWith(".cjs"));
 
   for (const file of cjsFiles) {
-  const relative = path.relative(ROOT, file).replace(/\\/g, "/");
+    const relative = path.relative(ROOT, file).replace(/\\/g, "/");
 
-  // 🚫 Do NOT classify or move OS command files
-  if (relative.startsWith("commands/")) {
-    console.log(`⏭️  Skipping command file (protected): ${relative}\n`);
-    continue;
+    // 🚫 Skip protected folders
+    if (PROTECTED.some((p) => relative.startsWith(p))) {
+      console.log(`⏭️  Skipping protected file: ${relative}\n`);
+      continue;
+    }
+
+    const role = getRoleFromManifest(relative);
+    const targetFolder = TARGETS[role] || TARGETS.runtime;
+
+    const dest = path.join(ROOT, targetFolder, path.basename(file));
+
+    console.log(`➡️  ${relative}`);
+    console.log(`    → ${dest}  (${role})\n`);
+
+    moveFile(file, dest);
   }
-
-  const role = getRoleFromManifest(relative);
-  const targetFolder = TARGETS[role] || TARGETS.runtime;
-
-  const dest = path.join(ROOT, targetFolder, path.basename(file));
-
-  console.log(`➡️  ${relative}`);
-  console.log(`    → ${dest}  (${role})\n`);
-
-  moveFile(file, dest);
-}
 
   console.log("\n✅ Auto‑move complete.");
   console.log("Seven‑OS and Seven‑Runtime structure restored.\n");
