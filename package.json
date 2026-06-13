@@ -7,6 +7,7 @@
     "scan:all": "npm run scan:secrets && npm run scan:licenses && npm run test:cli-sandbox && npm run verify:ws || exit 0",
     "clean": "node organize.js",
     "scan:deep": "node seven-runtime/tools/run-repo-audit.js",
+    "autosorter": "node commands/autosorter.cjs"
     "scan:secrets": "node scripts/scan-secrets.cjs",
     "scan:licenses": "node scripts/license-scan.cjs",
     "test:cli-sandbox": "node scripts/test-cli-sandbox.cjs",
