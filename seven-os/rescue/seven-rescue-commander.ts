@@ -4,7 +4,7 @@
 import { SevenRuntime } from "../seven";
 import { OrchestratorMissionRequest } from "../drone/drone-orchestrator";
 import { DisasterType } from "../safety/disaster-profile";
-import { SevenNarrator } from "../voice/seven-narrator";
+import { SevenNarrator } from "../../voice/narrator/seven-narrator";
 
 import { GroundControl } from "../ground/ground-control";
 import { GeoThermalSearch, ThermalSample } from "../sensors/search-thermal";

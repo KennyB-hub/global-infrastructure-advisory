@@ -14,7 +14,7 @@ import { SevenNarrator, NarratorSink } from "../../seven-runtime/voice/seven-nar
 import { SevenRescueCommander } from "../../seven-os/rescue/seven-rescue-commander";
 
 import { NAPEvent } from "../sectors/nap-sectors";
-import { SevenInterop } from "../../seven-runtime/interop/seven-interop";
+import { SevenInterop } from "../interop/seven-interop";
 
 import { ConnectionMonitor } from "../core/connection-monitor";
 import { EventQueue } from "../core/event-queue";
