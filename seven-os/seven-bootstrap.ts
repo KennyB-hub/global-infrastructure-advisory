@@ -1,10 +1,10 @@
 // © 2026 Global Infrastructure Advisory
 // Seven Runtime — Bootstrap & Initialization
 
-import { initNatsClient, getNatsClient } from "./nats-client";
 import { initEventBus, getEventBus } from "./event-bus";
 import { initDispatcher, getDispatcher } from "./event-dispatcher";
 import { eventHandlers } from "./event-handlers";
+import { natsClient } from "./transports/nats-client";
 
 export interface SevenConfig {
   natsServers: string[];
@@ -68,6 +68,7 @@ export class SevenRuntime {
       await eventBus.subscribeToEvents("unit_lost");
       await eventBus.subscribeToEvents("obstacle_detected");
       await eventBus.subscribeToEvents("battery_critical");
+      await natsClient.connect(config.natsServers);
 
       console.log("[Seven] All event subscriptions active");
 
