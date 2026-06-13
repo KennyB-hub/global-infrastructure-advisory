@@ -1,7 +1,7 @@
 // infrastructure-loader.ts – V12 Alpha
 // Loads infrastructure-manifest.json and all infra packs into a unified bundle.
 
-import manifest from "./infrastructure-manifest.json";
+import manifest from "./dns/domains/infrastructure-manifest.json";
 
 export interface InfraDomainEntry {
   id: string;
