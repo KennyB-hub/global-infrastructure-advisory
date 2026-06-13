@@ -2,8 +2,7 @@
 
 // Seven‑OS Doctor – Full System Health Check
 // Runs all integrity, security, and runtime diagnostics.
-
-import { spawnSync } from "child_process";
+const { spawnSync } = require("child_process");
 
 function step(label, script) {
   console.log(`\n=== ${label} ===`);
