@@ -13,6 +13,7 @@
     "verify:ws": "node scripts/verify-ws-test.cjs",
     "start:ws": "node backend/ws/run-collar-ws.js",
     "test": "echo \"Running v12 logic tests...\" && exit 0",
+    "scan-repo": "node commands/scan-repo-run.cjs",
     "test:unit": "mocha -r ts-node/register tests/unit/**/*.spec.ts",
     "fix-runtime": "node commands/fix-runtime.cjs",
     "audit-runtime": "node commands/audit-runtime.cjs",
