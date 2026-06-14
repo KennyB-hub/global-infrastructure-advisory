@@ -30,7 +30,6 @@
     "/security-alerts",
     "/security-posture-dashboard",
     "/system/heartbeat",
-    "/system/state",
     "/users",
     "/voice-flight-handler",
     "/voice-flight",
