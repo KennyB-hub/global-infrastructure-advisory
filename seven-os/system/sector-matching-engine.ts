@@ -1,6 +1,6 @@
 import sectors from "../sectors/index.json" assert { type: "json" };
 import workers from "../index.json" assert { type: "json" };
-import contracts from "../../financial/contracts/contract.json" assert { type: "json" };
+import contracts from "../financial/contracts/contract.json" assert { type: "json" };
 
 export function matchBySector(sectorId: string) {
   const sector = sectors.sectors.find((s: any) => s.id === sectorId);

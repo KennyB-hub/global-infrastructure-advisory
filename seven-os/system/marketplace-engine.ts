@@ -1,4 +1,4 @@
-import contracts from "../../financial/contracts/contract.json" assert { type: "json" };
+import contracts from "../financial/contracts/contract.json" assert { type: "json" };
 import budgets from "../../financial/models/budgets.json" assert { type: "json" };
 import workers from "../index.json" assert { type: "json" };
 

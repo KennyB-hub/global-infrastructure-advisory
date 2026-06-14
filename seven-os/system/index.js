@@ -1,7 +1,7 @@
 // /workers/system/index.js
 // GIA Sovereign System Worker – V12 Sovereign Edition
 
-import { basicSecurityGuard } from "../../security/worker-guard.js";
+import { basicSecurityGuard } from "../security/worker-guard.js";
 import { PolicyEngine } from "../../soven-os/ai/policy-engine.js";
 import { CryptoV12 } from "../../seven-os/ai/utils/crypto.js";
 import { SectorEngine } from "../../backend/sector/sector-engine.js";
