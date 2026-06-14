@@ -2,26 +2,51 @@ import fs from "fs";
 import path from "path";
 
 export function indexDashboards(repoRoot) {
-  const dashboardsRoot = path.join(repoRoot, "seven-runtime/dashboards");
-  const hubs = {};
+  // NEW correct dashboard root
+  const root = path.join(repoRoot, "utilities/dashboard/universal");
 
-  if (!fs.existsSync(dashboardsRoot)) return hubs;
+  const dashboards = {
+    actions: [],
+    bindings: [],
+    layouts: [],
+    themes: [],
+    widgets: [],
+    shell: [],
+    core: []
+  };
 
-  for (const hub of fs.readdirSync(dashboardsRoot)) {
-    const hubPath = path.join(dashboardsRoot, hub);
-    if (!fs.statSync(hubPath).isDirectory()) continue;
+  if (!fs.existsSync(root)) return dashboards;
 
-    hubs[hub] = [];
+  function scan(subfolder, bucket) {
+    const dir = path.join(root, subfolder);
+    if (!fs.existsSync(dir)) return;
 
-    for (const file of fs.readdirSync(hubPath)) {
-      if (file.endsWith(".js")) {
-        hubs[hub].push({
-          id: `${hub}/${file.replace(".js", "")}`,
-          file: `seven-runtime/dashboards/${hub}/${file}`
+    for (const file of fs.readdirSync(dir)) {
+      if (/\.(ts|js)$/.test(file)) {
+        dashboards[bucket].push({
+          id: `${subfolder}/${file.replace(/\.(ts|js)$/, "")}`,
+          file: `utilities/dashboard/universal/${subfolder}/${file}`
         });
       }
     }
   }
 
-  return hubs;
+  scan("actions", "actions");
+  scan("bindings", "bindings");
+  scan("layouts", "layouts");
+  scan("themes", "themes");
+  scan("widgets", "widgets");
+  scan("shell", "shell");
+
+  // core dashboard files
+  for (const file of fs.readdirSync(root)) {
+    if (/\.(ts|js)$/.test(file)) {
+      dashboards.core.push({
+        id: `core/${file.replace(/\.(ts|js)$/, "")}`,
+        file: `utilities/dashboard/universal/${file}`
+      });
+    }
+  }
+
+  return dashboards;
 }

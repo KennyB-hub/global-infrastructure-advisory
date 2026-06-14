@@ -1,5 +1,3 @@
-// seven-os/system/indexer/types.ts
-
 export type EngineKind =
   | "os-engine"
   | "runtime-worker"
