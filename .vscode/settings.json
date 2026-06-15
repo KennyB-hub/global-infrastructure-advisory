@@ -3,5 +3,6 @@
         "main"
     ],
     "microsoft-sovereign-cloud.environment": "custom",
-    "debug.node.autoAttach": "disabled"
+    "debug.node.autoAttach": "disabled",
+    "chat.editing.explainChanges.enabled": true
 }
