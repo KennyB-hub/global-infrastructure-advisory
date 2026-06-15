@@ -3,3 +3,14 @@
         "github.copilot-chat"
     ]
 }
+{
+    "workbench.editor.empty.hint": "hidden",
+    "[typescript]": {},
+    "files.associations": {
+        "*.ts": "typescript"
+    },
+    "chat.editing.explainChanges.enabled": true,
+    "workbench.settings.applyToAllProfiles": [
+        "chat.editing.explainChanges.enabled"
+    ]
+}
