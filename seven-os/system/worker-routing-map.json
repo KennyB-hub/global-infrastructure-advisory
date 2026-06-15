@@ -1,0 +1,27 @@
+{
+  "workers": [
+    "/admin-protect-worker.js",
+    "/ai-worker/gia-deep-mind-2100.js",
+    "/ai-worker/index.js",
+    "/ai-worker.js",
+    "/api-worker.js",
+    "/cyber/cyber.soc-dashboard.ts",
+    "/debug-worker.js",
+    "/emergency-router/index.ts",
+    "/expansion/index.ts",
+    "/field-enginegps-mapper.js",
+    "/gia-deep-mind-2100.js",
+    "/intake.ts",
+    "/organizer.js",
+    "/system-workers/admin-workers/admin-endpoints.ts",
+    "/system-workers/admin-workers/index.ts",
+    "/system-workers/emergency-router.js",
+    "/system-workers/ewo-worker.ts",
+    "/system-workers/heartbeat.js",
+    "/system-workers/index.ts",
+    "/system-workers/protected-routes.js",
+    "/system-workers/routing.js",
+    "/Topology Sync Worker.js",
+    "/worker.ts"
+  ]
+}
