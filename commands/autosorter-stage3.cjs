@@ -41,7 +41,28 @@ function move(from, to) {
   move(item, "utilities/core/" + path.basename(item));
 });
 
-// --- Legacy backend dashboards ---
+#!/usr/bin/env node
+
+// Seven‑OS Autosorter Stage 3 (v3/v12)
+// Drains legacy backend/src holders into Seven‑OS + utilities.
+
+const fs = require("fs");
+const path = require("path");
+
+const ROOT = process.cwd();
+
+function move(from, to) {
+  const src = path.join(ROOT, from);
+  const dest = path.join(ROOT, to);
+
+  if (!fs.existsSync(src)) return;
+
+  fs.mkdirSync(path.dirname(dest), { recursive: true });
+  console.log(`↪️  ${from}  →  ${to}`);
+  fs.renameSync(src, dest);
+}
+
+// --- Legacy backend dashboards → utilities/dashboard/legacy ---
 [
   "backend/dashboard",
   "backend/public-dashboard",
@@ -49,12 +70,12 @@ function move(from, to) {
   move(item, "utilities/dashboard/legacy/" + path.basename(item));
 });
 
-// --- Trust engine (OS‑core) ---
+// --- Trust engine (OS‑core) → seven-os/system/trust ---
 [
   "backend/trust-engine.js",
   "src/trust-engine.js",
 ].forEach(item => {
-  move(item, "seven-os/trust/" + path.basename(item));
+  move(item, "seven-os/system/trust/" + path.basename(item));
 });
 
-console.log("\n✅ Hybrid OS Autosorter Stage 3 complete.\n");
+console.log("\n✅ Seven‑OS Autosorter Stage 3 (v3/v12) complete.\n");

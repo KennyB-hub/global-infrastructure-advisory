@@ -1,117 +1,150 @@
 #!/usr/bin/env node
 
-// Seven‑OS Routing Sync
-// Rebuilds API map, OS map, Domain map, and Runtime map after autosorter passes.
+// Seven‑OS Routing Sync (v3/v12)
+// Rebuilds routing maps for system, api, workers, sectors, and runtime.
 
 const fs = require("fs");
 const path = require("path");
+const { writeReport } = require("../utilities/write-report.cjs");
 
 const ROOT = process.cwd();
 
-function rebuildApiMap() {
-  const apiDir = path.join(ROOT, "api");
-  const routes = [];
+// Utility: walk a directory and collect .js/.ts files
+function collectFiles(baseDir) {
+  const results = [];
 
-  function walk(dir, prefix = "") {
+  function walk(dir) {
+    if (!fs.existsSync(dir)) return;
+
     const entries = fs.readdirSync(dir, { withFileTypes: true });
+
     for (const entry of entries) {
       const full = path.join(dir, entry.name);
-      const rel = full.replace(apiDir, "").replace(/\\/g, "/");
 
       if (entry.isDirectory()) {
-        walk(full, prefix + "/" + entry.name);
+        walk(full);
       } else if (entry.name.endsWith(".js") || entry.name.endsWith(".ts")) {
-        routes.push(prefix + "/" + entry.name.replace(/\.(js|ts)$/, ""));
+        results.push(full.replace(baseDir, "").replace(/\\/g, "/"));
       }
     }
   }
 
-  walk(apiDir);
+  walk(baseDir);
+  return results;
+}
+
+// --- Build API routing map ---
+function rebuildApiMap() {
+  const apiDir = path.join(ROOT, "seven-os", "api");
+  const routes = collectFiles(apiDir);
 
   const map = { routes };
-  fs.writeFileSync(path.join(ROOT, "seven-os/system/api-routing-map.json"), JSON.stringify(map, null, 2));
+  fs.writeFileSync(
+    path.join(ROOT, "seven-os/system/api-routing-map.json"),
+    JSON.stringify(map, null, 2)
+  );
+
   console.log("✔ API routing map rebuilt");
+  return map;
 }
 
-function rebuildOsMap() {
-  const osDir = path.join(ROOT, "seven-os");
-  const modules = [];
-
-  function walk(dir) {
-    const entries = fs.readdirSync(dir, { withFileTypes: true });
-    for (const entry of entries) {
-      const full = path.join(dir, entry.name);
-      if (entry.isDirectory()) walk(full);
-      else if (entry.name.endsWith(".js") || entry.name.endsWith(".ts")) {
-        modules.push(full.replace(osDir, "").replace(/\\/g, "/"));
-      }
-    }
-  }
-
-  walk(osDir);
+// --- Build System routing map ---
+function rebuildSystemMap() {
+  const sysDir = path.join(ROOT, "seven-os", "system");
+  const modules = collectFiles(sysDir);
 
   const map = { modules };
-  fs.writeFileSync(path.join(ROOT, "seven-os/system/os-routing-map.json"), JSON.stringify(map, null, 2));
-  console.log("✔ OS routing map rebuilt");
+  fs.writeFileSync(
+    path.join(ROOT, "seven-os/system/system-routing-map.json"),
+    JSON.stringify(map, null, 2)
+  );
+
+  console.log("✔ System routing map rebuilt");
+  return map;
 }
 
-function rebuildDomainMap() {
-  const domainDir = path.join(ROOT, "domain");
-  const logic = [];
-
-  function walk(dir) {
-    const entries = fs.readdirSync(dir, { withFileTypes: true });
-    for (const entry of entries) {
-      const full = path.join(dir, entry.name);
-      if (entry.isDirectory()) walk(full);
-      else if (entry.name.endsWith(".js") || entry.name.endsWith(".ts")) {
-        logic.push(full.replace(domainDir, "").replace(/\\/g, "/"));
-      }
-    }
-  }
-
-  walk(domainDir);
-
-  const map = { logic };
-  fs.writeFileSync(path.join(ROOT, "seven-os/system/domain-routing-map.json"), JSON.stringify(map, null, 2));
-  console.log("✔ Domain routing map rebuilt");
-}
-
-function rebuildRuntimeMap() {
-  const rtDir = path.join(ROOT, "seven-runtime");
-  if (!fs.existsSync(rtDir)) {
-    console.log("✔ Runtime clean — no routing map needed");
-    return;
-  }
-
-  const workers = [];
-
-  function walk(dir) {
-    const entries = fs.readdirSync(dir, { withFileTypes: true });
-    for (const entry of entries) {
-      const full = path.join(dir, entry.name);
-      if (entry.isDirectory()) walk(full);
-      else if (entry.name.endsWith(".js") || entry.name.endsWith(".ts")) {
-        workers.push(full.replace(rtDir, "").replace(/\\/g, "/"));
-      }
-    }
-  }
-
-  walk(rtDir);
+// --- Build Worker routing map ---
+function rebuildWorkerMap() {
+  const workersDir = path.join(ROOT, "seven-os", "workers");
+  const workers = collectFiles(workersDir);
 
   const map = { workers };
-  fs.writeFileSync(path.join(ROOT, "seven-os/system/runtime-routing-map.json"), JSON.stringify(map, null, 2));
-  console.log("✔ Runtime routing map rebuilt");
+  fs.writeFileSync(
+    path.join(ROOT, "seven-os/system/worker-routing-map.json"),
+    JSON.stringify(map, null, 2)
+  );
+
+  console.log("✔ Worker routing map rebuilt");
+  return map;
 }
 
-console.log("\n🔄 Syncing Seven‑OS routing...\n");
+// --- Build Sector routing map ---
+function rebuildSectorMap() {
+  const sectorsDir = path.join(ROOT, "seven-os", "sectors");
+  const sectors = {};
 
-rebuildApiMap();
-rebuildOsMap();
-rebuildDomainMap();
-rebuildRuntimeMap();
+  if (!fs.existsSync(sectorsDir)) {
+    console.log("✔ No sectors found — skipping sector routing");
+    return { sectors: {} };
+  }
+
+  const sectorNames = fs.readdirSync(sectorsDir);
+
+  for (const sector of sectorNames) {
+    const sectorPath = path.join(sectorsDir, sector);
+    if (!fs.statSync(sectorPath).isDirectory()) continue;
+
+    sectors[sector] = collectFiles(sectorPath);
+  }
+
+  const map = { sectors };
+  fs.writeFileSync(
+    path.join(ROOT, "seven-os/system/sector-routing-map.json"),
+    JSON.stringify(map, null, 2)
+  );
+
+  console.log("✔ Sector routing map rebuilt");
+  return map;
+}
+
+// --- Build Runtime routing map ---
+function rebuildRuntimeMap() {
+  const rtDir = path.join(ROOT, "runtime");
+  if (!fs.existsSync(rtDir)) {
+    console.log("✔ Runtime clean — no routing map needed");
+    return { runtime: [] };
+  }
+
+  const runtime = collectFiles(rtDir);
+
+  const map = { runtime };
+  fs.writeFileSync(
+    path.join(ROOT, "seven-os/system/runtime-routing-map.json"),
+    JSON.stringify(map, null, 2)
+  );
+
+  console.log("✔ Runtime routing map rebuilt");
+  return map;
+}
+
+// --- Orchestrate full routing sync ---
+console.log("\n🔄 Syncing Seven‑OS routing (v3/v12)...\n");
+
+const apiMap = rebuildApiMap();
+const systemMap = rebuildSystemMap();
+const workerMap = rebuildWorkerMap();
+const sectorMap = rebuildSectorMap();
+const runtimeMap = rebuildRuntimeMap();
+
+// Write OS‑command‑view report
+writeReport("routing-sync", {
+  syncedAt: new Date().toISOString(),
+  api: apiMap,
+  system: systemMap,
+  workers: workerMap,
+  sectors: sectorMap,
+  runtime: runtimeMap
+});
 
 console.log("\n✅ Routing sync complete.\n");
-// sync-routing.cjs
-console.log("🔧 Seven-OS: sync-routing starting...");
-// TODO: regenerate routing tables for hubs/dashboards/trust zones
+console.log("🔧 Seven‑OS: routing tables rebuilt for all layers.\n");

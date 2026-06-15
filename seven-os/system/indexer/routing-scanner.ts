@@ -36,18 +36,27 @@ export function scanRouting(repoRoot: string): RoutingIssue[] {
     ...domainRoutes
   };
 
-  const allEngines: EngineDescriptor[] = [
-    ...manifest.runtime,
-    ...manifest.os_core,
-    ...manifest.domain,
-    ...manifest.api,
-    ...manifest.utilities,
-    ...manifest.workers,
-    ...manifest.dashboard,
-    ...manifest.services,
-    ...manifest.interop,
-    ...manifest.intelligence
-  ];
+ const allEngines: EngineDescriptor[] = [
+  ...(manifest.runtime ?? []),
+  ...(manifest.os_core ?? []),
+  ...(manifest.domain ?? []),
+  ...(manifest.api ?? []),
+  ...(manifest.utilities ?? []),
+  ...(manifest.workers ?? []),
+  ...(manifest.dashboard ?? []),
+  ...(manifest.services ?? []),
+  ...(manifest.interop ?? []),
+  ...(manifest.intelligence ?? []),
+
+  // NEW: logs
+  ...(manifest.logs ?? []),
+
+  // NEW: sector engines (v3)
+  ...Object.values(manifest.sectors ?? {}).flat(),
+
+  // NEW: system engines (v3)
+  ...(manifest.system ?? [])
+];
 
   const enginesByPath = new Map<string, EngineDescriptor>();
   for (const e of allEngines) {

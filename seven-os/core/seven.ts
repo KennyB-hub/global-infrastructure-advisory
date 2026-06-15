@@ -1,21 +1,25 @@
 // © 2026 Global Infrastructure Advisory
 // Seven Runtime — Unified Sector + Swarm + Disaster Logic
 
+// © 2026 Global Infrastructure Advisory
+// Runtime — Unified Sector + Swarm + Disaster Logic
+
 import { DroneControl } from "./drone/drone-control";
-import { DroneMissionPlanner } from "./drone/drone-mission-planner";
-import { TerrainAwareRouting, TerrainModel } from "./drone/terrain-routing";
-import { DroneOrchestrator, OrchestratorMissionRequest } from "./drone/drone-orchestrator";
+import { DroneMissionPlanner } from "../drone/drone-mission-planner";
+import { TerrainAwareRouting, TerrainModel } from "../drone/terrain-routing";
+import { DroneOrchestrator, OrchestratorMissionRequest } from "../drone/drone-orchestrator";
 
 import { SectorSafetyEngine, SafetyContext } from "./safety/sector-safety-engine";
 import { DisasterType, DisasterProfiles } from "./safety/disaster-profile";
 
 import { FieldHealthScanner, HealthSector, HealthSample } from "../seven-os/analysis/field-health-scanner";
 
-import { DroneRegistry, DronePlugin } from "./drone/drone-registry";
+import { DroneRegistry, DronePlugin } from "../drone/drone-registry";
 import { SwarmController } from "./drone/swarm-controller";
-import { DisasterSwarm } from "../seven-os/disaster/disaster-swarm";
+import { DisasterSwarm } from "../disaster/disaster-swarm";
 
-export class SevenRuntime {
+
+export class Runtime {
     private droneControl: DroneControl;
     private missionPlanner: DroneMissionPlanner;
     private terrainRouting: TerrainAwareRouting;

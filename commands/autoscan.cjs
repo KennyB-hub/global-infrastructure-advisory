@@ -1,120 +1,132 @@
-// autoscan.cjs
-// Scans the entire repo and reports where files SHOULD belong.
-// Does NOT move anything. Safe to run anytime.
+#!/usr/bin/env node
+
+// Seven‑OS Sector‑Aware Autoscan
+// Scans repo and classifies files into sectors/subsystems based on keywords.
 
 const fs = require("fs");
 const path = require("path");
 
-const ROOT = process.cwd();
+const ROOT = path.resolve(__dirname, "..");
 
-// Root-level global folders (your old map)
-const GLOBAL_FOLDERS = {
-  ai: "ai/",
-  backend: "backend/",
-  functions: "functions/",
-  api: "functions/api/",
-  cli: "proprietary-cli/",
-  sandbox: "sandbox/",
-  security: "security/",
-  sectors: "sectors/",
-  geo: "geo-utilities/",
-  hubs: "hubs/",
-  hub_logic: "hub_logic/",
-  identity: "identity/",
-  infra: "infrastructure-packs/",
-  kv: "kv/",
-  policy: "policy-packs/",
-  public: "public/",
-  reports: "reports/",
-  scripts: "scripts/",
-  system: "system/",
-  templates: "templates/",
-  topology: "topology/"
+const SECTORS = {
+  agriculture: { keywords: ["cattle", "livestock", "collar", "hauler", "load", "pasture", "farm", "ranch"], base: "seven-os/agriculture" },
+  airports: { keywords: ["airport", "aviation", "runway", "faa"], base: "seven-os/airports" },
+  climate: { keywords: ["climate", "weather", "carbon", "emissions"], base: "seven-os/climate" },
+  cloud: { keywords: ["cloud", "compute", "azure", "vm", "container"], base: "seven-os/cloud" },
+  cyber: { keywords: ["cyber", "security", "auth", "entra", "key", "audit"], base: "seven-os/cyber" },
+  contractors: { keywords: ["contractor", "workforce", "labor"], base: "seven-os/contractors" },
+  datacenters: { keywords: ["datacenter", "cooling", "rack", "server"], base: "seven-os/datacenters" },
+  disaster_response: { keywords: ["disaster", "rescue", "evacuation", "incident"], base: "seven-os/disaster-response" },
+  government: { keywords: ["gov", "policy", "regulation"], base: "seven-os/government" },
+  logistics: { keywords: ["logistics", "supply", "freight", "shipment"], base: "seven-os/logistics" },
+  mining: { keywords: ["mining", "ore", "extraction"], base: "seven-os/mining" },
+  pipelines: { keywords: ["pipeline", "flow", "oil", "gas"], base: "seven-os/pipelines" },
+  ports: { keywords: ["port", "maritime", "dock"], base: "seven-os/ports" },
+  public_safety: { keywords: ["safety", "hazard", "incident"], base: "seven-os/public-safety" },
+  rail: { keywords: ["rail", "train", "track"], base: "seven-os/rail" },
+  roads: { keywords: ["road", "highway", "bridge"], base: "seven-os/roads" },
+  telecom: { keywords: ["telecom", "fiber", "5g", "tower"], base: "seven-os/telecom" },
+  water: { keywords: ["water", "treatment", "pump"], base: "seven-os/water" },
+  economics: { keywords: ["economics", "market", "price", "forecast"], base: "seven-os/economics" },
+  financial: { keywords: ["finance", "bank", "credit"], base: "seven-os/financial" },
+  fcc: { keywords: ["fcc", "spectrum", "broadcast", "signal"], base: "seven-os/fcc" }
 };
 
-// OS and Runtime folders
-const OS_FOLDER = "seven-os/";
-const RUNTIME_FOLDER = "seven-runtime/";
-const WORKERS_FOLDER = "workers/";
+function listFiles(dir, debugMode = false) {
+  const out = [];
 
-// Utility: walk all files
-function walk(dir, fileList = []) {
-  const files = fs.readdirSync(dir);
-  for (const file of files) {
-    const full = path.join(dir, file);
+  function walk(d) {
+    const folder = d.toLowerCase();
 
-    // Skip node_modules, .git, and autoscan itself
-    if (full.includes("node_modules")) continue;
-    if (full.includes(".git")) continue;
-    if (full.includes("autoscan.cjs")) continue;
+    if (!debugMode) {
+      if (folder.includes("node_modules")) return;
+      if (folder.includes(".git")) return;
+      if (folder.includes("proprietary-cli/node_modules")) return;
+      if (folder.includes("public/assets/branding")) return;
+    }
 
-    const stat = fs.statSync(full);
-    if (stat.isDirectory()) walk(full, fileList);
-    else fileList.push(full);
-  }
-  return fileList;
-}
+    for (const e of fs.readdirSync(d, { withFileTypes: true })) {
+      const full = path.join(d, e.name);
+      const lower = full.toLowerCase();
 
-// Determine where a file SHOULD belong
-function classify(file) {
-  const relative = path.relative(ROOT, file).replace(/\\/g, "/");
+      if (!debugMode) {
+        if (lower.includes("node_modules")) continue;
+        if (lower.includes(".git")) continue;
+        if (lower.includes("proprietary-cli/node_modules")) continue;
+        if (lower.includes("public/assets/branding")) continue;
+      }
 
-  // 1. Check global folders
-  for (const key in GLOBAL_FOLDERS) {
-    if (relative.startsWith(GLOBAL_FOLDERS[key])) {
-      return { file: relative, target: GLOBAL_FOLDERS[key], type: "global" };
+      if (e.isDirectory()) walk(full);
+      else if (e.isFile()) out.push(full);
     }
   }
 
-  // 2. OS folder
-  if (relative.startsWith(OS_FOLDER)) {
-    return { file: relative, target: OS_FOLDER, type: "seven-os" };
+  walk(dir);
+  return out;
+}
+
+function classify(relative) {
+  const lower = relative.toLowerCase();
+
+  // JSON logs inside runtime/logs
+  if (lower.startsWith("runtime/logs/") && lower.endsWith(".json")) {
+    return { type: "runtime-log", target: "runtime/logs", sector: null };
   }
 
-  // 3. Runtime folder
-  if (relative.startsWith(RUNTIME_FOLDER)) {
-    return { file: relative, target: RUNTIME_FOLDER, type: "seven-runtime" };
+  // JS runtime engines
+  if (lower.startsWith("runtime/") && lower.endsWith(".js")) {
+    return { type: "runtime", target: "runtime", sector: null };
   }
 
-  // 4. Workers
-  if (relative.startsWith(WORKERS_FOLDER)) {
-    return { file: relative, target: WORKERS_FOLDER, type: "worker" };
+  // dashboards
+  if (lower.includes("dashboard") || lower.includes("command-dashboard")) {
+    return { type: "dashboard", target: "utilities/dashboard" };
   }
 
-  // 5. Unknown → needs relocation
-  return { file: relative, target: "UNKNOWN", type: "unclassified" };
+  // sector detection
+  for (const [sector, cfg] of Object.entries(SECTORS)) {
+    if (cfg.keywords.some(k => lower.includes(k))) {
+      return { type: "sector", sector, target: cfg.base };
+    }
+  }
+
+  return { type: "unknown", target: null };
 }
 
 function run() {
-  console.log("\n🔍 Running Seven Auto‑Scan (read‑only)...\n");
+  const debugMode = process.argv.includes("debug");
 
-  const allFiles = walk(ROOT);
-  const results = allFiles.map(classify);
+  const files = listFiles(ROOT, debugMode)
+    .map(f => path.relative(ROOT, f).replace(/\\/g, "/"));
 
-  const groups = {
-    global: [],
-    "seven-os": [],
-    "seven-runtime": [],
-    worker: [],
-    unclassified: []
-  };
+  const groups = { runtime: [], "runtime-log": [], dashboard: [], sector: [], unknown: [] };
 
-  for (const r of results) {
-    groups[r.type].push(r.file);
+  for (const rel of files) {
+    const c = classify(rel);
+    groups[c.type].push({ file: rel, target: c.target, sector: c.sector });
   }
 
-  console.log("📁 GLOBAL FILES:");
-  console.log(groups.global.join("\n") || "None");
-  console.log("\n📁 SEVEN‑OS FILES:");
-  console.log(groups["seven-os"].join("\n") || "None");
-  console.log("\n📁 SEVEN‑RUNTIME FILES:");
-  console.log(groups["seven-runtime"].join("\n") || "None");
-  console.log("\n📁 WORKER FILES:");
-  console.log(groups.worker.join("\n") || "None");
-  console.log("\n⚠️ UNCLASSIFIED FILES (need manual review):");
-  console.log(groups.unclassified.join("\n") || "None");
+  console.log("📂 Autoscan classification\n");
+  console.log("Debug Mode:", debugMode ? "ON" : "OFF");
+  console.log("");
 
-  console.log("\n✅ Auto‑scan complete. No files were moved.\n");
+  console.log("runtime:");
+  groups.runtime.forEach(f => console.log("  -", f.file));
+
+  console.log("\nruntime-log:");
+  groups["runtime-log"].forEach(f => console.log("  -", f.file));
+
+  console.log("\ndashboard:");
+  groups.dashboard.forEach(f => console.log("  -", f.file, "→", f.target));
+
+  console.log("\nsector‑mapped:");
+  groups.sector.forEach(f => console.log("  -", f.file, "→", f.target, `(${f.sector})`));
+
+  console.log("\nunknown:");
+  groups.unknown.forEach(f => console.log("  -", f.file));
+
+  const { writeReport } = require("../utilities/write-report.cjs");
+  writeReport("autoscan", groups);
 }
 
 run();

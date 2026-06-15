@@ -1,84 +1,75 @@
 #!/usr/bin/env node
 
-// Seven‑OS Full Repository Autosorter
-// Moves obviously misplaced files out of seven-runtime into correct layers.
+// Seven‑OS Sector‑Aware Autosorter (v3)
+// Moves files into correct global sectors based on autoscan classification.
 
 const fs = require("fs");
 const path = require("path");
 
 const ROOT = process.cwd();
 
-function move(from, to) {
-  const src = path.join(ROOT, from);
-  const dest = path.join(ROOT, to);
+// Load latest autoscan report from /reports/
+function getLatestAutoscanReport() {
+  const reportsDir = path.join(ROOT, "reports");
+
+  if (!fs.existsSync(reportsDir)) {
+    console.error("❌ No /reports directory found. Run autoscan first.");
+    process.exit(1);
+  }
+
+  const files = fs.readdirSync(reportsDir)
+    .filter(f => f.startsWith("autoscan-") && f.endsWith(".json"))
+    .sort()
+    .reverse();
+
+  if (files.length === 0) {
+    console.error("❌ No autoscan reports found in /reports/. Run autoscan first.");
+    process.exit(1);
+  }
+
+  const latest = path.join(reportsDir, files[0]);
+  console.log(`📄 Using autoscan report: ${files[0]}`);
+
+  return JSON.parse(fs.readFileSync(latest, "utf8"));
+}
+
+const autoscan = getLatestAutoscanReport();
+
+function moveFile(srcRel, destRel) {
+  const src = path.join(ROOT, srcRel);
+  const dest = path.join(ROOT, destRel);
 
   if (!fs.existsSync(src)) {
-    console.log(`⚠️  Missing: ${from}`);
+    console.log(`⚠️ Missing: ${srcRel}`);
     return;
   }
 
-  const destDir = path.dirname(dest);
-  fs.mkdirSync(destDir, { recursive: true });
+  fs.mkdirSync(path.dirname(dest), { recursive: true });
 
-  console.log(`↪️  ${from}  →  ${to}`);
+  console.log(`↪️  ${srcRel} → ${destRel}`);
   fs.renameSync(src, dest);
 }
 
-// --- RUNTIME → API ---
-[
-  "seven-runtime/api",
-].forEach(dir => {
-  if (fs.existsSync(path.join(ROOT, dir))) {
-    move(dir, "api");
-  }
-});
+function run() {
+  console.log("\n📦 Seven‑OS Sector Autosorter (v3)\n");
 
-// --- RUNTIME → UTILITIES (dashboard UI, helpers, services, tools) ---
-[
-  "seven-runtime/dashboard",
-  "seven-runtime/functions",
-  "seven-runtime/services",
-  "seven-runtime/security/tools",
-  "seven-runtime/geo",
-].forEach(dir => {
-  if (fs.existsSync(path.join(ROOT, dir))) {
-    move(dir, "utilities/" + path.basename(dir));
-  }
-});
+  // Only move sector‑classified files
+  autoscan.sector.forEach(entry => {
+    const { file, sector } = entry;
 
-// --- RUNTIME → DOMAIN (intelligence, matching, security-audit, workers) ---
-[
-  "seven-runtime/intelligence",
-  "seven-runtime/matching",
-  "seven-runtime/security/security-audit.js",
-  "seven-runtime/tools/run-repo-audit.ts",
-  "seven-runtime/workers",
-].forEach(item => {
-  const src = path.join(ROOT, item);
-  if (!fs.existsSync(src)) return;
+    // Build destination path
+    const relative = file.replace(/^seven-os\//, "");
+    const dest = `seven-os/sectors/${sector}/${relative}`;
 
-  const base = path.basename(item);
-  const isFile = fs.statSync(src).isFile();
-  const dest = isFile
-    ? `domain/infrastructure/${base}`
-    : `domain/infrastructure/${base}`;
+    moveFile(file, dest);
+  });
 
-  move(item, dest);
-});
+  console.log("\n✅ Sector autosort complete.");
+  console.log("Next: rebuild routing + rebuild manifest.\n");
 
-// --- RUNTIME → SEVEN-OS (core routing, os.json, seven.ts, stack) ---
-[
-  "seven-runtime/workers/config/os.json",
-  "seven-runtime/workers/core/routing.js",
-  "seven-runtime/workers/core/sectors.js",
-  "seven-runtime/seven.ts",
-  "seven-runtime/stack/seven-stack.ts",
-].forEach(item => {
-  const src = path.join(ROOT, item);
-  if (!fs.existsSync(src)) return;
+  const { writeReport } = require("../utilities/write-report.cjs");
+  writeReport("autosorter", autoscan);
+}
 
-  const base = path.basename(item);
-  move(item, `seven-os/core/${base}`);
-});
+run();
 
-console.log("\n✅ Autosorter pass complete.\n");

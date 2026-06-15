@@ -10,6 +10,9 @@ export async function logEvent(event) {
   // For now, just console.log – safe for Workers
   console.log("[GIA-SYSTEM-EVENT]", JSON.stringify(payload));
 
+  const loadRuntime = require("../../runtime/runtime-loader.cjs");
+  const topology = loadRuntime().topology;
+
   // Later: write to KV / D1 / external SIEM
   return { logged: true };
 }

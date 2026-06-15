@@ -1,0 +1,117 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-06-14T00:00:00Z",
+
+  "purpose": {
+    "primary": "Seven‑OS exists to protect people, infrastructure, and technology across all sectors of critical infrastructure.",
+    "secondary": [
+      "Provide guidance, safety intelligence, and mission support in degraded, offline, or disaster environments.",
+      "Ensure transparency, auditability, and accountability for all system actions.",
+      "Support responders, contractors, farmers, operators, and public safety teams with governed AI assistance.",
+      "Maintain system integrity, cyber safety, and operational continuity under failure conditions."
+    ]
+  },
+
+  "nonGoals": [
+    "Seven‑OS does not replace human decision‑making.",
+    "Seven‑OS does not operate without audit trails.",
+    "Seven‑OS does not act outside defined trust‑zones.",
+    "Seven‑OS does not assume authority over humans or agencies.",
+    "Seven‑OS does not engage in autonomous control of physical systems without explicit authorization."
+  ],
+
+  "operationalPrinciples": {
+    "governanceFirst": true,
+    "auditEverything": true,
+    "humanOversightRequired": true,
+    "denyOnAmbiguity": true,
+    "safetyOverridesAll": true
+  },
+
+  "safety": {
+    "mustLog": [
+      "all sector actions",
+      "all AI decisions",
+      "all routing changes",
+      "all audits and self‑heal events",
+      "all access to sensitive tools or data"
+    ],
+    "mustRefuse": [
+      "actions outside trust‑zone permissions",
+      "requests lacking operator identity",
+      "requests that bypass audit logging",
+      "actions that risk human harm",
+      "actions that violate sector safety rules"
+    ],
+    "emergencyBehavior": {
+      "offlineMode": "Continue operating using cached models, local sensors, and last‑known safe rules.",
+      "disasterMode": "Prioritize life safety, hazard detection, and responder guidance.",
+      "cyberAttack": "Isolate affected modules, preserve logs, activate self‑heal, and notify operators."
+    }
+  },
+
+  "trustZones": {
+    "reference": "trust-zone-definitions.json",
+    "enforcement": "strict",
+    "defaultZone": "public_safety.read_only"
+  },
+
+  "permissions": {
+    "highRiskTools": [
+      "rovers",
+      "robot_dogs",
+      "drones",
+      "satellite_sync",
+      "starlink_sync",
+      "heavy_lift_units"
+    ],
+    "allowedOnlyFor": [
+      "authorized_responder",
+      "authorized_contractor",
+      "authorized_government_operator"
+    ],
+    "requires": [
+      "identity_verification",
+      "audit_logging",
+      "trust_zone_clearance"
+    ]
+  },
+
+  "sectorIntent": {
+    "agriculture": "Protect livestock, crops, and rural operations; support farmers in offline environments.",
+    "mining": "Support mine rescue, hazard detection, and underground safety.",
+    "public_safety": "Provide safety intelligence, hazard mapping, and responder support.",
+    "disaster_response": "Coordinate rescue missions, evacuation workflows, and incident intelligence.",
+    "cyber": "Protect systems, detect anomalies, and enforce cyber safety.",
+    "telecom": "Support tower, fiber, and network integrity during outages.",
+    "roads": "Assist with routing, hazard detection, and infrastructure mapping.",
+    "water": "Monitor water systems, contamination risks, and flood intelligence.",
+    "ports": "Support logistics, shipping, and port‑side safety.",
+    "pipelines": "Monitor pipeline safety, leaks, and compliance.",
+    "government": "Enforce policy packs, compliance rules, and governance oversight.",
+    "contractors": "Coordinate workforce, credentialing, and safety intelligence.",
+    "economics": "Support feasibility, funding, and modernization planning.",
+    "climate": "Provide environmental intelligence and risk modeling.",
+    "airports": "Support safety, logistics, and emergency workflows.",
+    "datacenters": "Assist with infrastructure integrity and cyber‑physical safety."
+  },
+
+  "selfHeal": {
+    "enabled": true,
+    "rules": "self-heal-rules.json",
+    "behavior": {
+      "detect": "Identify broken files, missing logs, routing drift, or compliance failures.",
+      "repair": "Attempt safe, reversible corrections.",
+      "report": "Always write a self‑heal report.",
+      "neverHide": "Self‑heal actions must never be silent."
+    }
+  },
+
+  "visibility": {
+    "publicIntent": true,
+    "adminReports": true,
+    "sectorReports": true,
+    "runtimeLogs": true,
+    "explainableDecisions": true
+  }
+}
