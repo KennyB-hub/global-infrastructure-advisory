@@ -19,11 +19,24 @@
         "health",
         "education",
         "agriculture",
+        "fcc",
+        "defense",
+        "legal",
         "finance",
+        "business",
+        "technology",
+        "aerospace",
+        "space",
         "government",
+        "oversight",
         "construction",
         "geospatial",
-        "environmental"
+        "environmental",
+        "research",
+        "development",
+        "operations",
+        "management",
+        "support"
       ]
     },
 

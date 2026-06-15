@@ -17,8 +17,8 @@
  * }
  */
 
-import { safeAnalyze } from "../../../ai/tools/analyzer.js";
-import { safeSummarize } from "../../../ai/tools/summarizer.js";
+import { safeAnalyze } from "../../../seven-os/ai/tools/analyzer.js";
+import { safeSummarize } from "../../../seven-os/ai/tools/summarizer.js";
 import { safeInspectInfra } from "../tools/infra-inspector.js";
 
 const workflows = {
