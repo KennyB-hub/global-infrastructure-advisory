@@ -1,8 +1,8 @@
 // GIA Expansion Worker – Worker 9-of-12 (V12 Alpha)
 // Safely expands the Collective across clouds, regions, satellites, and infra zones.
 
-import { buildEvent } from "../../autonomous/ai/system/cyber/event-builder";
-import { cyberHook } from "../../autonomous/ai/system/cyber/worker-hook";
+import { buildEvent } from "../../seven-os/ai/system/cyber/event-builder";
+import { cyberHook } from "../../seven-os/ai/system/cyber/worker-hook";
 
 import { MCP } from "mcp/mcp-client";
 import { DID } from "identity/did";

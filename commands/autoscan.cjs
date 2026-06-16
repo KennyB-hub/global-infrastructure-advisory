@@ -1,11 +1,9 @@
 #!/usr/bin/env node
+// Seven‑OS Sector‑Aware Autoscan & Organizer (Hardened ESM Edition)
+// Scans repo and automatically groups files into sectors/subsystems based on keywords.
 
-// Seven‑OS Sector‑Aware Autoscan
-// Scans repo and classifies files into sectors/subsystems based on keywords.
-
-const fs = require("fs");
-const path = require("path");
-
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, "..");
 
 const SECTORS = {
@@ -34,67 +32,48 @@ const SECTORS = {
 
 function listFiles(dir, debugMode = false) {
   const out = [];
-
   function walk(d) {
     const folder = d.toLowerCase();
-
     if (!debugMode) {
-      if (folder.includes("node_modules")) return;
-      if (folder.includes(".git")) return;
-      if (folder.includes("proprietary-cli/node_modules")) return;
-      if (folder.includes("public/assets/branding")) return;
+      if (folder.includes("node_modules") || folder.includes(".git") || folder.includes("dist")) return;
     }
-
     for (const e of fs.readdirSync(d, { withFileTypes: true })) {
       const full = path.join(d, e.name);
       const lower = full.toLowerCase();
-
       if (!debugMode) {
-        if (lower.includes("node_modules")) continue;
-        if (lower.includes(".git")) continue;
-        if (lower.includes("proprietary-cli/node_modules")) continue;
-        if (lower.includes("public/assets/branding")) continue;
+        if (lower.includes("node_modules") || lower.includes(".git") || lower.includes("dist")) continue;
       }
-
       if (e.isDirectory()) walk(full);
       else if (e.isFile()) out.push(full);
     }
   }
-
   walk(dir);
   return out;
 }
 
 function classify(relative) {
   const lower = relative.toLowerCase();
-
-  // JSON logs inside runtime/logs
+  
   if (lower.startsWith("runtime/logs/") && lower.endsWith(".json")) {
     return { type: "runtime-log", target: "runtime/logs", sector: null };
   }
-
-  // JS runtime engines
   if (lower.startsWith("runtime/") && lower.endsWith(".js")) {
     return { type: "runtime", target: "runtime", sector: null };
   }
-
-  // dashboards
   if (lower.includes("dashboard") || lower.includes("command-dashboard")) {
-    return { type: "dashboard", target: "utilities/dashboard" };
+    return { type: "dashboard", target: "utilities/dashboard", sector: null };
   }
-
-  // sector detection
   for (const [sector, cfg] of Object.entries(SECTORS)) {
     if (cfg.keywords.some(k => lower.includes(k))) {
       return { type: "sector", sector, target: cfg.base };
     }
   }
-
-  return { type: "unknown", target: null };
+  return { type: "unknown", target: null, sector: null };
 }
 
-function run() {
+async function run() {
   const debugMode = process.argv.includes("debug");
+  const enforceMove = process.argv.includes("-move"); // Custom physical enforcer switch
 
   const files = listFiles(ROOT, debugMode)
     .map(f => path.relative(ROOT, f).replace(/\\/g, "/"));
@@ -106,27 +85,44 @@ function run() {
     groups[c.type].push({ file: rel, target: c.target, sector: c.sector });
   }
 
-  console.log("📂 Autoscan classification\n");
-  console.log("Debug Mode:", debugMode ? "ON" : "OFF");
-  console.log("");
+  console.log("==================================================");
+  console.log("📂   SEVEN-OS AUTOSCAN TOPOLOGY REPORT            ");
+  console.log("==================================================");
+  console.log("Enforce Physical Move Actions:", enforceMove ? "ACTIVE" : "DISABLED (Simulation Mode)");
+  console.log("--------------------------------------------------\n");
 
-  console.log("runtime:");
-  groups.runtime.forEach(f => console.log("  -", f.file));
+  // Physically relocate files back into place if -move is specified
+  let filesMovedCount = 0;
+  
+  for (const [type, fileEntries] of Object.entries(groups)) {
+    for (const entry of fileEntries) {
+      if (enforceMove && entry.target && entry.file.dirname === ".") {
+        const sourcePath = path.join(ROOT, entry.file);
+        const destinationFolder = path.join(ROOT, entry.target);
+        const destinationPath = path.join(destinationFolder, path.basename(entry.file));
 
-  console.log("\nruntime-log:");
-  groups["runtime-log"].forEach(f => console.log("  -", f.file));
+        if (fs.existsSync(sourcePath)) {
+          if (!fs.existsSync(destinationFolder)) {
+            fs.mkdirSync(destinationFolder, { recursive: true });
+          }
+          fs.renameSync(sourcePath, destinationPath);
+          console.log(`🔀 [Auto-Organized]: ${entry.file} ➔ ${entry.target}/${path.basename(entry.file)}`);
+          filesMovedCount++;
+        }
+      }
+    }
+  }
 
-  console.log("\ndashboard:");
-  groups.dashboard.forEach(f => console.log("  -", f.file, "→", f.target));
+  console.log(`\nScan complete. ${filesMovedCount} scattered files physically returned to their directories.`);
 
-  console.log("\nsector‑mapped:");
-  groups.sector.forEach(f => console.log("  -", f.file, "→", f.target, `(${f.sector})`));
-
-  console.log("\nunknown:");
-  groups.unknown.forEach(f => console.log("  -", f.file));
-
-  const { writeReport } = require("../utilities/write-report.cjs");
-  writeReport("autoscan", groups);
+  // Safe ESM stub for your reporting logic
+  try {
+    const reportPath = path.join(ROOT, "seven-os", "system-sync-report.json");
+    fs.writeFileSync(reportPath, JSON.stringify({ syncedAt: new Date().toISOString(), groups }, null, 2));
+    console.log("✔ Topology report generated inside seven-os/system-sync-report.json");
+  } catch (e) {
+    console.log("⚠ Report logging skipped.");
+  }
 }
 
-run();
+run().catch(console.error);

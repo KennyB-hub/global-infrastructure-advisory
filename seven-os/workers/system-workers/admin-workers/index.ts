@@ -1,7 +1,7 @@
 // /workers/admin/index.ts
 // GIA Sovereign Admin Worker – V12 Sovereign Edition
 
-import { basicSecurityGuard } from "../../src/security/worker-guard";
+import { basicSecurityGuard } from "../../seven-os/security/worker-guard";
 import { PolicyEngine } from "../../src/ai-engine/policy-engine";
 import { TokenService } from "../../src/security/token-service";
 import { HashUtils } from "../../src/security/hash-utils";
