@@ -8,7 +8,7 @@ const fs = require("fs");
 const ROOT = process.cwd();
 
 const SUBSYSTEMS = [
-  "seven-runtime",
+  "runtime",
   "seven-os",
   "domain",
   "utilities",
@@ -51,7 +51,7 @@ function classify(file) {
   const f = file.toLowerCase();
 
   if (f.includes("seven-os")) return "os-core";
-  if (f.includes("seven-runtime")) return "runtime";
+  if (f.includes("runtime")) return "runtime";
   if (f.includes("domain")) return "domain";
   if (f.includes("api")) return "api";
   if (f.includes("utilities")) return "utilities";

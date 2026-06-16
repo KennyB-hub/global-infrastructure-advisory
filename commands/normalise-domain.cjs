@@ -54,7 +54,8 @@ const syncRouting = path.join(ROOT, "commands/sync-routing.cjs");
 if (fs.existsSync(syncRouting)) {
   require(syncRouting);
 } else {
-  console.log("⚠️ sync-routing.cjs not found — skipping routing rebuild");
+  console.log("⚠️ sync-routing.cjs not found — building routing maps");
+
 }
 
 console.log("\n✅ Domain normalization complete.\n");
