@@ -1,14 +1,15 @@
 #!/usr/bin/env node
-// Seven‑OS Autoscan (Windows‑Safe CommonJS Edition)
+// Seven‑OS Sector‑Aware Autoscan & Organizer (Hardened ESM Edition)
+// Scans repo and automatically groups files into sectors/subsystems based on keywords.
 
-const fs = require("fs");
-const path = require("path");
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, "..");
 
-// =============================
-//  SECTOR DEFINITIONS
-// =============================
 const SECTORS = {
   agriculture: { keywords: ["cattle", "livestock", "collar", "hauler", "load", "pasture", "farm", "ranch"], base: "seven-os/agriculture" },
   airports: { keywords: ["airport", "aviation", "runway", "faa"], base: "seven-os/airports" },
@@ -33,62 +34,55 @@ const SECTORS = {
   fcc: { keywords: ["fcc", "spectrum", "broadcast", "signal"], base: "seven-os/fcc" }
 };
 
-// =============================
-//  FILE WALKER
-// =============================
 function listFiles(dir, debugMode = false) {
   const out = [];
-
   function walk(d) {
     const folder = d.toLowerCase();
-    if (!debugMode && (folder.includes("node_modules") || folder.includes(".git") || folder.includes("dist"))) return;
-
+    if (!debugMode) {
+      if (folder.includes("node_modules") || folder.includes(".git") || folder.includes("dist")) return;
+    }
     for (const e of fs.readdirSync(d, { withFileTypes: true })) {
       const full = path.join(d, e.name);
       const lower = full.toLowerCase();
-
-      if (!debugMode && (lower.includes("node_modules") || lower.includes(".git") || lower.includes("dist"))) continue;
-
+      if (!debugMode) {
+        if (lower.includes("node_modules") || lower.includes(".git") || lower.includes("dist")) continue;
+      }
       if (e.isDirectory()) walk(full);
       else if (e.isFile()) out.push(full);
     }
   }
-
   walk(dir);
   return out;
 }
 
-// =============================
-//  CLASSIFIER
-// =============================
 function classify(relative) {
   const lower = relative.toLowerCase();
-
-  if (lower.startsWith("runtime/logs/") && lower.endsWith(".json"))
+  
+  if (lower.startsWith("runtime/logs/") && lower.endsWith(".json")) {
     return { type: "runtime-log", target: "runtime/logs", sector: null };
-
-  if (lower.startsWith("runtime/") && (lower.endsWith(".js") || lower.endsWith(".ts")))
-    return { type: "runtime", target: "runtime", sector: null };
-
-  for (const [sector, cfg] of Object.entries(SECTORS)) {
-    if (cfg.keywords.some(k => lower.includes(k)))
-      return { type: "sector", sector, target: cfg.base };
   }
-
+  if (lower.startsWith("runtime/") && lower.endsWith(".js")) {
+    return { type: "runtime", target: "runtime", sector: null };
+  }
+  if (lower.includes("dashboard") || lower.includes("command-dashboard")) {
+    return { type: "dashboard", target: "utilities/dashboard", sector: null };
+  }
+  for (const [sector, cfg] of Object.entries(SECTORS)) {
+    if (cfg.keywords.some(k => lower.includes(k))) {
+      return { type: "sector", sector, target: cfg.base };
+    }
+  }
   return { type: "unknown", target: null, sector: null };
 }
 
-// =============================
-//  MAIN EXECUTION
-// =============================
 async function run() {
   const debugMode = process.argv.includes("debug");
-  const enforceMove = process.argv.includes("-move");
+  const enforceMove = process.argv.includes("-move"); // Custom physical enforcer switch
 
   const files = listFiles(ROOT, debugMode)
     .map(f => path.relative(ROOT, f).replace(/\\/g, "/"));
 
-  const groups = { runtime: [], "runtime-log": [], sector: [], unknown: [] };
+  const groups = { runtime: [], "runtime-log": [], dashboard: [], sector: [], unknown: [] };
 
   for (const rel of files) {
     const c = classify(rel);
@@ -96,28 +90,26 @@ async function run() {
   }
 
   console.log("==================================================");
-  console.log("📂   SEVEN-OS AUTOSCAN TOPOLOGY REPORT");
+  console.log("📂   SEVEN-OS AUTOSCAN TOPOLOGY REPORT            ");
   console.log("==================================================");
   console.log("Enforce Physical Move Actions:", enforceMove ? "ACTIVE" : "DISABLED (Simulation Mode)");
   console.log("--------------------------------------------------\n");
 
+  // Physically relocate files back into place if -move is specified
   let filesMovedCount = 0;
-
+  
   for (const [type, fileEntries] of Object.entries(groups)) {
     for (const entry of fileEntries) {
-
-      // ⭐ FIXED: detect VS Code stray files in repo root
-      const isRootFile = path.dirname(entry.file) === ".";
-
-      if (enforceMove && entry.target && isRootFile) {
+      if (enforceMove && entry.target && entry.file.dirname === ".") {
         const sourcePath = path.join(ROOT, entry.file);
         const destinationFolder = path.join(ROOT, entry.target);
         const destinationPath = path.join(destinationFolder, path.basename(entry.file));
 
         if (fs.existsSync(sourcePath)) {
-          fs.mkdirSync(destinationFolder, { recursive: true });
+          if (!fs.existsSync(destinationFolder)) {
+            fs.mkdirSync(destinationFolder, { recursive: true });
+          }
           fs.renameSync(sourcePath, destinationPath);
-
           console.log(`🔀 [Auto-Organized]: ${entry.file} ➔ ${entry.target}/${path.basename(entry.file)}`);
           filesMovedCount++;
         }
@@ -127,16 +119,16 @@ async function run() {
 
   console.log(`\nScan complete. ${filesMovedCount} scattered files physically returned to their directories.`);
 
-  // =============================
-  //  REPORT WRITER
-  // =============================
+  // Safe ESM stub for your reporting logic
   try {
     const reportPath = path.join(ROOT, "seven-os", "system-sync-report.json");
     fs.writeFileSync(reportPath, JSON.stringify({ syncedAt: new Date().toISOString(), groups }, null, 2));
     console.log("✔ Topology report generated inside seven-os/system-sync-report.json");
-  } catch {
+  } catch (e) {
     console.log("⚠ Report logging skipped.");
   }
 }
 
 run().catch(console.error);
+import fs from "fs";
+import path from "node:path";
