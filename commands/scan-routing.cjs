@@ -3,8 +3,6 @@
 // Seven‑OS Routing Scanner (v3/v12)
 // Validates routing across sectors, system, api, workers, and runtime.
 
-const fs = require("fs");
-const path = require("path");
 const { scanRouting } = require("../seven-os/system/routing/routing-scanner.js");
 const { writeReport } = require("../utilities/write-report.cjs");
 
