@@ -8,6 +8,50 @@
   "period": "monthly | quarterly | yearly"
 },
 {
+  "id": "mission-phoenix-phase-1",
+  "projectId": "mission-phoenix",
+  "sector": "multi-sector",
+  "currency": "USD",
+  "totalBudget": 2100000,
+  "timeframe": {
+    "start": "2026-06-01",
+    "end": "2027-05-31"
+  }
+},
+{
+  "id": "mission-phoenix-phase-2",
+  "projectId": "mission-phoenix",
+  "sector": "multi-sector",
+  "currency": "USD",
+  "totalBudget": 5000000,
+  "timeframe": {
+    "start": "2027-06-01",
+    "end": "2028-05-31"
+  }
+},
+{
+  "id": "mission-phoenix-phase-3",
+  "projectId": "mission-phoenix",
+  "sector": "multi-sector",
+  "currency": "USD",
+  "totalBudget": 7500000,
+  "timeframe": {
+    "start": "2028-06-01",
+    "end": "2029-05-31"
+  }
+},
+{
+  "id": "mission-phoenix-phase-4",
+  "projectId": "mission-phoenix",
+  "sector": "multi-sector",
+  "currency": "USD",
+  "totalBudget": 10000000,
+  "timeframe": {
+    "start": "2029-06-01",
+    "end": "2030-05-31"
+  }
+},
+{
   "$id": "finance.revenue.bucket",
   "type": "object",
   "properties": {

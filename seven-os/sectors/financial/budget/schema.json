@@ -37,5 +37,134 @@
     "psc": ["R499", "F999"],
     "fundingSource": "federal",
     "contractId": null
-  }
-}
+  },
+  "notes": "This budget is for the first phase of Mission Phoenix, focused on immediate recovery efforts in the affected region. It includes allocations for agricultural recovery operations, drone-based mapping and monitoring, and critical infrastructure repairs. The budget will be reviewed quarterly to ensure alignment with project goals and adjust allocations as needed."
+},
+{
+  "id": "mission-phoenix-phase-2",
+  "projectId": "mission-phoenix",
+  "sector": "multi-sector",
+  "currency": "USD",
+  "totalBudget": 5000000,
+  "timeframe": {
+    "start": "2027-06-01",
+    "end": "2028-06-01"
+  },
+  "lineItems": [
+    {
+      "id": "sustainable-agriculture",
+      "label": "Sustainable Agriculture Initiatives",
+      "allocated": 2000000,
+      "actual": 0,
+      "tags": ["agriculture", "sustainability", "initiatives"]
+    },
+    {
+      "id": "advanced-drone-tech",
+      "label": "Advanced Drone Technology Deployment",
+      "allocated": 1500000,
+      "actual": 0,
+      "tags": ["drone", "technology", "deployment"]
+    },
+    {
+      "id": "long-term-infrastructure",
+      "label": "Long-term Infrastructure Development",
+      "allocated": 1500000,
+      "actual": 0,
+      "tags": ["infrastructure", "development", "long-term"]
+    }
+  ],
+  "contractMeta": {
+    "samUei": null,
+    "naics": ["541330", "541370"],
+    "psc": ["R499", "F999"],
+    "fundingSource": "federal",
+    "contractId": null
+  },
+  "notes": "This budget is for the second phase of Mission Phoenix, focused on long-term recovery and sustainability efforts. It includes allocations for sustainable agriculture initiatives, deployment of advanced drone technology for ongoing monitoring and support, and long-term infrastructure development projects. The budget will be reviewed bi-annually to ensure it meets the evolving needs of the project and allows for adjustments based on progress and outcomes."
+},
+{
+  "id": "mission-phoenix-phase-3",
+  "projectId": "mission-phoenix",
+  "sector": "multi-sector",
+  "currency": "USD",
+  "totalBudget": 7500000,
+  "timeframe": {
+    "start": "2028-06-01",
+    "end": "2029-06-01"
+  },
+  "lineItems": [
+    {
+      "id": "resilience-building",
+      "label": "Community Resilience Building",
+      "allocated": 3000000,
+      "actual": 0,
+      "tags": ["resilience", "community", "building"]
+    },
+    {
+      "id": "drone-innovation",
+      "label": "Drone Innovation & Research",
+      "allocated": 2500000,
+      "actual": 0,
+      "tags": ["drone", "innovation", "research"]
+    },
+    {
+      "id": "infrastructure-maintenance",
+      "label": "Infrastructure Maintenance & Upgrades",
+      "allocated": 2000000,
+      "actual": 0,
+      "tags": ["infrastructure", "maintenance", "upgrades"]
+    }
+  ],
+  "contractMeta": {
+    "samUei": null,
+    "naics": ["541330", "541370"],
+    "psc": ["R499", "F999"],
+    "fundingSource": "federal",
+    "contractId": null
+  },
+  "notes": "This budget is for the third phase of Mission Phoenix, focused on building long-term resilience and fostering innovation. It includes allocations for community resilience building initiatives, research and development in drone technology, and ongoing maintenance and upgrades to critical infrastructure. The budget will be reviewed annually to ensure it continues to support the project's goals and allows for necessary adjustments based on the progress made in the previous phases."
+},
+{
+  "id": "mission-phoenix-phase-4",
+  "projectId": "mission-phoenix",
+  "sector": "multi-sector",
+  "currency": "USD",
+  "totalBudget": 10000000,
+  "timeframe": {
+    "start": "2029-06-01",
+    "end": "2030-06-01"
+  },
+  "lineItems": [
+    {
+      "id": "sustainable-development",
+      "label": "Sustainable Development Projects",
+      "allocated": 4000000,
+      "actual": 0,
+      "tags": ["sustainable", "development", "projects"]
+    },
+    {
+      "id": "drone-ecosystem",
+      "label": "Drone Ecosystem Expansion",
+      "allocated": 3500000,
+      "actual": 0,
+      "tags": ["drone", "ecosystem", "expansion"]
+    },
+    {
+      "id": "infrastructure-resilience",
+      "label": "Infrastructure Resilience Enhancements",
+      "allocated": 2500000,
+      "actual": 0,
+      "tags": ["infrastructure", "resilience", "enhancements"]
+    }
+  ],
+  "contractMeta": {
+    "samUei": null,
+    "naics": ["541330", "541370"],
+    "psc": ["R499", "F999"],
+    "fundingSource": "federal",
+    "contractId": null
+  },
+  "notes": "This budget is for the fourth phase of Mission Phoenix, focused on ensuring long-term sustainability and resilience. It includes allocations for sustainable development projects that promote economic growth and environmental stewardship, expansion of the drone ecosystem to support ongoing monitoring and innovation, and enhancements to infrastructure resilience to better withstand future challenges. The budget will be reviewed annually to ensure it remains aligned with the project's goals and allows for necessary adjustments based on the outcomes of the previous phases."
+},
+
+

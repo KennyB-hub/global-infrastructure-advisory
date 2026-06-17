@@ -1,0 +1,70 @@
+{
+  "$id": "finance.expense.bucket",
+  "type": "object",
+  "properties": {
+    "bucketId": { "type": "string" },
+    "sector": { "type": "string" },
+    "domain": { "type": "string" },
+    "description": { "type": "string" },
+    "amount": { "type": "number" },
+    "vendor": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" }
+  },
+  "required": ["bucketId", "sector", "domain", "amount", "timestamp"]
+},
+phases = [
+    {
+        "id": "mission-phoenix-phase-1",
+        "totalBudget": 2500000,
+        "lineItems": [
+            {"id": "agriculture-recovery", "allocated": 600000},
+            {"id": "drone-operations", "allocated": 350000},
+            {"id": "infrastructure-repair", "allocated": 1200000}
+        ]
+    },
+    {
+        "id": "mission-phoenix-phase-2",
+        "totalBudget": 5000000,
+        "lineItems": [
+            {"id": "sustainable-agriculture", "allocated": 2000000},
+            {"id": "advanced-drone-tech", "allocated": 1500000},
+            {"id": "long-term-infrastructure", "allocated": 1500000}
+        ]
+    },
+    {
+        "id": "mission-phoenix-phase-3",
+        "totalBudget": 7500000,
+        "lineItems": [
+            {"id": "resilience-building", "allocated": 3000000},
+            {"id": "drone-innovation", "allocated": 2500000},
+            {"id": "infrastructure-maintenance", "allocated": 2000000}
+        ]
+    },
+    {
+        "id": "mission-phoenix-phase-4",
+        "totalBudget": 10000000,
+        "lineItems": [
+            {"id": "sustainable-development", "allocated": 4000000},
+            {"id": "drone-ecosystem", "allocated": 3500000},
+            {"id": "infrastructure-resilience", "allocated": 2500000}
+        ]
+    }
+]
+
+# Calculate total budget across all phases
+grand_total = sum(p["totalBudget"] for p in phases)
+
+# Calculate totals by category buckets
+ag_total = 600000 + 2000000 + 3000000 + 4000000 # resilience/sustainable dev grouped into Ag/Community
+drone_total = 350000 + 1500000 + 2500000 + 3500000
+infra_total = 1200000 + 1500000 + 2000000 + 2500000
+
+# Let's verify sum of line items for unallocated amounts per phase
+for p in phases:
+    line_sum = sum(li["allocated"] for li in p["lineItems"])
+    print(f"{p['id']}: Total={p['totalBudget']}, LineItemsSum={line_sum}, Unallocated={p['totalBudget'] - line_sum}")
+
+print(f"Grand Total Budget: {grand_total}")
+print(f"Total Drone Allocations: {drone_total}")
+print(f"Total Infrastructure Allocations: {infra_total}")
+print(f"Total Agriculture/Community Allocations: {ag_total}")
