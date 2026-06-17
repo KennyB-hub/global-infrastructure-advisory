@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-06-16T14:26:03.405Z",
+  "syncedAt": "2026-06-16T18:43:14.908Z",
   "groups": {
     "runtime": [
       {
@@ -600,6 +600,11 @@
         "file": "commands/scripts/audit-runtime.cjs",
         "target": "seven-os/cyber",
         "sector": "cyber"
+      },
+      {
+        "file": "Dockerfile",
+        "target": "seven-os/ports",
+        "sector": "ports"
       },
       {
         "file": "hubs/Contractor/dashboard.js",
@@ -2642,11 +2647,6 @@
         "sector": "ports"
       },
       {
-        "file": "seven-os/sectors/ports/Dockerfile",
-        "target": "seven-os/ports",
-        "sector": "ports"
-      },
-      {
         "file": "seven-os/sectors/ports/domain/infrastructure/reports/gis-overlay.js",
         "target": "seven-os/ports",
         "sector": "ports"
@@ -3007,6 +3007,11 @@
         "sector": "ports"
       },
       {
+        "file": "seven-os/system-sync-report.json",
+        "target": "seven-os/ports",
+        "sector": "ports"
+      },
+      {
         "file": "seven-os/telecomEngine.ts",
         "target": "seven-os/telecom",
         "sector": "telecom"
@@ -3224,6 +3229,11 @@
         "sector": null
       },
       {
+        "file": "commands/auto-move.cjs",
+        "target": null,
+        "sector": null
+      },
+      {
         "file": "commands/autoscan.cjs",
         "target": null,
         "sector": null
@@ -3250,11 +3260,6 @@
       },
       {
         "file": "commands/classify.cjs",
-        "target": null,
-        "sector": null
-      },
-      {
-        "file": "commands/cleanup.js",
         "target": null,
         "sector": null
       },
@@ -6215,6 +6220,11 @@
       },
       {
         "file": "topology/sector-topology.json",
+        "target": null,
+        "sector": null
+      },
+      {
+        "file": "topology/sync-topology.json",
         "target": null,
         "sector": null
       },

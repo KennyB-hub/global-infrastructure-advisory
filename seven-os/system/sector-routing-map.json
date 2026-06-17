@@ -292,8 +292,8 @@
       "/utilities/core/logger.js",
       "/utilities/core/response.js"
     ],
-    "oil_gas": [],
-    "overlays": [
+        "oil_gas": [],
+        "overlays": [
       "/index.js",
       "/sector-adjacency-engine.js",
       "/sector-mapping-logic.js"
