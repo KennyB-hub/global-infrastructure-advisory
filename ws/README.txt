@@ -4,7 +4,7 @@ Files:
 
 Run:
   npm install ws ioredis
-  node src/backend/ws/collar-ws.js
+  node seven-os/agriculture/ws/collar-ws.js
 
 Env:
   REDIS_URL (default redis://127.0.0.1:6379)

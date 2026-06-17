@@ -33,7 +33,7 @@
     "dev": "wrangler dev",
     "auto-move": "node commands/auto-move.cjs",
     "deploy": "wrangler deploy",
-    "fix-compiled-extensions": "node commands/scan-fix.cjs",
+    "fix-compiled-extensions": "node commands/fix-compiled-extensions.js",
     "clean:modules": "rm -rf node_modules",
     "reinstall": "rm -rf node_modules && npm install",
     "classify-seven-files": "node commands/classify-seven-files.cjs",
