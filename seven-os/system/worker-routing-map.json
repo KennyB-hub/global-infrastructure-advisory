@@ -20,8 +20,18 @@
     "/system-workers/heartbeat.js",
     "/system-workers/index.ts",
     "/system-workers/protected-routes.js",
+    "/system-workers/public-worker/index.js",
+    "/system-workers/public-worker/index.ts",
+    "/system-workers/public-worker/public-worker.js",
+    "/system-workers/public-worker/public-worker.ts",
+    "/system-workers/public-worker/registry.js",
+    "/system-workers/public-worker/registry.ts",
     "/system-workers/routing.js",
+    "/system-workers/worker-name/registry.js",
+    "/system-workers/worker-name/registry.ts",
     "/Topology Sync Worker.js",
+    "/worker-registry.js",
+    "/worker-registry.ts",
     "/worker.ts"
   ]
 }

@@ -28,6 +28,7 @@
     "/users.js",
     "/voice-flight-handler.js",
     "/voice-flight.js",
+    "/workers/discovery.ts",
     "/workforce.js",
     "/[[path]].js"
   ]

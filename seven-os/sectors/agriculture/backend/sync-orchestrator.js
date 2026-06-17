@@ -3,7 +3,7 @@
 
 import path from 'path';
 import fs from 'fs';
-import { liveWorkerEngine } from './worker-bridge.js';
+import { liveWorkerEngine } from './backend/worker-bridge.js';
 
 const ROOT_DIR = process.cwd();
 
