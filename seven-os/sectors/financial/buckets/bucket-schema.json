@@ -1,0 +1,24 @@
+{
+  "bucketId": "string",
+  "bucketType": "revenue | expense | budget",
+  "sector": "string",
+  "domain": "string",
+  "description": "string",
+  "amount": "number",
+  "period": "monthly | quarterly | yearly"
+},
+{
+  "$id": "finance.revenue.bucket",
+  "type": "object",
+  "properties": {
+    "bucketId": { "type": "string" },
+    "sector": { "type": "string" },
+    "domain": { "type": "string" },
+    "description": { "type": "string" },
+    "amount": { "type": "number" },
+    "source": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" }
+  },
+  "required": ["bucketId", "sector", "domain", "amount", "timestamp"]
+}
+
