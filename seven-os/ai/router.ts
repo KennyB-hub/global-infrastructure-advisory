@@ -1,7 +1,7 @@
 // autonomous/seven-os/ai/router.ts
 // GIA Sovereign AI Router – V12 Alpha (TypeScript Version)
 
-import { sovereignWorkerGuard } from "../../system/security/worker-guard.js";
+import { sovereignWorkerGuard } from "../system/routing/system/security/worker-guard.js";
 import { validatePayload, validateTrustZone } from "./validator.js";
 import { matchIntent } from "./ai-matching.js";
 import { buildContext } from "./context-builder.js";
