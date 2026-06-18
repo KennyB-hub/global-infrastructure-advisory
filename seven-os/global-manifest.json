@@ -3589,12 +3589,12 @@
       "name": "cattle-collar-sync.ts",
       "kind": "os-engine",
       "sector": null,
-      "path": "seven-os/seven-runtime/cattle/cattle-collar-sync.ts",
+      "path": "seven-os/runtime/cattle/cattle-collar-sync.ts",
       "trustZone": "default",
       "autonomyLevel": 3
     },
     {
-      "id": "seven-os/seven-runtime/cattle/cattle-rules",
+      "id": "seven-os/runtime/cattle/cattle-rules",
       "name": "cattle-rules.ts",
       "kind": "os-engine",
       "sector": null,
@@ -3603,7 +3603,7 @@
       "autonomyLevel": 3
     },
     {
-      "id": "seven-os/seven-runtime/cattle/dashboard",
+      "id": "seven-os/-runtime/cattle/dashboard",
       "name": "dashboard.ts",
       "kind": "os-engine",
       "sector": null,
@@ -3612,7 +3612,7 @@
       "autonomyLevel": 3
     },
     {
-      "id": "seven-os/seven-runtime/cattle/rotation-engine",
+      "id": "seven-os/runtime/cattle/rotation-engine",
       "name": "rotation-engine.ts",
       "kind": "os-engine",
       "sector": null,
@@ -3652,7 +3652,7 @@
       "name": "disaster-swarm.ts",
       "kind": "os-engine",
       "sector": null,
-      "path": "seven-os/seven-runtime/disaster/disaster-swarm.ts",
+      "path": "seven-os/runtime/disaster/disaster-swarm.ts",
       "trustZone": "default",
       "autonomyLevel": 3
     },
@@ -3742,7 +3742,7 @@
       "name": "swarm-cotroller.ts",
       "kind": "os-engine",
       "sector": null,
-      "path": "seven-os/seven-runtime/drone/swarm-cotroller.ts",
+      "path": "seven-os/runtime/drone/swarm-cotroller.ts",
       "trustZone": "default",
       "autonomyLevel": 3
     },
@@ -3940,7 +3940,7 @@
       "name": "hybrid-mode.ts",
       "kind": "os-engine",
       "sector": null,
-      "path": "seven-os/seven-runtime/hybrid/hybrid-mode.ts",
+      "path": "seven-os/runtime/hybrid/hybrid-mode.ts",
       "trustZone": "default",
       "autonomyLevel": 3
     },
