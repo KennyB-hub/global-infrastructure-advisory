@@ -6608,5 +6608,10 @@
       "trustZone": "default",
       "autonomyLevel": 3
     }
-  ]
+  ],
+  "dashboard_routing": {
+    "universal_interface": "seven-os/backend/apis/program-matching-dashboard.js",
+    "hands_free_voice": "seven-os/backend/apis/voice-flight-handler.js",
+    "responder_telemetry": "seven-os/backend/apis/seven-responder-interface.ts"
+  }
 }

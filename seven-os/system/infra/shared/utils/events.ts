@@ -1,6 +1,6 @@
 // autonomous/infra/shared/utils/events.ts
 import { v4 as uuid } from "uuid";
-import { InfraEvent } from "../types/infra-event";
+import { InfraEvent } from "../../../../sectors/infrastructure/infra-event";
 
 export function makeEvent(
   sector: InfraEvent["sector"],

@@ -9,9 +9,9 @@ import { sanitizeOutput } from "./response-sanitizer.js";
 import { handleError } from "./error-handler.js";
 import { processUX } from "./unified-ux/unified-ux-core.js";
 
-import * as organizerWorker from "../workers/organizer/index.js";
-import * as expansionWorker from "../workers/expansion/index.js";
-import * as anysWorker from "../workers/anys/index.js";
+import * as organizerWorker from "../backend/workers/workers/organizer/index.js";
+import * as expansionWorker from "../backend/workers/expansion/index.js";
+import * as anysWorker from "../backend/workers/workers/anys/index.js";
 
 import { createLoad, listLoads, updateLoadStatus } from "../load-registry.js";
 import { matchHaulersForLoad } from "../load-matching-engine.js";
