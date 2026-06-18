@@ -1,6 +1,4 @@
-// © 2026 Global Infrastructure Advisory
-// Seven Runtime — Bootstrap & Initialization
-
+/// / © 2026 Global Infrastructure Advisory // Seven Runtime — Bootstrap & Initialization
 import { initEventBus, getEventBus } from "./event-bus";
 import { initDispatcher, getDispatcher } from "./event-dispatcher";
 import { eventHandlers } from "./event-handlers";
@@ -15,7 +13,8 @@ export interface SevenConfig {
   groundSDKType?: "ros" | "custom";
 }
 
-export class SevenRuntime {
+// Renamed from SevenRuntime to Runtime to restore CLI compatibility
+export class Runtime {
   private config: SevenConfig;
   private initialized: boolean = false;
 
@@ -35,9 +34,7 @@ export class SevenRuntime {
       console.log(`[Seven] Initializing (${this.config.environment})`);
 
       // 1. Initialize NATS
-      const natsClient = initNatsClient({
-        servers: this.config.natsServers
-      });
+      const natsClient = initNatsClient({ servers: this.config.natsServers });
       const natsConnected = await natsClient.connect(this.config.natsServers);
       if (!natsConnected && this.config.environment === "production") {
         console.error("[Seven] NATS connection failed - cannot start");
@@ -68,7 +65,6 @@ export class SevenRuntime {
       await eventBus.subscribeToEvents("unit_lost");
       await eventBus.subscribeToEvents("obstacle_detected");
       await eventBus.subscribeToEvents("battery_critical");
-
       console.log("[Seven] All event subscriptions active");
 
       this.initialized = true;
@@ -132,11 +128,7 @@ export class SevenRuntime {
       const dispatcher = getDispatcher();
 
       return {
-        healthy:
-          this.initialized &&
-          nats.isConnected() &&
-          eventBus.getStatus().connectedToNats &&
-          dispatcher.getStatus().totalHandlers > 0,
+        healthy: this.initialized && nats.isConnected() && eventBus.getStatus().connectedToNats && dispatcher.getStatus().totalHandlers > 0,
         components: {
           nats: nats.isConnected(),
           eventBus: eventBus.getStatus().connectedToNats,
@@ -158,18 +150,18 @@ export class SevenRuntime {
   }
 }
 
-// Singleton instance
-let _seven: SevenRuntime | null = null;
+// Updated internal singleton variable naming
+let _runtime: Runtime | null = null;
 
-export async function initializeSevenRuntime(config: SevenConfig): Promise<SevenRuntime> {
-  _seven = new SevenRuntime(config);
-  await _seven.initialize();
-  return _seven;
+export async function initializeRuntime(config: SevenConfig): Promise<Runtime> {
+  _runtime = new Runtime(config);
+  await _runtime.initialize();
+  return _runtime;
 }
 
-export function getSevenRuntime(): SevenRuntime {
-  if (!_seven) {
-    throw new Error("Seven runtime not initialized. Call initializeSevenRuntime() first.");
+export function getRuntime(): Runtime {
+  if (!_runtime) {
+    throw new Error("Runtime not initialized. Call initializeRuntime() first.");
   }
-  return _seven;
+  return _runtime;
 }

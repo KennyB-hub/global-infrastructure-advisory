@@ -3,7 +3,7 @@
   "description": "GIA Deep Mind Sovereign Infrastructure",
   "version": "1.2.0",
   "private": true,
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "scan:all": "npm run scan:secrets && npm run scan:licenses && npm run test:cli-sandbox && npm run verify:ws || exit 0",
     "clean": "node organize.js",
