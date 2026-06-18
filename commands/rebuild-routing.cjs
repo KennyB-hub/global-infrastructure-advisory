@@ -1,34 +1,19 @@
 const writeReport = require("../utilities/write-report.cjs");
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
 
-function rebuildRouting() {
-  const routing = {
-    timestamp: new Date().toISOString(),
-    sectors: [],
-    apis: [],
-    workers: []
+const MANIFEST_PATH = path.join(process.cwd(), 'seven-os', 'global-manifest.json');
+
+if (fs.existsSync(MANIFEST_PATH)) {
+  const manifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
+  
+  // Explicitly tie voice-flight handlers to the universal dashboard interface
+  manifest.dashboard_routing = {
+    universal_interface: "seven-os/backend/apis/program-matching-dashboard.js",
+    hands_free_voice: "seven-os/backend/apis/voice-flight-handler.js",
+    responder_telemetry: "seven-os/backend/apis/seven-responder-interface.ts"
   };
-
-  // Scan sectors
-  const sectorsDir = path.join(process.cwd(), "seven-os", "sectors");
-  if (fs.existsSync(sectorsDir)) {
-    routing.sectors = fs.readdirSync(sectorsDir).filter(f => !f.startsWith("."));
-  }
-
-  // Scan API folder
-  const apiDir = path.join(process.cwd(), "seven-os", "api");
-  if (fs.existsSync(apiDir)) {
-    routing.apis = fs.readdirSync(apiDir).filter(f => f.endsWith(".js") || f.endsWith(".ts"));
-  }
-
-  // Scan workers
-  const workersDir = path.join(process.cwd(), "seven-os", "workers");
-  if (fs.existsSync(workersDir)) {
-    routing.workers = fs.readdirSync(workersDir).filter(f => !f.startsWith("."));
-  }
-
-  writeReport("routing-map.json", routing);
+  
+  fs.writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2), 'utf8');
+  console.log('✅ Universal Hands-Free Dashboard routing securely bound to Mission Phoenix.');
 }
-
-rebuildRouting();

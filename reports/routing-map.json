@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-15T12:48:11.932Z",
+  "timestamp": "2026-06-18T04:53:50.872Z",
   "sectors": [
     "agriculture",
     "airports",
@@ -28,6 +28,7 @@
     "rail",
     "roads",
     "rural-node-spec.json",
+    "sector-bridge.ts",
     "sector-contract.json",
     "sector-engine.js",
     "sectorAnalysis.js",
@@ -44,12 +45,14 @@
     "documents.js",
     "donors.js",
     "ewo.js",
+    "gov-view.ts",
     "index.js",
     "load-matching.js",
     "marketplace.js",
     "opportunities-active.js",
     "opportunities.js",
     "opportunity.js",
+    "opportunity.ts",
     "program-matching-dashboard.js",
     "risk-trends.js",
     "router.js",
@@ -84,6 +87,7 @@
     "organizer.js",
     "system-workers",
     "Topology Sync Worker.js",
+    "worker-registry.ts",
     "worker.ts"
   ]
 }

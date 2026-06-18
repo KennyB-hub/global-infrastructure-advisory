@@ -6,7 +6,7 @@
   "type": "commonjs",
   "scripts": {
     "scan:all": "npm run scan:secrets && npm run scan:licenses && npm run test:cli-sandbox && npm run verify:ws || exit 0",
-    "clean": "node organize.js",
+    "organize-sectors": "node commands/organize-sectors.cjs",
     "rebuild-routing": "node commands/rebuild-routing.cjs",
     "scan:deep": "node seven-runtime/tools/run-repo-audit.js",
     "resolver": "node commands/resolver.cjs",
@@ -74,5 +74,17 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.0.0",
     "wrangler": "^4.98.0"
-  }
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KennyB-hub/global-infrastructure-advisory.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KennyB-hub/global-infrastructure-advisory/issues"
+  },
+  "homepage": "https://github.com/KennyB-hub/global-infrastructure-advisory#readme"
 }

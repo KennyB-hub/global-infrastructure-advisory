@@ -5,9 +5,9 @@ Seven-of-Nine is the autonomous task queue worker that processes background task
 
 ## New Imports Added to `ai-router.js`
 ```javascript
-import { enqueueTask, getNextPendingTask, updateTask } from "./autonomous/task-queue.js";
-import { getTaskHandler } from "./autonomous/task-registry.js";
-import { runSevenOfNineOnce } from "./autonomous/seven-of-nine.js";
+import { enqueueTask, getNextPendingTask, updateTask } from "./seven-os/task-queue.js";
+import { getTaskHandler } from "./seven-os/task-registry.js";
+import { runSevenOfNineOnce } from "./seven-os/seven-of-nine.js";
 ```
 
 ## AI Router Switch Cases (ai-router.js)
