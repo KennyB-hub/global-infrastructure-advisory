@@ -1,0 +1,152 @@
+{
+  "cli": {
+    "name": "proprietary-cli",
+    "entrypoint": "proprietary-cli/bin/cli.js",
+    "routing": {
+      "manifestAware": true,
+      "manifestPath": "seven-os/manifest.json",
+      "loader": "proprietary-cli/commands/manifest/loader.ts",
+      "autoRegisterCommands": true,
+      "routeKeyFormat": "proprietary-cli:{folderPath}:{fileName}",
+      "exampleRoute": "proprietary-cli:commands:dev:build"
+    },
+    "commandsIndex": {
+      "file": "proprietary-cli/commands/index.js",
+      "purpose": "Auto-load all commands, map them to route keys, and expose them to the CLI router.",
+      "exports": [
+        "loadCommands()",
+        "registry (dynamic)"
+      ]
+    },
+    "commandsIndexCommand": {
+      "routeKey": "proprietary-cli:commands:index",
+      "file": "proprietary-cli/commands/index-command.js",
+      "description": "Prints a formatted table of all registered commands.",
+      "outputFormat": "table",
+      "columns": ["Route Key", "Description", "File Path"]
+    },
+    "manifestLoader": {
+      "file": "proprietary-cli/commands/manifest/loader.ts",
+      "description": "Loads Seven‑OS manifest, validates structure, exposes manifest.routes to CLI.",
+      "exports": [
+        "loadManifest()",
+        "validateManifest()",
+        "getRouteMap()"
+      ],
+      "behavior": {
+        "onMissingManifest": "throwError",
+        "onInvalidManifest": "returnErrors",
+        "onSuccess": "returnManifestObject"
+      }
+    }
+  },
+  "sevenOS": {
+    "manifest": {
+      "path": "seven-os/manifest.json",
+      "requiredFields": [
+        "version",
+        "routes",
+        "domains",
+        "engines"
+      ],
+      "usedByCLI": true,
+      "cliIntegration": {
+        "routesUsedFor": [
+          "command discovery",
+          "routing validation",
+          "autoscan comparison",
+          "missing route detection"
+        ]
+      }
+    }
+  },
+  "commands": {
+    "ai": [
+      {
+        "file": "proprietary-cli/commands/ai/run-organ.js",
+        "routeKey": "proprietary-cli:commands:ai:run-organ",
+        "description": "Runs AI-driven organizational routines."
+      },
+      {
+        "file": "proprietary-cli/commands/ai/run-workflow.js",
+        "routeKey": "proprietary-cli:commands:ai:run-workflow",
+        "description": "Executes AI workflows."
+      },
+      {
+        "file": "proprietary-cli/commands/ai/validate.js",
+        "routeKey": "proprietary-cli:commands:ai:validate",
+        "description": "Validates AI configuration and manifests."
+      }
+    ],
+    "dev": [
+      {
+        "file": "proprietary-cli/commands/dev/build.js",
+        "routeKey": "proprietary-cli:commands:dev:build",
+        "description": "Builds Seven‑OS development artifacts."
+      },
+      {
+        "file": "proprietary-cli/commands/dev/clean.js",
+        "routeKey": "proprietary-cli:commands:dev:clean",
+        "description": "Cleans build artifacts."
+      },
+      {
+        "file": "proprietary-cli/commands/dev/test.js",
+        "routeKey": "proprietary-cli:commands:dev:test",
+        "description": "Runs test suites."
+      }
+    ],
+    "ops": [
+      {
+        "file": "proprietary-cli/commands/ops/dispatch.js",
+        "routeKey": "proprietary-cli:commands:ops:dispatch",
+        "description": "Dispatches operational tasks."
+      },
+      {
+        "file": "proprietary-cli/commands/ops/sector.js",
+        "routeKey": "proprietary-cli:commands:ops:sector",
+        "description": "Manages sector-level configuration."
+      },
+      {
+        "file": "proprietary-cli/commands/ops/telemetry.js",
+        "routeKey": "proprietary-cli:commands:ops:telemetry",
+        "description": "Collects telemetry."
+      }
+    ],
+    "zoning": [
+      {
+        "file": "proprietary-cli/commands/zoning/check.js",
+        "routeKey": "proprietary-cli:commands:zoning:check",
+        "description": "Checks zoning rules."
+      }
+    ],
+    "helpers": [
+      {
+        "file": "proprietary-cli/helpers/logger.js",
+        "description": "Enterprise-grade logging system."
+      },
+      {
+        "file": "proprietary-cli/helpers/colors.js",
+        "description": "Color utilities."
+      },
+      {
+        "file": "proprietary-cli/helpers/env.js",
+        "description": "Environment variable utilities."
+      },
+      {
+        "file": "proprietary-cli/helpers/fs.js",
+        "description": "File system utilities."
+      },
+      {
+        "file": "proprietary-cli/helpers/prompts.js",
+        "description": "User input prompts."
+      }
+    ],
+    "mci": [
+      {
+        "file": "proprietary-cli/mci/list.ts",
+        "routeKey": "proprietary-cli:mci:list",
+        "description": "Lists MCI configurations."
+      }
+    ]
+  }
+}

@@ -1,15 +1,27 @@
 #!/usr/bin/env node
-// Seven OS — Proprietary Operator CL
 
-import { runCLI } from "../commands/index.js";
+const path = require("path");
+const logger = require("../helpers/logger");
+const { loadCommands } = require("../commands/index");
 
-const args = process.argv.slice(2);
+(async () => {
+  const args = process.argv.slice(2);
+  const routeKey = args[0] || "proprietary-cli:help";
+  const commandArgs = args.slice(1);
 
-const result = await runCLI(args);
+  const registry = await loadCommands();
 
-const loadRuntime = require("../../runtime/runtime-loader.cjs");
-module.exports = { runtime: loadRuntime() };
+  const cmd = registry[routeKey];
 
-if (result && result.ok === false) {
-  console.error("CLI commands failed:", result.error || result);
-}
+  if (!cmd) {
+    logger.warn(`Unknown command route: ${routeKey}`);
+    console.log("\nAvailable commands:");
+    for (const key of Object.keys(registry)) {
+      console.log(`  ${key}`);
+    }
+    process.exitCode = 1;
+    return;
+  }
+
+  await cmd.run(commandArgs);
+})();

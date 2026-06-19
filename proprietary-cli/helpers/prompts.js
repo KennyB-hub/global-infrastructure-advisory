@@ -1,15 +1,17 @@
-import readline from "readline"
+const readline = require("readline");
 
-export function ask(question) {
+function ask(question) {
+  return new Promise(resolve => {
     const rl = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout
-    })
+      input: process.stdin,
+      output: process.stdout
+    });
 
-    return new Promise((resolve) =>
-        rl.question(question, (answer) => {
-            rl.close()
-            resolve(answer)
-        })
-    )
+    rl.question(question + " ", answer => {
+      rl.close();
+      resolve(answer);
+    });
+  });
 }
+
+module.exports = { ask };

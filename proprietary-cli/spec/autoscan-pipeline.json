@@ -1,0 +1,42 @@
+{
+  "pipeline": "Seven-OS Autoscan → Missing Routes → Auto-Add → Sync",
+  "description": "Automatically discovers unmapped files, generates missing route keys, updates manifest, and syncs routing state.",
+  "steps": [
+    {
+      "command": "proprietary-cli:commands:autoscan",
+      "description": "Scans the entire repository for all files and produces autoscan.json.",
+      "outputs": ["reports/autoscan.json"]
+    },
+    {
+      "command": "proprietary-cli:commands:manifest:find-missing-routes",
+      "description": "Compares autoscan.json to manifest.routes and identifies unmapped files.",
+      "inputs": ["reports/autoscan.json", "seven-os/manifest.json"],
+      "outputs": ["reports/missing-routes.json"]
+    },
+    {
+      "command": "proprietary-cli:commands:manifest:auto-add-routes",
+      "description": "Adds missing routes to manifest.json using suggested route keys.",
+      "inputs": ["reports/missing-routes.json"],
+      "outputs": ["seven-os/manifest.json (updated)"]
+    },
+    {
+      "command": "proprietary-cli:commands:manifest:sync-routing",
+      "description": "Rebuilds routing-state.json from updated manifest.",
+      "inputs": ["seven-os/manifest.json"],
+      "outputs": ["reports/routing-state.json"]
+    },
+    {
+      "command": "proprietary-cli:commands:manifest:routing-integration",
+      "description": "Reports alignment between manifest routes and CLI commands.",
+      "inputs": ["seven-os/manifest.json", "proprietary-cli command registry"],
+      "outputs": ["alignment report"]
+    }
+  ],
+  "filesProduced": [
+    "reports/autoscan.json",
+    "reports/missing-routes.json",
+    "reports/routing-state.json"
+  ],
+  "manifestUpdated": true,
+  "finalState": "Manifest and CLI routing fully aligned."
+}
