@@ -1,4 +1,4 @@
-const fs = require('fs');
+run const fs = require('fs');
 const path = require('path');
 
 const LAYERS = { 
@@ -6,9 +6,9 @@ const LAYERS = {
   os_core: ['seven-os/ai', 'seven-os/core', 'seven-os/system', 'seven-os/drone', 'seven-os/cattle', 'seven-os/infra'], 
   domain: ['domain'], 
   api: ['api'], 
-  utilities: ['utilities'], 
+  utilities: ['utilities'],
+  dashboard: ['seven-os/utilities/dashboard'], 
   workers: ['seven-os/workers', 'domain/infrastructure/workers'], 
-  dashboard: ['utilities/dashboard'], 
   services: ['services'], 
   interop: ['interop'], 
   intelligence: ['intelligence'] 

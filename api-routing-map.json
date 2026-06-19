@@ -34,6 +34,12 @@
     "/voice-flight-handler",
     "/voice-flight",
     "/workforce",
-    "/[[path]]"
+    "/[[path]]",
+    "/[...path]",
+    "/",
+      "/seven-os/utilities/dashboard",
+      "/seven-os/workers",
+      "/domain/infrastructure/workers",
+      "/utilities/dashboard"
   ]
 }

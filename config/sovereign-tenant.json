@@ -1,0 +1,11 @@
+{
+  "entity_name": "Global Infrastructure Advisory LLC",
+  "authority_level": "Sovereign Contractor",
+  "registration_status": "ACTIVE_SAM_GOV",
+  "licensing_model": "Multi-Tenant Intergenerational",
+  "runtime_gateways": {
+    "local_execution": true,
+    "cloud_federation": "restricted",
+    "edge_workers_count": 100
+  }
+}
