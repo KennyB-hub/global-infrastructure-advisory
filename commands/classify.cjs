@@ -19,7 +19,7 @@ const TARGETS = {
   interfaces: "seven-os/interfaces/",
   utils: "seven-os/utils/",
   worker: "seven-os/worker/",
-  runtime: "seven-runtime/"
+  runtime: "runtime/"
 };
 
 // Protected folders (never classify or move)
