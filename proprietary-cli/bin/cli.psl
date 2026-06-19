@@ -1,0 +1,33 @@
+#!/usr/bin/env pwsh
+<#
+    Proprietary-CLI PowerShell Loader
+    ---------------------------------
+    - Wraps Node-based CLI router
+    - For use in PowerShell terminals
+#>
+
+param(
+    [Parameter(Position = 0)]
+    [string] $RouteKey = "proprietary-cli:commands:index",
+
+    [Parameter(Position = 1)]
+    [string[]] $Args
+)
+
+# Resolve repo root relative to this script
+$ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+$Root = Resolve-Path (Join-Path $ScriptDir "..")
+
+# Path to Node CLI router
+$NodeCli = Join-Path $Root "bin/cli.js"
+
+if (-not (Test-Path $NodeCli)) {
+    Write-Host "Node CLI not found at $NodeCli" -ForegroundColor Red
+    exit 1
+}
+
+# Build argument list: routeKey + extra args
+$allArgs = @($RouteKey) + $Args
+
+# Invoke Node with universal loader
+node $NodeCli @allArgs

@@ -2,6 +2,9 @@ const fs = require("fs");
 const path = require("path");
 const logger = require("../../helpers/logger");
 const { loadManifest } = require("./loader");
+const { buildRoutingMap } = require("../core/loader");
+const routing = buildRoutingMap();
+const command = routing.unified[routeKey];
 
 const ROOT = path.resolve(__dirname, "../../..");
 const OUTPUT = path.join(ROOT, "reports", "routing-state.json");

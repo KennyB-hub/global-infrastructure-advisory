@@ -1,24 +1,42 @@
 #!/usr/bin/env node
+/**
+ * Proprietary-CLI Universal Router
+ * --------------------------------
+ * - Loads Seven-OS manifest
+ * - Loads all CLI commands
+ * - Builds unified routing map
+ * - Executes the requested command
+ */
 
-const path = require("path");
 const logger = require("../helpers/logger");
-const { loadCommands } = require("../commands/index");
+const { buildRoutingMap } = require("../core/loader");
+const { printHelp } = require("../core/help");
 
 (async () => {
   const args = process.argv.slice(2);
-  const routeKey = args[0] || "proprietary-cli:help";
+
+  // If no command provided → show help
+  if (args.length === 0) {
+    printHelp();
+    return;
+  }
+
+  const routeKey = args[0];
   const commandArgs = args.slice(1);
 
-  const registry = await loadCommands();
-
-  const cmd = registry[routeKey];
+  // Load manifest + CLI commands + unified routing
+  const routing = buildRoutingMap();
+  const cmd = routing.unified[routeKey];
 
   if (!cmd) {
-    logger.warn(`Unknown command route: ${routeKey}`);
+    logger.warn(`Unknown command: ${routeKey}`);
+
     console.log("\nAvailable commands:");
-    for (const key of Object.keys(registry)) {
-      console.log(`  ${key}`);
+    for (const key of Object.keys(routing.unified)) {
+      console.log("  " + key);
     }
+
+    console.log("\nTip: Run `proprietary-cli:help` for full help output.");
     process.exitCode = 1;
     return;
   }
