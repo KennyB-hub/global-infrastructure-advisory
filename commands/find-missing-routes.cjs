@@ -5,7 +5,7 @@ const path = require("path");
 
 const ROOT = path.resolve(__dirname, "..");
 const MANIFEST_PATH = path.join(ROOT, "seven-os", "manifest.json");
-const REPORT_PATH = path.join(ROOT, "reports", "routing-report.json");
+const REPORT_PATH = path.join(ROOT, "reports", "missing-routes.json");
 const { writeReport } = require("../utilities/write-report.cjs");
 
 function safeReadJSON(file) {
@@ -31,42 +31,36 @@ function walk(dir, list = []) {
 }
 
 function main() {
-  console.log("📡 Generating Seven‑OS Routing Report…");
+  console.log("🧭 Detecting missing routes…");
 
   const manifest = safeReadJSON(MANIFEST_PATH);
   if (!manifest) {
-    console.error("❌ No manifest.json found.");
+    console.error("❌ manifest.json missing or invalid.");
     process.exit(1);
   }
 
-  const allFiles = walk(ROOT);
   const routes = manifest.routes || {};
-  const mapped = new Set(Object.values(routes));
-  const unmapped = allFiles.filter(f => !mapped.has(f));
+  const allFiles = walk(ROOT);
 
-  const report = {
-    timestamp: new Date().toISOString(),
-    root: ROOT,
-    manifestStats: {
-      totalRoutes: Object.keys(routes).length,
-      totalDomains: Object.keys(manifest.domains || {}).length,
-      totalEngines: Object.keys(manifest.engines || {}).length,
-    },
-    fileStats: {
-      totalFiles: allFiles.length,
-      mappedFiles: mapped.size,
-      unmappedFiles: unmapped.length,
-    },
-    unmappedFiles,
-    routes,
-  };
+  const missing = {};
+  for (const file of allFiles) {
+    // Skip non‑code files if you want:
+    if (!file.endsWith(".js") && !file.endsWith(".cjs") && !file.endsWith(".ts")) continue;
+
+    const alreadyMapped = Object.values(routes).includes(file);
+    if (!alreadyMapped) {
+      missing[file] = {
+        suggestedRouteKey: file.replace(/[\/\\]/g, ":").replace(/\.(js|cjs|ts)$/, ""),
+      };
+    }
+  }
 
   const reportsDir = path.join(ROOT, "reports");
   if (!fs.existsSync(reportsDir)) fs.mkdirSync(reportsDir);
 
-  fs.writeFileSync(REPORT_PATH, JSON.stringify(report, null, 2));
+  fs.writeFileSync(REPORT_PATH, JSON.stringify({ timestamp: new Date().toISOString(), missing }, null, 2));
 
-  console.log("✅ Routing report generated at:");
+  console.log("✅ Missing routes report generated at:");
   console.log("   " + REPORT_PATH);
 }
 
