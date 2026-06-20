@@ -1,23 +1,24 @@
-import { GovernanceViolation } from '../governance/types';
+import { CyberEvent } from './event-model';
+import { ThreatSurface } from './threat-surface';
+import { IntegrityMonitor } from './integrity-monitor';
+import { AnomalyDetector } from './anomaly-detector';
+import { IncidentRouter } from './incident-router';
 
-export interface RemediationAction {
-  id: string;
-  type: 'NOTIFY' | 'RECONFIGURE' | 'BLOCK' | 'REPORT';
-  target: string;
-  payload: any;
-}
+export class CyberEngine {
+  private surface = new ThreatSurface();
+  private integrity = new IntegrityMonitor();
+  private anomaly = new AnomalyDetector();
+  private router = new IncidentRouter();
 
-export interface RemediationEngine {
-  plan(violations: GovernanceViolation[]): RemediationAction[];
-}
+  handle(event: CyberEvent) {
+    this.surface.update(event);
 
-export class SimpleRemediationEngine implements RemediationEngine {
-  plan(violations: GovernanceViolation[]): RemediationAction[] {
-    return violations.map(v => ({
-      id: `${v.deviceId}:${v.ruleId}`,
-      type: 'REPORT',
-      target: 'fcc_audit_log',
-      payload: v,
-    }));
+    const ok = this.integrity.verify(event);
+    if (!ok) {
+      return this.router.route(event, 'integrity_drift');
+    }
+
+    const anomaly = this.anomaly.detect(event);
+    return this.router.route(event, anomaly);
   }
 }

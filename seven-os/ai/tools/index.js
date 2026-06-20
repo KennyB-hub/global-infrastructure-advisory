@@ -1,43 +1,33 @@
-/**
- * Global Tools Index
- * -------------------
- * Central registry that exposes all safe, approved tools
- * to the decision engine and workflow system.
- *
- * Tools are grouped by domain:
- *  - core: general-purpose analysis tools
- *  - security: infrastructure & posture inspection
- *  - gov: government advisory tools
- *  - public: public communication tools
- */
+// seven-os/ai/mci/index.js
 
-import securityTools from "./security/index.js";
-import govTools from "./gov/index.js";
-import publicTools from "./public/index.js";
+import { loadMci } from "./loader.js";
 
-// Core tools (safe, read-only)
-import { safeAnalyze } from "./analyzer.js";
-import { safeSummarize } from "./summarizer.js";
-import { safeInspectInfra } from "./infra-inspector.js";
+const mci = loadMci();
 
-const tools = {
-    core: {
-        analyze: safeAnalyze,
-        summarize: safeSummarize,
-        inspectInfra: safeInspectInfra
-    },
+export function getSector(name) {
+  return mci.sectors[name] ?? null;
+}
 
-    security: {
-        ...securityTools
-    },
+export function listInfrastructureAssets() {
+  const sector = mci.sectors["infrastructure"];
+  return sector?.assets ?? [];
+}
 
-    gov: {
-        ...govTools
-    },
+export function listSupplyItems() {
+  const sector = mci.sectors["supply-chain"];
+  return sector?.inventory ?? [];
+}
 
-    public: {
-        ...publicTools
+export function getItemById(id) {
+  for (const sectorName of Object.keys(mci.sectors)) {
+    const sector = mci.sectors[sectorName];
+    for (const key of Object.keys(sector)) {
+      const arr = sector[key];
+      if (Array.isArray(arr)) {
+        const found = arr.find(x => x.id === id);
+        if (found) return { sector: sectorName, kind: key, item: found };
+      }
     }
-};
-
-export default tools;
+  }
+  return null;
+}

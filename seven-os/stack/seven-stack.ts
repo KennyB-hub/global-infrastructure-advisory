@@ -1,20 +1,20 @@
 // © 2026 Global Infrastructure Advisory
 // Seven Runtime — Full Stack Wiring (Air + Ground + Voice + Rescue + Sync)
 
-import { TerrainModel } from "../../runtime/drone/terrain-routing";
+import { TerrainModel } from "../../seven-runtime/drone/terrain-routing";
 import { SevenRuntime } from "../seven";
 
-import { DroneRegistry } from "../../runtime/drone/drone-registry";
+import { DroneRegistry } from "../../seven-runtime/drone/drone-registry";
 import { GroundRegistry } from "../ground/ground-registry";
 
 import { DroneRescueUnit } from "../rescue/adapters/drone-rescue-unit";
 import { GroundRescueUnit } from "../../seven-os/adapters/ground-rescue-unit";
 
-import { SevenNarrator, NarratorSink } from "../../runtime/voice/seven-narrator";
+import { SevenNarrator, NarratorSink } from "../../seven-runtime/voice/seven-narrator";
 import { SevenRescueCommander } from "../../seven-os/rescue/seven-rescue-commander";
 
 import { NAPEvent } from "../sectors/nap-sectors";
-import { SevenInterop } from "../../runtime/interop/seven-interop";
+import { SevenInterop } from "../../seven-runtime/interop/seven-interop";
 
 import { ConnectionMonitor } from "../core/connection-monitor";
 import { EventQueue } from "../core/event-queue";

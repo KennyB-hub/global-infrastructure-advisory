@@ -1,21 +1,15 @@
 #!/usr/bin/env node
-/**
- * Proprietary-CLI Universal Router
- * --------------------------------
- * - Loads Seven-OS manifest
- * - Loads all CLI commands
- * - Builds unified routing map
- * - Executes the requested command
- */
-
 const logger = require("../helpers/logger");
 const { buildRoutingMap } = require("../core/loader");
 const { printHelp } = require("../core/help");
 
+// NEW: load internal + node_modules CJS commands
+const { loadNodeModulesCommands } = require("../core/load-node-modules-commands.cjs");
+const { loadInternalCommands } = require("../core/load-command");
+
 (async () => {
   const args = process.argv.slice(2);
 
-  // If no command provided → show help
   if (args.length === 0) {
     printHelp();
     return;
@@ -24,9 +18,21 @@ const { printHelp } = require("../core/help");
   const routeKey = args[0];
   const commandArgs = args.slice(1);
 
-  // Load manifest + CLI commands + unified routing
-  const routing = buildRoutingMap();
-  const cmd = routing.unified[routeKey];
+  // NEW: build unified command registry
+  const internalCommands = loadInternalCommands();
+  const externalCommands = loadNodeModulesCommands();
+
+  // NEW: pass internal + external into routing map
+  const routing = buildRoutingMap({
+    internal: internalCommands,
+    external: externalCommands
+  });
+
+  // NEW: unified command resolution
+  const cmd =
+    routing.unified[routeKey] ||
+    internalCommands[routeKey] ||
+    externalCommands[routeKey];
 
   if (!cmd) {
     logger.warn(`Unknown command: ${routeKey}`);
@@ -43,3 +49,4 @@ const { printHelp } = require("../core/help");
 
   await cmd.run(commandArgs);
 })();
+

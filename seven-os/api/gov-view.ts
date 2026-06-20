@@ -1,4 +1,4 @@
-import * as govViewWorker from "../../../workers/system/govView.worker.js";
+import * as govViewWorker from "../../../backend/workers/workers/system/govView.worker.js";
 
 export async function handleGovViewApi(request: Request) {
   const url = new URL(request.url);

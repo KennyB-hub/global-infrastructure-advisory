@@ -1,0 +1,3862 @@
+{
+  "results": [
+    {
+      "route": "/adapters/ground-rescue-unit.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\adapters\\ground-rescue-unit.ts",
+      "found_at": [
+        "seven-os\\sectors\\disaster_response\\adapters\\ground-rescue-unit.ts",
+        "seven-os\\seven-runtime\\adapters\\ground-rescue-unit.ts"
+      ]
+    },
+    {
+      "route": "/ai/ai-aim.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\ai-aim.js"
+    },
+    {
+      "route": "/ai/ai-context.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\ai-context.js"
+    },
+    {
+      "route": "/ai/ai-cortex.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\ai-cortex.js"
+    },
+    {
+      "route": "/ai/ai-cyber.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\ai-cyber.js"
+    },
+    {
+      "route": "/ai/ai-geo.js",
+      "status": "duplicate",
+      "expected": "seven-os\\ai\\ai-geo.js",
+      "found_at": [
+        "seven-os\\ai\\engines\\ai-geo.js",
+        "seven-os\\engines\\ai-geo.js"
+      ]
+    },
+    {
+      "route": "/ai/ai-matching.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\ai-matching.js"
+    },
+    {
+      "route": "/ai/ai-matching.ts",
+      "status": "exists",
+      "location": "seven-os\\ai\\ai-matching.ts"
+    },
+    {
+      "route": "/ai/ai-safety.js",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\ai-safety.js",
+      "found_at": "seven-os\\system\\ai-safety.js"
+    },
+    {
+      "route": "/ai/ai-utilities.js",
+      "status": "duplicate",
+      "expected": "seven-os\\ai\\ai-utilities.js",
+      "found_at": [
+        "seven-os\\ai\\engines\\ai-utilities.js",
+        "seven-os\\engines\\ai-utilities.js"
+      ]
+    },
+    {
+      "route": "/ai/build-engine.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\build-engine.js"
+    },
+    {
+      "route": "/ai/context-builder.ts",
+      "status": "exists",
+      "location": "seven-os\\ai\\context-builder.ts"
+    },
+    {
+      "route": "/ai/document-access-audit.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\document-access-audit.js"
+    },
+    {
+      "route": "/ai/document-audit-dashboard.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\document-audit-dashboard.js"
+    },
+    {
+      "route": "/ai/document-generator.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\document-generator.js"
+    },
+    {
+      "route": "/ai/document-retrieval.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\document-retrieval.js"
+    },
+    {
+      "route": "/ai/engine.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\engine.js"
+    },
+    {
+      "route": "/ai/engines/agents/drone-integrity.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\agents\\drone-integrity.ts",
+      "found_at": "seven-os\\engines\\agents\\drone-integrity.ts"
+    },
+    {
+      "route": "/ai/engines/agents/drone-worker.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\agents\\drone-worker.ts",
+      "found_at": "seven-os\\engines\\agents\\drone-worker.ts"
+    },
+    {
+      "route": "/ai/engines/agents/seven-of-nine.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\ai\\engines\\agents\\seven-of-nine.ts",
+      "found_at": [
+        "seven-os\\engines\\agents\\seven-of-nine.ts",
+        "seven-os\\seven-of-nine.ts"
+      ]
+    },
+    {
+      "route": "/ai/engines/ai-core.js",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\ai-core.js",
+      "found_at": "seven-os\\engines\\ai-core.js"
+    },
+    {
+      "route": "/ai/engines/ai-geo.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\engines\\ai-geo.js"
+    },
+    {
+      "route": "/ai/engines/ai-utilities.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\engines\\ai-utilities.js"
+    },
+    {
+      "route": "/ai/engines/building-code-engine.js",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\building-code-engine.js",
+      "found_at": "seven-os\\engines\\building-code-engine.js"
+    },
+    {
+      "route": "/ai/engines/contractor-workforce-engine.js",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\contractor-workforce-engine.js",
+      "found_at": "seven-os\\engines\\contractor-workforce-engine.js"
+    },
+    {
+      "route": "/ai/engines/core.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\ai\\engines\\core.ts",
+      "found_at": [
+        "seven-os\\core.ts",
+        "seven-os\\engines\\core.ts"
+      ]
+    },
+    {
+      "route": "/ai/engines/cyber-auto-block.js",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\cyber-auto-block.js",
+      "found_at": "seven-os\\engines\\cyber-auto-block.js"
+    },
+    {
+      "route": "/ai/engines/data-engine.js",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\data-engine.js",
+      "found_at": "seven-os\\engines\\data-engine.js"
+    },
+    {
+      "route": "/ai/engines/distance.js",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\distance.js",
+      "found_at": "seven-os\\engines\\distance.js"
+    },
+    {
+      "route": "/ai/engines/engineering-engine.js",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\engineering-engine.js",
+      "found_at": "seven-os\\engines\\engineering-engine.js"
+    },
+    {
+      "route": "/ai/engines/farmerHaulerMatchingEngine.js",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\farmerHaulerMatchingEngine.js",
+      "found_at": "seven-os\\engines\\farmerHaulerMatchingEngine.js"
+    },
+    {
+      "route": "/ai/engines/farmerProfitabilityDashboard.js",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\farmerProfitabilityDashboard.js",
+      "found_at": "seven-os\\engines\\farmerProfitabilityDashboard.js"
+    },
+    {
+      "route": "/ai/engines/geothermal-engine.js",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\geothermal-engine.js",
+      "found_at": "seven-os\\engines\\geothermal-engine.js"
+    },
+    {
+      "route": "/ai/engines/Global Livestock Price Forecasting Engine.js",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\Global Livestock Price Forecasting Engine.js",
+      "found_at": "seven-os\\engines\\Global Livestock Price Forecasting Engine.js"
+    },
+    {
+      "route": "/ai/engines/integrity/auto-heal-engine.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\ai\\engines\\integrity\\auto-heal-engine.ts",
+      "found_at": [
+        "seven-os\\auto-heal-engine.ts",
+        "seven-os\\engines\\integrity\\auto-heal-engine.ts"
+      ]
+    },
+    {
+      "route": "/ai/engines/integrity/full-integrity-scan.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\ai\\engines\\integrity\\full-integrity-scan.ts",
+      "found_at": [
+        "seven-os\\engines\\integrity\\full-integrity-scan.ts",
+        "seven-os\\engines\\tasks\\full-integrity-scan.ts"
+      ]
+    },
+    {
+      "route": "/ai/engines/integrity/repo-diff-analyzer.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\ai\\engines\\integrity\\repo-diff-analyzer.ts",
+      "found_at": [
+        "seven-os\\engines\\integrity\\repo-diff-analyzer.ts",
+        "seven-os\\engines\\tasks\\repo-diff-analyzer.ts"
+      ]
+    },
+    {
+      "route": "/ai/engines/Livestock emergency evacuation engine.js",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\Livestock emergency evacuation engine.js",
+      "found_at": "seven-os\\engines\\Livestock emergency evacuation engine.js"
+    },
+    {
+      "route": "/ai/engines/livestock-economic-core.js",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\livestock-economic-core.js",
+      "found_at": "seven-os\\engines\\livestock-economic-core.js"
+    },
+    {
+      "route": "/ai/engines/livestockDiseaseRoutingEngine.js",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\livestockDiseaseRoutingEngine.js",
+      "found_at": "seven-os\\engines\\livestockDiseaseRoutingEngine.js"
+    },
+    {
+      "route": "/ai/engines/livestockMarketRoutingEngine.js",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\livestockMarketRoutingEngine.js",
+      "found_at": "seven-os\\engines\\livestockMarketRoutingEngine.js"
+    },
+    {
+      "route": "/ai/engines/livestockSustainabilityEngine.js",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\livestockSustainabilityEngine.js",
+      "found_at": "seven-os\\engines\\livestockSustainabilityEngine.js"
+    },
+    {
+      "route": "/ai/engines/mapping-engine.js",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\mapping-engine.js",
+      "found_at": "seven-os\\engines\\mapping-engine.js"
+    },
+    {
+      "route": "/ai/engines/math-engine.js",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\math-engine.js",
+      "found_at": "seven-os\\engines\\math-engine.js"
+    },
+    {
+      "route": "/ai/engines/mechanics-engine.js",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\mechanics-engine.js",
+      "found_at": "seven-os\\engines\\mechanics-engine.js"
+    },
+    {
+      "route": "/ai/engines/process-ai-request.js",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\process-ai-request.js",
+      "found_at": "seven-os\\engines\\process-ai-request.js"
+    },
+    {
+      "route": "/ai/engines/renewables-engine.js",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\renewables-engine.js",
+      "found_at": "seven-os\\engines\\renewables-engine.js"
+    },
+    {
+      "route": "/ai/engines/sandbox-bridge.js",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\sandbox-bridge.js",
+      "found_at": "seven-os\\engines\\sandbox-bridge.js"
+    },
+    {
+      "route": "/ai/engines/science-engine.js",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\science-engine.js",
+      "found_at": "seven-os\\engines\\science-engine.js"
+    },
+    {
+      "route": "/ai/engines/shared.js",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\shared.js",
+      "found_at": "seven-os\\engines\\shared.js"
+    },
+    {
+      "route": "/ai/engines/tasks/full-integrity-scan.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\ai\\engines\\tasks\\full-integrity-scan.ts",
+      "found_at": [
+        "seven-os\\engines\\integrity\\full-integrity-scan.ts",
+        "seven-os\\engines\\tasks\\full-integrity-scan.ts"
+      ]
+    },
+    {
+      "route": "/ai/engines/tasks/repair-schemas.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\tasks\\repair-schemas.ts",
+      "found_at": "seven-os\\engines\\tasks\\repair-schemas.ts"
+    },
+    {
+      "route": "/ai/engines/tasks/repo-diff-analyzer.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\ai\\engines\\tasks\\repo-diff-analyzer.ts",
+      "found_at": [
+        "seven-os\\engines\\integrity\\repo-diff-analyzer.ts",
+        "seven-os\\engines\\tasks\\repo-diff-analyzer.ts"
+      ]
+    },
+    {
+      "route": "/ai/engines/tasks/task-registry.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\ai\\engines\\tasks\\task-registry.ts",
+      "found_at": [
+        "seven-os\\engines\\tasks\\task-registry.ts",
+        "seven-os\\task-registry.ts"
+      ]
+    },
+    {
+      "route": "/ai/engines/unified-ux/ai-classifier.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\unified-ux\\ai-classifier.ts",
+      "found_at": "seven-os\\engines\\unified-ux\\ai-classifier.ts"
+    },
+    {
+      "route": "/ai/engines/unified-ux/field-prompts.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\unified-ux\\field-prompts.ts",
+      "found_at": "seven-os\\engines\\unified-ux\\field-prompts.ts"
+    },
+    {
+      "route": "/ai/engines/unified-ux/fields.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\unified-ux\\fields.ts",
+      "found_at": "seven-os\\engines\\unified-ux\\fields.ts"
+    },
+    {
+      "route": "/ai/engines/unified-ux/human-summary.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\unified-ux\\human-summary.ts",
+      "found_at": "seven-os\\engines\\unified-ux\\human-summary.ts"
+    },
+    {
+      "route": "/ai/engines/unified-ux/payload-builder.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\ai\\engines\\unified-ux\\payload-builder.ts",
+      "found_at": [
+        "seven-os\\engines\\unified-ux\\payload-builder.ts",
+        "seven-os\\sectors\\agriculture\\ai\\engines\\unified-ux\\payload-builder.ts"
+      ]
+    },
+    {
+      "route": "/ai/engines/unified-ux/trust-zone.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\unified-ux\\trust-zone.ts",
+      "found_at": "seven-os\\engines\\unified-ux\\trust-zone.ts"
+    },
+    {
+      "route": "/ai/engines/unified-ux/unified-ux-core.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\ai\\engines\\unified-ux\\unified-ux-core.ts",
+      "found_at": [
+        "seven-os\\engines\\unified-ux\\unified-ux-core.ts",
+        "seven-os\\sectors\\mining\\ai\\engines\\unified-ux\\unified-ux-core.ts"
+      ]
+    },
+    {
+      "route": "/ai/engines/worker.js",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\worker.js",
+      "found_at": "seven-os\\engines\\worker.js"
+    },
+    {
+      "route": "/ai/engines/zoning-engine.js",
+      "status": "misplaced",
+      "expected": "seven-os\\ai\\engines\\zoning-engine.js",
+      "found_at": "seven-os\\engines\\zoning-engine.js"
+    },
+    {
+      "route": "/ai/error-handler.ts",
+      "status": "exists",
+      "location": "seven-os\\ai\\error-handler.ts"
+    },
+    {
+      "route": "/ai/global-ai-loader.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\global-ai-loader.js"
+    },
+    {
+      "route": "/ai/hauler-registry.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\hauler-registry.js"
+    },
+    {
+      "route": "/ai/haulerCredentialingModule.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\haulerCredentialingModule.js"
+    },
+    {
+      "route": "/ai/incident-response-workflow.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\incident-response-workflow.js"
+    },
+    {
+      "route": "/ai/incident-store.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\incident-store.js"
+    },
+    {
+      "route": "/ai/incident-utils.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\incident-utils.js"
+    },
+    {
+      "route": "/ai/intent-engine.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\intent-engine.js"
+    },
+    {
+      "route": "/ai/lifecycle-manager.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\lifecycle-manager.js"
+    },
+    {
+      "route": "/ai/livestockLogisticsEngine.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\livestockLogisticsEngine.js"
+    },
+    {
+      "route": "/ai/load-matching-engine.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\load-matching-engine.js"
+    },
+    {
+      "route": "/ai/load-registry.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\load-registry.js"
+    },
+    {
+      "route": "/ai/loader.js",
+      "status": "duplicate",
+      "expected": "seven-os\\ai\\loader.js",
+      "found_at": [
+        "seven-os\\loader.js",
+        "seven-os\\manifest\\loader.js",
+        "seven-os\\mci\\loader.js",
+        "seven-os\\sectors\\agriculture\\ai\\loader.js",
+        "seven-os\\sectors\\agriculture\\mci\\loader.js",
+        "seven-os\\sectors\\financial\\revenue\\loader.js"
+      ]
+    },
+    {
+      "route": "/ai/logic-engine.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\logic-engine.js"
+    },
+    {
+      "route": "/ai/memory-manager.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\memory-manager.js"
+    },
+    {
+      "route": "/ai/policies/index.js",
+      "status": "duplicate",
+      "expected": "seven-os\\ai\\policies\\index.js",
+      "found_at": [
+        "backend\\ai-worker\\index.js",
+        "backend\\gii\\context\\index.js",
+        "backend\\routes\\index.js",
+        "backend\\security\\tools\\index.js",
+        "backend\\threat\\index.js",
+        "backend\\utilities\\geo\\index.js",
+        "backend\\utilities\\geomapping-logic.js\\index.js",
+        "backend\\utilities\\integrity\\index.js",
+        "seven-os\\infrastructure\\index.js",
+        "seven-os\\infrastructure\\tools\\index.js",
+        "seven-os\\policy-packs\\index.js",
+        "seven-os\\sectors\\agri\\index.js",
+        "seven-os\\sectors\\agri\\visual\\index.js",
+        "seven-os\\sectors\\contractors\\index.js",
+        "seven-os\\sectors\\contractors\\sectors\\contractors\\index.js",
+        "seven-os\\sectors\\cyber\\index.js",
+        "seven-os\\sectors\\cyber\\sectors\\cyber\\index.js",
+        "seven-os\\sectors\\cyber\\workers\\cyber\\cyber\\index.js",
+        "seven-os\\sectors\\datacenters\\index.js",
+        "seven-os\\sectors\\disaster_response\\index.js",
+        "seven-os\\sectors\\disaster_response\\sectors\\disaster_response\\index.js",
+        "seven-os\\sectors\\fcc\\index.js",
+        "seven-os\\sectors\\gov\\index.js",
+        "seven-os\\sectors\\government\\policy-packs\\index.js",
+        "seven-os\\sectors\\government\\sectors\\gov\\index.js",
+        "seven-os\\sectors\\infrastructure\\logistics\\index.js",
+        "seven-os\\sectors\\logistics\\index.js",
+        "seven-os\\sectors\\mining\\index.js",
+        "seven-os\\sectors\\oil_gas\\index.js",
+        "seven-os\\sectors\\overlays\\index.js",
+        "seven-os\\sectors\\pipe-lines\\index.js",
+        "seven-os\\sectors\\pipelines\\index.js",
+        "seven-os\\sectors\\ports\\index.js",
+        "seven-os\\sectors\\power\\index.js",
+        "seven-os\\sectors\\public_safety\\index.js",
+        "seven-os\\sectors\\rail\\index.js",
+        "seven-os\\sectors\\roads\\index.js",
+        "seven-os\\sectors\\telecom\\index.js",
+        "seven-os\\sectors\\water\\index.js",
+        "seven-os\\seven-runtime\\ai\\tools\\index.js",
+        "seven-os\\seven-runtime\\ai\\workflows\\index.js",
+        "seven-os\\seven-runtime\\api\\index.js",
+        "seven-os\\seven-runtime\\workers\\cyber\\cyber\\index.js",
+        "seven-os\\seven-runtime\\workers\\fcc\\index.js",
+        "seven-os\\system\\index.js",
+        "seven-os\\utilities\\tools\\index.js"
+      ]
+    },
+    {
+      "route": "/ai/response-sanitizer.ts",
+      "status": "exists",
+      "location": "seven-os\\ai\\response-sanitizer.ts"
+    },
+    {
+      "route": "/ai/risk-trend-analytics-engine.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\risk-trend-analytics-engine.js"
+    },
+    {
+      "route": "/ai/router.js",
+      "status": "duplicate",
+      "expected": "seven-os\\ai\\router.js",
+      "found_at": [
+        "seven-os\\api\\router.js",
+        "seven-os\\seven-runtime\\api\\router.js"
+      ]
+    },
+    {
+      "route": "/ai/router.ts",
+      "status": "exists",
+      "location": "seven-os\\ai\\router.ts"
+    },
+    {
+      "route": "/ai/security-alerting-service.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\security-alerting-service.js"
+    },
+    {
+      "route": "/ai/semantic-router.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\semantic-router.js"
+    },
+    {
+      "route": "/ai/tools/analyzer.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\tools\\analyzer.js"
+    },
+    {
+      "route": "/ai/tools/index.js",
+      "status": "duplicate",
+      "expected": "seven-os\\ai\\tools\\index.js",
+      "found_at": [
+        "backend\\ai-worker\\index.js",
+        "backend\\gii\\context\\index.js",
+        "backend\\routes\\index.js",
+        "backend\\security\\tools\\index.js",
+        "backend\\threat\\index.js",
+        "backend\\utilities\\geo\\index.js",
+        "backend\\utilities\\geomapping-logic.js\\index.js",
+        "backend\\utilities\\integrity\\index.js",
+        "seven-os\\infrastructure\\index.js",
+        "seven-os\\infrastructure\\tools\\index.js",
+        "seven-os\\policy-packs\\index.js",
+        "seven-os\\sectors\\agri\\index.js",
+        "seven-os\\sectors\\agri\\visual\\index.js",
+        "seven-os\\sectors\\contractors\\index.js",
+        "seven-os\\sectors\\contractors\\sectors\\contractors\\index.js",
+        "seven-os\\sectors\\cyber\\index.js",
+        "seven-os\\sectors\\cyber\\sectors\\cyber\\index.js",
+        "seven-os\\sectors\\cyber\\workers\\cyber\\cyber\\index.js",
+        "seven-os\\sectors\\datacenters\\index.js",
+        "seven-os\\sectors\\disaster_response\\index.js",
+        "seven-os\\sectors\\disaster_response\\sectors\\disaster_response\\index.js",
+        "seven-os\\sectors\\fcc\\index.js",
+        "seven-os\\sectors\\gov\\index.js",
+        "seven-os\\sectors\\government\\policy-packs\\index.js",
+        "seven-os\\sectors\\government\\sectors\\gov\\index.js",
+        "seven-os\\sectors\\infrastructure\\logistics\\index.js",
+        "seven-os\\sectors\\logistics\\index.js",
+        "seven-os\\sectors\\mining\\index.js",
+        "seven-os\\sectors\\oil_gas\\index.js",
+        "seven-os\\sectors\\overlays\\index.js",
+        "seven-os\\sectors\\pipe-lines\\index.js",
+        "seven-os\\sectors\\pipelines\\index.js",
+        "seven-os\\sectors\\ports\\index.js",
+        "seven-os\\sectors\\power\\index.js",
+        "seven-os\\sectors\\public_safety\\index.js",
+        "seven-os\\sectors\\rail\\index.js",
+        "seven-os\\sectors\\roads\\index.js",
+        "seven-os\\sectors\\telecom\\index.js",
+        "seven-os\\sectors\\water\\index.js",
+        "seven-os\\seven-runtime\\ai\\tools\\index.js",
+        "seven-os\\seven-runtime\\ai\\workflows\\index.js",
+        "seven-os\\seven-runtime\\api\\index.js",
+        "seven-os\\seven-runtime\\workers\\cyber\\cyber\\index.js",
+        "seven-os\\seven-runtime\\workers\\fcc\\index.js",
+        "seven-os\\system\\index.js",
+        "seven-os\\utilities\\tools\\index.js"
+      ]
+    },
+    {
+      "route": "/ai/tools/public/format-riefing.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\tools\\public\\format-riefing.js"
+    },
+    {
+      "route": "/ai/tools/public/index.js",
+      "status": "duplicate",
+      "expected": "seven-os\\ai\\tools\\public\\index.js",
+      "found_at": [
+        "backend\\ai-worker\\index.js",
+        "backend\\gii\\context\\index.js",
+        "backend\\routes\\index.js",
+        "backend\\security\\tools\\index.js",
+        "backend\\threat\\index.js",
+        "backend\\utilities\\geo\\index.js",
+        "backend\\utilities\\geomapping-logic.js\\index.js",
+        "backend\\utilities\\integrity\\index.js",
+        "seven-os\\infrastructure\\index.js",
+        "seven-os\\infrastructure\\tools\\index.js",
+        "seven-os\\policy-packs\\index.js",
+        "seven-os\\sectors\\agri\\index.js",
+        "seven-os\\sectors\\agri\\visual\\index.js",
+        "seven-os\\sectors\\contractors\\index.js",
+        "seven-os\\sectors\\contractors\\sectors\\contractors\\index.js",
+        "seven-os\\sectors\\cyber\\index.js",
+        "seven-os\\sectors\\cyber\\sectors\\cyber\\index.js",
+        "seven-os\\sectors\\cyber\\workers\\cyber\\cyber\\index.js",
+        "seven-os\\sectors\\datacenters\\index.js",
+        "seven-os\\sectors\\disaster_response\\index.js",
+        "seven-os\\sectors\\disaster_response\\sectors\\disaster_response\\index.js",
+        "seven-os\\sectors\\fcc\\index.js",
+        "seven-os\\sectors\\gov\\index.js",
+        "seven-os\\sectors\\government\\policy-packs\\index.js",
+        "seven-os\\sectors\\government\\sectors\\gov\\index.js",
+        "seven-os\\sectors\\infrastructure\\logistics\\index.js",
+        "seven-os\\sectors\\logistics\\index.js",
+        "seven-os\\sectors\\mining\\index.js",
+        "seven-os\\sectors\\oil_gas\\index.js",
+        "seven-os\\sectors\\overlays\\index.js",
+        "seven-os\\sectors\\pipe-lines\\index.js",
+        "seven-os\\sectors\\pipelines\\index.js",
+        "seven-os\\sectors\\ports\\index.js",
+        "seven-os\\sectors\\power\\index.js",
+        "seven-os\\sectors\\public_safety\\index.js",
+        "seven-os\\sectors\\rail\\index.js",
+        "seven-os\\sectors\\roads\\index.js",
+        "seven-os\\sectors\\telecom\\index.js",
+        "seven-os\\sectors\\water\\index.js",
+        "seven-os\\seven-runtime\\ai\\tools\\index.js",
+        "seven-os\\seven-runtime\\ai\\workflows\\index.js",
+        "seven-os\\seven-runtime\\api\\index.js",
+        "seven-os\\seven-runtime\\workers\\cyber\\cyber\\index.js",
+        "seven-os\\seven-runtime\\workers\\fcc\\index.js",
+        "seven-os\\system\\index.js",
+        "seven-os\\utilities\\tools\\index.js"
+      ]
+    },
+    {
+      "route": "/ai/tools/public/structureMessage.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\tools\\public\\structureMessage.js"
+    },
+    {
+      "route": "/ai/tools/summarizer.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\tools\\summarizer.js"
+    },
+    {
+      "route": "/ai/tools.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\tools.js"
+    },
+    {
+      "route": "/ai/Topology Validation Engine.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\Topology Validation Engine.js"
+    },
+    {
+      "route": "/ai/trustzone-firwall.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\trustzone-firwall.js"
+    },
+    {
+      "route": "/ai/utils/crypto.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\utils\\crypto.js"
+    },
+    {
+      "route": "/ai/validation/schema-guard.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\validation\\schema-guard.js"
+    },
+    {
+      "route": "/ai/validator.ts",
+      "status": "exists",
+      "location": "seven-os\\ai\\validator.ts"
+    },
+    {
+      "route": "/ai/workflows.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\workflows.js"
+    },
+    {
+      "route": "/ai/zoning-landuse.js",
+      "status": "exists",
+      "location": "seven-os\\ai\\zoning-landuse.js"
+    },
+    {
+      "route": "/ai-engine-generator.ts",
+      "status": "exists",
+      "location": "seven-os\\ai-engine-generator.ts"
+    },
+    {
+      "route": "/api/boundary.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\api\\boundary.ts",
+      "found_at": "seven-os\\seven-runtime\\api\\boundary.ts"
+    },
+    {
+      "route": "/api/collars.js",
+      "status": "misplaced",
+      "expected": "seven-os\\api\\collars.js",
+      "found_at": "seven-os\\seven-runtime\\api\\collars.js"
+    },
+    {
+      "route": "/api/compliance.js",
+      "status": "misplaced",
+      "expected": "seven-os\\api\\compliance.js",
+      "found_at": "seven-os\\seven-runtime\\api\\compliance.js"
+    },
+    {
+      "route": "/api/deep-mind.js",
+      "status": "misplaced",
+      "expected": "seven-os\\api\\deep-mind.js",
+      "found_at": "seven-os\\seven-runtime\\api\\deep-mind.js"
+    },
+    {
+      "route": "/api/ewo.js",
+      "status": "misplaced",
+      "expected": "seven-os\\api\\ewo.js",
+      "found_at": "seven-os\\seven-runtime\\api\\ewo.js"
+    },
+    {
+      "route": "/api/gov/gov-view.js",
+      "status": "misplaced",
+      "expected": "seven-os\\api\\gov\\gov-view.js",
+      "found_at": "seven-os\\seven-runtime\\api\\gov\\gov-view.js"
+    },
+    {
+      "route": "/api/gov/threats.js",
+      "status": "misplaced",
+      "expected": "seven-os\\api\\gov\\threats.js",
+      "found_at": "seven-os\\seven-runtime\\api\\gov\\threats.js"
+    },
+    {
+      "route": "/api/gov-view.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\api\\gov-view.ts",
+      "found_at": [
+        "seven-os\\sectors\\government\\api\\gov-view.ts",
+        "seven-os\\seven-runtime\\api\\gov-view.ts"
+      ]
+    },
+    {
+      "route": "/api/index.js",
+      "status": "duplicate",
+      "expected": "seven-os\\api\\index.js",
+      "found_at": [
+        "backend\\ai-worker\\index.js",
+        "backend\\gii\\context\\index.js",
+        "backend\\routes\\index.js",
+        "backend\\security\\tools\\index.js",
+        "backend\\threat\\index.js",
+        "backend\\utilities\\geo\\index.js",
+        "backend\\utilities\\geomapping-logic.js\\index.js",
+        "backend\\utilities\\integrity\\index.js",
+        "seven-os\\infrastructure\\index.js",
+        "seven-os\\infrastructure\\tools\\index.js",
+        "seven-os\\policy-packs\\index.js",
+        "seven-os\\sectors\\agri\\index.js",
+        "seven-os\\sectors\\agri\\visual\\index.js",
+        "seven-os\\sectors\\contractors\\index.js",
+        "seven-os\\sectors\\contractors\\sectors\\contractors\\index.js",
+        "seven-os\\sectors\\cyber\\index.js",
+        "seven-os\\sectors\\cyber\\sectors\\cyber\\index.js",
+        "seven-os\\sectors\\cyber\\workers\\cyber\\cyber\\index.js",
+        "seven-os\\sectors\\datacenters\\index.js",
+        "seven-os\\sectors\\disaster_response\\index.js",
+        "seven-os\\sectors\\disaster_response\\sectors\\disaster_response\\index.js",
+        "seven-os\\sectors\\fcc\\index.js",
+        "seven-os\\sectors\\gov\\index.js",
+        "seven-os\\sectors\\government\\policy-packs\\index.js",
+        "seven-os\\sectors\\government\\sectors\\gov\\index.js",
+        "seven-os\\sectors\\infrastructure\\logistics\\index.js",
+        "seven-os\\sectors\\logistics\\index.js",
+        "seven-os\\sectors\\mining\\index.js",
+        "seven-os\\sectors\\oil_gas\\index.js",
+        "seven-os\\sectors\\overlays\\index.js",
+        "seven-os\\sectors\\pipe-lines\\index.js",
+        "seven-os\\sectors\\pipelines\\index.js",
+        "seven-os\\sectors\\ports\\index.js",
+        "seven-os\\sectors\\power\\index.js",
+        "seven-os\\sectors\\public_safety\\index.js",
+        "seven-os\\sectors\\rail\\index.js",
+        "seven-os\\sectors\\roads\\index.js",
+        "seven-os\\sectors\\telecom\\index.js",
+        "seven-os\\sectors\\water\\index.js",
+        "seven-os\\seven-runtime\\ai\\tools\\index.js",
+        "seven-os\\seven-runtime\\ai\\workflows\\index.js",
+        "seven-os\\seven-runtime\\api\\index.js",
+        "seven-os\\seven-runtime\\workers\\cyber\\cyber\\index.js",
+        "seven-os\\seven-runtime\\workers\\fcc\\index.js",
+        "seven-os\\system\\index.js",
+        "seven-os\\utilities\\tools\\index.js"
+      ]
+    },
+    {
+      "route": "/api/opportunity.ts",
+      "status": "exists",
+      "location": "seven-os\\api\\opportunity.ts"
+    },
+    {
+      "route": "/api/router.js",
+      "status": "exists",
+      "location": "seven-os\\api\\router.js"
+    },
+    {
+      "route": "/api/sector-math.js",
+      "status": "misplaced",
+      "expected": "seven-os\\api\\sector-math.js",
+      "found_at": "seven-os\\seven-runtime\\api\\sector-math.js"
+    },
+    {
+      "route": "/api/sector-status.js",
+      "status": "misplaced",
+      "expected": "seven-os\\api\\sector-status.js",
+      "found_at": "seven-os\\seven-runtime\\api\\sector-status.js"
+    },
+    {
+      "route": "/api/seven-responder-interface.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\api\\seven-responder-interface.ts",
+      "found_at": "seven-os\\seven-runtime\\api\\seven-responder-interface.ts"
+    },
+    {
+      "route": "/api/system/health.js",
+      "status": "misplaced",
+      "expected": "seven-os\\api\\system\\health.js",
+      "found_at": "seven-os\\seven-runtime\\api\\system\\health.js"
+    },
+    {
+      "route": "/api/system/uptime.js",
+      "status": "duplicate",
+      "expected": "seven-os\\api\\system\\uptime.js",
+      "found_at": [
+        "backend\\system\\uptime.js",
+        "seven-os\\seven-runtime\\api\\system\\uptime.js"
+      ]
+    },
+    {
+      "route": "/api/system.js",
+      "status": "misplaced",
+      "expected": "seven-os\\api\\system.js",
+      "found_at": "seven-os\\seven-runtime\\api\\system.js"
+    },
+    {
+      "route": "/api/users.js",
+      "status": "misplaced",
+      "expected": "seven-os\\api\\users.js",
+      "found_at": "seven-os\\seven-runtime\\api\\users.js"
+    },
+    {
+      "route": "/api/voice-flight-handler.js",
+      "status": "misplaced",
+      "expected": "seven-os\\api\\voice-flight-handler.js",
+      "found_at": "seven-os\\seven-runtime\\api\\voice-flight-handler.js"
+    },
+    {
+      "route": "/audit/seven-repo-audit.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\audit\\seven-repo-audit.ts",
+      "found_at": "seven-os\\seven-runtime\\audit\\seven-repo-audit.ts"
+    },
+    {
+      "route": "/auto-heal-engine.ts",
+      "status": "exists",
+      "location": "seven-os\\auto-heal-engine.ts"
+    },
+    {
+      "route": "/cattle/boundary-engine.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\cattle\\boundary-engine.ts",
+      "found_at": "seven-os\\seven-runtime\\cattle\\boundary-engine.ts"
+    },
+    {
+      "route": "/cattle/boundary-service.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\cattle\\boundary-service.ts",
+      "found_at": "seven-os\\seven-runtime\\cattle\\boundary-service.ts"
+    },
+    {
+      "route": "/cattle/boundary-types.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\cattle\\boundary-types.ts",
+      "found_at": "seven-os\\seven-runtime\\cattle\\boundary-types.ts"
+    },
+    {
+      "route": "/cattle/cattle-collar-sync.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\cattle\\cattle-collar-sync.ts",
+      "found_at": "seven-os\\seven-runtime\\cattle\\cattle-collar-sync.ts"
+    },
+    {
+      "route": "/cattle/cattle-rules.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\cattle\\cattle-rules.ts",
+      "found_at": "seven-os\\seven-runtime\\cattle\\cattle-rules.ts"
+    },
+    {
+      "route": "/cattle/rotation-engine.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\cattle\\rotation-engine.ts",
+      "found_at": "seven-os\\seven-runtime\\cattle\\rotation-engine.ts"
+    },
+    {
+      "route": "/cattle/types.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\cattle\\types.ts",
+      "found_at": [
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\types.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\types.ts",
+        "seven-os\\core\\fcc\\telecom-equipment-authorization\\types.ts",
+        "seven-os\\core\\governance\\types.ts",
+        "seven-os\\seven-runtime\\cattle\\types.ts",
+        "seven-os\\seven-runtime\\infra\\tower\\types.ts",
+        "seven-os\\seven-runtime\\infra\\types.ts"
+      ]
+    },
+    {
+      "route": "/cattle/vendors/gallagher.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\cattle\\vendors\\gallagher.ts",
+      "found_at": "seven-os\\seven-runtime\\cattle\\vendors\\gallagher.ts"
+    },
+    {
+      "route": "/compliance-generator.ts",
+      "status": "exists",
+      "location": "seven-os\\compliance-generator.ts"
+    },
+    {
+      "route": "/composing.ts",
+      "status": "exists",
+      "location": "seven-os\\composing.ts"
+    },
+    {
+      "route": "/core/azure-bridge.js",
+      "status": "misplaced",
+      "expected": "seven-os\\core\\azure-bridge.js",
+      "found_at": "seven-os\\sectors\\cloud\\system\\core\\azure-bridge.js"
+    },
+    {
+      "route": "/core/cyber/anomaly-detector.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\core\\cyber\\anomaly-detector.ts",
+      "found_at": "seven-os\\cyber\\anomaly-detector.ts"
+    },
+    {
+      "route": "/core/cyber/block.js",
+      "status": "misplaced",
+      "expected": "seven-os\\core\\cyber\\block.js",
+      "found_at": "seven-os\\cyber\\block.js"
+    },
+    {
+      "route": "/core/cyber/event-builder.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\core\\cyber\\event-builder.ts",
+      "found_at": "seven-os\\cyber\\event-builder.ts"
+    },
+    {
+      "route": "/core/cyber/event-model.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\core\\cyber\\event-model.ts",
+      "found_at": "seven-os\\cyber\\event-model.ts"
+    },
+    {
+      "route": "/core/cyber/incident-router.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\core\\cyber\\incident-router.ts",
+      "found_at": "seven-os\\cyber\\incident-router.ts"
+    },
+    {
+      "route": "/core/cyber/index.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\core\\cyber\\index.ts",
+      "found_at": [
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\remediation-engine\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\index.ts",
+        "seven-os\\core\\fcc\\compliance-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\compliance-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\fallback-auditor\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\fcc\\firmware-auditor\\index.ts",
+        "seven-os\\core\\fcc\\network-observation-layer\\index.ts",
+        "seven-os\\core\\fcc\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\rf-observation-layer\\index.ts",
+        "seven-os\\core\\fcc\\telecom-equipment-authorization\\index.ts",
+        "seven-os\\core\\fcc\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\governance\\compliance-engine\\index.ts",
+        "seven-os\\core\\governance\\goverance-brain\\index.ts",
+        "seven-os\\core\\math\\index.ts",
+        "seven-os\\core\\remediation\\index.ts",
+        "seven-os\\core\\workforce\\AI-workforce-sync-layer\\index.ts",
+        "seven-os\\cyber\\index.ts",
+        "seven-os\\mci\\index.ts",
+        "seven-os\\seven-runtime\\rf\\FirmwareAuditor\\index.ts",
+        "seven-os\\seven-runtime\\rf\\REObservation-layer\\index.ts",
+        "seven-os\\seven-runtime\\workers\\emergency-router\\index.ts",
+        "seven-os\\seven-runtime\\workers\\expansion\\index.ts",
+        "seven-os\\seven-runtime\\workers\\finance\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\hr-worker\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\employee\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\layouts\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\themes\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\widgets\\index.ts"
+      ]
+    },
+    {
+      "route": "/core/cyber/integrity-monitor.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\core\\cyber\\integrity-monitor.ts",
+      "found_at": "seven-os\\cyber\\integrity-monitor.ts"
+    },
+    {
+      "route": "/core/cyber/policy.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\core\\cyber\\policy.ts",
+      "found_at": "seven-os\\cyber\\policy.ts"
+    },
+    {
+      "route": "/core/cyber/threat-surface.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\core\\cyber\\threat-surface.ts",
+      "found_at": "seven-os\\cyber\\threat-surface.ts"
+    },
+    {
+      "route": "/core/cyber/worker-hook.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\core\\cyber\\worker-hook.ts",
+      "found_at": "seven-os\\cyber\\worker-hook.ts"
+    },
+    {
+      "route": "/core/fcc/carrier-network-compliance/governance-brain/compliance-engine/index.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\index.ts",
+      "found_at": [
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\remediation-engine\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\index.ts",
+        "seven-os\\core\\fcc\\compliance-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\compliance-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\fallback-auditor\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\fcc\\firmware-auditor\\index.ts",
+        "seven-os\\core\\fcc\\network-observation-layer\\index.ts",
+        "seven-os\\core\\fcc\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\rf-observation-layer\\index.ts",
+        "seven-os\\core\\fcc\\telecom-equipment-authorization\\index.ts",
+        "seven-os\\core\\fcc\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\governance\\compliance-engine\\index.ts",
+        "seven-os\\core\\governance\\goverance-brain\\index.ts",
+        "seven-os\\core\\math\\index.ts",
+        "seven-os\\core\\remediation\\index.ts",
+        "seven-os\\core\\workforce\\AI-workforce-sync-layer\\index.ts",
+        "seven-os\\cyber\\index.ts",
+        "seven-os\\mci\\index.ts",
+        "seven-os\\seven-runtime\\rf\\FirmwareAuditor\\index.ts",
+        "seven-os\\seven-runtime\\rf\\REObservation-layer\\index.ts",
+        "seven-os\\seven-runtime\\workers\\emergency-router\\index.ts",
+        "seven-os\\seven-runtime\\workers\\expansion\\index.ts",
+        "seven-os\\seven-runtime\\workers\\finance\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\hr-worker\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\employee\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\layouts\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\themes\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\widgets\\index.ts"
+      ]
+    },
+    {
+      "route": "/core/fcc/carrier-network-compliance/governance-brain/compliance-engine/remediation-engine/index.ts",
+      "status": "exists",
+      "location": "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\remediation-engine\\index.ts"
+    },
+    {
+      "route": "/core/fcc/carrier-network-compliance/governance-brain/compliance-engine/remediation-engine/workforce-sync-layer/index.ts",
+      "status": "exists",
+      "location": "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\remediation-engine\\workforce-sync-layer\\index.ts"
+    },
+    {
+      "route": "/core/fcc/carrier-network-compliance/governance-brain/index.ts",
+      "status": "exists",
+      "location": "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\index.ts"
+    },
+    {
+      "route": "/core/fcc/carrier-network-compliance/governance-brain/types.ts",
+      "status": "exists",
+      "location": "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\types.ts"
+    },
+    {
+      "route": "/core/fcc/compliance-engine/index.ts",
+      "status": "exists",
+      "location": "seven-os\\core\\fcc\\compliance-engine\\index.ts"
+    },
+    {
+      "route": "/core/fcc/emergency-access-fallback/governance-brain/compliance-engine/index.ts",
+      "status": "exists",
+      "location": "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\compliance-engine\\index.ts"
+    },
+    {
+      "route": "/core/fcc/emergency-access-fallback/governance-brain/emergency-observation-layer/idex.ts",
+      "status": "exists",
+      "location": "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\emergency-observation-layer\\idex.ts"
+    },
+    {
+      "route": "/core/fcc/emergency-access-fallback/governance-brain/fallback-auditor/index.ts",
+      "status": "exists",
+      "location": "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\fallback-auditor\\index.ts"
+    },
+    {
+      "route": "/core/fcc/emergency-access-fallback/governance-brain/index.ts",
+      "status": "exists",
+      "location": "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\index.ts"
+    },
+    {
+      "route": "/core/fcc/emergency-access-fallback/governance-brain/remediation-engine/index.ts",
+      "status": "exists",
+      "location": "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\remediation-engine\\index.ts"
+    },
+    {
+      "route": "/core/fcc/emergency-access-fallback/governance-brain/types.ts",
+      "status": "exists",
+      "location": "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\types.ts"
+    },
+    {
+      "route": "/core/fcc/emergency-access-fallback/governance-brain/workforce-sync-layer/index.ts",
+      "status": "exists",
+      "location": "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\workforce-sync-layer\\index.ts"
+    },
+    {
+      "route": "/core/fcc/firmware-auditor/index.ts",
+      "status": "exists",
+      "location": "seven-os\\core\\fcc\\firmware-auditor\\index.ts"
+    },
+    {
+      "route": "/core/fcc/network-observation-layer/index.ts",
+      "status": "exists",
+      "location": "seven-os\\core\\fcc\\network-observation-layer\\index.ts"
+    },
+    {
+      "route": "/core/fcc/remediation-engine/index.ts",
+      "status": "exists",
+      "location": "seven-os\\core\\fcc\\remediation-engine\\index.ts"
+    },
+    {
+      "route": "/core/fcc/rf-observation-layer/index.ts",
+      "status": "exists",
+      "location": "seven-os\\core\\fcc\\rf-observation-layer\\index.ts"
+    },
+    {
+      "route": "/core/fcc/telecom-equipment-authorization/index.ts",
+      "status": "exists",
+      "location": "seven-os\\core\\fcc\\telecom-equipment-authorization\\index.ts"
+    },
+    {
+      "route": "/core/fcc/telecom-equipment-authorization/types.ts",
+      "status": "exists",
+      "location": "seven-os\\core\\fcc\\telecom-equipment-authorization\\types.ts"
+    },
+    {
+      "route": "/core/fcc/workforce-sync-layer/index.ts",
+      "status": "exists",
+      "location": "seven-os\\core\\fcc\\workforce-sync-layer\\index.ts"
+    },
+    {
+      "route": "/core/governance/compliance-engine/index.ts",
+      "status": "exists",
+      "location": "seven-os\\core\\governance\\compliance-engine\\index.ts"
+    },
+    {
+      "route": "/core/governance/goverance-brain/index.ts",
+      "status": "exists",
+      "location": "seven-os\\core\\governance\\goverance-brain\\index.ts"
+    },
+    {
+      "route": "/core/governance/types.ts",
+      "status": "exists",
+      "location": "seven-os\\core\\governance\\types.ts"
+    },
+    {
+      "route": "/core/inspector/ai-inspector.js",
+      "status": "exists",
+      "location": "seven-os\\core\\inspector\\ai-inspector.js"
+    },
+    {
+      "route": "/core/math/geometry.ts",
+      "status": "exists",
+      "location": "seven-os\\core\\math\\geometry.ts"
+    },
+    {
+      "route": "/core/math/index.ts",
+      "status": "exists",
+      "location": "seven-os\\core\\math\\index.ts"
+    },
+    {
+      "route": "/core/math/orbital.ts",
+      "status": "exists",
+      "location": "seven-os\\core\\math\\orbital.ts"
+    },
+    {
+      "route": "/core/math/terrain.ts",
+      "status": "exists",
+      "location": "seven-os\\core\\math\\terrain.ts"
+    },
+    {
+      "route": "/core/remediation/index.ts",
+      "status": "exists",
+      "location": "seven-os\\core\\remediation\\index.ts"
+    },
+    {
+      "route": "/core/sensors/fusion.ts",
+      "status": "exists",
+      "location": "seven-os\\core\\sensors\\fusion.ts"
+    },
+    {
+      "route": "/core/sensors/lidar.ts",
+      "status": "exists",
+      "location": "seven-os\\core\\sensors\\lidar.ts"
+    },
+    {
+      "route": "/core/seven-stack.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\core\\seven-stack.ts",
+      "found_at": [
+        "seven-os\\seven-runtime\\stack\\seven-stack.ts",
+        "seven-os\\stack\\seven-stack.ts"
+      ]
+    },
+    {
+      "route": "/core/seven.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\core\\seven.ts",
+      "found_at": "seven-os\\seven-runtime\\seven.ts"
+    },
+    {
+      "route": "/core/workforce/AI-workforce-sync-layer/index.ts",
+      "status": "exists",
+      "location": "seven-os\\core\\workforce\\AI-workforce-sync-layer\\index.ts"
+    },
+    {
+      "route": "/core/zoning/zoning.js",
+      "status": "exists",
+      "location": "seven-os\\core\\zoning\\zoning.js"
+    },
+    {
+      "route": "/core-handler.ts",
+      "status": "exists",
+      "location": "seven-os\\core-handler.ts"
+    },
+    {
+      "route": "/disaster/disaster-launcher.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\disaster\\disaster-launcher.ts",
+      "found_at": [
+        "seven-os\\sectors\\disaster_response\\disaster\\disaster-launcher.ts",
+        "seven-os\\seven-runtime\\disaster\\disaster-launcher.ts"
+      ]
+    },
+    {
+      "route": "/disaster/disaster-swarm.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\disaster\\disaster-swarm.ts",
+      "found_at": [
+        "seven-os\\sectors\\disaster_response\\disaster\\disaster-swarm.ts",
+        "seven-os\\seven-runtime\\disaster\\disaster-swarm.ts"
+      ]
+    },
+    {
+      "route": "/drone/disaster-profile.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\drone\\disaster-profile.ts",
+      "found_at": [
+        "seven-os\\sectors\\disaster_response\\safety\\disaster-profile.ts",
+        "seven-os\\seven-runtime\\drone\\disaster-profile.ts",
+        "seven-os\\seven-runtime\\safety\\disaster-profile.ts"
+      ]
+    },
+    {
+      "route": "/drone/drone-cotrol.test.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\drone\\drone-cotrol.test.ts",
+      "found_at": "seven-os\\seven-runtime\\drone\\drone-cotrol.test.ts"
+    },
+    {
+      "route": "/drone/drone-cotrol.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\drone\\drone-cotrol.ts",
+      "found_at": "seven-os\\seven-runtime\\drone\\drone-cotrol.ts"
+    },
+    {
+      "route": "/drone/drone-mission-planner.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\drone\\drone-mission-planner.ts",
+      "found_at": "seven-os\\seven-runtime\\drone\\drone-mission-planner.ts"
+    },
+    {
+      "route": "/drone/drone-orchestrator.test.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\drone\\drone-orchestrator.test.ts",
+      "found_at": "seven-os\\seven-runtime\\drone\\drone-orchestrator.test.ts"
+    },
+    {
+      "route": "/drone/drone-orchestrator.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\drone\\drone-orchestrator.ts",
+      "found_at": "seven-os\\seven-runtime\\drone\\drone-orchestrator.ts"
+    },
+    {
+      "route": "/drone/drone-plugin.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\drone\\drone-plugin.ts",
+      "found_at": "seven-os\\seven-runtime\\drone\\drone-plugin.ts"
+    },
+    {
+      "route": "/drone/drone-registry.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\drone\\drone-registry.ts",
+      "found_at": "seven-os\\seven-runtime\\drone\\drone-registry.ts"
+    },
+    {
+      "route": "/drone/geofence.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\drone\\geofence.ts",
+      "found_at": "seven-os\\seven-runtime\\drone\\geofence.ts"
+    },
+    {
+      "route": "/drone/swarm-cotroller.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\drone\\swarm-cotroller.ts",
+      "found_at": "seven-os\\seven-runtime\\drone\\swarm-cotroller.ts"
+    },
+    {
+      "route": "/drone/swarm-lightshow.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\drone\\swarm-lightshow.ts",
+      "found_at": "seven-os\\seven-runtime\\drone\\swarm-lightshow.ts"
+    },
+    {
+      "route": "/drone/terrain-routing.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\drone\\terrain-routing.ts",
+      "found_at": "seven-os\\seven-runtime\\drone\\terrain-routing.ts"
+    },
+    {
+      "route": "/e2e.test.ts",
+      "status": "exists",
+      "location": "seven-os\\e2e.test.ts"
+    },
+    {
+      "route": "/economics/contractor-matching.js",
+      "status": "exists",
+      "location": "seven-os\\economics\\contractor-matching.js"
+    },
+    {
+      "route": "/economics/funding-engine.js",
+      "status": "exists",
+      "location": "seven-os\\economics\\funding-engine.js"
+    },
+    {
+      "route": "/event-bus.ts",
+      "status": "exists",
+      "location": "seven-os\\event-bus.ts"
+    },
+    {
+      "route": "/event-dispatcher.ts",
+      "status": "exists",
+      "location": "seven-os\\event-dispatcher.ts"
+    },
+    {
+      "route": "/event-hacndlers.ts",
+      "status": "missing",
+      "expected": "seven-os\\event-hacndlers.ts"
+    },
+    {
+      "route": "/expansion/expansion-engin.ts",
+      "status": "exists",
+      "location": "seven-os\\expansion\\expansion-engin.ts"
+    },
+    {
+      "route": "/expansion-task.ts",
+      "status": "exists",
+      "location": "seven-os\\expansion-task.ts"
+    },
+    {
+      "route": "/filters/code-filter.js",
+      "status": "exists",
+      "location": "seven-os\\filters\\code-filter.js"
+    },
+    {
+      "route": "/financial/engine/budget-engine.ts",
+      "status": "exists",
+      "location": "seven-os\\financial\\engine\\budget-engine.ts"
+    },
+    {
+      "route": "/financial/engine/contract-engine.ts",
+      "status": "exists",
+      "location": "seven-os\\financial\\engine\\contract-engine.ts"
+    },
+    {
+      "route": "/financial/engine/cost-engine.ts",
+      "status": "exists",
+      "location": "seven-os\\financial\\engine\\cost-engine.ts"
+    },
+    {
+      "route": "/financial/workers/financial-reports.ts",
+      "status": "exists",
+      "location": "seven-os\\financial\\workers\\financial-reports.ts"
+    },
+    {
+      "route": "/ground/ground-control.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\ground\\ground-control.ts",
+      "found_at": "seven-os\\seven-runtime\\ground\\ground-control.ts"
+    },
+    {
+      "route": "/ground/ground-registy.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\ground\\ground-registy.ts",
+      "found_at": "seven-os\\seven-runtime\\ground\\ground-registy.ts"
+    },
+    {
+      "route": "/hybrid/hybrid-mode.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\hybrid\\hybrid-mode.ts",
+      "found_at": [
+        "seven-os\\seven-runtime\\hybrid\\hybrid-mode.ts",
+        "seven-os\\seven-runtime\\sync\\policies\\hybrid-mode.ts"
+      ]
+    },
+    {
+      "route": "/identity/did.ts",
+      "status": "exists",
+      "location": "seven-os\\identity\\did.ts"
+    },
+    {
+      "route": "/identity/vc.ts",
+      "status": "exists",
+      "location": "seven-os\\identity\\vc.ts"
+    },
+    {
+      "route": "/infra/ag/ag.event.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\infra\\ag\\ag.event.ts",
+      "found_at": "seven-os\\seven-runtime\\infra\\ag\\ag.event.ts"
+    },
+    {
+      "route": "/infra/ag/livestock/audit.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\infra\\ag\\livestock\\audit.ts",
+      "found_at": [
+        "seven-os\\seven-runtime\\infra\\ag\\livestock\\audit.ts",
+        "seven-os\\seven-runtime\\infra\\ag\\virtual-fence\\audit.ts",
+        "seven-os\\seven-runtime\\infra\\ems\\audit.ts",
+        "seven-os\\seven-runtime\\infra\\fiber\\audit.ts",
+        "seven-os\\seven-runtime\\infra\\power\\audit.ts"
+      ]
+    },
+    {
+      "route": "/infra/ag/virtual-fence/audit.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\infra\\ag\\virtual-fence\\audit.ts",
+      "found_at": [
+        "seven-os\\seven-runtime\\infra\\ag\\livestock\\audit.ts",
+        "seven-os\\seven-runtime\\infra\\ag\\virtual-fence\\audit.ts",
+        "seven-os\\seven-runtime\\infra\\ems\\audit.ts",
+        "seven-os\\seven-runtime\\infra\\fiber\\audit.ts",
+        "seven-os\\seven-runtime\\infra\\power\\audit.ts"
+      ]
+    },
+    {
+      "route": "/infra/ems/audit.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\infra\\ems\\audit.ts",
+      "found_at": [
+        "seven-os\\seven-runtime\\infra\\ag\\livestock\\audit.ts",
+        "seven-os\\seven-runtime\\infra\\ag\\virtual-fence\\audit.ts",
+        "seven-os\\seven-runtime\\infra\\ems\\audit.ts",
+        "seven-os\\seven-runtime\\infra\\fiber\\audit.ts",
+        "seven-os\\seven-runtime\\infra\\power\\audit.ts"
+      ]
+    },
+    {
+      "route": "/infra/ems/ems.event.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\infra\\ems\\ems.event.ts",
+      "found_at": "seven-os\\seven-runtime\\infra\\ems\\ems.event.ts"
+    },
+    {
+      "route": "/infra/fiber/audit.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\infra\\fiber\\audit.ts",
+      "found_at": [
+        "seven-os\\seven-runtime\\infra\\ag\\livestock\\audit.ts",
+        "seven-os\\seven-runtime\\infra\\ag\\virtual-fence\\audit.ts",
+        "seven-os\\seven-runtime\\infra\\ems\\audit.ts",
+        "seven-os\\seven-runtime\\infra\\fiber\\audit.ts",
+        "seven-os\\seven-runtime\\infra\\power\\audit.ts"
+      ]
+    },
+    {
+      "route": "/infra/fiber/fiber.event.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\infra\\fiber\\fiber.event.ts",
+      "found_at": "seven-os\\seven-runtime\\infra\\fiber\\fiber.event.ts"
+    },
+    {
+      "route": "/infra/infra.event.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\infra\\infra.event.ts",
+      "found_at": "seven-os\\seven-runtime\\infra\\infra.event.ts"
+    },
+    {
+      "route": "/infra/power/audit.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\infra\\power\\audit.ts",
+      "found_at": [
+        "seven-os\\seven-runtime\\infra\\ag\\livestock\\audit.ts",
+        "seven-os\\seven-runtime\\infra\\ag\\virtual-fence\\audit.ts",
+        "seven-os\\seven-runtime\\infra\\ems\\audit.ts",
+        "seven-os\\seven-runtime\\infra\\fiber\\audit.ts",
+        "seven-os\\seven-runtime\\infra\\power\\audit.ts"
+      ]
+    },
+    {
+      "route": "/infra/power/power.event.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\infra\\power\\power.event.ts",
+      "found_at": "seven-os\\seven-runtime\\infra\\power\\power.event.ts"
+    },
+    {
+      "route": "/infra/shared/types/infra-event.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\infra\\shared\\types\\infra-event.ts",
+      "found_at": "seven-os\\seven-runtime\\infra\\shared\\types\\infra-event.ts"
+    },
+    {
+      "route": "/infra/shared/utils/events.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\infra\\shared\\utils\\events.ts",
+      "found_at": "seven-os\\seven-runtime\\infra\\shared\\utils\\events.ts"
+    },
+    {
+      "route": "/infra/tower/autit.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\infra\\tower\\autit.ts",
+      "found_at": "seven-os\\seven-runtime\\infra\\tower\\autit.ts"
+    },
+    {
+      "route": "/infra/tower/tower.events.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\infra\\tower\\tower.events.ts",
+      "found_at": "seven-os\\seven-runtime\\infra\\tower\\tower.events.ts"
+    },
+    {
+      "route": "/infra/tower/types.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\infra\\tower\\types.ts",
+      "found_at": [
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\types.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\types.ts",
+        "seven-os\\core\\fcc\\telecom-equipment-authorization\\types.ts",
+        "seven-os\\core\\governance\\types.ts",
+        "seven-os\\seven-runtime\\cattle\\types.ts",
+        "seven-os\\seven-runtime\\infra\\tower\\types.ts",
+        "seven-os\\seven-runtime\\infra\\types.ts"
+      ]
+    },
+    {
+      "route": "/infra/types.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\infra\\types.ts",
+      "found_at": [
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\types.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\types.ts",
+        "seven-os\\core\\fcc\\telecom-equipment-authorization\\types.ts",
+        "seven-os\\core\\governance\\types.ts",
+        "seven-os\\seven-runtime\\cattle\\types.ts",
+        "seven-os\\seven-runtime\\infra\\tower\\types.ts",
+        "seven-os\\seven-runtime\\infra\\types.ts"
+      ]
+    },
+    {
+      "route": "/logs/log-alerts.js",
+      "status": "misplaced",
+      "expected": "seven-os\\logs\\log-alerts.js",
+      "found_at": "seven-os\\seven-runtime\\logs\\log-alerts.js"
+    },
+    {
+      "route": "/logs/log-analyzer.js",
+      "status": "misplaced",
+      "expected": "seven-os\\logs\\log-analyzer.js",
+      "found_at": "seven-os\\seven-runtime\\logs\\log-analyzer.js"
+    },
+    {
+      "route": "/logs/log-cleaner.js",
+      "status": "misplaced",
+      "expected": "seven-os\\logs\\log-cleaner.js",
+      "found_at": "seven-os\\seven-runtime\\logs\\log-cleaner.js"
+    },
+    {
+      "route": "/logs/log-dashboard.js",
+      "status": "misplaced",
+      "expected": "seven-os\\logs\\log-dashboard.js",
+      "found_at": "seven-os\\seven-runtime\\logs\\log-dashboard.js"
+    },
+    {
+      "route": "/logs/log-exporter.js",
+      "status": "misplaced",
+      "expected": "seven-os\\logs\\log-exporter.js",
+      "found_at": "seven-os\\seven-runtime\\logs\\log-exporter.js"
+    },
+    {
+      "route": "/logs/log-health-check.js",
+      "status": "misplaced",
+      "expected": "seven-os\\logs\\log-health-check.js",
+      "found_at": "seven-os\\seven-runtime\\logs\\log-health-check.js"
+    },
+    {
+      "route": "/logs/log-reader.js",
+      "status": "misplaced",
+      "expected": "seven-os\\logs\\log-reader.js",
+      "found_at": "seven-os\\seven-runtime\\logs\\log-reader.js"
+    },
+    {
+      "route": "/logs/log-rotation.js",
+      "status": "misplaced",
+      "expected": "seven-os\\logs\\log-rotation.js",
+      "found_at": "seven-os\\seven-runtime\\logs\\log-rotation.js"
+    },
+    {
+      "route": "/logs/log-search.js",
+      "status": "misplaced",
+      "expected": "seven-os\\logs\\log-search.js",
+      "found_at": "seven-os\\seven-runtime\\logs\\log-search.js"
+    },
+    {
+      "route": "/logs/log-self-test.js",
+      "status": "misplaced",
+      "expected": "seven-os\\logs\\log-self-test.js",
+      "found_at": "seven-os\\seven-runtime\\logs\\log-self-test.js"
+    },
+    {
+      "route": "/logs/log-sync.js",
+      "status": "misplaced",
+      "expected": "seven-os\\logs\\log-sync.js",
+      "found_at": "seven-os\\seven-runtime\\logs\\log-sync.js"
+    },
+    {
+      "route": "/logs/log-validator.js",
+      "status": "misplaced",
+      "expected": "seven-os\\logs\\log-validator.js",
+      "found_at": "seven-os\\seven-runtime\\logs\\log-validator.js"
+    },
+    {
+      "route": "/logs/log-writer.js",
+      "status": "misplaced",
+      "expected": "seven-os\\logs\\log-writer.js",
+      "found_at": "seven-os\\seven-runtime\\logs\\log-writer.js"
+    },
+    {
+      "route": "/mci/decision/engine.js",
+      "status": "exists",
+      "location": "seven-os\\mci\\decision\\engine.js"
+    },
+    {
+      "route": "/mci/decision/engine.ts",
+      "status": "exists",
+      "location": "seven-os\\mci\\decision\\engine.ts"
+    },
+    {
+      "route": "/mci/index.js",
+      "status": "duplicate",
+      "expected": "seven-os\\mci\\index.js",
+      "found_at": [
+        "backend\\ai-worker\\index.js",
+        "backend\\gii\\context\\index.js",
+        "backend\\routes\\index.js",
+        "backend\\security\\tools\\index.js",
+        "backend\\threat\\index.js",
+        "backend\\utilities\\geo\\index.js",
+        "backend\\utilities\\geomapping-logic.js\\index.js",
+        "backend\\utilities\\integrity\\index.js",
+        "seven-os\\infrastructure\\index.js",
+        "seven-os\\infrastructure\\tools\\index.js",
+        "seven-os\\policy-packs\\index.js",
+        "seven-os\\sectors\\agri\\index.js",
+        "seven-os\\sectors\\agri\\visual\\index.js",
+        "seven-os\\sectors\\contractors\\index.js",
+        "seven-os\\sectors\\contractors\\sectors\\contractors\\index.js",
+        "seven-os\\sectors\\cyber\\index.js",
+        "seven-os\\sectors\\cyber\\sectors\\cyber\\index.js",
+        "seven-os\\sectors\\cyber\\workers\\cyber\\cyber\\index.js",
+        "seven-os\\sectors\\datacenters\\index.js",
+        "seven-os\\sectors\\disaster_response\\index.js",
+        "seven-os\\sectors\\disaster_response\\sectors\\disaster_response\\index.js",
+        "seven-os\\sectors\\fcc\\index.js",
+        "seven-os\\sectors\\gov\\index.js",
+        "seven-os\\sectors\\government\\policy-packs\\index.js",
+        "seven-os\\sectors\\government\\sectors\\gov\\index.js",
+        "seven-os\\sectors\\infrastructure\\logistics\\index.js",
+        "seven-os\\sectors\\logistics\\index.js",
+        "seven-os\\sectors\\mining\\index.js",
+        "seven-os\\sectors\\oil_gas\\index.js",
+        "seven-os\\sectors\\overlays\\index.js",
+        "seven-os\\sectors\\pipe-lines\\index.js",
+        "seven-os\\sectors\\pipelines\\index.js",
+        "seven-os\\sectors\\ports\\index.js",
+        "seven-os\\sectors\\power\\index.js",
+        "seven-os\\sectors\\public_safety\\index.js",
+        "seven-os\\sectors\\rail\\index.js",
+        "seven-os\\sectors\\roads\\index.js",
+        "seven-os\\sectors\\telecom\\index.js",
+        "seven-os\\sectors\\water\\index.js",
+        "seven-os\\seven-runtime\\ai\\tools\\index.js",
+        "seven-os\\seven-runtime\\ai\\workflows\\index.js",
+        "seven-os\\seven-runtime\\api\\index.js",
+        "seven-os\\seven-runtime\\workers\\cyber\\cyber\\index.js",
+        "seven-os\\seven-runtime\\workers\\fcc\\index.js",
+        "seven-os\\system\\index.js",
+        "seven-os\\utilities\\tools\\index.js"
+      ]
+    },
+    {
+      "route": "/mci/index.ts",
+      "status": "exists",
+      "location": "seven-os\\mci\\index.ts"
+    },
+    {
+      "route": "/mci/loader.js",
+      "status": "exists",
+      "location": "seven-os\\mci\\loader.js"
+    },
+    {
+      "route": "/mcp/mcp-client.ts",
+      "status": "exists",
+      "location": "seven-os\\mcp\\mcp-client.ts"
+    },
+    {
+      "route": "/mock-drone.ts",
+      "status": "exists",
+      "location": "seven-os\\mock-drone.ts"
+    },
+    {
+      "route": "/mock-ground-unit.ts",
+      "status": "exists",
+      "location": "seven-os\\mock-ground-unit.ts"
+    },
+    {
+      "route": "/policy-packs/index.js",
+      "status": "exists",
+      "location": "seven-os\\policy-packs\\index.js"
+    },
+    {
+      "route": "/policy-packs/policy-cache.ts",
+      "status": "exists",
+      "location": "seven-os\\policy-packs\\policy-cache.ts"
+    },
+    {
+      "route": "/policy-packs/policy-hasher.ts",
+      "status": "exists",
+      "location": "seven-os\\policy-packs\\policy-hasher.ts"
+    },
+    {
+      "route": "/policy-packs/policy-validator.ts",
+      "status": "exists",
+      "location": "seven-os\\policy-packs\\policy-validator.ts"
+    },
+    {
+      "route": "/policy-packs/sovereign/sovereign-policy.ts",
+      "status": "exists",
+      "location": "seven-os\\policy-packs\\sovereign\\sovereign-policy.ts"
+    },
+    {
+      "route": "/policy-packs/sovereign-policy-loader.ts",
+      "status": "exists",
+      "location": "seven-os\\policy-packs\\sovereign-policy-loader.ts"
+    },
+    {
+      "route": "/publisher.ts",
+      "status": "exists",
+      "location": "seven-os\\publisher.ts"
+    },
+    {
+      "route": "/publishing.ts",
+      "status": "exists",
+      "location": "seven-os\\publishing.ts"
+    },
+    {
+      "route": "/repo-analyze.ts",
+      "status": "exists",
+      "location": "seven-os\\repo-analyze.ts"
+    },
+    {
+      "route": "/repo-scan.ts",
+      "status": "exists",
+      "location": "seven-os\\repo-scan.ts"
+    },
+    {
+      "route": "/rescue/adapters.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\rescue\\adapters.ts",
+      "found_at": "seven-os\\seven-runtime\\rescue\\adapters.ts"
+    },
+    {
+      "route": "/rescue/resue-unit.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\rescue\\resue-unit.ts",
+      "found_at": "seven-os\\seven-runtime\\rescue\\resue-unit.ts"
+    },
+    {
+      "route": "/rescue/seven-rescue-commander.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\rescue\\seven-rescue-commander.ts",
+      "found_at": "seven-os\\seven-runtime\\rescue\\seven-rescue-commander.ts"
+    },
+    {
+      "route": "/resolve.js",
+      "status": "exists",
+      "location": "seven-os\\resolve.js"
+    },
+    {
+      "route": "/routes/audit.js",
+      "status": "misplaced",
+      "expected": "seven-os\\routes\\audit.js",
+      "found_at": "backend\\routes\\audit.js"
+    },
+    {
+      "route": "/routes/auth-gateway.js",
+      "status": "misplaced",
+      "expected": "seven-os\\routes\\auth-gateway.js",
+      "found_at": "backend\\routes\\auth-gateway.js"
+    },
+    {
+      "route": "/routes/executive-routes.js",
+      "status": "misplaced",
+      "expected": "seven-os\\routes\\executive-routes.js",
+      "found_at": "backend\\routes\\executive-routes.js"
+    },
+    {
+      "route": "/routes/index.js",
+      "status": "duplicate",
+      "expected": "seven-os\\routes\\index.js",
+      "found_at": [
+        "backend\\ai-worker\\index.js",
+        "backend\\gii\\context\\index.js",
+        "backend\\routes\\index.js",
+        "backend\\security\\tools\\index.js",
+        "backend\\threat\\index.js",
+        "backend\\utilities\\geo\\index.js",
+        "backend\\utilities\\geomapping-logic.js\\index.js",
+        "backend\\utilities\\integrity\\index.js",
+        "seven-os\\infrastructure\\index.js",
+        "seven-os\\infrastructure\\tools\\index.js",
+        "seven-os\\policy-packs\\index.js",
+        "seven-os\\sectors\\agri\\index.js",
+        "seven-os\\sectors\\agri\\visual\\index.js",
+        "seven-os\\sectors\\contractors\\index.js",
+        "seven-os\\sectors\\contractors\\sectors\\contractors\\index.js",
+        "seven-os\\sectors\\cyber\\index.js",
+        "seven-os\\sectors\\cyber\\sectors\\cyber\\index.js",
+        "seven-os\\sectors\\cyber\\workers\\cyber\\cyber\\index.js",
+        "seven-os\\sectors\\datacenters\\index.js",
+        "seven-os\\sectors\\disaster_response\\index.js",
+        "seven-os\\sectors\\disaster_response\\sectors\\disaster_response\\index.js",
+        "seven-os\\sectors\\fcc\\index.js",
+        "seven-os\\sectors\\gov\\index.js",
+        "seven-os\\sectors\\government\\policy-packs\\index.js",
+        "seven-os\\sectors\\government\\sectors\\gov\\index.js",
+        "seven-os\\sectors\\infrastructure\\logistics\\index.js",
+        "seven-os\\sectors\\logistics\\index.js",
+        "seven-os\\sectors\\mining\\index.js",
+        "seven-os\\sectors\\oil_gas\\index.js",
+        "seven-os\\sectors\\overlays\\index.js",
+        "seven-os\\sectors\\pipe-lines\\index.js",
+        "seven-os\\sectors\\pipelines\\index.js",
+        "seven-os\\sectors\\ports\\index.js",
+        "seven-os\\sectors\\power\\index.js",
+        "seven-os\\sectors\\public_safety\\index.js",
+        "seven-os\\sectors\\rail\\index.js",
+        "seven-os\\sectors\\roads\\index.js",
+        "seven-os\\sectors\\telecom\\index.js",
+        "seven-os\\sectors\\water\\index.js",
+        "seven-os\\seven-runtime\\ai\\tools\\index.js",
+        "seven-os\\seven-runtime\\ai\\workflows\\index.js",
+        "seven-os\\seven-runtime\\api\\index.js",
+        "seven-os\\seven-runtime\\workers\\cyber\\cyber\\index.js",
+        "seven-os\\seven-runtime\\workers\\fcc\\index.js",
+        "seven-os\\system\\index.js",
+        "seven-os\\utilities\\tools\\index.js"
+      ]
+    },
+    {
+      "route": "/routes/opportunities.js",
+      "status": "duplicate",
+      "expected": "seven-os\\routes\\opportunities.js",
+      "found_at": [
+        "backend\\routes\\opportunities.js",
+        "seven-os\\api\\opportunitiy-api\\opportunities.js",
+        "seven-os\\sector-engines\\workers\\opportunities.js"
+      ]
+    },
+    {
+      "route": "/routes/public-ai-map.js",
+      "status": "misplaced",
+      "expected": "seven-os\\routes\\public-ai-map.js",
+      "found_at": "backend\\routes\\public-ai-map.js"
+    },
+    {
+      "route": "/routes/public-map.js",
+      "status": "misplaced",
+      "expected": "seven-os\\routes\\public-map.js",
+      "found_at": "backend\\routes\\public-map.js"
+    },
+    {
+      "route": "/routes/public-routes.js",
+      "status": "misplaced",
+      "expected": "seven-os\\routes\\public-routes.js",
+      "found_at": "backend\\routes\\public-routes.js"
+    },
+    {
+      "route": "/routes/security-audit.js",
+      "status": "duplicate",
+      "expected": "seven-os\\routes\\security-audit.js",
+      "found_at": [
+        "backend\\routes\\security-audit.js",
+        "backend\\security\\security-audit.js"
+      ]
+    },
+    {
+      "route": "/routes/storage-routing vault-config.js",
+      "status": "misplaced",
+      "expected": "seven-os\\routes\\storage-routing vault-config.js",
+      "found_at": "backend\\routes\\storage-routing vault-config.js"
+    },
+    {
+      "route": "/routes/voice-flight.js",
+      "status": "duplicate",
+      "expected": "seven-os\\routes\\voice-flight.js",
+      "found_at": [
+        "backend\\routes\\voice-flight.js",
+        "seven-os\\api\\voice-flight.js"
+      ]
+    },
+    {
+      "route": "/safety/disaster-heavy-lift.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\safety\\disaster-heavy-lift.ts",
+      "found_at": "seven-os\\seven-runtime\\safety\\disaster-heavy-lift.ts"
+    },
+    {
+      "route": "/safety/disaster-profile.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\safety\\disaster-profile.ts",
+      "found_at": [
+        "seven-os\\sectors\\disaster_response\\safety\\disaster-profile.ts",
+        "seven-os\\seven-runtime\\drone\\disaster-profile.ts",
+        "seven-os\\seven-runtime\\safety\\disaster-profile.ts"
+      ]
+    },
+    {
+      "route": "/safety/sector-safety-engine.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\safety\\sector-safety-engine.ts",
+      "found_at": "seven-os\\seven-runtime\\safety\\sector-safety-engine.ts"
+    },
+    {
+      "route": "/sector-engines/contractor-engine.js",
+      "status": "exists",
+      "location": "seven-os\\sector-engines\\contractor-engine.js"
+    },
+    {
+      "route": "/sector-engines/farmer-engine.js",
+      "status": "exists",
+      "location": "seven-os\\sector-engines\\farmer-engine.js"
+    },
+    {
+      "route": "/sector-engines/gov-engine.js",
+      "status": "exists",
+      "location": "seven-os\\sector-engines\\gov-engine.js"
+    },
+    {
+      "route": "/sector-engines/jobs-engine.js",
+      "status": "exists",
+      "location": "seven-os\\sector-engines\\jobs-engine.js"
+    },
+    {
+      "route": "/sectors/agri/cattle-engine.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\agri\\cattle-engine.js"
+    },
+    {
+      "route": "/sectors/agri/crop-engine.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\agri\\crop-engine.js"
+    },
+    {
+      "route": "/sectors/agri/index.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\agri\\index.js"
+    },
+    {
+      "route": "/sectors/agri/land-engine.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\agri\\land-engine.js"
+    },
+    {
+      "route": "/sectors/agri/sector-sync.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\agri\\sector-sync.js"
+    },
+    {
+      "route": "/sectors/agri/visual/blueprint-engine.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\agri\\visual\\blueprint-engine.js"
+    },
+    {
+      "route": "/sectors/agri/visual/document-engine.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\agri\\visual\\document-engine.js"
+    },
+    {
+      "route": "/sectors/agri/visual/engine-flight.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\agri\\visual\\engine-flight.js"
+    },
+    {
+      "route": "/sectors/agri/visual/engine-spectral.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\agri\\visual\\engine-spectral.js"
+    },
+    {
+      "route": "/sectors/agri/visual/engine-twin.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\agri\\visual\\engine-twin.js"
+    },
+    {
+      "route": "/sectors/agri/visual/index.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\agri\\visual\\index.js"
+    },
+    {
+      "route": "/sectors/agri/visual/mapping-2d-engine.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\agri\\visual\\mapping-2d-engine.js"
+    },
+    {
+      "route": "/sectors/agri/visual/mapping-3d-engine.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\agri\\visual\\mapping-3d-engine.js"
+    },
+    {
+      "route": "/sectors/airports/index.js",
+      "status": "duplicate",
+      "expected": "seven-os\\sectors\\airports\\index.js",
+      "found_at": [
+        "backend\\ai-worker\\index.js",
+        "backend\\gii\\context\\index.js",
+        "backend\\routes\\index.js",
+        "backend\\security\\tools\\index.js",
+        "backend\\threat\\index.js",
+        "backend\\utilities\\geo\\index.js",
+        "backend\\utilities\\geomapping-logic.js\\index.js",
+        "backend\\utilities\\integrity\\index.js",
+        "seven-os\\infrastructure\\index.js",
+        "seven-os\\infrastructure\\tools\\index.js",
+        "seven-os\\policy-packs\\index.js",
+        "seven-os\\sectors\\agri\\index.js",
+        "seven-os\\sectors\\agri\\visual\\index.js",
+        "seven-os\\sectors\\contractors\\index.js",
+        "seven-os\\sectors\\contractors\\sectors\\contractors\\index.js",
+        "seven-os\\sectors\\cyber\\index.js",
+        "seven-os\\sectors\\cyber\\sectors\\cyber\\index.js",
+        "seven-os\\sectors\\cyber\\workers\\cyber\\cyber\\index.js",
+        "seven-os\\sectors\\datacenters\\index.js",
+        "seven-os\\sectors\\disaster_response\\index.js",
+        "seven-os\\sectors\\disaster_response\\sectors\\disaster_response\\index.js",
+        "seven-os\\sectors\\fcc\\index.js",
+        "seven-os\\sectors\\gov\\index.js",
+        "seven-os\\sectors\\government\\policy-packs\\index.js",
+        "seven-os\\sectors\\government\\sectors\\gov\\index.js",
+        "seven-os\\sectors\\infrastructure\\logistics\\index.js",
+        "seven-os\\sectors\\logistics\\index.js",
+        "seven-os\\sectors\\mining\\index.js",
+        "seven-os\\sectors\\oil_gas\\index.js",
+        "seven-os\\sectors\\overlays\\index.js",
+        "seven-os\\sectors\\pipe-lines\\index.js",
+        "seven-os\\sectors\\pipelines\\index.js",
+        "seven-os\\sectors\\ports\\index.js",
+        "seven-os\\sectors\\power\\index.js",
+        "seven-os\\sectors\\public_safety\\index.js",
+        "seven-os\\sectors\\rail\\index.js",
+        "seven-os\\sectors\\roads\\index.js",
+        "seven-os\\sectors\\telecom\\index.js",
+        "seven-os\\sectors\\water\\index.js",
+        "seven-os\\seven-runtime\\ai\\tools\\index.js",
+        "seven-os\\seven-runtime\\ai\\workflows\\index.js",
+        "seven-os\\seven-runtime\\api\\index.js",
+        "seven-os\\seven-runtime\\workers\\cyber\\cyber\\index.js",
+        "seven-os\\seven-runtime\\workers\\fcc\\index.js",
+        "seven-os\\system\\index.js",
+        "seven-os\\utilities\\tools\\index.js"
+      ]
+    },
+    {
+      "route": "/sectors/auto-scaler.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\auto-scaler.js"
+    },
+    {
+      "route": "/sectors/climate/index.js",
+      "status": "duplicate",
+      "expected": "seven-os\\sectors\\climate\\index.js",
+      "found_at": [
+        "backend\\ai-worker\\index.js",
+        "backend\\gii\\context\\index.js",
+        "backend\\routes\\index.js",
+        "backend\\security\\tools\\index.js",
+        "backend\\threat\\index.js",
+        "backend\\utilities\\geo\\index.js",
+        "backend\\utilities\\geomapping-logic.js\\index.js",
+        "backend\\utilities\\integrity\\index.js",
+        "seven-os\\infrastructure\\index.js",
+        "seven-os\\infrastructure\\tools\\index.js",
+        "seven-os\\policy-packs\\index.js",
+        "seven-os\\sectors\\agri\\index.js",
+        "seven-os\\sectors\\agri\\visual\\index.js",
+        "seven-os\\sectors\\contractors\\index.js",
+        "seven-os\\sectors\\contractors\\sectors\\contractors\\index.js",
+        "seven-os\\sectors\\cyber\\index.js",
+        "seven-os\\sectors\\cyber\\sectors\\cyber\\index.js",
+        "seven-os\\sectors\\cyber\\workers\\cyber\\cyber\\index.js",
+        "seven-os\\sectors\\datacenters\\index.js",
+        "seven-os\\sectors\\disaster_response\\index.js",
+        "seven-os\\sectors\\disaster_response\\sectors\\disaster_response\\index.js",
+        "seven-os\\sectors\\fcc\\index.js",
+        "seven-os\\sectors\\gov\\index.js",
+        "seven-os\\sectors\\government\\policy-packs\\index.js",
+        "seven-os\\sectors\\government\\sectors\\gov\\index.js",
+        "seven-os\\sectors\\infrastructure\\logistics\\index.js",
+        "seven-os\\sectors\\logistics\\index.js",
+        "seven-os\\sectors\\mining\\index.js",
+        "seven-os\\sectors\\oil_gas\\index.js",
+        "seven-os\\sectors\\overlays\\index.js",
+        "seven-os\\sectors\\pipe-lines\\index.js",
+        "seven-os\\sectors\\pipelines\\index.js",
+        "seven-os\\sectors\\ports\\index.js",
+        "seven-os\\sectors\\power\\index.js",
+        "seven-os\\sectors\\public_safety\\index.js",
+        "seven-os\\sectors\\rail\\index.js",
+        "seven-os\\sectors\\roads\\index.js",
+        "seven-os\\sectors\\telecom\\index.js",
+        "seven-os\\sectors\\water\\index.js",
+        "seven-os\\seven-runtime\\ai\\tools\\index.js",
+        "seven-os\\seven-runtime\\ai\\workflows\\index.js",
+        "seven-os\\seven-runtime\\api\\index.js",
+        "seven-os\\seven-runtime\\workers\\cyber\\cyber\\index.js",
+        "seven-os\\seven-runtime\\workers\\fcc\\index.js",
+        "seven-os\\system\\index.js",
+        "seven-os\\utilities\\tools\\index.js"
+      ]
+    },
+    {
+      "route": "/sectors/cloud/index.js",
+      "status": "duplicate",
+      "expected": "seven-os\\sectors\\cloud\\index.js",
+      "found_at": [
+        "backend\\ai-worker\\index.js",
+        "backend\\gii\\context\\index.js",
+        "backend\\routes\\index.js",
+        "backend\\security\\tools\\index.js",
+        "backend\\threat\\index.js",
+        "backend\\utilities\\geo\\index.js",
+        "backend\\utilities\\geomapping-logic.js\\index.js",
+        "backend\\utilities\\integrity\\index.js",
+        "seven-os\\infrastructure\\index.js",
+        "seven-os\\infrastructure\\tools\\index.js",
+        "seven-os\\policy-packs\\index.js",
+        "seven-os\\sectors\\agri\\index.js",
+        "seven-os\\sectors\\agri\\visual\\index.js",
+        "seven-os\\sectors\\contractors\\index.js",
+        "seven-os\\sectors\\contractors\\sectors\\contractors\\index.js",
+        "seven-os\\sectors\\cyber\\index.js",
+        "seven-os\\sectors\\cyber\\sectors\\cyber\\index.js",
+        "seven-os\\sectors\\cyber\\workers\\cyber\\cyber\\index.js",
+        "seven-os\\sectors\\datacenters\\index.js",
+        "seven-os\\sectors\\disaster_response\\index.js",
+        "seven-os\\sectors\\disaster_response\\sectors\\disaster_response\\index.js",
+        "seven-os\\sectors\\fcc\\index.js",
+        "seven-os\\sectors\\gov\\index.js",
+        "seven-os\\sectors\\government\\policy-packs\\index.js",
+        "seven-os\\sectors\\government\\sectors\\gov\\index.js",
+        "seven-os\\sectors\\infrastructure\\logistics\\index.js",
+        "seven-os\\sectors\\logistics\\index.js",
+        "seven-os\\sectors\\mining\\index.js",
+        "seven-os\\sectors\\oil_gas\\index.js",
+        "seven-os\\sectors\\overlays\\index.js",
+        "seven-os\\sectors\\pipe-lines\\index.js",
+        "seven-os\\sectors\\pipelines\\index.js",
+        "seven-os\\sectors\\ports\\index.js",
+        "seven-os\\sectors\\power\\index.js",
+        "seven-os\\sectors\\public_safety\\index.js",
+        "seven-os\\sectors\\rail\\index.js",
+        "seven-os\\sectors\\roads\\index.js",
+        "seven-os\\sectors\\telecom\\index.js",
+        "seven-os\\sectors\\water\\index.js",
+        "seven-os\\seven-runtime\\ai\\tools\\index.js",
+        "seven-os\\seven-runtime\\ai\\workflows\\index.js",
+        "seven-os\\seven-runtime\\api\\index.js",
+        "seven-os\\seven-runtime\\workers\\cyber\\cyber\\index.js",
+        "seven-os\\seven-runtime\\workers\\fcc\\index.js",
+        "seven-os\\system\\index.js",
+        "seven-os\\utilities\\tools\\index.js"
+      ]
+    },
+    {
+      "route": "/sectors/contractors/index.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\contractors\\index.js"
+    },
+    {
+      "route": "/sectors/cross-sector-routing-engine.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\cross-sector-routing-engine.js"
+    },
+    {
+      "route": "/sectors/cyber/index.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\cyber\\index.js"
+    },
+    {
+      "route": "/sectors/datacenters/index.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\datacenters\\index.js"
+    },
+    {
+      "route": "/sectors/disaster_response/index.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\disaster_response\\index.js"
+    },
+    {
+      "route": "/sectors/gov/aim-threat-model.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\gov\\aim-threat-model.js"
+    },
+    {
+      "route": "/sectors/gov/formatAdvisory.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\gov\\formatAdvisory.js"
+    },
+    {
+      "route": "/sectors/gov/generateRecommendations.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\gov\\generateRecommendations.js"
+    },
+    {
+      "route": "/sectors/gov/index.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\gov\\index.js"
+    },
+    {
+      "route": "/sectors/gov/sectorAnalysis.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\gov\\sectorAnalysis.js"
+    },
+    {
+      "route": "/sectors/logistics/index.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\logistics\\index.js"
+    },
+    {
+      "route": "/sectors/mining/index.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\mining\\index.js"
+    },
+    {
+      "route": "/sectors/oil_gas/index.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\oil_gas\\index.js"
+    },
+    {
+      "route": "/sectors/overlays/index.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\overlays\\index.js"
+    },
+    {
+      "route": "/sectors/overlays/sector-adjacency-engine.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\overlays\\sector-adjacency-engine.js"
+    },
+    {
+      "route": "/sectors/overlays/sector-mapping-logic.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\overlays\\sector-mapping-logic.js"
+    },
+    {
+      "route": "/sectors/pipelines/index.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\pipelines\\index.js"
+    },
+    {
+      "route": "/sectors/ports/index.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\ports\\index.js"
+    },
+    {
+      "route": "/sectors/power/index.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\power\\index.js"
+    },
+    {
+      "route": "/sectors/public_safety/index.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\public_safety\\index.js"
+    },
+    {
+      "route": "/sectors/rail/index.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\rail\\index.js"
+    },
+    {
+      "route": "/sectors/roads/index.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\roads\\index.js"
+    },
+    {
+      "route": "/sectors/sector-engine.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\sector-engine.js"
+    },
+    {
+      "route": "/sectors/sector-loader.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\sector-loader.js"
+    },
+    {
+      "route": "/sectors/sectorAnalysis.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\sectorAnalysis.js"
+    },
+    {
+      "route": "/sectors/telecom/index.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\telecom\\index.js"
+    },
+    {
+      "route": "/sectors/water/index.js",
+      "status": "exists",
+      "location": "seven-os\\sectors\\water\\index.js"
+    },
+    {
+      "route": "/security/clearance-guard.js",
+      "status": "misplaced",
+      "expected": "seven-os\\security\\clearance-guard.js",
+      "found_at": "seven-os\\sectors\\cyber\\security\\clearance-guard.js"
+    },
+    {
+      "route": "/security/guard.js",
+      "status": "exists",
+      "location": "seven-os\\security\\guard.js"
+    },
+    {
+      "route": "/security/hash-utils.js",
+      "status": "misplaced",
+      "expected": "seven-os\\security\\hash-utils.js",
+      "found_at": "seven-os\\sectors\\cyber\\security\\hash-utils.js"
+    },
+    {
+      "route": "/security/key-engine.js",
+      "status": "exists",
+      "location": "seven-os\\security\\key-engine.js"
+    },
+    {
+      "route": "/security/keygen.js",
+      "status": "exists",
+      "location": "seven-os\\security\\keygen.js"
+    },
+    {
+      "route": "/security/middleware.js",
+      "status": "misplaced",
+      "expected": "seven-os\\security\\middleware.js",
+      "found_at": "seven-os\\sectors\\cyber\\security\\middleware.js"
+    },
+    {
+      "route": "/security/otp-service.js",
+      "status": "misplaced",
+      "expected": "seven-os\\security\\otp-service.js",
+      "found_at": "seven-os\\sectors\\cyber\\security\\otp-service.js"
+    },
+    {
+      "route": "/security/require-admin.js",
+      "status": "exists",
+      "location": "seven-os\\security\\require-admin.js"
+    },
+    {
+      "route": "/security/session-service.js",
+      "status": "misplaced",
+      "expected": "seven-os\\security\\session-service.js",
+      "found_at": "seven-os\\sectors\\cyber\\security\\session-service.js"
+    },
+    {
+      "route": "/security/threat-engine.js",
+      "status": "exists",
+      "location": "seven-os\\security\\threat-engine.js"
+    },
+    {
+      "route": "/security/token-service.js",
+      "status": "misplaced",
+      "expected": "seven-os\\security\\token-service.js",
+      "found_at": "seven-os\\sectors\\cyber\\security\\token-service.js"
+    },
+    {
+      "route": "/security/validate-token.js",
+      "status": "duplicate",
+      "expected": "seven-os\\security\\validate-token.js",
+      "found_at": [
+        "backend\\edge-vault\\VAULT-LAYER\\protected\\validate-token.js",
+        "seven-os\\sectors\\cyber\\security\\validate-token.js"
+      ]
+    },
+    {
+      "route": "/security/worker-guard.js",
+      "status": "exists",
+      "location": "seven-os\\security\\worker-guard.js"
+    },
+    {
+      "route": "/seven-bootstrap.ts",
+      "status": "exists",
+      "location": "seven-os\\seven-bootstrap.ts"
+    },
+    {
+      "route": "/seven-of-nine.ts",
+      "status": "exists",
+      "location": "seven-os\\seven-of-nine.ts"
+    },
+    {
+      "route": "/stack/seven-stack.ts",
+      "status": "exists",
+      "location": "seven-os\\stack\\seven-stack.ts"
+    },
+    {
+      "route": "/sync/core/connection-monitor.ts",
+      "status": "exists",
+      "location": "seven-os\\sync\\core\\connection-monitor.ts"
+    },
+    {
+      "route": "/sync/core/event-queue.ts",
+      "status": "exists",
+      "location": "seven-os\\sync\\core\\event-queue.ts"
+    },
+    {
+      "route": "/sync/core/offlin-cache.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\sync\\core\\offlin-cache.ts",
+      "found_at": "seven-os\\seven-runtime\\sync\\core\\offlin-cache.ts"
+    },
+    {
+      "route": "/sync/core/offline-cache.ts",
+      "status": "exists",
+      "location": "seven-os\\sync\\core\\offline-cache.ts"
+    },
+    {
+      "route": "/sync/domains.js",
+      "status": "misplaced",
+      "expected": "seven-os\\sync\\domains.js",
+      "found_at": "backend\\system\\domains.js"
+    },
+    {
+      "route": "/sync/policies/hybrid-mode.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\sync\\policies\\hybrid-mode.ts",
+      "found_at": [
+        "seven-os\\seven-runtime\\hybrid\\hybrid-mode.ts",
+        "seven-os\\seven-runtime\\sync\\policies\\hybrid-mode.ts"
+      ]
+    },
+    {
+      "route": "/sync/policies/sync-priority.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\sync\\policies\\sync-priority.ts",
+      "found_at": "seven-os\\seven-runtime\\sync\\policies\\sync-priority.ts"
+    },
+    {
+      "route": "/sync/satellite-continuity.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\sync\\satellite-continuity.ts",
+      "found_at": "seven-os\\seven-runtime\\sync\\satellite-continuity.ts"
+    },
+    {
+      "route": "/sync/starlink-hybrid-sync-engine.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\sync\\starlink-hybrid-sync-engine.ts",
+      "found_at": "seven-os\\seven-runtime\\sync\\starlink-hybrid-sync-engine.ts"
+    },
+    {
+      "route": "/sync/transports/lte.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\sync\\transports\\lte.ts",
+      "found_at": "seven-os\\seven-runtime\\sync\\transports\\lte.ts"
+    },
+    {
+      "route": "/sync/transports/starlink.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\sync\\transports\\starlink.ts",
+      "found_at": "seven-os\\seven-runtime\\sync\\transports\\starlink.ts"
+    },
+    {
+      "route": "/sync/transports/wifi.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\sync\\transports\\wifi.ts",
+      "found_at": "seven-os\\seven-runtime\\sync\\transports\\wifi.ts"
+    },
+    {
+      "route": "/system/ai-filter.js",
+      "status": "exists",
+      "location": "seven-os\\system\\ai-filter.js"
+    },
+    {
+      "route": "/system/ai-identity.js",
+      "status": "exists",
+      "location": "seven-os\\system\\ai-identity.js"
+    },
+    {
+      "route": "/system/ai-logs.js",
+      "status": "exists",
+      "location": "seven-os\\system\\ai-logs.js"
+    },
+    {
+      "route": "/system/ai-memory.js",
+      "status": "exists",
+      "location": "seven-os\\system\\ai-memory.js"
+    },
+    {
+      "route": "/system/ai-policy.js",
+      "status": "exists",
+      "location": "seven-os\\system\\ai-policy.js"
+    },
+    {
+      "route": "/system/ai-routing.js",
+      "status": "exists",
+      "location": "seven-os\\system\\ai-routing.js"
+    },
+    {
+      "route": "/system/ai-safety.js",
+      "status": "exists",
+      "location": "seven-os\\system\\ai-safety.js"
+    },
+    {
+      "route": "/system/ai-telemetry.js",
+      "status": "exists",
+      "location": "seven-os\\system\\ai-telemetry.js"
+    },
+    {
+      "route": "/system/ai-worker.js",
+      "status": "exists",
+      "location": "seven-os\\system\\ai-worker.js"
+    },
+    {
+      "route": "/system/automation-tasks.js",
+      "status": "exists",
+      "location": "seven-os\\system\\automation-tasks.js"
+    },
+    {
+      "route": "/system/CDE.js",
+      "status": "exists",
+      "location": "seven-os\\system\\CDE.js"
+    },
+    {
+      "route": "/system/ewo/ewo-router.js",
+      "status": "duplicate",
+      "expected": "seven-os\\system\\ewo\\ewo-router.js",
+      "found_at": [
+        "backend\\system\\ewo\\ewo-router.js",
+        "backend\\system\\routing\\ewo-router.js"
+      ]
+    },
+    {
+      "route": "/system/ewo/ewo-schema.js",
+      "status": "misplaced",
+      "expected": "seven-os\\system\\ewo\\ewo-schema.js",
+      "found_at": "backend\\system\\ewo\\ewo-schema.js"
+    },
+    {
+      "route": "/system/ewo/sector-router.js",
+      "status": "misplaced",
+      "expected": "seven-os\\system\\ewo\\sector-router.js",
+      "found_at": "backend\\system\\ewo\\sector-router.js"
+    },
+    {
+      "route": "/system/failsafe-protocols.js",
+      "status": "exists",
+      "location": "seven-os\\system\\failsafe-protocols.js"
+    },
+    {
+      "route": "/system/identity/did-vc-verifier.js",
+      "status": "misplaced",
+      "expected": "seven-os\\system\\identity\\did-vc-verifier.js",
+      "found_at": "backend\\system\\identity\\did-vc-verifier.js"
+    },
+    {
+      "route": "/system/index.js",
+      "status": "exists",
+      "location": "seven-os\\system\\index.js"
+    },
+    {
+      "route": "/system/indexer/engine.js",
+      "status": "exists",
+      "location": "seven-os\\system\\indexer\\engine.js"
+    },
+    {
+      "route": "/system/indexer/engine.ts",
+      "status": "exists",
+      "location": "seven-os\\system\\indexer\\engine.ts"
+    },
+    {
+      "route": "/system/indexer/hub-indexer.js",
+      "status": "exists",
+      "location": "seven-os\\system\\indexer\\hub-indexer.js"
+    },
+    {
+      "route": "/system/indexer/types.js",
+      "status": "exists",
+      "location": "seven-os\\system\\indexer\\types.js"
+    },
+    {
+      "route": "/system/indexer/types.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\system\\indexer\\types.ts",
+      "found_at": [
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\types.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\types.ts",
+        "seven-os\\core\\fcc\\telecom-equipment-authorization\\types.ts",
+        "seven-os\\core\\governance\\types.ts",
+        "seven-os\\seven-runtime\\cattle\\types.ts",
+        "seven-os\\seven-runtime\\infra\\tower\\types.ts",
+        "seven-os\\seven-runtime\\infra\\types.ts"
+      ]
+    },
+    {
+      "route": "/system/info.js",
+      "status": "exists",
+      "location": "seven-os\\system\\info.js"
+    },
+    {
+      "route": "/system/logging/system-log.js",
+      "status": "misplaced",
+      "expected": "seven-os\\system\\logging\\system-log.js",
+      "found_at": "backend\\system\\logging\\system-log.js"
+    },
+    {
+      "route": "/system/manifest.js",
+      "status": "exists",
+      "location": "seven-os\\system\\manifest.js"
+    },
+    {
+      "route": "/system/marketplace-engine.ts",
+      "status": "exists",
+      "location": "seven-os\\system\\marketplace-engine.ts"
+    },
+    {
+      "route": "/system/mcp/mcp-cloud-boundary.js",
+      "status": "misplaced",
+      "expected": "seven-os\\system\\mcp\\mcp-cloud-boundary.js",
+      "found_at": "backend\\system\\mcp\\mcp-cloud-boundary.js"
+    },
+    {
+      "route": "/system/mcp/mcp-enforcer.js",
+      "status": "misplaced",
+      "expected": "seven-os\\system\\mcp\\mcp-enforcer.js",
+      "found_at": "backend\\system\\mcp\\mcp-enforcer.js"
+    },
+    {
+      "route": "/system/mcp/mcp-evaluator.js",
+      "status": "misplaced",
+      "expected": "seven-os\\system\\mcp\\mcp-evaluator.js",
+      "found_at": "backend\\system\\mcp\\mcp-evaluator.js"
+    },
+    {
+      "route": "/system/mcp/mcp-policy-regisry.js",
+      "status": "misplaced",
+      "expected": "seven-os\\system\\mcp\\mcp-policy-regisry.js",
+      "found_at": "backend\\system\\mcp\\mcp-policy-regisry.js"
+    },
+    {
+      "route": "/system/metadata.js",
+      "status": "exists",
+      "location": "seven-os\\system\\metadata.js"
+    },
+    {
+      "route": "/system/policy-engine.js",
+      "status": "exists",
+      "location": "seven-os\\system\\policy-engine.js"
+    },
+    {
+      "route": "/system/restart.js",
+      "status": "exists",
+      "location": "seven-os\\system\\restart.js"
+    },
+    {
+      "route": "/system/routing/ewo-router.js",
+      "status": "duplicate",
+      "expected": "seven-os\\system\\routing\\ewo-router.js",
+      "found_at": [
+        "backend\\system\\ewo\\ewo-router.js",
+        "backend\\system\\routing\\ewo-router.js"
+      ]
+    },
+    {
+      "route": "/system/routing/global-routing-map.js",
+      "status": "misplaced",
+      "expected": "seven-os\\system\\routing\\global-routing-map.js",
+      "found_at": "backend\\system\\routing\\global-routing-map.js"
+    },
+    {
+      "route": "/system/routing/sector-loader.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\system\\routing\\sector-loader.ts",
+      "found_at": "seven-os\\sector-loader.ts"
+    },
+    {
+      "route": "/system/sector-matching-engine.ts",
+      "status": "exists",
+      "location": "seven-os\\system\\sector-matching-engine.ts"
+    },
+    {
+      "route": "/system/sector-report.js",
+      "status": "misplaced",
+      "expected": "seven-os\\system\\sector-report.js",
+      "found_at": "backend\\system\\sector-report.js"
+    },
+    {
+      "route": "/system/status.js",
+      "status": "misplaced",
+      "expected": "seven-os\\system\\status.js",
+      "found_at": "backend\\system\\status.js"
+    },
+    {
+      "route": "/system/system-ai.js",
+      "status": "exists",
+      "location": "seven-os\\system\\system-ai.js"
+    },
+    {
+      "route": "/system/system-diagnostics.js",
+      "status": "exists",
+      "location": "seven-os\\system\\system-diagnostics.js"
+    },
+    {
+      "route": "/system/system-domains.js",
+      "status": "exists",
+      "location": "seven-os\\system\\system-domains.js"
+    },
+    {
+      "route": "/system/system-endpoints.js",
+      "status": "misplaced",
+      "expected": "seven-os\\system\\system-endpoints.js",
+      "found_at": "backend\\system\\system-endpoints.js"
+    },
+    {
+      "route": "/system/system-full-report.js",
+      "status": "exists",
+      "location": "seven-os\\system\\system-full-report.js"
+    },
+    {
+      "route": "/system/system-health.js",
+      "status": "exists",
+      "location": "seven-os\\system\\system-health.js"
+    },
+    {
+      "route": "/system/system-infrastructure.js",
+      "status": "exists",
+      "location": "seven-os\\system\\system-infrastructure.js"
+    },
+    {
+      "route": "/system/system-map.js",
+      "status": "misplaced",
+      "expected": "seven-os\\system\\system-map.js",
+      "found_at": "backend\\system-map.js"
+    },
+    {
+      "route": "/system/system-routing.js",
+      "status": "exists",
+      "location": "seven-os\\system\\system-routing.js"
+    },
+    {
+      "route": "/system/system-status.js",
+      "status": "duplicate",
+      "expected": "seven-os\\system\\system-status.js",
+      "found_at": [
+        "backend\\system\\system-status.js",
+        "system-status.js"
+      ]
+    },
+    {
+      "route": "/system/threat-report.js",
+      "status": "exists",
+      "location": "seven-os\\system\\threat-report.js"
+    },
+    {
+      "route": "/system/trust-middleware.js",
+      "status": "misplaced",
+      "expected": "seven-os\\system\\trust-middleware.js",
+      "found_at": "backend\\system\\trust-middleware.js"
+    },
+    {
+      "route": "/system/trust.js",
+      "status": "misplaced",
+      "expected": "seven-os\\system\\trust.js",
+      "found_at": "backend\\system\\trust.js"
+    },
+    {
+      "route": "/system/uptime.js",
+      "status": "duplicate",
+      "expected": "seven-os\\system\\uptime.js",
+      "found_at": [
+        "backend\\system\\uptime.js",
+        "seven-os\\seven-runtime\\api\\system\\uptime.js"
+      ]
+    },
+    {
+      "route": "/task-handler.ts",
+      "status": "exists",
+      "location": "seven-os\\task-handler.ts"
+    },
+    {
+      "route": "/task-queue.ts",
+      "status": "exists",
+      "location": "seven-os\\task-queue.ts"
+    },
+    {
+      "route": "/task-registry.ts",
+      "status": "exists",
+      "location": "seven-os\\task-registry.ts"
+    },
+    {
+      "route": "/telecomEngine.ts",
+      "status": "exists",
+      "location": "seven-os\\telecomEngine.ts"
+    },
+    {
+      "route": "/transports/nats-client.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\transports\\nats-client.ts",
+      "found_at": "seven-os\\nats-client.ts"
+    },
+    {
+      "route": "/unit.test.ts",
+      "status": "exists",
+      "location": "seven-os\\unit.test.ts"
+    },
+    {
+      "route": "/ux-rules-generator.ts",
+      "status": "exists",
+      "location": "seven-os\\ux-rules-generator.ts"
+    },
+    {
+      "route": "/voice/command-fallback.js",
+      "status": "exists",
+      "location": "seven-os\\voice\\command-fallback.js"
+    },
+    {
+      "route": "/voice/command-learning.js",
+      "status": "exists",
+      "location": "seven-os\\voice\\command-learning.js"
+    },
+    {
+      "route": "/voice/command-loader.js",
+      "status": "exists",
+      "location": "seven-os\\voice\\command-loader.js"
+    },
+    {
+      "route": "/voice/command-matcher.js",
+      "status": "exists",
+      "location": "seven-os\\voice\\command-matcher.js"
+    },
+    {
+      "route": "/voice/command-registry.js",
+      "status": "exists",
+      "location": "seven-os\\voice\\command-registry.js"
+    },
+    {
+      "route": "/voice/disaster/disaster-grid.js",
+      "status": "exists",
+      "location": "seven-os\\voice\\disaster\\disaster-grid.js"
+    },
+    {
+      "route": "/voice/disaster/seven-rescue-supply.js",
+      "status": "exists",
+      "location": "seven-os\\voice\\disaster\\seven-rescue-supply.js"
+    },
+    {
+      "route": "/voice/mission/mission-orchestrator.js",
+      "status": "exists",
+      "location": "seven-os\\voice\\mission\\mission-orchestrator.js"
+    },
+    {
+      "route": "/voice/narrator/seven-narrator.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\voice\\narrator\\seven-narrator.ts",
+      "found_at": "seven-os\\seven-runtime\\voice\\seven-narrator.ts"
+    },
+    {
+      "route": "/voice/response-engine.js",
+      "status": "exists",
+      "location": "seven-os\\voice\\response-engine.js"
+    },
+    {
+      "route": "/voice/voice-bus.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\voice\\voice-bus.ts",
+      "found_at": "seven-os\\seven-runtime\\voice\\voice-bus.ts"
+    },
+    {
+      "route": "/voice/voice-mode.js",
+      "status": "exists",
+      "location": "seven-os\\voice\\voice-mode.js"
+    },
+    {
+      "route": "/workers/admin-protect-worker.js",
+      "status": "misplaced",
+      "expected": "seven-os\\workers\\admin-protect-worker.js",
+      "found_at": "seven-os\\seven-runtime\\workers\\admin-protect-worker.js"
+    },
+    {
+      "route": "/workers/ai-worker/gia-deep-mind-2100.js",
+      "status": "duplicate",
+      "expected": "seven-os\\workers\\ai-worker\\gia-deep-mind-2100.js",
+      "found_at": [
+        "backend\\ai-worker\\gia-deep-mind-2100.js",
+        "seven-os\\seven-runtime\\workers\\gia-deep-mind-2100.js"
+      ]
+    },
+    {
+      "route": "/workers/ai-worker/index.js",
+      "status": "duplicate",
+      "expected": "seven-os\\workers\\ai-worker\\index.js",
+      "found_at": [
+        "backend\\ai-worker\\index.js",
+        "backend\\gii\\context\\index.js",
+        "backend\\routes\\index.js",
+        "backend\\security\\tools\\index.js",
+        "backend\\threat\\index.js",
+        "backend\\utilities\\geo\\index.js",
+        "backend\\utilities\\geomapping-logic.js\\index.js",
+        "backend\\utilities\\integrity\\index.js",
+        "seven-os\\infrastructure\\index.js",
+        "seven-os\\infrastructure\\tools\\index.js",
+        "seven-os\\policy-packs\\index.js",
+        "seven-os\\sectors\\agri\\index.js",
+        "seven-os\\sectors\\agri\\visual\\index.js",
+        "seven-os\\sectors\\contractors\\index.js",
+        "seven-os\\sectors\\contractors\\sectors\\contractors\\index.js",
+        "seven-os\\sectors\\cyber\\index.js",
+        "seven-os\\sectors\\cyber\\sectors\\cyber\\index.js",
+        "seven-os\\sectors\\cyber\\workers\\cyber\\cyber\\index.js",
+        "seven-os\\sectors\\datacenters\\index.js",
+        "seven-os\\sectors\\disaster_response\\index.js",
+        "seven-os\\sectors\\disaster_response\\sectors\\disaster_response\\index.js",
+        "seven-os\\sectors\\fcc\\index.js",
+        "seven-os\\sectors\\gov\\index.js",
+        "seven-os\\sectors\\government\\policy-packs\\index.js",
+        "seven-os\\sectors\\government\\sectors\\gov\\index.js",
+        "seven-os\\sectors\\infrastructure\\logistics\\index.js",
+        "seven-os\\sectors\\logistics\\index.js",
+        "seven-os\\sectors\\mining\\index.js",
+        "seven-os\\sectors\\oil_gas\\index.js",
+        "seven-os\\sectors\\overlays\\index.js",
+        "seven-os\\sectors\\pipe-lines\\index.js",
+        "seven-os\\sectors\\pipelines\\index.js",
+        "seven-os\\sectors\\ports\\index.js",
+        "seven-os\\sectors\\power\\index.js",
+        "seven-os\\sectors\\public_safety\\index.js",
+        "seven-os\\sectors\\rail\\index.js",
+        "seven-os\\sectors\\roads\\index.js",
+        "seven-os\\sectors\\telecom\\index.js",
+        "seven-os\\sectors\\water\\index.js",
+        "seven-os\\seven-runtime\\ai\\tools\\index.js",
+        "seven-os\\seven-runtime\\ai\\workflows\\index.js",
+        "seven-os\\seven-runtime\\api\\index.js",
+        "seven-os\\seven-runtime\\workers\\cyber\\cyber\\index.js",
+        "seven-os\\seven-runtime\\workers\\fcc\\index.js",
+        "seven-os\\system\\index.js",
+        "seven-os\\utilities\\tools\\index.js"
+      ]
+    },
+    {
+      "route": "/workers/ai-worker.js",
+      "status": "duplicate",
+      "expected": "seven-os\\workers\\ai-worker.js",
+      "found_at": [
+        "seven-os\\seven-runtime\\ai\\ai-worker.js",
+        "seven-os\\seven-runtime\\workers\\ai-worker.js",
+        "seven-os\\system\\ai-worker.js"
+      ]
+    },
+    {
+      "route": "/workers/api-worker.js",
+      "status": "misplaced",
+      "expected": "seven-os\\workers\\api-worker.js",
+      "found_at": "seven-os\\seven-runtime\\workers\\api-worker.js"
+    },
+    {
+      "route": "/workers/auth-worker.js",
+      "status": "misplaced",
+      "expected": "seven-os\\workers\\auth-worker.js",
+      "found_at": "seven-os\\seven-runtime\\workers\\auth-worker.js"
+    },
+    {
+      "route": "/workers/cyber/cyber/anomaly-engine.js",
+      "status": "misplaced",
+      "expected": "seven-os\\workers\\cyber\\cyber\\anomaly-engine.js",
+      "found_at": "seven-os\\seven-runtime\\workers\\cyber\\cyber\\anomaly-engine.js"
+    },
+    {
+      "route": "/workers/cyber/cyber/cyber-engine.js",
+      "status": "misplaced",
+      "expected": "seven-os\\workers\\cyber\\cyber\\cyber-engine.js",
+      "found_at": "seven-os\\seven-runtime\\workers\\cyber\\cyber\\cyber-engine.js"
+    },
+    {
+      "route": "/workers/cyber/cyber/cyber-trust.engine.js",
+      "status": "misplaced",
+      "expected": "seven-os\\workers\\cyber\\cyber\\cyber-trust.engine.js",
+      "found_at": "seven-os\\seven-runtime\\workers\\cyber\\cyber\\cyber-trust.engine.js"
+    },
+    {
+      "route": "/workers/cyber/cyber/index.js",
+      "status": "duplicate",
+      "expected": "seven-os\\workers\\cyber\\cyber\\index.js",
+      "found_at": [
+        "backend\\ai-worker\\index.js",
+        "backend\\gii\\context\\index.js",
+        "backend\\routes\\index.js",
+        "backend\\security\\tools\\index.js",
+        "backend\\threat\\index.js",
+        "backend\\utilities\\geo\\index.js",
+        "backend\\utilities\\geomapping-logic.js\\index.js",
+        "backend\\utilities\\integrity\\index.js",
+        "seven-os\\infrastructure\\index.js",
+        "seven-os\\infrastructure\\tools\\index.js",
+        "seven-os\\policy-packs\\index.js",
+        "seven-os\\sectors\\agri\\index.js",
+        "seven-os\\sectors\\agri\\visual\\index.js",
+        "seven-os\\sectors\\contractors\\index.js",
+        "seven-os\\sectors\\contractors\\sectors\\contractors\\index.js",
+        "seven-os\\sectors\\cyber\\index.js",
+        "seven-os\\sectors\\cyber\\sectors\\cyber\\index.js",
+        "seven-os\\sectors\\cyber\\workers\\cyber\\cyber\\index.js",
+        "seven-os\\sectors\\datacenters\\index.js",
+        "seven-os\\sectors\\disaster_response\\index.js",
+        "seven-os\\sectors\\disaster_response\\sectors\\disaster_response\\index.js",
+        "seven-os\\sectors\\fcc\\index.js",
+        "seven-os\\sectors\\gov\\index.js",
+        "seven-os\\sectors\\government\\policy-packs\\index.js",
+        "seven-os\\sectors\\government\\sectors\\gov\\index.js",
+        "seven-os\\sectors\\infrastructure\\logistics\\index.js",
+        "seven-os\\sectors\\logistics\\index.js",
+        "seven-os\\sectors\\mining\\index.js",
+        "seven-os\\sectors\\oil_gas\\index.js",
+        "seven-os\\sectors\\overlays\\index.js",
+        "seven-os\\sectors\\pipe-lines\\index.js",
+        "seven-os\\sectors\\pipelines\\index.js",
+        "seven-os\\sectors\\ports\\index.js",
+        "seven-os\\sectors\\power\\index.js",
+        "seven-os\\sectors\\public_safety\\index.js",
+        "seven-os\\sectors\\rail\\index.js",
+        "seven-os\\sectors\\roads\\index.js",
+        "seven-os\\sectors\\telecom\\index.js",
+        "seven-os\\sectors\\water\\index.js",
+        "seven-os\\seven-runtime\\ai\\tools\\index.js",
+        "seven-os\\seven-runtime\\ai\\workflows\\index.js",
+        "seven-os\\seven-runtime\\api\\index.js",
+        "seven-os\\seven-runtime\\workers\\cyber\\cyber\\index.js",
+        "seven-os\\seven-runtime\\workers\\fcc\\index.js",
+        "seven-os\\system\\index.js",
+        "seven-os\\utilities\\tools\\index.js"
+      ]
+    },
+    {
+      "route": "/workers/cyber/cyber/threat-score.engine.js",
+      "status": "misplaced",
+      "expected": "seven-os\\workers\\cyber\\cyber\\threat-score.engine.js",
+      "found_at": "seven-os\\seven-runtime\\workers\\cyber\\cyber\\threat-score.engine.js"
+    },
+    {
+      "route": "/workers/cyber/cyber-normalizer.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\workers\\cyber\\cyber-normalizer.ts",
+      "found_at": "seven-os\\seven-runtime\\workers\\cyber\\cyber-normalizer.ts"
+    },
+    {
+      "route": "/workers/cyber/cyber-threat-intel.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\workers\\cyber\\cyber-threat-intel.ts",
+      "found_at": "seven-os\\seven-runtime\\workers\\cyber\\cyber-threat-intel.ts"
+    },
+    {
+      "route": "/workers/cyber/cyber.escalation.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\workers\\cyber\\cyber.escalation.ts",
+      "found_at": "seven-os\\seven-runtime\\workers\\cyber\\cyber.escalation.ts"
+    },
+    {
+      "route": "/workers/cyber/cyber.router.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\workers\\cyber\\cyber.router.ts",
+      "found_at": "seven-os\\seven-runtime\\workers\\cyber\\cyber.router.ts"
+    },
+    {
+      "route": "/workers/cyber/cyber.soc-dashboard.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\workers\\cyber\\cyber.soc-dashboard.ts",
+      "found_at": "seven-os\\seven-runtime\\workers\\cyber\\cyber.soc-dashboard.ts"
+    },
+    {
+      "route": "/workers/cyber/cyber.worker.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\workers\\cyber\\cyber.worker.ts",
+      "found_at": "seven-os\\seven-runtime\\workers\\cyber\\cyber.worker.ts"
+    },
+    {
+      "route": "/workers/debug-worker.js",
+      "status": "duplicate",
+      "expected": "seven-os\\workers\\debug-worker.js",
+      "found_at": [
+        "seven-os\\seven-runtime\\intelligence\\debug-worker.js",
+        "seven-os\\seven-runtime\\workers\\debug-worker.js"
+      ]
+    },
+    {
+      "route": "/workers/emergency-router/index.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\workers\\emergency-router\\index.ts",
+      "found_at": [
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\remediation-engine\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\index.ts",
+        "seven-os\\core\\fcc\\compliance-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\compliance-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\fallback-auditor\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\fcc\\firmware-auditor\\index.ts",
+        "seven-os\\core\\fcc\\network-observation-layer\\index.ts",
+        "seven-os\\core\\fcc\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\rf-observation-layer\\index.ts",
+        "seven-os\\core\\fcc\\telecom-equipment-authorization\\index.ts",
+        "seven-os\\core\\fcc\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\governance\\compliance-engine\\index.ts",
+        "seven-os\\core\\governance\\goverance-brain\\index.ts",
+        "seven-os\\core\\math\\index.ts",
+        "seven-os\\core\\remediation\\index.ts",
+        "seven-os\\core\\workforce\\AI-workforce-sync-layer\\index.ts",
+        "seven-os\\cyber\\index.ts",
+        "seven-os\\mci\\index.ts",
+        "seven-os\\seven-runtime\\rf\\FirmwareAuditor\\index.ts",
+        "seven-os\\seven-runtime\\rf\\REObservation-layer\\index.ts",
+        "seven-os\\seven-runtime\\workers\\emergency-router\\index.ts",
+        "seven-os\\seven-runtime\\workers\\expansion\\index.ts",
+        "seven-os\\seven-runtime\\workers\\finance\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\hr-worker\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\employee\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\layouts\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\themes\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\widgets\\index.ts"
+      ]
+    },
+    {
+      "route": "/workers/expansion/index.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\workers\\expansion\\index.ts",
+      "found_at": [
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\remediation-engine\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\index.ts",
+        "seven-os\\core\\fcc\\compliance-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\compliance-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\fallback-auditor\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\fcc\\firmware-auditor\\index.ts",
+        "seven-os\\core\\fcc\\network-observation-layer\\index.ts",
+        "seven-os\\core\\fcc\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\rf-observation-layer\\index.ts",
+        "seven-os\\core\\fcc\\telecom-equipment-authorization\\index.ts",
+        "seven-os\\core\\fcc\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\governance\\compliance-engine\\index.ts",
+        "seven-os\\core\\governance\\goverance-brain\\index.ts",
+        "seven-os\\core\\math\\index.ts",
+        "seven-os\\core\\remediation\\index.ts",
+        "seven-os\\core\\workforce\\AI-workforce-sync-layer\\index.ts",
+        "seven-os\\cyber\\index.ts",
+        "seven-os\\mci\\index.ts",
+        "seven-os\\seven-runtime\\rf\\FirmwareAuditor\\index.ts",
+        "seven-os\\seven-runtime\\rf\\REObservation-layer\\index.ts",
+        "seven-os\\seven-runtime\\workers\\emergency-router\\index.ts",
+        "seven-os\\seven-runtime\\workers\\expansion\\index.ts",
+        "seven-os\\seven-runtime\\workers\\finance\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\hr-worker\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\employee\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\layouts\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\themes\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\widgets\\index.ts"
+      ]
+    },
+    {
+      "route": "/workers/fcc/index.js",
+      "status": "duplicate",
+      "expected": "seven-os\\workers\\fcc\\index.js",
+      "found_at": [
+        "backend\\ai-worker\\index.js",
+        "backend\\gii\\context\\index.js",
+        "backend\\routes\\index.js",
+        "backend\\security\\tools\\index.js",
+        "backend\\threat\\index.js",
+        "backend\\utilities\\geo\\index.js",
+        "backend\\utilities\\geomapping-logic.js\\index.js",
+        "backend\\utilities\\integrity\\index.js",
+        "seven-os\\infrastructure\\index.js",
+        "seven-os\\infrastructure\\tools\\index.js",
+        "seven-os\\policy-packs\\index.js",
+        "seven-os\\sectors\\agri\\index.js",
+        "seven-os\\sectors\\agri\\visual\\index.js",
+        "seven-os\\sectors\\contractors\\index.js",
+        "seven-os\\sectors\\contractors\\sectors\\contractors\\index.js",
+        "seven-os\\sectors\\cyber\\index.js",
+        "seven-os\\sectors\\cyber\\sectors\\cyber\\index.js",
+        "seven-os\\sectors\\cyber\\workers\\cyber\\cyber\\index.js",
+        "seven-os\\sectors\\datacenters\\index.js",
+        "seven-os\\sectors\\disaster_response\\index.js",
+        "seven-os\\sectors\\disaster_response\\sectors\\disaster_response\\index.js",
+        "seven-os\\sectors\\fcc\\index.js",
+        "seven-os\\sectors\\gov\\index.js",
+        "seven-os\\sectors\\government\\policy-packs\\index.js",
+        "seven-os\\sectors\\government\\sectors\\gov\\index.js",
+        "seven-os\\sectors\\infrastructure\\logistics\\index.js",
+        "seven-os\\sectors\\logistics\\index.js",
+        "seven-os\\sectors\\mining\\index.js",
+        "seven-os\\sectors\\oil_gas\\index.js",
+        "seven-os\\sectors\\overlays\\index.js",
+        "seven-os\\sectors\\pipe-lines\\index.js",
+        "seven-os\\sectors\\pipelines\\index.js",
+        "seven-os\\sectors\\ports\\index.js",
+        "seven-os\\sectors\\power\\index.js",
+        "seven-os\\sectors\\public_safety\\index.js",
+        "seven-os\\sectors\\rail\\index.js",
+        "seven-os\\sectors\\roads\\index.js",
+        "seven-os\\sectors\\telecom\\index.js",
+        "seven-os\\sectors\\water\\index.js",
+        "seven-os\\seven-runtime\\ai\\tools\\index.js",
+        "seven-os\\seven-runtime\\ai\\workflows\\index.js",
+        "seven-os\\seven-runtime\\api\\index.js",
+        "seven-os\\seven-runtime\\workers\\cyber\\cyber\\index.js",
+        "seven-os\\seven-runtime\\workers\\fcc\\index.js",
+        "seven-os\\system\\index.js",
+        "seven-os\\utilities\\tools\\index.js"
+      ]
+    },
+    {
+      "route": "/workers/field-enginegps-mapper.js",
+      "status": "misplaced",
+      "expected": "seven-os\\workers\\field-enginegps-mapper.js",
+      "found_at": "seven-os\\seven-runtime\\workers\\field-enginegps-mapper.js"
+    },
+    {
+      "route": "/workers/gia-deep-mind-2100.js",
+      "status": "duplicate",
+      "expected": "seven-os\\workers\\gia-deep-mind-2100.js",
+      "found_at": [
+        "backend\\ai-worker\\gia-deep-mind-2100.js",
+        "seven-os\\seven-runtime\\workers\\gia-deep-mind-2100.js"
+      ]
+    },
+    {
+      "route": "/workers/gov/gov.escalation-handler.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\workers\\gov\\gov.escalation-handler.ts",
+      "found_at": "seven-os\\seven-runtime\\workers\\gov\\gov.escalation-handler.ts"
+    },
+    {
+      "route": "/workers/gov/gov.worker.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\workers\\gov\\gov.worker.ts",
+      "found_at": "seven-os\\seven-runtime\\workers\\gov\\gov.worker.ts"
+    },
+    {
+      "route": "/workers/gov-view-worker.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\workers\\gov-view-worker.ts",
+      "found_at": "seven-os\\seven-runtime\\workers\\gov-view-worker.ts"
+    },
+    {
+      "route": "/workers/intake.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\workers\\intake.ts",
+      "found_at": "seven-os\\seven-runtime\\workers\\intake.ts"
+    },
+    {
+      "route": "/workers/opportunity-scanner-worker.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\workers\\opportunity-scanner-worker.ts",
+      "found_at": "seven-os\\seven-runtime\\workers\\opportunity-scanner-worker.ts"
+    },
+    {
+      "route": "/workers/organizer.js",
+      "status": "misplaced",
+      "expected": "seven-os\\workers\\organizer.js",
+      "found_at": "seven-os\\seven-runtime\\workers\\organizer.js"
+    },
+    {
+      "route": "/workers/system-workers/admin-workers/admin-endpoints.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\workers\\system-workers\\admin-workers\\admin-endpoints.ts",
+      "found_at": "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\admin-endpoints.ts"
+    },
+    {
+      "route": "/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers/index.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\index.ts",
+      "found_at": [
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\remediation-engine\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\index.ts",
+        "seven-os\\core\\fcc\\compliance-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\compliance-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\fallback-auditor\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\fcc\\firmware-auditor\\index.ts",
+        "seven-os\\core\\fcc\\network-observation-layer\\index.ts",
+        "seven-os\\core\\fcc\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\rf-observation-layer\\index.ts",
+        "seven-os\\core\\fcc\\telecom-equipment-authorization\\index.ts",
+        "seven-os\\core\\fcc\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\governance\\compliance-engine\\index.ts",
+        "seven-os\\core\\governance\\goverance-brain\\index.ts",
+        "seven-os\\core\\math\\index.ts",
+        "seven-os\\core\\remediation\\index.ts",
+        "seven-os\\core\\workforce\\AI-workforce-sync-layer\\index.ts",
+        "seven-os\\cyber\\index.ts",
+        "seven-os\\mci\\index.ts",
+        "seven-os\\seven-runtime\\rf\\FirmwareAuditor\\index.ts",
+        "seven-os\\seven-runtime\\rf\\REObservation-layer\\index.ts",
+        "seven-os\\seven-runtime\\workers\\emergency-router\\index.ts",
+        "seven-os\\seven-runtime\\workers\\expansion\\index.ts",
+        "seven-os\\seven-runtime\\workers\\finance\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\hr-worker\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\employee\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\layouts\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\themes\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\widgets\\index.ts"
+      ]
+    },
+    {
+      "route": "/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers/public-worker/hr-worker/index.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\hr-worker\\index.ts",
+      "found_at": [
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\remediation-engine\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\index.ts",
+        "seven-os\\core\\fcc\\compliance-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\compliance-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\fallback-auditor\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\fcc\\firmware-auditor\\index.ts",
+        "seven-os\\core\\fcc\\network-observation-layer\\index.ts",
+        "seven-os\\core\\fcc\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\rf-observation-layer\\index.ts",
+        "seven-os\\core\\fcc\\telecom-equipment-authorization\\index.ts",
+        "seven-os\\core\\fcc\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\governance\\compliance-engine\\index.ts",
+        "seven-os\\core\\governance\\goverance-brain\\index.ts",
+        "seven-os\\core\\math\\index.ts",
+        "seven-os\\core\\remediation\\index.ts",
+        "seven-os\\core\\workforce\\AI-workforce-sync-layer\\index.ts",
+        "seven-os\\cyber\\index.ts",
+        "seven-os\\mci\\index.ts",
+        "seven-os\\seven-runtime\\rf\\FirmwareAuditor\\index.ts",
+        "seven-os\\seven-runtime\\rf\\REObservation-layer\\index.ts",
+        "seven-os\\seven-runtime\\workers\\emergency-router\\index.ts",
+        "seven-os\\seven-runtime\\workers\\expansion\\index.ts",
+        "seven-os\\seven-runtime\\workers\\finance\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\hr-worker\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\employee\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\layouts\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\themes\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\widgets\\index.ts"
+      ]
+    },
+    {
+      "route": "/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers/public-worker/payroll-worker/employee/index.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\employee\\index.ts",
+      "found_at": [
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\remediation-engine\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\index.ts",
+        "seven-os\\core\\fcc\\compliance-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\compliance-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\fallback-auditor\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\fcc\\firmware-auditor\\index.ts",
+        "seven-os\\core\\fcc\\network-observation-layer\\index.ts",
+        "seven-os\\core\\fcc\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\rf-observation-layer\\index.ts",
+        "seven-os\\core\\fcc\\telecom-equipment-authorization\\index.ts",
+        "seven-os\\core\\fcc\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\governance\\compliance-engine\\index.ts",
+        "seven-os\\core\\governance\\goverance-brain\\index.ts",
+        "seven-os\\core\\math\\index.ts",
+        "seven-os\\core\\remediation\\index.ts",
+        "seven-os\\core\\workforce\\AI-workforce-sync-layer\\index.ts",
+        "seven-os\\cyber\\index.ts",
+        "seven-os\\mci\\index.ts",
+        "seven-os\\seven-runtime\\rf\\FirmwareAuditor\\index.ts",
+        "seven-os\\seven-runtime\\rf\\REObservation-layer\\index.ts",
+        "seven-os\\seven-runtime\\workers\\emergency-router\\index.ts",
+        "seven-os\\seven-runtime\\workers\\expansion\\index.ts",
+        "seven-os\\seven-runtime\\workers\\finance\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\hr-worker\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\employee\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\layouts\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\themes\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\widgets\\index.ts"
+      ]
+    },
+    {
+      "route": "/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers/public-worker/payroll-worker/index.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\index.ts",
+      "found_at": [
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\remediation-engine\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\index.ts",
+        "seven-os\\core\\fcc\\compliance-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\compliance-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\fallback-auditor\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\fcc\\firmware-auditor\\index.ts",
+        "seven-os\\core\\fcc\\network-observation-layer\\index.ts",
+        "seven-os\\core\\fcc\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\rf-observation-layer\\index.ts",
+        "seven-os\\core\\fcc\\telecom-equipment-authorization\\index.ts",
+        "seven-os\\core\\fcc\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\governance\\compliance-engine\\index.ts",
+        "seven-os\\core\\governance\\goverance-brain\\index.ts",
+        "seven-os\\core\\math\\index.ts",
+        "seven-os\\core\\remediation\\index.ts",
+        "seven-os\\core\\workforce\\AI-workforce-sync-layer\\index.ts",
+        "seven-os\\cyber\\index.ts",
+        "seven-os\\mci\\index.ts",
+        "seven-os\\seven-runtime\\rf\\FirmwareAuditor\\index.ts",
+        "seven-os\\seven-runtime\\rf\\REObservation-layer\\index.ts",
+        "seven-os\\seven-runtime\\workers\\emergency-router\\index.ts",
+        "seven-os\\seven-runtime\\workers\\expansion\\index.ts",
+        "seven-os\\seven-runtime\\workers\\finance\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\hr-worker\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\employee\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\layouts\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\themes\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\widgets\\index.ts"
+      ]
+    },
+    {
+      "route": "/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/index.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\index.ts",
+      "found_at": [
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\remediation-engine\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\index.ts",
+        "seven-os\\core\\fcc\\compliance-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\compliance-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\fallback-auditor\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\fcc\\firmware-auditor\\index.ts",
+        "seven-os\\core\\fcc\\network-observation-layer\\index.ts",
+        "seven-os\\core\\fcc\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\rf-observation-layer\\index.ts",
+        "seven-os\\core\\fcc\\telecom-equipment-authorization\\index.ts",
+        "seven-os\\core\\fcc\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\governance\\compliance-engine\\index.ts",
+        "seven-os\\core\\governance\\goverance-brain\\index.ts",
+        "seven-os\\core\\math\\index.ts",
+        "seven-os\\core\\remediation\\index.ts",
+        "seven-os\\core\\workforce\\AI-workforce-sync-layer\\index.ts",
+        "seven-os\\cyber\\index.ts",
+        "seven-os\\mci\\index.ts",
+        "seven-os\\seven-runtime\\rf\\FirmwareAuditor\\index.ts",
+        "seven-os\\seven-runtime\\rf\\REObservation-layer\\index.ts",
+        "seven-os\\seven-runtime\\workers\\emergency-router\\index.ts",
+        "seven-os\\seven-runtime\\workers\\expansion\\index.ts",
+        "seven-os\\seven-runtime\\workers\\finance\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\hr-worker\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\employee\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\layouts\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\themes\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\widgets\\index.ts"
+      ]
+    },
+    {
+      "route": "/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/index.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\index.ts",
+      "found_at": [
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\remediation-engine\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\index.ts",
+        "seven-os\\core\\fcc\\compliance-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\compliance-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\fallback-auditor\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\fcc\\firmware-auditor\\index.ts",
+        "seven-os\\core\\fcc\\network-observation-layer\\index.ts",
+        "seven-os\\core\\fcc\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\rf-observation-layer\\index.ts",
+        "seven-os\\core\\fcc\\telecom-equipment-authorization\\index.ts",
+        "seven-os\\core\\fcc\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\governance\\compliance-engine\\index.ts",
+        "seven-os\\core\\governance\\goverance-brain\\index.ts",
+        "seven-os\\core\\math\\index.ts",
+        "seven-os\\core\\remediation\\index.ts",
+        "seven-os\\core\\workforce\\AI-workforce-sync-layer\\index.ts",
+        "seven-os\\cyber\\index.ts",
+        "seven-os\\mci\\index.ts",
+        "seven-os\\seven-runtime\\rf\\FirmwareAuditor\\index.ts",
+        "seven-os\\seven-runtime\\rf\\REObservation-layer\\index.ts",
+        "seven-os\\seven-runtime\\workers\\emergency-router\\index.ts",
+        "seven-os\\seven-runtime\\workers\\expansion\\index.ts",
+        "seven-os\\seven-runtime\\workers\\finance\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\hr-worker\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\employee\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\layouts\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\themes\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\widgets\\index.ts"
+      ]
+    },
+    {
+      "route": "/workers/system-workers/admin-workers/contractor-workers/index.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\workers\\system-workers\\admin-workers\\contractor-workers\\index.ts",
+      "found_at": [
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\remediation-engine\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\index.ts",
+        "seven-os\\core\\fcc\\compliance-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\compliance-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\fallback-auditor\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\fcc\\firmware-auditor\\index.ts",
+        "seven-os\\core\\fcc\\network-observation-layer\\index.ts",
+        "seven-os\\core\\fcc\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\rf-observation-layer\\index.ts",
+        "seven-os\\core\\fcc\\telecom-equipment-authorization\\index.ts",
+        "seven-os\\core\\fcc\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\governance\\compliance-engine\\index.ts",
+        "seven-os\\core\\governance\\goverance-brain\\index.ts",
+        "seven-os\\core\\math\\index.ts",
+        "seven-os\\core\\remediation\\index.ts",
+        "seven-os\\core\\workforce\\AI-workforce-sync-layer\\index.ts",
+        "seven-os\\cyber\\index.ts",
+        "seven-os\\mci\\index.ts",
+        "seven-os\\seven-runtime\\rf\\FirmwareAuditor\\index.ts",
+        "seven-os\\seven-runtime\\rf\\REObservation-layer\\index.ts",
+        "seven-os\\seven-runtime\\workers\\emergency-router\\index.ts",
+        "seven-os\\seven-runtime\\workers\\expansion\\index.ts",
+        "seven-os\\seven-runtime\\workers\\finance\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\hr-worker\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\employee\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\layouts\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\themes\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\widgets\\index.ts"
+      ]
+    },
+    {
+      "route": "/workers/system-workers/admin-workers/index.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\workers\\system-workers\\admin-workers\\index.ts",
+      "found_at": [
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\remediation-engine\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\index.ts",
+        "seven-os\\core\\fcc\\compliance-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\compliance-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\fallback-auditor\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\fcc\\firmware-auditor\\index.ts",
+        "seven-os\\core\\fcc\\network-observation-layer\\index.ts",
+        "seven-os\\core\\fcc\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\rf-observation-layer\\index.ts",
+        "seven-os\\core\\fcc\\telecom-equipment-authorization\\index.ts",
+        "seven-os\\core\\fcc\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\governance\\compliance-engine\\index.ts",
+        "seven-os\\core\\governance\\goverance-brain\\index.ts",
+        "seven-os\\core\\math\\index.ts",
+        "seven-os\\core\\remediation\\index.ts",
+        "seven-os\\core\\workforce\\AI-workforce-sync-layer\\index.ts",
+        "seven-os\\cyber\\index.ts",
+        "seven-os\\mci\\index.ts",
+        "seven-os\\seven-runtime\\rf\\FirmwareAuditor\\index.ts",
+        "seven-os\\seven-runtime\\rf\\REObservation-layer\\index.ts",
+        "seven-os\\seven-runtime\\workers\\emergency-router\\index.ts",
+        "seven-os\\seven-runtime\\workers\\expansion\\index.ts",
+        "seven-os\\seven-runtime\\workers\\finance\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\hr-worker\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\employee\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\layouts\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\themes\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\widgets\\index.ts"
+      ]
+    },
+    {
+      "route": "/workers/system-workers/emergency-router.js",
+      "status": "misplaced",
+      "expected": "seven-os\\workers\\system-workers\\emergency-router.js",
+      "found_at": "seven-os\\seven-runtime\\workers\\system-workers\\emergency-router.js"
+    },
+    {
+      "route": "/workers/system-workers/ewo-worker.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\workers\\system-workers\\ewo-worker.ts",
+      "found_at": "seven-os\\seven-runtime\\workers\\system-workers\\ewo-worker.ts"
+    },
+    {
+      "route": "/workers/system-workers/heartbeat.js",
+      "status": "misplaced",
+      "expected": "seven-os\\workers\\system-workers\\heartbeat.js",
+      "found_at": "seven-os\\seven-runtime\\workers\\system-workers\\heartbeat.js"
+    },
+    {
+      "route": "/workers/system-workers/index.ts",
+      "status": "duplicate",
+      "expected": "seven-os\\workers\\system-workers\\index.ts",
+      "found_at": [
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\remediation-engine\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\index.ts",
+        "seven-os\\core\\fcc\\compliance-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\compliance-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\fallback-auditor\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\fcc\\firmware-auditor\\index.ts",
+        "seven-os\\core\\fcc\\network-observation-layer\\index.ts",
+        "seven-os\\core\\fcc\\remediation-engine\\index.ts",
+        "seven-os\\core\\fcc\\rf-observation-layer\\index.ts",
+        "seven-os\\core\\fcc\\telecom-equipment-authorization\\index.ts",
+        "seven-os\\core\\fcc\\workforce-sync-layer\\index.ts",
+        "seven-os\\core\\governance\\compliance-engine\\index.ts",
+        "seven-os\\core\\governance\\goverance-brain\\index.ts",
+        "seven-os\\core\\math\\index.ts",
+        "seven-os\\core\\remediation\\index.ts",
+        "seven-os\\core\\workforce\\AI-workforce-sync-layer\\index.ts",
+        "seven-os\\cyber\\index.ts",
+        "seven-os\\mci\\index.ts",
+        "seven-os\\seven-runtime\\rf\\FirmwareAuditor\\index.ts",
+        "seven-os\\seven-runtime\\rf\\REObservation-layer\\index.ts",
+        "seven-os\\seven-runtime\\workers\\emergency-router\\index.ts",
+        "seven-os\\seven-runtime\\workers\\expansion\\index.ts",
+        "seven-os\\seven-runtime\\workers\\finance\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\hr-worker\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\employee\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\index.ts",
+        "seven-os\\seven-runtime\\workers\\system-workers\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\layouts\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\themes\\index.ts",
+        "seven-os\\utilities\\dashboard\\universal\\widgets\\index.ts"
+      ]
+    },
+    {
+      "route": "/workers/system-workers/protected-routes.js",
+      "status": "misplaced",
+      "expected": "seven-os\\workers\\system-workers\\protected-routes.js",
+      "found_at": "seven-os\\seven-runtime\\workers\\system-workers\\protected-routes.js"
+    },
+    {
+      "route": "/workers/system-workers/routing.js",
+      "status": "misplaced",
+      "expected": "seven-os\\workers\\system-workers\\routing.js",
+      "found_at": "seven-os\\seven-runtime\\workers\\system-workers\\routing.js"
+    },
+    {
+      "route": "/workers/Topology Sync Worker.js",
+      "status": "misplaced",
+      "expected": "seven-os\\workers\\Topology Sync Worker.js",
+      "found_at": "seven-os\\seven-runtime\\workers\\Topology Sync Worker.js"
+    },
+    {
+      "route": "/workers/worker.ts",
+      "status": "misplaced",
+      "expected": "seven-os\\workers\\worker.ts",
+      "found_at": "seven-os\\seven-runtime\\workers\\worker.ts"
+    },
+    {
+      "route": "/workflow-generator.ts",
+      "status": "exists",
+      "location": "seven-os\\workflow-generator.ts"
+    }
+  ]
+}

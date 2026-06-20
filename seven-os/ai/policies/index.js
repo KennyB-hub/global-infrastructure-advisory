@@ -1,190 +1,241 @@
-// /ai-engine/policy-engine.js
-// GIA Sovereign Policy Engine – V12 Alpha
+// 2050 V12 Alpha — Sovereign API Gateway
+// Global Infrastructure Platform — System Layer Entry
 
-import { sha256 } from "../utils/context.js";
+import { handleEwoDispatch } from "./ewo.js";
+import { handleSectorStatus } from "./sector-status.js";
+import { handleGlobalMap, handleSectorMap } from "./map.js";
+import { handleAuthLogin } from "./auth-login.js";
+import { handleAuthCallback } from "./auth-callback.js";
+import { openIncidentsFromAlerts } from "../ai/incident-response-workflow.js";
 
-//
-// 7 Sovereign Trust Zones
-//
-const ZONES = {
-  public: 1,
-  contractor: 2,
-  farmer: 2,
-  employee: 3,
-  admin: 4,
-  gov: 5,
-  deepgov: 6,
-  system: 7,
-  
-};
+// --- V12 Alpha Utility Imports ---
+import { buildSovereignMetadata } from "../system/metadata.js";
+import { verifyTrustZone } from "../system/trust.js";
+import { applyPolicy } from "../system/policy-engine.js";
+import { applyCodeFilter } from "../system/code-filter.js";
+import { computeIntegrityHash } from "../system/integrity.js";
+import { buildAIContext } from "../system/ai-context.js";
+import { verifyDidVcIdentity } from "../system/identity/did-vc-verifier.js";
 
-//
-// Workflow restrictions per zone
-//
-const WORKFLOW_RULES = {
-  public: [
-    "geo",
-    "utility",
-    "decision",
-    "science",
-    "geothermal",
-    "renewables",
-    "building-code",
-    "zoning"
-  ],
+import { runDecisionEngine } from "../../ai-engine/decision-engine.js";
+import { Cortex } from "../../ai-engine/cortex.js";
+import nodeRegistry from "../../config/node-registry.json" assert { type: "json" };
 
-  contractor: [
-    "geo",
-    "utility",
-    "decision",
-    "science",
-    "renewables",
-    "building-code",
-    "zoning"
-  ],
+import { enforceMCP } from "../../system/mcp/mcp-enforcer.js";
+import { handleCyberApi } from "./cyber.js";
+import { handleGovViewApi } from "./gov-view.js";
+import { handleOpportunityApi } from "./opportunity.js";
+import { handleMarketplaceApi } from "./marketplace.js";
+import { handleSectorMatchApi } from "./sector-match.js";
 
-  farmer: [
-    "geo",
-    "utility",
-    "decision",
-    "renewables",
-    "geothermal"
-  ],
+export async function handleApiRequest(request, env, ctx) {
+  const url = new URL(request.url);
+  const path = url.pathname;
 
-  employee: [
-    "geo",
-    "utility",
-    "decision",
-    "science",
-    "renewables",
-    "building-code",
-    "zoning",
-    "geothermal"
-  ],
+  // ---------------------------------------------------------
+  // 1. Sovereign Metadata (required for every V12 Alpha API)
+  // ---------------------------------------------------------
+  const sovereign = buildSovereignMetadata({
+    api: "api-gateway",
+    version: "2050.V12A",
+    node: env.NODE_ID,
+    cluster: env.CLUSTER_ID,
+    path,
+    method: request.method,
+    subject: identity.subject || "anonymous"
+  });
 
-  admin: [
-    "geo",
-    "utility",
-    "decision",
-    "science",
-    "renewables",
-    "building-code",
-    "zoning",
-    "geothermal",
-    "sandbox"
-  ],
+  // ---------------------------------------------------------
+  // 2. Trust‑Zone Enforcement
+  // ---------------------------------------------------------
+  const trust = verifyTrustZone({
+    request,
+    path,
+    zone: "public" // Gateway is public-facing; workers enforce deeper zones
+  });
 
-  gov: [
-    "geo",
-    "utility",
-    "decision",
-    "science",
-    "renewables",
-    "building-code",
-    "zoning",
-    "geothermal",
-    "sandbox"
-  ],
-
-  deepgov: [
-    "geo",
-    "utility",
-    "decision",
-    "science",
-    "renewables",
-    "building-code",
-    "zoning",
-    "geothermal",
-    "sandbox"
-  ],
-
-  system: [
-    "geo",
-    "utility",
-    "decision",
-    "science",
-    "renewables",
-    "building-code",
-    "zoning",
-    "geothermal",
-    "sandbox"
-  ]
-};
-
-//
-// Forbidden actions per zone
-//
-const ACTION_RULES = {
-  public: ["execute", "deploy", "write", "modify"],
-  contractor: ["execute", "deploy", "write", "modify"],
-  farmer: ["execute", "deploy", "write", "modify"],
-  employee: ["execute", "deploy"],
-  admin: ["deploy"],
-  gov: ["deploy"],
-  deepgov: [],
-  system: []
-};
-
-//
-// Main policy engine
-//
-export async function applyPolicies(input = {}, context = {}) {
-  const zone = input.trustZone || "public";
-  const level = ZONES[zone] || 1;
-
-  const errors = [];
-  const warnings = [];
-
-  //
-  // 1. Workflow validation
-  //
-  const workflow = input.workflow || context.workflow || "general";
-  const allowedWorkflows = WORKFLOW_RULES[zone];
-
-  if (!allowedWorkflows.includes(workflow)) {
-    errors.push(`Workflow '${workflow}' is not permitted in trust zone '${zone}'.`);
+  if (!trust.allowed) {
+    return sovereignError("TRUST_DENIED", "Access denied by trust‑zone policy", sovereign);
   }
 
-  //
-  // 2. Action validation
-  //
-  if (input.action) {
-    const forbidden = ACTION_RULES[zone];
-    if (forbidden.includes(input.action)) {
-      errors.push(`Action '${input.action}' is forbidden in trust zone '${zone}'.`);
+  // ---------------------------------------------------------
+  // 3. Policy Engine Enforcement
+  // ---------------------------------------------------------
+  const policyResult = applyPolicy({ request, path });
+  if (!policyResult.allowed) {
+    return sovereignError("POLICY_BLOCKED", policyResult.reason, sovereign);
+  }
+
+  // ---------------------------------------------------------
+  // 4. Code Filter / Sandbox Guard
+  // ---------------------------------------------------------
+  const filter = applyCodeFilter(request);
+  if (!filter.safe) {
+    return sovereignError("CODE_FILTER_BLOCKED", filter.reason, sovereign);
+  }
+
+  // ---------------------------------------------------------
+  // 5. AI Context Injection (for all AI‑aware endpoints)
+  // ---------------------------------------------------------
+  const ai = buildAIContext({
+    request,
+    path,
+    workflow: "api-gateway",
+    trustZone: trust.zone
+  });
+
+  // ---------------------------------------------------------
+  // 6. MCP Enforcement (Gateway-level)
+  // ---------------------------------------------------------
+  const mcp = await enforceMCP({
+    trustZone: trust.zone,
+    method: request.method,
+    threat: { level: "none" } // gateway is low-risk; deep threat handled downstream
+  });
+
+  if (!mcp.allowed) {
+    return sovereignError("MCP_DENIED", mcp.reason || "Blocked by MCP policy", sovereign);
+  }
+
+  // ---------------------------------------------------------
+  // 7. Route Table (V12 Alpha — Expanded)
+  // ---------------------------------------------------------
+  try {
+    // Global Map
+    if (path === "/api/map/global") {
+      return sovereignWrap(await handleGlobalMap(request), sovereign, ai);
     }
+
+    // Incident Scan (Dashboard Button)
+    if (path === "/api/security/incidents/scan" && request.method === "POST") {
+      const incidents = openIncidentsFromAlerts();
+      return sovereignWrap({ created: incidents.length, incidents }, sovereign, ai);
+    }
+
+    // Auth Login
+    if (path === "/api/auth/login") {
+      return sovereignWrap(await handleAuthLogin(request), sovereign, ai);
+    }
+
+    // Auth Callback
+    if (path === "/api/auth/callback") {
+      return sovereignWrap(await handleAuthCallback(request), sovereign, ai);
+    }
+
+    // EWO Dispatch
+    if (path === "/api/ewo/dispatch" && request.method === "POST") {
+      return sovereignWrap(await handleEwoDispatch(request), sovereign, ai);
+    }
+
+    // Sector Status
+    if (path.startsWith("/api/sector/") && path.endsWith("/status")) {
+      return sovereignWrap(await handleSectorStatus(request), sovereign, ai);
+    }
+
+    // Sector Map
+    if (path.startsWith("/api/map/sector/")) {
+      return sovereignWrap(await handleSectorMap(request), sovereign, ai);
+    }
+
+    // -----------------------------------------------------
+    // NEW: Cyber API
+    // -----------------------------------------------------
+    if (path.startsWith("/api/cyber")) {
+      const res = await handleCyberApi(request, env);
+      const payload = await res.json();
+      return sovereignWrap(payload, sovereign, ai);
+    }
+
+    // -----------------------------------------------------
+    // NEW: Gov View API
+    // -----------------------------------------------------
+    if (path.startsWith("/api/gov/view")) {
+      const res = await handleGovViewApi(request, env);
+      const payload = await res.json();
+      return sovereignWrap(payload, sovereign, ai);
+    }
+
+    // -----------------------------------------------------
+    // NEW: Opportunity Scanner API
+    // -----------------------------------------------------
+    if (path.startsWith("/api/opportunities")) {
+      const res = await handleOpportunityApi(request, env);
+      const payload = await res.json();
+      return sovereignWrap(payload, sovereign, ai);
+    }
+
+    // -----------------------------------------------------
+    // NEW: Unified Marketplace API
+    // -----------------------------------------------------
+    if (path.startsWith("/api/marketplace")) {
+      const res = await handleMarketplaceApi(request, env);
+      const payload = await res.json();
+      return sovereignWrap(payload, sovereign, ai);
+    }
+
+    // -----------------------------------------------------
+    // NEW: Sector-Aware Matching API
+    // -----------------------------------------------------
+    if (path.startsWith("/api/sector/match")) {
+      const res = await handleSectorMatchApi(request, env);
+      const payload = await res.json();
+      return sovereignWrap(payload, sovereign, ai);
+    }
+
+    // -----------------------------------------------------
+    // NEW: Decision Engine API
+    // -----------------------------------------------------
+    if (path === "/api/decision" && request.method === "POST") {
+      const body = await request.json();
+      const result = await runDecisionEngine({ ...body, nodeRegistry, env });
+      return sovereignWrap(result, sovereign, ai);
+    }
+
+    // -----------------------------------------------------
+    // NEW: Cortex API
+    // -----------------------------------------------------
+    if (path === "/api/cortex" && request.method === "POST") {
+      const body = await request.json();
+      const cortex = new Cortex(env);
+      const result = await cortex.process(body);
+      return sovereignWrap(result, sovereign, ai);
+    }
+
+    // Not Found
+    return sovereignError("NOT_FOUND", "API route not found", sovereign);
+
+  } catch (err) {
+    return sovereignError("UNCAUGHT_EXCEPTION", err.message, sovereign);
   }
+}
 
-  //
-  // 3. DeepGov override mode
-  //
-  if (zone === "deepgov" && errors.length > 0) {
-    warnings.push(...errors);
-    errors.length = 0;
-  }
+// ---------------------------------------------------------
+// V12 Alpha — Unified Success Wrapper
+// ---------------------------------------------------------
+function sovereignWrap(payload, sovereign, ai) {
+  return new Response(
+    JSON.stringify({
+      ok: true,
+      payload,
+      sovereign,
+      ai,
+      integrity: computeIntegrityHash(payload)
+    }),
+    { status: 200, headers: { "Content-Type": "application/json" } }
+  );
+}
 
-  //
-  // 4. Build sovereign policy result
-  //
-  const result = {
-    ok: errors.length === 0,
-    errors,
-    warnings,
-    trustZone: zone,
-    workflow,
-    level,
-    timestamp: new Date().toISOString(),
-    inputHash: context.inputHash || null,
-    contextHash: context.contextHash || null
-  };
-
-  //
-  // 5. Integrity hash
-  //
-  result.integrity = {
-    hash: await sha256(JSON.stringify(result)),
-    verified: true
-  };
-
-  return result;
+// ---------------------------------------------------------
+// V12 Alpha — Unified Error Model
+// ---------------------------------------------------------
+function sovereignError(code, message, sovereign) {
+  return new Response(
+    JSON.stringify({
+      ok: false,
+      error: { code, message },
+      sovereign,
+      integrity: computeIntegrityHash({ code, message })
+    }),
+    { status: 400, headers: { "Content-Type": "application/json" } }
+  );
 }

@@ -1,33 +1,28 @@
-// seven-os/ai/mci/index.js
+/**
+ * GIA AGRI-VISUAL ENGINE
+ * Manages 2D/3D Mapping, Blueprints, and Documents
+ */
+import { init3DMapping } from './engine-3d.js';
+import { init2DMapping } from './engine-2d.js';
+import { processBlueprints } from './engine-blueprint.js';
+import { renderDocuments } from './engine-docs.js';
 
-import { loadMci } from "./loader.js";
+export const AgriVisualEngine = {
+    async initialize(containerId, sectorData, env) {
+        console.log("[VISUAL] Initializing Agricultural Visual Stack...");
 
-const mci = loadMci();
+        // 1. Dual-Mapping Handshake
+        const map3D = await init3DMapping(containerId, sectorData.geo, env);
+        const map2D = await init2DMapping('overlay-ui', sectorData.satellite, env);
 
-export function getSector(name) {
-  return mci.sectors[name] ?? null;
-}
+        // 2. Technical Layer Integration
+        const blueprints = await processBlueprints(sectorData.blueprints);
+        const docs = await renderDocuments(sectorData.docs);
 
-export function listInfrastructureAssets() {
-  const sector = mci.sectors["infrastructure"];
-  return sector?.assets ?? [];
-}
-
-export function listSupplyItems() {
-  const sector = mci.sectors["supply-chain"];
-  return sector?.inventory ?? [];
-}
-
-export function getItemById(id) {
-  for (const sectorName of Object.keys(mci.sectors)) {
-    const sector = mci.sectors[sectorName];
-    for (const key of Object.keys(sector)) {
-      const arr = sector[key];
-      if (Array.isArray(arr)) {
-        const found = arr.find(x => x.id === id);
-        if (found) return { sector: sectorName, kind: key, item: found };
-      }
+        return { 
+            active: true, 
+            layers: { map3D, map2D, blueprints, docs },
+            status: "VISUAL_READY" 
+        };
     }
-  }
-  return null;
-}
+};

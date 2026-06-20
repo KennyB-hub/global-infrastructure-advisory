@@ -1,0 +1,15 @@
+{
+  "moves": [
+    {
+      "type": "skip",
+      "reason": "Invalid or missing route key",
+      "filePath": "timestamp"
+    },
+    {
+      "type": "skip",
+      "reason": "Invalid or missing route key",
+      "filePath": "missing"
+    }
+  ],
+  "manifestUpdates": []
+}

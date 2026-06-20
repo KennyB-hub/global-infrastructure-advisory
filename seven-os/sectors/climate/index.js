@@ -1,3 +1,3 @@
-export function climateStatus() {
-  return { sector: "climate", status: "operational", timestamp: Date.now() };
+export function cloudStatus() {
+  return { sector: "cloud", status: "operational", timestamp: Date.now() };
 }

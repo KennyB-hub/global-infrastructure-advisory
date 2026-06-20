@@ -1,13 +1,13 @@
-// auto-heal-engine.ts
+// Auto-Heal Engine
 
 import { FullIntegrityScan } from "./full-integrity-scan";
 import { RepoDiffAnalyzer } from "./repo-diff-analyzer";
-import { queueTask } from "./task-queue";
+import { queueTask } from "../autonomous/task-queue";
 
 export class AutoHealEngine {
-  static run() {
-    const integrity = FullIntegrityScan.run();
-    const repo = RepoDiffAnalyzer.analyze();
+  static async run() {
+    const integrity = FullIntegrityScan.runAll();
+    const repo = RepoDiffAnalyzer.analyzeSinceLastCommit();
 
     queueTask({
       type: "auto-heal-summary",

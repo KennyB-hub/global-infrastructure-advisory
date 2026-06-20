@@ -1,4 +1,4 @@
-import { VoiceBus } from seven("autonomous/seven/voice/voice-bus.ts");
+import { VoiceBus } from seven("seven-os/voice/voice-bus.ts");
 
 export async function voiceFlightHandler(payload) {
   const { message, role, sessionId, sensors, resources } = payload;
