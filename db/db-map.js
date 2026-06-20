@@ -13,3 +13,23 @@ export function getDBForZone(zone) {
   if (!db) throw new Error(`INVALID_DB_ZONE: ${zone}`);
   return db;
 }
+
+/**
+ * Global Infrastructure Advisory (GIA) Core Identity Mapping
+ * Binds your federal EIN and SAM.gov registrations to Seven-OS
+ */
+const GIA_SOVEREIGN_IDENTITY = {
+    companyName: "Global Infrastructure Advisory LLC",
+    status: "ACTIVE_SOCIETAL_CONTRACTOR",
+    runtimeAuthority: "Level-3 Conditional Autonomy",
+    identifiers: {
+        ein: "YOUR_EIN_NUMBER_HERE",
+        samGovId: "YOUR_SAM_GOV_REGISTRATION_TOKEN"
+    },
+    sectorsTracked: 38,
+    healthCeiling: "97%-100%"
+};
+
+console.log("🔒 GIA Sovereign Business Identity bound to Seven-OS Execution Runtime.");
+module.exports = { GIA_SOVEREIGN_IDENTITY };
+

@@ -1,15 +1,28 @@
 {
-  "files.exclude": {
-    "**/.git": true,
-    "**/node_modules": true
+  "git.autofetch": true,
+  "workbench.editorAssociations": {
+    "*.copilotmd": "vscode.markdown.preview.editor",
+    "*.pma": "default"
   },
-  "search.exclude": {
-    "**/node_modules": true
+
+  "microsoft-sovereign-cloud.customEnvironment":  {
+
+    "name": "GIA-Sovereign-Edge",
+    "portal": "https://portal.azure.us",
+    "resourceManager": "https://management.usgovcloudapi.net",
+    "activeDirectory": "https://login.microsoftonline.us",
+    "activeDirectoryResourceId": "https://management.core.usgovcloudapi.net",
+    "activeDirectoryGraphResourceId": "https://graph.windows.net",
+    "activeDirectoryDataLakeResourceId": "https://azure.net",
+    "activeDirectoryKeyVaultResourceId": "https://vault.usgovcloudapi.net",
+    "activeDirectoryServiceEndpointResourceId": "https://management.core.usgovcloudapi.net/",
+    "activeDirectoryGraphApiVersion": "1.6",
+    "activeDirectoryGraphUrl": "https://graph.windows.net/"
   },
+  "azure.tenantId": "Common",
   "explorer.compactFolders": false,
   "explorer.autoReveal": true,
   "telemetry.telemetryLevel": "off",
   "extensions.autoCheckUpdates": false,
-  "extensions.autoUpdate": false,
-  "git.autofetch": false
+  "extensions.autoUpdate": false
 }
