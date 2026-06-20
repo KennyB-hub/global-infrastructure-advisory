@@ -38,7 +38,7 @@ function main() {
     const dest = path.join(target, basename);
 
     const result = moveFile(file, dest);
-    recovery.moves.push({ group: "runtime", ...result });
+    recovery.moves.push({ group: "seven-runtime", ...result });
   }
 
   for (const entry of map.dashboard || []) {
