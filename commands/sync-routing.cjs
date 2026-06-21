@@ -129,6 +129,43 @@ function main() {
       }
 
       // =========================================================================
+      // SECTOR 7: BACKEND ENGINE & SYSTEM SYNC ORCHESTRATION
+      // Target Folders: 'backend', 'orchestrator', 'sync-orchestrator', 'server'
+      // =========================================================================
+      else if (dir.includes("backend") || dir.includes("server")) {
+        sectorPrefix = "backend";
+        
+        if (baseName.includes("orchestrator") || baseName.includes("sync")) {
+          specializedName = `engine-sync-${baseName}`;
+        } else {
+          specializedName = `core-${baseName}`;
+        }
+      }
+
+      // =========================================================================
+      // SECTOR 8: UTILITIES & SYSTEM INFRASTRUCTURE DISCOVERY
+      // Target Folder: 'sectors/utilities' (Cleans up the old autosorter mix)
+      // =========================================================================
+      else if (dir.includes("sectors/utilities") || dir.includes("sectors\\utilities")) {
+        // Default to infrastructure, but dynamically specialize based on name or text content
+        sectorPrefix = "infrastructure";
+        
+        if (baseName.includes("pipeline") || fileContent.includes("workforce") || fileContent.includes("job")) {
+          sectorPrefix = "application";
+          specializedName = "jobs-workflow-pipeline";
+        } else if (baseName.includes("transport") || fileContent.includes("sat") || fileContent.includes("lte")) {
+          sectorPrefix = "telecom";
+          specializedName = "satellite-lte-failover-transport";
+        } else if (fileContent.includes("oil") || fileContent.includes("gas") || fileContent.includes("grid")) {
+          sectorPrefix = "energy";
+          specializedName = "oil-gas-grid-pipeline";
+        } else {
+          // Keep its unique filename but prefix it cleanly to prevent it from getting lost
+          specializedName = `utility-${baseName}`;
+        }
+      }
+
+      // =========================================================================
       // PROCESSING & ROUTING MATRIX LOCK-IN
       // =========================================================================
       if (sectorPrefix && specializedName) {
