@@ -1,12 +1,12 @@
-// /workers/deepgov/index.ts
-// GIA Sovereign DeepGov Worker – V12 Sovereign Edition
+// /workers/gov/index.ts
+// GIA Sovereign Gov Worker – V12 Sovereign Edition (TypeScript)
 
-import { basicSecurityGuard } from "../../seven-os/security/worker-guard";
-import { PolicyEngine } from "../../seven-os/ai-engine/policy-engine";
-import { CryptoV12 } from "../../seven-os/ai-engine/utils/crypto.js";
+import { basicSecurityGuard } from "../../src/security/worker-guard";
+import { PolicyEngine } from "../../src/ai-engine/policy-engine";
+import { CryptoV12 } from "../../src/ai-engine/utils/crypto.js";
 
-import { buildEvent } from "../../seven-os/system/cyber/event-builder";
-import { cyberHook } from "../../seven-os/system/cyber/worker-hook";
+import { buildEvent } from "../../src/system/cyber/event-builder";
+import { cyberHook } from "../../src/system/cyber/worker-hook";
 
 import { verifyDidVcIdentity } from "../../backend/system/identity/did-vc-verifier";
 import { enforceMCP } from "../../backend/system/mcp/mcp-enforcer";
@@ -22,14 +22,14 @@ function json(data: Record<string, any>, status: number = 200): Response {
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
-      "GIA-Trust-Zone": "deepgov",
+      "GIA-Trust-Zone": "gov",
       "GIA-Version": "v12-sovereign"
     }
   });
 }
 
 // ---------------------------------------------------------
-// MAIN DEEPGOV WORKER
+// MAIN GOV WORKER
 // ---------------------------------------------------------
 export async function onRequest(context: {
   request: Request;
@@ -57,8 +57,8 @@ export async function onRequest(context: {
   // 3. Cyber Threat Scoring
   //
   const event = buildEvent({
-    source: "deepgov-worker",
-    sector: "deepgov",
+    source: "gov-worker",
+    sector: "gov",
     trustZone,
     type: "access_attempt",
     metadata: {
@@ -109,7 +109,7 @@ export async function onRequest(context: {
   }
 
   //
-  // 5. Integrity Verification (Decision Engine → DeepGov Worker)
+  // 5. Integrity Verification (Decision Engine → Gov Worker)
   //
   let integrityToken: string | null = null;
   let decisionPayload: any = null;
@@ -142,12 +142,12 @@ export async function onRequest(context: {
   }
 
   //
-  // 6. DeepGov Override Policy Check
+  // 6. Policy Check
   //
   const decision = await policy.check({
     trustZone,
-    workflow: "deepgov-access",
-    action: "override"
+    workflow: "gov-access",
+    action: "view"
   });
 
   if (!decision.allowed) {
@@ -156,7 +156,7 @@ export async function onRequest(context: {
       type: "policy-deny",
       reason: decision.reason,
       trustZone,
-      workflow: "deepgov-access",
+      workflow: "gov-access",
       systemTraceId,
       timestamp: new Date().toISOString()
     };
@@ -174,30 +174,54 @@ export async function onRequest(context: {
   }
 
   //
-  // 7. DeepGov Sovereign Response
+  // 7. Gov Status Endpoint
   //
-  const payload = {
-    ok: true,
-    zone: "deepgov",
-    access: "sovereign-only",
+  if (url.pathname.endsWith("/gov/status")) {
+    const payload = {
+      ok: true,
+      zone: "gov",
+      endpoint: "status",
+      status: "ok",
+      systemTraceId,
+      integrityToken,
+      timestamp: new Date().toISOString(),
+      meta: {
+        trustZone,
+        workflow: "gov-access",
+        version: "v12-sovereign"
+      }
+    };
+
+    payload.integrity = {
+      hash: await CryptoV12.sha256(JSON.stringify(payload)),
+      verified: true
+    };
+
+    return json(payload);
+  }
+
+  //
+  // 8. Fallback
+  //
+  const fallback = {
+    ok: false,
+    zone: "gov",
+    status: "not-found",
     path: url.pathname,
-    status: "override-granted",
     systemTraceId,
     integrityToken,
     timestamp: new Date().toISOString(),
     meta: {
       trustZone,
-      workflow: "deepgov-access",
-      override: true,
+      workflow: "gov-access",
       version: "v12-sovereign"
     }
   };
 
-  payload["integrity"] = {
-    hash: await CryptoV12.sha256(JSON.stringify(payload)),
+  fallback.integrity = {
+    hash: await CryptoV12.sha256(JSON.stringify(fallback)),
     verified: true
   };
 
-  return json(payload);
+  return json(fallback, 404);
 }
-

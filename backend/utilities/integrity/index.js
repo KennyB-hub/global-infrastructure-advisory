@@ -1,4 +1,3 @@
-export function contractorsStatus() {
-  return { sector: "contractors", status: "operational", timestamp: Date.now() };
+export function disasterResponseStatus() {
+  return { sector: "disaster_response", status: "operational", timestamp: Date.now() };
 }
-

@@ -1,12 +1,22 @@
-import { RemediationAction } from '../../remediation/RemediationEngine';
+import { DeviceRFProfile, BehaviorSample } from '../governance-brain/types';
 
-export interface AIWorkforceSyncLayer {
-  dispatch(actions: RemediationAction[]): Promise<void>;
-}
+export class RFObservationLayer {
+  private profiles = new Map<string, DeviceRFProfile>();
+  private behavior: BehaviorSample[] = [];
 
-export class LoggingWorkforceSync implements AIWorkforceSyncLayer {
-  async dispatch(actions: RemediationAction[]) {
-    // later: send to drones, agents, services, etc.
-    console.log('[AI Workforce] Dispatching actions:', actions);
+  registerProfile(profile: DeviceRFProfile) {
+    this.profiles.set(profile.deviceId, profile);
+  }
+
+  recordBehavior(sample: BehaviorSample) {
+    this.behavior.push(sample);
+  }
+
+  getProfile(deviceId: string) {
+    return this.profiles.get(deviceId);
+  }
+
+  getBehavior(deviceId: string) {
+    return this.behavior.filter(b => b.deviceId === deviceId);
   }
 }

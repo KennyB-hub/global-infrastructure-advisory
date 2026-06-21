@@ -1,34 +1,21 @@
-export type GovernanceRule = {
-  id: string;
-  domain: 'rf' | 'network' | 'emergency';
-  description: string;
-  conditions: any;      // to refine later (DSL / JSON logic)
-  expectations: any;    // expected behavior
-};
+// root/src/ai/autonomous/seven-runtime/cattle/types.ts
 
-export type DeviceRFProfile = {
-  deviceId: string;
-  bands: string[];
-  powerLevels: Record<string, number>;
-  modulation: string;
-  antennaGainDb: number;
-  firmwareVersion: string;
-  capabilities: string[];
-};
+export interface CollarState {
+    collarId: string;
+    animalId?: string;
+    gps: {
+        lat: number;
+        lon: number;
+        distanceToBoundary: number;
+        outsidePasture: boolean;
+    };
+    battery: number;
+    motion: "idle" | "walking" | "running";
+    lastSeen: number;
+    pastureId?: string;
+}
 
-export type BehaviorSample = {
-  deviceId: string;
-  timestamp: string;
-  context: Record<string, any>;
-  observed: Record<string, any>;
-};
-
-export type GovernanceViolation = {
-  ruleId: string;
-  deviceId: string;
-  severity: 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
-  expected: any;
-  observed: any;
-  timestamp: string;
-  notes?: string;
-};
+export interface CollarAdapter {
+    vendor: string;
+    fetchStates(): Promise<CollarState[]>;
+}

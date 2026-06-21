@@ -1,28 +1,122 @@
-/**
- * GIA AGRI-VISUAL ENGINE
- * Manages 2D/3D Mapping, Blueprints, and Documents
- */
-import { init3DMapping } from './engine-3d.js';
-import { init2DMapping } from './engine-2d.js';
-import { processBlueprints } from './engine-blueprint.js';
-import { renderDocuments } from './engine-docs.js';
+export const SectorOverlays = {
+ agriculture: (ctx) => ({
+    cropType: ctx.sector?.cropType || null,
+    soil: ctx.environment?.soilType || null,
+    moisture: ctx.environment?.moisture || null,
+    region: ctx.location.regionId,
+    gridCell: ctx.location.gridCell
+  }),
 
-export const AgriVisualEngine = {
-    async initialize(containerId, sectorData, env) {
-        console.log("[VISUAL] Initializing Agricultural Visual Stack...");
+  construction: (ctx) => ({
+    assetType: ctx.sector?.assetType || null,
+    zoningClass: ctx.sector?.zoningClass || null,
+    region: ctx.location.regionId,
+    gridCell: ctx.location.gridCell
+  }),
 
-        // 1. Dual-Mapping Handshake
-        const map3D = await init3DMapping(containerId, sectorData.geo, env);
-        const map2D = await init2DMapping('overlay-ui', sectorData.satellite, env);
+  logistics: (ctx) => ({
+    routeType: ctx.sector?.routeType || null,
+    corridorId: ctx.sector?.corridorId || null,
+    region: ctx.location.regionId,
+    gridCell: ctx.location.gridCell
+  }),
 
-        // 2. Technical Layer Integration
-        const blueprints = await processBlueprints(sectorData.blueprints);
-        const docs = await renderDocuments(sectorData.docs);
+   energy: (ctx) => ({
+    infrastructureId: ctx.sector?.infrastructureId || null,
+    sourceType: ctx.sector?.sourceType || null,
+    riskZones: ctx.environment?.riskZones || [],
+    region: ctx.location.regionId,
+    gridCell: ctx.location.gridCell
+  }),
 
-        return { 
-            active: true, 
-            layers: { map3D, map2D, blueprints, docs },
-            status: "VISUAL_READY" 
-        };
-    }
+  emergency: (ctx) => ({
+    hazards: ctx.sector?.hazards || [],
+    incidentId: ctx.sector?.incidentId || null,
+    region: ctx.location.regionId,
+    parcel: ctx.location.parcelId
+  }),
+
+  cyber: (ctx) => ({
+    threatLevel: ctx.environment?.cyberThreat || "unknown",
+    trustZone: ctx.environment?.trustZone || "public",
+    activeAlerts: ctx.environment?.alerts || [],
+    region: ctx.location.regionId,
+    gridCell: ctx.location.gridCell
+  }),
+
+  telecom: (ctx) => ({
+    towerId: ctx.sector?.towerId || null,
+    signalQuality: ctx.environment?.signal || "unknown",
+    outageRisk: ctx.environment?.outageRisk || "low",
+    region: ctx.location.regionId,
+    gridCell: ctx.location.gridCell
+  }),
+
+   cloud: (ctx) => ({
+    provider: ctx.sector?.provider || "unknown",
+    region: ctx.sector?.cloudRegion || null,
+    latency: ctx.environment?.latency || null,
+    outageRisk: ctx.environment?.cloudOutageRisk || "low",
+    trustZone: ctx.environment?.trustZone || "public"
+  }),
+
+  water: (ctx) => ({
+    systemId: ctx.sector?.systemId || null,
+    qualityStatus: ctx.environment?.waterQuality || "unknown",
+    region: ctx.location.regionId,
+    gridCell: ctx.location.gridCell
+  }),
+
+  public_safety: (ctx) => ({
+    agency: ctx.sector?.agency || null,
+    alertLevel: ctx.environment?.alertLevel || "normal",
+    region: ctx.location.regionId,
+    gridCell: ctx.location.gridCell
+  }),
+
+  health: (ctx) => ({
+    facilityId: ctx.sector?.facilityId || null,
+    loadLevel: ctx.environment?.loadLevel || "unknown",
+    region: ctx.location.regionId
+  }),
+  
+  finance: (ctx) => ({
+    marketRegion: ctx.location.regionId,
+    riskIndex: ctx.environment?.financialRisk || null
+  }),
+
+  education: (ctx) => ({
+    institutionType: ctx.sector?.institutionType || null,
+    region: ctx.location.regionId
+  }),
+
+ network: (ctx) => ({
+    asn: ctx.sector?.asn || null,
+    routeHealth: ctx.environment?.routeHealth || "unknown",
+    dnsIntegrity: ctx.environment?.dnsIntegrity || "unknown",
+    region: ctx.location.regionId
+  }),
+  
+ transport: (ctx) => ({
+    mode: ctx.sector?.mode || null, // rail, air, road, sea
+    corridorId: ctx.sector?.corridorId || null,
+    region: ctx.location.regionId,
+    gridCell: ctx.location.gridCell
+  }),
+
+ climate: (ctx) => ({
+    hazardType: ctx.environment?.climateHazard || null,
+    severity: ctx.environment?.hazardSeverity || null,
+    region: ctx.location.regionId,
+    gridCell: ctx.location.gridCell
+  }),
+  
+  space: (ctx) => ({
+    orbitClass: ctx.sector?.orbitClass || null, // LEO, MEO, GEO, etc.
+    vehicleId: ctx.sector?.vehicleId || null,
+    missionPhase: ctx.sector?.missionPhase || null,
+    groundRegion: ctx.location.regionId,
+    groundGridCell: ctx.location.gridCell
+  }) 
 };
+

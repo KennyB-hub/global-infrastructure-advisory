@@ -13,7 +13,7 @@ function safeReadJSON(file) {
 }
 
 function main() {
-  console.log("🔄 Syncing routing state from scan reports...");
+  console.log("⚡ [Seven-OS Core] Running Master Multi-Sector Routing Sync...");
 
   const manifest = safeReadJSON(MANIFEST_PATH);
   if (!manifest) {
@@ -26,62 +26,147 @@ function main() {
   let renameCount = 0;
 
   if (report && Array.isArray(report.unmappedFiles)) {
-    console.log(`🔎 Checking ${report.unmappedFiles.length} unmapped files for specialized routing...`);
+    console.log(`📡 Analyzing ${report.unmappedFiles.length} unmapped tracks for all critical sectors...`);
 
     for (const relativePath of report.unmappedFiles) {
       const fullPath = path.join(ROOT, relativePath);
       if (!fs.existsSync(fullPath)) continue;
 
-      const fileContent = fs.readFileSync(fullPath, "utf8").toLowerCase();
-      const dir = path.dirname(fullPath);
-      const ext = path.extname(fullPath);
+      const stat = fs.statSync(fullPath);
+      if (stat.isDirectory()) continue;
+
+      const dir = path.dirname(fullPath).toLowerCase();
+      const ext = path.extname(fullPath).toLowerCase();
       const baseName = path.basename(fullPath, ext).toLowerCase();
 
-      let newBaseName = null;
+      // Ensure we only process source/configuration files
+      if (![".js", ".cjs", ".ts", ".json"].includes(ext)) continue;
 
-      // Pipeline Matching Logic
-      if (baseName === "pipeline") {
-        if (fileContent.includes("oil") || fileContent.includes("gas") || fileContent.includes("dot")) {
-          newBaseName = "oil-gas-doh-pipeline";
-        } else if (fileContent.includes("sector") || fileContent.includes("job") || fileContent.includes("workflow")) {
-          newBaseName = "jobs-workflow-pipeline";
+      let sectorPrefix = null;
+      let specializedName = null;
+
+      // =========================================================================
+      // SECTOR 1: COMMS & TELECOM (FCC, Satellites, LTE, Failovers)
+      // Target Folders: 'telecom', 'fcc', 'comms', 'satellite', 'connectivity'
+      // =========================================================================
+      if (dir.includes("telecom") || dir.includes("fcc") || dir.includes("comms") || dir.includes("satellite")) {
+        sectorPrefix = "telecom";
+        if (baseName.includes("transport")) {
+          specializedName = "satellite-lte-failover-transport";
+        } else if (baseName.includes("pipeline")) {
+          specializedName = "telecom-data-pipeline";
         }
       }
 
-      // Transport Matching Logic
-      if (baseName === "transport") {
-        if (fileContent.includes("sat") || fileContent.includes("lte") || fileContent.includes("failover")) {
-          newBaseName = "satellite-lte-failover-transport";
-        } else if (fileContent.includes("sector") || fileContent.includes("connection") || fileContent.includes("data")) {
-          newBaseName = "sector-connective-transport";
+      // =========================================================================
+      // SECTOR 2: ROADS & TRANSIT (DOT, Roads, Vehicles, Infrastructure)
+      // Target Folders: 'road', 'dot', 'transit', 'highway', 'transportation'
+      // =========================================================================
+      else if (dir.includes("road") || dir.includes("dot") || dir.includes("transit") || dir.includes("highway")) {
+        sectorPrefix = "transit";
+        if (baseName.includes("transport")) {
+          specializedName = "doh-roads-transit-transport";
+        } else if (baseName.includes("pipeline")) {
+          specializedName = "dot-infrastructure-pipeline";
         }
       }
 
-      if (newBaseName) {
-        const newFileName = `${newBaseName}${ext}`;
-        const newFullPath = path.join(dir, newFileName);
+      // =========================================================================
+      // SECTOR 3: ENERGY & GRID (Oil & Gas Pipelines, Utility Infrastructure)
+      // Target Folders: 'grid', 'industrial', 'energy', 'utility', 'gas'
+      // =========================================================================
+      else if (dir.includes("grid") || dir.includes("industrial") || dir.includes("energy") || dir.includes("gas")) {
+        sectorPrefix = "energy";
+        if (baseName.includes("pipeline")) {
+          specializedName = "oil-gas-grid-pipeline";
+        } else if (baseName.includes("transport")) {
+          specializedName = "utility-fuel-distribution-transport";
+        }
+      }
+
+      // =========================================================================
+      // SECTOR 4: APPLICATION WORKFLOWS (App Core, Jobs, Internal Engines)
+      // Target Folders: 'app', 'workflow', 'services', 'backend', 'core'
+      // =========================================================================
+      else if (dir.includes("app") || dir.includes("workflow") || dir.includes("services") || dir.includes("core")) {
+        sectorPrefix = "application";
+        if (baseName.includes("pipeline")) {
+          specializedName = "jobs-workflow-pipeline";
+        } else if (baseName.includes("transport")) {
+          specializedName = "sector-connective-transport";
+        }
+      }
+
+                  // =========================================================================
+      // SECTOR 5: AVIONICS & TELEMETRY (Drones, Voice Control, Flight Signals)
+      // =========================================================================
+      else if (dir.includes("drone") || dir.includes("avionics") || dir.includes("voice") || dir.includes("telemetry")) {
+        sectorPrefix = "avionics";
+        
+        if (baseName.includes("pipeline") || baseName.includes("stream")) {
+          specializedName = "flight-telemetry-pipeline";
+        } else if (dir.includes("voice")) {
+          // FIXED: Prevents namespace collisions by prefixing the unique base identity
+          specializedName = `drone-voice-${baseName}`;
+        } else {
+          specializedName = `uas-${baseName}`;
+        }
+      }
+
+      // =========================================================================
+      // SECTOR 6: VISUALIZATION LAYERS (Hologram Engines, UI Dashboards, Renderers)
+      // Target Folders: 'hologram', 'spatial', 'dashboard', 'ui', 'rendering'
+      // =========================================================================
+      else if (dir.includes("hologram") || dir.includes("spatial") || dir.includes("dashboard") || dir.includes("ui")) {
+        sectorPrefix = "visualization";
+        if (baseName.includes("hologram") || baseName.includes("projection")) {
+          specializedName = "spatial-holographic-projection-engine";
+        } else if (baseName.includes("dashboard") || baseName.includes("panel")) {
+          specializedName = "ui-infrastructure-dashboard";
+        } else {
+          specializedName = `render-${baseName}`;
+        }
+      }
+
+      // =========================================================================
+      // PROCESSING & ROUTING MATRIX LOCK-IN
+      // =========================================================================
+      if (sectorPrefix && specializedName) {
+        const newFileName = `${specializedName}${ext}`;
+        const newFullPath = path.join(path.dirname(fullPath), newFileName);
         const newRelativePath = path.relative(ROOT, newFullPath).replace(/\\/g, "/");
 
-        try {
-          fs.renameSync(fullPath, newFullPath);
-          console.log(`  ✅ Synced & Renamed: ${relativePath} ➡️ ${newRelativePath}`);
-          
-          const routeKey = `infrastructure:${newBaseName}`;
+        const routeKey = `${sectorPrefix}:${specializedName}`;
+
+        // Rename file physically on your system if needed
+        if (fullPath !== newFullPath) {
+          try {
+            fs.renameSync(fullPath, newFullPath);
+            console.log(`  [${sectorPrefix.toUpperCase()} LOCK] Renamed: ${relativePath} ➡️ ${newRelativePath}`);
+          } catch (err) {
+            console.error(`  ❌ Failed sector rename for ${relativePath}:`, err.message);
+            continue;
+          }
+        }
+
+        // Write route into the core global-manifest map
+        if (manifest.routes[routeKey] !== newRelativePath) {
           manifest.routes[routeKey] = newRelativePath;
           renameCount++;
-        } catch (err) {
-          console.error(`  ❌ Failed renaming path ${relativePath}:`, err.message);
         }
       }
     }
   }
 
+  // Save the manifest transformations back to disk
   if (renameCount > 0) {
     fs.writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2));
-    console.log(`💾 Saved updates into global-manifest.json.`);
+    console.log(`💾 Saved ${renameCount} system sector tracks into global-manifest.json.`);
+  } else {
+    console.log("ℹ️ All active file layouts perfectly aligned with sector restrictions.");
   }
 
-  // Save the synchronized state snapshot out to your reports folder
+  // Generate clean state metrics report
   const state = {
     timestamp: new Date().toISOString(),
     totalRoutes: Object.keys(manifest.routes).length,
@@ -92,7 +177,7 @@ function main() {
     fs.mkdirSync(path.dirname(ROUTING_STATE_PATH), { recursive: true });
   }
   fs.writeFileSync(ROUTING_STATE_PATH, JSON.stringify(state, null, 2));
-  console.log("✅ Routing state snapshot file updated.");
+  console.log("✅ Multi-sector routing state snapshot updated.");
 }
 
 main();
