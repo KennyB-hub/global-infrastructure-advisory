@@ -14,7 +14,7 @@ module.exports = function loadRuntime() {
 
   return {
     sevenOS: loadDirectory(path.join(root, "seven-os")),
-    runtime: loadDirectory(path.join(root, "runtime")),
+    sevenruntime: loadDirectory(path.join(root, "seven-runtime")),
     utilities: loadDirectory(path.join(root, "utilities")),
     topology: loadDirectory(path.join(root, "topology")),
     templates: loadDirectory(path.join(root, "templates")),

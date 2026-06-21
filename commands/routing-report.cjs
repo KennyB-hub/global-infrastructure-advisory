@@ -3,10 +3,12 @@
 const fs = require("fs");
 const path = require("path");
 
+// Hardcoded root directory alignment for stability
 const ROOT = path.resolve(__dirname, "..");
-const MANIFEST_PATH = path.join(ROOT, "seven-os", "manifest.json");
-const REPORT_PATH = path.join(ROOT, "reports", "routing-report.json");
-const { writeReport } = require("../utilities/write-report.cjs");
+
+// Explicitly mapping your active manifest and target runtime layer paths
+const MANIFEST_PATH = path.join(ROOT, "seven-os", "global-manifest.json");
+const RUNTIME_CACHE_PATH = path.join(ROOT, "seven-runtime", ".runtime-cache.json");
 
 function safeReadJSON(file) {
   try {
@@ -16,58 +18,75 @@ function safeReadJSON(file) {
   }
 }
 
-function walk(dir, list = []) {
-  if (!fs.existsSync(dir)) return list;
-
-  for (const file of fs.readdirSync(dir)) {
-    const full = path.join(dir, file);
-    const stat = fs.statSync(full);
-
-    if (stat.isDirectory()) walk(full, list);
-    else list.push(full.replace(ROOT + path.sep, ""));
-  }
-
-  return list;
-}
-
 function main() {
-  console.log("📡 Generating Seven‑OS Routing Report…");
+  console.log("⚙️  Initializing Seven-Runtime Assembly Rebuild...");
+  console.log(`📖 Reading Source Manifest: ${MANIFEST_PATH}`);
 
+  // 1. Verify Manifest Target
   const manifest = safeReadJSON(MANIFEST_PATH);
   if (!manifest) {
-    console.error("❌ No manifest.json found.");
+    console.error(`❌ Runtime Build Failed: Cannot read manifest file at ${MANIFEST_PATH}`);
     process.exit(1);
   }
 
-  const allFiles = walk(ROOT);
   const routes = manifest.routes || {};
-  const mapped = new Set(Object.values(routes));
-  const unmapped = allFiles.filter(f => !mapped.has(f));
+  const engines = manifest.engines || {};
+  const domains = manifest.domains || {};
 
-  const report = {
-    timestamp: new Date().toISOString(),
-    root: ROOT,
-    manifestStats: {
-      totalRoutes: Object.keys(routes).length,
-      totalDomains: Object.keys(manifest.domains || {}).length,
-      totalEngines: Object.keys(manifest.engines || {}).length,
-    },
-    fileStats: {
-      totalFiles: allFiles.length,
-      mappedFiles: mapped.size,
-      unmappedFiles: unmapped.length,
-    },
-    unmappedFiles,
-    routes,
+  console.log(`📦 Loaded Manifest stats successfully:`);
+  console.log(`   • ${Object.keys(routes).length} Application Routes`);
+  console.log(`   • ${Object.keys(domains).length} Infrastructure Domains`);
+  console.log(`   • ${Object.keys(engines).length} Runtime Engines`);
+
+  // 2. Validate Physical Paths for every mapped route
+  console.log("\n🔍 Verifying physical file states against Seven-OS mapping paths...");
+  const invalidRoutes = [];
+  const validRoutes = {};
+
+  for (const [routeKey, relativePath] of Object.entries(routes)) {
+    // Clean slash formats for cross-platform matching
+    const normalizedPath = relativePath.replace(/\//g, path.sep).replace(/\\/g, path.sep);
+    const fullPath = path.join(ROOT, normalizedPath);
+
+    if (fs.existsSync(fullPath)) {
+      validRoutes[routeKey] = relativePath.replace(/\\/g, "/"); 
+    } else {
+      invalidRoutes.push({ key: routeKey, path: relativePath });
+    }
+  }
+
+  if (invalidRoutes.length > 0) {
+    console.warn(`⚠️  Warning: ${invalidRoutes.length} broken route path(s) detected:`);
+    invalidRoutes.forEach(r => console.warn(`   ❌ Missing file: ${r.key} -> ${r.path}`));
+  }
+
+  // 3. Compile the local Runtime Assembly state
+  const runtimeStateAssembly = {
+    compiledAt: new Date().toISOString(),
+    environment: process.env.NODE_ENV || "development",
+    sevenOS: {
+      rootPath: ROOT,
+      manifestVersion: manifest.version || "1.2.0",
+      activeRoutes: validRoutes,
+      activeEngines: engines,
+      activeDomains: domains
+    }
   };
 
-  const reportsDir = path.join(ROOT, "reports");
-  if (!fs.existsSync(reportsDir)) fs.mkdirSync(reportsDir);
+  // 4. Ensure destination directory exists and write the cache payload
+  const runtimeDir = path.dirname(RUNTIME_CACHE_PATH);
+  if (!fs.existsSync(runtimeDir)) {
+    fs.mkdirSync(runtimeDir, { recursive: true });
+  }
 
-  fs.writeFileSync(REPORT_PATH, JSON.stringify(report, null, 2));
-
-  console.log("✅ Routing report generated at:");
-  console.log("   " + REPORT_PATH);
+  try {
+    fs.writeFileSync(RUNTIME_CACHE_PATH, JSON.stringify(runtimeStateAssembly, null, 2));
+    console.log(`\n✅ Seven-Runtime cache generated successfully!`);
+    console.log(`💾 State committed to: ${RUNTIME_CACHE_PATH}\n`);
+  } catch (err) {
+    console.error("❌ Critical Error: Failed to write runtime cache file:", err.message);
+    process.exit(1);
+  }
 }
 
 main();

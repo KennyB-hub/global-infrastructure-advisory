@@ -1,0 +1,10 @@
+{
+  "compiledAt": "2026-06-21T17:41:47.854Z",
+  "sevenOS": {
+    "rootPath": "C:\\Users\\kenny\\global-infrastructure-advisory",
+    "activeRoutes": {
+      "infrastructure:jobs-workflow-pipeline": "seven-os/utilities/dashboard/universal/layouts/jobs-workflow-pipeline.ts"
+    },
+    "unmappedCount": 1413
+  }
+}

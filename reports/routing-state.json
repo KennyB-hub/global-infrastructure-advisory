@@ -1,5 +1,7 @@
 {
-  "timestamp": "2026-06-20T22:08:40.942Z",
-  "totalRoutes": 0,
-  "routes": {}
+  "timestamp": "2026-06-21T17:41:44.056Z",
+  "totalRoutes": 1,
+  "routes": {
+    "infrastructure:jobs-workflow-pipeline": "seven-os/utilities/dashboard/universal/layouts/jobs-workflow-pipeline.ts"
+  }
 }

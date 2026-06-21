@@ -40,6 +40,7 @@
     "auto-fix-map": "node commands/auto-fix-map.cjs",
     "format": "prettier --write .",
     "typecheck": "tsc --noEmit",
+    "sync:specialized": "node commands/sync-specialized-sectors.cjs",
     "dev": "wrangler dev",
     "auto-fix": "node commands/auto-fix.cjs",
     "auto-move": "node commands/auto-move.cjs",

@@ -8,7 +8,7 @@ const fs = require("fs");
 const ROOT = process.cwd();
 
 const SUBSYSTEMS = [
-  "runtime",
+  "seven-runtime",
   "seven-os",
   "domain",
   "utilities",

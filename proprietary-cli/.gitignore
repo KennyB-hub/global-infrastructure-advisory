@@ -7,3 +7,9 @@ node_modules/
 dist/
 logs/
 .DS_Store
+
+# Protect core Sovereign OS layers from generic app scanners
+seven-os/
+seven-runtime/
+reports/
+commands/

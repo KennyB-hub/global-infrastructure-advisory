@@ -6608,5 +6608,8 @@
       "trustZone": "default",
       "autonomyLevel": 3
     }
-  ]
+  ],
+  "routes": {
+    "infrastructure:jobs-workflow-pipeline": "seven-os/utilities/dashboard/universal/layouts/jobs-workflow-pipeline.ts"
+  }
 }

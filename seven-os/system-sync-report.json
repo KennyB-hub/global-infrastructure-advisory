@@ -3,570 +3,570 @@
   "groups": {
     "runtime": [
       {
-        "file": "runtime/ai/ai-worker.js",
-        "target": "runtime",
+        "file": "seven-runtime/ai/ai-worker.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/ai/cortex.js",
-        "target": "runtime",
+        "file": "seven-runtime/ai/cortex.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/ai/identity.js",
-        "target": "runtime",
+        "file": "seven-runtime/ai/identity.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/ai/logic-engine.js",
-        "target": "runtime",
+        "file": "seven-runtime/ai/logic-engine.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/ai/schema-guard.js",
-        "target": "runtime",
+        "file": "seven-runtime/ai/schema-guard.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/ai/tools/index.js",
-        "target": "runtime",
+        "file": "seven-runtime/ai/tools/index.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/ai/workflows/index.js",
-        "target": "runtime",
+        "file": "seven-runtime/ai/workflows/index.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/ai-decision.js",
-        "target": "runtime",
+        "file": "seven-runtime/ai-decision.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/collar-state-handler.ts",
-        "target": "runtime",
+        "file": "seven-runtime/collar-state-handler.ts",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/collar-state-redis-handler.ts",
-        "target": "runtime",
+        "file": "seven-runtime/collar-state-redis-handler.ts",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/context/context-builder.js",
-        "target": "runtime",
+        "file": "seven-runtime/context/context-builder.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/context/context-engine.js",
-        "target": "runtime",
+        "file": "seven-runtime/context/context-engine.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/context/context-validator.js",
-        "target": "runtime",
+        "file": "seven-runtime/context/context-validator.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/context/context.js",
-        "target": "runtime",
+        "file": "seven-runtime/context/context.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/context/index.js",
-        "target": "runtime",
+        "file": "seven-runtime/context/index.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/decision-engine.js",
-        "target": "runtime",
+        "file": "seven-runtime/decision-engine.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/dns-inspector.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/dns-inspector.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/geo/geo-context.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/geo/geo-context.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/geo/geo-disance-calc.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/geo/geo-disance-calc.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/geo/geo-grid.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/geo/geo-grid.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/geo/geo-mapping.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/geo/geo-mapping.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/geo/geo-normalize.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/geo/geo-normalize.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/geo/index.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/geo/index.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/geo/lookup.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/geo/lookup.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/geo/mapping logic.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/geo/mapping logic.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/geo/mapping.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/geo/mapping.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/geo/normalize location.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/geo/normalize location.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/geo/project surch.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/geo/project surch.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/geo/region matcher.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/geo/region matcher.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/geo/region.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/geo/region.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/geo/routing-inspector.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/geo/routing-inspector.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/geomapping-logic.js/API.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/geomapping-logic.js/API.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/geomapping-logic.js/dispatcher.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/geomapping-logic.js/dispatcher.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/geomapping-logic.js/index.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/geomapping-logic.js/index.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/geomapping-logic.js/resilient-search.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/geomapping-logic.js/resilient-search.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/geomapping-logic.js/space engine.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/geomapping-logic.js/space engine.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/geomapping-logic.js/system-heartbeat.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/geomapping-logic.js/system-heartbeat.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/analysis/field-health-scanner.ts",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/analysis/field-health-scanner.ts",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/analysis/infrastructure-damage-scanner.ts",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/analysis/infrastructure-damage-scanner.ts",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/compliance/funding-check.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/compliance/funding-check.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/compliance/misconduct-check.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/compliance/misconduct-check.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/diagnostics.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/diagnostics.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/index.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/index.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/ingest/dot-ingest.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/ingest/dot-ingest.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/ingest/ingest.ts",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/ingest/ingest.ts",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/ingest/sensor-ingest.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/ingest/sensor-ingest.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/ingest/usda-ingest.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/ingest/usda-ingest.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/integrity/drone.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/integrity/drone.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/integrity/file-map.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/integrity/file-map.js",
+        "target": "seve-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/integrity/index.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/integrity/index.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/integrity/integrity-check.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/integrity/integrity-check.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/integrity/sync-queue.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/integrity/sync-queue.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/intelligence/debug-worker.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/intelligence/debug-worker.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/intelligence/diagnostics.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/intelligence/diagnostics.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/matching/multi-sector-matching.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/matching/multi-sector-matching.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/routing-inspector.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/routing-inspector.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/scoring/sector-scoring.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/scoring/sector-scoring.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/sensors/nap-sectors.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/sensors/nap-sectors.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/sensors/nap-sectors.ts",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/sensors/nap-sectors.ts",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/sensors/search-thermal.ts",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/sensors/search-thermal.ts",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/ssh-manager.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/ssh-manager.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/threat/index.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/threat/index.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/threat/threat-fetch.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/threat/threat-fetch.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/threat/threat-storage.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/threat/threat-storage.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/threat/threat-summary.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/threat/threat-summary.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/threat/threat-telemetry.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/threat/threat-telemetry.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/tools/index.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/tools/index.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/tools/inspect-routing.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/tools/inspect-routing.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/tools/r2-bucket-list.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/tools/r2-bucket-list.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/tools/r2-check.js",
-        "target": "runtime",
+        "file": "seven-os/ai/ai-cortex.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/tools/r2-exposure.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/tools/r2-exposure.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/tools/r2-health.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/tools/r2-health.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/tools/r2-inspector.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/tools/r2-inspector.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/tools/storage-inspector.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/tools/storage-inspector.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/utils/infra-logger.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/utils/infra-logger.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/utils/normalize-path.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/utils/normalize-path.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/utils/parse-endpoint.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/utils/parse-endpoint.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/utils/safe-shell.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/utils/safe-shell.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/workers/debug/debug-worker.ts",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/workers/debug/debug-worker.ts",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/workers/index.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/workers/index.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/workers/log-ingestion-worker.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/workers/log-ingestion-worker.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/infrastructure/workers/project-search-worker.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/infrastructure/workers/project-search-worker.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/domain/routing-inspector.js",
-        "target": "runtime",
+        "file": "seven-runtime/domain/routing-inspector.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/fix-runtime.ts",
-        "target": "runtime",
+        "file": "seven-runtime/fix-runtime.ts",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/logs/log-alerts.js",
-        "target": "runtime",
+        "file": "seven-runtime/logs/log-alerts.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/logs/log-analyzer.js",
-        "target": "runtime",
+        "file": "seven-runtime/logs/log-analyzer.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/logs/log-cleaner.js",
-        "target": "runtime",
+        "file": "seven-runtime/logs/log-cleaner.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/logs/log-dashboard.js",
-        "target": "runtime",
+        "file": "seven-runtime/logs/log-dashboard.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/logs/log-exporter.js",
-        "target": "runtime",
+        "file": "seven-runtime/logs/log-exporter.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/logs/log-health-check.js",
-        "target": "runtime",
+        "file": "seven-runtime/logs/log-health-check.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/logs/log-reader.js",
-        "target": "runtime",
+        "file": "seven-runtime/logs/log-reader.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/logs/log-rotation.js",
-        "target": "runtime",
+        "file": "seven-runtime/logs/log-rotation.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/logs/log-search.js",
-        "target": "runtime",
+        "file": "seven-runtime/logs/log-search.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/logs/log-self-test.js",
-        "target": "runtime",
+        "file": "seven-runtime/logs/log-self-test.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/logs/log-sync.js",
-        "target": "runtime",
+        "file": "severn-runtime/logs/log-sync.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/logs/log-validator.js",
-        "target": "runtime",
+        "file": "seven-runtime/logs/log-validator.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
         "file": "runtime/logs/log-writer.js",
-        "target": "runtime",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/network/routing-engine.js",
-        "target": "runtime",
+        "file": "seven-runtime/network/routing-engine.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/policy/cloud-policies.js",
-        "target": "runtime",
+        "file": "seven-runtime/policy/cloud-policies.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/policy/engine.js",
-        "target": "runtime",
+        "file": "seven-runtime/policy/engine.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/restore-runtime.js",
-        "target": "runtime",
+        "file": "seven-runtime/restore-runtime.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/rf/FirmwareAuditor/index.ts",
-        "target": "runtime",
+        "file": "seven-runtime/rf/FirmwareAuditor/index.ts",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/rf/REObservation-layer/index.ts",
-        "target": "runtime",
+        "file": "seven-runtime/rf/REObservation-layer/index.ts",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/scheduler.ts",
-        "target": "runtime",
+        "file": "seven-runtime/scheduler.ts",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/security/auth-service.js",
-        "target": "runtime",
+        "file": "seven-runtime/security/auth-service.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/security/build-guard.js",
-        "target": "runtime",
+        "file": "seven-runtime/security/build-guard.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/security/entra-guard.js",
-        "target": "runtime",
+        "file": "seven-runtime/security/entra-guard.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/security/key-engine.js",
-        "target": "runtime",
+        "file": "seven-runtime/security/key-engine.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/security/worker-gauard.js",
-        "target": "runtime",
+        "file": "seven-runtime/security/worker-gauard.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/state.js",
-        "target": "runtime",
+        "file": "seven-runtime/state.js",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/state.ts",
-        "target": "runtime",
+        "file": "seven-runtime/state.ts",
+        "target": "seven-runtime",
         "sector": null
       },
       {
-        "file": "runtime/workforce/public-workforce-grid.js",
-        "target": "runtime",
+        "file": "seven-runtime/workforce/public-workforce-grid.js",
+        "target": "seven-runtime",
         "sector": null
       }
     ],
     "runtime-log": [
       {
-        "file": "runtime/logs/log-index.json",
-        "target": "runtime/logs",
+        "file": "seven-runtime/logs/log-index.json",
+        "target": "seven-runtime/logs",
         "sector": null
       }
     ],
