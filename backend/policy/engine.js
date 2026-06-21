@@ -1,25 +1,36 @@
-export class AuditEngine {
-  static build(ctx, extra = {}) {
+export class TrustZoneEngine {
+  static classify(ctx) {
+    const base =
+      ctx.environment?.trustZone ||
+      ctx.sector?.trustZone ||
+      "public";
+
+    let zone = base;
+    const reasons = [];
+
+    if (ctx.sector?.name === "cyber") {
+      const level = ctx.sector.context?.threatLevel || "unknown";
+      if (level === "high" || level === "critical") {
+        zone = "restricted";
+        reasons.push(`Cyber threat level=${level}`);
+      }
+    }
+
+    if (ctx.sector?.name === "cloud") {
+      const risk = ctx.sector.context?.outageRisk || "low";
+      if (risk === "high") {
+        zone = "restricted";
+        reasons.push("Cloud outage risk=high");
+      }
+    }
+
+    if (zone === base && reasons.length === 0) {
+      reasons.push(`Base trust zone=${base}`);
+    }
+
     return {
-      confidence: AuditEngine.estimateConfidence(ctx),
-      dataSources: ["GII", "GeoLogicV12", "SectorOverlays", "PolicyEngine"],
-      policyApplied: extra.policyIds || [],
-      version: "v12-alpha",
-      ...extra
+      zone,
+      reason: reasons.join("; ")
     };
-  }
-
-  static estimateConfidence(ctx) {
-    let score = 1.0;
-
-    if (ctx.location.regionId === "UNKNOWN_REGION") {
-      score -= 0.3;
-    }
-
-    if (!ctx.sector?.context) {
-      score -= 0.2;
-    }
-
-    return Math.max(0, Math.min(1, score));
   }
 }

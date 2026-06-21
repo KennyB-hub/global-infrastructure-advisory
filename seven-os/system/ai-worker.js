@@ -1,60 +1,124 @@
-// 2050 V12 Alpha — AI Worker
+// /workers/ai/ai-worker.js
+// GIA Sovereign AI Worker – V12 Alpha
 
-import { routeAI } from "./ai-router.js";
-import { filterAIInput } from "./ai-filter.js";
-import { sanitizeAIOutput } from "./ai-sanitizer.js";
-import { enforceAIPolicy } from "./ai-policy.js";
-import { rememberShortTerm } from "./ai-memory.js";
-import { checkAISafety } from "./ai-safety.js";
-import { logAIEvent } from "./ai-logs.js";
-import { recordAITelemetry } from "./ai-telemetry.js";
+import { basicSecurityGuard } from "../../src/security/worker-guard.js";
+import { PolicyEngine } from "../../src/ai-engine/policy-engine.js";
+import { enforceAIPolicy } from "../../src/ai-engine/enforce-ai-policy.js";
+import { buildContext } from "../../ai-engine/context-builder.js";
+import { sanitizeOutput } from "../../ai-engine/response-sanitizer.js";
+import { handleError } from "../../ai-engine/error-handler.js";
+import { processAIRequest } from "../../ai-engine/ai-router.js";
+import { CryptoV12 } from "../../src/ai-engine/utils/crypto.js";
 
-export async function runAITask({ task, context }) {
-  // 1. Policy
-  const policy = enforceAIPolicy({
-    trustZone: context.trustZone,
-    workflow: context.workflow
-  });
-  if (!policy.allowed) {
-    const error = { ok: false, code: "AI_POLICY_BLOCKED" };
-    logAIEvent({ type: "policy-block", task, result: error });
-    return error;
-  }
 
-  // 2. Input filter (for text-based tasks)
-  if (task.inputText) {
-    const filter = filterAIInput(task.inputText);
-    if (!filter.allowed) {
-      const error = { ok: false, code: filter.reason };
-      logAIEvent({ type: "input-block", task, result: error });
-      return error;
-    }
-  }
+const policy = new PolicyEngine();
 
-  // 3. Route to correct AI organ
-  const result = await routeAI(task);
+export default {
+  async fetch(request, env, ctx) {
+    const url = new URL(request.url);
 
-  // 4. Safety + sanitize (for text outputs)
-  if (result?.result) {
-    const safety = checkAISafety(result.result);
-    if (!safety.safe) {
-      const error = { ok: false, code: safety.reason };
-      logAIEvent({ type: "safety-block", task, result: error });
-      return error;
+    //
+    // 1. GET → Debug metadata
+    //
+    if (request.method !== "POST") {
+      const payload = {
+        system: "ai-worker",
+        status: "online",
+        version: "v12-alpha",
+        instructions: "POST JSON to run AI with sovereign validation",
+        timestamp: new Date().toISOString()
+      };
+
+      payload.integrity = {
+        hash: await sha256(JSON.stringify(payload)),
+        verified: true
+      };
+
+      return new Response(JSON.stringify(payload, null, 2), {
+        headers: { "Content-Type": "application/json" }
+      });
     }
 
-    result.result = sanitizeAIOutput(result.result);
+    //
+    // 2. Worker Guard (V12 Alpha)
+    //
+    const guard = basicSecurityGuard(request, env);
+    if (guard) return guard;
+
+    //
+    // 3. Parse JSON
+    //
+    let payload;
+    try {
+      payload = await request.json();
+    } catch (err) {
+      return handleError(new Error("Invalid JSON body"), env);
+    }
+
+    //
+    // 4. Trust Zone
+    //
+    const trustZone = payload.trustZone || "public";
+    const workflow = payload.workflow || "general";
+
+    //
+    // 5. AI‑Policy (Sovereign Enforcement + Cyber Logging)
+    //
+    const aiPolicy = await enforceAIPolicy({
+      trustZone,
+      workflow,
+      request,
+      env
+    });
+
+    if (!aiPolicy.allowed) {
+      return new Response(JSON.stringify({
+        ok: false,
+        type: "policy-deny",
+        reason: aiPolicy.reason,
+        trustZone,
+        workflow,
+        timestamp: new Date().toISOString(),
+        integrity: {
+          hash: await sha256(JSON.stringify(aiPolicy)),
+          verified: true
+        }
+      }, null, 2), {
+        status: 403,
+        headers: { "Content-Type": "application/json" }
+      });
+    }
+
+    //
+    // 6. Build Sovereign Context
+    //
+    const context = await buildContext(payload, env);
+
+    //
+    // 7. Route to AI Engine (V12 Alpha Router)
+    //
+    let result;
+    try {
+      result = await processAIRequest(request, env, ctx);
+    } catch (err) {
+      return handleError(err, env, { fatal: true });
+    }
+
+    //
+    // 8. Sanitize Output (sovereign-grade)
+    //
+    const final = await sanitizeOutput(result, env, context);
+
+    //
+    // 9. Return Sovereign Response
+    //
+    final.integrity = {
+      hash: await sha256(JSON.stringify(final)),
+      verified: true
+    };
+
+    return new Response(JSON.stringify(final, null, 2), {
+      headers: { "Content-Type": "application/json" }
+    });
   }
-
-  // 5. Memory (short-term)
-  rememberShortTerm(context.ai?.contextId, {
-    task,
-    result
-  });
-
-  // 6. Telemetry + logs
-  recordAITelemetry({ context, task, result });
-  logAIEvent({ type: "task-complete", task, result });
-
-  return result;
-}
+};

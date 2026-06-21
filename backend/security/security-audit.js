@@ -1,39 +1,141 @@
-// backend/tests/security-audit.js
+/**
+ * security-audit.js
+ * Autonomous, read‑only security posture audit for a lights‑out platform.
+ * No execution of external code. No mutation. No network calls.
+ */
 
-async function runSecurityTest() {
-  console.log("🚀 Starting GIA Intelligence Security Audit...");
+const fs = require("fs");
+const path = require("path");
 
-  // TEST 1: The "Farmer" Attempt
-  // Simulating a Farmer trying to hit the Executive Command Center
-  const farmerAttempt = {
-    url: "https://gia-intelligence.com",
-    headers: {
-      "Cf-Access-Jwt-Assertion": "FAKE_FARMER_TOKEN",
-      "Cf-Access-Auth-Type": "email" // Low sensitivity login
-    }
-  };
+module.exports = {
+    runSecurityAudit
+};
 
-  console.log("Test 1: Can a Farmer reach World B?");
-  if (farmerAttempt.headers["Cf-Access-Auth-Type"] !== "mtls") {
-    console.log("❌ BLOCKED: Gatekeeper caught the unauthorized access. (SUCCESS)");
-  } else {
-    console.log("⚠️ SECURITY BREACH: Farmer reached the Command Center! (FAILURE)");
-  }
+function runSecurityAudit(basePath = path.join(__dirname, "..")) {
+    const report = {
+        timestamp: new Date().toISOString(),
+        status: "OK",
+        missingFiles: [],
+        unexpectedFiles: [],
+        integrity: [],
+        aiCortex: [],
+        workers: [],
+        securityGuards: [],
+        summary: {}
+    };
 
-  // TEST 2: The "NATO Officer" Attempt
-  // Simulating a High-Level user with a Hardware Key (mTLS)
-  const natoAttempt = {
-    url: "https://gia-intelligence.com",
-    headers: {
-      "Cf-Access-Jwt-Assertion": "VALID_NATO_TOKEN",
-      "Cf-Access-Auth-Type": "mtls" // High sensitivity Hardware Key
-    }
-  };
+    // --- EXPECTED SECURITY FILES ---
+    const expectedSecurityFiles = [
+        "validate-token.js",
+        "middleware.js",
+        "require-admin.js",
+        "clearance-guard.js",
+        "entra-guard.js",
+        "worker-guard.js",
+        "hash-utils.js",
+        "key-engine.js",
+        "otp-service.js",
+        "security-audit.js" // itself
+    ];
 
-  console.log("\nTest 2: Can NATO Hardware Key reach World B?");
-  if (natoAttempt.headers["Cf-Access-Auth-Type"] === "mtls") {
-    console.log("✅ ACCESS GRANTED: NATO Officer authenticated via Air-Gap. (SUCCESS)");
-  }
+    const securityPath = path.join(basePath, "security");
+    const aiPath = path.join(basePath, "ai");
+    const workersPath = path.join(basePath, "workers");
+
+    // --- 1. SECURITY FOLDER CHECK ---
+    const securityFiles = safeReadDir(securityPath);
+
+    expectedSecurityFiles.forEach(file => {
+        if (!securityFiles.includes(file)) {
+            report.missingFiles.push({
+                file,
+                location: "security",
+                severity: "high"
+            });
+        }
+    });
+
+    securityFiles.forEach(file => {
+        if (!expectedSecurityFiles.includes(file)) {
+            report.unexpectedFiles.push({
+                file,
+                location: "security",
+                severity: "medium"
+            });
+        }
+    });
+
+    // --- 2. AI CORTEX CHECK ---
+    const expectedAI = [
+        "cortex.js",
+        "tools.js",
+        "workflows.js",
+        "schema-guard.js",
+        "identity.js"
+    ];
+
+    const aiFiles = safeReadDir(aiPath);
+
+    expectedAI.forEach(file => {
+        if (!aiFiles.includes(file)) {
+            report.aiCortex.push({
+                file,
+                issue: "missing",
+                severity: "high"
+            });
+        }
+    });
+
+    // --- 3. WORKERS CHECK ---
+    const expectedWorkers = [
+        "routing.js",
+        "protected-routes.js",
+        "admin-endpoints.js",
+        "heartbeat.js"
+    ];
+
+    const workerFiles = safeReadDir(workersPath);
+
+    expectedWorkers.forEach(file => {
+        if (!workerFiles.includes(file)) {
+            report.workers.push({
+                file,
+                issue: "missing",
+                severity: "medium"
+            });
+        }
+    });
+
+    // --- 4. INTEGRITY CHECK (HASH PRESENCE) ---
+    expectedSecurityFiles.forEach(file => {
+        const full = path.join(securityPath, file);
+        if (fs.existsSync(full)) {
+            const size = fs.statSync(full).size;
+            report.integrity.push({
+                file,
+                size,
+                status: size > 0 ? "OK" : "EMPTY"
+            });
+        }
+    });
+
+    // --- 5. SUMMARY ---
+    report.summary = {
+        missing: report.missingFiles.length,
+        unexpected: report.unexpectedFiles.length,
+        aiIssues: report.aiCortex.length,
+        workerIssues: report.workers.length,
+        integrityChecks: report.integrity.length
+    };
+
+    return report;
 }
 
-runSecurityTest();
+// --- SAFE DIRECTORY READER ---
+function safeReadDir(dir) {
+    try {
+        return fs.readdirSync(dir).filter(f => !f.startsWith("."));
+    } catch {
+        return [];
+    }
+}

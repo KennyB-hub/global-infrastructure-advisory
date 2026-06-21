@@ -2,302 +2,99 @@
   "moves": [
     {
       "status": "moved",
+      "name": "decision-engine.js",
+      "from": "seven-os\\engines\\decision-engine.js",
+      "to": "seven-os/ai/decision-engine.js"
+    },
+    {
+      "status": "moved",
+      "name": "api-trust.js",
+      "from": "seven-os\\trust\\api-trust.js",
+      "to": "seven-os/api/api-trust.js"
+    },
+    {
+      "status": "moved",
       "name": "defense.js",
-      "from": "seven-os\\api\\cyber\\defense.js",
-      "to": "seven-os/api/aim/defense.js"
-    },
-    {
-      "status": "missing",
-      "name": "defense.js",
-      "target": "seven-os/api/cyber/defense.js"
+      "from": "seven-os\\api\\aim\\defense.js",
+      "to": "seven-os/api/cyber/defense.js"
     },
     {
       "status": "moved",
-      "name": "index.ts",
-      "from": "backend\\workers\\contractor-workers\\index.ts",
-      "to": "seven-os/core/fcc/carrier-network-compliance/governance-brain/compliance-engine/remediation-engine/index.ts"
+      "name": "dashboard.js",
+      "from": "backend\\hubs\\admin\\dashboard.js",
+      "to": "seven-os/api/farmer/dashboard.js"
     },
     {
       "status": "moved",
-      "name": "index.ts",
-      "from": "backend\\workers\\emergency-router\\index.ts",
-      "to": "seven-os/core/fcc/carrier-network-compliance/governance-brain/compliance-engine/remediation-engine/workforce-sync-layer/index.ts"
+      "name": "opportunities.js",
+      "from": "seven-os\\api\\opportunitiy-api\\opportunities.js",
+      "to": "seven-os/api/opportunities.js"
     },
     {
       "status": "moved",
-      "name": "index.ts",
-      "from": "backend\\workers\\expansion\\index.ts",
-      "to": "seven-os/core/fcc/carrier-network-compliance/governance-brain/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "types.ts",
-      "from": "seven-os\\govervance\\types.ts",
-      "to": "seven-os/core/fcc/carrier-network-compliance/governance-brain/types.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "backend\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\index.ts",
-      "to": "seven-os/core/fcc/compliance-engine/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "backend\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\hr-worker\\index.ts",
-      "to": "seven-os/core/fcc/emergency-access-fallback/governance-brain/compliance-engine/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "idex.ts",
-      "from": "seven-os\\sectors\\fcc\\emergency-observation-layer\\idex.ts",
-      "to": "seven-os/core/fcc/emergency-access-fallback/governance-brain/emergency-observation-layer/idex.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "backend\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\employee\\index.ts",
-      "to": "seven-os/core/fcc/emergency-access-fallback/governance-brain/fallback-auditor/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "backend\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\index.ts",
-      "to": "seven-os/core/fcc/emergency-access-fallback/governance-brain/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "backend\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\index.ts",
-      "to": "seven-os/core/fcc/emergency-access-fallback/governance-brain/remediation-engine/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "types.ts",
-      "from": "seven-os\\sectors\\agriculture\\cattle\\types.ts",
-      "to": "seven-os/core/fcc/emergency-access-fallback/governance-brain/types.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "backend\\workers\\system-workers\\admin-workers\\index.ts",
-      "to": "seven-os/core/fcc/emergency-access-fallback/governance-brain/workforce-sync-layer/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "backend\\workers\\system-workers\\index.ts",
-      "to": "seven-os/core/fcc/firmware-auditor/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "backend\\workers\\system-workers\\public-worker\\index.ts",
-      "to": "seven-os/core/fcc/network-observation-layer/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "backend\\workforce\\AI-workforce-sync-layer\\index.ts",
-      "to": "seven-os/core/fcc/remediation-engine/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "runtime\\rf\\FirmwareAuditor\\index.ts",
-      "to": "seven-os/core/fcc/rf-observation-layer/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "runtime\\rf\\REObservation-layer\\index.ts",
-      "to": "seven-os/core/fcc/telecom-equipment-authorization/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "types.ts",
-      "from": "seven-os\\sectors\\cyber\\sectors\\fcc\\telecom-equipment-authorization\\types.ts",
-      "to": "seven-os/core/fcc/telecom-equipment-authorization/types.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\index.ts",
-      "to": "seven-os/core/fcc/workforce-sync-layer/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\core\\math\\index.ts",
-      "to": "seven-os/core/governance/compliance-engine/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\core\\remediation\\index.ts",
-      "to": "seven-os/core/governance/goverance-brain/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "types.ts",
-      "from": "seven-os\\sectors\\fcc\\carrier-network-compliance\\governance-brain\\types.ts",
-      "to": "seven-os/core/governance/types.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\govervance\\compliance-engine\\index.ts",
-      "to": "seven-os/core/math/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\govervance\\goverance-brain\\index.ts",
-      "to": "seven-os/core/remediation/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\mci\\index.ts",
-      "to": "seven-os/core/workforce/AI-workforce-sync-layer/index.ts"
+      "name": "heartbeat.js",
+      "from": "seven-os\\workers\\system-workers\\heartbeat.js",
+      "to": "seven-os/api/system/heartbeat.js"
     },
     {
       "status": "moved",
       "name": "anomaly-detector.ts",
-      "from": "seven-os\\sectors\\cyber\\sectors\\cyber\\anomaly-detector.ts",
+      "from": "seven-os\\core\\cyber\\anomaly-detector.ts",
       "to": "seven-os/cyber/anomaly-detector.ts"
     },
     {
       "status": "moved",
       "name": "block.js",
-      "from": "seven-os\\sectors\\cyber\\sectors\\cyber\\block.js",
+      "from": "seven-os\\core\\cyber\\block.js",
       "to": "seven-os/cyber/block.js"
     },
     {
       "status": "moved",
       "name": "event-builder.ts",
-      "from": "seven-os\\sectors\\cyber\\sectors\\cyber\\event-builder.ts",
+      "from": "seven-os\\core\\cyber\\event-builder.ts",
       "to": "seven-os/cyber/event-builder.ts"
     },
     {
       "status": "moved",
       "name": "event-model.ts",
-      "from": "seven-os\\sectors\\cyber\\sectors\\cyber\\event-model.ts",
+      "from": "seven-os\\core\\cyber\\event-model.ts",
       "to": "seven-os/cyber/event-model.ts"
     },
     {
       "status": "moved",
       "name": "incident-router.ts",
-      "from": "seven-os\\sectors\\cyber\\sectors\\cyber\\incident-router.ts",
+      "from": "seven-os\\core\\cyber\\incident-router.ts",
       "to": "seven-os/cyber/incident-router.ts"
     },
     {
       "status": "moved",
       "name": "index.ts",
-      "from": "seven-os\\sectors\\cyber\\sectors\\cyber\\index.ts",
+      "from": "seven-os\\core\\cyber\\index.ts",
       "to": "seven-os/cyber/index.ts"
     },
     {
       "status": "moved",
       "name": "integrity-monitor.ts",
-      "from": "seven-os\\sectors\\cyber\\sectors\\cyber\\integrity-monitor.ts",
+      "from": "seven-os\\core\\cyber\\integrity-monitor.ts",
       "to": "seven-os/cyber/integrity-monitor.ts"
     },
     {
       "status": "moved",
       "name": "policy.ts",
-      "from": "seven-os\\sectors\\cyber\\sectors\\cyber\\policy.ts",
+      "from": "seven-os\\core\\cyber\\policy.ts",
       "to": "seven-os/cyber/policy.ts"
     },
     {
       "status": "moved",
       "name": "threat-surface.ts",
-      "from": "seven-os\\sectors\\cyber\\sectors\\cyber\\threat-surface.ts",
+      "from": "seven-os\\core\\cyber\\threat-surface.ts",
       "to": "seven-os/cyber/threat-surface.ts"
     },
     {
       "status": "moved",
       "name": "worker-hook.ts",
-      "from": "seven-os\\sectors\\cyber\\sectors\\cyber\\worker-hook.ts",
+      "from": "seven-os\\core\\cyber\\worker-hook.ts",
       "to": "seven-os/cyber/worker-hook.ts"
-    },
-    {
-      "status": "moved",
-      "name": "mapping-logic.js",
-      "from": "seven-os\\system\\data\\mapping-logic.js",
-      "to": "seven-os/data/mapping-logic.js"
-    },
-    {
-      "status": "moved",
-      "name": "normalize-location.js",
-      "from": "seven-os\\system\\data\\normalize-location.js",
-      "to": "seven-os/data/normalize-location.js"
-    },
-    {
-      "status": "moved",
-      "name": "queue.js",
-      "from": "seven-os\\system\\data\\queue.js",
-      "to": "seven-os/data/queue.js"
-    },
-    {
-      "status": "moved",
-      "name": "region-matcher.js",
-      "from": "seven-os\\system\\data\\region-matcher.js",
-      "to": "seven-os/data/region-matcher.js"
-    },
-    {
-      "status": "moved",
-      "name": "schema.js",
-      "from": "seven-os\\system\\data\\schema.js",
-      "to": "seven-os/data/schema.js"
-    },
-    {
-      "status": "moved",
-      "name": "schema-registry.js",
-      "from": "seven-os\\system\\data\\schemas\\schema-registry.js",
-      "to": "seven-os/data/schemas/schema-registry.js"
-    },
-    {
-      "status": "moved",
-      "name": "schema-validator.js",
-      "from": "seven-os\\system\\data\\schemas\\schema-validator.js",
-      "to": "seven-os/data/schemas/schema-validator.js"
-    },
-    {
-      "status": "moved",
-      "name": "sector-mapping.js",
-      "from": "seven-os\\system\\data\\sector-mapping.js",
-      "to": "seven-os/data/sector-mapping.js"
-    },
-    {
-      "status": "moved",
-      "name": "db-map.js",
-      "from": "db\\db-map.js",
-      "to": "seven-os/db/db-map.js"
-    },
-    {
-      "status": "moved",
-      "name": "db-service.js",
-      "from": "db\\db-service.js",
-      "to": "seven-os/db/db-service.js"
-    },
-    {
-      "status": "moved",
-      "name": "infrastructure-loader.ts",
-      "from": "seven-os\\sectors\\agriculture\\domain\\infrastructure\\infrastructure-loader.ts",
-      "to": "seven-os/domains/infrastructure-loader.ts"
-    },
-    {
-      "status": "moved",
-      "name": "contractor-matching.js",
-      "from": "backend\\workforce\\contractor-matching.js",
-      "to": "seven-os/economics/contractor-matching.js"
-    },
-    {
-      "status": "moved",
-      "name": "funding-engine.js",
-      "from": "seven-os\\sectors\\economics\\funding-engine.js",
-      "to": "seven-os/economics/funding-engine.js"
     },
     {
       "status": "moved",
@@ -320,7 +117,7 @@
     {
       "status": "moved",
       "name": "ai-core.js",
-      "from": "seven-os\\sectors\\mining\\ai\\engines\\ai-core.js",
+      "from": "seven-os\\ai\\engines\\ai-core.js",
       "to": "seven-os/engines/ai-core.js"
     },
     {
@@ -344,19 +141,13 @@
     {
       "status": "moved",
       "name": "contractor-workforce-engine.js",
-      "from": "backend\\workforce\\contractor-workforce-engine.js",
+      "from": "seven-os\\ai\\engines\\contractor-workforce-engine.js",
       "to": "seven-os/engines/contractor-workforce-engine.js"
     },
     {
       "status": "moved",
-      "name": "core.ts",
-      "from": "seven-os\\ai\\engines\\core.ts",
-      "to": "seven-os/engines/core.ts"
-    },
-    {
-      "status": "moved",
       "name": "cyber-auto-block.js",
-      "from": "seven-os\\sectors\\cyber\\ai\\engines\\cyber-auto-block.js",
+      "from": "seven-os\\ai\\engines\\cyber-auto-block.js",
       "to": "seven-os/engines/cyber-auto-block.js"
     },
     {
@@ -366,10 +157,9 @@
       "to": "seven-os/engines/data-engine.js"
     },
     {
-      "status": "moved",
+      "status": "missing",
       "name": "decision-engine.js",
-      "from": "seven-os\\ai\\decision-engine.js",
-      "to": "seven-os/engines/decision-engine.js"
+      "target": "seven-os/engines/decision-engine.js"
     },
     {
       "status": "moved",
@@ -386,7 +176,7 @@
     {
       "status": "moved",
       "name": "farmerHaulerMatchingEngine.js",
-      "from": "seven-os\\sectors\\agriculture\\ai\\engines\\farmerHaulerMatchingEngine.js",
+      "from": "seven-os\\ai\\engines\\farmerHaulerMatchingEngine.js",
       "to": "seven-os/engines/farmerHaulerMatchingEngine.js"
     },
     {
@@ -404,7 +194,7 @@
     {
       "status": "moved",
       "name": "Global Livestock Price Forecasting Engine.js",
-      "from": "seven-os\\sectors\\agriculture\\ai\\engines\\Global Livestock Price Forecasting Engine.js",
+      "from": "seven-os\\ai\\engines\\Global Livestock Price Forecasting Engine.js",
       "to": "seven-os/engines/Global Livestock Price Forecasting Engine.js"
     },
     {
@@ -428,31 +218,31 @@
     {
       "status": "moved",
       "name": "Livestock emergency evacuation engine.js",
-      "from": "seven-os\\sectors\\agriculture\\ai\\engines\\Livestock emergency evacuation engine.js",
+      "from": "seven-os\\ai\\engines\\Livestock emergency evacuation engine.js",
       "to": "seven-os/engines/Livestock emergency evacuation engine.js"
     },
     {
       "status": "moved",
       "name": "livestock-economic-core.js",
-      "from": "seven-os\\sectors\\agriculture\\ai\\engines\\livestock-economic-core.js",
+      "from": "seven-os\\ai\\engines\\livestock-economic-core.js",
       "to": "seven-os/engines/livestock-economic-core.js"
     },
     {
       "status": "moved",
       "name": "livestockDiseaseRoutingEngine.js",
-      "from": "seven-os\\sectors\\agriculture\\ai\\engines\\livestockDiseaseRoutingEngine.js",
+      "from": "seven-os\\ai\\engines\\livestockDiseaseRoutingEngine.js",
       "to": "seven-os/engines/livestockDiseaseRoutingEngine.js"
     },
     {
       "status": "moved",
       "name": "livestockMarketRoutingEngine.js",
-      "from": "seven-os\\sectors\\agriculture\\ai\\engines\\livestockMarketRoutingEngine.js",
+      "from": "seven-os\\ai\\engines\\livestockMarketRoutingEngine.js",
       "to": "seven-os/engines/livestockMarketRoutingEngine.js"
     },
     {
       "status": "moved",
       "name": "livestockSustainabilityEngine.js",
-      "from": "seven-os\\sectors\\agriculture\\ai\\engines\\livestockSustainabilityEngine.js",
+      "from": "seven-os\\ai\\engines\\livestockSustainabilityEngine.js",
       "to": "seven-os/engines/livestockSustainabilityEngine.js"
     },
     {
@@ -588,776 +378,44 @@
     },
     {
       "status": "moved",
-      "name": "code-filter.js",
-      "from": "seven-os\\ai\\code-filter.js",
-      "to": "seven-os/filters/code-filter.js"
-    },
-    {
-      "status": "moved",
-      "name": "financial-reports.ts",
-      "from": "seven-os\\sectors\\financial\\workers\\financial-reports.ts",
-      "to": "seven-os/financial/workers/financial-reports.ts"
-    },
-    {
-      "status": "moved",
-      "name": "before-execution.js",
-      "from": "seven-os\\before-execution.js",
-      "to": "seven-os/hooks/before-execution.js"
-    },
-    {
-      "status": "moved",
-      "name": "dashboard.js",
-      "from": "hubs\\accounting\\dashboard.js",
-      "to": "seven-os/hubs/accounting/dashboard.js"
-    },
-    {
-      "status": "moved",
-      "name": "dashboard.js",
-      "from": "hubs\\admin\\dashboard.js",
-      "to": "seven-os/hubs/admin/dashboard.js"
-    },
-    {
-      "status": "moved",
-      "name": "dashboard.js",
-      "from": "hubs\\analytics\\dashboard.js",
-      "to": "seven-os/hubs/analytics/dashboard.js"
-    },
-    {
-      "status": "moved",
-      "name": "dashboard.js",
-      "from": "hubs\\Ansys\\dashboard.js",
-      "to": "seven-os/hubs/Ansys/dashboard.js"
-    },
-    {
-      "status": "moved",
-      "name": "dashboard.js",
-      "from": "hubs\\Contractor\\dashboard.js",
-      "to": "seven-os/hubs/Contractor/dashboard.js"
-    },
-    {
-      "status": "moved",
-      "name": "contractor-hub.js",
-      "from": "hubs\\contractor-hub.js",
-      "to": "seven-os/hubs/contractor-hub.js"
-    },
-    {
-      "status": "moved",
-      "name": "Dashboard.js",
-      "from": "hubs\\Dashboard.js",
-      "to": "seven-os/hubs/Dashboard.js"
-    },
-    {
-      "status": "moved",
-      "name": "dashboard.js",
-      "from": "hubs\\deepgov\\dashboard.js",
-      "to": "seven-os/hubs/deepgov/dashboard.js"
-    },
-    {
-      "status": "moved",
-      "name": "deepgov-hub.js",
-      "from": "seven-os\\sectors\\government\\deepgov-hub.js",
-      "to": "seven-os/hubs/deepgov-hub.js"
-    },
-    {
-      "status": "moved",
-      "name": "ai-blueprint-analyzer-starter.js",
-      "from": "hubs\\designer\\ai-blueprint-analyzer-starter.js",
-      "to": "seven-os/hubs/designer/ai-blueprint-analyzer-starter.js"
-    },
-    {
-      "status": "moved",
-      "name": "ai-site-layout-generator.js",
-      "from": "hubs\\designer\\ai-site-layout-generator.js",
-      "to": "seven-os/hubs/designer/ai-site-layout-generator.js"
-    },
-    {
-      "status": "moved",
-      "name": "annotation.js",
-      "from": "hubs\\designer\\annotation.js",
-      "to": "seven-os/hubs/designer/annotation.js"
-    },
-    {
-      "status": "moved",
-      "name": "dashboard.js",
-      "from": "hubs\\employee\\dashboard.js",
-      "to": "seven-os/hubs/employee/dashboard.js"
-    },
-    {
-      "status": "moved",
-      "name": "ExecutiveDashboard.js",
-      "from": "hubs\\ExecutiveDashboard.js",
-      "to": "seven-os/hubs/ExecutiveDashboard.js"
-    },
-    {
-      "status": "moved",
-      "name": "dashboard.js",
-      "from": "hubs\\farmer\\dashboard.js",
-      "to": "seven-os/hubs/farmer/dashboard.js"
-    },
-    {
-      "status": "moved",
-      "name": "farmer-engine.js",
-      "from": "seven-os\\sectors\\agriculture\\hubs\\farmer\\farmer-engine.js",
-      "to": "seven-os/hubs/farmer/farmer-engine.js"
-    },
-    {
-      "status": "moved",
-      "name": "farmer-hub.js",
-      "from": "seven-os\\sectors\\agriculture\\hubs\\farmer-hub.js",
-      "to": "seven-os/hubs/farmer-hub.js"
-    },
-    {
-      "status": "moved",
-      "name": "dashboard.js",
-      "from": "hubs\\global-map\\dashboard.js",
-      "to": "seven-os/hubs/global-map/dashboard.js"
-    },
-    {
-      "status": "moved",
-      "name": "dashboard.js",
-      "from": "hubs\\gov\\dashboard.js",
-      "to": "seven-os/hubs/gov/dashboard.js"
-    },
-    {
-      "status": "moved",
-      "name": "gov-hub.js",
-      "from": "seven-os\\sectors\\government\\gov-hub.js",
-      "to": "seven-os/hubs/gov-hub.js"
-    },
-    {
-      "status": "moved",
-      "name": "dashboard.js",
-      "from": "hubs\\hr\\dashboard.js",
-      "to": "seven-os/hubs/hr/dashboard.js"
-    },
-    {
-      "status": "moved",
-      "name": "infrastructure-hub.js",
-      "from": "hubs\\infrastructure-hub.js",
-      "to": "seven-os/hubs/infrastructure-hub.js"
-    },
-    {
-      "status": "moved",
-      "name": "dashboard.js",
-      "from": "hubs\\payroll\\dashboard.js",
-      "to": "seven-os/hubs/payroll/dashboard.js"
-    },
-    {
-      "status": "moved",
-      "name": "dashboard.js",
-      "from": "hubs\\public\\dashboard.js",
-      "to": "seven-os/hubs/public/dashboard.js"
-    },
-    {
-      "status": "moved",
-      "name": "public-hub.js",
-      "from": "hubs\\public-hub.js",
-      "to": "seven-os/hubs/public-hub.js"
-    },
-    {
-      "status": "moved",
-      "name": "PublicDashboard.js",
-      "from": "hubs\\PublicDashboard.js",
-      "to": "seven-os/hubs/PublicDashboard.js"
-    },
-    {
-      "status": "moved",
-      "name": "PublicHub.js",
-      "from": "hubs\\PublicHub.js",
-      "to": "seven-os/hubs/PublicHub.js"
-    },
-    {
-      "status": "moved",
-      "name": "msal-config.js",
-      "from": "seven-os\\sectors\\cyber\\hubs\\security\\msal-config.js",
-      "to": "seven-os/hubs/security/msal-config.js"
-    },
-    {
-      "status": "moved",
-      "name": "api-client.js",
-      "from": "hubs\\shared\\api-client.js",
-      "to": "seven-os/hubs/shared/api-client.js"
-    },
-    {
-      "status": "moved",
-      "name": "nav-engine.js",
-      "from": "hubs\\shared\\nav-engine.js",
-      "to": "seven-os/hubs/shared/nav-engine.js"
-    },
-    {
-      "status": "moved",
-      "name": "role.js",
-      "from": "hubs\\shared\\role.js",
-      "to": "seven-os/hubs/shared/role.js"
-    },
-    {
-      "status": "moved",
-      "name": "sector-dashboard.js",
-      "from": "hubs\\shared\\sector-dashboard.js",
-      "to": "seven-os/hubs/shared/sector-dashboard.js"
-    },
-    {
-      "status": "moved",
-      "name": "dashboard.js",
-      "from": "hubs\\Staff\\dashboard.js",
-      "to": "seven-os/hubs/Staff/dashboard.js"
-    },
-    {
-      "status": "moved",
-      "name": "heatmap.js",
-      "from": "hubs\\Staff\\heatmap.js",
-      "to": "seven-os/hubs/Staff/heatmap.js"
-    },
-    {
-      "status": "moved",
-      "name": "dashboard.js",
-      "from": "hubs\\supervisor\\dashboard.js",
-      "to": "seven-os/hubs/supervisor/dashboard.js"
-    },
-    {
-      "status": "moved",
-      "name": "dashboard.js",
-      "from": "hubs\\system\\dashboard.js",
-      "to": "seven-os/hubs/system/dashboard.js"
-    },
-    {
-      "status": "moved",
-      "name": "audit-generator.js",
-      "from": "seven-os\\sectors\\cyber\\domain\\infrastructure\\audit\\audit-generator.js",
-      "to": "seven-os/infrastructure/audit/audit-generator.js"
-    },
-    {
-      "status": "moved",
-      "name": "contractor-check.js",
-      "from": "backend\\workforce\\contractor-check.js",
-      "to": "seven-os/infrastructure/compliance/contractor-check.js"
-    },
-    {
-      "status": "moved",
-      "name": "funding-check.js",
-      "from": "runtime\\domain\\infrastructure\\compliance\\funding-check.js",
-      "to": "seven-os/infrastructure/compliance/funding-check.js"
-    },
-    {
-      "status": "moved",
-      "name": "misconduct-check.js",
-      "from": "runtime\\domain\\infrastructure\\compliance\\misconduct-check.js",
-      "to": "seven-os/infrastructure/compliance/misconduct-check.js"
-    },
-    {
-      "status": "moved",
-      "name": "diagnostics.js",
-      "from": "runtime\\domain\\infrastructure\\diagnostics.js",
-      "to": "seven-os/infrastructure/diagnostics.js"
-    },
-    {
-      "status": "moved",
-      "name": "bridge-hazards.js",
-      "from": "seven-os\\sectors\\infrastructure\\hazards\\bridge-hazards.js",
-      "to": "seven-os/infrastructure/hazards/bridge-hazards.js"
-    },
-    {
-      "status": "moved",
-      "name": "road-hazards.js",
-      "from": "seven-os\\sectors\\infrastructure\\hazards\\road-hazards.js",
-      "to": "seven-os/infrastructure/hazards/road-hazards.js"
-    },
-    {
-      "status": "moved",
-      "name": "tower-hazards.js",
-      "from": "seven-os\\sectors\\infrastructure\\hazards\\tower-hazards.js",
-      "to": "seven-os/infrastructure/hazards/tower-hazards.js"
-    },
-    {
-      "status": "moved",
       "name": "index.js",
-      "from": "backend\\routes\\index.js",
+      "from": "seven-os\\ai\\policies\\index.js",
       "to": "seven-os/infrastructure/index.js"
     },
     {
       "status": "moved",
-      "name": "infrastructure-audit-engine.js",
-      "from": "seven-os\\sectors\\cyber\\domain\\infrastructure\\infrastructure-audit-engine.js",
-      "to": "seven-os/infrastructure/infrastructure-audit-engine.js"
-    },
-    {
-      "status": "moved",
-      "name": "dot-ingest.js",
-      "from": "runtime\\domain\\infrastructure\\ingest\\dot-ingest.js",
-      "to": "seven-os/infrastructure/ingestion/dot-ingest.js"
-    },
-    {
-      "status": "moved",
-      "name": "fcc-ingest.js",
-      "from": "seven-os\\sectors\\fcc\\ingest\\fcc-ingest.js",
-      "to": "seven-os/infrastructure/ingestion/fcc-ingest.js"
-    },
-    {
-      "status": "moved",
-      "name": "sensor-ingest.js",
-      "from": "runtime\\domain\\infrastructure\\ingest\\sensor-ingest.js",
-      "to": "seven-os/infrastructure/ingestion/sensor-ingest.js"
-    },
-    {
-      "status": "moved",
-      "name": "usda-ingest.js",
-      "from": "runtime\\domain\\infrastructure\\ingest\\usda-ingest.js",
-      "to": "seven-os/infrastructure/ingestion/usda-ingest.js"
-    },
-    {
-      "status": "moved",
-      "name": "audit-generator.js",
-      "from": "seven-os\\sectors\\cyber\\domain\\infrastructure\\reports\\audit-generator.js",
-      "to": "seven-os/infrastructure/reports/audit-generator.js"
-    },
-    {
-      "status": "moved",
-      "name": "gis-overlay.js",
-      "from": "seven-os\\sectors\\infrastructure\\reports\\gis-overlay.js",
-      "to": "seven-os/infrastructure/reports/gis-overlay.js"
-    },
-    {
-      "status": "moved",
-      "name": "modernization-plan.js",
-      "from": "seven-os\\sectors\\infrastructure\\reports\\modernization-plan.js",
-      "to": "seven-os/infrastructure/reports/modernization-plan.js"
-    },
-    {
-      "status": "moved",
-      "name": "routing-inspector.js",
-      "from": "runtime\\domain\\geo\\routing-inspector.js",
-      "to": "seven-os/infrastructure/routing-inspector.js"
-    },
-    {
-      "status": "moved",
-      "name": "sector-scoring.js",
-      "from": "runtime\\domain\\infrastructure\\scoring\\sector-scoring.js",
-      "to": "seven-os/infrastructure/scoring/sector-scoring.js"
-    },
-    {
-      "status": "moved",
-      "name": "ssh-manager.js",
-      "from": "runtime\\domain\\infrastructure\\ssh-manager.js",
-      "to": "seven-os/infrastructure/ssh-manager.js"
-    },
-    {
-      "status": "moved",
       "name": "index.js",
-      "from": "backend\\workers\\ai-worker\\index.js",
+      "from": "seven-os\\ai\\tools\\index.js",
       "to": "seven-os/infrastructure/tools/index.js"
     },
     {
       "status": "moved",
-      "name": "inspect-routing.js",
-      "from": "runtime\\domain\\infrastructure\\tools\\inspect-routing.js",
-      "to": "seven-os/infrastructure/tools/inspect-routing.js"
-    },
-    {
-      "status": "moved",
-      "name": "r2-bucket-list.js",
-      "from": "runtime\\domain\\infrastructure\\tools\\r2-bucket-list.js",
-      "to": "seven-os/infrastructure/tools/r2-bucket-list.js"
-    },
-    {
-      "status": "moved",
-      "name": "r2-check.js",
-      "from": "runtime\\domain\\infrastructure\\tools\\r2-check.js",
-      "to": "seven-os/infrastructure/tools/r2-check.js"
-    },
-    {
-      "status": "moved",
-      "name": "r2-exposure.js",
-      "from": "runtime\\domain\\infrastructure\\tools\\r2-exposure.js",
-      "to": "seven-os/infrastructure/tools/r2-exposure.js"
-    },
-    {
-      "status": "moved",
-      "name": "r2-health.js",
-      "from": "runtime\\domain\\infrastructure\\tools\\r2-health.js",
-      "to": "seven-os/infrastructure/tools/r2-health.js"
-    },
-    {
-      "status": "moved",
-      "name": "r2-inspector.js",
-      "from": "runtime\\domain\\infrastructure\\tools\\r2-inspector.js",
-      "to": "seven-os/infrastructure/tools/r2-inspector.js"
-    },
-    {
-      "status": "moved",
-      "name": "r2-uploader.js",
-      "from": "seven-os\\sectors\\agriculture\\domain\\infrastructure\\tools\\r2-uploader.js",
-      "to": "seven-os/infrastructure/tools/r2-uploader.js"
-    },
-    {
-      "status": "moved",
-      "name": "storage-inspector.js",
-      "from": "runtime\\domain\\infrastructure\\tools\\storage-inspector.js",
-      "to": "seven-os/infrastructure/tools/storage-inspector.js"
-    },
-    {
-      "status": "moved",
-      "name": "infra-logger.js",
-      "from": "runtime\\domain\\infrastructure\\utils\\infra-logger.js",
-      "to": "seven-os/infrastructure/utils/infra-logger.js"
-    },
-    {
-      "status": "moved",
-      "name": "normalize-path.js",
-      "from": "runtime\\domain\\infrastructure\\utils\\normalize-path.js",
-      "to": "seven-os/infrastructure/utils/normalize-path.js"
-    },
-    {
-      "status": "moved",
-      "name": "parse-endpoint.js",
-      "from": "runtime\\domain\\infrastructure\\utils\\parse-endpoint.js",
-      "to": "seven-os/infrastructure/utils/parse-endpoint.js"
-    },
-    {
-      "status": "moved",
-      "name": "safe-shell.js",
-      "from": "runtime\\domain\\infrastructure\\utils\\safe-shell.js",
-      "to": "seven-os/infrastructure/utils/safe-shell.js"
-    },
-    {
-      "status": "moved",
-      "name": "log-api-endpoints.js",
-      "from": "seven-os\\api\\log-api-endpoints.js",
-      "to": "seven-os/logs/log-api-endpoints.js"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\sectors\\cyber\\sectors\\fcc\\emergency-access-fallback\\governance-brain\\fallback-auditor\\index.ts",
-      "to": "seven-os/mci/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "loader.js",
-      "from": "seven-os\\ai\\loader.js",
-      "to": "seven-os/mci/loader.js"
-    },
-    {
-      "status": "moved",
       "name": "nats-client.ts",
-      "from": "seven-os\\sync\\transports\\nats-client.ts",
+      "from": "seven-os\\transports\\nats-client.ts",
       "to": "seven-os/nats-client.ts"
     },
     {
       "status": "moved",
       "name": "index.js",
-      "from": "backend\\workers\\system-workers\\public-worker\\index.js",
+      "from": "seven-os\\ai\\tools\\public\\index.js",
       "to": "seven-os/policy-packs/index.js"
     },
     {
       "status": "moved",
-      "name": "policy-cache.ts",
-      "from": "seven-os\\sectors\\government\\policy-packs\\policy-cache.ts",
-      "to": "seven-os/policy-packs/policy-cache.ts"
-    },
-    {
-      "status": "moved",
-      "name": "policy-hasher.ts",
-      "from": "seven-os\\sectors\\government\\policy-packs\\policy-hasher.ts",
-      "to": "seven-os/policy-packs/policy-hasher.ts"
-    },
-    {
-      "status": "moved",
-      "name": "policy-validator.ts",
-      "from": "seven-os\\sectors\\government\\policy-packs\\policy-validator.ts",
-      "to": "seven-os/policy-packs/policy-validator.ts"
-    },
-    {
-      "status": "moved",
-      "name": "sovereign-policy.ts",
-      "from": "seven-os\\sectors\\government\\policy-packs\\sovereign\\sovereign-policy.ts",
-      "to": "seven-os/policy-packs/sovereign/sovereign-policy.ts"
-    },
-    {
-      "status": "moved",
-      "name": "contractor-engine.js",
-      "from": "seven-os\\sectors\\contractors\\sectors\\contractors\\contractor-engine.js",
-      "to": "seven-os/sector-engines/contractor-engine.js"
-    },
-    {
-      "status": "moved",
-      "name": "farmer-engine.js",
-      "from": "seven-os\\sectors\\agriculture\\sector-engines\\farmer-engine.js",
-      "to": "seven-os/sector-engines/farmer-engine.js"
-    },
-    {
-      "status": "moved",
-      "name": "gov-engine.js",
-      "from": "seven-os\\sectors\\government\\gov-engine.js",
-      "to": "seven-os/sector-engines/gov-engine.js"
-    },
-    {
-      "status": "moved",
-      "name": "cattle-engine.js",
-      "from": "seven-os\\sectors\\agriculture\\cattle\\cattle-engine.js",
-      "to": "seven-os/sectors/agri/cattle-engine.js"
-    },
-    {
-      "status": "moved",
-      "name": "crop-engine.js",
-      "from": "seven-os\\sectors\\agriculture\\crop-engine.js",
-      "to": "seven-os/sectors/agri/crop-engine.js"
-    },
-    {
-      "status": "moved",
       "name": "index.js",
-      "from": "proprietary-cli\\commands\\index.js",
+      "from": "seven-os\\api\\index.js",
       "to": "seven-os/sectors/agri/index.js"
     },
     {
       "status": "moved",
-      "name": "land-engine.js",
-      "from": "seven-os\\sectors\\agriculture\\land-engine.js",
-      "to": "seven-os/sectors/agri/land-engine.js"
-    },
-    {
-      "status": "moved",
-      "name": "sector-sync.js",
-      "from": "seven-os\\sectors\\agriculture\\sector-sync.js",
-      "to": "seven-os/sectors/agri/sector-sync.js"
-    },
-    {
-      "status": "moved",
-      "name": "blueprint-engine.js",
-      "from": "seven-os\\sectors\\agriculture\\visual\\blueprint-engine.js",
-      "to": "seven-os/sectors/agri/visual/blueprint-engine.js"
-    },
-    {
-      "status": "moved",
-      "name": "document-engine.js",
-      "from": "seven-os\\sectors\\agriculture\\visual\\document-engine.js",
-      "to": "seven-os/sectors/agri/visual/document-engine.js"
-    },
-    {
-      "status": "moved",
-      "name": "engine-flight.js",
-      "from": "seven-os\\sectors\\agriculture\\visual\\engine-flight.js",
-      "to": "seven-os/sectors/agri/visual/engine-flight.js"
-    },
-    {
-      "status": "moved",
-      "name": "engine-spectral.js",
-      "from": "seven-os\\sectors\\agriculture\\visual\\engine-spectral.js",
-      "to": "seven-os/sectors/agri/visual/engine-spectral.js"
-    },
-    {
-      "status": "moved",
-      "name": "engine-twin.js",
-      "from": "seven-os\\sectors\\agriculture\\visual\\engine-twin.js",
-      "to": "seven-os/sectors/agri/visual/engine-twin.js"
-    },
-    {
-      "status": "moved",
-      "name": "index.js",
-      "from": "runtime\\ai\\tools\\index.js",
-      "to": "seven-os/sectors/agri/visual/index.js"
-    },
-    {
-      "status": "moved",
-      "name": "mapping-2d-engine.js",
-      "from": "seven-os\\sectors\\agriculture\\visual\\mapping-2d-engine.js",
-      "to": "seven-os/sectors/agri/visual/mapping-2d-engine.js"
-    },
-    {
-      "status": "moved",
-      "name": "mapping-3d-engine.js",
-      "from": "seven-os\\sectors\\agriculture\\visual\\mapping-3d-engine.js",
-      "to": "seven-os/sectors/agri/visual/mapping-3d-engine.js"
-    },
-    {
-      "status": "moved",
-      "name": "index.js",
-      "from": "runtime\\ai\\workflows\\index.js",
-      "to": "seven-os/sectors/contractors/index.js"
-    },
-    {
-      "status": "moved",
-      "name": "cross-sector-routing-engine.js",
-      "from": "seven-os\\sector-engines\\cross-sector-routing-engine.js",
-      "to": "seven-os/sectors/cross-sector-routing-engine.js"
-    },
-    {
-      "status": "moved",
-      "name": "index.js",
-      "from": "runtime\\context\\index.js",
-      "to": "seven-os/sectors/cyber/index.js"
-    },
-    {
-      "status": "moved",
-      "name": "index.js",
-      "from": "runtime\\domain\\geo\\index.js",
-      "to": "seven-os/sectors/disaster_response/index.js"
-    },
-    {
-      "status": "moved",
-      "name": "aim-threat-model.js",
-      "from": "seven-os\\sectors\\government\\sectors\\gov\\aim-threat-model.js",
-      "to": "seven-os/sectors/gov/aim-threat-model.js"
-    },
-    {
-      "status": "moved",
-      "name": "formatAdvisory.js",
-      "from": "seven-os\\sectors\\government\\sectors\\gov\\formatAdvisory.js",
-      "to": "seven-os/sectors/gov/formatAdvisory.js"
-    },
-    {
-      "status": "moved",
-      "name": "generateRecommendations.js",
-      "from": "seven-os\\sectors\\government\\sectors\\gov\\generateRecommendations.js",
-      "to": "seven-os/sectors/gov/generateRecommendations.js"
-    },
-    {
-      "status": "moved",
-      "name": "index.js",
-      "from": "runtime\\domain\\geomapping-logic.js\\index.js",
-      "to": "seven-os/sectors/gov/index.js"
-    },
-    {
-      "status": "moved",
-      "name": "sectorAnalysis.js",
-      "from": "seven-os\\sectors\\government\\sectors\\gov\\sectorAnalysis.js",
-      "to": "seven-os/sectors/gov/sectorAnalysis.js"
-    },
-    {
-      "status": "moved",
-      "name": "index.js",
-      "from": "runtime\\domain\\infrastructure\\index.js",
-      "to": "seven-os/sectors/logistics/index.js"
-    },
-    {
-      "status": "moved",
-      "name": "index.js",
-      "from": "runtime\\domain\\infrastructure\\integrity\\index.js",
-      "to": "seven-os/sectors/overlays/index.js"
-    },
-    {
-      "status": "moved",
-      "name": "sector-adjacency-engine.js",
-      "from": "seven-os\\sector-engines\\overlays\\sector-adjacency-engine.js",
-      "to": "seven-os/sectors/overlays/sector-adjacency-engine.js"
-    },
-    {
-      "status": "moved",
-      "name": "sector-mapping-logic.js",
-      "from": "seven-os\\sector-engines\\overlays\\sector-mapping-logic.js",
-      "to": "seven-os/sectors/overlays/sector-mapping-logic.js"
-    },
-    {
-      "status": "moved",
-      "name": "index.js",
-      "from": "runtime\\domain\\infrastructure\\threat\\index.js",
-      "to": "seven-os/sectors/pipelines/index.js"
-    },
-    {
-      "status": "moved",
-      "name": "sector-loader.js",
-      "from": "seven-os\\sectors\\agriculture\\sector-loader.js",
-      "to": "seven-os/sectors/sector-loader.js"
-    },
-    {
-      "status": "moved",
-      "name": "guard.js",
-      "from": "seven-os\\sectors\\cyber\\security\\guard.js",
-      "to": "seven-os/security/guard.js"
-    },
-    {
-      "status": "moved",
-      "name": "key-engine.js",
-      "from": "runtime\\security\\key-engine.js",
-      "to": "seven-os/security/key-engine.js"
-    },
-    {
-      "status": "moved",
-      "name": "keygen.js",
-      "from": "seven-os\\sectors\\cyber\\security\\keygen.js",
-      "to": "seven-os/security/keygen.js"
-    },
-    {
-      "status": "moved",
-      "name": "require-admin.js",
-      "from": "edge-vault\\VAULT-LAYER\\protected\\require-admin.js",
-      "to": "seven-os/security/require-admin.js"
-    },
-    {
-      "status": "moved",
-      "name": "threat-engine.js",
-      "from": "seven-os\\sectors\\cyber\\security\\threat-engine.js",
-      "to": "seven-os/security/threat-engine.js"
-    },
-    {
-      "status": "moved",
-      "name": "worker-guard.js",
-      "from": "seven-os\\sectors\\cyber\\security\\worker-guard.js",
-      "to": "seven-os/security/worker-guard.js"
-    },
-    {
-      "status": "moved",
-      "name": "ground-rescue-unit.ts",
-      "from": "seven-os\\adapters\\ground-rescue-unit.ts",
-      "to": "seven-os/seven-runtime/adapters/ground-rescue-unit.ts"
-    },
-    {
-      "status": "moved",
       "name": "ai-worker.js",
-      "from": "backend\\workers\\ai-worker\\ai-worker.js",
+      "from": "seven-os\\seven-runtime\\workers\\ai-worker.js",
       "to": "seven-os/seven-runtime/ai/ai-worker.js"
-    },
-    {
-      "status": "moved",
-      "name": "cortex.js",
-      "from": "runtime\\ai\\cortex.js",
-      "to": "seven-os/seven-runtime/ai/cortex.js"
     },
     {
       "status": "missing",
       "name": "decision-engine.js",
       "target": "seven-os/seven-runtime/ai/decision-engine.js"
-    },
-    {
-      "status": "moved",
-      "name": "identity.js",
-      "from": "runtime\\ai\\identity.js",
-      "to": "seven-os/seven-runtime/ai/identity.js"
-    },
-    {
-      "status": "moved",
-      "name": "logic-engine.js",
-      "from": "runtime\\ai\\logic-engine.js",
-      "to": "seven-os/seven-runtime/ai/logic-engine.js"
-    },
-    {
-      "status": "moved",
-      "name": "schema-guard.js",
-      "from": "runtime\\ai\\schema-guard.js",
-      "to": "seven-os/seven-runtime/ai/schema-guard.js"
-    },
-    {
-      "status": "moved",
-      "name": "index.js",
-      "from": "runtime\\domain\\infrastructure\\tools\\index.js",
-      "to": "seven-os/seven-runtime/ai/tools/index.js"
-    },
-    {
-      "status": "moved",
-      "name": "index.js",
-      "from": "runtime\\domain\\infrastructure\\workers\\index.js",
-      "to": "seven-os/seven-runtime/ai/workflows/index.js"
-    },
-    {
-      "status": "moved",
-      "name": "field-health-scanner.ts",
-      "from": "runtime\\domain\\infrastructure\\analysis\\field-health-scanner.ts",
-      "to": "seven-os/seven-runtime/analysis/field-health-scanner.ts"
-    },
-    {
-      "status": "moved",
-      "name": "infrastructure-damage-scanner.ts",
-      "from": "runtime\\domain\\infrastructure\\analysis\\infrastructure-damage-scanner.ts",
-      "to": "seven-os/seven-runtime/analysis/infrastructure-damage-scanner.ts"
     },
     {
       "status": "moved",
@@ -1368,14 +426,8 @@
     {
       "status": "moved",
       "name": "collars.js",
-      "from": "seven-os\\sectors\\agriculture\\api\\collars.js",
+      "from": "seven-os\\api\\collars.js",
       "to": "seven-os/seven-runtime/api/collars.js"
-    },
-    {
-      "status": "moved",
-      "name": "command-dashboard.ts",
-      "from": "seven-os\\utilities\\ui\\command-dashboard.ts",
-      "to": "seven-os/seven-runtime/api/command-dashboard.ts"
     },
     {
       "status": "moved",
@@ -1385,21 +437,9 @@
     },
     {
       "status": "moved",
-      "name": "contractors.js",
-      "from": "seven-os\\sectors\\contractors\\api\\contractors.js",
-      "to": "seven-os/seven-runtime/api/contractors.js"
-    },
-    {
-      "status": "moved",
       "name": "deep-mind.js",
       "from": "seven-os\\api\\deep-mind.js",
       "to": "seven-os/seven-runtime/api/deep-mind.js"
-    },
-    {
-      "status": "moved",
-      "name": "donors.js",
-      "from": "seven-os\\api\\donors.js",
-      "to": "seven-os/seven-runtime/api/donors.js"
     },
     {
       "status": "moved",
@@ -1410,7 +450,7 @@
     {
       "status": "moved",
       "name": "gov-view.js",
-      "from": "seven-os\\sectors\\government\\gov-view.js",
+      "from": "seven-os\\api\\gov\\gov-view.js",
       "to": "seven-os/seven-runtime/api/gov/gov-view.js"
     },
     {
@@ -1421,63 +461,9 @@
     },
     {
       "status": "moved",
-      "name": "gov-view.ts",
-      "from": "seven-os\\api\\gov-view.ts",
-      "to": "seven-os/seven-runtime/api/gov-view.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.js",
-      "from": "seven-os\\ai\\policies\\index.js",
-      "to": "seven-os/seven-runtime/api/index.js"
-    },
-    {
-      "status": "moved",
-      "name": "map.js",
-      "from": "seven-os\\utilities\\ui\\map\\map.js",
-      "to": "seven-os/seven-runtime/api/map/map.js"
-    },
-    {
-      "status": "moved",
-      "name": "marketplace.js",
-      "from": "seven-os\\api\\marketplace.js",
-      "to": "seven-os/seven-runtime/api/marketplace.js"
-    },
-    {
-      "status": "moved",
-      "name": "opportunities-active.js",
-      "from": "seven-os\\api\\opportunities-active.js",
-      "to": "seven-os/seven-runtime/api/opportunities-active.js"
-    },
-    {
-      "status": "moved",
-      "name": "opportunity.js",
-      "from": "seven-os\\api\\opportunitiy-api\\opportunity.js",
-      "to": "seven-os/seven-runtime/api/opportunity.js"
-    },
-    {
-      "status": "moved",
-      "name": "opportunity.ts",
-      "from": "seven-os\\api\\opportunitiy-api\\opportunity.ts",
-      "to": "seven-os/seven-runtime/api/opportunity.ts"
-    },
-    {
-      "status": "moved",
-      "name": "program-matching-dashboard.js",
-      "from": "seven-os\\api\\program-matching-dashboard.js",
-      "to": "seven-os/seven-runtime/api/program-matching-dashboard.js"
-    },
-    {
-      "status": "moved",
       "name": "router.js",
       "from": "seven-os\\ai\\router.js",
       "to": "seven-os/seven-runtime/api/router.js"
-    },
-    {
-      "status": "moved",
-      "name": "state.js",
-      "from": "runtime\\state.js",
-      "to": "seven-os/seven-runtime/api/routes/state.js"
     },
     {
       "status": "moved",
@@ -1500,13 +486,13 @@
     {
       "status": "moved",
       "name": "health.js",
-      "from": "backend\\system\\health.js",
+      "from": "seven-os\\api\\system\\health.js",
       "to": "seven-os/seven-runtime/api/system/health.js"
     },
     {
       "status": "moved",
       "name": "uptime.js",
-      "from": "backend\\system\\uptime.js",
+      "from": "seven-os\\api\\system\\uptime.js",
       "to": "seven-os/seven-runtime/api/system/uptime.js"
     },
     {
@@ -1536,176 +522,122 @@
     {
       "status": "moved",
       "name": "boundary-engine.ts",
-      "from": "seven-os\\sectors\\agriculture\\cattle\\boundary-engine.ts",
+      "from": "seven-os\\cattle\\boundary-engine.ts",
       "to": "seven-os/seven-runtime/cattle/boundary-engine.ts"
     },
     {
       "status": "moved",
       "name": "boundary-service.ts",
-      "from": "seven-os\\sectors\\agriculture\\cattle\\boundary-service.ts",
+      "from": "seven-os\\cattle\\boundary-service.ts",
       "to": "seven-os/seven-runtime/cattle/boundary-service.ts"
     },
     {
       "status": "moved",
       "name": "boundary-types.ts",
-      "from": "seven-os\\sectors\\agriculture\\cattle\\boundary-types.ts",
+      "from": "seven-os\\cattle\\boundary-types.ts",
       "to": "seven-os/seven-runtime/cattle/boundary-types.ts"
     },
     {
       "status": "moved",
       "name": "cattle-collar-sync.ts",
-      "from": "seven-os\\sectors\\agriculture\\cattle\\cattle-collar-sync.ts",
+      "from": "seven-os\\cattle\\cattle-collar-sync.ts",
       "to": "seven-os/seven-runtime/cattle/cattle-collar-sync.ts"
     },
     {
       "status": "moved",
       "name": "cattle-rules.ts",
-      "from": "seven-os\\sectors\\agriculture\\cattle\\cattle-rules.ts",
+      "from": "seven-os\\cattle\\cattle-rules.ts",
       "to": "seven-os/seven-runtime/cattle/cattle-rules.ts"
     },
     {
       "status": "moved",
-      "name": "dashboard.ts",
-      "from": "seven-os\\utilities\\dashboard\\dashboard.ts",
-      "to": "seven-os/seven-runtime/cattle/dashboard.ts"
-    },
-    {
-      "status": "moved",
       "name": "rotation-engine.ts",
-      "from": "seven-os\\sectors\\agriculture\\cattle\\rotation-engine.ts",
+      "from": "seven-os\\cattle\\rotation-engine.ts",
       "to": "seven-os/seven-runtime/cattle/rotation-engine.ts"
     },
     {
       "status": "moved",
       "name": "types.ts",
-      "from": "seven-os\\sectors\\telecom\\infrastructure\\tower\\types.ts",
+      "from": "seven-os\\cattle\\types.ts",
       "to": "seven-os/seven-runtime/cattle/types.ts"
     },
     {
       "status": "moved",
       "name": "gallagher.ts",
-      "from": "seven-os\\sectors\\agriculture\\cattle\\vendors\\gallagher.ts",
+      "from": "seven-os\\cattle\\vendors\\gallagher.ts",
       "to": "seven-os/seven-runtime/cattle/vendors/gallagher.ts"
     },
     {
       "status": "moved",
-      "name": "disaster-launcher.ts",
-      "from": "seven-os\\core\\disaster\\disaster-launcher.ts",
-      "to": "seven-os/seven-runtime/disaster/disaster-launcher.ts"
-    },
-    {
-      "status": "moved",
-      "name": "disaster-swarm.ts",
-      "from": "seven-os\\core\\disaster\\disaster-swarm.ts",
-      "to": "seven-os/seven-runtime/disaster/disaster-swarm.ts"
-    },
-    {
-      "status": "moved",
       "name": "disaster-profile.ts",
-      "from": "runtime\\drone\\disaster-profile.ts",
+      "from": "seven-os\\drone\\disaster-profile.ts",
       "to": "seven-os/seven-runtime/drone/disaster-profile.ts"
     },
     {
       "status": "moved",
       "name": "drone-cotrol.test.ts",
-      "from": "runtime\\drone\\drone-cotrol.test.ts",
+      "from": "seven-os\\drone\\drone-cotrol.test.ts",
       "to": "seven-os/seven-runtime/drone/drone-cotrol.test.ts"
     },
     {
       "status": "moved",
       "name": "drone-cotrol.ts",
-      "from": "runtime\\drone\\drone-cotrol.ts",
+      "from": "seven-os\\drone\\drone-cotrol.ts",
       "to": "seven-os/seven-runtime/drone/drone-cotrol.ts"
     },
     {
       "status": "moved",
       "name": "drone-mission-planner.ts",
-      "from": "runtime\\drone\\drone-mission-planner.ts",
+      "from": "seven-os\\drone\\drone-mission-planner.ts",
       "to": "seven-os/seven-runtime/drone/drone-mission-planner.ts"
     },
     {
       "status": "moved",
       "name": "drone-orchestrator.test.ts",
-      "from": "runtime\\drone\\drone-orchestrator.test.ts",
+      "from": "seven-os\\drone\\drone-orchestrator.test.ts",
       "to": "seven-os/seven-runtime/drone/drone-orchestrator.test.ts"
     },
     {
       "status": "moved",
       "name": "drone-orchestrator.ts",
-      "from": "runtime\\drone\\drone-orchestrator.ts",
+      "from": "seven-os\\drone\\drone-orchestrator.ts",
       "to": "seven-os/seven-runtime/drone/drone-orchestrator.ts"
     },
     {
       "status": "moved",
       "name": "drone-plugin.ts",
-      "from": "runtime\\drone\\drone-plugin.ts",
+      "from": "seven-os\\drone\\drone-plugin.ts",
       "to": "seven-os/seven-runtime/drone/drone-plugin.ts"
     },
     {
       "status": "moved",
       "name": "drone-registry.ts",
-      "from": "runtime\\drone\\drone-registry.ts",
+      "from": "seven-os\\drone\\drone-registry.ts",
       "to": "seven-os/seven-runtime/drone/drone-registry.ts"
     },
     {
       "status": "moved",
       "name": "geofence.ts",
-      "from": "runtime\\drone\\geofence.ts",
+      "from": "seven-os\\drone\\geofence.ts",
       "to": "seven-os/seven-runtime/drone/geofence.ts"
     },
     {
       "status": "moved",
       "name": "swarm-cotroller.ts",
-      "from": "runtime\\drone\\swarm-cotroller.ts",
+      "from": "seven-os\\drone\\swarm-cotroller.ts",
       "to": "seven-os/seven-runtime/drone/swarm-cotroller.ts"
     },
     {
       "status": "moved",
       "name": "swarm-lightshow.ts",
-      "from": "runtime\\drone\\swarm-lightshow.ts",
+      "from": "seven-os\\drone\\swarm-lightshow.ts",
       "to": "seven-os/seven-runtime/drone/swarm-lightshow.ts"
     },
     {
       "status": "moved",
       "name": "terrain-routing.ts",
-      "from": "runtime\\drone\\terrain-routing.ts",
+      "from": "seven-os\\drone\\terrain-routing.ts",
       "to": "seven-os/seven-runtime/drone/terrain-routing.ts"
-    },
-    {
-      "status": "moved",
-      "name": "error-handler.js",
-      "from": "seven-os\\utilities\\functions\\error-handler.js",
-      "to": "seven-os/seven-runtime/functions/error-handler.js"
-    },
-    {
-      "status": "moved",
-      "name": "logging.js",
-      "from": "seven-os\\utilities\\functions\\logging.js",
-      "to": "seven-os/seven-runtime/functions/logging.js"
-    },
-    {
-      "status": "moved",
-      "name": "middlewareauth.js",
-      "from": "seven-os\\sectors\\cyber\\utilities\\functions\\middlewareauth.js",
-      "to": "seven-os/seven-runtime/functions/middlewareauth.js"
-    },
-    {
-      "status": "moved",
-      "name": "rate-limit.js",
-      "from": "seven-os\\utilities\\functions\\rate-limit.js",
-      "to": "seven-os/seven-runtime/functions/rate-limit.js"
-    },
-    {
-      "status": "moved",
-      "name": "routes-geo-router.js",
-      "from": "seven-os\\utilities\\functions\\routes-geo-router.js",
-      "to": "seven-os/seven-runtime/functions/routes-geo-router.js"
-    },
-    {
-      "status": "moved",
-      "name": "geo-fallback-engine.ts",
-      "from": "seven-os\\utilities\\geo\\geo-fallback-engine.ts",
-      "to": "seven-os/seven-runtime/geo/geo-fallback-engine.ts"
     },
     {
       "status": "moved",
@@ -1721,68 +653,9 @@
     },
     {
       "status": "moved",
-      "name": "accountant-ai.js",
-      "from": "hub_logic\\accountant-ai.js",
-      "to": "seven-os/seven-runtime/hub_logic/accountant-ai.js"
-    },
-    {
-      "status": "moved",
-      "name": "banker-ai.js",
-      "from": "hub_logic\\banker-ai.js",
-      "to": "seven-os/seven-runtime/hub_logic/banker-ai.js"
-    },
-    {
-      "status": "missing",
       "name": "contractor-engine.js",
-      "target": "seven-os/seven-runtime/hub_logic/contractor-engine.js"
-    },
-    {
-      "status": "moved",
-      "name": "jobs-engine.js",
-      "from": "hub_logic\\jobs-engine.js",
-      "to": "seven-os/seven-runtime/hub_logic/jobs-engine.js"
-    },
-    {
-      "status": "moved",
-      "name": "payroll-calc.js",
-      "from": "hub_logic\\payroll-calc.js",
-      "to": "seven-os/seven-runtime/hub_logic/payroll-calc.js"
-    },
-    {
-      "status": "moved",
-      "name": "payroll-run.js",
-      "from": "hub_logic\\payroll-run.js",
-      "to": "seven-os/seven-runtime/hub_logic/payroll-run.js"
-    },
-    {
-      "status": "moved",
-      "name": "space.js",
-      "from": "hub_logic\\space.js",
-      "to": "seven-os/seven-runtime/hub_logic/space.js"
-    },
-    {
-      "status": "moved",
-      "name": "staff-assign.js",
-      "from": "hub_logic\\staff-assign.js",
-      "to": "seven-os/seven-runtime/hub_logic/staff-assign.js"
-    },
-    {
-      "status": "moved",
-      "name": "staff-monitor.js",
-      "from": "hub_logic\\staff-monitor.js",
-      "to": "seven-os/seven-runtime/hub_logic/staff-monitor.js"
-    },
-    {
-      "status": "moved",
-      "name": "staff-performance.js",
-      "from": "hub_logic\\staff-performance.js",
-      "to": "seven-os/seven-runtime/hub_logic/staff-performance.js"
-    },
-    {
-      "status": "moved",
-      "name": "staff-shifts.js",
-      "from": "hub_logic\\staff-shifts.js",
-      "to": "seven-os/seven-runtime/hub_logic/staff-shifts.js"
+      "from": "seven-os\\sector-engines\\contractor-engine.js",
+      "to": "seven-os/seven-runtime/hub_logic/contractor-engine.js"
     },
     {
       "status": "moved",
@@ -1793,337 +666,248 @@
     {
       "status": "moved",
       "name": "ag.event.ts",
-      "from": "seven-os\\sectors\\agriculture\\ag.event.ts",
+      "from": "seven-os\\infra\\ag\\ag.event.ts",
       "to": "seven-os/seven-runtime/infra/ag/ag.event.ts"
     },
     {
       "status": "moved",
       "name": "audit.ts",
-      "from": "seven-os\\sectors\\agriculture\\cattle\\livestock\\audit.ts",
+      "from": "seven-os\\infra\\ag\\livestock\\audit.ts",
       "to": "seven-os/seven-runtime/infra/ag/livestock/audit.ts"
     },
     {
       "status": "moved",
       "name": "audit.ts",
-      "from": "seven-os\\sectors\\agriculture\\virtual-fence\\audit.ts",
+      "from": "seven-os\\infra\\ag\\virtual-fence\\audit.ts",
       "to": "seven-os/seven-runtime/infra/ag/virtual-fence/audit.ts"
     },
     {
       "status": "moved",
       "name": "audit.ts",
-      "from": "seven-os\\sectors\\cyber\\infra\\ems\\audit.ts",
+      "from": "seven-os\\infra\\ems\\audit.ts",
       "to": "seven-os/seven-runtime/infra/ems/audit.ts"
     },
     {
       "status": "moved",
       "name": "ems.event.ts",
-      "from": "seven-os\\sectors\\disaster_response\\ems\\ems.event.ts",
+      "from": "seven-os\\infra\\ems\\ems.event.ts",
       "to": "seven-os/seven-runtime/infra/ems/ems.event.ts"
     },
     {
       "status": "moved",
       "name": "audit.ts",
-      "from": "seven-os\\sectors\\cyber\\infra\\fiber\\audit.ts",
+      "from": "seven-os\\infra\\fiber\\audit.ts",
       "to": "seven-os/seven-runtime/infra/fiber/audit.ts"
     },
     {
       "status": "moved",
       "name": "fiber.event.ts",
-      "from": "seven-os\\sectors\\telecom\\infrastructure\\fiber\\fiber.event.ts",
+      "from": "seven-os\\infra\\fiber\\fiber.event.ts",
       "to": "seven-os/seven-runtime/infra/fiber/fiber.event.ts"
     },
     {
       "status": "moved",
       "name": "infra.event.ts",
-      "from": "seven-os\\system\\infra\\infra.event.ts",
+      "from": "seven-os\\infra\\infra.event.ts",
       "to": "seven-os/seven-runtime/infra/infra.event.ts"
     },
     {
       "status": "moved",
-      "name": "ingest.ts",
-      "from": "runtime\\domain\\infrastructure\\ingest\\ingest.ts",
-      "to": "seven-os/seven-runtime/infra/ingest.ts"
-    },
-    {
-      "status": "moved",
       "name": "audit.ts",
-      "from": "seven-os\\sectors\\cyber\\infra\\power\\audit.ts",
+      "from": "seven-os\\infra\\power\\audit.ts",
       "to": "seven-os/seven-runtime/infra/power/audit.ts"
     },
     {
       "status": "moved",
       "name": "power.event.ts",
-      "from": "seven-os\\sector-engines\\power.event.ts",
+      "from": "seven-os\\infra\\power\\power.event.ts",
       "to": "seven-os/seven-runtime/infra/power/power.event.ts"
     },
     {
       "status": "moved",
       "name": "infra-event.ts",
-      "from": "seven-os\\sectors\\infrastructure\\infra-event.ts",
+      "from": "seven-os\\infra\\shared\\types\\infra-event.ts",
       "to": "seven-os/seven-runtime/infra/shared/types/infra-event.ts"
     },
     {
       "status": "moved",
       "name": "events.ts",
-      "from": "seven-os\\system\\infra\\shared\\utils\\events.ts",
+      "from": "seven-os\\infra\\shared\\utils\\events.ts",
       "to": "seven-os/seven-runtime/infra/shared/utils/events.ts"
     },
     {
       "status": "moved",
       "name": "autit.ts",
-      "from": "seven-os\\sectors\\telecom\\infrastructure\\tower\\autit.ts",
+      "from": "seven-os\\infra\\tower\\autit.ts",
       "to": "seven-os/seven-runtime/infra/tower/autit.ts"
     },
     {
-      "status": "missing",
+      "status": "moved",
       "name": "ingest.ts",
-      "target": "seven-os/seven-runtime/infra/tower/ingest.ts"
+      "from": "seven-os\\seven-runtime\\infra\\ingest.ts",
+      "to": "seven-os/seven-runtime/infra/tower/ingest.ts"
     },
     {
       "status": "moved",
       "name": "tower.events.ts",
-      "from": "seven-os\\sectors\\telecom\\infrastructure\\tower\\tower.events.ts",
+      "from": "seven-os\\infra\\tower\\tower.events.ts",
       "to": "seven-os/seven-runtime/infra/tower/tower.events.ts"
     },
     {
       "status": "moved",
       "name": "types.ts",
-      "from": "seven-os\\system\\indexer\\types.ts",
+      "from": "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\types.ts",
       "to": "seven-os/seven-runtime/infra/tower/types.ts"
     },
     {
       "status": "moved",
       "name": "types.ts",
-      "from": "seven-os\\system\\infra\\types.ts",
+      "from": "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\types.ts",
       "to": "seven-os/seven-runtime/infra/types.ts"
     },
     {
       "status": "moved",
       "name": "debug-worker.js",
-      "from": "backend\\workers\\debug-worker.js",
+      "from": "seven-os\\seven-runtime\\workers\\debug-worker.js",
       "to": "seven-os/seven-runtime/intelligence/debug-worker.js"
     },
     {
       "status": "moved",
-      "name": "diagnostics.js",
-      "from": "runtime\\domain\\infrastructure\\intelligence\\diagnostics.js",
-      "to": "seven-os/seven-runtime/intelligence/diagnostics.js"
-    },
-    {
-      "status": "moved",
-      "name": "seven-interop.ts",
-      "from": "seven-os\\interop\\seven-interop.ts",
-      "to": "seven-os/seven-runtime/interop/seven-interop.ts"
-    },
-    {
-      "status": "moved",
       "name": "log-alerts.js",
-      "from": "runtime\\logs\\log-alerts.js",
+      "from": "seven-os\\logs\\log-alerts.js",
       "to": "seven-os/seven-runtime/logs/log-alerts.js"
     },
     {
       "status": "moved",
       "name": "log-analyzer.js",
-      "from": "runtime\\logs\\log-analyzer.js",
+      "from": "seven-os\\logs\\log-analyzer.js",
       "to": "seven-os/seven-runtime/logs/log-analyzer.js"
     },
     {
       "status": "moved",
       "name": "log-cleaner.js",
-      "from": "runtime\\logs\\log-cleaner.js",
+      "from": "seven-os\\logs\\log-cleaner.js",
       "to": "seven-os/seven-runtime/logs/log-cleaner.js"
     },
     {
       "status": "moved",
       "name": "log-dashboard.js",
-      "from": "runtime\\logs\\log-dashboard.js",
+      "from": "seven-os\\logs\\log-dashboard.js",
       "to": "seven-os/seven-runtime/logs/log-dashboard.js"
     },
     {
       "status": "moved",
       "name": "log-exporter.js",
-      "from": "runtime\\logs\\log-exporter.js",
+      "from": "seven-os\\logs\\log-exporter.js",
       "to": "seven-os/seven-runtime/logs/log-exporter.js"
     },
     {
       "status": "moved",
       "name": "log-health-check.js",
-      "from": "runtime\\logs\\log-health-check.js",
+      "from": "seven-os\\logs\\log-health-check.js",
       "to": "seven-os/seven-runtime/logs/log-health-check.js"
     },
     {
       "status": "moved",
       "name": "log-reader.js",
-      "from": "runtime\\logs\\log-reader.js",
+      "from": "seven-os\\logs\\log-reader.js",
       "to": "seven-os/seven-runtime/logs/log-reader.js"
     },
     {
       "status": "moved",
       "name": "log-rotation.js",
-      "from": "runtime\\logs\\log-rotation.js",
+      "from": "seven-os\\logs\\log-rotation.js",
       "to": "seven-os/seven-runtime/logs/log-rotation.js"
     },
     {
       "status": "moved",
       "name": "log-search.js",
-      "from": "runtime\\logs\\log-search.js",
+      "from": "seven-os\\logs\\log-search.js",
       "to": "seven-os/seven-runtime/logs/log-search.js"
     },
     {
       "status": "moved",
       "name": "log-self-test.js",
-      "from": "runtime\\logs\\log-self-test.js",
+      "from": "seven-os\\logs\\log-self-test.js",
       "to": "seven-os/seven-runtime/logs/log-self-test.js"
     },
     {
       "status": "moved",
       "name": "log-sync.js",
-      "from": "runtime\\logs\\log-sync.js",
+      "from": "seven-os\\logs\\log-sync.js",
       "to": "seven-os/seven-runtime/logs/log-sync.js"
     },
     {
       "status": "moved",
-      "name": "log-ui-dashboard.js",
-      "from": "seven-os\\utilities\\ui\\log-ui-dashboard.js",
-      "to": "seven-os/seven-runtime/logs/log-ui-dashboard.js"
-    },
-    {
-      "status": "moved",
       "name": "log-validator.js",
-      "from": "runtime\\logs\\log-validator.js",
+      "from": "seven-os\\logs\\log-validator.js",
       "to": "seven-os/seven-runtime/logs/log-validator.js"
     },
     {
       "status": "moved",
       "name": "log-writer.js",
-      "from": "runtime\\logs\\log-writer.js",
+      "from": "seven-os\\logs\\log-writer.js",
       "to": "seven-os/seven-runtime/logs/log-writer.js"
     },
     {
       "status": "moved",
-      "name": "contractor-matching.js",
-      "from": "seven-os\\sectors\\contractors\\sectors\\economics\\contractor-matching.js",
-      "to": "seven-os/seven-runtime/matching/contractor-matching.js"
-    },
-    {
-      "status": "moved",
-      "name": "cyber-matching.js",
-      "from": "seven-os\\sectors\\cyber\\domain\\infrastructure\\matching\\cyber-matching.js",
-      "to": "seven-os/seven-runtime/matching/cyber-matching.js"
-    },
-    {
-      "status": "moved",
-      "name": "multi-sector-matching.js",
-      "from": "runtime\\domain\\infrastructure\\matching\\multi-sector-matching.js",
-      "to": "seven-os/seven-runtime/matching/multi-sector-matching.js"
-    },
-    {
-      "status": "moved",
-      "name": "workforce-matching.js",
-      "from": "backend\\workforce\\workforce-matching.js",
-      "to": "seven-os/seven-runtime/matching/workforce-matching.js"
-    },
-    {
-      "status": "moved",
       "name": "adapters.ts",
-      "from": "seven-os\\sectors\\disaster_response\\rescue\\adapters.ts",
+      "from": "seven-os\\rescue\\adapters.ts",
       "to": "seven-os/seven-runtime/rescue/adapters.ts"
     },
     {
       "status": "moved",
       "name": "resue-unit.ts",
-      "from": "seven-os\\sectors\\disaster_response\\rescue\\resue-unit.ts",
+      "from": "seven-os\\rescue\\resue-unit.ts",
       "to": "seven-os/seven-runtime/rescue/resue-unit.ts"
     },
     {
       "status": "moved",
       "name": "seven-rescue-commander.ts",
-      "from": "seven-os\\sectors\\disaster_response\\rescue\\seven-rescue-commander.ts",
+      "from": "seven-os\\rescue\\seven-rescue-commander.ts",
       "to": "seven-os/seven-runtime/rescue/seven-rescue-commander.ts"
     },
     {
       "status": "moved",
       "name": "index.ts",
-      "from": "seven-os\\sectors\\cyber\\sectors\\fcc\\firmware-auditor\\index.ts",
+      "from": "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\index.ts",
       "to": "seven-os/seven-runtime/rf/FirmwareAuditor/index.ts"
     },
     {
       "status": "moved",
       "name": "index.ts",
-      "from": "seven-os\\sectors\\cyber\\sectors\\fcc\\telecom-equipment-authorization\\index.ts",
+      "from": "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\remediation-engine\\index.ts",
       "to": "seven-os/seven-runtime/rf/REObservation-layer/index.ts"
     },
     {
       "status": "moved",
       "name": "disaster-heavy-lift.ts",
-      "from": "seven-os\\sectors\\disaster_response\\safety\\disaster-heavy-lift.ts",
+      "from": "seven-os\\safety\\disaster-heavy-lift.ts",
       "to": "seven-os/seven-runtime/safety/disaster-heavy-lift.ts"
     },
     {
       "status": "moved",
-      "name": "disaster-profile.ts",
-      "from": "seven-os\\sectors\\disaster_response\\drone\\disaster-profile.ts",
-      "to": "seven-os/seven-runtime/safety/disaster-profile.ts"
-    },
-    {
-      "status": "moved",
       "name": "sector-safety-engine.ts",
-      "from": "seven-os\\sector-engines\\safety\\sector-safety-engine.ts",
+      "from": "seven-os\\safety\\sector-safety-engine.ts",
       "to": "seven-os/seven-runtime/safety/sector-safety-engine.ts"
     },
     {
       "status": "moved",
-      "name": "nap-sectors.js",
-      "from": "runtime\\domain\\infrastructure\\sensors\\nap-sectors.js",
-      "to": "seven-os/seven-runtime/sensors/nap-sectors.js"
-    },
-    {
-      "status": "moved",
-      "name": "nap-sectors.ts",
-      "from": "runtime\\domain\\infrastructure\\sensors\\nap-sectors.ts",
-      "to": "seven-os/seven-runtime/sensors/nap-sectors.ts"
-    },
-    {
-      "status": "moved",
-      "name": "search-thermal.ts",
-      "from": "runtime\\domain\\infrastructure\\sensors\\search-thermal.ts",
-      "to": "seven-os/seven-runtime/sensors/search-thermal.ts"
-    },
-    {
-      "status": "moved",
       "name": "seven.ts",
-      "from": "runtime\\seven.ts",
+      "from": "seven-os\\core\\seven.ts",
       "to": "seven-os/seven-runtime/seven.ts"
     },
     {
       "status": "moved",
       "name": "seven-stack.ts",
-      "from": "seven-os\\seven-stack.ts",
+      "from": "seven-os\\core\\seven-stack.ts",
       "to": "seven-os/seven-runtime/stack/seven-stack.ts"
     },
     {
       "status": "moved",
-      "name": "connection-monitor.ts",
-      "from": "seven-os\\core\\sync\\core\\connection-monitor.ts",
-      "to": "seven-os/seven-runtime/sync/core/connection-monitor.ts"
-    },
-    {
-      "status": "moved",
-      "name": "event-queue.ts",
-      "from": "seven-os\\core\\sync\\core\\event-queue.ts",
-      "to": "seven-os/seven-runtime/sync/core/event-queue.ts"
-    },
-    {
-      "status": "moved",
       "name": "offlin-cache.ts",
-      "from": "seven-os\\core\\sync\\core\\offlin-cache.ts",
+      "from": "seven-os\\sync\\core\\offlin-cache.ts",
       "to": "seven-os/seven-runtime/sync/core/offlin-cache.ts"
-    },
-    {
-      "status": "moved",
-      "name": "offline-cache.ts",
-      "from": "seven-os\\core\\sync\\core\\offline-cache.ts",
-      "to": "seven-os/seven-runtime/sync/core/offline-cache.ts"
     },
     {
       "status": "moved",
@@ -2157,12 +941,6 @@
     },
     {
       "status": "moved",
-      "name": "scheduler.ts",
-      "from": "runtime\\scheduler.ts",
-      "to": "seven-os/seven-runtime/sync/transports/scheduler.ts"
-    },
-    {
-      "status": "moved",
       "name": "starlink.ts",
       "from": "seven-os\\sync\\transports\\starlink.ts",
       "to": "seven-os/seven-runtime/sync/transports/starlink.ts"
@@ -2193,314 +971,247 @@
     {
       "status": "moved",
       "name": "admin-protect-worker.js",
-      "from": "backend\\workers\\admin-protect-worker.js",
+      "from": "seven-os\\workers\\admin-protect-worker.js",
       "to": "seven-os/seven-runtime/workers/admin-protect-worker.js"
     },
     {
       "status": "moved",
       "name": "ai-worker.js",
-      "from": "runtime\\ai\\ai-worker.js",
+      "from": "seven-os\\system\\ai-worker.js",
       "to": "seven-os/seven-runtime/workers/ai-worker.js"
     },
     {
       "status": "moved",
       "name": "api-worker.js",
-      "from": "backend\\workers\\api-worker.js",
+      "from": "seven-os\\workers\\api-worker.js",
       "to": "seven-os/seven-runtime/workers/api-worker.js"
     },
     {
       "status": "moved",
       "name": "auth-worker.js",
-      "from": "seven-os\\sectors\\cyber\\workers\\auth-worker.js",
+      "from": "seven-os\\workers\\auth-worker.js",
       "to": "seven-os/seven-runtime/workers/auth-worker.js"
     },
     {
       "status": "moved",
       "name": "anomaly-engine.js",
-      "from": "seven-os\\sectors\\cyber\\workers\\cyber\\cyber\\anomaly-engine.js",
+      "from": "seven-os\\workers\\cyber\\cyber\\anomaly-engine.js",
       "to": "seven-os/seven-runtime/workers/cyber/cyber/anomaly-engine.js"
     },
     {
       "status": "moved",
       "name": "cyber-engine.js",
-      "from": "seven-os\\sectors\\cyber\\workers\\cyber\\cyber\\cyber-engine.js",
+      "from": "seven-os\\workers\\cyber\\cyber\\cyber-engine.js",
       "to": "seven-os/seven-runtime/workers/cyber/cyber/cyber-engine.js"
     },
     {
       "status": "moved",
       "name": "cyber-trust.engine.js",
-      "from": "seven-os\\sectors\\cyber\\workers\\cyber\\cyber\\cyber-trust.engine.js",
+      "from": "seven-os\\workers\\cyber\\cyber\\cyber-trust.engine.js",
       "to": "seven-os/seven-runtime/workers/cyber/cyber/cyber-trust.engine.js"
     },
     {
       "status": "moved",
-      "name": "index.js",
-      "from": "seven-os\\ai\\tools\\index.js",
-      "to": "seven-os/seven-runtime/workers/cyber/cyber/index.js"
-    },
-    {
-      "status": "moved",
       "name": "threat-score.engine.js",
-      "from": "seven-os\\sectors\\cyber\\workers\\cyber\\cyber\\threat-score.engine.js",
+      "from": "seven-os\\workers\\cyber\\cyber\\threat-score.engine.js",
       "to": "seven-os/seven-runtime/workers/cyber/cyber/threat-score.engine.js"
     },
     {
       "status": "moved",
       "name": "cyber-normalizer.ts",
-      "from": "seven-os\\sectors\\cyber\\workers\\cyber\\cyber-normalizer.ts",
+      "from": "seven-os\\workers\\cyber\\cyber-normalizer.ts",
       "to": "seven-os/seven-runtime/workers/cyber/cyber-normalizer.ts"
     },
     {
       "status": "moved",
       "name": "cyber-threat-intel.ts",
-      "from": "seven-os\\sectors\\cyber\\workers\\cyber\\cyber-threat-intel.ts",
+      "from": "seven-os\\workers\\cyber\\cyber-threat-intel.ts",
       "to": "seven-os/seven-runtime/workers/cyber/cyber-threat-intel.ts"
     },
     {
       "status": "moved",
       "name": "cyber.escalation.ts",
-      "from": "seven-os\\sectors\\cyber\\workers\\cyber\\cyber.escalation.ts",
+      "from": "seven-os\\workers\\cyber\\cyber.escalation.ts",
       "to": "seven-os/seven-runtime/workers/cyber/cyber.escalation.ts"
     },
     {
       "status": "moved",
       "name": "cyber.router.ts",
-      "from": "seven-os\\sectors\\cyber\\workers\\cyber\\cyber.router.ts",
+      "from": "seven-os\\workers\\cyber\\cyber.router.ts",
       "to": "seven-os/seven-runtime/workers/cyber/cyber.router.ts"
     },
     {
       "status": "moved",
       "name": "cyber.soc-dashboard.ts",
-      "from": "backend\\workers\\cyber\\cyber.soc-dashboard.ts",
+      "from": "seven-os\\workers\\cyber\\cyber.soc-dashboard.ts",
       "to": "seven-os/seven-runtime/workers/cyber/cyber.soc-dashboard.ts"
     },
     {
       "status": "moved",
       "name": "cyber.worker.ts",
-      "from": "seven-os\\sectors\\cyber\\workers\\cyber\\cyber.worker.ts",
+      "from": "seven-os\\workers\\cyber\\cyber.worker.ts",
       "to": "seven-os/seven-runtime/workers/cyber/cyber.worker.ts"
     },
     {
       "status": "moved",
-      "name": "debug-worker.ts",
-      "from": "runtime\\domain\\infrastructure\\workers\\debug\\debug-worker.ts",
-      "to": "seven-os/seven-runtime/workers/debug/debug-worker.ts"
-    },
-    {
-      "status": "moved",
       "name": "debug-worker.js",
-      "from": "runtime\\domain\\infrastructure\\intelligence\\debug-worker.js",
+      "from": "seven-os\\workers\\debug-worker.js",
       "to": "seven-os/seven-runtime/workers/debug-worker.js"
     },
     {
       "status": "moved",
       "name": "index.ts",
-      "from": "seven-os\\sectors\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\index.ts",
+      "from": "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\remediation-engine\\workforce-sync-layer\\index.ts",
       "to": "seven-os/seven-runtime/workers/emergency-router/index.ts"
     },
     {
       "status": "moved",
       "name": "index.ts",
-      "from": "seven-os\\sectors\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\remediation-engine\\index.ts",
+      "from": "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\index.ts",
       "to": "seven-os/seven-runtime/workers/expansion/index.ts"
     },
     {
       "status": "moved",
-      "name": "index.js",
-      "from": "seven-os\\ai\\tools\\public\\index.js",
-      "to": "seven-os/seven-runtime/workers/fcc/index.js"
-    },
-    {
-      "status": "moved",
       "name": "field-enginegps-mapper.js",
-      "from": "backend\\workers\\field-enginegps-mapper.js",
+      "from": "seven-os\\workers\\field-enginegps-mapper.js",
       "to": "seven-os/seven-runtime/workers/field-enginegps-mapper.js"
     },
     {
       "status": "moved",
       "name": "index.ts",
-      "from": "seven-os\\sectors\\fcc\\carrier-network-compliance\\governance-brain\\index.ts",
+      "from": "seven-os\\core\\fcc\\compliance-engine\\index.ts",
       "to": "seven-os/seven-runtime/workers/finance/index.ts"
     },
     {
       "status": "moved",
       "name": "gia-deep-mind-2100.js",
-      "from": "backend\\workers\\ai-worker\\gia-deep-mind-2100.js",
+      "from": "seven-os\\workers\\ai-worker\\gia-deep-mind-2100.js",
       "to": "seven-os/seven-runtime/workers/gia-deep-mind-2100.js"
     },
     {
       "status": "moved",
       "name": "gov.escalation-handler.ts",
-      "from": "seven-os\\sectors\\government\\workers\\gov.escalation-handler.ts",
+      "from": "seven-os\\workers\\gov\\gov.escalation-handler.ts",
       "to": "seven-os/seven-runtime/workers/gov/gov.escalation-handler.ts"
     },
     {
       "status": "moved",
       "name": "gov.worker.ts",
-      "from": "seven-os\\sectors\\government\\workers\\gov.worker.ts",
+      "from": "seven-os\\workers\\gov\\gov.worker.ts",
       "to": "seven-os/seven-runtime/workers/gov/gov.worker.ts"
     },
     {
       "status": "moved",
       "name": "gov-view-worker.ts",
-      "from": "seven-os\\sectors\\government\\workers\\gov-view-worker.ts",
+      "from": "seven-os\\workers\\gov-view-worker.ts",
       "to": "seven-os/seven-runtime/workers/gov-view-worker.ts"
     },
     {
       "status": "moved",
       "name": "intake.ts",
-      "from": "backend\\workers\\intake.ts",
+      "from": "seven-os\\workers\\intake.ts",
       "to": "seven-os/seven-runtime/workers/intake.ts"
     },
     {
       "status": "moved",
-      "name": "log-ingestion-worker.js",
-      "from": "runtime\\domain\\infrastructure\\workers\\log-ingestion-worker.js",
-      "to": "seven-os/seven-runtime/workers/log-ingestion-worker.js"
-    },
-    {
-      "status": "moved",
       "name": "opportunity-scanner-worker.ts",
-      "from": "seven-os\\sector-engines\\workers\\opportunity-scanner-worker.ts",
+      "from": "seven-os\\workers\\opportunity-scanner-worker.ts",
       "to": "seven-os/seven-runtime/workers/opportunity-scanner-worker.ts"
     },
     {
       "status": "moved",
       "name": "organizer.js",
-      "from": "backend\\workers\\organizer.js",
+      "from": "seven-os\\workers\\organizer.js",
       "to": "seven-os/seven-runtime/workers/organizer.js"
     },
     {
       "status": "moved",
-      "name": "project-search-worker.js",
-      "from": "runtime\\domain\\infrastructure\\workers\\project-search-worker.js",
-      "to": "seven-os/seven-runtime/workers/project-search-worker.js"
-    },
-    {
-      "status": "moved",
       "name": "admin-endpoints.ts",
-      "from": "backend\\workers\\system-workers\\admin-workers\\admin-endpoints.ts",
+      "from": "seven-os\\workers\\system-workers\\admin-workers\\admin-endpoints.ts",
       "to": "seven-os/seven-runtime/workers/system-workers/admin-workers/admin-endpoints.ts"
     },
     {
       "status": "moved",
       "name": "index.ts",
-      "from": "seven-os\\sectors\\fcc\\compliance-engine\\index.ts",
+      "from": "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\compliance-engine\\index.ts",
       "to": "seven-os/seven-runtime/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers/index.ts"
     },
     {
       "status": "moved",
       "name": "index.ts",
-      "from": "seven-os\\sectors\\fcc\\index.ts",
+      "from": "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\fallback-auditor\\index.ts",
       "to": "seven-os/seven-runtime/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers/public-worker/hr-worker/index.ts"
     },
     {
       "status": "moved",
       "name": "index.ts",
-      "from": "seven-os\\sectors\\fcc\\network-observation-layer\\index.ts",
+      "from": "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\index.ts",
       "to": "seven-os/seven-runtime/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers/public-worker/payroll-worker/employee/index.ts"
     },
     {
       "status": "moved",
       "name": "index.ts",
-      "from": "seven-os\\sectors\\fcc\\remediation-engine\\index.ts",
+      "from": "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\remediation-engine\\index.ts",
       "to": "seven-os/seven-runtime/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers/public-worker/payroll-worker/index.ts"
     },
     {
       "status": "moved",
       "name": "index.ts",
-      "from": "seven-os\\sectors\\fcc\\rf-observation-layer\\index.ts",
+      "from": "seven-os\\core\\fcc\\emergency-access-fallback\\governance-brain\\workforce-sync-layer\\index.ts",
       "to": "seven-os/seven-runtime/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/index.ts"
     },
     {
       "status": "moved",
       "name": "index.ts",
-      "from": "seven-os\\sectors\\fcc\\workforce-sync-layer\\index.ts",
+      "from": "seven-os\\core\\fcc\\firmware-auditor\\index.ts",
       "to": "seven-os/seven-runtime/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/index.ts"
     },
     {
       "status": "moved",
       "name": "index.ts",
-      "from": "seven-os\\sectors\\financial\\index.ts",
+      "from": "seven-os\\core\\fcc\\network-observation-layer\\index.ts",
       "to": "seven-os/seven-runtime/workers/system-workers/admin-workers/contractor-workers/index.ts"
     },
     {
       "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\utilities\\dashboard\\universal\\actions\\index.ts",
-      "to": "seven-os/seven-runtime/workers/system-workers/admin-workers/index.ts"
-    },
-    {
-      "status": "moved",
       "name": "emergency-router.js",
-      "from": "backend\\workers\\system-workers\\emergency-router.js",
+      "from": "seven-os\\workers\\system-workers\\emergency-router.js",
       "to": "seven-os/seven-runtime/workers/system-workers/emergency-router.js"
     },
     {
       "status": "moved",
       "name": "ewo-worker.ts",
-      "from": "backend\\workers\\system-workers\\ewo-worker.ts",
+      "from": "seven-os\\workers\\system-workers\\ewo-worker.ts",
       "to": "seven-os/seven-runtime/workers/system-workers/ewo-worker.ts"
     },
     {
-      "status": "moved",
+      "status": "missing",
       "name": "heartbeat.js",
-      "from": "seven-os\\api\\system\\heartbeat.js",
-      "to": "seven-os/seven-runtime/workers/system-workers/heartbeat.js"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\utilities\\dashboard\\universal\\bindings\\index.ts",
-      "to": "seven-os/seven-runtime/workers/system-workers/index.ts"
+      "target": "seven-os/seven-runtime/workers/system-workers/heartbeat.js"
     },
     {
       "status": "moved",
       "name": "protected-routes.js",
-      "from": "backend\\workers\\system-workers\\protected-routes.js",
+      "from": "seven-os\\workers\\system-workers\\protected-routes.js",
       "to": "seven-os/seven-runtime/workers/system-workers/protected-routes.js"
     },
     {
       "status": "moved",
       "name": "routing.js",
-      "from": "backend\\workers\\system-workers\\routing.js",
+      "from": "seven-os\\workers\\system-workers\\routing.js",
       "to": "seven-os/seven-runtime/workers/system-workers/routing.js"
     },
     {
       "status": "moved",
       "name": "Topology Sync Worker.js",
-      "from": "backend\\workers\\Topology Sync Worker.js",
+      "from": "seven-os\\workers\\Topology Sync Worker.js",
       "to": "seven-os/seven-runtime/workers/Topology Sync Worker.js"
     },
     {
       "status": "moved",
       "name": "worker.ts",
-      "from": "backend\\workers\\worker.ts",
+      "from": "seven-os\\workers\\worker.ts",
       "to": "seven-os/seven-runtime/workers/worker.ts"
-    },
-    {
-      "status": "moved",
-      "name": "public-workforce-grid.js",
-      "from": "runtime\\workforce\\public-workforce-grid.js",
-      "to": "seven-os/seven-runtime/workforce/public-workforce-grid.js"
-    },
-    {
-      "status": "moved",
-      "name": "ai-decision.js",
-      "from": "runtime\\ai-decision.js",
-      "to": "seven-os/system/ai-decision.js"
-    },
-    {
-      "status": "moved",
-      "name": "ai-embedding.js",
-      "from": "ai-embedding.js",
-      "to": "seven-os/system/ai-embedding.js"
-    },
-    {
-      "status": "moved",
-      "name": "ai-policy.js",
-      "from": "seven-os\\sectors\\government\\system\\ai-policy.js",
-      "to": "seven-os/system/ai-policy.js"
     },
     {
       "status": "moved",
@@ -2509,81 +1220,21 @@
       "to": "seven-os/system/ai-safety.js"
     },
     {
-      "status": "missing",
+      "status": "moved",
+      "name": "ai-worker.js",
+      "from": "seven-os\\workers\\ai-worker.js",
+      "to": "seven-os/system/ai-worker.js"
+    },
+    {
+      "status": "moved",
       "name": "types.ts",
-      "target": "seven-os/system/indexer/types.ts"
+      "from": "seven-os\\core\\fcc\\telecom-equipment-authorization\\types.ts",
+      "to": "seven-os/system/indexer/types.ts"
     },
     {
-      "status": "moved",
-      "name": "marketplace-engine.ts",
-      "from": "seven-os\\sectors\\economics\\system\\marketplace-engine.ts",
-      "to": "seven-os/system/marketplace-engine.ts"
-    },
-    {
-      "status": "moved",
-      "name": "policy-engine.js",
-      "from": "seven-os\\sectors\\government\\system\\policy-engine.js",
-      "to": "seven-os/system/policy-engine.js"
-    },
-    {
-      "status": "moved",
-      "name": "system-full-report.js",
-      "from": "seven-os\\sector-engines\\system\\system-full-report.js",
-      "to": "seven-os/system/system-full-report.js"
-    },
-    {
-      "status": "moved",
-      "name": "system-security.js",
-      "from": "seven-os\\sectors\\cyber\\system-security.js",
-      "to": "seven-os/system/system-security.js"
-    },
-    {
-      "status": "moved",
-      "name": "system-storage.js",
-      "from": "system-storage.js",
-      "to": "seven-os/system/system-storage.js"
-    },
-    {
-      "status": "moved",
-      "name": "system-trust.js",
-      "from": "system-trust.js",
-      "to": "seven-os/system/system-trust.js"
-    },
-    {
-      "status": "moved",
-      "name": "system-uptime.js",
-      "from": "system-uptime.js",
-      "to": "seven-os/system/system-uptime.js"
-    },
-    {
-      "status": "moved",
-      "name": "threat-report.js",
-      "from": "seven-os\\sector-engines\\system\\threat-report.js",
-      "to": "seven-os/system/threat-report.js"
-    },
-    {
-      "status": "moved",
+      "status": "missing",
       "name": "api-trust.js",
-      "from": "seven-os\\api\\api-trust.js",
-      "to": "seven-os/trust/api-trust.js"
-    },
-    {
-      "status": "moved",
-      "name": "command-loader.js",
-      "from": "seven-os\\sectors\\agriculture\\voice\\command-loader.js",
-      "to": "seven-os/voice/command-loader.js"
-    },
-    {
-      "status": "moved",
-      "name": "disaster-grid.js",
-      "from": "seven-os\\sectors\\disaster_response\\voice\\disaster\\disaster-grid.js",
-      "to": "seven-os/voice/disaster/disaster-grid.js"
-    },
-    {
-      "status": "moved",
-      "name": "seven-rescue-supply.js",
-      "from": "seven-os\\sectors\\disaster_response\\voice\\disaster\\seven-rescue-supply.js",
-      "to": "seven-os/voice/disaster/seven-rescue-supply.js"
+      "target": "seven-os/trust/api-trust.js"
     },
     {
       "status": "missing",
@@ -2593,254 +1244,122 @@
     {
       "status": "moved",
       "name": "gia-deep-mind-2100.js",
-      "from": "backend\\workers\\gia-deep-mind-2100.js",
+      "from": "seven-os\\workers\\gia-deep-mind-2100.js",
       "to": "backend/ai-worker/gia-deep-mind-2100.js"
     },
     {
       "status": "moved",
       "name": "index.js",
-      "from": "seven-os\\api\\index.js",
+      "from": "seven-os\\mci\\index.js",
       "to": "backend/ai-worker/index.js"
     },
     {
       "status": "moved",
-      "name": "air-gap-sync.js",
-      "from": "edge-vault\\air-gap-sync.js",
-      "to": "backend/edge-vault/air-gap-sync.js"
-    },
-    {
-      "status": "moved",
-      "name": "protectedmiddleware.js",
-      "from": "edge-vault\\VAULT-LAYER\\protected\\protectedmiddleware.js",
-      "to": "backend/edge-vault/VAULT-LAYER/protected/protectedmiddleware.js"
-    },
-    {
-      "status": "moved",
-      "name": "require-admin.js",
-      "from": "seven-os\\sectors\\cyber\\security\\require-admin.js",
-      "to": "backend/edge-vault/VAULT-LAYER/protected/require-admin.js"
+      "name": "engine.js",
+      "from": "backend\\policy\\engine.js",
+      "to": "backend/audit/engine.js"
     },
     {
       "status": "moved",
       "name": "validate-token.js",
-      "from": "edge-vault\\VAULT-LAYER\\protected\\validate-token.js",
+      "from": "seven-os\\sectors\\cyber\\security\\validate-token.js",
       "to": "backend/edge-vault/VAULT-LAYER/protected/validate-token.js"
     },
     {
       "status": "moved",
-      "name": "verify-token.js",
-      "from": "edge-vault\\verify-token.js",
-      "to": "backend/edge-vault/verify-token.js"
-    },
-    {
-      "status": "moved",
-      "name": "context-builder.js",
-      "from": "runtime\\context\\context-builder.js",
-      "to": "backend/gii/context/context-builder.js"
-    },
-    {
-      "status": "moved",
-      "name": "context-engine.js",
-      "from": "runtime\\context\\context-engine.js",
-      "to": "backend/gii/context/context-engine.js"
-    },
-    {
-      "status": "moved",
-      "name": "context-validator.js",
-      "from": "runtime\\context\\context-validator.js",
-      "to": "backend/gii/context/context-validator.js"
-    },
-    {
-      "status": "moved",
       "name": "index.js",
-      "from": "seven-os\\mci\\index.js",
+      "from": "seven-os\\routes\\index.js",
       "to": "backend/gii/context/index.js"
     },
     {
       "status": "moved",
       "name": "dashboard.js",
-      "from": "seven-os\\api\\farmer\\dashboard.js",
+      "from": "seven-os\\hubs\\accounting\\dashboard.js",
       "to": "backend/hubs/admin/dashboard.js"
     },
     {
       "status": "moved",
-      "name": "routing-engine.js",
-      "from": "runtime\\network\\routing-engine.js",
-      "to": "backend/network/routing-engine.js"
-    },
-    {
-      "status": "moved",
-      "name": "cloud-policies.js",
-      "from": "runtime\\policy\\cloud-policies.js",
-      "to": "backend/policy/cloud-policies.js"
-    },
-    {
-      "status": "moved",
       "name": "engine.js",
-      "from": "backend\\audit\\engine.js",
+      "from": "backend\\trust\\engine.js",
       "to": "backend/policy/engine.js"
     },
     {
       "status": "moved",
-      "name": "sw.js",
-      "from": "public\\assets\\js\\sw.js",
-      "to": "backend/public/sw.js"
-    },
-    {
-      "status": "moved",
       "name": "audit.js",
-      "from": "seven-os\\sectors\\cyber\\routes\\audit.js",
+      "from": "seven-os\\routes\\audit.js",
       "to": "backend/routes/audit.js"
     },
     {
       "status": "moved",
       "name": "auth-gateway.js",
-      "from": "seven-os\\sectors\\cyber\\routes\\auth-gateway.js",
+      "from": "seven-os\\routes\\auth-gateway.js",
       "to": "backend/routes/auth-gateway.js"
     },
     {
       "status": "moved",
+      "name": "executive-routes.js",
+      "from": "seven-os\\routes\\executive-routes.js",
+      "to": "backend/routes/executive-routes.js"
+    },
+    {
+      "status": "moved",
       "name": "index.js",
-      "from": "seven-os\\sector-engines\\overlays\\index.js",
+      "from": "seven-os\\sectors\\agri\\visual\\index.js",
       "to": "backend/routes/index.js"
     },
     {
       "status": "moved",
       "name": "opportunities.js",
-      "from": "seven-os\\api\\opportunities.js",
+      "from": "seven-os\\routes\\opportunities.js",
       "to": "backend/routes/opportunities.js"
     },
     {
       "status": "moved",
+      "name": "public-ai-map.js",
+      "from": "seven-os\\routes\\public-ai-map.js",
+      "to": "backend/routes/public-ai-map.js"
+    },
+    {
+      "status": "moved",
+      "name": "public-map.js",
+      "from": "seven-os\\routes\\public-map.js",
+      "to": "backend/routes/public-map.js"
+    },
+    {
+      "status": "moved",
+      "name": "public-routes.js",
+      "from": "seven-os\\routes\\public-routes.js",
+      "to": "backend/routes/public-routes.js"
+    },
+    {
+      "status": "moved",
       "name": "security-audit.js",
-      "from": "seven-os\\sectors\\cyber\\domain\\infrastructure\\security-audit.js",
+      "from": "backend\\security\\security-audit.js",
       "to": "backend/routes/security-audit.js"
     },
     {
       "status": "moved",
-      "name": "auth-service.js",
-      "from": "runtime\\security\\auth-service.js",
-      "to": "backend/security/auth-service.js"
+      "name": "storage-routing vault-config.js",
+      "from": "seven-os\\routes\\storage-routing vault-config.js",
+      "to": "backend/routes/storage-routing vault-config.js"
     },
     {
       "status": "moved",
-      "name": "build-guard.js",
-      "from": "runtime\\security\\build-guard.js",
-      "to": "backend/security/build-guard.js"
-    },
-    {
-      "status": "moved",
-      "name": "entra-guard.js",
-      "from": "runtime\\security\\entra-guard.js",
-      "to": "backend/security/entra-guard.js"
-    },
-    {
-      "status": "moved",
-      "name": "key-engine.js",
-      "from": "seven-os\\sectors\\cyber\\security\\key-engine.js",
-      "to": "backend/security/key-engine.js"
+      "name": "voice-flight.js",
+      "from": "seven-os\\api\\voice-flight.js",
+      "to": "backend/routes/voice-flight.js"
     },
     {
       "status": "moved",
       "name": "security-audit.js",
-      "from": "seven-os\\sectors\\cyber\\routes\\security-audit.js",
+      "from": "seven-os\\routes\\security-audit.js",
       "to": "backend/security/security-audit.js"
     },
     {
       "status": "moved",
-      "name": "check-public-exposure.js",
-      "from": "seven-os\\utilities\\tools\\check-public-exposure.js",
-      "to": "backend/security/tools/check-public-exposure.js"
-    },
-    {
-      "status": "moved",
-      "name": "dns-inspector.js",
-      "from": "runtime\\domain\\dns-inspector.js",
-      "to": "backend/security/tools/dns-inspector.js"
-    },
-    {
-      "status": "moved",
       "name": "index.js",
-      "from": "seven-os\\sectors\\agriculture\\index.js",
+      "from": "seven-os\\sectors\\airports\\index.js",
       "to": "backend/security/tools/index.js"
-    },
-    {
-      "status": "moved",
-      "name": "inspect-config.js",
-      "from": "seven-os\\utilities\\tools\\inspect-config.js",
-      "to": "backend/security/tools/inspect-config.js"
-    },
-    {
-      "status": "moved",
-      "name": "inspect-routing.js",
-      "from": "seven-os\\utilities\\tools\\inspect-routing.js",
-      "to": "backend/security/tools/inspect-routing.js"
-    },
-    {
-      "status": "moved",
-      "name": "threat-scan.js",
-      "from": "seven-os\\utilities\\tools\\threat-scan.js",
-      "to": "backend/security/tools/threat-scan.js"
-    },
-    {
-      "status": "moved",
-      "name": "worker-gauard.js",
-      "from": "runtime\\security\\worker-gauard.js",
-      "to": "backend/security/worker-gauard.js"
-    },
-    {
-      "status": "moved",
-      "name": "constants.js",
-      "from": "seven-os\\core\\utilities\\core\\constants.js",
-      "to": "backend/services/constants.js"
-    },
-    {
-      "status": "moved",
-      "name": "costants.js",
-      "from": "seven-os\\utilities\\services\\costants.js",
-      "to": "backend/services/costants.js"
-    },
-    {
-      "status": "moved",
-      "name": "db.js",
-      "from": "seven-os\\utilities\\services\\db.js",
-      "to": "backend/services/db.js"
-    },
-    {
-      "status": "moved",
-      "name": "dispatch-service.js",
-      "from": "seven-os\\utilities\\services\\dispatch-service.js",
-      "to": "backend/services/dispatch-service.js"
-    },
-    {
-      "status": "moved",
-      "name": "logger.js",
-      "from": "proprietary-cli\\helpers\\logger.js",
-      "to": "backend/services/logger.js"
-    },
-    {
-      "status": "moved",
-      "name": "request-parser.js",
-      "from": "seven-os\\utilities\\services\\request-parser.js",
-      "to": "backend/services/request-parser.js"
-    },
-    {
-      "status": "moved",
-      "name": "response.js",
-      "from": "seven-os\\core\\utilities\\core\\response.js",
-      "to": "backend/services/response.js"
-    },
-    {
-      "status": "moved",
-      "name": "sector-service.js",
-      "from": "seven-os\\utilities\\services\\sector-service.js",
-      "to": "backend/services/sector-service.js"
-    },
-    {
-      "status": "moved",
-      "name": "ai-routing.js",
-      "from": "backend\\ai-routing.js",
-      "to": "backend/system/ai-routing.js"
     },
     {
       "status": "moved",
@@ -2851,19 +1370,19 @@
     {
       "status": "moved",
       "name": "ewo-router.js",
-      "from": "backend\\ewo\\ewo-router.js",
+      "from": "seven-os\\system\\ewo\\ewo-router.js",
       "to": "backend/system/ewo/ewo-router.js"
     },
     {
       "status": "moved",
       "name": "ewo-schema.js",
-      "from": "backend\\ewo\\ewo-schema.js",
+      "from": "seven-os\\system\\ewo\\ewo-schema.js",
       "to": "backend/system/ewo/ewo-schema.js"
     },
     {
       "status": "moved",
       "name": "sector-router.js",
-      "from": "backend\\ewo\\sector-router.js",
+      "from": "seven-os\\system\\ewo\\sector-router.js",
       "to": "backend/system/ewo/sector-router.js"
     },
     {
@@ -2880,14 +1399,8 @@
     },
     {
       "status": "moved",
-      "name": "manifest.js",
-      "from": "seven-os\\sectors\\cyber\\domain\\infrastructure\\workers\\audit\\manifest.js",
-      "to": "backend/system/manifest.js"
-    },
-    {
-      "status": "moved",
       "name": "mcp-cloud-boundary.js",
-      "from": "seven-os\\sectors\\cloud\\system\\mcp\\mcp-cloud-boundary.js",
+      "from": "seven-os\\system\\mcp\\mcp-cloud-boundary.js",
       "to": "backend/system/mcp/mcp-cloud-boundary.js"
     },
     {
@@ -2905,7 +1418,7 @@
     {
       "status": "moved",
       "name": "mcp-policy-regisry.js",
-      "from": "seven-os\\sectors\\government\\system\\mcp\\mcp-policy-regisry.js",
+      "from": "seven-os\\system\\mcp\\mcp-policy-regisry.js",
       "to": "backend/system/mcp/mcp-policy-regisry.js"
     },
     {
@@ -2923,7 +1436,7 @@
     {
       "status": "moved",
       "name": "sector-report.js",
-      "from": "seven-os\\sector-engines\\system\\sector-report.js",
+      "from": "seven-os\\system\\sector-report.js",
       "to": "backend/system/sector-report.js"
     },
     {
@@ -2939,9 +1452,10 @@
       "to": "backend/system/system-endpoints.js"
     },
     {
-      "status": "missing",
+      "status": "moved",
       "name": "system-full-report.js",
-      "target": "backend/system/system-full-report.js"
+      "from": "seven-os\\system\\system-full-report.js",
+      "to": "backend/system/system-full-report.js"
     },
     {
       "status": "moved",
@@ -2975,249 +1489,33 @@
     },
     {
       "status": "moved",
-      "name": "cyber-models.js",
-      "from": "seven-os\\sectors\\cyber\\domain\\infrastructure\\threat\\cyber-models.js",
-      "to": "backend/threat/cyber-models.js"
-    },
-    {
-      "status": "moved",
       "name": "index.js",
-      "from": "seven-os\\sectors\\agriculture\\visual\\index.js",
+      "from": "seven-os\\sectors\\climate\\index.js",
       "to": "backend/threat/index.js"
     },
     {
       "status": "moved",
-      "name": "threat-fetch.js",
-      "from": "runtime\\domain\\infrastructure\\threat\\threat-fetch.js",
-      "to": "backend/threat/threat-fetch.js"
-    },
-    {
-      "status": "moved",
-      "name": "threat-reporting.js",
-      "from": "seven-os\\sectors\\infrastructure\\threat\\threat-reporting.js",
-      "to": "backend/threat/threat-reporting.js"
-    },
-    {
-      "status": "moved",
-      "name": "threat-storage.js",
-      "from": "runtime\\domain\\infrastructure\\threat\\threat-storage.js",
-      "to": "backend/threat/threat-storage.js"
-    },
-    {
-      "status": "moved",
-      "name": "threat-summary.js",
-      "from": "runtime\\domain\\infrastructure\\threat\\threat-summary.js",
-      "to": "backend/threat/threat-summary.js"
-    },
-    {
-      "status": "moved",
-      "name": "threat-telemetry.js",
-      "from": "runtime\\domain\\infrastructure\\threat\\threat-telemetry.js",
-      "to": "backend/threat/threat-telemetry.js"
-    },
-    {
-      "status": "moved",
-      "name": "context.js",
-      "from": "runtime\\context\\context.js",
-      "to": "backend/utilities/context.js"
-    },
-    {
-      "status": "moved",
-      "name": "dns-inspector.js",
-      "from": "seven-os\\utilities\\tools\\dns-inspector.js",
-      "to": "backend/utilities/dns/dns-inspector.js"
-    },
-    {
-      "status": "moved",
-      "name": "routing-inspector.js",
-      "from": "runtime\\domain\\infrastructure\\routing-inspector.js",
-      "to": "backend/utilities/dns/routing-inspector.js"
-    },
-    {
-      "status": "moved",
-      "name": "geo-context.js",
-      "from": "runtime\\domain\\geo\\geo-context.js",
-      "to": "backend/utilities/geo/geo-context.js"
-    },
-    {
-      "status": "moved",
-      "name": "geo-disance-calc.js",
-      "from": "runtime\\domain\\geo\\geo-disance-calc.js",
-      "to": "backend/utilities/geo/geo-disance-calc.js"
-    },
-    {
-      "status": "moved",
-      "name": "geo-grid.js",
-      "from": "runtime\\domain\\geo\\geo-grid.js",
-      "to": "backend/utilities/geo/geo-grid.js"
-    },
-    {
-      "status": "moved",
-      "name": "geo-mapping.js",
-      "from": "runtime\\domain\\geo\\geo-mapping.js",
-      "to": "backend/utilities/geo/geo-mapping.js"
-    },
-    {
-      "status": "moved",
-      "name": "geo-normalize.js",
-      "from": "runtime\\domain\\geo\\geo-normalize.js",
-      "to": "backend/utilities/geo/geo-normalize.js"
-    },
-    {
-      "status": "moved",
-      "name": "index.js",
-      "from": "seven-os\\sectors\\airports\\index.js",
-      "to": "backend/utilities/geo/index.js"
-    },
-    {
-      "status": "moved",
-      "name": "lookup.js",
-      "from": "runtime\\domain\\geo\\lookup.js",
-      "to": "backend/utilities/geo/lookup.js"
-    },
-    {
-      "status": "moved",
-      "name": "mapping logic.js",
-      "from": "runtime\\domain\\geo\\mapping logic.js",
-      "to": "backend/utilities/geo/mapping logic.js"
-    },
-    {
-      "status": "moved",
-      "name": "mapping.js",
-      "from": "runtime\\domain\\geo\\mapping.js",
-      "to": "backend/utilities/geo/mapping.js"
-    },
-    {
-      "status": "moved",
-      "name": "normalize location.js",
-      "from": "runtime\\domain\\geo\\normalize location.js",
-      "to": "backend/utilities/geo/normalize location.js"
-    },
-    {
-      "status": "moved",
-      "name": "project surch.js",
-      "from": "runtime\\domain\\geo\\project surch.js",
-      "to": "backend/utilities/geo/project surch.js"
-    },
-    {
-      "status": "moved",
-      "name": "region matcher.js",
-      "from": "runtime\\domain\\geo\\region matcher.js",
-      "to": "backend/utilities/geo/region matcher.js"
-    },
-    {
-      "status": "moved",
-      "name": "region.js",
-      "from": "runtime\\domain\\geo\\region.js",
-      "to": "backend/utilities/geo/region.js"
-    },
-    {
-      "status": "moved",
-      "name": "routing-inspector.js",
-      "from": "runtime\\domain\\routing-inspector.js",
-      "to": "backend/utilities/geo/routing-inspector.js"
-    },
-    {
-      "status": "moved",
-      "name": "API.js",
-      "from": "runtime\\domain\\geomapping-logic.js\\API.js",
-      "to": "backend/utilities/geomapping-logic.js/API.js"
-    },
-    {
-      "status": "moved",
-      "name": "dispatcher.js",
-      "from": "runtime\\domain\\geomapping-logic.js\\dispatcher.js",
-      "to": "backend/utilities/geomapping-logic.js/dispatcher.js"
-    },
-    {
-      "status": "moved",
-      "name": "farmer engine.js",
-      "from": "seven-os\\sectors\\agriculture\\domain\\geomapping-logic.js\\farmer engine.js",
-      "to": "backend/utilities/geomapping-logic.js/farmer engine.js"
-    },
-    {
-      "status": "moved",
-      "name": "index.js",
-      "from": "seven-os\\sectors\\climate\\index.js",
-      "to": "backend/utilities/geomapping-logic.js/index.js"
-    },
-    {
-      "status": "moved",
-      "name": "resilient-search.js",
-      "from": "runtime\\domain\\geomapping-logic.js\\resilient-search.js",
-      "to": "backend/utilities/geomapping-logic.js/resilient-search.js"
-    },
-    {
-      "status": "moved",
-      "name": "space engine.js",
-      "from": "runtime\\domain\\geomapping-logic.js\\space engine.js",
-      "to": "backend/utilities/geomapping-logic.js/space engine.js"
-    },
-    {
-      "status": "moved",
-      "name": "system-heartbeat.js",
-      "from": "runtime\\domain\\geomapping-logic.js\\system-heartbeat.js",
-      "to": "backend/utilities/geomapping-logic.js/system-heartbeat.js"
-    },
-    {
-      "status": "moved",
-      "name": "helpers.js",
-      "from": "utilities\\helpers.js",
-      "to": "backend/utilities/helpers.js"
-    },
-    {
-      "status": "moved",
-      "name": "drone.js",
-      "from": "runtime\\domain\\infrastructure\\integrity\\drone.js",
-      "to": "backend/utilities/integrity/drone.js"
-    },
-    {
-      "status": "moved",
-      "name": "file-map.js",
-      "from": "runtime\\domain\\infrastructure\\integrity\\file-map.js",
-      "to": "backend/utilities/integrity/file-map.js"
+      "name": "engine.js",
+      "from": "runtime\\policy\\engine.js",
+      "to": "backend/trust/engine.js"
     },
     {
       "status": "moved",
       "name": "index.js",
       "from": "seven-os\\sectors\\cloud\\index.js",
+      "to": "backend/utilities/geo/index.js"
+    },
+    {
+      "status": "moved",
+      "name": "index.js",
+      "from": "seven-os\\sectors\\contractors\\index.js",
+      "to": "backend/utilities/geomapping-logic.js/index.js"
+    },
+    {
+      "status": "moved",
+      "name": "index.js",
+      "from": "seven-os\\sectors\\contractors\\sectors\\contractors\\index.js",
       "to": "backend/utilities/integrity/index.js"
-    },
-    {
-      "status": "moved",
-      "name": "integrity-check.js",
-      "from": "runtime\\domain\\infrastructure\\integrity\\integrity-check.js",
-      "to": "backend/utilities/integrity/integrity-check.js"
-    },
-    {
-      "status": "moved",
-      "name": "sync-queue.js",
-      "from": "runtime\\domain\\infrastructure\\integrity\\sync-queue.js",
-      "to": "backend/utilities/integrity/sync-queue.js"
-    },
-    {
-      "status": "moved",
-      "name": "storage-inspector.js",
-      "from": "utilities\\storage-inspector.js",
-      "to": "backend/utilities/storage-inspector.js"
-    },
-    {
-      "status": "moved",
-      "name": "collar-ws-nats.js",
-      "from": "seven-os\\sectors\\agriculture\\ws\\collar-ws-nats.js",
-      "to": "backend/ws/collar-ws-nats.js"
-    },
-    {
-      "status": "moved",
-      "name": "collar-ws.js",
-      "from": "seven-os\\sectors\\agriculture\\ws\\collar-ws.js",
-      "to": "backend/ws/collar-ws.js"
-    },
-    {
-      "status": "moved",
-      "name": "run-collar-ws.js",
-      "from": "seven-os\\sectors\\agriculture\\ws\\run-collar-ws.js",
-      "to": "backend/ws/run-collar-ws.js"
     }
   ]
 }
