@@ -1,4 +1,4 @@
-import { routeRequest } from '../src/sectors/cross-sector-routing-engine.js';
+import { routeRequest } from '../seven-os/sectors/cross-sector-routing-engine.js';
 
 (async function(){
   try {
