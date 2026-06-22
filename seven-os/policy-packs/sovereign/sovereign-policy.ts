@@ -1,4 +1,4 @@
-// src/policy/sovereign-policy.ts
+// seven-os/policy/sovereign-policy.ts
 // Sovereign policy loader + expansion validator.
 
 import globalPolicy from "../../config/globalPolicy.json";

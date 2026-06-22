@@ -1,84 +1,119 @@
 import { api } from "../shared/api-client.js";
 import { getRole } from "../shared/role.js";
+import { buildNav } from "../shared/nav-engine.js";
 
-const navEl = document.getElementById("admin-nav");
-const healthGrid = document.getElementById("admin-health-grid");
-const sectorsGrid = document.getElementById("admin-sectors-grid");
-const metaHealth = document.getElementById("admin-meta-health");
-const metaSectors = document.getElementById("admin-meta-sectors");
-const footerStatus = document.getElementById("admin-footer-status");
-const logsEl = document.getElementById("admin-logs");
+const navEl = document.getElementById("wa-nav");
+const gridEl = document.getElementById("wa-grid");
+const metaEl = document.getElementById("wa-meta");
+const footerStatus = document.getElementById("wa-footer-status");
+// ---------------------------------------------------------
+// ⭐ AI ROUTING ENGINE UI
+// ---------------------------------------------------------
+const routeOrigin = document.getElementById("route-origin");
+const routeDest = document.getElementById("route-dest");
+const routeMode = document.getElementById("route-mode");
+const routeConstraints = document.getElementById("route-constraints");
+const routeBtn = document.getElementById("btn-route-generate");
+const routeCanvas = document.getElementById("route-canvas");
+const routeCtx = routeCanvas?.getContext("2d");
+const routeReport = document.getElementById("route-report");
+const routeMeta = document.getElementById("route-meta");
+
+routeBtn?.addEventListener("click", async () => {
+  if (!routeCtx) return;
+
+  routeMeta.textContent = "Computing route…";
+
+  const origin = routeOrigin.value.trim();
+  const dest = routeDest.value.trim();
+  const mode = routeMode.value;
+  const constraints = routeConstraints.value.trim();
+
+  // Base canvas
+  routeCanvas.width = 800;
+  routeCanvas.height = 400;
+  routeCtx.fillStyle = "#020617";
+  routeCtx.fillRect(0, 0, routeCanvas.width, routeCanvas.height);
+
+  // Demo route line
+  routeCtx.strokeStyle = "#22c55e";
+  routeCtx.lineWidth = 3;
+  routeCtx.beginPath();
+  routeCtx.moveTo(60, routeCanvas.height - 60);
+  routeCtx.lineTo(routeCanvas.width * 0.4, routeCanvas.height * 0.6);
+  routeCtx.lineTo(routeCanvas.width - 60, 60);
+  routeCtx.stroke();
+
+  // Endpoints
+  routeCtx.fillStyle = "#e5e7eb";
+  routeCtx.beginPath();
+  routeCtx.arc(60, routeCanvas.height - 60, 6, 0, Math.PI * 2);
+  routeCtx.fill();
+  routeCtx.beginPath();
+  routeCtx.arc(routeCanvas.width - 60, 60, 6, 0, Math.PI * 2);
+  routeCtx.fill();
+
+  // Report
+  routeReport.innerHTML = `
+    <h3>Proposed Route</h3>
+    <p><strong>Origin:</strong> ${origin || "N/A"}</p>
+    <p><strong>Destination:</strong> ${dest || "N/A"}</p>
+    <p><strong>Mode:</strong> ${mode}</p>
+    ${
+      constraints
+        ? `<p><strong>Constraints:</strong> ${constraints}</p>`
+        : ""
+    }
+    <p><strong>AI Notes (demo):</strong></p>
+    <ul>
+      <li>Route avoids high‑risk zones where possible.</li>
+      <li>Path optimized for ${mode} travel.</li>
+      <li>Waypoints left for staging and resupply.</li>
+    </ul>
+  `;
+
+  routeMeta.textContent = "Route generated (demo)";
+});
 
 async function initNav() {
   const who = await api("/api/auth/whoami");
   const role = who.role || getRole();
 
-  navEl.innerHTML = `
-    <a class="nav-link" href="/admin/index.html">Dashboard</a>
-    <a class="nav-link" href="#" id="nav-health">System Health</a>
-    <a class="nav-link" href="#" id="nav-sectors">Sectors</a>
-    <a class="nav-link" href="#" id="nav-uptime">Uptime</a>
-    <a class="nav-link nav-link--primary" href="/public/auth/login.html">${role}</a>
-  `;
-
-  document.getElementById("nav-health").onclick = loadSystemHealth;
-  document.getElementById("nav-sectors").onclick = loadSectors;
-  document.getElementById("nav-uptime").onclick = loadUptime;
+  buildNav(navEl, {
+    hub: "analytics",
+    role,
+    items: [{ label: "Back to Admin", href: "/admin/index.html" }]
+  });
 }
 
-async function loadSystemHealth() {
-  const data = await api("/api/system/health");
-  const services = data.services || {};
+async function loadMetrics() {
+  const data = await api("/api/staff/analytics"); // {active, idle, jobsCompleted, avgHandleTime}
+  metaEl.innerText = "24h snapshot";
 
-  metaHealth.innerText = `${Object.keys(services).length} services`;
+  const cards = [
+    { label: "Active Staff", value: data.active },
+    { label: "Idle Staff", value: data.idle },
+    { label: "Jobs Completed", value: data.jobsCompleted },
+    { label: "Avg Handle Time (min)", value: data.avgHandleTime }
+  ];
 
-  healthGrid.innerHTML = Object.entries(services)
+  gridEl.innerHTML = cards
     .map(
-      ([name, status]) => `
+      (c) => `
       <article class="sector-card">
-        <div class="sector-icon">⚙</div>
-        <div class="sector-label">${name}</div>
-        <div class="sector-body">Status: ${status}</div>
+        <div class="sector-icon">📊</div>
+        <div class="sector-label">${c.label}</div>
+        <div class="sector-body">
+          ${c.value ?? "—"}
+        </div>
         <div class="sector-meta">
-          <span class="sector-chip">${status}</span>
-          <span>Live</span>
+          <span class="sector-chip">24h</span>
+          <span>AI summary</span>
         </div>
       </article>
     `
     )
     .join("");
-
-  logsEl.innerText = "System health loaded.";
-}
-
-async function loadSectors() {
-  const data = await api("/api/map/global");
-  const sectors = data.sectors || [];
-
-  metaSectors.innerText = `${sectors.length} sectors`;
-
-  sectorsGrid.innerHTML = sectors
-    .map(
-      (id) => `
-      <article class="sector-card">
-        <div class="sector-icon">⬤</div>
-        <div class="sector-label">${id}</div>
-        <div class="sector-body">Global status overview for ${id}.</div>
-        <div class="sector-meta">
-          <span class="sector-chip">Online</span>
-          <span>Live</span>
-        </div>
-      </article>
-    `
-    )
-    .join("");
-
-  logsEl.innerText = `Sectors loaded: ${sectors.join(", ")}`;
-}
-
-async function loadUptime() {
-  const data = await api("/api/system/uptime");
-  logsEl.innerText = `System uptime: ${data.uptime_ms} ms`;
 }
 
 function startHeartbeat() {
@@ -88,11 +123,8 @@ function startHeartbeat() {
   }, 1000);
 }
 
-document.getElementById("btn-system-health").onclick = loadSystemHealth;
-document.getElementById("btn-sectors").onclick = loadSectors;
-
 (async function main() {
   await initNav();
+  await loadMetrics();
   startHeartbeat();
-  loadSystemHealth();
 })();

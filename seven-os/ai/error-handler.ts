@@ -1,4 +1,4 @@
-// autonomous/seven-os/ai/error-handler.ts
+// seven-os/ai/error-handler.ts
 // GIA Sovereign AI Error Engine – V12 Alpha (TypeScript Version)
 
 import {

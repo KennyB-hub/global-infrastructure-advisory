@@ -2,87 +2,84 @@ import { api } from "../shared/api-client.js";
 import { getRole } from "../shared/role.js";
 import { buildNav } from "../shared/nav-engine.js";
 
-const navEl = document.getElementById("staff-nav");
-const tasksGrid = document.getElementById("staff-tasks-grid");
-const jobsGrid = document.getElementById("staff-jobs-grid");
-const metaTasks = document.getElementById("staff-meta-tasks");
-const metaJobs = document.getElementById("staff-meta-jobs");
-const footerStatus = document.getElementById("staff-footer-status");
-const logsEl = document.getElementById("staff-logs");
+const navEl = document.getElementById("sup-nav");
+const staffGrid = document.getElementById("sup-staff-grid");
+const jobsGrid = document.getElementById("sup-jobs-grid");
+const metaStaff = document.getElementById("sup-meta-staff");
+const metaJobs = document.getElementById("sup-meta-jobs");
+const footerStatus = document.getElementById("sup-footer-status");
+const logsEl = document.getElementById("sup-logs");
 
 async function initNav() {
   const who = await api("/api/auth/whoami");
   const role = who.role || getRole();
 
   buildNav(navEl, {
-    hub: "staff",
+    hub: "supervisor",
     role,
     items: [
-      { label: "Dashboard", href: "/staff/index.html" },
-      { label: "My Tasks", id: "nav-staff-tasks" },
-      { label: "Available Jobs", id: "nav-staff-jobs" }
+      { label: "Dashboard", href: "/supervisor/index.html" },
+      { label: "Staff", id: "nav-sup-staff" },
+      { label: "Jobs", id: "nav-sup-jobs" }
     ]
   });
 
-  document.getElementById("nav-staff-tasks").onclick = loadTasks;
-  document.getElementById("nav-staff-jobs").onclick = loadJobs;
+  document.getElementById("nav-sup-staff").onclick = loadStaff;
+  document.getElementById("nav-sup-jobs").onclick = loadJobs;
 }
 
-async function loadTasks() {
-  // Placeholder tasks — replace with real API later
-  const tasks = [
-    { id: 1, title: "Inspect telecom relay", sector: "telecom", status: "Assigned" },
-    { id: 2, title: "Verify water pump output", sector: "water", status: "In Progress" }
-  ];
+async function loadStaff() {
+  const data = await api("/api/staff/list"); // [{id,name,role,status,sector}]
+  const staff = data.staff || [];
 
-  metaTasks.innerText = `${tasks.length} tasks`;
+  metaStaff.innerText = `${staff.length} staff`;
 
-  tasksGrid.innerHTML = tasks
+  staffGrid.innerHTML = staff
     .map(
-      (t) => `
+      (s) => `
       <article class="sector-card">
-        <div class="sector-icon">✔</div>
-        <div class="sector-label">${t.title}</div>
+        <div class="sector-icon">👤</div>
+        <div class="sector-label">${s.name}</div>
         <div class="sector-body">
-          Sector: ${t.sector} · Status: ${t.status}
+          Role: ${s.role} · Status: ${s.status} · Sector: ${s.sector || "—"}
         </div>
         <div class="sector-meta">
-          <span class="sector-chip">${t.status}</span>
-          <span>AI assigned</span>
+          <span class="sector-chip">${s.status}</span>
+          <span>${s.id}</span>
         </div>
       </article>
     `
     )
     .join("");
 
-  logsEl.innerText = "Loaded staff tasks.";
+  logsEl.innerText = "Loaded staff list.";
 }
 
 async function loadJobs() {
-  const data = await api("/api/map/global");
-  const sectors = data.sectors || [];
+  const data = await api("/api/jobs/unassigned"); // [{id,title,sector,priority}]
+  const jobs = data.jobs || [];
 
-  metaJobs.innerText = `${sectors.length} jobs`;
+  metaJobs.innerText = `${jobs.length} jobs`;
 
-  jobsGrid.innerHTML = sectors
+  jobsGrid.innerHTML = jobs
     .map(
-      (id, idx) => `
+      (j) => `
       <article class="sector-card">
         <div class="sector-icon">🛠</div>
-        <div class="sector-label">Job #${idx + 1}</div>
+        <div class="sector-label">${j.title}</div>
         <div class="sector-body">
-          AI‑suggested job in ${id} sector.
+          Sector: ${j.sector} · Priority: ${j.priority}
         </div>
         <div class="sector-meta">
-          <span class="sector-chip">Available</span>
-          <span>Live</span>
+          <span class="sector-chip">Unassigned</span>
+          <span>${j.id}</span>
         </div>
       </article>
     `
     )
     .join("");
 
-  logsEl.innerText = "Loaded available jobs.";
+  logsEl.innerText = "Loaded unassigned jobs.";
 }
 
 function startHeartbeat() {
@@ -91,9 +88,6 @@ function startHeartbeat() {
     footerStatus.innerText = `AI link: stable · t+${++t}s`;
   }, 1000);
 }
-
-document.getElementById("btn-load-tasks").onclick = loadTasks;
-document.getElementById("btn-load-jobs").onclick = loadJobs;
 
 (async function main() {
   await initNav();

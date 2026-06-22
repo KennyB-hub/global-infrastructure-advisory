@@ -1,73 +1,24 @@
-/**
- * inspect-routing.js
- * -------------------
- * Safe, read‑only routing inspector for Cloudflare Workers.
- * Checks worker routes, AI domain readiness, and trust zone posture.
- */
+// src/backend/security/tools/inspect-routing.js
 
-export async function inspectRouting(target, cf, ai) {
-    if (!target) {
-        return { error: "No target provided." };
-    }
+import { makeOk, makeError } from "src/backend/utils/context.js";
+import { parseEndpoint } from "src/backend/infrastructure/utils/parse-endpoint.js";
 
-    let workerRoutes = [];
-    let domainStatus = {};
-    let trustStatus = {};
-    let errors = [];
+export async function inspectRouting(url, cf, ai) {
+  try {
+    const parsed = parseEndpoint(url);
+    const trustHint = cf?.colo || "unknown";
 
-    // 1. Worker Routes
-    try {
-        const routes = await cf.getWorkerRoutes(target);
-        workerRoutes = routes.map(r => ({
-            pattern: r.pattern,
-            script: r.script
-        }));
-    } catch (err) {
-        errors.push("Worker route lookup failed: " + err.message);
-    }
-
-    // 2. AI Domain Readiness
-    try {
-        domainStatus = {
-            public: typeof ai.domains.public === "function",
-
-            contractor: typeof ai.domains.contractor === "function",
-            farmer: typeof ai.domains.farmer === "function",
-            workforce: typeof ai.domains.workforce === "function",
-            education: typeof ai.domains.education === "function",
-
-            infrastructure: typeof ai.domains.infrastructure === "function",
-            gov: typeof ai.domains.gov === "function",
-            deepgov: typeof ai.domains.deepgov === "function"
-        };
-    } catch (err) {
-        errors.push("AI domain inspection failed: " + err.message);
-    }
-
-    // 3. Trust Zone Enforcement
-    try {
-        trustStatus = {
-            public: "open",
-
-            contractor: "auth-required",
-            farmer: "auth-required",
-            workforce: "auth-required",
-            education: "auth-required",
-
-            infrastructure: "restricted",
-            gov: "restricted",
-
-            deepgov: "sovereign-only"
-        };
-    } catch (err) {
-        errors.push("Trust zone check failed: " + err.message);
-    }
-
-    return {
-        target,
-        workerRoutes,
-        domainStatus,
-        trustStatus,
-        errors: errors.length ? errors : null
+    const result = {
+      endpoint: parsed,
+      colo: cf?.colo || null,
+      country: cf?.country || null,
+      asn: cf?.asn || null,
+      aiSurface: !!ai,
+      trustHint
     };
+
+    return makeOk(result, { AI: ai });
+  } catch (err) {
+    return makeError("Routing inspection failed", { AI: ai }, { message: err.message, url });
+  }
 }

@@ -1,3 +1,11 @@
+/**
+ * storage-inspector.js
+ * ----------------------
+ * Unified storage inspector for the GIA infrastructure platform.
+ * Checks R2, KV, and D1 health using Cloudflare API wrappers.
+ * Fully read-only and safe for diagnostics + AI Cortex workflows.
+ */
+
 export async function storageInspector(cf) {
     const result = {
         r2: [],
@@ -89,5 +97,3 @@ export async function storageInspector(cf) {
 
     return result;
 }
-
-makeOk/makeError

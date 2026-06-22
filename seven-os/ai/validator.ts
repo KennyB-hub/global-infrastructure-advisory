@@ -1,4 +1,4 @@
-// autonomous/seven-os/ai/validator.ts
+// seven-os/ai/validator.ts
 // GIA Sovereign Validator – V12 Alpha (TypeScript Version)
 
 import { makeOk, makeError, sha256 } from "./context.js";

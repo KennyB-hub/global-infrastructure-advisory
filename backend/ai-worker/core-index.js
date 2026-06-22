@@ -1,122 +1,222 @@
-export const SectorOverlays = {
- agriculture: (ctx) => ({
-    cropType: ctx.sector?.cropType || null,
-    soil: ctx.environment?.soilType || null,
-    moisture: ctx.environment?.moisture || null,
-    region: ctx.location.regionId,
-    gridCell: ctx.location.gridCell
-  }),
+/**
+ * Workflow Registry – V12 Sovereign Edition
+ * -----------------------------------------
+ * Safe, modular workflows for Deep Mind AI.
+ * These workflows NEVER execute code or modify systems.
+ * They only analyze, summarize, or simulate using approved tools.
+ *
+ * All workflows now receive full sovereign context:
+ * {
+ *   data,
+ *   identity,
+ *   trustZone,
+ *   threat,
+ *   mcp,
+ *   cluster,
+ *   nodeRegistry
+ * }
+ */
 
-  construction: (ctx) => ({
-    assetType: ctx.sector?.assetType || null,
-    zoningClass: ctx.sector?.zoningClass || null,
-    region: ctx.location.regionId,
-    gridCell: ctx.location.gridCell
-  }),
+import { safeAnalyze } from "../../../seven-os/ai/tools/analyzer.js";
+import { safeSummarize } from "../../../seven-os/ai/tools/summarizer.js";
+import { safeInspectInfra } from "../tools/infra-inspector.js";
 
-  logistics: (ctx) => ({
-    routeType: ctx.sector?.routeType || null,
-    corridorId: ctx.sector?.corridorId || null,
-    region: ctx.location.regionId,
-    gridCell: ctx.location.gridCell
-  }),
+const workflows = {
 
-   energy: (ctx) => ({
-    infrastructureId: ctx.sector?.infrastructureId || null,
-    sourceType: ctx.sector?.sourceType || null,
-    riskZones: ctx.environment?.riskZones || [],
-    region: ctx.location.regionId,
-    gridCell: ctx.location.gridCell
-  }),
+    // ---------------------------------------------------------
+    // 1. Default workflow
+    // ---------------------------------------------------------
+    default: {
+        name: "default",
+        description: "Basic reasoning workflow for general tasks.",
 
-  emergency: (ctx) => ({
-    hazards: ctx.sector?.hazards || [],
-    incidentId: ctx.sector?.incidentId || null,
-    region: ctx.location.regionId,
-    parcel: ctx.location.parcelId
-  }),
+        async run(ctx, env) {
+            return {
+                action: "analyze",
+                trustZone: ctx.trustZone,
+                identity: ctx.identity,
+                summary: await safeSummarize(ctx.data),
+                metadata: {
+                    workflow: "default",
+                    cluster: ctx.cluster?.name || "none",
+                    timestamp: Date.now()
+                }
+            };
+        }
+    },
 
-  cyber: (ctx) => ({
-    threatLevel: ctx.environment?.cyberThreat || "unknown",
-    trustZone: ctx.environment?.trustZone || "public",
-    activeAlerts: ctx.environment?.alerts || [],
-    region: ctx.location.regionId,
-    gridCell: ctx.location.gridCell
-  }),
+    // ---------------------------------------------------------
+    // 2. Diagnostics workflow
+    // ---------------------------------------------------------
+    diagnostics: {
+        name: "diagnostics",
+        description: "Runs safe infrastructure diagnostics using approved tools.",
 
-  telecom: (ctx) => ({
-    towerId: ctx.sector?.towerId || null,
-    signalQuality: ctx.environment?.signal || "unknown",
-    outageRisk: ctx.environment?.outageRisk || "low",
-    region: ctx.location.regionId,
-    gridCell: ctx.location.gridCell
-  }),
+        async run(ctx, env) {
+            const target = ctx.data.target || null;
 
-   cloud: (ctx) => ({
-    provider: ctx.sector?.provider || "unknown",
-    region: ctx.sector?.cloudRegion || null,
-    latency: ctx.environment?.latency || null,
-    outageRisk: ctx.environment?.cloudOutageRisk || "low",
-    trustZone: ctx.environment?.trustZone || "public"
-  }),
+            const infra = await safeInspectInfra(target);
 
-  water: (ctx) => ({
-    systemId: ctx.sector?.systemId || null,
-    qualityStatus: ctx.environment?.waterQuality || "unknown",
-    region: ctx.location.regionId,
-    gridCell: ctx.location.gridCell
-  }),
+            return {
+                action: "analyze",
+                trustZone: ctx.trustZone,
+                identity: ctx.identity,
+                diagnostics: infra,
+                metadata: {
+                    workflow: "diagnostics",
+                    cluster: ctx.cluster?.name || "none",
+                    timestamp: Date.now()
+                }
+            };
+        }
+    },
 
-  public_safety: (ctx) => ({
-    agency: ctx.sector?.agency || null,
-    alertLevel: ctx.environment?.alertLevel || "normal",
-    region: ctx.location.regionId,
-    gridCell: ctx.location.gridCell
-  }),
+    // ---------------------------------------------------------
+    // 3. Code Analysis workflow
+    // ---------------------------------------------------------
+    codeAnalysis: {
+        name: "codeAnalysis",
+        description: "Analyzes code safely without executing it.",
 
-  health: (ctx) => ({
-    facilityId: ctx.sector?.facilityId || null,
-    loadLevel: ctx.environment?.loadLevel || "unknown",
-    region: ctx.location.regionId
-  }),
-  
-  finance: (ctx) => ({
-    marketRegion: ctx.location.regionId,
-    riskIndex: ctx.environment?.financialRisk || null
-  }),
+        async run(ctx, env) {
+            const code = ctx.data.code || "";
+            const analysis = await safeAnalyze(code);
 
-  education: (ctx) => ({
-    institutionType: ctx.sector?.institutionType || null,
-    region: ctx.location.regionId
-  }),
+            return {
+                action: "analyze",
+                trustZone: ctx.trustZone,
+                identity: ctx.identity,
+                analysis,
+                metadata: {
+                    workflow: "codeAnalysis",
+                    cluster: ctx.cluster?.name || "none",
+                    timestamp: Date.now()
+                }
+            };
+        }
+    },
 
- network: (ctx) => ({
-    asn: ctx.sector?.asn || null,
-    routeHealth: ctx.environment?.routeHealth || "unknown",
-    dnsIntegrity: ctx.environment?.dnsIntegrity || "unknown",
-    region: ctx.location.regionId
-  }),
-  
- transport: (ctx) => ({
-    mode: ctx.sector?.mode || null, // rail, air, road, sea
-    corridorId: ctx.sector?.corridorId || null,
-    region: ctx.location.regionId,
-    gridCell: ctx.location.gridCell
-  }),
+    // ---------------------------------------------------------
+    // 4. Simulation workflow
+    // ---------------------------------------------------------
+    simulate: {
+        name: "simulate",
+        description: "Runs a safe simulation (no execution, no side effects).",
 
- climate: (ctx) => ({
-    hazardType: ctx.environment?.climateHazard || null,
-    severity: ctx.environment?.hazardSeverity || null,
-    region: ctx.location.regionId,
-    gridCell: ctx.location.gridCell
-  }),
-  
-  space: (ctx) => ({
-    orbitClass: ctx.sector?.orbitClass || null, // LEO, MEO, GEO, etc.
-    vehicleId: ctx.sector?.vehicleId || null,
-    missionPhase: ctx.sector?.missionPhase || null,
-    groundRegion: ctx.location.regionId,
-    groundGridCell: ctx.location.gridCell
-  }) 
+        async run(ctx, env) {
+            return {
+                action: "simulate",
+                trustZone: ctx.trustZone,
+                identity: ctx.identity,
+                simulation: {
+                    scenario: ctx.data.scenario || "none",
+                    result: "Simulation completed safely.",
+                    notes: "No code executed. No external systems touched."
+                },
+                metadata: {
+                    workflow: "simulate",
+                    cluster: ctx.cluster?.name || "none",
+                    timestamp: Date.now()
+                }
+            };
+        }
+    },
+
+    // ---------------------------------------------------------
+    // 5. Security Audit workflow
+    // ---------------------------------------------------------
+    securityAudit: {
+        name: "securityAudit",
+        description: "Performs a safe, read-only security posture assessment.",
+
+        async run(ctx, env) {
+            const target = ctx.data.target || "unspecified";
+
+            const findings = {
+                dns: await env.tools.security.inspectDNS(target),
+                routing: await env.tools.security.inspectRouting(target),
+                exposure: await env.tools.security.checkPublicExposure(target),
+                config: await env.tools.security.inspectConfig(target)
+            };
+
+            return {
+                action: "analyze",
+                trustZone: ctx.trustZone,
+                identity: ctx.identity,
+                audit: findings,
+                metadata: {
+                    workflow: "securityAudit",
+                    cluster: ctx.cluster?.name || "none",
+                    timestamp: Date.now()
+                }
+            };
+        }
+    },
+
+    // ---------------------------------------------------------
+    // 6. Government Advisory workflow
+    // ---------------------------------------------------------
+    govAdvisory: {
+        name: "govAdvisory",
+        description: "Generates a structured advisory for government stakeholders.",
+
+        async run(ctx, env) {
+            const topic = ctx.data.topic || "general advisory";
+
+            const analysis = await safeSummarize({
+                sector: "government",
+                topic,
+                data: ctx.data.data || {}
+            });
+
+            return {
+                action: "summarize",
+                trustZone: ctx.trustZone,
+                identity: ctx.identity,
+                advisory: {
+                    sector: "government",
+                    topic,
+                    analysis,
+                    recommendations: env.tools.gov.generateRecommendations(topic)
+                },
+                metadata: {
+                    workflow: "govAdvisory",
+                    cluster: ctx.cluster?.name || "none",
+                    timestamp: Date.now()
+                }
+            };
+        }
+    },
+
+    // ---------------------------------------------------------
+    // 7. Public Briefing workflow
+    // ---------------------------------------------------------
+    publicBriefing: {
+        name: "publicBriefing",
+        description: "Creates a clear, non-technical briefing suitable for public audiences.",
+
+        async run(ctx, env) {
+            const subject = ctx.data.subject || "general update";
+
+            const briefing = await env.tools.public.formatBriefing({
+                subject,
+                content: ctx.data.content || "",
+                tone: "public-safe"
+            });
+
+            return {
+                action: "summarize",
+                trustZone: "public",
+                identity: ctx.identity,
+                briefing,
+                metadata: {
+                    workflow: "publicBriefing",
+                    cluster: ctx.cluster?.name || "none",
+                    timestamp: Date.now()
+                }
+            };
+        }
+    }
 };
 
+export default workflows;

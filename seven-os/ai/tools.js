@@ -1,4 +1,4 @@
-// /src/ai/tools.js
+// /seven-os/ai/tools.js
 import { MathEngine } from "./engines/math-engine.js";
 import { LogicEngine } from "./engines/logic-engine.js";
 import { MappingEngine } from "./engines/mapping-engine.js";

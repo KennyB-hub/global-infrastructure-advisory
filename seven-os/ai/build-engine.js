@@ -8,9 +8,9 @@ export const BuildEngine = {
 
         // 1. Generate the Folder Structure Template
         const structure = {
-            [`src/sectors/${domainName}/logic.js`]: this.generateLogicTemplate(domainName),
-            [`src/sectors/${domainName}/visual.js`]: this.generateVisualTemplate(domainName),
-            [`src/sectors/${domainName}/config.json`]: JSON.stringify({ active: true, version: "1.0.0" })
+            [`seven-os/sectors/${domainName}/logic.js`]: this.generateLogicTemplate(domainName),
+            [`seven-os/sectors/${domainName}/visual.js`]: this.generateVisualTemplate(domainName),
+            [`seven-os/sectors/${domainName}/config.json`]: JSON.stringify({ active: true, version: "1.0.0" })
         };
 
         // 2. Commit to the "Logic Vault" (KV or GitHub)

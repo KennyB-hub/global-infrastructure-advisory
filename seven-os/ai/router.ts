@@ -1,4 +1,4 @@
-// autonomous/seven-os/ai/router.ts
+// seven-os/ai/router.ts
 // GIA Sovereign AI Router – V12 Alpha (TypeScript Version)
 
 import { sovereignWorkerGuard } from "../system/routing/system/security/worker-guard.js";
@@ -35,8 +35,8 @@ import { enforceAIPolicy } from "./ai-policy.js";
 
 // Autonomous task management (Seven-of-Nine)
 import { enqueueTask, getNextPendingTask, updateTask } from "./autonomous/task-queue.js";
-import { getTaskHandler } from "./autonomous/task-registry.js";
-import { runSevenOfNineOnce } from "./autonomous/seven-of-nine.js";
+import { getTaskHandler } from "./seven-os/task-registry.js";
+import { runSevenOfNineOnce } from "./seve-os/seven-of-nine.js";
 
 // ---- Type Definitions ----
 

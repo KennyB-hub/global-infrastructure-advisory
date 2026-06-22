@@ -1,25 +1,30 @@
-// workers/system/cyber/index.js
-import { scoreThreat } from "./threat-score.engine.js";
-import { detectAnomalies } from "./anomaly.engine.js";
-import { evaluateTrust } from "./cyber-trust.engine.js";
-import * as cyberWorker from "./cyber/index.js";
+// FCC Worker – V12 Sovereign Edition
 
-export async function handle(payload, context) {
-  const { eventType = "generic", data = {} } = payload || {};
+import { safeInspectInfra } from "../../seven-os/ai/tools/safe-infra.js";
 
-  const trust = evaluateTrust(data, context);
-  const threat = scoreThreat(data, context);
-  const anomalies = detectAnomalies(data, context);
-  const workerMap = {
-  ...
-  cyber: cyberWorker
-};
+export async function handleFCC(event, context) {
+  const { data, identity, trustZone, threat, mcp } = event;
+
+  const target = data.target || "unknown";
+
+  const spectrum = await safeInspectInfra({ type: "spectrum", target });
+  const interference = await safeInspectInfra({ type: "interference", target });
+  const tower = await safeInspectInfra({ type: "tower", target });
+  const emergency = await safeInspectInfra({ type: "emergency", target });
 
   return {
-    eventType,
-    trust,
+    ok: true,
+    sector: "FCC_COMMS",
+    trustZone,
+    identity,
     threat,
-    anomalies,
+    mcp,
+    compliance: {
+      spectrum,
+      interference,
+      tower,
+      emergency
+    },
     timestamp: new Date().toISOString()
   };
 }

@@ -1,4 +1,4 @@
-// autonomous/seven-os/ai/response-sanitizer.ts
+// seven-os/ai/response-sanitizer.ts
 // GIA Sovereign AI Response Sanitizer – V12 Alpha (TypeScript Version)
 
 import {

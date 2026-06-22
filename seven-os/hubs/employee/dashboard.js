@@ -1,96 +1,72 @@
 import { api } from "../shared/api-client.js";
 import { getRole } from "../shared/role.js";
 
-const navEl = document.getElementById("employee-nav");
-const gridEl = document.getElementById("employee-grid");
-const metaEl = document.getElementById("employee-meta");
-const footerStatus = document.getElementById("employee-footer-status");
-const logsEl = document.getElementById("employee-logs");
+const navEl = document.getElementById("farmer-nav");
+const gridEl = document.getElementById("farmer-grid");
+const metaEl = document.getElementById("farmer-meta");
+const footerStatus = document.getElementById("farmer-footer-status");
+const logsEl = document.getElementById("farmer-logs");
 
 async function initNav() {
   const who = await api("/api/auth/whoami");
   const role = who.role || getRole();
 
   navEl.innerHTML = `
-    <a class="nav-link" href="/employee/index.html">Dashboard</a>
-    <a class="nav-link" href="#" id="nav-tasks">Tasks</a>
-    <a class="nav-link" href="#" id="nav-messages">Messages</a>
+    <a class="nav-link" href="/farmer/index.html">Dashboard</a>
+    <a class="nav-link" href="#" id="nav-agri-status">Agri Status</a>
+    <a class="nav-link" href="#" id="nav-agri-map">Agri Map</a>
     <a class="nav-link nav-link--primary" href="/public/auth/login.html">
       ${role}
     </a>
   `;
 
-  document.getElementById("nav-tasks").addEventListener("click", (e) => {
+  document.getElementById("nav-agri-status").addEventListener("click", (e) => {
     e.preventDefault();
-    loadTasks();
+    loadAgriStatus();
   });
 
-  document.getElementById("nav-messages").addEventListener("click", (e) => {
+  document.getElementById("nav-agri-map").addEventListener("click", (e) => {
     e.preventDefault();
-    loadMessages();
+    loadAgriMap();
   });
 }
 
-async function loadTasks() {
-  // Placeholder tasks
-  const tasks = [
-    "Review sector reports",
-    "Update contractor assignments",
-    "Submit daily log"
-  ];
+async function loadAgriStatus() {
+  const data = await api("/api/map/global");
+  const sectors = data.sectors.filter((s) =>
+    ["agriculture", "water", "power", "logistics"].includes(s)
+  );
 
-  metaEl.innerText = `${tasks.length} tasks`;
+  metaEl.innerText = `${sectors.length} farm‑critical sectors`;
 
-  gridEl.innerHTML = tasks
+  gridEl.innerHTML = sectors
     .map(
-      (t, idx) => `
+      (id) => `
       <article class="sector-card">
-        <div class="sector-icon">✔</div>
-        <div class="sector-label">Task #${idx + 1}</div>
+        <div class="sector-icon">🌱</div>
+        <div class="sector-label">${id}</div>
         <div class="sector-body">
-          ${t}
+          AI‑estimated impact on farm operations for ${id}.
         </div>
         <div class="sector-meta">
-          <span class="sector-chip">Pending</span>
-          <span>AI‑prioritized</span>
+          <span class="sector-chip">Stable</span>
+          <span>Live</span>
         </div>
       </article>
     `
     )
     .join("");
 
-  logsEl.innerText = "Loaded tasks.";
+  logsEl.innerText = `Loaded farm‑critical sectors: ${sectors.join(", ") || "none"}.`;
 }
 
-async function loadMessages() {
-  // Placeholder messages
-  const messages = [
-    "System health is stable.",
-    "New contractor jobs available.",
-    "Sector telecom updated."
-  ];
-
-  metaEl.innerText = `${messages.length} messages`;
-
-  gridEl.innerHTML = messages
-    .map(
-      (m, idx) => `
-      <article class="sector-card">
-        <div class="sector-icon">✉</div>
-        <div class="sector-label">Message #${idx + 1}</div>
-        <div class="sector-body">
-          ${m}
-        </div>
-        <div class="sector-meta">
-          <span class="sector-chip">Info</span>
-          <span>AI summary</span>
-        </div>
-      </article>
-    `
-    )
-    .join("");
-
-  logsEl.innerText = "Loaded messages.";
+async function loadAgriMap() {
+  try {
+    const data = await api("/api/map/sector/agriculture");
+    logsEl.innerText = `Agri map features: ${data.features.length}`;
+  } catch (e) {
+    logsEl.innerText = `Error loading agri map: ${e.message}`;
+  }
 }
 
 function startHeartbeat() {
@@ -101,8 +77,8 @@ function startHeartbeat() {
   }, 1000);
 }
 
-document.getElementById("btn-load-tasks").addEventListener("click", loadTasks);
-document.getElementById("btn-load-messages").addEventListener("click", loadMessages);
+document.getElementById("btn-agri-status").addEventListener("click", loadAgriStatus);
+document.getElementById("btn-agri-map").addEventListener("click", loadAgriMap);
 
 (async function main() {
   try {
@@ -113,3 +89,18 @@ document.getElementById("btn-load-messages").addEventListener("click", loadMessa
     logsEl.innerText = `Error: ${e.message}`;
   }
 })();
+
+const result = await runAITask({
+  task: {
+    type: "aim",
+    mode: "agriculture-research",
+    query: "What crops are optimal for this soil + climate?",
+    dataset: {
+      soil: farmer.soil,
+      climate: farmer.climate,
+      region: farmer.region,
+      market: farmer.market
+    }
+  },
+  context
+});

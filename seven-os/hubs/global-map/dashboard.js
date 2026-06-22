@@ -1,416 +1,262 @@
+import { api } from "../shared/api-client.js";
+import { getRole } from "../shared/role.js";
+
+const navEl = document.getElementById("gov-nav");
+const sectorsGrid = document.getElementById("gov-sectors-grid");
+const metaSectors = document.getElementById("gov-meta-sectors");
+const footerStatus = document.getElementById("gov-footer-status");
+const logsEl = document.getElementById("gov-logs");
+
 // ---------------------------------------------------------
-// BASE SETUP
+// NAVIGATION
 // ---------------------------------------------------------
-const gmapCanvas = document.getElementById("gmap-canvas");
-const gmapCtx = gmapCanvas.getContext("2d");
-const gmapMeta = document.getElementById("gmap-meta");
-const gmapSummary = document.getElementById("gmap-summary");
+async function initNav() {
+  const who = await api("/api/auth/whoami");
+  const role = who.role || getRole();
 
-async function fetchJson(url) {
-  try {
-    const res = await fetch(url, { headers: { "Accept": "application/json" } });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.json();
-  } catch (err) {
-    console.warn("Live data fetch failed:", url, err);
-    return null;
-  }
-}
+  navEl.innerHTML = `
+    <a class="nav-link" href="/gov/index.html">Dashboard</a>
+    <a class="nav-link" href="#" id="nav-gov-sectors">Sectors</a>
+    <a class="nav-link" href="#" id="nav-gov-map">Global Map</a>
+    <a class="nav-link" href="#" id="nav-gov-ewo">EWO</a>
+    <a class="nav-link nav-link--primary" href="/public/auth/login.html">${role}</a>
+  `;
 
-// View state
-let view = {
-  zoom: 1,
-  minZoom: 0.5,
-  maxZoom: 4,
-  offsetX: 0,
-  offsetY: 0,
-  isPanning: false,
-  lastX: 0,
-  lastY: 0
-};
-
-// Resize canvas to container
-function resizeCanvas() {
-  const rect = gmapCanvas.getBoundingClientRect();
-  gmapCanvas.width = rect.width;
-  gmapCanvas.height = Math.max(380, rect.width * 0.5);
+  document.getElementById("nav-gov-sectors").onclick = loadSectors;
+  document.getElementById("nav-gov-map").onclick = loadMap;
+  document.getElementById("nav-gov-ewo").onclick = () =>
+    document.getElementById("gov-ewo-sector").focus();
 }
 
 // ---------------------------------------------------------
-// LAYER TOGGLES
+// SECTORS
 // ---------------------------------------------------------
-const layerPower = document.getElementById("layer-power");
-const layerWater = document.getElementById("layer-water");
-const layerTelecom = document.getElementById("layer-telecom");
-const layerLogistics = document.getElementById("layer-logistics");
-const layerRisk = document.getElementById("layer-risk");
-const layerRoute = document.getElementById("layer-route");
+async function loadSectors() {
+  const data = await api("/api/map/global");
+  const sectors = data.sectors || [];
 
-// ---------------------------------------------------------
-// DATA
-// ---------------------------------------------------------
-let sectorPoints = {
-  power: [
-    { x: -80, y: 20 },
-    { x: 10, y: 30 },
-    { x: 100, y: -10 }
-  ],
-  water: [
-    { x: -60, y: -10 },
-    { x: 40, y: 10 }
-  ],
-  telecom: [
-    { x: -100, y: 40 },
-    { x: 80, y: -20 }
-  ],
-  logistics: [
-    { x: -20, y: 0 },
-    { x: 120, y: 30 }
-  ]
-};
+  metaSectors.innerText = `${sectors.length} sectors`;
 
-let riskZones = [
-  {
-    id: "flood-basin-1",
-    type: "flood",
-    points: [
-      { x: -90, y: 10 },
-      { x: -70, y: 15 },
-      { x: -60, y: 0 },
-      { x: -80, y: -5 }
-    ]
-  },
-  {
-    id: "fire-zone-1",
-    type: "fire",
-    points: [
-      { x: 80, y: 0 },
-      { x: 100, y: 5 },
-      { x: 110, y: -10 },
-      { x: 90, y: -15 }
-    ]
-  }
-];
+  sectorsGrid.innerHTML = sectors
+    .map(
+      (id) => `
+      <article class="sector-card">
+        <div class="sector-icon">⬤</div>
+        <div class="sector-label">${id}</div>
+        <div class="sector-body">High‑level status for ${id}.</div>
+        <div class="sector-meta">
+          <span class="sector-chip">Online</span>
+          <span>Live</span>
+        </div>
+      </article>
+    `
+    )
+    .join("");
 
-let routes = [
-  {
-    id: "relief-corridor-1",
-    type: "relief",
-    points: [
-      { x: -100, y: 0 },
-      { x: -80, y: 10 },
-      { x: -60, y: 5 },
-      { x: -40, y: 15 }
-    ]
-  },
-  {
-    id: "logistics-corridor-1",
-    type: "logistics",
-    points: [
-      { x: 20, y: -10 },
-      { x: 40, y: -5 },
-      { x: 60, y: 0 },
-      { x: 80, y: 5 }
-    ]
-  }
-];
+  logsEl.innerText = `Gov sectors loaded: ${sectors.join(", ")}`;
+}
 
-// Convert fake lat/lon to globe projection
-function projectPoint(px, py) {
-  const radX = (px / 180) * Math.PI;
-  const radY = (py / 90) * Math.PI;
+// Enhanced map preview
+async function loadMap() {
+  const data = await api("/api/map/global");
 
-  return {
-    x: 260 * Math.sin(radX),
-    y: 260 * 0.55 * Math.sin(radY)
-  };
+  logsEl.innerText = `Global map sectors: ${data.sectors.join(", ")}`;
+
+  // Optional: show a tiny ASCII globe preview
+  console.log("🌍 Global map data:", data);
 }
 
 // ---------------------------------------------------------
-// DRAW LAYERS
+// EWO DISPATCH
 // ---------------------------------------------------------
-function drawSectorLayer() {
-  gmapCtx.save();
+async function dispatchEwo() {
+  const sector = document.getElementById("gov-ewo-sector").value.trim();
+  const desc = document.getElementById("gov-ewo-desc").value.trim();
 
-  const { width, height } = gmapCanvas;
-  gmapCtx.translate(width / 2 + view.offsetX, height / 2 + view.offsetY);
-  gmapCtx.scale(view.zoom, view.zoom);
-
-  if (layerPower?.checked) {
-    gmapCtx.fillStyle = "#ef4444";
-    sectorPoints.power.forEach((p) => {
-      const { x, y } = projectPoint(p.x, p.y);
-      gmapCtx.beginPath();
-      gmapCtx.arc(x, y, 6 / view.zoom, 0, Math.PI * 2);
-      gmapCtx.fill();
-    });
+  if (!sector || !desc) {
+    logsEl.innerText = "EWO requires sector and description.";
+    return;
   }
 
-  if (layerWater?.checked) {
-    gmapCtx.fillStyle = "#3b82f6";
-    sectorPoints.water.forEach((p) => {
-      const { x, y } = projectPoint(p.x, p.y);
-      gmapCtx.beginPath();
-      gmapCtx.arc(x, y, 6 / view.zoom, 0, Math.PI * 2);
-      gmapCtx.fill();
-    });
-  }
-
-  if (layerTelecom?.checked) {
-    gmapCtx.fillStyle = "#a855f7";
-    sectorPoints.telecom.forEach((p) => {
-      const { x, y } = projectPoint(p.x, p.y);
-      gmapCtx.beginPath();
-      gmapCtx.arc(x, y, 6 / view.zoom, 0, Math.PI * 2);
-      gmapCtx.fill();
-    });
-  }
-
-  if (layerLogistics?.checked) {
-    gmapCtx.fillStyle = "#22c55e";
-    sectorPoints.logistics.forEach((p) => {
-      const { x, y } = projectPoint(p.x, p.y);
-      gmapCtx.beginPath();
-      gmapCtx.arc(x, y, 6 / view.zoom, 0, Math.PI * 2);
-      gmapCtx.fill();
-    });
-  }
-
-  gmapCtx.restore();
-}
-
-function drawRiskLayer() {
-  if (!layerRisk?.checked) return;
-
-  gmapCtx.save();
-
-  const { width, height } = gmapCanvas;
-  gmapCtx.translate(width / 2 + view.offsetX, height / 2 + view.offsetY);
-  gmapCtx.scale(view.zoom, view.zoom);
-
-  riskZones.forEach((zone) => {
-    const color =
-      zone.type === "flood"
-        ? "rgba(59, 130, 246, 0.25)"
-        : "rgba(248, 113, 113, 0.25)";
-
-    gmapCtx.fillStyle = color;
-    gmapCtx.strokeStyle = color.replace("0.25", "0.8");
-    gmapCtx.lineWidth = 2 / view.zoom;
-
-    const pts = zone.points.map((p) => projectPoint(p.x, p.y));
-
-    gmapCtx.beginPath();
-    pts.forEach((pt, idx) => {
-      if (idx === 0) gmapCtx.moveTo(pt.x, pt.y);
-      else gmapCtx.lineTo(pt.x, pt.y);
-    });
-    gmapCtx.closePath();
-    gmapCtx.fill();
-    gmapCtx.stroke();
+  const res = await api("/api/ewo/dispatch", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ sector, description: desc })
   });
 
-  gmapCtx.restore();
+  logsEl.innerText = `EWO dispatched: ${JSON.stringify(res)}`;
 }
 
-function drawRouteLayer() {
-  if (!layerRoute?.checked) return;
+// ---------------------------------------------------------
+// HEARTBEAT
+// ---------------------------------------------------------
+function startHeartbeat() {
+  let t = 0;
+  setInterval(() => {
+    footerStatus.innerText = `AI link: stable · t+${++t}s`;
+  }, 1000);
+}
 
-  gmapCtx.save();
+// ---------------------------------------------------------
+// ⭐ SECTOR ANALYSIS (NEW V12 ALPHA BLOCK)
+// ---------------------------------------------------------
+const btnSectorAnalysis = document.getElementById("btn-gov-sector-analysis");
+const sectorInput = document.getElementById("gov-sector-input");
+const sectorDataInput = document.getElementById("gov-sector-data");
+const sectorResult = document.getElementById("gov-sector-result");
+// ---------------------------------------------------------
+// ⭐ AI ROUTING ENGINE UI
+// ---------------------------------------------------------
+const routeOrigin = document.getElementById("route-origin");
+const routeDest = document.getElementById("route-dest");
+const routeMode = document.getElementById("route-mode");
+const routeConstraints = document.getElementById("route-constraints");
+const routeBtn = document.getElementById("btn-route-generate");
+const routeCanvas = document.getElementById("route-canvas");
+const routeCtx = routeCanvas?.getContext("2d");
+const routeReport = document.getElementById("route-report");
+const routeMeta = document.getElementById("route-meta");
 
-  const { width, height } = gmapCanvas;
-  gmapCtx.translate(width / 2 + view.offsetX, height / 2 + view.offsetY);
-  gmapCtx.scale(view.zoom, view.zoom);
+routeBtn?.addEventListener("click", async () => {
+  if (!routeCtx) return;
 
-  routes.forEach((route) => {
-    const color =
-      route.type === "relief"
-        ? "#facc15" // yellow
-        : "#22c55e"; // green
+  routeMeta.textContent = "Computing route…";
 
-    gmapCtx.strokeStyle = color;
-    gmapCtx.lineWidth = 3 / view.zoom;
+  const origin = routeOrigin.value.trim();
+  const dest = routeDest.value.trim();
+  const mode = routeMode.value;
+  const constraints = routeConstraints.value.trim();
 
-    const pts = route.points.map((p) => projectPoint(p.x, p.y));
+  // Base canvas
+  routeCanvas.width = 800;
+  routeCanvas.height = 400;
+  routeCtx.fillStyle = "#020617";
+  routeCtx.fillRect(0, 0, routeCanvas.width, routeCanvas.height);
 
-    gmapCtx.beginPath();
-    pts.forEach((pt, idx) => {
-      if (idx === 0) gmapCtx.moveTo(pt.x, pt.y);
-      else gmapCtx.lineTo(pt.x, pt.y);
-    });
-    gmapCtx.stroke();
+  // Demo route line
+  routeCtx.strokeStyle = "#22c55e";
+  routeCtx.lineWidth = 3;
+  routeCtx.beginPath();
+  routeCtx.moveTo(60, routeCanvas.height - 60);
+  routeCtx.lineTo(routeCanvas.width * 0.4, routeCanvas.height * 0.6);
+  routeCtx.lineTo(routeCanvas.width - 60, 60);
+  routeCtx.stroke();
 
-    if (pts.length >= 2) {
-      gmapCtx.fillStyle = color;
-      const start = pts[0];
-      const end = pts[pts.length - 1];
+  // Endpoints
+  routeCtx.fillStyle = "#e5e7eb";
+  routeCtx.beginPath();
+  routeCtx.arc(60, routeCanvas.height - 60, 6, 0, Math.PI * 2);
+  routeCtx.fill();
+  routeCtx.beginPath();
+  routeCtx.arc(routeCanvas.width - 60, 60, 6, 0, Math.PI * 2);
+  routeCtx.fill();
 
-      gmapCtx.beginPath();
-      gmapCtx.arc(start.x, start.y, 5 / view.zoom, 0, Math.PI * 2);
-      gmapCtx.fill();
+  // Report
+  routeReport.innerHTML = `
+    <h3>Proposed Route</h3>
+    <p><strong>Origin:</strong> ${origin || "N/A"}</p>
+    <p><strong>Destination:</strong> ${dest || "N/A"}</p>
+    <p><strong>Mode:</strong> ${mode}</p>
+    ${
+      constraints
+        ? `<p><strong>Constraints:</strong> ${constraints}</p>`
+        : ""
+    }
+    <p><strong>AI Notes (demo):</strong></p>
+    <ul>
+      <li>Route avoids high‑risk zones where possible.</li>
+      <li>Path optimized for ${mode} travel.</li>
+      <li>Waypoints left for staging and resupply.</li>
+    </ul>
+  `;
 
-      gmapCtx.beginPath();
-      gmapCtx.arc(end.x, end.y, 5 / view.zoom, 0, Math.PI * 2);
-      gmapCtx.fill();
+  routeMeta.textContent = "Route generated (demo)";
+});
+
+if (btnSectorAnalysis) {
+  btnSectorAnalysis.addEventListener("click", async () => {
+    const sector = sectorInput.value.trim();
+    const rawData = sectorDataInput.value.trim();
+
+    if (!sector) {
+      sectorResult.innerHTML = `<div class="error-text">Please enter a sector.</div>`;
+      return;
+    }
+
+    let parsedData = {};
+    try {
+      parsedData = rawData ? JSON.parse(rawData) : {};
+    } catch (err) {
+      sectorResult.innerHTML = `<div class="error-text">Invalid JSON in data field.</div>`;
+      return;
+    }
+
+    sectorResult.innerHTML = `
+      <div class="loading-text">
+        Running sector analysis…
+      </div>
+    `;
+
+    try {
+      const res = await api("/system/sector-report", {
+        method: "POST",
+        body: JSON.stringify({ sector, data: parsedData })
+      });
+
+      renderSectorAnalysis(res);
+
+    } catch (err) {
+      sectorResult.innerHTML = `
+        <div class="error-text">
+          Sector analysis failed: ${err.message}
+        </div>
+      `;
     }
   });
+}
 
-  gmapCtx.restore();
+function renderSectorAnalysis(report) {
+  if (!report || !report.result) {
+    sectorResult.innerHTML = `<div class="error-text">Invalid response from server.</div>`;
+    return;
+  }
+
+  const meta = report.result.meta;
+
+  sectorResult.innerHTML = `
+    <div class="analysis-card">
+      <h3 class="analysis-title">Sector: ${meta.sector}</h3>
+
+      <div class="analysis-block">
+        <h4>Key Factors</h4>
+        <ul>
+          ${meta.keyFactors.map(f => `<li>${f}</li>`).join("")}
+        </ul>
+      </div>
+
+      <div class="analysis-block">
+        <h4>Data Summary</h4>
+        <pre>${JSON.stringify(meta.dataSummary, null, 2)}</pre>
+      </div>
+
+      <div class="analysis-block">
+        <h4>Integrity Hash</h4>
+        <code>${report.integrity?.hash || "none"}</code>
+      </div>
+
+      <div class="analysis-note">${meta.note}</div>
+    </div>
+  `;
 }
 
 // ---------------------------------------------------------
-// DRAW GLOBE (SINGLE SOURCE OF TRUTH)
+// BOOTSTRAP
 // ---------------------------------------------------------
-function drawBaseGlobe() {
-  resizeCanvas();
-  const { width, height } = gmapCanvas;
+document.getElementById("btn-gov-sectors").onclick = loadSectors;
+document.getElementById("btn-gov-map").onclick = loadMap;
+document.getElementById("btn-gov-ewo").onclick = dispatchEwo;
 
-  gmapCtx.save();
-  gmapCtx.clearRect(0, 0, width, height);
-
-  gmapCtx.translate(width / 2 + view.offsetX, height / 2 + view.offsetY);
-  gmapCtx.scale(view.zoom, view.zoom);
-
-  gmapCtx.fillStyle = "#020617";
-  gmapCtx.fillRect(-width, -height, width * 2, height * 2);
-
-  gmapCtx.strokeStyle = "#1d4ed8";
-  gmapCtx.lineWidth = 2 / view.zoom;
-  gmapCtx.beginPath();
-  gmapCtx.ellipse(0, 0, 260, 260 * 0.55, 0, 0, Math.PI * 2);
-  gmapCtx.stroke();
-
-  gmapCtx.restore();
-
-  drawSectorLayer();
-  drawRiskLayer();
-  drawRouteLayer();
-}
-
-// ---------------------------------------------------------
-// ZOOM + PAN ENGINE
-// ---------------------------------------------------------
-gmapCanvas.addEventListener("mousedown", (e) => {
-  view.isPanning = true;
-  view.lastX = e.clientX;
-  view.lastY = e.clientY;
-});
-
-window.addEventListener("mouseup", () => {
-  view.isPanning = false;
-});
-
-window.addEventListener("mousemove", (e) => {
-  if (!view.isPanning) return;
-
-  const dx = e.clientX - view.lastX;
-  const dy = e.clientY - view.lastY;
-
-  view.lastX = e.clientX;
-  view.lastY = e.clientY;
-
-  view.offsetX += dx;
-  view.offsetY += dy;
-
-  drawBaseGlobe();
-  setMeta();
-});
-
-gmapCanvas.addEventListener(
-  "wheel",
-  (e) => {
-    e.preventDefault();
-    const zoomFactor = e.deltaY < 0 ? 1.1 : 0.9;
-    view.zoom = Math.min(view.maxZoom, Math.max(view.minZoom, view.zoom * zoomFactor));
-    drawBaseGlobe();
-    setMeta();
-  },
-  { passive: false }
-);
-
-window.addEventListener("resize", drawBaseGlobe);
-
-// ---------------------------------------------------------
-// META + TOGGLES
-// ---------------------------------------------------------
-function setMeta() {
-  gmapMeta.textContent = `Zoom ${view.zoom.toFixed(2)} · Offset (${view.offsetX.toFixed(
-    0
-  )}, ${view.offsetY.toFixed(0)})`;
-}
-
-[
-  layerPower,
-  layerWater,
-  layerTelecom,
-  layerLogistics,
-  layerRisk,
-  layerRoute
-].forEach((el) => {
-  el?.addEventListener("change", drawBaseGlobe);
-});
-// ---------------------------------------------------------
-// LIVE DATA INGESTION ENGINE
-// ---------------------------------------------------------
-
-async function refreshSectors() {
-  const data = await fetchJson("/api/map/sectors");
-  if (!data) return;
-
-  // Expecting shape:
-  // { power: [{x,y},...], water: [...], telecom: [...], logistics: [...] }
-  sectorPoints = {
-    power: data.power ?? sectorPoints.power,
-    water: data.water ?? sectorPoints.water,
-    telecom: data.telecom ?? sectorPoints.telecom,
-    logistics: data.logistics ?? sectorPoints.logistics
-  };
-
-  drawBaseGlobe();
-}
-
-async function refreshRisk() {
-  const data = await fetchJson("/api/map/risk");
-  if (!data) return;
-
-  // Expecting shape:
-  // [ { id, type, points: [{x,y}, ...] }, ... ]
-  riskZones = Array.isArray(data) && data.length ? data : riskZones;
-
-  drawBaseGlobe();
-}
-
-async function refreshRoutes() {
-  const data = await fetchJson("/api/map/routes");
-  if (!data) return;
-
-  // Expecting shape:
-  // [ { id, type, points: [{x,y}, ...] }, ... ]
-  routes = Array.isArray(data) && data.length ? data : routes;
-
-  drawBaseGlobe();
-}
-
-function startLiveIngestion() {
-  // Initial pull
-  refreshSectors();
-  refreshRisk();
-  refreshRoutes();
-
-  // Polling cadence (tune as needed)
-  setInterval(refreshSectors, 30_000); // 30s
-  setInterval(refreshRisk, 45_000);    // 45s
-  setInterval(refreshRoutes, 20_000);  // 20s
-}
-
-// ---------------------------------------------------------
-// INIT
-// ---------------------------------------------------------
-drawBaseGlobe();
-setMeta();
-startLiveIngestion();
-
-gmapSummary.innerHTML = `
-  <h3>Summary</h3>
-  <p>Zoom, pan, toggle sectors, risk, and routes. Live data is pulled from /api/map/* endpoints.</p>
-`;
+(async function main() {
+  await initNav();
+  startHeartbeat();
+})();

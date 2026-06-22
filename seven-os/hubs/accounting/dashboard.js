@@ -1,74 +1,84 @@
 import { api } from "../shared/api-client.js";
 import { getRole } from "../shared/role.js";
-import { buildNav } from "../shared/nav-engine.js";
 
-const navEl = document.getElementById("acct-nav");
-const summaryGrid = document.getElementById("acct-summary-grid");
-const ledgerGrid = document.getElementById("acct-ledger-grid");
-const metaEl = document.getElementById("acct-meta");
-const footerStatus = document.getElementById("acct-footer-status");
+const navEl = document.getElementById("admin-nav");
+const healthGrid = document.getElementById("admin-health-grid");
+const sectorsGrid = document.getElementById("admin-sectors-grid");
+const metaHealth = document.getElementById("admin-meta-health");
+const metaSectors = document.getElementById("admin-meta-sectors");
+const footerStatus = document.getElementById("admin-footer-status");
+const logsEl = document.getElementById("admin-logs");
 
 async function initNav() {
   const who = await api("/api/auth/whoami");
   const role = who.role || getRole();
 
-  buildNav(navEl, {
-    hub: "accounting",
-    role,
-    items: [{ label: "Back to Admin", href: "/admin/index.html" }]
-  });
+  navEl.innerHTML = `
+    <a class="nav-link" href="/admin/index.html">Dashboard</a>
+    <a class="nav-link" href="#" id="nav-health">System Health</a>
+    <a class="nav-link" href="#" id="nav-sectors">Sectors</a>
+    <a class="nav-link" href="#" id="nav-uptime">Uptime</a>
+    <a class="nav-link nav-link--primary" href="/public/auth/login.html">${role}</a>
+  `;
+
+  document.getElementById("nav-health").onclick = loadSystemHealth;
+  document.getElementById("nav-sectors").onclick = loadSectors;
+  document.getElementById("nav-uptime").onclick = loadUptime;
 }
 
-async function loadSummary() {
-  const data = await api("/hubs-logic/accountant-ai/summary");
-  metaEl.innerText = "24h financial summary";
+async function loadSystemHealth() {
+  const data = await api("/api/system/health");
+  const services = data.services || {};
 
-  const cards = [
-    { label: "Credits", value: data.credits },
-    { label: "Debits", value: data.debits },
-    { label: "Net Position", value: data.net }
-  ];
+  metaHealth.innerText = `${Object.keys(services).length} services`;
 
-  summaryGrid.innerHTML = cards
+  healthGrid.innerHTML = Object.entries(services)
     .map(
-      (c) => `
+      ([name, status]) => `
       <article class="sector-card">
-        <div class="sector-icon">💰</div>
-        <div class="sector-label">${c.label}</div>
-        <div class="sector-body">${c.value}</div>
+        <div class="sector-icon">⚙</div>
+        <div class="sector-label">${name}</div>
+        <div class="sector-body">Status: ${status}</div>
         <div class="sector-meta">
-          <span class="sector-chip">24h</span>
-          <span>AI summary</span>
+          <span class="sector-chip">${status}</span>
+          <span>Live</span>
         </div>
       </article>
     `
     )
     .join("");
+
+  logsEl.innerText = "System health loaded.";
 }
 
-async function loadLedger() {
-  const data = await api("/hubs-logic/accountant-ai/ledger");
-  const txns = data.txns || [];
+async function loadSectors() {
+  const data = await api("/api/map/global");
+  const sectors = data.sectors || [];
 
-  ledgerGrid.innerHTML = txns
+  metaSectors.innerText = `${sectors.length} sectors`;
+
+  sectorsGrid.innerHTML = sectors
     .map(
-      (t) => `
+      (id) => `
       <article class="sector-card">
-        <div class="sector-icon">${t.type === "credit" ? "➕" : "➖"}</div>
-        <div class="sector-label">${t.type.toUpperCase()}</div>
-        <div class="sector-body">
-          Amount: ${t.amount}<br>
-          Account: ${t.accountId}<br>
-          Meta: ${JSON.stringify(t.meta || {})}
-        </div>
+        <div class="sector-icon">⬤</div>
+        <div class="sector-label">${id}</div>
+        <div class="sector-body">Global status overview for ${id}.</div>
         <div class="sector-meta">
-          <span class="sector-chip">${t.type}</span>
-          <span>${t.ts}</span>
+          <span class="sector-chip">Online</span>
+          <span>Live</span>
         </div>
       </article>
     `
     )
     .join("");
+
+  logsEl.innerText = `Sectors loaded: ${sectors.join(", ")}`;
+}
+
+async function loadUptime() {
+  const data = await api("/api/system/uptime");
+  logsEl.innerText = `System uptime: ${data.uptime_ms} ms`;
 }
 
 function startHeartbeat() {
@@ -78,9 +88,11 @@ function startHeartbeat() {
   }, 1000);
 }
 
+document.getElementById("btn-system-health").onclick = loadSystemHealth;
+document.getElementById("btn-sectors").onclick = loadSectors;
+
 (async function main() {
   await initNav();
-  await loadSummary();
-  await loadLedger();
   startHeartbeat();
+  loadSystemHealth();
 })();

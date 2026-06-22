@@ -1,3 +1,7 @@
-export function disasterResponseStatus() {
-  return { sector: "disaster_response", status: "operational", timestamp: Date.now() };
+/**
+ * GIA Government Sector Organ
+ * Handles civic infrastructure, public systems, and gov coordination.
+ */
+export function governmentStatus() {
+  return { sector: "government", status: "operational", timestamp: Date.now() };
 }

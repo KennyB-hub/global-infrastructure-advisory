@@ -1,4 +1,4 @@
-// autonomous/seven-os/ai/context-builder.ts
+// seven-os/ai/context-builder.ts
 // GIA Sovereign AI Context Builder – V12 Alpha (TypeScript Version)
 
 import {

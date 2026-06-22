@@ -6666,7 +6666,7 @@
     "avionics:uas-voice-mode": "seven-os/voice/uas-voice-mode.js",
     "backend:core-agency-dispacher": "backend/core-agency-dispacher.js",
     "backend:core-gia-deep-mind-2100": "backend/ai-worker/core-gia-deep-mind-2100.js",
-    "backend:core-index": "backend/workers/core-index.json",
+    "backend:core-index": "backend/utilities/integrity/core-index.js",
     "backend:core-engine": "backend/trust/core-engine.js",
     "backend:engine-sync-air-gap-sync": "backend/edge-vault/engine-sync-air-gap-sync.js",
     "backend:core-protectedmiddleware": "backend/edge-vault/VAULT-LAYER/protected/core-protectedmiddleware.js",
@@ -6739,7 +6739,7 @@
     "backend:core-threat-summary": "backend/threat/core-threat-summary.js",
     "backend:core-threat-telemetry": "backend/threat/core-threat-telemetry.js",
     "backend:core-context": "backend/utilities/core-context.js",
-    "backend:core-routing-inspector": "backend/utilities/geo/core-routing-inspector.js",
+    "backend:core-routing-inspector": "backend/utilities/dns/core-routing-inspector.js",
     "backend:core-geo-context": "backend/utilities/geo/core-geo-context.js",
     "backend:core-geo-disance-calc": "backend/utilities/geo/core-geo-disance-calc.js",
     "backend:core-geo-grid": "backend/utilities/geo/core-geo-grid.js",
@@ -6771,6 +6771,9 @@
     "backend:core-workforce.schema": "backend/workforce/core-workforce.schema.json",
     "backend:core-collar-ws-nats": "backend/ws/core-collar-ws-nats.js",
     "backend:core-collar-ws": "backend/ws/core-collar-ws.js",
-    "backend:core-run-collar-ws": "backend/ws/core-run-collar-ws.js"
+    "backend:core-run-collar-ws": "backend/ws/core-run-collar-ws.js",
+    "backend:core-status": "backend/system/core-status.js",
+    "backend:core-system-endpoints": "backend/system/core-system-endpoints.js",
+    "backend:core-system-full-report": "backend/system/core-system-full-report.js"
   }
 }

@@ -2,248 +2,38 @@
   "moves": [
     {
       "status": "moved",
-      "name": "ai-geo.js",
-      "from": "seven-os\\ai\\engines\\ai-geo.js",
-      "to": "seven-os/ai/ai-geo.js"
+      "name": "decision-engine.js",
+      "from": "seven-os\\engines\\decision-engine.js",
+      "to": "seven-os/ai/decision-engine.js"
     },
     {
       "status": "moved",
-      "name": "ai-safety.js",
-      "from": "seven-os\\system\\ai-safety.js",
-      "to": "seven-os/ai/ai-safety.js"
-    },
-    {
-      "status": "moved",
-      "name": "ai-utilities.js",
-      "from": "seven-os\\ai\\engines\\ai-utilities.js",
-      "to": "seven-os/ai/ai-utilities.js"
-    },
-    {
-      "status": "moved",
-      "name": "index.js",
-      "from": "backend\\ai-worker\\index.js",
-      "to": "seven-os/ai/policies/index.js"
-    },
-    {
-      "status": "moved",
-      "name": "router.js",
-      "from": "seven-os\\api\\router.js",
-      "to": "seven-os/ai/router.js"
-    },
-    {
-      "status": "moved",
-      "name": "index.js",
-      "from": "backend\\gii\\context\\index.js",
-      "to": "seven-os/ai/tools/index.js"
-    },
-    {
-      "status": "moved",
-      "name": "index.js",
-      "from": "backend\\routes\\index.js",
-      "to": "seven-os/ai/tools/public/index.js"
+      "name": "api-trust.js",
+      "from": "seven-os\\trust\\api-trust.js",
+      "to": "seven-os/api/api-trust.js"
     },
     {
       "status": "moved",
       "name": "defense.js",
-      "from": "seven-os\\api\\cyber\\defense.js",
-      "to": "seven-os/api/aim/defense.js"
+      "from": "seven-os\\api\\aim\\defense.js",
+      "to": "seven-os/api/cyber/defense.js"
+    },
+    {
+      "status": "moved",
+      "name": "dashboard.js",
+      "from": "seven-os\\hubs\\accounting\\dashboard.js",
+      "to": "seven-os/api/farmer/dashboard.js"
+    },
+    {
+      "status": "moved",
+      "name": "heartbeat.js",
+      "from": "seven-os\\seven-runtime\\workers\\system-workers\\heartbeat.js",
+      "to": "seven-os/api/system/heartbeat.js"
     },
     {
       "status": "missing",
-      "name": "defense.js",
-      "target": "seven-os/api/cyber/defense.js"
-    },
-    {
-      "status": "moved",
-      "name": "threats.js",
-      "from": "seven-os\\seven-runtime\\api\\gov\\threats.js",
-      "to": "seven-os/api/gov/threats.js"
-    },
-    {
-      "status": "moved",
-      "name": "index.js",
-      "from": "backend\\security\\tools\\index.js",
-      "to": "seven-os/api/index.js"
-    },
-    {
-      "status": "moved",
-      "name": "users.js",
-      "from": "seven-os\\seven-runtime\\api\\users.js",
-      "to": "seven-os/api/users.js"
-    },
-    {
-      "status": "moved",
-      "name": "voice-flight-handler.js",
-      "from": "seven-os\\seven-runtime\\api\\voice-flight-handler.js",
-      "to": "seven-os/api/voice-flight-handler.js"
-    },
-    {
-      "status": "moved",
-      "name": "voice-flight.js",
-      "from": "backend\\routes\\voice-flight.js",
-      "to": "seven-os/api/voice-flight.js"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\core\\fcc\\remediation-engine\\index.ts",
-      "to": "seven-os/core/fcc/carrier-network-compliance/governance-brain/compliance-engine/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\core\\fcc\\rf-observation-layer\\index.ts",
-      "to": "seven-os/core/fcc/carrier-network-compliance/governance-brain/compliance-engine/remediation-engine/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\core\\fcc\\telecom-equipment-authorization\\index.ts",
-      "to": "seven-os/core/fcc/carrier-network-compliance/governance-brain/compliance-engine/remediation-engine/workforce-sync-layer/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\core\\fcc\\workforce-sync-layer\\index.ts",
-      "to": "seven-os/core/fcc/carrier-network-compliance/governance-brain/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "types.ts",
-      "from": "seven-os\\core\\governance\\types.ts",
-      "to": "seven-os/core/fcc/carrier-network-compliance/governance-brain/types.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\core\\governance\\compliance-engine\\index.ts",
-      "to": "seven-os/core/fcc/compliance-engine/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\core\\governance\\goverance-brain\\index.ts",
-      "to": "seven-os/core/fcc/emergency-access-fallback/governance-brain/compliance-engine/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\core\\math\\index.ts",
-      "to": "seven-os/core/fcc/emergency-access-fallback/governance-brain/fallback-auditor/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\core\\remediation\\index.ts",
-      "to": "seven-os/core/fcc/emergency-access-fallback/governance-brain/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\core\\workforce\\AI-workforce-sync-layer\\index.ts",
-      "to": "seven-os/core/fcc/emergency-access-fallback/governance-brain/remediation-engine/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "types.ts",
-      "from": "seven-os\\infra\\tower\\types.ts",
-      "to": "seven-os/core/fcc/emergency-access-fallback/governance-brain/types.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\cyber\\index.ts",
-      "to": "seven-os/core/fcc/emergency-access-fallback/governance-brain/workforce-sync-layer/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\mci\\index.ts",
-      "to": "seven-os/core/fcc/firmware-auditor/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\seven-runtime\\rf\\FirmwareAuditor\\index.ts",
-      "to": "seven-os/core/fcc/network-observation-layer/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\seven-runtime\\rf\\REObservation-layer\\index.ts",
-      "to": "seven-os/core/fcc/remediation-engine/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\seven-runtime\\workers\\emergency-router\\index.ts",
-      "to": "seven-os/core/fcc/rf-observation-layer/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\seven-runtime\\workers\\expansion\\index.ts",
-      "to": "seven-os/core/fcc/telecom-equipment-authorization/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "types.ts",
-      "from": "seven-os\\infra\\types.ts",
-      "to": "seven-os/core/fcc/telecom-equipment-authorization/types.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\seven-runtime\\workers\\finance\\index.ts",
-      "to": "seven-os/core/fcc/workforce-sync-layer/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\index.ts",
-      "to": "seven-os/core/governance/compliance-engine/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\hr-worker\\index.ts",
-      "to": "seven-os/core/governance/goverance-brain/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "types.ts",
-      "from": "seven-os\\seven-runtime\\cattle\\types.ts",
-      "to": "seven-os/core/governance/types.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\employee\\index.ts",
-      "to": "seven-os/core/math/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\index.ts",
-      "to": "seven-os/core/remediation/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\index.ts",
-      "to": "seven-os/core/workforce/AI-workforce-sync-layer/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\index.ts",
-      "to": "seven-os/cyber/index.ts"
-    },
-    {
-      "status": "moved",
       "name": "decision-engine.js",
-      "from": "seven-os\\ai\\decision-engine.js",
-      "to": "seven-os/engines/decision-engine.js"
+      "target": "seven-os/engines/decision-engine.js"
     },
     {
       "status": "missing",
@@ -253,56 +43,139 @@
     {
       "status": "moved",
       "name": "dashboard.js",
-      "from": "backend\\hubs\\admin\\dashboard.js",
+      "from": "seven-os\\hubs\\admin\\dashboard.js",
       "to": "seven-os/hubs/accounting/dashboard.js"
     },
     {
       "status": "moved",
-      "name": "index.js",
-      "from": "backend\\threat\\index.js",
-      "to": "seven-os/mci/index.js"
+      "name": "dashboard.js",
+      "from": "seven-os\\hubs\\analytics\\dashboard.js",
+      "to": "seven-os/hubs/admin/dashboard.js"
     },
     {
       "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\contractor-workers\\index.ts",
-      "to": "seven-os/mci/index.ts"
+      "name": "dashboard.js",
+      "from": "seven-os\\hubs\\Ansys\\dashboard.js",
+      "to": "seven-os/hubs/analytics/dashboard.js"
     },
     {
       "status": "moved",
-      "name": "contractor-engine.js",
-      "from": "seven-os\\seven-runtime\\hub_logic\\contractor-engine.js",
-      "to": "seven-os/sector-engines/contractor-engine.js"
+      "name": "dashboard.js",
+      "from": "seven-os\\hubs\\Contractor\\dashboard.js",
+      "to": "seven-os/hubs/Ansys/dashboard.js"
     },
     {
       "status": "moved",
-      "name": "index.js",
-      "from": "backend\\utilities\\geo\\index.js",
-      "to": "seven-os/sectors/agri/visual/index.js"
+      "name": "dashboard.js",
+      "from": "seven-os\\hubs\\deepgov\\dashboard.js",
+      "to": "seven-os/hubs/Contractor/dashboard.js"
+    },
+    {
+      "status": "moved",
+      "name": "dashboard.js",
+      "from": "seven-os\\hubs\\employee\\dashboard.js",
+      "to": "seven-os/hubs/deepgov/dashboard.js"
+    },
+    {
+      "status": "moved",
+      "name": "dashboard.js",
+      "from": "seven-os\\hubs\\farmer\\dashboard.js",
+      "to": "seven-os/hubs/employee/dashboard.js"
+    },
+    {
+      "status": "moved",
+      "name": "dashboard.js",
+      "from": "seven-os\\hubs\\global-map\\dashboard.js",
+      "to": "seven-os/hubs/farmer/dashboard.js"
+    },
+    {
+      "status": "moved",
+      "name": "dashboard.js",
+      "from": "seven-os\\hubs\\gov\\dashboard.js",
+      "to": "seven-os/hubs/global-map/dashboard.js"
+    },
+    {
+      "status": "moved",
+      "name": "dashboard.js",
+      "from": "seven-os\\hubs\\hr\\dashboard.js",
+      "to": "seven-os/hubs/gov/dashboard.js"
+    },
+    {
+      "status": "moved",
+      "name": "dashboard.js",
+      "from": "seven-os\\hubs\\payroll\\dashboard.js",
+      "to": "seven-os/hubs/hr/dashboard.js"
+    },
+    {
+      "status": "moved",
+      "name": "dashboard.js",
+      "from": "seven-os\\hubs\\public\\dashboard.js",
+      "to": "seven-os/hubs/payroll/dashboard.js"
+    },
+    {
+      "status": "moved",
+      "name": "dashboard.js",
+      "from": "seven-os\\hubs\\Staff\\dashboard.js",
+      "to": "seven-os/hubs/public/dashboard.js"
+    },
+    {
+      "status": "moved",
+      "name": "dashboard.js",
+      "from": "seven-os\\hubs\\supervisor\\dashboard.js",
+      "to": "seven-os/hubs/Staff/dashboard.js"
+    },
+    {
+      "status": "moved",
+      "name": "dashboard.js",
+      "from": "seven-os\\hubs\\system\\dashboard.js",
+      "to": "seven-os/hubs/supervisor/dashboard.js"
+    },
+    {
+      "status": "missing",
+      "name": "dashboard.js",
+      "target": "seven-os/hubs/system/dashboard.js"
     },
     {
       "status": "moved",
       "name": "index.js",
       "from": "backend\\utilities\\geomapping-logic.js\\index.js",
-      "to": "seven-os/sectors/airports/index.js"
+      "to": "seven-os/infrastructure/index.js"
     },
     {
       "status": "moved",
       "name": "index.js",
-      "from": "backend\\utilities\\integrity\\index.js",
-      "to": "seven-os/sectors/climate/index.js"
+      "from": "seven-os\\ai\\policies\\index.js",
+      "to": "seven-os/infrastructure/tools/index.js"
     },
     {
       "status": "moved",
       "name": "index.js",
-      "from": "seven-os\\infrastructure\\index.js",
-      "to": "seven-os/sectors/cloud/index.js"
+      "from": "seven-os\\ai\\tools\\index.js",
+      "to": "seven-os/policy-packs/index.js"
     },
     {
       "status": "moved",
       "name": "index.js",
-      "from": "seven-os\\infrastructure\\tools\\index.js",
-      "to": "seven-os/sectors/contractors/index.js"
+      "from": "seven-os\\ai\\tools\\public\\index.js",
+      "to": "seven-os/sectors/agri/index.js"
+    },
+    {
+      "status": "moved",
+      "name": "index.js",
+      "from": "seven-os\\api\\index.js",
+      "to": "seven-os/sectors/cyber/index.js"
+    },
+    {
+      "status": "moved",
+      "name": "index.js",
+      "from": "seven-os\\mci\\index.js",
+      "to": "seven-os/sectors/datacenters/index.js"
+    },
+    {
+      "status": "moved",
+      "name": "index.js",
+      "from": "seven-os\\sectors\\agri\\visual\\index.js",
+      "to": "seven-os/sectors/disaster_response/index.js"
     },
     {
       "status": "missing",
@@ -310,30 +183,27 @@
       "target": "seven-os/seven-runtime/ai/decision-engine.js"
     },
     {
-      "status": "missing",
+      "status": "moved",
       "name": "threats.js",
-      "target": "seven-os/seven-runtime/api/gov/threats.js"
-    },
-    {
-      "status": "missing",
-      "name": "users.js",
-      "target": "seven-os/seven-runtime/api/users.js"
-    },
-    {
-      "status": "missing",
-      "name": "voice-flight-handler.js",
-      "target": "seven-os/seven-runtime/api/voice-flight-handler.js"
+      "from": "seven-os\\api\\gov\\threats.js",
+      "to": "seven-os/seven-runtime/api/gov/threats.js"
     },
     {
       "status": "moved",
-      "name": "types.ts",
-      "from": "seven-os\\seven-runtime\\infra\\tower\\types.ts",
-      "to": "seven-os/seven-runtime/cattle/types.ts"
+      "name": "users.js",
+      "from": "seven-os\\api\\users.js",
+      "to": "seven-os/seven-runtime/api/users.js"
+    },
+    {
+      "status": "moved",
+      "name": "voice-flight-handler.js",
+      "from": "seven-os\\api\\voice-flight-handler.js",
+      "to": "seven-os/seven-runtime/api/voice-flight-handler.js"
     },
     {
       "status": "moved",
       "name": "disaster-profile.ts",
-      "from": "seven-os\\safety\\disaster-profile.ts",
+      "from": "seven-os\\seven-runtime\\safety\\disaster-profile.ts",
       "to": "seven-os/seven-runtime/drone/disaster-profile.ts"
     },
     {
@@ -392,44 +262,21 @@
       "target": "seven-os/seven-runtime/drone/terrain-routing.ts"
     },
     {
-      "status": "missing",
+      "status": "moved",
       "name": "contractor-engine.js",
-      "target": "seven-os/seven-runtime/hub_logic/contractor-engine.js"
+      "from": "seven-os\\sector-engines\\contractor-engine.js",
+      "to": "seven-os/seven-runtime/hub_logic/contractor-engine.js"
     },
     {
       "status": "moved",
       "name": "ingest.ts",
-      "from": "seven-os\\seven-runtime\\infra\\tower\\ingest.ts",
-      "to": "seven-os/seven-runtime/infra/ingest.ts"
+      "from": "seven-os\\seven-runtime\\infra\\ingest.ts",
+      "to": "seven-os/seven-runtime/infra/tower/ingest.ts"
     },
     {
       "status": "missing",
-      "name": "ingest.ts",
-      "target": "seven-os/seven-runtime/infra/tower/ingest.ts"
-    },
-    {
-      "status": "moved",
-      "name": "types.ts",
-      "from": "seven-os\\seven-runtime\\infra\\types.ts",
-      "to": "seven-os/seven-runtime/infra/tower/types.ts"
-    },
-    {
-      "status": "moved",
-      "name": "types.ts",
-      "from": "seven-os\\system\\indexer\\types.ts",
-      "to": "seven-os/seven-runtime/infra/types.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\seven-runtime\\workers\\system-workers\\admin-workers\\index.ts",
-      "to": "seven-os/seven-runtime/rf/FirmwareAuditor/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\seven-runtime\\workers\\system-workers\\index.ts",
-      "to": "seven-os/seven-runtime/rf/REObservation-layer/index.ts"
+      "name": "disaster-profile.ts",
+      "target": "seven-os/seven-runtime/safety/disaster-profile.ts"
     },
     {
       "status": "missing",
@@ -447,121 +294,32 @@
       "target": "seven-os/seven-runtime/voice/voice-bus.ts"
     },
     {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\workers\\emergency-router\\index.ts",
-      "to": "seven-os/seven-runtime/workers/emergency-router/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\workers\\expansion\\index.ts",
-      "to": "seven-os/seven-runtime/workers/expansion/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\index.ts",
-      "to": "seven-os/seven-runtime/workers/finance/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\hr-worker\\index.ts",
-      "to": "seven-os/seven-runtime/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\employee\\index.ts",
-      "to": "seven-os/seven-runtime/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers/public-worker/hr-worker/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\gov-workers\\public-worker\\payroll-worker\\index.ts",
-      "to": "seven-os/seven-runtime/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers/public-worker/payroll-worker/employee/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\farmer-workers\\index.ts",
-      "to": "seven-os/seven-runtime/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers/public-worker/payroll-worker/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\workers\\system-workers\\admin-workers\\contractor-workers\\deepgov-workers\\index.ts",
-      "to": "seven-os/seven-runtime/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\workers\\system-workers\\admin-workers\\contractor-workers\\index.ts",
-      "to": "seven-os/seven-runtime/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\workers\\system-workers\\admin-workers\\index.ts",
-      "to": "seven-os/seven-runtime/workers/system-workers/admin-workers/contractor-workers/index.ts"
-    },
-    {
-      "status": "moved",
-      "name": "index.ts",
-      "from": "seven-os\\workers\\system-workers\\index.ts",
-      "to": "seven-os/seven-runtime/workers/system-workers/admin-workers/index.ts"
-    },
-    {
-      "status": "moved",
+      "status": "missing",
       "name": "heartbeat.js",
-      "from": "seven-os\\api\\system\\heartbeat.js",
-      "to": "seven-os/seven-runtime/workers/system-workers/heartbeat.js"
+      "target": "seven-os/seven-runtime/workers/system-workers/heartbeat.js"
     },
     {
-      "status": "missing",
+      "status": "moved",
       "name": "index.ts",
-      "target": "seven-os/seven-runtime/workers/system-workers/index.ts"
+      "from": "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\compliance-engine\\index.ts",
+      "to": "seven-os/seven-runtime/workers/system-workers/index.ts"
     },
     {
-      "status": "missing",
+      "status": "moved",
       "name": "ai-safety.js",
-      "target": "seven-os/system/ai-safety.js"
+      "from": "seven-os\\ai\\ai-safety.js",
+      "to": "seven-os/system/ai-safety.js"
+    },
+    {
+      "status": "moved",
+      "name": "types.ts",
+      "from": "seven-os\\core\\fcc\\carrier-network-compliance\\governance-brain\\types.ts",
+      "to": "seven-os/system/indexer/types.ts"
     },
     {
       "status": "missing",
-      "name": "types.ts",
-      "target": "seven-os/system/indexer/types.ts"
-    },
-    {
-      "status": "moved",
-      "name": "status.js",
-      "from": "backend\\system\\status.js",
-      "to": "seven-os/system/status.js"
-    },
-    {
-      "status": "moved",
-      "name": "system-endpoints.js",
-      "from": "backend\\system\\system-endpoints.js",
-      "to": "seven-os/system/system-endpoints.js"
-    },
-    {
-      "status": "moved",
-      "name": "system-full-report.js",
-      "from": "backend\\system\\system-full-report.js",
-      "to": "seven-os/system/system-full-report.js"
-    },
-    {
-      "status": "moved",
-      "name": "system-status.js",
-      "from": "backend\\system\\system-status.js",
-      "to": "seven-os/system/system-status.js"
-    },
-    {
-      "status": "moved",
       "name": "api-trust.js",
-      "from": "seven-os\\api\\api-trust.js",
-      "to": "seven-os/trust/api-trust.js"
+      "target": "seven-os/trust/api-trust.js"
     },
     {
       "status": "missing",
@@ -620,84 +378,555 @@
     },
     {
       "status": "moved",
+      "name": "gia-deep-mind-2100.js",
+      "from": "seven-os\\seven-runtime\\workers\\gia-deep-mind-2100.js",
+      "to": "backend/ai-worker/gia-deep-mind-2100.js"
+    },
+    {
+      "status": "moved",
       "name": "index.js",
-      "from": "seven-os\\policy-packs\\index.js",
+      "from": "seven-os\\sectors\\airports\\index.js",
       "to": "backend/ai-worker/index.js"
     },
     {
       "status": "moved",
+      "name": "engine.js",
+      "from": "seven-os\\ai\\engine.js",
+      "to": "backend/audit/engine.js"
+    },
+    {
+      "status": "missing",
+      "name": "air-gap-sync.js",
+      "target": "backend/edge-vault/air-gap-sync.js"
+    },
+    {
+      "status": "missing",
+      "name": "protectedmiddleware.js",
+      "target": "backend/edge-vault/VAULT-LAYER/protected/protectedmiddleware.js"
+    },
+    {
+      "status": "moved",
+      "name": "require-admin.js",
+      "from": "seven-os\\security\\require-admin.js",
+      "to": "backend/edge-vault/VAULT-LAYER/protected/require-admin.js"
+    },
+    {
+      "status": "moved",
+      "name": "validate-token.js",
+      "from": "seven-os\\security\\validate-token.js",
+      "to": "backend/edge-vault/VAULT-LAYER/protected/validate-token.js"
+    },
+    {
+      "status": "missing",
+      "name": "verify-token.js",
+      "target": "backend/edge-vault/verify-token.js"
+    },
+    {
+      "status": "missing",
+      "name": "context-builder.js",
+      "target": "backend/gii/context/context-builder.js"
+    },
+    {
+      "status": "missing",
+      "name": "context-engine.js",
+      "target": "backend/gii/context/context-engine.js"
+    },
+    {
+      "status": "missing",
+      "name": "context-validator.js",
+      "target": "backend/gii/context/context-validator.js"
+    },
+    {
+      "status": "moved",
       "name": "index.js",
-      "from": "seven-os\\sectors\\agri\\index.js",
+      "from": "seven-os\\sectors\\climate\\index.js",
       "to": "backend/gii/context/index.js"
     },
     {
-      "status": "moved",
+      "status": "missing",
+      "name": "farmer-routes.js",
+      "target": "backend/hub-logic/farmer-routes.js"
+    },
+    {
+      "status": "missing",
+      "name": "admin-api.js",
+      "target": "backend/hubs/admin/admin-api.js"
+    },
+    {
+      "status": "missing",
+      "name": "admin-dashboard.js",
+      "target": "backend/hubs/admin/admin-dashboard.js"
+    },
+    {
+      "status": "missing",
+      "name": "admin-utils.js",
+      "target": "backend/hubs/admin/admin-utils.js"
+    },
+    {
+      "status": "missing",
+      "name": "adminhub.ts",
+      "target": "backend/hubs/admin/adminhub.ts"
+    },
+    {
+      "status": "missing",
       "name": "dashboard.js",
-      "from": "seven-os\\api\\farmer\\dashboard.js",
-      "to": "backend/hubs/admin/dashboard.js"
+      "target": "backend/hubs/admin/dashboard.js"
+    },
+    {
+      "status": "missing",
+      "name": "login.js",
+      "target": "backend/hubs/admin/login.js"
+    },
+    {
+      "status": "missing",
+      "name": "routing-engine.js",
+      "target": "backend/network/routing-engine.js"
+    },
+    {
+      "status": "missing",
+      "name": "cloud-policies.js",
+      "target": "backend/policy/cloud-policies.js"
+    },
+    {
+      "status": "moved",
+      "name": "engine.js",
+      "from": "seven-os\\mci\\decision\\engine.js",
+      "to": "backend/policy/engine.js"
+    },
+    {
+      "status": "missing",
+      "name": "sw.js",
+      "target": "backend/public/sw.js"
+    },
+    {
+      "status": "missing",
+      "name": "audit.js",
+      "target": "backend/routes/audit.js"
+    },
+    {
+      "status": "missing",
+      "name": "auth-gateway.js",
+      "target": "backend/routes/auth-gateway.js"
+    },
+    {
+      "status": "missing",
+      "name": "executive-routes.js",
+      "target": "backend/routes/executive-routes.js"
     },
     {
       "status": "moved",
       "name": "index.js",
-      "from": "seven-os\\sectors\\cyber\\index.js",
+      "from": "seven-os\\sectors\\cloud\\index.js",
       "to": "backend/routes/index.js"
     },
     {
       "status": "moved",
+      "name": "opportunities.js",
+      "from": "seven-os\\api\\opportunities.js",
+      "to": "backend/routes/opportunities.js"
+    },
+    {
+      "status": "missing",
+      "name": "public-ai-map.js",
+      "target": "backend/routes/public-ai-map.js"
+    },
+    {
+      "status": "missing",
+      "name": "public-map.js",
+      "target": "backend/routes/public-map.js"
+    },
+    {
+      "status": "missing",
+      "name": "public-routes.js",
+      "target": "backend/routes/public-routes.js"
+    },
+    {
+      "status": "missing",
+      "name": "security-audit.js",
+      "target": "backend/routes/security-audit.js"
+    },
+    {
+      "status": "missing",
+      "name": "storage-routing vault-config.js",
+      "target": "backend/routes/storage-routing vault-config.js"
+    },
+    {
+      "status": "moved",
       "name": "voice-flight.js",
-      "from": "seven-os\\routes\\voice-flight.js",
+      "from": "seven-os\\api\\voice-flight.js",
       "to": "backend/routes/voice-flight.js"
+    },
+    {
+      "status": "missing",
+      "name": "auth-service.js",
+      "target": "backend/security/auth-service.js"
+    },
+    {
+      "status": "missing",
+      "name": "build-guard.js",
+      "target": "backend/security/build-guard.js"
+    },
+    {
+      "status": "missing",
+      "name": "entra-guard.js",
+      "target": "backend/security/entra-guard.js"
+    },
+    {
+      "status": "moved",
+      "name": "key-engine.js",
+      "from": "seven-os\\security\\key-engine.js",
+      "to": "backend/security/key-engine.js"
+    },
+    {
+      "status": "missing",
+      "name": "security-audit.js",
+      "target": "backend/security/security-audit.js"
+    },
+    {
+      "status": "missing",
+      "name": "check-public-exposure.js",
+      "target": "backend/security/tools/check-public-exposure.js"
+    },
+    {
+      "status": "missing",
+      "name": "dns-inspector.js",
+      "target": "backend/security/tools/dns-inspector.js"
     },
     {
       "status": "moved",
       "name": "index.js",
-      "from": "seven-os\\sectors\\cyber\\sectors\\cyber\\index.js",
+      "from": "seven-os\\sectors\\contractors\\index.js",
       "to": "backend/security/tools/index.js"
     },
     {
       "status": "missing",
+      "name": "inspect-config.js",
+      "target": "backend/security/tools/inspect-config.js"
+    },
+    {
+      "status": "moved",
+      "name": "inspect-routing.js",
+      "from": "seven-os\\infrastructure\\tools\\inspect-routing.js",
+      "to": "backend/security/tools/inspect-routing.js"
+    },
+    {
+      "status": "missing",
+      "name": "threat-scan.js",
+      "target": "backend/security/tools/threat-scan.js"
+    },
+    {
+      "status": "missing",
+      "name": "worker-gauard.js",
+      "target": "backend/security/worker-gauard.js"
+    },
+    {
+      "status": "moved",
+      "name": "ai-routing.js",
+      "from": "seven-os\\system\\ai-routing.js",
+      "to": "backend/system/ai-routing.js"
+    },
+    {
+      "status": "missing",
+      "name": "domains.js",
+      "target": "backend/system/domains.js"
+    },
+    {
+      "status": "missing",
+      "name": "ewo-router.js",
+      "target": "backend/system/ewo/ewo-router.js"
+    },
+    {
+      "status": "missing",
+      "name": "ewo-schema.js",
+      "target": "backend/system/ewo/ewo-schema.js"
+    },
+    {
+      "status": "missing",
+      "name": "sector-router.js",
+      "target": "backend/system/ewo/sector-router.js"
+    },
+    {
+      "status": "missing",
+      "name": "did-vc-verifier.js",
+      "target": "backend/system/identity/did-vc-verifier.js"
+    },
+    {
+      "status": "missing",
+      "name": "system-log.js",
+      "target": "backend/system/logging/system-log.js"
+    },
+    {
+      "status": "moved",
+      "name": "manifest.js",
+      "from": "seven-os\\system\\manifest.js",
+      "to": "backend/system/manifest.js"
+    },
+    {
+      "status": "missing",
+      "name": "mcp-cloud-boundary.js",
+      "target": "backend/system/mcp/mcp-cloud-boundary.js"
+    },
+    {
+      "status": "missing",
+      "name": "mcp-enforcer.js",
+      "target": "backend/system/mcp/mcp-enforcer.js"
+    },
+    {
+      "status": "missing",
+      "name": "mcp-evaluator.js",
+      "target": "backend/system/mcp/mcp-evaluator.js"
+    },
+    {
+      "status": "missing",
+      "name": "mcp-policy-regisry.js",
+      "target": "backend/system/mcp/mcp-policy-regisry.js"
+    },
+    {
+      "status": "missing",
+      "name": "ewo-router.js",
+      "target": "backend/system/routing/ewo-router.js"
+    },
+    {
+      "status": "missing",
+      "name": "global-routing-map.js",
+      "target": "backend/system/routing/global-routing-map.js"
+    },
+    {
+      "status": "missing",
+      "name": "sector-report.js",
+      "target": "backend/system/sector-report.js"
+    },
+    {
+      "status": "moved",
       "name": "status.js",
-      "target": "backend/system/status.js"
+      "from": "seven-os\\system\\status.js",
+      "to": "backend/system/status.js"
     },
     {
-      "status": "missing",
+      "status": "moved",
       "name": "system-endpoints.js",
-      "target": "backend/system/system-endpoints.js"
+      "from": "seven-os\\system\\system-endpoints.js",
+      "to": "backend/system/system-endpoints.js"
     },
     {
-      "status": "missing",
+      "status": "moved",
       "name": "system-full-report.js",
-      "target": "backend/system/system-full-report.js"
+      "from": "seven-os\\system\\system-full-report.js",
+      "to": "backend/system/system-full-report.js"
     },
     {
       "status": "moved",
       "name": "system-status.js",
-      "from": "system-status.js",
+      "from": "seven-os\\system\\system-status.js",
       "to": "backend/system/system-status.js"
     },
     {
+      "status": "missing",
+      "name": "trust-middleware.js",
+      "target": "backend/system/trust-middleware.js"
+    },
+    {
+      "status": "missing",
+      "name": "trust.js",
+      "target": "backend/system/trust.js"
+    },
+    {
+      "status": "moved",
+      "name": "uptime.js",
+      "from": "seven-os\\seven-runtime\\api\\system\\uptime.js",
+      "to": "backend/system/uptime.js"
+    },
+    {
+      "status": "missing",
+      "name": "system-map.js",
+      "target": "backend/system-map.js"
+    },
+    {
+      "status": "missing",
+      "name": "cyber-models.js",
+      "target": "backend/threat/cyber-models.js"
+    },
+    {
       "status": "moved",
       "name": "index.js",
-      "from": "seven-os\\sectors\\cyber\\workers\\cyber\\cyber\\index.js",
+      "from": "seven-os\\sectors\\fcc\\index.js",
       "to": "backend/threat/index.js"
     },
     {
+      "status": "missing",
+      "name": "threat-fetch.js",
+      "target": "backend/threat/threat-fetch.js"
+    },
+    {
+      "status": "missing",
+      "name": "threat-reporting.js",
+      "target": "backend/threat/threat-reporting.js"
+    },
+    {
+      "status": "missing",
+      "name": "threat-storage.js",
+      "target": "backend/threat/threat-storage.js"
+    },
+    {
+      "status": "missing",
+      "name": "threat-summary.js",
+      "target": "backend/threat/threat-summary.js"
+    },
+    {
+      "status": "missing",
+      "name": "threat-telemetry.js",
+      "target": "backend/threat/threat-telemetry.js"
+    },
+    {
+      "status": "moved",
+      "name": "engine.js",
+      "from": "seven-os\\system\\indexer\\engine.js",
+      "to": "backend/trust/engine.js"
+    },
+    {
+      "status": "missing",
+      "name": "context.js",
+      "target": "backend/utilities/context.js"
+    },
+    {
+      "status": "missing",
+      "name": "dns-inspector.js",
+      "target": "backend/utilities/dns/dns-inspector.js"
+    },
+    {
+      "status": "moved",
+      "name": "routing-inspector.js",
+      "from": "seven-os\\infrastructure\\routing-inspector.js",
+      "to": "backend/utilities/dns/routing-inspector.js"
+    },
+    {
+      "status": "missing",
+      "name": "geo-context.js",
+      "target": "backend/utilities/geo/geo-context.js"
+    },
+    {
+      "status": "missing",
+      "name": "geo-disance-calc.js",
+      "target": "backend/utilities/geo/geo-disance-calc.js"
+    },
+    {
+      "status": "missing",
+      "name": "geo-grid.js",
+      "target": "backend/utilities/geo/geo-grid.js"
+    },
+    {
+      "status": "missing",
+      "name": "geo-mapping.js",
+      "target": "backend/utilities/geo/geo-mapping.js"
+    },
+    {
+      "status": "missing",
+      "name": "geo-normalize.js",
+      "target": "backend/utilities/geo/geo-normalize.js"
+    },
+    {
       "status": "moved",
       "name": "index.js",
-      "from": "seven-os\\sectors\\datacenters\\index.js",
+      "from": "seven-os\\sectors\\gov\\index.js",
       "to": "backend/utilities/geo/index.js"
     },
     {
-      "status": "moved",
-      "name": "index.js",
-      "from": "seven-os\\sectors\\disaster_response\\index.js",
-      "to": "backend/utilities/geomapping-logic.js/index.js"
+      "status": "missing",
+      "name": "lookup.js",
+      "target": "backend/utilities/geo/lookup.js"
+    },
+    {
+      "status": "missing",
+      "name": "mapping logic.js",
+      "target": "backend/utilities/geo/mapping logic.js"
+    },
+    {
+      "status": "missing",
+      "name": "mapping.js",
+      "target": "backend/utilities/geo/mapping.js"
+    },
+    {
+      "status": "missing",
+      "name": "normalize location.js",
+      "target": "backend/utilities/geo/normalize location.js"
+    },
+    {
+      "status": "missing",
+      "name": "project surch.js",
+      "target": "backend/utilities/geo/project surch.js"
+    },
+    {
+      "status": "missing",
+      "name": "region matcher.js",
+      "target": "backend/utilities/geo/region matcher.js"
+    },
+    {
+      "status": "missing",
+      "name": "region.js",
+      "target": "backend/utilities/geo/region.js"
+    },
+    {
+      "status": "missing",
+      "name": "routing-inspector.js",
+      "target": "backend/utilities/geo/routing-inspector.js"
     },
     {
       "status": "moved",
       "name": "index.js",
-      "from": "seven-os\\sectors\\disaster_response\\sectors\\disaster_response\\index.js",
+      "from": "seven-os\\sectors\\government\\policy-packs\\index.js",
+      "to": "backend/utilities/geomapping-logic.js/index.js"
+    },
+    {
+      "status": "missing",
+      "name": "helpers.js",
+      "target": "backend/utilities/helpers.js"
+    },
+    {
+      "status": "missing",
+      "name": "drone.js",
+      "target": "backend/utilities/integrity/drone.js"
+    },
+    {
+      "status": "missing",
+      "name": "file-map.js",
+      "target": "backend/utilities/integrity/file-map.js"
+    },
+    {
+      "status": "moved",
+      "name": "index.js",
+      "from": "seven-os\\sectors\\government\\sectors\\gov\\index.js",
       "to": "backend/utilities/integrity/index.js"
+    },
+    {
+      "status": "missing",
+      "name": "integrity-check.js",
+      "target": "backend/utilities/integrity/integrity-check.js"
+    },
+    {
+      "status": "missing",
+      "name": "sync-queue.js",
+      "target": "backend/utilities/integrity/sync-queue.js"
+    },
+    {
+      "status": "moved",
+      "name": "storage-inspector.js",
+      "from": "seven-os\\infrastructure\\tools\\storage-inspector.js",
+      "to": "backend/utilities/storage-inspector.js"
+    },
+    {
+      "status": "missing",
+      "name": "collar-ws-nats.js",
+      "target": "backend/ws/collar-ws-nats.js"
+    },
+    {
+      "status": "missing",
+      "name": "collar-ws.js",
+      "target": "backend/ws/collar-ws.js"
+    },
+    {
+      "status": "missing",
+      "name": "run-collar-ws.js",
+      "target": "backend/ws/run-collar-ws.js"
     }
   ]
 }
