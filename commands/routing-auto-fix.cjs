@@ -20,12 +20,46 @@ function ensureDir(p) {
 
 function walk(dir, list = []) {
   if (!fs.existsSync(dir)) return list;
+
+  const SKIP = [
+    "node_modules",
+    ".git",
+    ".github",
+    ".githooks",
+    ".vscode",
+    "dist",
+    "build",
+    "coverage",
+    "reports",
+    "public",
+    "frontend",
+    "hubs",
+    "kv",
+    "log",
+    "manifest",
+    "proprietary-cli",
+    "d1",
+    "db",
+    "config",
+    "ecosystem.config.js",
+    "Dockerfile",
+    "docker-compose.yml",
+    "utilities"
+  ];
+
   for (const entry of fs.readdirSync(dir)) {
+    if (SKIP.includes(entry)) continue;
+
     const full = path.join(dir, entry);
     const stat = fs.statSync(full);
-    if (stat.isDirectory()) walk(full, list);
-    else list.push(full);
+
+    if (stat.isDirectory()) {
+      walk(full, list);
+    } else {
+      list.push(full);
+    }
   }
+
   return list;
 }
 
