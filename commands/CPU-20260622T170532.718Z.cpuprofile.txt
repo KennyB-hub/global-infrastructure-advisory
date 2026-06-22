@@ -1,0 +1,4263 @@
+{
+	"nodes": [
+		{
+			"id": 1,
+			"callFrame": {
+				"functionName": "(root)",
+				"scriptId": "0",
+				"url": "",
+				"lineNumber": -1,
+				"columnNumber": -1
+			},
+			"hitCount": 0,
+			"children": [
+				2,
+				42,
+				194,
+				195,
+				199,
+				237
+			]
+		},
+		{
+			"id": 2,
+			"callFrame": {
+				"functionName": "_doLoadModule",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 685,
+				"columnNumber": 1054
+			},
+			"hitCount": 0,
+			"children": [
+				3
+			]
+		},
+		{
+			"id": 3,
+			"callFrame": {
+				"functionName": "require",
+				"scriptId": "55",
+				"url": "node:internal/modules/helpers",
+				"lineNumber": 151,
+				"columnNumber": 18
+			},
+			"hitCount": 0,
+			"children": [
+				4
+			]
+		},
+		{
+			"id": 4,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "399",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 265,
+				"columnNumber": 36330
+			},
+			"hitCount": 0,
+			"children": [
+				5
+			]
+		},
+		{
+			"id": 5,
+			"callFrame": {
+				"functionName": "Module.require",
+				"scriptId": "68",
+				"url": "node:internal/modules/cjs/loader",
+				"lineNumber": 1574,
+				"columnNumber": 35
+			},
+			"hitCount": 0,
+			"children": [
+				6
+			]
+		},
+		{
+			"id": 6,
+			"callFrame": {
+				"functionName": "wrapModuleLoad",
+				"scriptId": "68",
+				"url": "node:internal/modules/cjs/loader",
+				"lineNumber": 244,
+				"columnNumber": 23
+			},
+			"hitCount": 0,
+			"children": [
+				7
+			]
+		},
+		{
+			"id": 7,
+			"callFrame": {
+				"functionName": "n._load",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 674,
+				"columnNumber": 25734
+			},
+			"hitCount": 0,
+			"children": [
+				8
+			]
+		},
+		{
+			"id": 8,
+			"callFrame": {
+				"functionName": "n._load",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 682,
+				"columnNumber": 28734
+			},
+			"hitCount": 0,
+			"children": [
+				9
+			]
+		},
+		{
+			"id": 9,
+			"callFrame": {
+				"functionName": "i._load",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 836,
+				"columnNumber": 6432
+			},
+			"hitCount": 0,
+			"children": [
+				10
+			]
+		},
+		{
+			"id": 10,
+			"callFrame": {
+				"functionName": "c._load",
+				"scriptId": "86",
+				"url": "node:electron/js2c/node_init",
+				"lineNumber": 1,
+				"columnNumber": 18075
+			},
+			"hitCount": 0,
+			"children": [
+				11
+			]
+		},
+		{
+			"id": 11,
+			"callFrame": {
+				"functionName": "Module._load",
+				"scriptId": "68",
+				"url": "node:internal/modules/cjs/loader",
+				"lineNumber": 1245,
+				"columnNumber": 23
+			},
+			"hitCount": 0,
+			"children": [
+				12
+			]
+		},
+		{
+			"id": 12,
+			"callFrame": {
+				"functionName": "Module.load",
+				"scriptId": "68",
+				"url": "node:internal/modules/cjs/loader",
+				"lineNumber": 1544,
+				"columnNumber": 32
+			},
+			"hitCount": 0,
+			"children": [
+				13
+			]
+		},
+		{
+			"id": 13,
+			"callFrame": {
+				"functionName": "Module._extensions..js",
+				"scriptId": "68",
+				"url": "node:internal/modules/cjs/loader",
+				"lineNumber": 1935,
+				"columnNumber": 36
+			},
+			"hitCount": 0,
+			"children": [
+				14
+			]
+		},
+		{
+			"id": 14,
+			"callFrame": {
+				"functionName": "Module._compile",
+				"scriptId": "68",
+				"url": "node:internal/modules/cjs/loader",
+				"lineNumber": 1788,
+				"columnNumber": 36
+			},
+			"hitCount": 0,
+			"children": [
+				15
+			]
+		},
+		{
+			"id": 15,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 0,
+				"columnNumber": 0
+			},
+			"hitCount": 12,
+			"children": [
+				16,
+				21,
+				30,
+				38,
+				43,
+				46,
+				65,
+				71,
+				89,
+				117,
+				128,
+				131,
+				135,
+				142,
+				149,
+				157,
+				162,
+				176,
+				183,
+				184
+			],
+			"positionTicks": [
+				{
+					"line": 796,
+					"ticks": 1
+				},
+				{
+					"line": 322,
+					"ticks": 1
+				},
+				{
+					"line": 321,
+					"ticks": 1
+				},
+				{
+					"line": 320,
+					"ticks": 1
+				},
+				{
+					"line": 376,
+					"ticks": 1
+				},
+				{
+					"line": 320,
+					"ticks": 1
+				},
+				{
+					"line": 321,
+					"ticks": 1
+				},
+				{
+					"line": 320,
+					"ticks": 1
+				},
+				{
+					"line": 322,
+					"ticks": 1
+				},
+				{
+					"line": 320,
+					"ticks": 1
+				},
+				{
+					"line": 320,
+					"ticks": 1
+				},
+				{
+					"line": 314,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 16,
+			"callFrame": {
+				"functionName": "Fe",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 20974
+			},
+			"hitCount": 0,
+			"children": [
+				17
+			]
+		},
+		{
+			"id": 17,
+			"callFrame": {
+				"functionName": "o",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 10011
+			},
+			"hitCount": 0,
+			"children": [
+				18
+			]
+		},
+		{
+			"id": 18,
+			"callFrame": {
+				"functionName": "i",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 9648
+			},
+			"hitCount": 0,
+			"children": [
+				19
+			]
+		},
+		{
+			"id": 19,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 20728
+			},
+			"hitCount": 0,
+			"children": [
+				20
+			]
+		},
+		{
+			"id": 20,
+			"callFrame": {
+				"functionName": "i",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 9648
+			},
+			"hitCount": 0
+		},
+		{
+			"id": 21,
+			"callFrame": {
+				"functionName": "cn",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 15463
+			},
+			"hitCount": 0,
+			"children": [
+				22
+			]
+		},
+		{
+			"id": 22,
+			"callFrame": {
+				"functionName": "YE",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 311,
+				"columnNumber": 120120
+			},
+			"hitCount": 0,
+			"children": [
+				23
+			]
+		},
+		{
+			"id": 23,
+			"callFrame": {
+				"functionName": "o",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 10011
+			},
+			"hitCount": 0,
+			"children": [
+				24
+			]
+		},
+		{
+			"id": 24,
+			"callFrame": {
+				"functionName": "i",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 9648
+			},
+			"hitCount": 0,
+			"children": [
+				25
+			]
+		},
+		{
+			"id": 25,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 15416
+			},
+			"hitCount": 0,
+			"children": [
+				26
+			]
+		},
+		{
+			"id": 26,
+			"callFrame": {
+				"functionName": "i",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 9648
+			},
+			"hitCount": 0,
+			"children": [
+				27
+			]
+		},
+		{
+			"id": 27,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 288,
+				"columnNumber": 6166
+			},
+			"hitCount": 0,
+			"children": [
+				28
+			]
+		},
+		{
+			"id": 28,
+			"callFrame": {
+				"functionName": "i",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 9648
+			},
+			"hitCount": 0,
+			"children": [
+				29
+			]
+		},
+		{
+			"id": 29,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 288,
+				"columnNumber": 58
+			},
+			"hitCount": 2,
+			"positionTicks": [
+				{
+					"line": 289,
+					"ticks": 2
+				}
+			]
+		},
+		{
+			"id": 30,
+			"callFrame": {
+				"functionName": "K",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 12325
+			},
+			"hitCount": 0,
+			"children": [
+				31
+			]
+		},
+		{
+			"id": 31,
+			"callFrame": {
+				"functionName": "HE",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 311,
+				"columnNumber": 116574
+			},
+			"hitCount": 0,
+			"children": [
+				32
+			]
+		},
+		{
+			"id": 32,
+			"callFrame": {
+				"functionName": "o",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 10011
+			},
+			"hitCount": 0,
+			"children": [
+				33
+			]
+		},
+		{
+			"id": 33,
+			"callFrame": {
+				"functionName": "i",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 9648
+			},
+			"hitCount": 0,
+			"children": [
+				34
+			]
+		},
+		{
+			"id": 34,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 11453
+			},
+			"hitCount": 1,
+			"children": [
+				35
+			],
+			"positionTicks": [
+				{
+					"line": 314,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 35,
+			"callFrame": {
+				"functionName": "i",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 9648
+			},
+			"hitCount": 1,
+			"children": [
+				36,
+				37
+			],
+			"positionTicks": [
+				{
+					"line": 286,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 36,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 10827
+			},
+			"hitCount": 1,
+			"children": [
+				173
+			],
+			"positionTicks": [
+				{
+					"line": 314,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 173,
+			"callFrame": {
+				"functionName": "i",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 9648
+			},
+			"hitCount": 0,
+			"children": [
+				174
+			]
+		},
+		{
+			"id": 174,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 9591
+			},
+			"hitCount": 1,
+			"positionTicks": [
+				{
+					"line": 314,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 37,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 288,
+				"columnNumber": 1173
+			},
+			"hitCount": 1,
+			"positionTicks": [
+				{
+					"line": 289,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 38,
+			"callFrame": {
+				"functionName": "Re",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 18048
+			},
+			"hitCount": 0,
+			"children": [
+				39
+			]
+		},
+		{
+			"id": 39,
+			"callFrame": {
+				"functionName": "o",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 10011
+			},
+			"hitCount": 0,
+			"children": [
+				40
+			]
+		},
+		{
+			"id": 40,
+			"callFrame": {
+				"functionName": "i",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 9648
+			},
+			"hitCount": 0,
+			"children": [
+				41
+			]
+		},
+		{
+			"id": 41,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 17465
+			},
+			"hitCount": 1,
+			"positionTicks": [
+				{
+					"line": 314,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 43,
+			"callFrame": {
+				"functionName": "e.extend",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 17856
+			},
+			"hitCount": 0,
+			"children": [
+				44
+			]
+		},
+		{
+			"id": 44,
+			"callFrame": {
+				"functionName": "hZe",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 16444
+			},
+			"hitCount": 0,
+			"children": [
+				45,
+				82
+			]
+		},
+		{
+			"id": 45,
+			"callFrame": {
+				"functionName": "qf",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 13401
+			},
+			"hitCount": 1,
+			"positionTicks": [
+				{
+					"line": 286,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 82,
+			"callFrame": {
+				"functionName": "ei",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 14573
+			},
+			"hitCount": 0,
+			"children": [
+				83
+			]
+		},
+		{
+			"id": 83,
+			"callFrame": {
+				"functionName": "o",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 10011
+			},
+			"hitCount": 0,
+			"children": [
+				84
+			]
+		},
+		{
+			"id": 84,
+			"callFrame": {
+				"functionName": "i",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 9648
+			},
+			"hitCount": 0,
+			"children": [
+				85
+			]
+		},
+		{
+			"id": 85,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 17465
+			},
+			"hitCount": 0,
+			"children": [
+				86
+			]
+		},
+		{
+			"id": 86,
+			"callFrame": {
+				"functionName": "i",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 9648
+			},
+			"hitCount": 0,
+			"children": [
+				87
+			]
+		},
+		{
+			"id": 87,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 9591
+			},
+			"hitCount": 0,
+			"children": [
+				88
+			]
+		},
+		{
+			"id": 88,
+			"callFrame": {
+				"functionName": "i",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 9648
+			},
+			"hitCount": 1,
+			"positionTicks": [
+				{
+					"line": 286,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 46,
+			"callFrame": {
+				"functionName": "e.url",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 11524
+			},
+			"hitCount": 0,
+			"children": [
+				47,
+				59
+			]
+		},
+		{
+			"id": 47,
+			"callFrame": {
+				"functionName": "Xy",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 311,
+				"columnNumber": 117342
+			},
+			"hitCount": 0,
+			"children": [
+				48
+			]
+		},
+		{
+			"id": 48,
+			"callFrame": {
+				"functionName": "o",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 10011
+			},
+			"hitCount": 0,
+			"children": [
+				49
+			]
+		},
+		{
+			"id": 49,
+			"callFrame": {
+				"functionName": "i",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 9648
+			},
+			"hitCount": 0,
+			"children": [
+				50
+			]
+		},
+		{
+			"id": 50,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 12780
+			},
+			"hitCount": 0,
+			"children": [
+				51
+			]
+		},
+		{
+			"id": 51,
+			"callFrame": {
+				"functionName": "i",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 9648
+			},
+			"hitCount": 1,
+			"children": [
+				52
+			],
+			"positionTicks": [
+				{
+					"line": 286,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 52,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 288,
+				"columnNumber": 1905
+			},
+			"hitCount": 0,
+			"children": [
+				53
+			]
+		},
+		{
+			"id": 53,
+			"callFrame": {
+				"functionName": "i",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 9648
+			},
+			"hitCount": 0,
+			"children": [
+				54
+			]
+		},
+		{
+			"id": 54,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 288,
+				"columnNumber": 1483
+			},
+			"hitCount": 0,
+			"children": [
+				55
+			]
+		},
+		{
+			"id": 55,
+			"callFrame": {
+				"functionName": "i",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 9648
+			},
+			"hitCount": 0,
+			"children": [
+				56
+			]
+		},
+		{
+			"id": 56,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 288,
+				"columnNumber": 1173
+			},
+			"hitCount": 0,
+			"children": [
+				57
+			]
+		},
+		{
+			"id": 57,
+			"callFrame": {
+				"functionName": "i",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 9648
+			},
+			"hitCount": 0,
+			"children": [
+				58
+			]
+		},
+		{
+			"id": 58,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 288,
+				"columnNumber": 58
+			},
+			"hitCount": 0
+		},
+		{
+			"id": 59,
+			"callFrame": {
+				"functionName": "e.check",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 9670
+			},
+			"hitCount": 0,
+			"children": [
+				60
+			]
+		},
+		{
+			"id": 60,
+			"callFrame": {
+				"functionName": "e.clone",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 9816
+			},
+			"hitCount": 0,
+			"children": [
+				61
+			]
+		},
+		{
+			"id": 61,
+			"callFrame": {
+				"functionName": "ei",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 14573
+			},
+			"hitCount": 0,
+			"children": [
+				62
+			]
+		},
+		{
+			"id": 62,
+			"callFrame": {
+				"functionName": "o",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 10011
+			},
+			"hitCount": 0,
+			"children": [
+				63
+			]
+		},
+		{
+			"id": 63,
+			"callFrame": {
+				"functionName": "i",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 9648
+			},
+			"hitCount": 0,
+			"children": [
+				64
+			]
+		},
+		{
+			"id": 64,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 11453
+			},
+			"hitCount": 1,
+			"positionTicks": [
+				{
+					"line": 314,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 65,
+			"callFrame": {
+				"functionName": "fr",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 21866
+			},
+			"hitCount": 0,
+			"children": [
+				66
+			]
+		},
+		{
+			"id": 66,
+			"callFrame": {
+				"functionName": "o",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 10011
+			},
+			"hitCount": 0,
+			"children": [
+				67
+			]
+		},
+		{
+			"id": 67,
+			"callFrame": {
+				"functionName": "i",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 9648
+			},
+			"hitCount": 0,
+			"children": [
+				68
+			]
+		},
+		{
+			"id": 68,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 21785
+			},
+			"hitCount": 0,
+			"children": [
+				69
+			]
+		},
+		{
+			"id": 69,
+			"callFrame": {
+				"functionName": "i",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 9648
+			},
+			"hitCount": 0,
+			"children": [
+				70
+			]
+		},
+		{
+			"id": 70,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 9591
+			},
+			"hitCount": 1,
+			"positionTicks": [
+				{
+					"line": 314,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 71,
+			"callFrame": {
+				"functionName": "e.startsWith",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 11042
+			},
+			"hitCount": 0,
+			"children": [
+				72
+			]
+		},
+		{
+			"id": 72,
+			"callFrame": {
+				"functionName": "e.check",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 9670
+			},
+			"hitCount": 0,
+			"children": [
+				73
+			]
+		},
+		{
+			"id": 73,
+			"callFrame": {
+				"functionName": "e.clone",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 9816
+			},
+			"hitCount": 0,
+			"children": [
+				74
+			]
+		},
+		{
+			"id": 74,
+			"callFrame": {
+				"functionName": "ei",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 14573
+			},
+			"hitCount": 0,
+			"children": [
+				75
+			]
+		},
+		{
+			"id": 75,
+			"callFrame": {
+				"functionName": "o",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 10011
+			},
+			"hitCount": 0,
+			"children": [
+				76
+			]
+		},
+		{
+			"id": 76,
+			"callFrame": {
+				"functionName": "i",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 9648
+			},
+			"hitCount": 0,
+			"children": [
+				77
+			]
+		},
+		{
+			"id": 77,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 11453
+			},
+			"hitCount": 0,
+			"children": [
+				78
+			]
+		},
+		{
+			"id": 78,
+			"callFrame": {
+				"functionName": "i",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 9648
+			},
+			"hitCount": 0,
+			"children": [
+				79
+			]
+		},
+		{
+			"id": 79,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 288,
+				"columnNumber": 1173
+			},
+			"hitCount": 0,
+			"children": [
+				80
+			]
+		},
+		{
+			"id": 80,
+			"callFrame": {
+				"functionName": "i",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 9648
+			},
+			"hitCount": 0,
+			"children": [
+				81
+			]
+		},
+		{
+			"id": 81,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 288,
+				"columnNumber": 58
+			},
+			"hitCount": 1,
+			"positionTicks": [
+				{
+					"line": 289,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 89,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 1,
+				"columnNumber": 796
+			},
+			"hitCount": 2,
+			"children": [
+				90,
+				115,
+				185
+			],
+			"positionTicks": [
+				{
+					"line": 2,
+					"ticks": 2
+				}
+			]
+		},
+		{
+			"id": 90,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 75,
+				"columnNumber": 17067
+			},
+			"hitCount": 1,
+			"children": [
+				91
+			],
+			"positionTicks": [
+				{
+					"line": 76,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 91,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 1,
+				"columnNumber": 796
+			},
+			"hitCount": 1,
+			"children": [
+				92,
+				107
+			],
+			"positionTicks": [
+				{
+					"line": 2,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 92,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 72,
+				"columnNumber": 41731
+			},
+			"hitCount": 1,
+			"children": [
+				93
+			],
+			"positionTicks": [
+				{
+					"line": 73,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 93,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 1,
+				"columnNumber": 796
+			},
+			"hitCount": 2,
+			"children": [
+				94,
+				103
+			],
+			"positionTicks": [
+				{
+					"line": 2,
+					"ticks": 2
+				}
+			]
+		},
+		{
+			"id": 94,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 72,
+				"columnNumber": 14337
+			},
+			"hitCount": 0,
+			"children": [
+				95
+			]
+		},
+		{
+			"id": 95,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 1,
+				"columnNumber": 796
+			},
+			"hitCount": 3,
+			"children": [
+				96
+			],
+			"positionTicks": [
+				{
+					"line": 2,
+					"ticks": 3
+				}
+			]
+		},
+		{
+			"id": 96,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 69,
+				"columnNumber": 12408
+			},
+			"hitCount": 0,
+			"children": [
+				97
+			]
+		},
+		{
+			"id": 97,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 1,
+				"columnNumber": 796
+			},
+			"hitCount": 1,
+			"children": [
+				98
+			],
+			"positionTicks": [
+				{
+					"line": 2,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 98,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 69,
+				"columnNumber": 9302
+			},
+			"hitCount": 0,
+			"children": [
+				99
+			]
+		},
+		{
+			"id": 99,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 1,
+				"columnNumber": 796
+			},
+			"hitCount": 2,
+			"children": [
+				100,
+				102
+			],
+			"positionTicks": [
+				{
+					"line": 2,
+					"ticks": 2
+				}
+			]
+		},
+		{
+			"id": 100,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 68,
+				"columnNumber": 33506
+			},
+			"hitCount": 1,
+			"children": [
+				101
+			],
+			"positionTicks": [
+				{
+					"line": 69,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 101,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 1,
+				"columnNumber": 796
+			},
+			"hitCount": 1,
+			"positionTicks": [
+				{
+					"line": 2,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 102,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 69,
+				"columnNumber": 5032
+			},
+			"hitCount": 1,
+			"positionTicks": [
+				{
+					"line": 70,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 103,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 72,
+				"columnNumber": 41582
+			},
+			"hitCount": 0,
+			"children": [
+				104
+			]
+		},
+		{
+			"id": 104,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 1,
+				"columnNumber": 796
+			},
+			"hitCount": 1,
+			"children": [
+				105
+			],
+			"positionTicks": [
+				{
+					"line": 2,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 105,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 72,
+				"columnNumber": 36795
+			},
+			"hitCount": 0,
+			"children": [
+				106
+			]
+		},
+		{
+			"id": 106,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 1,
+				"columnNumber": 796
+			},
+			"hitCount": 1,
+			"positionTicks": [
+				{
+					"line": 2,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 107,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 75,
+				"columnNumber": 11866
+			},
+			"hitCount": 1,
+			"children": [
+				108
+			],
+			"positionTicks": [
+				{
+					"line": 76,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 108,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 1,
+				"columnNumber": 796
+			},
+			"hitCount": 1,
+			"children": [
+				109,
+				111,
+				113
+			],
+			"positionTicks": [
+				{
+					"line": 2,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 109,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 72,
+				"columnNumber": 56697
+			},
+			"hitCount": 0,
+			"children": [
+				110
+			]
+		},
+		{
+			"id": 110,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 1,
+				"columnNumber": 796
+			},
+			"hitCount": 1,
+			"positionTicks": [
+				{
+					"line": 2,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 111,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 72,
+				"columnNumber": 65065
+			},
+			"hitCount": 0,
+			"children": [
+				112
+			]
+		},
+		{
+			"id": 112,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 1,
+				"columnNumber": 796
+			},
+			"hitCount": 1,
+			"positionTicks": [
+				{
+					"line": 2,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 113,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 75,
+				"columnNumber": 9047
+			},
+			"hitCount": 0,
+			"children": [
+				114
+			]
+		},
+		{
+			"id": 114,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 1,
+				"columnNumber": 796
+			},
+			"hitCount": 1,
+			"positionTicks": [
+				{
+					"line": 2,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 115,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 75,
+				"columnNumber": 28207
+			},
+			"hitCount": 0,
+			"children": [
+				116
+			]
+		},
+		{
+			"id": 116,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 1,
+				"columnNumber": 796
+			},
+			"hitCount": 2,
+			"positionTicks": [
+				{
+					"line": 2,
+					"ticks": 2
+				}
+			]
+		},
+		{
+			"id": 185,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 75,
+				"columnNumber": 69081
+			},
+			"hitCount": 0,
+			"children": [
+				186
+			]
+		},
+		{
+			"id": 186,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 1,
+				"columnNumber": 796
+			},
+			"hitCount": 2,
+			"children": [
+				187
+			],
+			"positionTicks": [
+				{
+					"line": 2,
+					"ticks": 2
+				}
+			]
+		},
+		{
+			"id": 187,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 75,
+				"columnNumber": 55405
+			},
+			"hitCount": 1,
+			"children": [
+				188
+			],
+			"positionTicks": [
+				{
+					"line": 76,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 188,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 1,
+				"columnNumber": 796
+			},
+			"hitCount": 4,
+			"children": [
+				189
+			],
+			"positionTicks": [
+				{
+					"line": 2,
+					"ticks": 4
+				}
+			]
+		},
+		{
+			"id": 189,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 75,
+				"columnNumber": 30884
+			},
+			"hitCount": 0,
+			"children": [
+				190
+			]
+		},
+		{
+			"id": 190,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 1,
+				"columnNumber": 796
+			},
+			"hitCount": 0,
+			"children": [
+				191
+			]
+		},
+		{
+			"id": 191,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 75,
+				"columnNumber": 29399
+			},
+			"hitCount": 0,
+			"children": [
+				192
+			]
+		},
+		{
+			"id": 192,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 1,
+				"columnNumber": 796
+			},
+			"hitCount": 0,
+			"children": [
+				193
+			]
+		},
+		{
+			"id": 193,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 75,
+				"columnNumber": 28986
+			},
+			"hitCount": 1,
+			"positionTicks": [
+				{
+					"line": 76,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 117,
+			"callFrame": {
+				"functionName": "require",
+				"scriptId": "55",
+				"url": "node:internal/modules/helpers",
+				"lineNumber": 151,
+				"columnNumber": 18
+			},
+			"hitCount": 0,
+			"children": [
+				118
+			]
+		},
+		{
+			"id": 118,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "399",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 265,
+				"columnNumber": 36330
+			},
+			"hitCount": 1,
+			"children": [
+				119
+			],
+			"positionTicks": [
+				{
+					"line": 266,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 119,
+			"callFrame": {
+				"functionName": "Module.require",
+				"scriptId": "68",
+				"url": "node:internal/modules/cjs/loader",
+				"lineNumber": 1574,
+				"columnNumber": 35
+			},
+			"hitCount": 0,
+			"children": [
+				120
+			]
+		},
+		{
+			"id": 120,
+			"callFrame": {
+				"functionName": "wrapModuleLoad",
+				"scriptId": "68",
+				"url": "node:internal/modules/cjs/loader",
+				"lineNumber": 244,
+				"columnNumber": 23
+			},
+			"hitCount": 0,
+			"children": [
+				121
+			]
+		},
+		{
+			"id": 121,
+			"callFrame": {
+				"functionName": "n._load",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 674,
+				"columnNumber": 25734
+			},
+			"hitCount": 0,
+			"children": [
+				122
+			]
+		},
+		{
+			"id": 122,
+			"callFrame": {
+				"functionName": "n._load",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 682,
+				"columnNumber": 28734
+			},
+			"hitCount": 0,
+			"children": [
+				123
+			]
+		},
+		{
+			"id": 123,
+			"callFrame": {
+				"functionName": "J_",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 431,
+				"columnNumber": 102321
+			},
+			"hitCount": 1,
+			"children": [
+				124
+			],
+			"positionTicks": [
+				{
+					"line": 432,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 124,
+			"callFrame": {
+				"functionName": "realpathSync",
+				"scriptId": "156",
+				"url": "node:original-fs",
+				"lineNumber": 2713,
+				"columnNumber": 21
+			},
+			"hitCount": 0,
+			"children": [
+				125,
+				126
+			]
+		},
+		{
+			"id": 125,
+			"callFrame": {
+				"functionName": "lstat",
+				"scriptId": "0",
+				"url": "",
+				"lineNumber": -1,
+				"columnNumber": -1
+			},
+			"hitCount": 24,
+			"positionTicks": [
+				{
+					"line": 2790,
+					"ticks": 20
+				},
+				{
+					"line": 2748,
+					"ticks": 4
+				}
+			]
+		},
+		{
+			"id": 126,
+			"callFrame": {
+				"functionName": "resolve",
+				"scriptId": "38",
+				"url": "node:path",
+				"lineNumber": 183,
+				"columnNumber": 9
+			},
+			"hitCount": 1,
+			"children": [
+				127
+			],
+			"positionTicks": [
+				{
+					"line": 295,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 127,
+			"callFrame": {
+				"functionName": "normalizeString",
+				"scriptId": "38",
+				"url": "node:path",
+				"lineNumber": 85,
+				"columnNumber": 24
+			},
+			"hitCount": 1,
+			"positionTicks": [
+				{
+					"line": 94,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 128,
+			"callFrame": {
+				"functionName": "Rf.create",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 210,
+				"columnNumber": 68867
+			},
+			"hitCount": 1,
+			"children": [
+				129
+			],
+			"positionTicks": [
+				{
+					"line": 211,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 129,
+			"callFrame": {
+				"functionName": "Rf",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 210,
+				"columnNumber": 68613
+			},
+			"hitCount": 0,
+			"children": [
+				130
+			]
+		},
+		{
+			"id": 130,
+			"callFrame": {
+				"functionName": "wt",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 210,
+				"columnNumber": 30255
+			},
+			"hitCount": 1,
+			"positionTicks": [
+				{
+					"line": 211,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 131,
+			"callFrame": {
+				"functionName": "optional",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 210,
+				"columnNumber": 31286
+			},
+			"hitCount": 0,
+			"children": [
+				132
+			]
+		},
+		{
+			"id": 132,
+			"callFrame": {
+				"functionName": "ss.create",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 210,
+				"columnNumber": 73425
+			},
+			"hitCount": 1,
+			"children": [
+				133
+			],
+			"positionTicks": [
+				{
+					"line": 211,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 133,
+			"callFrame": {
+				"functionName": "ss",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 210,
+				"columnNumber": 73258
+			},
+			"hitCount": 0,
+			"children": [
+				134
+			]
+		},
+		{
+			"id": 134,
+			"callFrame": {
+				"functionName": "wt",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 210,
+				"columnNumber": 30255
+			},
+			"hitCount": 1,
+			"positionTicks": [
+				{
+					"line": 211,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 135,
+			"callFrame": {
+				"functionName": "RXe",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 319,
+				"columnNumber": 14767
+			},
+			"hitCount": 1,
+			"children": [
+				136
+			],
+			"positionTicks": [
+				{
+					"line": 320,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 136,
+			"callFrame": {
+				"functionName": "isOptional",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 210,
+				"columnNumber": 32173
+			},
+			"hitCount": 0,
+			"children": [
+				137
+			]
+		},
+		{
+			"id": 137,
+			"callFrame": {
+				"functionName": "safeParse",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 210,
+				"columnNumber": 28483
+			},
+			"hitCount": 0,
+			"children": [
+				138
+			]
+		},
+		{
+			"id": 138,
+			"callFrame": {
+				"functionName": "_parseSync",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 210,
+				"columnNumber": 28237
+			},
+			"hitCount": 2,
+			"children": [
+				139
+			],
+			"positionTicks": [
+				{
+					"line": 211,
+					"ticks": 2
+				}
+			]
+		},
+		{
+			"id": 139,
+			"callFrame": {
+				"functionName": "_parse",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 210,
+				"columnNumber": 44770
+			},
+			"hitCount": 1,
+			"children": [
+				140
+			],
+			"positionTicks": [
+				{
+					"line": 211,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 140,
+			"callFrame": {
+				"functionName": "ke",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 210,
+				"columnNumber": 25381
+			},
+			"hitCount": 0,
+			"children": [
+				141
+			]
+		},
+		{
+			"id": 141,
+			"callFrame": {
+				"functionName": "by",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 210,
+				"columnNumber": 25080
+			},
+			"hitCount": 1,
+			"positionTicks": [
+				{
+					"line": 211,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 142,
+			"callFrame": {
+				"functionName": "error",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 531,
+				"columnNumber": 26943
+			},
+			"hitCount": 0,
+			"children": [
+				143,
+				145
+			]
+		},
+		{
+			"id": 143,
+			"callFrame": {
+				"functionName": "prepareStackTraceCallback",
+				"scriptId": "7",
+				"url": "node:internal/errors",
+				"lineNumber": 130,
+				"columnNumber": 34
+			},
+			"hitCount": 0,
+			"children": [
+				144
+			]
+		},
+		{
+			"id": 144,
+			"callFrame": {
+				"functionName": "m",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 537,
+				"columnNumber": 31404
+			},
+			"hitCount": 2,
+			"positionTicks": [
+				{
+					"line": 539,
+					"ticks": 2
+				}
+			]
+		},
+		{
+			"id": 145,
+			"callFrame": {
+				"functionName": "json",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 531,
+				"columnNumber": 27371
+			},
+			"hitCount": 0,
+			"children": [
+				146
+			]
+		},
+		{
+			"id": 146,
+			"callFrame": {
+				"functionName": "text",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 531,
+				"columnNumber": 27299
+			},
+			"hitCount": 0,
+			"children": [
+				147
+			]
+		},
+		{
+			"id": 147,
+			"callFrame": {
+				"functionName": "encode",
+				"scriptId": "50",
+				"url": "node:internal/encoding",
+				"lineNumber": 354,
+				"columnNumber": 8
+			},
+			"hitCount": 0,
+			"children": [
+				148
+			]
+		},
+		{
+			"id": 148,
+			"callFrame": {
+				"functionName": "encodeUtf8String",
+				"scriptId": "0",
+				"url": "",
+				"lineNumber": -1,
+				"columnNumber": -1
+			},
+			"hitCount": 1,
+			"positionTicks": [
+				{
+					"line": 357,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 149,
+			"callFrame": {
+				"functionName": "e.describe",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 10475
+			},
+			"hitCount": 0,
+			"children": [
+				150
+			]
+		},
+		{
+			"id": 150,
+			"callFrame": {
+				"functionName": "e.clone",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 9816
+			},
+			"hitCount": 0,
+			"children": [
+				151
+			]
+		},
+		{
+			"id": 151,
+			"callFrame": {
+				"functionName": "ei",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 14573
+			},
+			"hitCount": 0,
+			"children": [
+				152
+			]
+		},
+		{
+			"id": 152,
+			"callFrame": {
+				"functionName": "o",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 10011
+			},
+			"hitCount": 0,
+			"children": [
+				153
+			]
+		},
+		{
+			"id": 153,
+			"callFrame": {
+				"functionName": "i",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 9648
+			},
+			"hitCount": 0,
+			"children": [
+				154,
+				155
+			]
+		},
+		{
+			"id": 154,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 11453
+			},
+			"hitCount": 1,
+			"children": [
+				169
+			],
+			"positionTicks": [
+				{
+					"line": 314,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 169,
+			"callFrame": {
+				"functionName": "i",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 9648
+			},
+			"hitCount": 0,
+			"children": [
+				170
+			]
+		},
+		{
+			"id": 170,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 10827
+			},
+			"hitCount": 0,
+			"children": [
+				171
+			]
+		},
+		{
+			"id": 171,
+			"callFrame": {
+				"functionName": "i",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 9648
+			},
+			"hitCount": 0,
+			"children": [
+				172
+			]
+		},
+		{
+			"id": 172,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 9591
+			},
+			"hitCount": 1,
+			"positionTicks": [
+				{
+					"line": 314,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 155,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 21785
+			},
+			"hitCount": 0,
+			"children": [
+				156
+			]
+		},
+		{
+			"id": 156,
+			"callFrame": {
+				"functionName": "i",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 9648
+			},
+			"hitCount": 1,
+			"children": [
+				175
+			],
+			"positionTicks": [
+				{
+					"line": 286,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 175,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 9591
+			},
+			"hitCount": 2,
+			"positionTicks": [
+				{
+					"line": 314,
+					"ticks": 1
+				},
+				{
+					"line": 314,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 157,
+			"callFrame": {
+				"functionName": "zt",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 15152
+			},
+			"hitCount": 0,
+			"children": [
+				158
+			]
+		},
+		{
+			"id": 158,
+			"callFrame": {
+				"functionName": "WE",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 311,
+				"columnNumber": 119461
+			},
+			"hitCount": 0,
+			"children": [
+				159
+			]
+		},
+		{
+			"id": 159,
+			"callFrame": {
+				"functionName": "o",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 10011
+			},
+			"hitCount": 0,
+			"children": [
+				160
+			]
+		},
+		{
+			"id": 160,
+			"callFrame": {
+				"functionName": "i",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 9648
+			},
+			"hitCount": 0,
+			"children": [
+				161
+			]
+		},
+		{
+			"id": 161,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 14302
+			},
+			"hitCount": 1,
+			"positionTicks": [
+				{
+					"line": 314,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 162,
+			"callFrame": {
+				"functionName": "e.optional",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 10182
+			},
+			"hitCount": 0,
+			"children": [
+				163
+			]
+		},
+		{
+			"id": 163,
+			"callFrame": {
+				"functionName": "fr",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 21866
+			},
+			"hitCount": 0,
+			"children": [
+				164
+			]
+		},
+		{
+			"id": 164,
+			"callFrame": {
+				"functionName": "o",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 10011
+			},
+			"hitCount": 0,
+			"children": [
+				165
+			]
+		},
+		{
+			"id": 165,
+			"callFrame": {
+				"functionName": "i",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 9648
+			},
+			"hitCount": 0,
+			"children": [
+				166
+			]
+		},
+		{
+			"id": 166,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 21785
+			},
+			"hitCount": 0,
+			"children": [
+				167
+			]
+		},
+		{
+			"id": 167,
+			"callFrame": {
+				"functionName": "i",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 9648
+			},
+			"hitCount": 0,
+			"children": [
+				168
+			]
+		},
+		{
+			"id": 168,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 9591
+			},
+			"hitCount": 1,
+			"positionTicks": [
+				{
+					"line": 314,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 176,
+			"callFrame": {
+				"functionName": "AXe",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 319,
+				"columnNumber": 19358
+			},
+			"hitCount": 1,
+			"children": [
+				177
+			],
+			"positionTicks": [
+				{
+					"line": 320,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 177,
+			"callFrame": {
+				"functionName": "e.isOptional",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 10730
+			},
+			"hitCount": 0,
+			"children": [
+				178
+			]
+		},
+		{
+			"id": 178,
+			"callFrame": {
+				"functionName": "e.safeParse",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 313,
+				"columnNumber": 9934
+			},
+			"hitCount": 0,
+			"children": [
+				179
+			]
+		},
+		{
+			"id": 179,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 286,
+				"columnNumber": 545
+			},
+			"hitCount": 0,
+			"children": [
+				180,
+				181
+			]
+		},
+		{
+			"id": 180,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 286,
+				"columnNumber": 728
+			},
+			"hitCount": 1,
+			"positionTicks": [
+				{
+					"line": 287,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 181,
+			"callFrame": {
+				"functionName": "o",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 10011
+			},
+			"hitCount": 1,
+			"children": [
+				182
+			],
+			"positionTicks": [
+				{
+					"line": 286,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 182,
+			"callFrame": {
+				"functionName": "s",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 285,
+				"columnNumber": 9940
+			},
+			"hitCount": 1,
+			"positionTicks": [
+				{
+					"line": 286,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 183,
+			"callFrame": {
+				"functionName": "replace",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 320,
+				"columnNumber": 6001
+			},
+			"hitCount": 1,
+			"positionTicks": [
+				{
+					"line": 321,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 184,
+			"callFrame": {
+				"functionName": "getRegex",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 320,
+				"columnNumber": 6109
+			},
+			"hitCount": 14,
+			"positionTicks": [
+				{
+					"line": 321,
+					"ticks": 14
+				}
+			]
+		},
+		{
+			"id": 42,
+			"callFrame": {
+				"functionName": "(garbage collector)",
+				"scriptId": "0",
+				"url": "",
+				"lineNumber": -1,
+				"columnNumber": -1
+			},
+			"hitCount": 3
+		},
+		{
+			"id": 194,
+			"callFrame": {
+				"functionName": "(program)",
+				"scriptId": "0",
+				"url": "",
+				"lineNumber": -1,
+				"columnNumber": -1
+			},
+			"hitCount": 2
+		},
+		{
+			"id": 195,
+			"callFrame": {
+				"functionName": "processImmediate",
+				"scriptId": "10",
+				"url": "node:internal/timers",
+				"lineNumber": 455,
+				"columnNumber": 27
+			},
+			"hitCount": 0,
+			"children": [
+				196
+			]
+		},
+		{
+			"id": 196,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "391",
+				"url": "pii_removed\\jsonClientMain.js",
+				"lineNumber": 4,
+				"columnNumber": 7135
+			},
+			"hitCount": 0,
+			"children": [
+				197
+			]
+		},
+		{
+			"id": 197,
+			"callFrame": {
+				"functionName": "Pt",
+				"scriptId": "391",
+				"url": "pii_removed\\jsonClientMain.js",
+				"lineNumber": 4,
+				"columnNumber": 7504
+			},
+			"hitCount": 0,
+			"children": [
+				198
+			]
+		},
+		{
+			"id": 198,
+			"callFrame": {
+				"functionName": "Yt",
+				"scriptId": "391",
+				"url": "pii_removed\\jsonClientMain.js",
+				"lineNumber": 4,
+				"columnNumber": 8156
+			},
+			"hitCount": 1,
+			"positionTicks": [
+				{
+					"line": 5,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 199,
+			"callFrame": {
+				"functionName": "MessagePortMain._internalPort.emit",
+				"scriptId": "126",
+				"url": "node:electron/js2c/utility_init",
+				"lineNumber": 1,
+				"columnNumber": 2849
+			},
+			"hitCount": 0,
+			"children": [
+				200
+			]
+		},
+		{
+			"id": 200,
+			"callFrame": {
+				"functionName": "emit",
+				"scriptId": "22",
+				"url": "node:events",
+				"lineNumber": 455,
+				"columnNumber": 43
+			},
+			"hitCount": 0,
+			"children": [
+				201
+			]
+		},
+		{
+			"id": 201,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 836,
+				"columnNumber": 8109
+			},
+			"hitCount": 0,
+			"children": [
+				202,
+				205
+			]
+		},
+		{
+			"id": 202,
+			"callFrame": {
+				"functionName": "wrap",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 431,
+				"columnNumber": 90736
+			},
+			"hitCount": 0,
+			"children": [
+				203
+			]
+		},
+		{
+			"id": 203,
+			"callFrame": {
+				"functionName": "from",
+				"scriptId": "24",
+				"url": "node:buffer",
+				"lineNumber": 334,
+				"columnNumber": 27
+			},
+			"hitCount": 0,
+			"children": [
+				204
+			]
+		},
+		{
+			"id": 204,
+			"callFrame": {
+				"functionName": "fromArrayBuffer",
+				"scriptId": "24",
+				"url": "node:buffer",
+				"lineNumber": 539,
+				"columnNumber": 24
+			},
+			"hitCount": 1,
+			"positionTicks": [
+				{
+					"line": 550,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 205,
+			"callFrame": {
+				"functionName": "fire",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 432,
+				"columnNumber": 8404
+			},
+			"hitCount": 0,
+			"children": [
+				206
+			]
+		},
+		{
+			"id": 206,
+			"callFrame": {
+				"functionName": "fire",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 430,
+				"columnNumber": 3373
+			},
+			"hitCount": 0,
+			"children": [
+				207
+			]
+		},
+		{
+			"id": 207,
+			"callFrame": {
+				"functionName": "_deliver",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 430,
+				"columnNumber": 3152
+			},
+			"hitCount": 0,
+			"children": [
+				208
+			]
+		},
+		{
+			"id": 208,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 836,
+				"columnNumber": 9812
+			},
+			"hitCount": 0,
+			"children": [
+				209
+			]
+		},
+		{
+			"id": 209,
+			"callFrame": {
+				"functionName": "fire",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 432,
+				"columnNumber": 8404
+			},
+			"hitCount": 0,
+			"children": [
+				210
+			]
+		},
+		{
+			"id": 210,
+			"callFrame": {
+				"functionName": "fire",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 430,
+				"columnNumber": 3373
+			},
+			"hitCount": 0,
+			"children": [
+				211
+			]
+		},
+		{
+			"id": 211,
+			"callFrame": {
+				"functionName": "_deliver",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 430,
+				"columnNumber": 3152
+			},
+			"hitCount": 0,
+			"children": [
+				212
+			]
+		},
+		{
+			"id": 212,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 434,
+				"columnNumber": 153323
+			},
+			"hitCount": 0,
+			"children": [
+				213
+			]
+		},
+		{
+			"id": 213,
+			"callFrame": {
+				"functionName": "_receiveOneMessage",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 434,
+				"columnNumber": 155013
+			},
+			"hitCount": 0,
+			"children": [
+				214
+			]
+		},
+		{
+			"id": 214,
+			"callFrame": {
+				"functionName": "_receiveRequest",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 434,
+				"columnNumber": 156224
+			},
+			"hitCount": 0,
+			"children": [
+				215
+			]
+		},
+		{
+			"id": 215,
+			"callFrame": {
+				"functionName": "_invokeHandler",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 434,
+				"columnNumber": 157596
+			},
+			"hitCount": 0,
+			"children": [
+				216
+			]
+		},
+		{
+			"id": 216,
+			"callFrame": {
+				"functionName": "_doInvokeHandler",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 434,
+				"columnNumber": 157712
+			},
+			"hitCount": 0,
+			"children": [
+				217
+			]
+		},
+		{
+			"id": 217,
+			"callFrame": {
+				"functionName": "$providePromptFiles",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 561,
+				"columnNumber": 16416
+			},
+			"hitCount": 0,
+			"children": [
+				218
+			]
+		},
+		{
+			"id": 218,
+			"callFrame": {
+				"functionName": "provideCustomAgents",
+				"scriptId": "399",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 1195,
+				"columnNumber": 916
+			},
+			"hitCount": 0,
+			"children": [
+				219
+			]
+		},
+		{
+			"id": 219,
+			"callFrame": {
+				"functionName": "_writeCacheFile",
+				"scriptId": "399",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 1195,
+				"columnNumber": 1054
+			},
+			"hitCount": 0,
+			"children": [
+				220
+			]
+		},
+		{
+			"id": 220,
+			"callFrame": {
+				"functionName": "stat",
+				"scriptId": "399",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 6261,
+				"columnNumber": 21914
+			},
+			"hitCount": 0,
+			"children": [
+				221
+			]
+		},
+		{
+			"id": 221,
+			"callFrame": {
+				"functionName": "stat",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 533,
+				"columnNumber": 18858
+			},
+			"hitCount": 0,
+			"children": [
+				222
+			]
+		},
+		{
+			"id": 222,
+			"callFrame": {
+				"functionName": "r.<computed>.s.charCodeAt.r.<computed>",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 434,
+				"columnNumber": 154727
+			},
+			"hitCount": 0,
+			"children": [
+				223
+			]
+		},
+		{
+			"id": 223,
+			"callFrame": {
+				"functionName": "_remoteCall",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 434,
+				"columnNumber": 157910
+			},
+			"hitCount": 0,
+			"children": [
+				224,
+				233
+			]
+		},
+		{
+			"id": 224,
+			"callFrame": {
+				"functionName": "serializeRequest",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 434,
+				"columnNumber": 162307
+			},
+			"hitCount": 0,
+			"children": [
+				225
+			]
+		},
+		{
+			"id": 225,
+			"callFrame": {
+				"functionName": "_requestJSONArgs",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 434,
+				"columnNumber": 162463
+			},
+			"hitCount": 0,
+			"children": [
+				226
+			]
+		},
+		{
+			"id": 226,
+			"callFrame": {
+				"functionName": "fromString",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 431,
+				"columnNumber": 90850
+			},
+			"hitCount": 0,
+			"children": [
+				227
+			]
+		},
+		{
+			"id": 227,
+			"callFrame": {
+				"functionName": "from",
+				"scriptId": "24",
+				"url": "node:buffer",
+				"lineNumber": 334,
+				"columnNumber": 27
+			},
+			"hitCount": 0,
+			"children": [
+				228
+			]
+		},
+		{
+			"id": 228,
+			"callFrame": {
+				"functionName": "fromString",
+				"scriptId": "24",
+				"url": "node:buffer",
+				"lineNumber": 526,
+				"columnNumber": 19
+			},
+			"hitCount": 0,
+			"children": [
+				229
+			]
+		},
+		{
+			"id": 229,
+			"callFrame": {
+				"functionName": "fromStringFast",
+				"scriptId": "24",
+				"url": "node:buffer",
+				"lineNumber": 493,
+				"columnNumber": 23
+			},
+			"hitCount": 0,
+			"children": [
+				230
+			]
+		},
+		{
+			"id": 230,
+			"callFrame": {
+				"functionName": "createPool",
+				"scriptId": "24",
+				"url": "node:buffer",
+				"lineNumber": 176,
+				"columnNumber": 19
+			},
+			"hitCount": 0,
+			"children": [
+				231
+			]
+		},
+		{
+			"id": 231,
+			"callFrame": {
+				"functionName": "createUnsafeBuffer",
+				"scriptId": "25",
+				"url": "node:internal/buffer",
+				"lineNumber": 1096,
+				"columnNumber": 27
+			},
+			"hitCount": 0,
+			"children": [
+				232
+			]
+		},
+		{
+			"id": 232,
+			"callFrame": {
+				"functionName": "createUnsafeArrayBuffer",
+				"scriptId": "0",
+				"url": "",
+				"lineNumber": -1,
+				"columnNumber": -1
+			},
+			"hitCount": 2,
+			"positionTicks": [
+				{
+					"line": 1104,
+					"ticks": 2
+				}
+			]
+		},
+		{
+			"id": 233,
+			"callFrame": {
+				"functionName": "send",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 836,
+				"columnNumber": 9957
+			},
+			"hitCount": 0,
+			"children": [
+				234
+			]
+		},
+		{
+			"id": 234,
+			"callFrame": {
+				"functionName": "send",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 836,
+				"columnNumber": 8230
+			},
+			"hitCount": 0,
+			"children": [
+				235
+			]
+		},
+		{
+			"id": 235,
+			"callFrame": {
+				"functionName": "postMessage",
+				"scriptId": "126",
+				"url": "node:electron/js2c/utility_init",
+				"lineNumber": 1,
+				"columnNumber": 3039
+			},
+			"hitCount": 0,
+			"children": [
+				236
+			]
+		},
+		{
+			"id": 236,
+			"callFrame": {
+				"functionName": "postMessage",
+				"scriptId": "0",
+				"url": "",
+				"lineNumber": -1,
+				"columnNumber": -1
+			},
+			"hitCount": 1,
+			"positionTicks": [
+				{
+					"line": 2,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 237,
+			"callFrame": {
+				"functionName": "",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 537,
+				"columnNumber": 16205
+			},
+			"hitCount": 0,
+			"children": [
+				238
+			]
+		},
+		{
+			"id": 238,
+			"callFrame": {
+				"functionName": "_callActivate",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 537,
+				"columnNumber": 18234
+			},
+			"hitCount": 0,
+			"children": [
+				239
+			]
+		},
+		{
+			"id": 239,
+			"callFrame": {
+				"functionName": "_callActivateOptional",
+				"scriptId": "153",
+				"url": "pii_removed\\extensionHostProcess.js",
+				"lineNumber": 537,
+				"columnNumber": 18442
+			},
+			"hitCount": 0,
+			"children": [
+				240
+			]
+		},
+		{
+			"id": 240,
+			"callFrame": {
+				"functionName": "yot",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 883,
+				"columnNumber": 3995
+			},
+			"hitCount": 1,
+			"children": [
+				241
+			],
+			"positionTicks": [
+				{
+					"line": 884,
+					"ticks": 1
+				}
+			]
+		},
+		{
+			"id": 241,
+			"callFrame": {
+				"functionName": "dhe",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 883,
+				"columnNumber": 2878
+			},
+			"hitCount": 0,
+			"children": [
+				242
+			]
+		},
+		{
+			"id": 242,
+			"callFrame": {
+				"functionName": "ahe",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 875,
+				"columnNumber": 51891
+			},
+			"hitCount": 0,
+			"children": [
+				243
+			]
+		},
+		{
+			"id": 243,
+			"callFrame": {
+				"functionName": "W4",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 875,
+				"columnNumber": 20108
+			},
+			"hitCount": 0,
+			"children": [
+				244
+			]
+		},
+		{
+			"id": 244,
+			"callFrame": {
+				"functionName": "F4",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 875,
+				"columnNumber": 9899
+			},
+			"hitCount": 0,
+			"children": [
+				245
+			]
+		},
+		{
+			"id": 245,
+			"callFrame": {
+				"functionName": "g_",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 317,
+				"columnNumber": 27735
+			},
+			"hitCount": 0,
+			"children": [
+				246
+			]
+		},
+		{
+			"id": 246,
+			"callFrame": {
+				"functionName": "SXe",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 317,
+				"columnNumber": 27603
+			},
+			"hitCount": 0,
+			"children": [
+				247
+			]
+		},
+		{
+			"id": 247,
+			"callFrame": {
+				"functionName": "m_",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 75,
+				"columnNumber": 17352
+			},
+			"hitCount": 0,
+			"children": [
+				248
+			]
+		},
+		{
+			"id": 248,
+			"callFrame": {
+				"functionName": "T$",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 72,
+				"columnNumber": 45227
+			},
+			"hitCount": 0,
+			"children": [
+				249
+			]
+		},
+		{
+			"id": 249,
+			"callFrame": {
+				"functionName": "_addDefaultMetaSchema",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 75,
+				"columnNumber": 17550
+			},
+			"hitCount": 0,
+			"children": [
+				250
+			]
+		},
+		{
+			"id": 250,
+			"callFrame": {
+				"functionName": "addMetaSchema",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 72,
+				"columnNumber": 47791
+			},
+			"hitCount": 0,
+			"children": [
+				251
+			]
+		},
+		{
+			"id": 251,
+			"callFrame": {
+				"functionName": "addSchema",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 72,
+				"columnNumber": 47423
+			},
+			"hitCount": 0,
+			"children": [
+				252
+			]
+		},
+		{
+			"id": 252,
+			"callFrame": {
+				"functionName": "_addSchema",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 72,
+				"columnNumber": 50869
+			},
+			"hitCount": 0,
+			"children": [
+				253
+			]
+		},
+		{
+			"id": 253,
+			"callFrame": {
+				"functionName": "tKe",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 72,
+				"columnNumber": 13469
+			},
+			"hitCount": 0,
+			"children": [
+				254
+			]
+		},
+		{
+			"id": 254,
+			"callFrame": {
+				"functionName": "ble",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 72,
+				"columnNumber": 13119
+			},
+			"hitCount": 0,
+			"children": [
+				255
+			]
+		},
+		{
+			"id": 255,
+			"callFrame": {
+				"functionName": "ym",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 72,
+				"columnNumber": 41060
+			},
+			"hitCount": 0,
+			"children": [
+				256
+			]
+		},
+		{
+			"id": 256,
+			"callFrame": {
+				"functionName": "eue",
+				"scriptId": "463",
+				"url": "pii_removed\\extension.js",
+				"lineNumber": 72,
+				"columnNumber": 39468
+			},
+			"hitCount": 1,
+			"positionTicks": [
+				{
+					"line": 73,
+					"ticks": 1
+				}
+			]
+		}
+	],
+	"startTime": 248893730566,
+	"endTime": 248894837985,
+	"samples": [
+		20,
+		29,
+		36,
+		34,
+		37,
+		41,
+		42,
+		45,
+		51,
+		58,
+		64,
+		29,
+		42,
+		15,
+		70,
+		81,
+		88,
+		89,
+		91,
+		92,
+		93,
+		97,
+		99,
+		99,
+		101,
+		100,
+		102,
+		95,
+		95,
+		95,
+		93,
+		104,
+		106,
+		110,
+		112,
+		42,
+		108,
+		114,
+		107,
+		90,
+		116,
+		116,
+		125,
+		125,
+		125,
+		126,
+		127,
+		130,
+		134,
+		128,
+		132,
+		135,
+		138,
+		141,
+		138,
+		139,
+		15,
+		125,
+		15,
+		144,
+		148,
+		15,
+		154,
+		156,
+		161,
+		35,
+		15,
+		168,
+		172,
+		174,
+		175,
+		175,
+		15,
+		180,
+		181,
+		182,
+		176,
+		181,
+		125,
+		125,
+		123,
+		15,
+		15,
+		183,
+		184,
+		15,
+		15,
+		184,
+		184,
+		184,
+		184,
+		184,
+		184,
+		184,
+		184,
+		184,
+		184,
+		184,
+		184,
+		184,
+		15,
+		118,
+		125,
+		125,
+		15,
+		125,
+		186,
+		186,
+		188,
+		193,
+		188,
+		188,
+		188,
+		187,
+		89,
+		125,
+		125,
+		125,
+		125,
+		125,
+		125,
+		125,
+		125,
+		125,
+		125,
+		144,
+		125,
+		125,
+		125,
+		125,
+		125,
+		194,
+		194,
+		198,
+		204,
+		232,
+		232,
+		236,
+		240,
+		256
+	],
+	"timeDeltas": [
+		1002973,
+		6197,
+		803,
+		1553,
+		573,
+		574,
+		569,
+		560,
+		572,
+		142,
+		461,
+		635,
+		822,
+		579,
+		623,
+		602,
+		680,
+		598,
+		624,
+		648,
+		623,
+		590,
+		600,
+		585,
+		609,
+		643,
+		618,
+		581,
+		610,
+		579,
+		579,
+		623,
+		613,
+		583,
+		581,
+		603,
+		569,
+		1934,
+		646,
+		583,
+		579,
+		575,
+		610,
+		659,
+		574,
+		610,
+		617,
+		611,
+		587,
+		593,
+		577,
+		625,
+		644,
+		586,
+		595,
+		609,
+		620,
+		629,
+		586,
+		607,
+		1150,
+		647,
+		573,
+		590,
+		571,
+		609,
+		587,
+		578,
+		575,
+		583,
+		573,
+		570,
+		570,
+		576,
+		442,
+		133,
+		610,
+		574,
+		597,
+		572,
+		568,
+		574,
+		569,
+		620,
+		646,
+		637,
+		891,
+		593,
+		562,
+		571,
+		565,
+		543,
+		546,
+		567,
+		571,
+		575,
+		568,
+		572,
+		546,
+		547,
+		546,
+		571,
+		570,
+		562,
+		575,
+		576,
+		575,
+		554,
+		550,
+		574,
+		607,
+		574,
+		588,
+		577,
+		572,
+		575,
+		569,
+		554,
+		578,
+		570,
+		572,
+		579,
+		557,
+		553,
+		552,
+		551,
+		572,
+		580,
+		578,
+		573,
+		552,
+		565,
+		552,
+		624,
+		726,
+		692,
+		222,
+		746,
+		7733,
+		7579
+	]
+}

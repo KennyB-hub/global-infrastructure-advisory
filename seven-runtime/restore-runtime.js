@@ -16,9 +16,8 @@ const ARCHIVE_DIR = path.join(ROOT, "var", "archive", "runtime-misplaced");
 
 const RUNTIME_KEYWORDS = [
   "runtime",
-  "runtime",
+  "seven-runtime",
   "decision",
-  "autonomous",
   "state",
   "scheduler",
   "event-loop",
