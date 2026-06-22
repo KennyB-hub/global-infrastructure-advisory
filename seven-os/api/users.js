@@ -1,5 +1,5 @@
 users.js
-// src/functions/api/users.js
+// seven-os/functions/api/users.js
 
 export async function onRequestGet(context) {
   const env = context.env;

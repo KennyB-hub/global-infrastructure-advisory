@@ -1,4 +1,4 @@
-// src/functions/api/[[path]].js
+// seven-os/functions/api/[[path]].js
 // 2050 V12 Alpha — Sovereign API Worker Gateway
 
 import { sovereignWorkerGuard } from "../../system/security/sovereign-worker-guard.js";
