@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-06-22T19:32:56.307Z",
+  "totals": {
+    "moved": 0,
+    "missing": 1,
+    "correct": 0
+  },
+  "entries": [
+    {
+      "key": "infrastructure:jobs-workflow-pipeline",
+      "oldPath": "C:\\Users\\kenny\\global-infrastructure-advisory\\seven-os\\utilities\\dashboard\\universal\\layouts\\jobs-workflow-pipeline.ts",
+      "newPath": "C:\\Users\\kenny\\global-infrastructure-advisory\\seven-os\\utilities\\dashboard\\universal\\layouts\\jobs-workflow-pipeline.ts",
+      "status": "missing"
+    }
+  ]
+}

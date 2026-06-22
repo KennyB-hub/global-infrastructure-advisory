@@ -11,6 +11,7 @@
     "scan:deep": "node seven-runtime/tools/run-repo-audit.js",
     "sync-manifest": "node commands/sync-manifest.cjs",
     "routing:report": "node commands/routing-report.cjs",
+    "fix-routes": "node commands/fix-routes.cjs",
     "routing:validate": "node commands/validate-manifest.cjs",
     "routing:missing": "node commands/find-missing-routes.cjs",
     "auto:generate:routes": "node commands/auto-generate-routes.cjs",
