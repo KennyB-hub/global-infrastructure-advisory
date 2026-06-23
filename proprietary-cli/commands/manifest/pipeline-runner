@@ -1,0 +1,25 @@
+module.exports = {
+  name: "proprietary-cli:commands:manifest:autoscan-pipeline",
+  description: "Runs autoscan → missing routes → auto-add → sync → integration.",
+
+  async run() {
+    const logger = require("../../helpers/logger");
+    logger.start(this.name);
+
+    const exec = async cmd =>
+      require("child_process").execSync(`node proprietary-cli/bin/cli.js ${cmd}`, { stdio: "inherit" });
+
+    try {
+      await exec("proprietary-cli:commands:autoscan");
+      await exec("proprietary-cli:commands:manifest:find-missing-routes");
+      await exec("proprietary-cli:commands:manifest:auto-add-routes");
+      await exec("proprietary-cli:commands:manifest:sync-routing");
+      await exec("proprietary-cli:commands:manifest:routing-integration");
+
+      logger.success(this.name);
+
+    } catch (err) {
+      logger.error(this.name, err);
+    }
+  }
+};

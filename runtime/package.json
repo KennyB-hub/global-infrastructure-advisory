@@ -1,0 +1,12 @@
+{
+  "name": "@seven/os-runtime",
+  "version": "1.0.0",
+  "description": "Seven OS Core Runtime Bootstrap Package",
+  "type": "commonjs",
+  "main": "dist/seven-bootstrap.js",
+  "types": "dist/seven-bootstrap.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {}
+}

@@ -1,0 +1,92 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Workforce Profile",
+  "description": "Unified workforce schema for all GIA sectors.",
+  "type": "object",
+  "required": ["id", "name", "sector", "skills", "experienceYears"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+
+    "sector": {
+      "type": "string",
+      "enum": [
+        "cyber",
+        "energy",
+        "water",
+        "telecom",
+        "transport",
+        "health",
+        "education",
+        "agriculture",
+        "fcc",
+        "defense",
+        "legal",
+        "finance",
+        "business",
+        "technology",
+        "aerospace",
+        "space",
+        "government",
+        "oversight",
+        "construction",
+        "geospatial",
+        "environmental",
+        "research",
+        "development",
+        "operations",
+        "management",
+        "support"
+      ]
+    },
+
+    "role": { "type": "string" },
+
+    "skills": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+
+    "certifications": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+
+    "experienceYears": { "type": "number" },
+
+    "clearanceLevel": {
+      "type": "string",
+      "enum": ["none", "public-trust", "confidential", "secret", "top-secret"]
+    },
+
+    "availability": {
+      "type": "string",
+      "enum": ["full-time", "part-time", "contract", "on-call"]
+    },
+
+    "remoteAllowed": { "type": "boolean" },
+
+    "location": { "type": "string" },
+
+    "trainingCompleted": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+
+    "trustZone": {
+      "type": "string",
+      "enum": [
+        "Public",
+        "Farmer",
+        "Contractor",
+        "Employee",
+        "Admin",
+        "Gov",
+        "DeepGov",
+        "System"
+      ]
+    },
+
+    "lastUpdated": { "type": "string", "format": "date-time" }
+  }
+}

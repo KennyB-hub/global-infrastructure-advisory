@@ -1,0 +1,5822 @@
+{
+  "timestamp": "2026-06-21T19:29:49.369Z",
+  "totalUnmappedSourceFiles": 1267,
+  "sectors": {
+    ".githooks": [
+      {
+        "filename": "edge.json",
+        "relativePath": ".githooks/edge.json"
+      }
+    ],
+    ".vscode": [
+      {
+        "filename": "settings.json",
+        "relativePath": ".vscode/settings.json"
+      }
+    ],
+    "root": [
+      {
+        "filename": "api-routing-map.json",
+        "relativePath": "api-routing-map.json"
+      },
+      {
+        "filename": "domain-routing-map.json",
+        "relativePath": "domain-routing-map.json"
+      },
+      {
+        "filename": "ecosystem.config.js",
+        "relativePath": "ecosystem.config.js"
+      },
+      {
+        "filename": "os-routing-map.json",
+        "relativePath": "os-routing-map.json"
+      },
+      {
+        "filename": "package-lock.json",
+        "relativePath": "package-lock.json"
+      },
+      {
+        "filename": "package.json",
+        "relativePath": "package.json"
+      },
+      {
+        "filename": "sector-worker-evidence-expanded.json",
+        "relativePath": "sector-worker-evidence-expanded.json"
+      },
+      {
+        "filename": "sector-worker-evidence.json",
+        "relativePath": "sector-worker-evidence.json"
+      },
+      {
+        "filename": "system-status.js",
+        "relativePath": "system-status.js"
+      },
+      {
+        "filename": "tsconfig.json",
+        "relativePath": "tsconfig.json"
+      }
+    ],
+    "backend": [
+      {
+        "filename": "agency-dispacher.js",
+        "relativePath": "backend/agency-dispacher.js"
+      },
+      {
+        "filename": "restore-root.js",
+        "relativePath": "backend/restore-root.js"
+      },
+      {
+        "filename": "routing-kernel.js",
+        "relativePath": "backend/routing-kernel.js"
+      },
+      {
+        "filename": "sharepoint-logger.js",
+        "relativePath": "backend/sharepoint-logger.js"
+      },
+      {
+        "filename": "sync-orchestrator.js",
+        "relativePath": "backend/sync-orchestrator.js"
+      },
+      {
+        "filename": "system-map.js",
+        "relativePath": "backend/system-map.js"
+      }
+    ],
+    "backend/ai-worker": [
+      {
+        "filename": "gia-deep-mind-2100.js",
+        "relativePath": "backend/ai-worker/gia-deep-mind-2100.js"
+      },
+      {
+        "filename": "index.js",
+        "relativePath": "backend/ai-worker/index.js"
+      }
+    ],
+    "backend/audit": [
+      {
+        "filename": "engine.js",
+        "relativePath": "backend/audit/engine.js"
+      }
+    ],
+    "backend/edge-vault": [
+      {
+        "filename": "air-gap-sync.js",
+        "relativePath": "backend/edge-vault/air-gap-sync.js"
+      },
+      {
+        "filename": "verify-token.js",
+        "relativePath": "backend/edge-vault/verify-token.js"
+      }
+    ],
+    "backend/edge-vault/VAULT-LAYER/protected": [
+      {
+        "filename": "protectedmiddleware.js",
+        "relativePath": "backend/edge-vault/VAULT-LAYER/protected/protectedmiddleware.js"
+      },
+      {
+        "filename": "require-admin.js",
+        "relativePath": "backend/edge-vault/VAULT-LAYER/protected/require-admin.js"
+      },
+      {
+        "filename": "validate-token.js",
+        "relativePath": "backend/edge-vault/VAULT-LAYER/protected/validate-token.js"
+      }
+    ],
+    "backend/ewo": [
+      {
+        "filename": "ewo-builder.json",
+        "relativePath": "backend/ewo/ewo-builder.json"
+      }
+    ],
+    "backend/gii/context": [
+      {
+        "filename": "context-builder.js",
+        "relativePath": "backend/gii/context/context-builder.js"
+      },
+      {
+        "filename": "context-engine.js",
+        "relativePath": "backend/gii/context/context-engine.js"
+      },
+      {
+        "filename": "context-validator.js",
+        "relativePath": "backend/gii/context/context-validator.js"
+      },
+      {
+        "filename": "index.js",
+        "relativePath": "backend/gii/context/index.js"
+      }
+    ],
+    "backend/hub-logic": [
+      {
+        "filename": "farmer-routes.js",
+        "relativePath": "backend/hub-logic/farmer-routes.js"
+      }
+    ],
+    "backend/hubs/admin": [
+      {
+        "filename": "admin-api.js",
+        "relativePath": "backend/hubs/admin/admin-api.js"
+      },
+      {
+        "filename": "admin-dashboard.js",
+        "relativePath": "backend/hubs/admin/admin-dashboard.js"
+      },
+      {
+        "filename": "admin-utils.js",
+        "relativePath": "backend/hubs/admin/admin-utils.js"
+      },
+      {
+        "filename": "adminhub.ts",
+        "relativePath": "backend/hubs/admin/adminhub.ts"
+      },
+      {
+        "filename": "dashboard.js",
+        "relativePath": "backend/hubs/admin/dashboard.js"
+      },
+      {
+        "filename": "login.js",
+        "relativePath": "backend/hubs/admin/login.js"
+      }
+    ],
+    "backend/intelligence": [
+      {
+        "filename": "roadmap.json",
+        "relativePath": "backend/intelligence/roadmap.json"
+      }
+    ],
+    "backend/legal/civil-apps/evidence-vault": [
+      {
+        "filename": "compliance-check.js",
+        "relativePath": "backend/legal/civil-apps/evidence-vault/compliance-check.js"
+      }
+    ],
+    "backend/network": [
+      {
+        "filename": "routing-engine.js",
+        "relativePath": "backend/network/routing-engine.js"
+      }
+    ],
+    "backend/policy": [
+      {
+        "filename": "cloud-policies.js",
+        "relativePath": "backend/policy/cloud-policies.js"
+      },
+      {
+        "filename": "engine.js",
+        "relativePath": "backend/policy/engine.js"
+      }
+    ],
+    "backend/public": [
+      {
+        "filename": "sw.js",
+        "relativePath": "backend/public/sw.js"
+      }
+    ],
+    "backend/routes": [
+      {
+        "filename": "audit.js",
+        "relativePath": "backend/routes/audit.js"
+      },
+      {
+        "filename": "auth-gateway.js",
+        "relativePath": "backend/routes/auth-gateway.js"
+      },
+      {
+        "filename": "executive-routes.js",
+        "relativePath": "backend/routes/executive-routes.js"
+      },
+      {
+        "filename": "index.js",
+        "relativePath": "backend/routes/index.js"
+      },
+      {
+        "filename": "opportunities.js",
+        "relativePath": "backend/routes/opportunities.js"
+      },
+      {
+        "filename": "public-ai-map.js",
+        "relativePath": "backend/routes/public-ai-map.js"
+      },
+      {
+        "filename": "public-map.js",
+        "relativePath": "backend/routes/public-map.js"
+      },
+      {
+        "filename": "public-routes.js",
+        "relativePath": "backend/routes/public-routes.js"
+      },
+      {
+        "filename": "security-audit.js",
+        "relativePath": "backend/routes/security-audit.js"
+      },
+      {
+        "filename": "storage-routing vault-config.js",
+        "relativePath": "backend/routes/storage-routing vault-config.js"
+      },
+      {
+        "filename": "voice-flight.js",
+        "relativePath": "backend/routes/voice-flight.js"
+      }
+    ],
+    "backend/security": [
+      {
+        "filename": "auth-service.js",
+        "relativePath": "backend/security/auth-service.js"
+      },
+      {
+        "filename": "build-guard.js",
+        "relativePath": "backend/security/build-guard.js"
+      },
+      {
+        "filename": "entra-guard.js",
+        "relativePath": "backend/security/entra-guard.js"
+      },
+      {
+        "filename": "key-engine.js",
+        "relativePath": "backend/security/key-engine.js"
+      },
+      {
+        "filename": "security-audit.js",
+        "relativePath": "backend/security/security-audit.js"
+      },
+      {
+        "filename": "worker-gauard.js",
+        "relativePath": "backend/security/worker-gauard.js"
+      }
+    ],
+    "backend/security/tools": [
+      {
+        "filename": "check-public-exposure.js",
+        "relativePath": "backend/security/tools/check-public-exposure.js"
+      },
+      {
+        "filename": "dns-inspector.js",
+        "relativePath": "backend/security/tools/dns-inspector.js"
+      },
+      {
+        "filename": "index.js",
+        "relativePath": "backend/security/tools/index.js"
+      },
+      {
+        "filename": "inspect-config.js",
+        "relativePath": "backend/security/tools/inspect-config.js"
+      },
+      {
+        "filename": "inspect-routing.js",
+        "relativePath": "backend/security/tools/inspect-routing.js"
+      },
+      {
+        "filename": "threat-scan.js",
+        "relativePath": "backend/security/tools/threat-scan.js"
+      }
+    ],
+    "backend/services": [
+      {
+        "filename": "constants.js",
+        "relativePath": "backend/services/constants.js"
+      },
+      {
+        "filename": "costants.js",
+        "relativePath": "backend/services/costants.js"
+      },
+      {
+        "filename": "db.js",
+        "relativePath": "backend/services/db.js"
+      },
+      {
+        "filename": "dispatch-service.js",
+        "relativePath": "backend/services/dispatch-service.js"
+      },
+      {
+        "filename": "logger.js",
+        "relativePath": "backend/services/logger.js"
+      },
+      {
+        "filename": "request-parser.js",
+        "relativePath": "backend/services/request-parser.js"
+      },
+      {
+        "filename": "response.js",
+        "relativePath": "backend/services/response.js"
+      },
+      {
+        "filename": "sector-service.js",
+        "relativePath": "backend/services/sector-service.js"
+      }
+    ],
+    "backend/system": [
+      {
+        "filename": "ai-routing.js",
+        "relativePath": "backend/system/ai-routing.js"
+      },
+      {
+        "filename": "domains.js",
+        "relativePath": "backend/system/domains.js"
+      },
+      {
+        "filename": "manifest.js",
+        "relativePath": "backend/system/manifest.js"
+      },
+      {
+        "filename": "prefligt-check.js",
+        "relativePath": "backend/system/prefligt-check.js"
+      },
+      {
+        "filename": "sector-report.js",
+        "relativePath": "backend/system/sector-report.js"
+      },
+      {
+        "filename": "status.js",
+        "relativePath": "backend/system/status.js"
+      },
+      {
+        "filename": "system-endpoints.js",
+        "relativePath": "backend/system/system-endpoints.js"
+      },
+      {
+        "filename": "system-full-report.js",
+        "relativePath": "backend/system/system-full-report.js"
+      },
+      {
+        "filename": "system-status.js",
+        "relativePath": "backend/system/system-status.js"
+      },
+      {
+        "filename": "trust-middleware.js",
+        "relativePath": "backend/system/trust-middleware.js"
+      },
+      {
+        "filename": "trust.js",
+        "relativePath": "backend/system/trust.js"
+      },
+      {
+        "filename": "uptime.js",
+        "relativePath": "backend/system/uptime.js"
+      }
+    ],
+    "backend/system/ewo": [
+      {
+        "filename": "ewo-router.js",
+        "relativePath": "backend/system/ewo/ewo-router.js"
+      },
+      {
+        "filename": "ewo-schema.js",
+        "relativePath": "backend/system/ewo/ewo-schema.js"
+      },
+      {
+        "filename": "sector-router.js",
+        "relativePath": "backend/system/ewo/sector-router.js"
+      }
+    ],
+    "backend/system/identity": [
+      {
+        "filename": "did-vc-verifier.js",
+        "relativePath": "backend/system/identity/did-vc-verifier.js"
+      }
+    ],
+    "backend/system/logging": [
+      {
+        "filename": "system-log.js",
+        "relativePath": "backend/system/logging/system-log.js"
+      }
+    ],
+    "backend/system/mcp": [
+      {
+        "filename": "mcp-cloud-boundary.js",
+        "relativePath": "backend/system/mcp/mcp-cloud-boundary.js"
+      },
+      {
+        "filename": "mcp-enforcer.js",
+        "relativePath": "backend/system/mcp/mcp-enforcer.js"
+      },
+      {
+        "filename": "mcp-evaluator.js",
+        "relativePath": "backend/system/mcp/mcp-evaluator.js"
+      },
+      {
+        "filename": "mcp-policy-regisry.js",
+        "relativePath": "backend/system/mcp/mcp-policy-regisry.js"
+      }
+    ],
+    "backend/system/routing": [
+      {
+        "filename": "ewo-router.js",
+        "relativePath": "backend/system/routing/ewo-router.js"
+      },
+      {
+        "filename": "global-routing-map.js",
+        "relativePath": "backend/system/routing/global-routing-map.js"
+      }
+    ],
+    "backend/threat": [
+      {
+        "filename": "cyber-models.js",
+        "relativePath": "backend/threat/cyber-models.js"
+      },
+      {
+        "filename": "index.js",
+        "relativePath": "backend/threat/index.js"
+      },
+      {
+        "filename": "threat-fetch.js",
+        "relativePath": "backend/threat/threat-fetch.js"
+      },
+      {
+        "filename": "threat-reporting.js",
+        "relativePath": "backend/threat/threat-reporting.js"
+      },
+      {
+        "filename": "threat-storage.js",
+        "relativePath": "backend/threat/threat-storage.js"
+      },
+      {
+        "filename": "threat-summary.js",
+        "relativePath": "backend/threat/threat-summary.js"
+      },
+      {
+        "filename": "threat-telemetry.js",
+        "relativePath": "backend/threat/threat-telemetry.js"
+      }
+    ],
+    "backend/trust": [
+      {
+        "filename": "engine.js",
+        "relativePath": "backend/trust/engine.js"
+      }
+    ],
+    "backend/utilities": [
+      {
+        "filename": "context.js",
+        "relativePath": "backend/utilities/context.js"
+      },
+      {
+        "filename": "helpers.js",
+        "relativePath": "backend/utilities/helpers.js"
+      },
+      {
+        "filename": "storage-inspector.js",
+        "relativePath": "backend/utilities/storage-inspector.js"
+      }
+    ],
+    "backend/utilities/dns": [
+      {
+        "filename": "dns-inspector.js",
+        "relativePath": "backend/utilities/dns/dns-inspector.js"
+      },
+      {
+        "filename": "routing-inspector.js",
+        "relativePath": "backend/utilities/dns/routing-inspector.js"
+      }
+    ],
+    "backend/utilities/geo": [
+      {
+        "filename": "geo-context.js",
+        "relativePath": "backend/utilities/geo/geo-context.js"
+      },
+      {
+        "filename": "geo-disance-calc.js",
+        "relativePath": "backend/utilities/geo/geo-disance-calc.js"
+      },
+      {
+        "filename": "geo-grid.js",
+        "relativePath": "backend/utilities/geo/geo-grid.js"
+      },
+      {
+        "filename": "geo-mapping.js",
+        "relativePath": "backend/utilities/geo/geo-mapping.js"
+      },
+      {
+        "filename": "geo-normalize.js",
+        "relativePath": "backend/utilities/geo/geo-normalize.js"
+      },
+      {
+        "filename": "index.js",
+        "relativePath": "backend/utilities/geo/index.js"
+      },
+      {
+        "filename": "lookup.js",
+        "relativePath": "backend/utilities/geo/lookup.js"
+      },
+      {
+        "filename": "mapping logic.js",
+        "relativePath": "backend/utilities/geo/mapping logic.js"
+      },
+      {
+        "filename": "mapping.js",
+        "relativePath": "backend/utilities/geo/mapping.js"
+      },
+      {
+        "filename": "normalize location.js",
+        "relativePath": "backend/utilities/geo/normalize location.js"
+      },
+      {
+        "filename": "project surch.js",
+        "relativePath": "backend/utilities/geo/project surch.js"
+      },
+      {
+        "filename": "region matcher.js",
+        "relativePath": "backend/utilities/geo/region matcher.js"
+      },
+      {
+        "filename": "region.js",
+        "relativePath": "backend/utilities/geo/region.js"
+      },
+      {
+        "filename": "routing-inspector.js",
+        "relativePath": "backend/utilities/geo/routing-inspector.js"
+      }
+    ],
+    "backend/utilities/geomapping-logic.js": [
+      {
+        "filename": "API.js",
+        "relativePath": "backend/utilities/geomapping-logic.js/API.js"
+      },
+      {
+        "filename": "dispatcher.js",
+        "relativePath": "backend/utilities/geomapping-logic.js/dispatcher.js"
+      },
+      {
+        "filename": "farmer engine.js",
+        "relativePath": "backend/utilities/geomapping-logic.js/farmer engine.js"
+      },
+      {
+        "filename": "index.js",
+        "relativePath": "backend/utilities/geomapping-logic.js/index.js"
+      },
+      {
+        "filename": "resilient-search.js",
+        "relativePath": "backend/utilities/geomapping-logic.js/resilient-search.js"
+      },
+      {
+        "filename": "space engine.js",
+        "relativePath": "backend/utilities/geomapping-logic.js/space engine.js"
+      },
+      {
+        "filename": "system-heartbeat.js",
+        "relativePath": "backend/utilities/geomapping-logic.js/system-heartbeat.js"
+      }
+    ],
+    "backend/utilities/integrity": [
+      {
+        "filename": "drone.js",
+        "relativePath": "backend/utilities/integrity/drone.js"
+      },
+      {
+        "filename": "file-map.js",
+        "relativePath": "backend/utilities/integrity/file-map.js"
+      },
+      {
+        "filename": "index.js",
+        "relativePath": "backend/utilities/integrity/index.js"
+      },
+      {
+        "filename": "integrity-check.js",
+        "relativePath": "backend/utilities/integrity/integrity-check.js"
+      },
+      {
+        "filename": "sync-queue.js",
+        "relativePath": "backend/utilities/integrity/sync-queue.js"
+      }
+    ],
+    "backend/workers": [
+      {
+        "filename": "agricultureWorkerHierarchy.json",
+        "relativePath": "backend/workers/agricultureWorkerHierarchy.json"
+      },
+      {
+        "filename": "anys-worker.json",
+        "relativePath": "backend/workers/anys-worker.json"
+      },
+      {
+        "filename": "discovery.ts",
+        "relativePath": "backend/workers/discovery.ts"
+      },
+      {
+        "filename": "index.json",
+        "relativePath": "backend/workers/index.json"
+      },
+      {
+        "filename": "worker-bridge.js",
+        "relativePath": "backend/workers/worker-bridge.js"
+      },
+      {
+        "filename": "worker-registry.ts",
+        "relativePath": "backend/workers/worker-registry.ts"
+      }
+    ],
+    "backend/workers/system-workers/public-worker": [
+      {
+        "filename": "public-worker.js",
+        "relativePath": "backend/workers/system-workers/public-worker/public-worker.js"
+      },
+      {
+        "filename": "public-worker.ts",
+        "relativePath": "backend/workers/system-workers/public-worker/public-worker.ts"
+      },
+      {
+        "filename": "registry.js",
+        "relativePath": "backend/workers/system-workers/public-worker/registry.js"
+      },
+      {
+        "filename": "registry.ts",
+        "relativePath": "backend/workers/system-workers/public-worker/registry.ts"
+      }
+    ],
+    "backend/workers/system-workers/worker-name": [
+      {
+        "filename": "registry.js",
+        "relativePath": "backend/workers/system-workers/worker-name/registry.js"
+      },
+      {
+        "filename": "registry.ts",
+        "relativePath": "backend/workers/system-workers/worker-name/registry.ts"
+      }
+    ],
+    "backend/workforce": [
+      {
+        "filename": "contractor.schema.json",
+        "relativePath": "backend/workforce/contractor.schema.json"
+      },
+      {
+        "filename": "contractors.json",
+        "relativePath": "backend/workforce/contractors.json"
+      },
+      {
+        "filename": "workforce.json",
+        "relativePath": "backend/workforce/workforce.json"
+      },
+      {
+        "filename": "workforce.schema.json",
+        "relativePath": "backend/workforce/workforce.schema.json"
+      }
+    ],
+    "backend/ws": [
+      {
+        "filename": "collar-ws-nats.js",
+        "relativePath": "backend/ws/collar-ws-nats.js"
+      },
+      {
+        "filename": "collar-ws.js",
+        "relativePath": "backend/ws/collar-ws.js"
+      },
+      {
+        "filename": "run-collar-ws.js",
+        "relativePath": "backend/ws/run-collar-ws.js"
+      }
+    ],
+    "commands": [
+      {
+        "filename": "auto-fix.cjs",
+        "relativePath": "commands/auto-fix.cjs"
+      },
+      {
+        "filename": "checks.cjs",
+        "relativePath": "commands/checks.cjs"
+      },
+      {
+        "filename": "doctor.cjs",
+        "relativePath": "commands/doctor.cjs"
+      },
+      {
+        "filename": "e2e-ws-nats.js",
+        "relativePath": "commands/e2e-ws-nats.js"
+      },
+      {
+        "filename": "find-missing-routes.cjs",
+        "relativePath": "commands/find-missing-routes.cjs"
+      },
+      {
+        "filename": "generate-global-manifest.cjs",
+        "relativePath": "commands/generate-global-manifest.cjs"
+      },
+      {
+        "filename": "license-scan.cjs",
+        "relativePath": "commands/license-scan.cjs"
+      },
+      {
+        "filename": "organize-sectors.cjs",
+        "relativePath": "commands/organize-sectors.cjs"
+      },
+      {
+        "filename": "rebuild-os.cjs",
+        "relativePath": "commands/rebuild-os.cjs"
+      },
+      {
+        "filename": "rebuild-routing.cjs",
+        "relativePath": "commands/rebuild-routing.cjs"
+      },
+      {
+        "filename": "rebuild-seven-runtime.cjs",
+        "relativePath": "commands/rebuild-seven-runtime.cjs"
+      },
+      {
+        "filename": "register-commands.cjs",
+        "relativePath": "commands/register-commands.cjs"
+      },
+      {
+        "filename": "resolve.cjs",
+        "relativePath": "commands/resolve.cjs"
+      },
+      {
+        "filename": "routing-restore.cjs",
+        "relativePath": "commands/routing-restore.cjs"
+      },
+      {
+        "filename": "runtime-loader.cjs",
+        "relativePath": "commands/runtime-loader.cjs"
+      },
+      {
+        "filename": "sandbox.cjs",
+        "relativePath": "commands/sandbox.cjs"
+      },
+      {
+        "filename": "scan-repo-run.cjs",
+        "relativePath": "commands/scan-repo-run.cjs"
+      },
+      {
+        "filename": "scan-repo.cjs",
+        "relativePath": "commands/scan-repo.cjs"
+      },
+      {
+        "filename": "scan-routing-map.cjs",
+        "relativePath": "commands/scan-routing-map.cjs"
+      },
+      {
+        "filename": "scan-routing.cjs",
+        "relativePath": "commands/scan-routing.cjs"
+      },
+      {
+        "filename": "smoke-test.cjs",
+        "relativePath": "commands/smoke-test.cjs"
+      },
+      {
+        "filename": "sovereign-restore.cjs",
+        "relativePath": "commands/sovereign-restore.cjs"
+      },
+      {
+        "filename": "sync-routing.cjs",
+        "relativePath": "commands/sync-routing.cjs"
+      },
+      {
+        "filename": "sync-specialized-sectors.cjs",
+        "relativePath": "commands/sync-specialized-sectors.cjs"
+      },
+      {
+        "filename": "sync-topology.cjs",
+        "relativePath": "commands/sync-topology.cjs"
+      },
+      {
+        "filename": "test-cli-sandbox.cjs",
+        "relativePath": "commands/test-cli-sandbox.cjs"
+      },
+      {
+        "filename": "test-unit.cjs",
+        "relativePath": "commands/test-unit.cjs"
+      },
+      {
+        "filename": "trigger-task.js",
+        "relativePath": "commands/trigger-task.js"
+      },
+      {
+        "filename": "validate-manifest.cjs",
+        "relativePath": "commands/validate-manifest.cjs"
+      }
+    ],
+    "commands/scripts": [
+      {
+        "filename": "audit-runtime.cjs",
+        "relativePath": "commands/scripts/audit-runtime.cjs"
+      }
+    ],
+    "config": [
+      {
+        "filename": "sovereign-tenant.json",
+        "relativePath": "config/sovereign-tenant.json"
+      }
+    ],
+    "frontend/hooks": [
+      {
+        "filename": "useDeepMind.js",
+        "relativePath": "frontend/hooks/useDeepMind.js"
+      }
+    ],
+    "frontend/map": [
+      {
+        "filename": "map-live.js",
+        "relativePath": "frontend/map/map-live.js"
+      },
+      {
+        "filename": "map-utils.js",
+        "relativePath": "frontend/map/map-utils.js"
+      }
+    ],
+    "functions": [
+      {
+        "filename": "CandidateSet.json",
+        "relativePath": "functions/CandidateSet.json"
+      }
+    ],
+    "geo-utilities": [
+      {
+        "filename": "geoindex.js",
+        "relativePath": "geo-utilities/geoindex.js"
+      }
+    ],
+    "hubs": [
+      {
+        "filename": "Farmer mobile UI spec.json",
+        "relativePath": "hubs/Farmer mobile UI spec.json"
+      },
+      {
+        "filename": "Global Contractor Marketplace + Credentialing Engine.json",
+        "relativePath": "hubs/Global Contractor Marketplace + Credentialing Engine.json"
+      },
+      {
+        "filename": "Public Workforce Coordination Grid.json",
+        "relativePath": "hubs/Public Workforce Coordination Grid.json"
+      }
+    ],
+    "hubs/payroll": [
+      {
+        "filename": "env.json",
+        "relativePath": "hubs/payroll/env.json"
+      }
+    ],
+    "hub_logic": [
+      {
+        "filename": "hub_logic.json",
+        "relativePath": "hub_logic/hub_logic.json"
+      }
+    ],
+    "kv": [
+      {
+        "filename": "ai-config.json",
+        "relativePath": "kv/ai-config.json"
+      },
+      {
+        "filename": "donors.json",
+        "relativePath": "kv/donors.json"
+      },
+      {
+        "filename": "opportunities.json",
+        "relativePath": "kv/opportunities.json"
+      },
+      {
+        "filename": "system-config.json",
+        "relativePath": "kv/system-config.json"
+      },
+      {
+        "filename": "workforce.json",
+        "relativePath": "kv/workforce.json"
+      }
+    ],
+    "log": [
+      {
+        "filename": "log-metrics.json",
+        "relativePath": "log/log-metrics.json"
+      },
+      {
+        "filename": "log-schema.json",
+        "relativePath": "log/log-schema.json"
+      },
+      {
+        "filename": "log-storage-strategy.json",
+        "relativePath": "log/log-storage-strategy.json"
+      },
+      {
+        "filename": "log-thresholds.json",
+        "relativePath": "log/log-thresholds.json"
+      },
+      {
+        "filename": "manifest.json",
+        "relativePath": "log/manifest.json"
+      },
+      {
+        "filename": "memory-log.json",
+        "relativePath": "log/memory-log.json"
+      },
+      {
+        "filename": "session_log.json",
+        "relativePath": "log/session_log.json"
+      },
+      {
+        "filename": "telemetry-log.json",
+        "relativePath": "log/telemetry-log.json"
+      }
+    ],
+    "manifest": [
+      {
+        "filename": "global-manifest.json",
+        "relativePath": "manifest/global-manifest.json"
+      }
+    ],
+    "proprietary-cli/bin": [
+      {
+        "filename": "cli.js",
+        "relativePath": "proprietary-cli/bin/cli.js"
+      }
+    ],
+    "proprietary-cli/commands/ai": [
+      {
+        "filename": "run-organ.js",
+        "relativePath": "proprietary-cli/commands/ai/run-organ.js"
+      },
+      {
+        "filename": "run-workflow.js",
+        "relativePath": "proprietary-cli/commands/ai/run-workflow.js"
+      },
+      {
+        "filename": "validate.js",
+        "relativePath": "proprietary-cli/commands/ai/validate.js"
+      }
+    ],
+    "proprietary-cli/commands": [
+      {
+        "filename": "autoscan.js",
+        "relativePath": "proprietary-cli/commands/autoscan.js"
+      },
+      {
+        "filename": "index-command.js",
+        "relativePath": "proprietary-cli/commands/index-command.js"
+      }
+    ],
+    "proprietary-cli/commands/config": [
+      {
+        "filename": "node-registry.json",
+        "relativePath": "proprietary-cli/commands/config/node-registry.json"
+      },
+      {
+        "filename": "system-manifest.json",
+        "relativePath": "proprietary-cli/commands/config/system-manifest.json"
+      }
+    ],
+    "proprietary-cli/commands/dev": [
+      {
+        "filename": "build.js",
+        "relativePath": "proprietary-cli/commands/dev/build.js"
+      },
+      {
+        "filename": "clean.js",
+        "relativePath": "proprietary-cli/commands/dev/clean.js"
+      },
+      {
+        "filename": "test.js",
+        "relativePath": "proprietary-cli/commands/dev/test.js"
+      }
+    ],
+    "proprietary-cli/commands/manifest": [
+      {
+        "filename": "add-routes.js",
+        "relativePath": "proprietary-cli/commands/manifest/add-routes.js"
+      },
+      {
+        "filename": "auto-move-safe.js",
+        "relativePath": "proprietary-cli/commands/manifest/auto-move-safe.js"
+      },
+      {
+        "filename": "find-missing-routes.js",
+        "relativePath": "proprietary-cli/commands/manifest/find-missing-routes.js"
+      },
+      {
+        "filename": "loader.ts",
+        "relativePath": "proprietary-cli/commands/manifest/loader.ts"
+      },
+      {
+        "filename": "routes.json",
+        "relativePath": "proprietary-cli/commands/manifest/routes.json"
+      },
+      {
+        "filename": "routing-integration.js",
+        "relativePath": "proprietary-cli/commands/manifest/routing-integration.js"
+      },
+      {
+        "filename": "sync-routing.js",
+        "relativePath": "proprietary-cli/commands/manifest/sync-routing.js"
+      }
+    ],
+    "proprietary-cli/commands/ops": [
+      {
+        "filename": "dispatch.js",
+        "relativePath": "proprietary-cli/commands/ops/dispatch.js"
+      },
+      {
+        "filename": "sector.js",
+        "relativePath": "proprietary-cli/commands/ops/sector.js"
+      },
+      {
+        "filename": "telemetry.js",
+        "relativePath": "proprietary-cli/commands/ops/telemetry.js"
+      }
+    ],
+    "proprietary-cli/commands/zoning": [
+      {
+        "filename": "check.js",
+        "relativePath": "proprietary-cli/commands/zoning/check.js"
+      }
+    ],
+    "proprietary-cli/core": [
+      {
+        "filename": "command-registry.cjs",
+        "relativePath": "proprietary-cli/core/command-registry.cjs"
+      },
+      {
+        "filename": "help.js",
+        "relativePath": "proprietary-cli/core/help.js"
+      },
+      {
+        "filename": "load-node-module-commands.cjs",
+        "relativePath": "proprietary-cli/core/load-node-module-commands.cjs"
+      }
+    ],
+    "proprietary-cli/helpers": [
+      {
+        "filename": "colors.js",
+        "relativePath": "proprietary-cli/helpers/colors.js"
+      },
+      {
+        "filename": "env.js",
+        "relativePath": "proprietary-cli/helpers/env.js"
+      },
+      {
+        "filename": "fs.js",
+        "relativePath": "proprietary-cli/helpers/fs.js"
+      },
+      {
+        "filename": "prompts.js",
+        "relativePath": "proprietary-cli/helpers/prompts.js"
+      }
+    ],
+    "proprietary-cli/mci": [
+      {
+        "filename": "list.ts",
+        "relativePath": "proprietary-cli/mci/list.ts"
+      }
+    ],
+    "proprietary-cli": [
+      {
+        "filename": "package-lock.json",
+        "relativePath": "proprietary-cli/package-lock.json"
+      },
+      {
+        "filename": "package.json",
+        "relativePath": "proprietary-cli/package.json"
+      }
+    ],
+    "proprietary-cli/spec": [
+      {
+        "filename": "autoscan-pipeline.json",
+        "relativePath": "proprietary-cli/spec/autoscan-pipeline.json"
+      },
+      {
+        "filename": "cli-routing-spec.json",
+        "relativePath": "proprietary-cli/spec/cli-routing-spec.json"
+      },
+      {
+        "filename": "command-index-spec.json",
+        "relativePath": "proprietary-cli/spec/command-index-spec.json"
+      },
+      {
+        "filename": "help-system.json",
+        "relativePath": "proprietary-cli/spec/help-system.json"
+      }
+    ],
+    "public/assets/js": [
+      {
+        "filename": "admin-logic.js",
+        "relativePath": "public/assets/js/admin-logic.js"
+      },
+      {
+        "filename": "brain-client.js",
+        "relativePath": "public/assets/js/brain-client.js"
+      },
+      {
+        "filename": "hologram.js",
+        "relativePath": "public/assets/js/hologram.js"
+      },
+      {
+        "filename": "language-switcher.js",
+        "relativePath": "public/assets/js/language-switcher.js"
+      },
+      {
+        "filename": "mapdata.js",
+        "relativePath": "public/assets/js/mapdata.js"
+      },
+      {
+        "filename": "menu-bar.js",
+        "relativePath": "public/assets/js/menu-bar.js"
+      },
+      {
+        "filename": "publicjsdb.js",
+        "relativePath": "public/assets/js/publicjsdb.js"
+      },
+      {
+        "filename": "search-projects.js",
+        "relativePath": "public/assets/js/search-projects.js"
+      },
+      {
+        "filename": "telemetry.js",
+        "relativePath": "public/assets/js/telemetry.js"
+      }
+    ],
+    "public/assets/js/i18n": [
+      {
+        "filename": "ar.json",
+        "relativePath": "public/assets/js/i18n/ar.json"
+      },
+      {
+        "filename": "de.json",
+        "relativePath": "public/assets/js/i18n/de.json"
+      },
+      {
+        "filename": "en.json",
+        "relativePath": "public/assets/js/i18n/en.json"
+      },
+      {
+        "filename": "es.json",
+        "relativePath": "public/assets/js/i18n/es.json"
+      },
+      {
+        "filename": "fa.json",
+        "relativePath": "public/assets/js/i18n/fa.json"
+      },
+      {
+        "filename": "fr.json",
+        "relativePath": "public/assets/js/i18n/fr.json"
+      },
+      {
+        "filename": "he.json",
+        "relativePath": "public/assets/js/i18n/he.json"
+      },
+      {
+        "filename": "hi.json",
+        "relativePath": "public/assets/js/i18n/hi.json"
+      },
+      {
+        "filename": "ja.json",
+        "relativePath": "public/assets/js/i18n/ja.json"
+      },
+      {
+        "filename": "ko.json",
+        "relativePath": "public/assets/js/i18n/ko.json"
+      },
+      {
+        "filename": "pt.json",
+        "relativePath": "public/assets/js/i18n/pt.json"
+      },
+      {
+        "filename": "ru.json",
+        "relativePath": "public/assets/js/i18n/ru.json"
+      },
+      {
+        "filename": "sw.json",
+        "relativePath": "public/assets/js/i18n/sw.json"
+      },
+      {
+        "filename": "tr.json",
+        "relativePath": "public/assets/js/i18n/tr.json"
+      },
+      {
+        "filename": "zh.json",
+        "relativePath": "public/assets/js/i18n/zh.json"
+      }
+    ],
+    "runtime": [
+      {
+        "filename": "audit-runtime.cjs",
+        "relativePath": "runtime/audit-runtime.cjs"
+      },
+      {
+        "filename": "fix-runtime.cjs",
+        "relativePath": "runtime/fix-runtime.cjs"
+      },
+      {
+        "filename": "fix-runtime.ts",
+        "relativePath": "runtime/fix-runtime.ts"
+      },
+      {
+        "filename": "package.json",
+        "relativePath": "runtime/package.json"
+      },
+      {
+        "filename": "rebuild-runtime.cjs",
+        "relativePath": "runtime/rebuild-runtime.cjs"
+      },
+      {
+        "filename": "restore-runtime.js",
+        "relativePath": "runtime/restore-runtime.js"
+      },
+      {
+        "filename": "runtime-routing-map.json",
+        "relativePath": "runtime/runtime-routing-map.json"
+      }
+    ],
+    "runtime/context": [
+      {
+        "filename": "ai-giiContext.json",
+        "relativePath": "runtime/context/ai-giiContext.json"
+      },
+      {
+        "filename": "context-schema.json",
+        "relativePath": "runtime/context/context-schema.json"
+      }
+    ],
+    "runtime/domain": [
+      {
+        "filename": "agriculture.json",
+        "relativePath": "runtime/domain/agriculture.json"
+      },
+      {
+        "filename": "building-code.json",
+        "relativePath": "runtime/domain/building-code.json"
+      },
+      {
+        "filename": "energy-grid.json",
+        "relativePath": "runtime/domain/energy-grid.json"
+      },
+      {
+        "filename": "energy-storage.json",
+        "relativePath": "runtime/domain/energy-storage.json"
+      },
+      {
+        "filename": "energy-transmission.json",
+        "relativePath": "runtime/domain/energy-transmission.json"
+      },
+      {
+        "filename": "energy.json",
+        "relativePath": "runtime/domain/energy.json"
+      },
+      {
+        "filename": "health.json",
+        "relativePath": "runtime/domain/health.json"
+      },
+      {
+        "filename": "house-building-code.json",
+        "relativePath": "runtime/domain/house-building-code.json"
+      },
+      {
+        "filename": "infrastructure-manifest.json",
+        "relativePath": "runtime/domain/infrastructure-manifest.json"
+      },
+      {
+        "filename": "manufacturing.json",
+        "relativePath": "runtime/domain/manufacturing.json"
+      },
+      {
+        "filename": "power-generation.json",
+        "relativePath": "runtime/domain/power-generation.json"
+      },
+      {
+        "filename": "sanitation.json",
+        "relativePath": "runtime/domain/sanitation.json"
+      },
+      {
+        "filename": "space.json",
+        "relativePath": "runtime/domain/space.json"
+      },
+      {
+        "filename": "transmission.json",
+        "relativePath": "runtime/domain/transmission.json"
+      }
+    ],
+    "runtime/domain/geomapping-logic.js": [
+      {
+        "filename": "Python.json",
+        "relativePath": "runtime/domain/geomapping-logic.js/Python.json"
+      }
+    ],
+    "runtime/domain/infrastructure": [
+      {
+        "filename": "global-grid-topology-map.json",
+        "relativePath": "runtime/domain/infrastructure/global-grid-topology-map.json"
+      },
+      {
+        "filename": "Humanitarian Infrastructure Module.json",
+        "relativePath": "runtime/domain/infrastructure/Humanitarian Infrastructure Module.json"
+      },
+      {
+        "filename": "infrastructure-operator-console.json",
+        "relativePath": "runtime/domain/infrastructure/infrastructure-operator-console.json"
+      }
+    ],
+    "runtime/domain/infrastructure/intelligence": [
+      {
+        "filename": "tasks.json",
+        "relativePath": "runtime/domain/infrastructure/intelligence/tasks.json"
+      }
+    ],
+    "runtime/domain/infrastructure/workers/config": [
+      {
+        "filename": "os.json",
+        "relativePath": "runtime/domain/infrastructure/workers/config/os.json"
+      }
+    ],
+    "runtime/logs": [
+      {
+        "filename": "log-index.json",
+        "relativePath": "runtime/logs/log-index.json"
+      }
+    ],
+    "runtime/workforce": [
+      {
+        "filename": "opportunities.json",
+        "relativePath": "runtime/workforce/opportunities.json"
+      }
+    ],
+    "seven-os/adapters": [
+      {
+        "filename": "ground-rescue-unit.ts",
+        "relativePath": "seven-os/adapters/ground-rescue-unit.ts"
+      }
+    ],
+    "seven-os/ai": [
+      {
+        "filename": "ai-aim.js",
+        "relativePath": "seven-os/ai/ai-aim.js"
+      },
+      {
+        "filename": "ai-context.js",
+        "relativePath": "seven-os/ai/ai-context.js"
+      },
+      {
+        "filename": "ai-cortex.js",
+        "relativePath": "seven-os/ai/ai-cortex.js"
+      },
+      {
+        "filename": "ai-cyber.js",
+        "relativePath": "seven-os/ai/ai-cyber.js"
+      },
+      {
+        "filename": "ai-matching.js",
+        "relativePath": "seven-os/ai/ai-matching.js"
+      },
+      {
+        "filename": "ai-matching.ts",
+        "relativePath": "seven-os/ai/ai-matching.ts"
+      },
+      {
+        "filename": "ai-safety-guard.js",
+        "relativePath": "seven-os/ai/ai-safety-guard.js"
+      },
+      {
+        "filename": "build-engine.js",
+        "relativePath": "seven-os/ai/build-engine.js"
+      },
+      {
+        "filename": "context-builder.ts",
+        "relativePath": "seven-os/ai/context-builder.ts"
+      },
+      {
+        "filename": "Data contracts.json",
+        "relativePath": "seven-os/ai/Data contracts.json"
+      },
+      {
+        "filename": "decision-engine.js",
+        "relativePath": "seven-os/ai/decision-engine.js"
+      },
+      {
+        "filename": "document-access-audit.js",
+        "relativePath": "seven-os/ai/document-access-audit.js"
+      },
+      {
+        "filename": "document-audit-dashboard.js",
+        "relativePath": "seven-os/ai/document-audit-dashboard.js"
+      },
+      {
+        "filename": "document-generator.js",
+        "relativePath": "seven-os/ai/document-generator.js"
+      },
+      {
+        "filename": "document-retrieval.js",
+        "relativePath": "seven-os/ai/document-retrieval.js"
+      },
+      {
+        "filename": "document-temlate-registry.json",
+        "relativePath": "seven-os/ai/document-temlate-registry.json"
+      },
+      {
+        "filename": "engine.js",
+        "relativePath": "seven-os/ai/engine.js"
+      },
+      {
+        "filename": "error-handler.ts",
+        "relativePath": "seven-os/ai/error-handler.ts"
+      },
+      {
+        "filename": "global-ai-loader.js",
+        "relativePath": "seven-os/ai/global-ai-loader.js"
+      },
+      {
+        "filename": "hauler-registry.js",
+        "relativePath": "seven-os/ai/hauler-registry.js"
+      },
+      {
+        "filename": "haulerCredentialingModule.js",
+        "relativePath": "seven-os/ai/haulerCredentialingModule.js"
+      },
+      {
+        "filename": "incident-response-workflow.js",
+        "relativePath": "seven-os/ai/incident-response-workflow.js"
+      },
+      {
+        "filename": "incident-store.js",
+        "relativePath": "seven-os/ai/incident-store.js"
+      },
+      {
+        "filename": "incident-utils.js",
+        "relativePath": "seven-os/ai/incident-utils.js"
+      },
+      {
+        "filename": "intent-engine.js",
+        "relativePath": "seven-os/ai/intent-engine.js"
+      },
+      {
+        "filename": "lifecycle-manager.js",
+        "relativePath": "seven-os/ai/lifecycle-manager.js"
+      },
+      {
+        "filename": "livestockLogisticsEngine.js",
+        "relativePath": "seven-os/ai/livestockLogisticsEngine.js"
+      },
+      {
+        "filename": "load-matching-engine.js",
+        "relativePath": "seven-os/ai/load-matching-engine.js"
+      },
+      {
+        "filename": "load-registry.js",
+        "relativePath": "seven-os/ai/load-registry.js"
+      },
+      {
+        "filename": "loader.js",
+        "relativePath": "seven-os/ai/loader.js"
+      },
+      {
+        "filename": "logic-engine.js",
+        "relativePath": "seven-os/ai/logic-engine.js"
+      },
+      {
+        "filename": "memory-manager.js",
+        "relativePath": "seven-os/ai/memory-manager.js"
+      },
+      {
+        "filename": "response-sanitizer.ts",
+        "relativePath": "seven-os/ai/response-sanitizer.ts"
+      },
+      {
+        "filename": "risk-trend-analytics-engine.js",
+        "relativePath": "seven-os/ai/risk-trend-analytics-engine.js"
+      },
+      {
+        "filename": "router.ts",
+        "relativePath": "seven-os/ai/router.ts"
+      },
+      {
+        "filename": "security-alerting-service.js",
+        "relativePath": "seven-os/ai/security-alerting-service.js"
+      },
+      {
+        "filename": "semantic-router.js",
+        "relativePath": "seven-os/ai/semantic-router.js"
+      },
+      {
+        "filename": "tools.js",
+        "relativePath": "seven-os/ai/tools.js"
+      },
+      {
+        "filename": "Topology Validation Engine.js",
+        "relativePath": "seven-os/ai/Topology Validation Engine.js"
+      },
+      {
+        "filename": "trustzone-firwall.js",
+        "relativePath": "seven-os/ai/trustzone-firwall.js"
+      },
+      {
+        "filename": "validator.ts",
+        "relativePath": "seven-os/ai/validator.ts"
+      },
+      {
+        "filename": "workflows.js",
+        "relativePath": "seven-os/ai/workflows.js"
+      },
+      {
+        "filename": "zoning-landuse.js",
+        "relativePath": "seven-os/ai/zoning-landuse.js"
+      }
+    ],
+    "seven-os/ai/engines": [
+      {
+        "filename": "ai-geo.js",
+        "relativePath": "seven-os/ai/engines/ai-geo.js"
+      },
+      {
+        "filename": "ai-giiContext.json",
+        "relativePath": "seven-os/ai/engines/ai-giiContext.json"
+      },
+      {
+        "filename": "ai-globalcode.json",
+        "relativePath": "seven-os/ai/engines/ai-globalcode.json"
+      },
+      {
+        "filename": "ai-utilities.js",
+        "relativePath": "seven-os/ai/engines/ai-utilities.js"
+      },
+      {
+        "filename": "ai.autonomy.json",
+        "relativePath": "seven-os/ai/engines/ai.autonomy.json"
+      },
+      {
+        "filename": "core.ts",
+        "relativePath": "seven-os/ai/engines/core.ts"
+      },
+      {
+        "filename": "enforcement-responce.json",
+        "relativePath": "seven-os/ai/engines/enforcement-responce.json"
+      },
+      {
+        "filename": "engine-index.json",
+        "relativePath": "seven-os/ai/engines/engine-index.json"
+      },
+      {
+        "filename": "high-machine.json",
+        "relativePath": "seven-os/ai/engines/high-machine.json"
+      }
+    ],
+    "seven-os/ai/tools": [
+      {
+        "filename": "analyzer.js",
+        "relativePath": "seven-os/ai/tools/analyzer.js"
+      },
+      {
+        "filename": "summarizer.js",
+        "relativePath": "seven-os/ai/tools/summarizer.js"
+      }
+    ],
+    "seven-os/ai/tools/public": [
+      {
+        "filename": "format-riefing.js",
+        "relativePath": "seven-os/ai/tools/public/format-riefing.js"
+      },
+      {
+        "filename": "structureMessage.js",
+        "relativePath": "seven-os/ai/tools/public/structureMessage.js"
+      },
+      {
+        "filename": "summarize-for-public.json",
+        "relativePath": "seven-os/ai/tools/public/summarize-for-public.json"
+      }
+    ],
+    "seven-os/ai/utils": [
+      {
+        "filename": "crypto.js",
+        "relativePath": "seven-os/ai/utils/crypto.js"
+      }
+    ],
+    "seven-os/ai/validation": [
+      {
+        "filename": "schema-guard.js",
+        "relativePath": "seven-os/ai/validation/schema-guard.js"
+      }
+    ],
+    "seven-os": [
+      {
+        "filename": "ai-engine-generator.ts",
+        "relativePath": "seven-os/ai-engine-generator.ts"
+      },
+      {
+        "filename": "auto-heal-engine.ts",
+        "relativePath": "seven-os/auto-heal-engine.ts"
+      },
+      {
+        "filename": "collar-state-handler.ts",
+        "relativePath": "seven-os/collar-state-handler.ts"
+      },
+      {
+        "filename": "collar-state-redis-handler.ts",
+        "relativePath": "seven-os/collar-state-redis-handler.ts"
+      },
+      {
+        "filename": "compliance-generator.ts",
+        "relativePath": "seven-os/compliance-generator.ts"
+      },
+      {
+        "filename": "composing.ts",
+        "relativePath": "seven-os/composing.ts"
+      },
+      {
+        "filename": "core-handler.ts",
+        "relativePath": "seven-os/core-handler.ts"
+      },
+      {
+        "filename": "e2e.test.ts",
+        "relativePath": "seven-os/e2e.test.ts"
+      },
+      {
+        "filename": "event-bus.js",
+        "relativePath": "seven-os/event-bus.js"
+      },
+      {
+        "filename": "event-bus.ts",
+        "relativePath": "seven-os/event-bus.ts"
+      },
+      {
+        "filename": "event-dispatcher.ts",
+        "relativePath": "seven-os/event-dispatcher.ts"
+      },
+      {
+        "filename": "event-handlers.ts",
+        "relativePath": "seven-os/event-handlers.ts"
+      },
+      {
+        "filename": "expansion-task.ts",
+        "relativePath": "seven-os/expansion-task.ts"
+      },
+      {
+        "filename": "filemap.json",
+        "relativePath": "seven-os/filemap.json"
+      },
+      {
+        "filename": "global-manifest.json",
+        "relativePath": "seven-os/global-manifest.json"
+      },
+      {
+        "filename": "load-commands.js",
+        "relativePath": "seven-os/load-commands.js"
+      },
+      {
+        "filename": "mock-drone.ts",
+        "relativePath": "seven-os/mock-drone.ts"
+      },
+      {
+        "filename": "mock-ground-unit.ts",
+        "relativePath": "seven-os/mock-ground-unit.ts"
+      },
+      {
+        "filename": "nats-client.ts",
+        "relativePath": "seven-os/nats-client.ts"
+      },
+      {
+        "filename": "patch-manifest.js",
+        "relativePath": "seven-os/patch-manifest.js"
+      },
+      {
+        "filename": "publisher.ts",
+        "relativePath": "seven-os/publisher.ts"
+      },
+      {
+        "filename": "publishing.ts",
+        "relativePath": "seven-os/publishing.ts"
+      },
+      {
+        "filename": "repo-analyze.ts",
+        "relativePath": "seven-os/repo-analyze.ts"
+      },
+      {
+        "filename": "repo-scan.ts",
+        "relativePath": "seven-os/repo-scan.ts"
+      },
+      {
+        "filename": "resolve.js",
+        "relativePath": "seven-os/resolve.js"
+      },
+      {
+        "filename": "seven-bootstrap.ts",
+        "relativePath": "seven-os/seven-bootstrap.ts"
+      },
+      {
+        "filename": "seven-of-nine.ts",
+        "relativePath": "seven-os/seven-of-nine.ts"
+      },
+      {
+        "filename": "seven-status.js",
+        "relativePath": "seven-os/seven-status.js"
+      },
+      {
+        "filename": "shared.ts",
+        "relativePath": "seven-os/shared.ts"
+      },
+      {
+        "filename": "system-sync-report.json",
+        "relativePath": "seven-os/system-sync-report.json"
+      },
+      {
+        "filename": "task-handler.ts",
+        "relativePath": "seven-os/task-handler.ts"
+      },
+      {
+        "filename": "task-queue.ts",
+        "relativePath": "seven-os/task-queue.ts"
+      },
+      {
+        "filename": "task-registry.ts",
+        "relativePath": "seven-os/task-registry.ts"
+      },
+      {
+        "filename": "telecomEngine.ts",
+        "relativePath": "seven-os/telecomEngine.ts"
+      },
+      {
+        "filename": "test-resolver.js",
+        "relativePath": "seven-os/test-resolver.js"
+      },
+      {
+        "filename": "unit.test.ts",
+        "relativePath": "seven-os/unit.test.ts"
+      },
+      {
+        "filename": "ux-rules-generator.ts",
+        "relativePath": "seven-os/ux-rules-generator.ts"
+      },
+      {
+        "filename": "workflow-generator.ts",
+        "relativePath": "seven-os/workflow-generator.ts"
+      }
+    ],
+    "seven-os/api": [
+      {
+        "filename": "api-trust.js",
+        "relativePath": "seven-os/api/api-trust.js"
+      },
+      {
+        "filename": "auth-callback.js",
+        "relativePath": "seven-os/api/auth-callback.js"
+      },
+      {
+        "filename": "auth-login.js",
+        "relativePath": "seven-os/api/auth-login.js"
+      },
+      {
+        "filename": "auth.js",
+        "relativePath": "seven-os/api/auth.js"
+      },
+      {
+        "filename": "cyber.js",
+        "relativePath": "seven-os/api/cyber.js"
+      },
+      {
+        "filename": "documents.js",
+        "relativePath": "seven-os/api/documents.js"
+      },
+      {
+        "filename": "gov-view.ts",
+        "relativePath": "seven-os/api/gov-view.ts"
+      },
+      {
+        "filename": "hauler-discovery.js",
+        "relativePath": "seven-os/api/hauler-discovery.js"
+      },
+      {
+        "filename": "http.ts",
+        "relativePath": "seven-os/api/http.ts"
+      },
+      {
+        "filename": "incidents-scan-button.js",
+        "relativePath": "seven-os/api/incidents-scan-button.js"
+      },
+      {
+        "filename": "incidents.js",
+        "relativePath": "seven-os/api/incidents.js"
+      },
+      {
+        "filename": "load-matching.js",
+        "relativePath": "seven-os/api/load-matching.js"
+      },
+      {
+        "filename": "opportunities.js",
+        "relativePath": "seven-os/api/opportunities.js"
+      },
+      {
+        "filename": "opportunity.js",
+        "relativePath": "seven-os/api/opportunity.js"
+      },
+      {
+        "filename": "opportunity.ts",
+        "relativePath": "seven-os/api/opportunity.ts"
+      },
+      {
+        "filename": "risk-trends.js",
+        "relativePath": "seven-os/api/risk-trends.js"
+      },
+      {
+        "filename": "router.js",
+        "relativePath": "seven-os/api/router.js"
+      },
+      {
+        "filename": "security-alerts.js",
+        "relativePath": "seven-os/api/security-alerts.js"
+      },
+      {
+        "filename": "security-posture-dashboard.js",
+        "relativePath": "seven-os/api/security-posture-dashboard.js"
+      },
+      {
+        "filename": "status.json",
+        "relativePath": "seven-os/api/status.json"
+      },
+      {
+        "filename": "workforce.js",
+        "relativePath": "seven-os/api/workforce.js"
+      },
+      {
+        "filename": "[[path]].js",
+        "relativePath": "seven-os/api/[[path]].js"
+      }
+    ],
+    "seven-os/api/cyber": [
+      {
+        "filename": "analyze.js",
+        "relativePath": "seven-os/api/cyber/analyze.js"
+      },
+      {
+        "filename": "defense.js",
+        "relativePath": "seven-os/api/cyber/defense.js"
+      },
+      {
+        "filename": "events.js",
+        "relativePath": "seven-os/api/cyber/events.js"
+      }
+    ],
+    "seven-os/api/farmer": [
+      {
+        "filename": "dashboard.js",
+        "relativePath": "seven-os/api/farmer/dashboard.js"
+      }
+    ],
+    "seven-os/api/gov": [
+      {
+        "filename": "sectors.js",
+        "relativePath": "seven-os/api/gov/sectors.js"
+      },
+      {
+        "filename": "threat-model.js",
+        "relativePath": "seven-os/api/gov/threat-model.js"
+      }
+    ],
+    "seven-os/api/opportunitiy-api": [
+      {
+        "filename": "opportunities-active.js",
+        "relativePath": "seven-os/api/opportunitiy-api/opportunities-active.js"
+      }
+    ],
+    "seven-os/api/system": [
+      {
+        "filename": "heartbeat.js",
+        "relativePath": "seven-os/api/system/heartbeat.js"
+      },
+      {
+        "filename": "state.ts",
+        "relativePath": "seven-os/api/system/state.ts"
+      }
+    ],
+    "seven-os/core": [
+      {
+        "filename": "azure-bridge.js",
+        "relativePath": "seven-os/core/azure-bridge.js"
+      },
+      {
+        "filename": "core-handler.ts",
+        "relativePath": "seven-os/core/core-handler.ts"
+      },
+      {
+        "filename": "executor.js",
+        "relativePath": "seven-os/core/executor.js"
+      },
+      {
+        "filename": "logger.js",
+        "relativePath": "seven-os/core/logger.js"
+      },
+      {
+        "filename": "registry.js",
+        "relativePath": "seven-os/core/registry.js"
+      }
+    ],
+    "seven-os/core/fcc/emergency-access-fallback/governance-brain/emergency-observation-layer": [
+      {
+        "filename": "idex.ts",
+        "relativePath": "seven-os/core/fcc/emergency-access-fallback/governance-brain/emergency-observation-layer/idex.ts"
+      }
+    ],
+    "seven-os/core/fcc/remediation-engine": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/core/fcc/remediation-engine/index.ts"
+      }
+    ],
+    "seven-os/core/fcc/rf-observation-layer": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/core/fcc/rf-observation-layer/index.ts"
+      }
+    ],
+    "seven-os/core/fcc/telecom-equipment-authorization": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/core/fcc/telecom-equipment-authorization/index.ts"
+      }
+    ],
+    "seven-os/core/fcc/workforce-sync-layer": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/core/fcc/workforce-sync-layer/index.ts"
+      }
+    ],
+    "seven-os/core/governance/compliance-engine": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/core/governance/compliance-engine/index.ts"
+      }
+    ],
+    "seven-os/core/governance/goverance-brain": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/core/governance/goverance-brain/index.ts"
+      }
+    ],
+    "seven-os/core/governance": [
+      {
+        "filename": "types.ts",
+        "relativePath": "seven-os/core/governance/types.ts"
+      }
+    ],
+    "seven-os/core/inspector": [
+      {
+        "filename": "ai-inspector.js",
+        "relativePath": "seven-os/core/inspector/ai-inspector.js"
+      }
+    ],
+    "seven-os/core/math": [
+      {
+        "filename": "geometry.ts",
+        "relativePath": "seven-os/core/math/geometry.ts"
+      },
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/core/math/index.ts"
+      },
+      {
+        "filename": "orbital.ts",
+        "relativePath": "seven-os/core/math/orbital.ts"
+      },
+      {
+        "filename": "terrain.ts",
+        "relativePath": "seven-os/core/math/terrain.ts"
+      }
+    ],
+    "seven-os/core/remediation": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/core/remediation/index.ts"
+      }
+    ],
+    "seven-os/core/sensors": [
+      {
+        "filename": "fusion.ts",
+        "relativePath": "seven-os/core/sensors/fusion.ts"
+      },
+      {
+        "filename": "lidar.ts",
+        "relativePath": "seven-os/core/sensors/lidar.ts"
+      }
+    ],
+    "seven-os/core/utilities/core": [
+      {
+        "filename": "logger.js",
+        "relativePath": "seven-os/core/utilities/core/logger.js"
+      }
+    ],
+    "seven-os/core/utilities": [
+      {
+        "filename": "core.cjs",
+        "relativePath": "seven-os/core/utilities/core.cjs"
+      },
+      {
+        "filename": "restore-root.cjs",
+        "relativePath": "seven-os/core/utilities/restore-root.cjs"
+      }
+    ],
+    "seven-os/core/workforce/AI-workforce-sync-layer": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/core/workforce/AI-workforce-sync-layer/index.ts"
+      }
+    ],
+    "seven-os/core/zoning": [
+      {
+        "filename": "zoning.js",
+        "relativePath": "seven-os/core/zoning/zoning.js"
+      }
+    ],
+    "seven-os/cyber": [
+      {
+        "filename": "anomaly-detector.ts",
+        "relativePath": "seven-os/cyber/anomaly-detector.ts"
+      },
+      {
+        "filename": "block.js",
+        "relativePath": "seven-os/cyber/block.js"
+      },
+      {
+        "filename": "event-builder.ts",
+        "relativePath": "seven-os/cyber/event-builder.ts"
+      },
+      {
+        "filename": "event-model.ts",
+        "relativePath": "seven-os/cyber/event-model.ts"
+      },
+      {
+        "filename": "incident-router.ts",
+        "relativePath": "seven-os/cyber/incident-router.ts"
+      },
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/cyber/index.ts"
+      },
+      {
+        "filename": "integrity-monitor.ts",
+        "relativePath": "seven-os/cyber/integrity-monitor.ts"
+      },
+      {
+        "filename": "policy.ts",
+        "relativePath": "seven-os/cyber/policy.ts"
+      },
+      {
+        "filename": "threat-surface.ts",
+        "relativePath": "seven-os/cyber/threat-surface.ts"
+      },
+      {
+        "filename": "worker-hook.ts",
+        "relativePath": "seven-os/cyber/worker-hook.ts"
+      }
+    ],
+    "seven-os/data": [
+      {
+        "filename": "mapping-logic.js",
+        "relativePath": "seven-os/data/mapping-logic.js"
+      },
+      {
+        "filename": "normalize-location.js",
+        "relativePath": "seven-os/data/normalize-location.js"
+      },
+      {
+        "filename": "queue.js",
+        "relativePath": "seven-os/data/queue.js"
+      },
+      {
+        "filename": "region-matcher.js",
+        "relativePath": "seven-os/data/region-matcher.js"
+      },
+      {
+        "filename": "schema.js",
+        "relativePath": "seven-os/data/schema.js"
+      },
+      {
+        "filename": "sector-mapping.js",
+        "relativePath": "seven-os/data/sector-mapping.js"
+      }
+    ],
+    "seven-os/data/schemas": [
+      {
+        "filename": "schema-registry.js",
+        "relativePath": "seven-os/data/schemas/schema-registry.js"
+      },
+      {
+        "filename": "schema-validator.js",
+        "relativePath": "seven-os/data/schemas/schema-validator.js"
+      }
+    ],
+    "seven-os/db": [
+      {
+        "filename": "db-map.js",
+        "relativePath": "seven-os/db/db-map.js"
+      },
+      {
+        "filename": "db-service.js",
+        "relativePath": "seven-os/db/db-service.js"
+      }
+    ],
+    "seven-os/disaster": [
+      {
+        "filename": "disaster-launcher.ts",
+        "relativePath": "seven-os/disaster/disaster-launcher.ts"
+      },
+      {
+        "filename": "disaster-swarm.ts",
+        "relativePath": "seven-os/disaster/disaster-swarm.ts"
+      }
+    ],
+    "seven-os/domains": [
+      {
+        "filename": "infrastructure-loader.ts",
+        "relativePath": "seven-os/domains/infrastructure-loader.ts"
+      }
+    ],
+    "seven-os/economics": [
+      {
+        "filename": "contractor-matching.js",
+        "relativePath": "seven-os/economics/contractor-matching.js"
+      },
+      {
+        "filename": "funding-engine.js",
+        "relativePath": "seven-os/economics/funding-engine.js"
+      }
+    ],
+    "seven-os/engines/agents": [
+      {
+        "filename": "drone-integrity.ts",
+        "relativePath": "seven-os/engines/agents/drone-integrity.ts"
+      },
+      {
+        "filename": "drone-worker.ts",
+        "relativePath": "seven-os/engines/agents/drone-worker.ts"
+      },
+      {
+        "filename": "seven-of-nine.ts",
+        "relativePath": "seven-os/engines/agents/seven-of-nine.ts"
+      }
+    ],
+    "seven-os/engines": [
+      {
+        "filename": "ai-core.js",
+        "relativePath": "seven-os/engines/ai-core.js"
+      },
+      {
+        "filename": "ai-geo.js",
+        "relativePath": "seven-os/engines/ai-geo.js"
+      },
+      {
+        "filename": "ai-utilities.js",
+        "relativePath": "seven-os/engines/ai-utilities.js"
+      },
+      {
+        "filename": "building-code-engine.js",
+        "relativePath": "seven-os/engines/building-code-engine.js"
+      },
+      {
+        "filename": "contractor-workforce-engine.js",
+        "relativePath": "seven-os/engines/contractor-workforce-engine.js"
+      },
+      {
+        "filename": "core.ts",
+        "relativePath": "seven-os/engines/core.ts"
+      },
+      {
+        "filename": "cyber-auto-block.js",
+        "relativePath": "seven-os/engines/cyber-auto-block.js"
+      },
+      {
+        "filename": "data-engine.js",
+        "relativePath": "seven-os/engines/data-engine.js"
+      },
+      {
+        "filename": "distance.js",
+        "relativePath": "seven-os/engines/distance.js"
+      },
+      {
+        "filename": "engineering-engine.js",
+        "relativePath": "seven-os/engines/engineering-engine.js"
+      },
+      {
+        "filename": "farmerHaulerMatchingEngine.js",
+        "relativePath": "seven-os/engines/farmerHaulerMatchingEngine.js"
+      },
+      {
+        "filename": "farmerProfitabilityDashboard.js",
+        "relativePath": "seven-os/engines/farmerProfitabilityDashboard.js"
+      },
+      {
+        "filename": "geothermal-engine.js",
+        "relativePath": "seven-os/engines/geothermal-engine.js"
+      },
+      {
+        "filename": "Global Livestock Price Forecasting Engine.js",
+        "relativePath": "seven-os/engines/Global Livestock Price Forecasting Engine.js"
+      },
+      {
+        "filename": "Livestock emergency evacuation engine.js",
+        "relativePath": "seven-os/engines/Livestock emergency evacuation engine.js"
+      },
+      {
+        "filename": "livestock-economic-core.js",
+        "relativePath": "seven-os/engines/livestock-economic-core.js"
+      },
+      {
+        "filename": "livestockDiseaseRoutingEngine.js",
+        "relativePath": "seven-os/engines/livestockDiseaseRoutingEngine.js"
+      },
+      {
+        "filename": "livestockMarketRoutingEngine.js",
+        "relativePath": "seven-os/engines/livestockMarketRoutingEngine.js"
+      },
+      {
+        "filename": "livestockSustainabilityEngine.js",
+        "relativePath": "seven-os/engines/livestockSustainabilityEngine.js"
+      },
+      {
+        "filename": "mapping-engine.js",
+        "relativePath": "seven-os/engines/mapping-engine.js"
+      },
+      {
+        "filename": "math-engine.js",
+        "relativePath": "seven-os/engines/math-engine.js"
+      },
+      {
+        "filename": "mechanics-engine.js",
+        "relativePath": "seven-os/engines/mechanics-engine.js"
+      },
+      {
+        "filename": "process-ai-request.js",
+        "relativePath": "seven-os/engines/process-ai-request.js"
+      },
+      {
+        "filename": "renewables-engine.js",
+        "relativePath": "seven-os/engines/renewables-engine.js"
+      },
+      {
+        "filename": "sandbox-bridge.js",
+        "relativePath": "seven-os/engines/sandbox-bridge.js"
+      },
+      {
+        "filename": "science-engine.js",
+        "relativePath": "seven-os/engines/science-engine.js"
+      },
+      {
+        "filename": "shared.js",
+        "relativePath": "seven-os/engines/shared.js"
+      },
+      {
+        "filename": "worker.js",
+        "relativePath": "seven-os/engines/worker.js"
+      },
+      {
+        "filename": "zoning-engine.js",
+        "relativePath": "seven-os/engines/zoning-engine.js"
+      }
+    ],
+    "seven-os/engines/integrity": [
+      {
+        "filename": "auto-heal-engine.ts",
+        "relativePath": "seven-os/engines/integrity/auto-heal-engine.ts"
+      },
+      {
+        "filename": "full-integrity-scan.ts",
+        "relativePath": "seven-os/engines/integrity/full-integrity-scan.ts"
+      },
+      {
+        "filename": "repo-diff-analyzer.ts",
+        "relativePath": "seven-os/engines/integrity/repo-diff-analyzer.ts"
+      }
+    ],
+    "seven-os/engines/tasks": [
+      {
+        "filename": "full-integrity-scan.ts",
+        "relativePath": "seven-os/engines/tasks/full-integrity-scan.ts"
+      },
+      {
+        "filename": "repair-schemas.ts",
+        "relativePath": "seven-os/engines/tasks/repair-schemas.ts"
+      },
+      {
+        "filename": "repo-diff-analyzer.ts",
+        "relativePath": "seven-os/engines/tasks/repo-diff-analyzer.ts"
+      },
+      {
+        "filename": "task-registry.ts",
+        "relativePath": "seven-os/engines/tasks/task-registry.ts"
+      }
+    ],
+    "seven-os/engines/unified-ux": [
+      {
+        "filename": "ai-classifier.ts",
+        "relativePath": "seven-os/engines/unified-ux/ai-classifier.ts"
+      },
+      {
+        "filename": "field-prompts.ts",
+        "relativePath": "seven-os/engines/unified-ux/field-prompts.ts"
+      },
+      {
+        "filename": "fields.ts",
+        "relativePath": "seven-os/engines/unified-ux/fields.ts"
+      },
+      {
+        "filename": "human-summary.ts",
+        "relativePath": "seven-os/engines/unified-ux/human-summary.ts"
+      },
+      {
+        "filename": "payload-builder.ts",
+        "relativePath": "seven-os/engines/unified-ux/payload-builder.ts"
+      },
+      {
+        "filename": "trust-zone.ts",
+        "relativePath": "seven-os/engines/unified-ux/trust-zone.ts"
+      },
+      {
+        "filename": "unified-ux-core.ts",
+        "relativePath": "seven-os/engines/unified-ux/unified-ux-core.ts"
+      }
+    ],
+    "seven-os/expansion": [
+      {
+        "filename": "expansion-engin.ts",
+        "relativePath": "seven-os/expansion/expansion-engin.ts"
+      }
+    ],
+    "seven-os/filters": [
+      {
+        "filename": "code-filter.js",
+        "relativePath": "seven-os/filters/code-filter.js"
+      }
+    ],
+    "seven-os/financial/engine": [
+      {
+        "filename": "budget-engine.ts",
+        "relativePath": "seven-os/financial/engine/budget-engine.ts"
+      },
+      {
+        "filename": "contract-engine.ts",
+        "relativePath": "seven-os/financial/engine/contract-engine.ts"
+      },
+      {
+        "filename": "cost-engine.ts",
+        "relativePath": "seven-os/financial/engine/cost-engine.ts"
+      }
+    ],
+    "seven-os/financial/workers": [
+      {
+        "filename": "financial-reports.ts",
+        "relativePath": "seven-os/financial/workers/financial-reports.ts"
+      }
+    ],
+    "seven-os/frontend/hooks": [
+      {
+        "filename": "useActiveOpportunity.js",
+        "relativePath": "seven-os/frontend/hooks/useActiveOpportunity.js"
+      },
+      {
+        "filename": "useOpportunities.js",
+        "relativePath": "seven-os/frontend/hooks/useOpportunities.js"
+      }
+    ],
+    "seven-os/govervance": [
+      {
+        "filename": "intent.json",
+        "relativePath": "seven-os/govervance/intent.json"
+      },
+      {
+        "filename": "trust-zone-definitions.json",
+        "relativePath": "seven-os/govervance/trust-zone-definitions.json"
+      }
+    ],
+    "seven-os/hooks": [
+      {
+        "filename": "before-execution.js",
+        "relativePath": "seven-os/hooks/before-execution.js"
+      }
+    ],
+    "seven-os/hubs/admin": [
+      {
+        "filename": "dashboard.js",
+        "relativePath": "seven-os/hubs/admin/dashboard.js"
+      }
+    ],
+    "seven-os/hubs/analytics": [
+      {
+        "filename": "dashboard.js",
+        "relativePath": "seven-os/hubs/analytics/dashboard.js"
+      }
+    ],
+    "seven-os/hubs/Ansys": [
+      {
+        "filename": "dashboard.js",
+        "relativePath": "seven-os/hubs/Ansys/dashboard.js"
+      }
+    ],
+    "seven-os/hubs/Contractor": [
+      {
+        "filename": "dashboard.js",
+        "relativePath": "seven-os/hubs/Contractor/dashboard.js"
+      }
+    ],
+    "seven-os/hubs": [
+      {
+        "filename": "contractor-hub.js",
+        "relativePath": "seven-os/hubs/contractor-hub.js"
+      },
+      {
+        "filename": "Dashboard.js",
+        "relativePath": "seven-os/hubs/Dashboard.js"
+      },
+      {
+        "filename": "deepgov-hub.js",
+        "relativePath": "seven-os/hubs/deepgov-hub.js"
+      },
+      {
+        "filename": "ExecutiveDashboard.js",
+        "relativePath": "seven-os/hubs/ExecutiveDashboard.js"
+      },
+      {
+        "filename": "farmer-hub.js",
+        "relativePath": "seven-os/hubs/farmer-hub.js"
+      },
+      {
+        "filename": "gov-hub.js",
+        "relativePath": "seven-os/hubs/gov-hub.js"
+      },
+      {
+        "filename": "infrastructure-hub.js",
+        "relativePath": "seven-os/hubs/infrastructure-hub.js"
+      },
+      {
+        "filename": "public-hub.js",
+        "relativePath": "seven-os/hubs/public-hub.js"
+      },
+      {
+        "filename": "PublicDashboard.js",
+        "relativePath": "seven-os/hubs/PublicDashboard.js"
+      },
+      {
+        "filename": "PublicHub.js",
+        "relativePath": "seven-os/hubs/PublicHub.js"
+      }
+    ],
+    "seven-os/hubs/deepgov": [
+      {
+        "filename": "dashboard.js",
+        "relativePath": "seven-os/hubs/deepgov/dashboard.js"
+      }
+    ],
+    "seven-os/hubs/designer": [
+      {
+        "filename": "ai-blueprint-analyzer-starter.js",
+        "relativePath": "seven-os/hubs/designer/ai-blueprint-analyzer-starter.js"
+      },
+      {
+        "filename": "ai-site-layout-generator.js",
+        "relativePath": "seven-os/hubs/designer/ai-site-layout-generator.js"
+      },
+      {
+        "filename": "annotation.js",
+        "relativePath": "seven-os/hubs/designer/annotation.js"
+      }
+    ],
+    "seven-os/hubs/employee": [
+      {
+        "filename": "dashboard.js",
+        "relativePath": "seven-os/hubs/employee/dashboard.js"
+      }
+    ],
+    "seven-os/hubs/farmer": [
+      {
+        "filename": "dashboard.js",
+        "relativePath": "seven-os/hubs/farmer/dashboard.js"
+      },
+      {
+        "filename": "farmer-engine.js",
+        "relativePath": "seven-os/hubs/farmer/farmer-engine.js"
+      }
+    ],
+    "seven-os/hubs/global-map": [
+      {
+        "filename": "dashboard.js",
+        "relativePath": "seven-os/hubs/global-map/dashboard.js"
+      }
+    ],
+    "seven-os/hubs/gov": [
+      {
+        "filename": "dashboard.js",
+        "relativePath": "seven-os/hubs/gov/dashboard.js"
+      }
+    ],
+    "seven-os/hubs/hr": [
+      {
+        "filename": "dashboard.js",
+        "relativePath": "seven-os/hubs/hr/dashboard.js"
+      }
+    ],
+    "seven-os/hubs/payroll": [
+      {
+        "filename": "dashboard.js",
+        "relativePath": "seven-os/hubs/payroll/dashboard.js"
+      }
+    ],
+    "seven-os/hubs/public": [
+      {
+        "filename": "dashboard.js",
+        "relativePath": "seven-os/hubs/public/dashboard.js"
+      }
+    ],
+    "seven-os/hubs/security": [
+      {
+        "filename": "msal-config.js",
+        "relativePath": "seven-os/hubs/security/msal-config.js"
+      }
+    ],
+    "seven-os/hubs/shared": [
+      {
+        "filename": "api-client.js",
+        "relativePath": "seven-os/hubs/shared/api-client.js"
+      },
+      {
+        "filename": "nav-engine.js",
+        "relativePath": "seven-os/hubs/shared/nav-engine.js"
+      },
+      {
+        "filename": "role.js",
+        "relativePath": "seven-os/hubs/shared/role.js"
+      },
+      {
+        "filename": "sector-dashboard.js",
+        "relativePath": "seven-os/hubs/shared/sector-dashboard.js"
+      }
+    ],
+    "seven-os/hubs/Staff": [
+      {
+        "filename": "dashboard.js",
+        "relativePath": "seven-os/hubs/Staff/dashboard.js"
+      },
+      {
+        "filename": "heatmap.js",
+        "relativePath": "seven-os/hubs/Staff/heatmap.js"
+      }
+    ],
+    "seven-os/hubs/supervisor": [
+      {
+        "filename": "dashboard.js",
+        "relativePath": "seven-os/hubs/supervisor/dashboard.js"
+      }
+    ],
+    "seven-os/hubs/system": [
+      {
+        "filename": "dashboard.js",
+        "relativePath": "seven-os/hubs/system/dashboard.js"
+      }
+    ],
+    "seven-os/identity": [
+      {
+        "filename": "did.ts",
+        "relativePath": "seven-os/identity/did.ts"
+      },
+      {
+        "filename": "identity-validator.js",
+        "relativePath": "seven-os/identity/identity-validator.js"
+      },
+      {
+        "filename": "identity.ts",
+        "relativePath": "seven-os/identity/identity.ts"
+      },
+      {
+        "filename": "vc.ts",
+        "relativePath": "seven-os/identity/vc.ts"
+      }
+    ],
+    "seven-os/infra/tower": [
+      {
+        "filename": "types.ts",
+        "relativePath": "seven-os/infra/tower/types.ts"
+      }
+    ],
+    "seven-os/infra": [
+      {
+        "filename": "types.ts",
+        "relativePath": "seven-os/infra/types.ts"
+      }
+    ],
+    "seven-os/infrastructure/audit": [
+      {
+        "filename": "audit-generator.js",
+        "relativePath": "seven-os/infrastructure/audit/audit-generator.js"
+      }
+    ],
+    "seven-os/infrastructure/compliance": [
+      {
+        "filename": "contractor-check.js",
+        "relativePath": "seven-os/infrastructure/compliance/contractor-check.js"
+      },
+      {
+        "filename": "funding-check.js",
+        "relativePath": "seven-os/infrastructure/compliance/funding-check.js"
+      },
+      {
+        "filename": "misconduct-check.js",
+        "relativePath": "seven-os/infrastructure/compliance/misconduct-check.js"
+      }
+    ],
+    "seven-os/infrastructure": [
+      {
+        "filename": "diagnostics.js",
+        "relativePath": "seven-os/infrastructure/diagnostics.js"
+      },
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/infrastructure/index.js"
+      },
+      {
+        "filename": "infrastructure-audit-engine.js",
+        "relativePath": "seven-os/infrastructure/infrastructure-audit-engine.js"
+      },
+      {
+        "filename": "routing-inspector.js",
+        "relativePath": "seven-os/infrastructure/routing-inspector.js"
+      },
+      {
+        "filename": "ssh-manager.js",
+        "relativePath": "seven-os/infrastructure/ssh-manager.js"
+      }
+    ],
+    "seven-os/infrastructure/hazards": [
+      {
+        "filename": "bridge-hazards.js",
+        "relativePath": "seven-os/infrastructure/hazards/bridge-hazards.js"
+      },
+      {
+        "filename": "road-hazards.js",
+        "relativePath": "seven-os/infrastructure/hazards/road-hazards.js"
+      },
+      {
+        "filename": "tower-hazards.js",
+        "relativePath": "seven-os/infrastructure/hazards/tower-hazards.js"
+      }
+    ],
+    "seven-os/infrastructure/ingestion": [
+      {
+        "filename": "dot-ingest.js",
+        "relativePath": "seven-os/infrastructure/ingestion/dot-ingest.js"
+      },
+      {
+        "filename": "fcc-ingest.js",
+        "relativePath": "seven-os/infrastructure/ingestion/fcc-ingest.js"
+      },
+      {
+        "filename": "sensor-ingest.js",
+        "relativePath": "seven-os/infrastructure/ingestion/sensor-ingest.js"
+      },
+      {
+        "filename": "usda-ingest.js",
+        "relativePath": "seven-os/infrastructure/ingestion/usda-ingest.js"
+      }
+    ],
+    "seven-os/infrastructure/scoring": [
+      {
+        "filename": "sector-scoring.js",
+        "relativePath": "seven-os/infrastructure/scoring/sector-scoring.js"
+      }
+    ],
+    "seven-os/infrastructure/tools": [
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/infrastructure/tools/index.js"
+      },
+      {
+        "filename": "inspect-routing.js",
+        "relativePath": "seven-os/infrastructure/tools/inspect-routing.js"
+      },
+      {
+        "filename": "r2-bucket-list.js",
+        "relativePath": "seven-os/infrastructure/tools/r2-bucket-list.js"
+      },
+      {
+        "filename": "r2-check.js",
+        "relativePath": "seven-os/infrastructure/tools/r2-check.js"
+      },
+      {
+        "filename": "r2-exposure.js",
+        "relativePath": "seven-os/infrastructure/tools/r2-exposure.js"
+      },
+      {
+        "filename": "r2-health.js",
+        "relativePath": "seven-os/infrastructure/tools/r2-health.js"
+      },
+      {
+        "filename": "r2-inspector.js",
+        "relativePath": "seven-os/infrastructure/tools/r2-inspector.js"
+      },
+      {
+        "filename": "r2-uploader.js",
+        "relativePath": "seven-os/infrastructure/tools/r2-uploader.js"
+      },
+      {
+        "filename": "storage-inspector.js",
+        "relativePath": "seven-os/infrastructure/tools/storage-inspector.js"
+      }
+    ],
+    "seven-os/infrastructure/utils": [
+      {
+        "filename": "infra-logger.js",
+        "relativePath": "seven-os/infrastructure/utils/infra-logger.js"
+      },
+      {
+        "filename": "normalize-path.js",
+        "relativePath": "seven-os/infrastructure/utils/normalize-path.js"
+      },
+      {
+        "filename": "parse-endpoint.js",
+        "relativePath": "seven-os/infrastructure/utils/parse-endpoint.js"
+      },
+      {
+        "filename": "safe-shell.js",
+        "relativePath": "seven-os/infrastructure/utils/safe-shell.js"
+      }
+    ],
+    "seven-os/logs": [
+      {
+        "filename": "log-api-endpoints.js",
+        "relativePath": "seven-os/logs/log-api-endpoints.js"
+      }
+    ],
+    "seven-os/manifest": [
+      {
+        "filename": "loader.js",
+        "relativePath": "seven-os/manifest/loader.js"
+      },
+      {
+        "filename": "loader.ts",
+        "relativePath": "seven-os/manifest/loader.ts"
+      }
+    ],
+    "seven-os/mci/decision": [
+      {
+        "filename": "engine.js",
+        "relativePath": "seven-os/mci/decision/engine.js"
+      },
+      {
+        "filename": "engine.ts",
+        "relativePath": "seven-os/mci/decision/engine.ts"
+      }
+    ],
+    "seven-os/mci": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/mci/index.ts"
+      },
+      {
+        "filename": "loader.js",
+        "relativePath": "seven-os/mci/loader.js"
+      },
+      {
+        "filename": "mci.json",
+        "relativePath": "seven-os/mci/mci.json"
+      }
+    ],
+    "seven-os/mcp": [
+      {
+        "filename": "mcp-client.ts",
+        "relativePath": "seven-os/mcp/mcp-client.ts"
+      }
+    ],
+    "seven-os/policy-packs": [
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/policy-packs/index.js"
+      },
+      {
+        "filename": "policy-cache.ts",
+        "relativePath": "seven-os/policy-packs/policy-cache.ts"
+      },
+      {
+        "filename": "policy-hasher.ts",
+        "relativePath": "seven-os/policy-packs/policy-hasher.ts"
+      },
+      {
+        "filename": "policy-validator.ts",
+        "relativePath": "seven-os/policy-packs/policy-validator.ts"
+      },
+      {
+        "filename": "sovereign-policy-loader.ts",
+        "relativePath": "seven-os/policy-packs/sovereign-policy-loader.ts"
+      }
+    ],
+    "seven-os/policy-packs/sovereign": [
+      {
+        "filename": "sovereign-policy.ts",
+        "relativePath": "seven-os/policy-packs/sovereign/sovereign-policy.ts"
+      }
+    ],
+    "seven-os/routes": [
+      {
+        "filename": "voice-flight.js",
+        "relativePath": "seven-os/routes/voice-flight.js"
+      }
+    ],
+    "seven-os/safety": [
+      {
+        "filename": "disaster-profile.ts",
+        "relativePath": "seven-os/safety/disaster-profile.ts"
+      }
+    ],
+    "seven-os/sandbox": [
+      {
+        "filename": "run-sandbox.js",
+        "relativePath": "seven-os/sandbox/run-sandbox.js"
+      }
+    ],
+    "seven-os/sector-engines": [
+      {
+        "filename": "farmer-engine.js",
+        "relativePath": "seven-os/sector-engines/farmer-engine.js"
+      },
+      {
+        "filename": "gov-engine.js",
+        "relativePath": "seven-os/sector-engines/gov-engine.js"
+      },
+      {
+        "filename": "jobs-engine.js",
+        "relativePath": "seven-os/sector-engines/jobs-engine.js"
+      }
+    ],
+    "seven-os/sector-engines/workers": [
+      {
+        "filename": "opportunities.js",
+        "relativePath": "seven-os/sector-engines/workers/opportunities.js"
+      }
+    ],
+    "seven-os/sectors/agri": [
+      {
+        "filename": "cattle-engine.js",
+        "relativePath": "seven-os/sectors/agri/cattle-engine.js"
+      },
+      {
+        "filename": "crop-engine.js",
+        "relativePath": "seven-os/sectors/agri/crop-engine.js"
+      },
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/sectors/agri/index.js"
+      },
+      {
+        "filename": "land-engine.js",
+        "relativePath": "seven-os/sectors/agri/land-engine.js"
+      },
+      {
+        "filename": "sector-sync.js",
+        "relativePath": "seven-os/sectors/agri/sector-sync.js"
+      }
+    ],
+    "seven-os/sectors/agri/visual": [
+      {
+        "filename": "blueprint-engine.js",
+        "relativePath": "seven-os/sectors/agri/visual/blueprint-engine.js"
+      },
+      {
+        "filename": "document-engine.js",
+        "relativePath": "seven-os/sectors/agri/visual/document-engine.js"
+      },
+      {
+        "filename": "engine-flight.js",
+        "relativePath": "seven-os/sectors/agri/visual/engine-flight.js"
+      },
+      {
+        "filename": "engine-spectral.js",
+        "relativePath": "seven-os/sectors/agri/visual/engine-spectral.js"
+      },
+      {
+        "filename": "engine-twin.js",
+        "relativePath": "seven-os/sectors/agri/visual/engine-twin.js"
+      },
+      {
+        "filename": "mapping-2d-engine.js",
+        "relativePath": "seven-os/sectors/agri/visual/mapping-2d-engine.js"
+      },
+      {
+        "filename": "mapping-3d-engine.js",
+        "relativePath": "seven-os/sectors/agri/visual/mapping-3d-engine.js"
+      }
+    ],
+    "seven-os/sectors/agriculture/ai/engines/unified-ux": [
+      {
+        "filename": "payload-builder.ts",
+        "relativePath": "seven-os/sectors/agriculture/ai/engines/unified-ux/payload-builder.ts"
+      }
+    ],
+    "seven-os/sectors/agriculture/ai": [
+      {
+        "filename": "loader.js",
+        "relativePath": "seven-os/sectors/agriculture/ai/loader.js"
+      }
+    ],
+    "seven-os/sectors/agriculture/api": [
+      {
+        "filename": "load-matching.js",
+        "relativePath": "seven-os/sectors/agriculture/api/load-matching.js"
+      }
+    ],
+    "seven-os/sectors/agriculture": [
+      {
+        "filename": "cattle-collar-scan.json",
+        "relativePath": "seven-os/sectors/agriculture/cattle-collar-scan.json"
+      },
+      {
+        "filename": "manifest.json",
+        "relativePath": "seven-os/sectors/agriculture/manifest.json"
+      },
+      {
+        "filename": "schema.json",
+        "relativePath": "seven-os/sectors/agriculture/schema.json"
+      }
+    ],
+    "seven-os/sectors/agriculture/hubs": [
+      {
+        "filename": "Farmer mobile UI spec.json",
+        "relativePath": "seven-os/sectors/agriculture/hubs/Farmer mobile UI spec.json"
+      }
+    ],
+    "seven-os/sectors/agriculture/mci": [
+      {
+        "filename": "loader.js",
+        "relativePath": "seven-os/sectors/agriculture/mci/loader.js"
+      }
+    ],
+    "seven-os/sectors/agriculture/public/assets/js": [
+      {
+        "filename": "load-layout.js",
+        "relativePath": "seven-os/sectors/agriculture/public/assets/js/load-layout.js"
+      }
+    ],
+    "seven-os/sectors/agriculture/topology": [
+      {
+        "filename": "Global Livestock Hub.json",
+        "relativePath": "seven-os/sectors/agriculture/topology/Global Livestock Hub.json"
+      }
+    ],
+    "seven-os/sectors/airports/domain": [
+      {
+        "filename": "airports.json",
+        "relativePath": "seven-os/sectors/airports/domain/airports.json"
+      }
+    ],
+    "seven-os/sectors/airports": [
+      {
+        "filename": "manifest.json",
+        "relativePath": "seven-os/sectors/airports/manifest.json"
+      },
+      {
+        "filename": "schema.json",
+        "relativePath": "seven-os/sectors/airports/schema.json"
+      }
+    ],
+    "seven-os/sectors": [
+      {
+        "filename": "auto-scaler.js",
+        "relativePath": "seven-os/sectors/auto-scaler.js"
+      },
+      {
+        "filename": "cross-sector-routing-engine.js",
+        "relativePath": "seven-os/sectors/cross-sector-routing-engine.js"
+      },
+      {
+        "filename": "index.json",
+        "relativePath": "seven-os/sectors/index.json"
+      },
+      {
+        "filename": "microgrid-engine-contract.json",
+        "relativePath": "seven-os/sectors/microgrid-engine-contract.json"
+      },
+      {
+        "filename": "rural-node-spec.json",
+        "relativePath": "seven-os/sectors/rural-node-spec.json"
+      },
+      {
+        "filename": "sector-bridge.ts",
+        "relativePath": "seven-os/sectors/sector-bridge.ts"
+      },
+      {
+        "filename": "sector-contract.json",
+        "relativePath": "seven-os/sectors/sector-contract.json"
+      },
+      {
+        "filename": "sector-engine.js",
+        "relativePath": "seven-os/sectors/sector-engine.js"
+      },
+      {
+        "filename": "sector-loader.js",
+        "relativePath": "seven-os/sectors/sector-loader.js"
+      },
+      {
+        "filename": "sectorAnalysis.js",
+        "relativePath": "seven-os/sectors/sectorAnalysis.js"
+      },
+      {
+        "filename": "sectors.json",
+        "relativePath": "seven-os/sectors/sectors.json"
+      },
+      {
+        "filename": "space.json",
+        "relativePath": "seven-os/sectors/space.json"
+      }
+    ],
+    "seven-os/sectors/climate/domain": [
+      {
+        "filename": "climate.json",
+        "relativePath": "seven-os/sectors/climate/domain/climate.json"
+      }
+    ],
+    "seven-os/sectors/climate": [
+      {
+        "filename": "manifest.json",
+        "relativePath": "seven-os/sectors/climate/manifest.json"
+      },
+      {
+        "filename": "schema.json",
+        "relativePath": "seven-os/sectors/climate/schema.json"
+      }
+    ],
+    "seven-os/sectors/cloud/domain": [
+      {
+        "filename": "cloud.json",
+        "relativePath": "seven-os/sectors/cloud/domain/cloud.json"
+      }
+    ],
+    "seven-os/sectors/cloud": [
+      {
+        "filename": "manifest.json",
+        "relativePath": "seven-os/sectors/cloud/manifest.json"
+      },
+      {
+        "filename": "schema.json",
+        "relativePath": "seven-os/sectors/cloud/schema.json"
+      }
+    ],
+    "seven-os/sectors/cloud/system/utilities": [
+      {
+        "filename": "cloudflare-tests.cjs",
+        "relativePath": "seven-os/sectors/cloud/system/utilities/cloudflare-tests.cjs"
+      }
+    ],
+    "seven-os/sectors/contractors/api": [
+      {
+        "filename": "workforce.js",
+        "relativePath": "seven-os/sectors/contractors/api/workforce.js"
+      }
+    ],
+    "seven-os/sectors/contractors/hubs": [
+      {
+        "filename": "contractor-hub.js",
+        "relativePath": "seven-os/sectors/contractors/hubs/contractor-hub.js"
+      },
+      {
+        "filename": "Global Contractor Marketplace + Credentialing Engine.json",
+        "relativePath": "seven-os/sectors/contractors/hubs/Global Contractor Marketplace + Credentialing Engine.json"
+      },
+      {
+        "filename": "global-contractor-marketplace.js",
+        "relativePath": "seven-os/sectors/contractors/hubs/global-contractor-marketplace.js"
+      },
+      {
+        "filename": "Public Workforce Coordination Grid.json",
+        "relativePath": "seven-os/sectors/contractors/hubs/Public Workforce Coordination Grid.json"
+      }
+    ],
+    "seven-os/sectors/contractors/sectors/contractors": [
+      {
+        "filename": "manifest.json",
+        "relativePath": "seven-os/sectors/contractors/sectors/contractors/manifest.json"
+      },
+      {
+        "filename": "schema.json",
+        "relativePath": "seven-os/sectors/contractors/sectors/contractors/schema.json"
+      }
+    ],
+    "seven-os/sectors/contractors/sectors/financial/cost-models": [
+      {
+        "filename": "labor-cost-model.json",
+        "relativePath": "seven-os/sectors/contractors/sectors/financial/cost-models/labor-cost-model.json"
+      }
+    ],
+    "seven-os/sectors/contractors/topology": [
+      {
+        "filename": "contractor-topology.json",
+        "relativePath": "seven-os/sectors/contractors/topology/contractor-topology.json"
+      },
+      {
+        "filename": "workforce-topology.json",
+        "relativePath": "seven-os/sectors/contractors/topology/workforce-topology.json"
+      }
+    ],
+    "seven-os/sectors/cyber/data/schemas": [
+      {
+        "filename": "cyber-contractor.schema.json",
+        "relativePath": "seven-os/sectors/cyber/data/schemas/cyber-contractor.schema.json"
+      },
+      {
+        "filename": "cyber-jobs.schema.json",
+        "relativePath": "seven-os/sectors/cyber/data/schemas/cyber-jobs.schema.json"
+      },
+      {
+        "filename": "cyber-workforce.schema.json",
+        "relativePath": "seven-os/sectors/cyber/data/schemas/cyber-workforce.schema.json"
+      }
+    ],
+    "seven-os/sectors/cyber/domain": [
+      {
+        "filename": "cyber-sector.json",
+        "relativePath": "seven-os/sectors/cyber/domain/cyber-sector.json"
+      },
+      {
+        "filename": "cyber.json",
+        "relativePath": "seven-os/sectors/cyber/domain/cyber.json"
+      }
+    ],
+    "seven-os/sectors/cyber/domain/infrastructure": [
+      {
+        "filename": "run-seven-os-audit.ts",
+        "relativePath": "seven-os/sectors/cyber/domain/infrastructure/run-seven-os-audit.ts"
+      }
+    ],
+    "seven-os/sectors/cyber/domain/infrastructure/workers/audit": [
+      {
+        "filename": "integrity.js",
+        "relativePath": "seven-os/sectors/cyber/domain/infrastructure/workers/audit/integrity.js"
+      }
+    ],
+    "seven-os/sectors/cyber/frontend/system": [
+      {
+        "filename": "system-cyber.js",
+        "relativePath": "seven-os/sectors/cyber/frontend/system/system-cyber.js"
+      }
+    ],
+    "seven-os/sectors/cyber": [
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/sectors/cyber/index.js"
+      }
+    ],
+    "seven-os/sectors/cyber/logs": [
+      {
+        "filename": "audit-log.json",
+        "relativePath": "seven-os/sectors/cyber/logs/audit-log.json"
+      }
+    ],
+    "seven-os/sectors/cyber/public/assets/js": [
+      {
+        "filename": "admin-auth.js",
+        "relativePath": "seven-os/sectors/cyber/public/assets/js/admin-auth.js"
+      }
+    ],
+    "seven-os/sectors/cyber/sectors/cyber": [
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/sectors/cyber/sectors/cyber/index.js"
+      },
+      {
+        "filename": "manifest.json",
+        "relativePath": "seven-os/sectors/cyber/sectors/cyber/manifest.json"
+      },
+      {
+        "filename": "schema.json",
+        "relativePath": "seven-os/sectors/cyber/sectors/cyber/schema.json"
+      }
+    ],
+    "seven-os/sectors/cyber/templates": [
+      {
+        "filename": "template-lifecycle-security.js",
+        "relativePath": "seven-os/sectors/cyber/templates/template-lifecycle-security.js"
+      },
+      {
+        "filename": "template-security-classifier.js",
+        "relativePath": "seven-os/sectors/cyber/templates/template-security-classifier.js"
+      },
+      {
+        "filename": "template-security-policy-enforcer.js",
+        "relativePath": "seven-os/sectors/cyber/templates/template-security-policy-enforcer.js"
+      }
+    ],
+    "seven-os/sectors/cyber/topology": [
+      {
+        "filename": "New auth-gateway.json",
+        "relativePath": "seven-os/sectors/cyber/topology/New auth-gateway.json"
+      }
+    ],
+    "seven-os/sectors/cyber/workers/cyber/cyber": [
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/sectors/cyber/workers/cyber/cyber/index.js"
+      }
+    ],
+    "seven-os/sectors/cyber/workers/cyber": [
+      {
+        "filename": "cyber-worker.json",
+        "relativePath": "seven-os/sectors/cyber/workers/cyber/cyber-worker.json"
+      }
+    ],
+    "seven-os/sectors/datacenters/domain": [
+      {
+        "filename": "datacenters.json",
+        "relativePath": "seven-os/sectors/datacenters/domain/datacenters.json"
+      }
+    ],
+    "seven-os/sectors/datacenters": [
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/sectors/datacenters/index.js"
+      },
+      {
+        "filename": "manifest.json",
+        "relativePath": "seven-os/sectors/datacenters/manifest.json"
+      },
+      {
+        "filename": "schema.json",
+        "relativePath": "seven-os/sectors/datacenters/schema.json"
+      }
+    ],
+    "seven-os/sectors/disaster_response/ai/engines": [
+      {
+        "filename": "Disaster Deployment Engine.json",
+        "relativePath": "seven-os/sectors/disaster_response/ai/engines/Disaster Deployment Engine.json"
+      }
+    ],
+    "seven-os/sectors/disaster_response/commands": [
+      {
+        "filename": "run-incident-scan.cjs",
+        "relativePath": "seven-os/sectors/disaster_response/commands/run-incident-scan.cjs"
+      }
+    ],
+    "seven-os/sectors/disaster_response/domain": [
+      {
+        "filename": "disaster-response.json",
+        "relativePath": "seven-os/sectors/disaster_response/domain/disaster-response.json"
+      }
+    ],
+    "seven-os/sectors/disaster_response": [
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/sectors/disaster_response/index.js"
+      }
+    ],
+    "seven-os/sectors/disaster_response/sectors/disaster_response": [
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/sectors/disaster_response/sectors/disaster_response/index.js"
+      },
+      {
+        "filename": "manifest.json",
+        "relativePath": "seven-os/sectors/disaster_response/sectors/disaster_response/manifest.json"
+      },
+      {
+        "filename": "schema.json",
+        "relativePath": "seven-os/sectors/disaster_response/sectors/disaster_response/schema.json"
+      }
+    ],
+    "seven-os/sectors/economics/api": [
+      {
+        "filename": "marketplace.js",
+        "relativePath": "seven-os/sectors/economics/api/marketplace.js"
+      }
+    ],
+    "seven-os/sectors/economics/domain": [
+      {
+        "filename": "economics.json",
+        "relativePath": "seven-os/sectors/economics/domain/economics.json"
+      }
+    ],
+    "seven-os/sectors/economics/functions": [
+      {
+        "filename": "Economics + feasibility evaluation.json",
+        "relativePath": "seven-os/sectors/economics/functions/Economics + feasibility evaluation.json"
+      }
+    ],
+    "seven-os/sectors/fcc": [
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/sectors/fcc/index.js"
+      }
+    ],
+    "seven-os/sectors/financial": [
+      {
+        "filename": "banker-ai.js",
+        "relativePath": "seven-os/sectors/financial/banker-ai.js"
+      }
+    ],
+    "seven-os/sectors/financial/buckets": [
+      {
+        "filename": "bucket-schema.json",
+        "relativePath": "seven-os/sectors/financial/buckets/bucket-schema.json"
+      }
+    ],
+    "seven-os/sectors/financial/budget": [
+      {
+        "filename": "budget.json",
+        "relativePath": "seven-os/sectors/financial/budget/budget.json"
+      },
+      {
+        "filename": "expense-bucket.json",
+        "relativePath": "seven-os/sectors/financial/budget/expense-bucket.json"
+      },
+      {
+        "filename": "schema.json",
+        "relativePath": "seven-os/sectors/financial/budget/schema.json"
+      }
+    ],
+    "seven-os/sectors/financial/budget/contracts": [
+      {
+        "filename": "contract.json",
+        "relativePath": "seven-os/sectors/financial/budget/contracts/contract.json"
+      }
+    ],
+    "seven-os/sectors/financial/budget/cost-models": [
+      {
+        "filename": "drone-cost-model.json",
+        "relativePath": "seven-os/sectors/financial/budget/cost-models/drone-cost-model.json"
+      },
+      {
+        "filename": "infrastructure-cost-model.json",
+        "relativePath": "seven-os/sectors/financial/budget/cost-models/infrastructure-cost-model.json"
+      },
+      {
+        "filename": "material-cost-model.json",
+        "relativePath": "seven-os/sectors/financial/budget/cost-models/material-cost-model.json"
+      }
+    ],
+    "seven-os/sectors/financial/budget/engine": [
+      {
+        "filename": "budget-engine.ts",
+        "relativePath": "seven-os/sectors/financial/budget/engine/budget-engine.ts"
+      },
+      {
+        "filename": "contract-engine.ts",
+        "relativePath": "seven-os/sectors/financial/budget/engine/contract-engine.ts"
+      },
+      {
+        "filename": "cost-engine.ts",
+        "relativePath": "seven-os/sectors/financial/budget/engine/cost-engine.ts"
+      }
+    ],
+    "seven-os/sectors/financial/budget/humanitarian": [
+      {
+        "filename": "humanitarian-deploment.js",
+        "relativePath": "seven-os/sectors/financial/budget/humanitarian/humanitarian-deploment.js"
+      }
+    ],
+    "seven-os/sectors/financial/domain": [
+      {
+        "filename": "finance.json",
+        "relativePath": "seven-os/sectors/financial/domain/finance.json"
+      }
+    ],
+    "seven-os/sectors/financial/revenue/agriculture": [
+      {
+        "filename": "cattle-revenue.js",
+        "relativePath": "seven-os/sectors/financial/revenue/agriculture/cattle-revenue.js"
+      }
+    ],
+    "seven-os/sectors/financial/revenue/ai": [
+      {
+        "filename": "ai-services-revenue.js",
+        "relativePath": "seven-os/sectors/financial/revenue/ai/ai-services-revenue.js"
+      }
+    ],
+    "seven-os/sectors/financial/revenue/drone": [
+      {
+        "filename": "drone-ops-revenue.js",
+        "relativePath": "seven-os/sectors/financial/revenue/drone/drone-ops-revenue.js"
+      }
+    ],
+    "seven-os/sectors/financial/revenue": [
+      {
+        "filename": "loader.js",
+        "relativePath": "seven-os/sectors/financial/revenue/loader.js"
+      },
+      {
+        "filename": "revenue-router.js",
+        "relativePath": "seven-os/sectors/financial/revenue/revenue-router.js"
+      }
+    ],
+    "seven-os/sectors/financial/revenue/workforce": [
+      {
+        "filename": "loabor-revenue.js",
+        "relativePath": "seven-os/sectors/financial/revenue/workforce/loabor-revenue.js"
+      }
+    ],
+    "seven-os/sectors/gov": [
+      {
+        "filename": "aim-threat-model.js",
+        "relativePath": "seven-os/sectors/gov/aim-threat-model.js"
+      },
+      {
+        "filename": "formatAdvisory.js",
+        "relativePath": "seven-os/sectors/gov/formatAdvisory.js"
+      },
+      {
+        "filename": "generateRecommendations.js",
+        "relativePath": "seven-os/sectors/gov/generateRecommendations.js"
+      },
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/sectors/gov/index.js"
+      },
+      {
+        "filename": "sectorAnalysis.js",
+        "relativePath": "seven-os/sectors/gov/sectorAnalysis.js"
+      }
+    ],
+    "seven-os/sectors/government/data": [
+      {
+        "filename": "policy-object.json",
+        "relativePath": "seven-os/sectors/government/data/policy-object.json"
+      }
+    ],
+    "seven-os/sectors/government/domain": [
+      {
+        "filename": "government.json",
+        "relativePath": "seven-os/sectors/government/domain/government.json"
+      }
+    ],
+    "seven-os/sectors/government/functions": [
+      {
+        "filename": "Trust + policy gate.json",
+        "relativePath": "seven-os/sectors/government/functions/Trust + policy gate.json"
+      }
+    ],
+    "seven-os/sectors/government": [
+      {
+        "filename": "gov-threat.js",
+        "relativePath": "seven-os/sectors/government/gov-threat.js"
+      },
+      {
+        "filename": "intel.js",
+        "relativePath": "seven-os/sectors/government/intel.js"
+      },
+      {
+        "filename": "policy-object.json",
+        "relativePath": "seven-os/sectors/government/policy-object.json"
+      }
+    ],
+    "seven-os/sectors/government/logs": [
+      {
+        "filename": "log-retention-policy.json",
+        "relativePath": "seven-os/sectors/government/logs/log-retention-policy.json"
+      }
+    ],
+    "seven-os/sectors/government/policy-packs": [
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/sectors/government/policy-packs/index.js"
+      },
+      {
+        "filename": "policy-manifest.json",
+        "relativePath": "seven-os/sectors/government/policy-packs/policy-manifest.json"
+      }
+    ],
+    "seven-os/sectors/government/policy-packs/sovereign": [
+      {
+        "filename": "common-rule.json",
+        "relativePath": "seven-os/sectors/government/policy-packs/sovereign/common-rule.json"
+      },
+      {
+        "filename": "dhs-compliance.json",
+        "relativePath": "seven-os/sectors/government/policy-packs/sovereign/dhs-compliance.json"
+      },
+      {
+        "filename": "nces-ethics.json",
+        "relativePath": "seven-os/sectors/government/policy-packs/sovereign/nces-ethics.json"
+      },
+      {
+        "filename": "oge-misconduct-reporting.json",
+        "relativePath": "seven-os/sectors/government/policy-packs/sovereign/oge-misconduct-reporting.json"
+      },
+      {
+        "filename": "omb-m14-06.json",
+        "relativePath": "seven-os/sectors/government/policy-packs/sovereign/omb-m14-06.json"
+      },
+      {
+        "filename": "omb-m20-12.json",
+        "relativePath": "seven-os/sectors/government/policy-packs/sovereign/omb-m20-12.json"
+      },
+      {
+        "filename": "ostp-scientific-integrity.json",
+        "relativePath": "seven-os/sectors/government/policy-packs/sovereign/ostp-scientific-integrity.json"
+      }
+    ],
+    "seven-os/sectors/government/sectors": [
+      {
+        "filename": "global-grid-governor.json",
+        "relativePath": "seven-os/sectors/government/sectors/global-grid-governor.json"
+      }
+    ],
+    "seven-os/sectors/government/sectors/gov": [
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/sectors/government/sectors/gov/index.js"
+      },
+      {
+        "filename": "manifest.json",
+        "relativePath": "seven-os/sectors/government/sectors/gov/manifest.json"
+      },
+      {
+        "filename": "schema.json",
+        "relativePath": "seven-os/sectors/government/sectors/gov/schema.json"
+      }
+    ],
+    "seven-os/sectors/government/topology": [
+      {
+        "filename": "governance-topology.json",
+        "relativePath": "seven-os/sectors/government/topology/governance-topology.json"
+      }
+    ],
+    "seven-os/sectors/infrastructure/logistics/domain": [
+      {
+        "filename": "food-supply.json",
+        "relativePath": "seven-os/sectors/infrastructure/logistics/domain/food-supply.json"
+      },
+      {
+        "filename": "logistics.json",
+        "relativePath": "seven-os/sectors/infrastructure/logistics/domain/logistics.json"
+      }
+    ],
+    "seven-os/sectors/infrastructure/logistics": [
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/sectors/infrastructure/logistics/index.js"
+      },
+      {
+        "filename": "manifest.json",
+        "relativePath": "seven-os/sectors/infrastructure/logistics/manifest.json"
+      },
+      {
+        "filename": "schema.json",
+        "relativePath": "seven-os/sectors/infrastructure/logistics/schema.json"
+      }
+    ],
+    "seven-os/sectors/infrastructure/logistics/topology": [
+      {
+        "filename": "supply-chain-topology.json",
+        "relativePath": "seven-os/sectors/infrastructure/logistics/topology/supply-chain-topology.json"
+      }
+    ],
+    "seven-os/sectors/infrastructure": [
+      {
+        "filename": "transport.json",
+        "relativePath": "seven-os/sectors/infrastructure/transport.json"
+      }
+    ],
+    "seven-os/sectors/logistics": [
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/sectors/logistics/index.js"
+      }
+    ],
+    "seven-os/sectors/mining/ai/engines/unified-ux": [
+      {
+        "filename": "unified-ux-core.ts",
+        "relativePath": "seven-os/sectors/mining/ai/engines/unified-ux/unified-ux-core.ts"
+      }
+    ],
+    "seven-os/sectors/mining/domain": [
+      {
+        "filename": "mining.json",
+        "relativePath": "seven-os/sectors/mining/domain/mining.json"
+      }
+    ],
+    "seven-os/sectors/mining": [
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/sectors/mining/index.js"
+      },
+      {
+        "filename": "manifest.json",
+        "relativePath": "seven-os/sectors/mining/manifest.json"
+      },
+      {
+        "filename": "schema.json",
+        "relativePath": "seven-os/sectors/mining/schema.json"
+      }
+    ],
+    "seven-os/sectors/oil_gas/domain": [
+      {
+        "filename": "oil-gas.json",
+        "relativePath": "seven-os/sectors/oil_gas/domain/oil-gas.json"
+      }
+    ],
+    "seven-os/sectors/oil_gas": [
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/sectors/oil_gas/index.js"
+      },
+      {
+        "filename": "manifest.json",
+        "relativePath": "seven-os/sectors/oil_gas/manifest.json"
+      },
+      {
+        "filename": "schema.json",
+        "relativePath": "seven-os/sectors/oil_gas/schema.json"
+      }
+    ],
+    "seven-os/sectors/overlays": [
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/sectors/overlays/index.js"
+      },
+      {
+        "filename": "sector-adjacency-engine.js",
+        "relativePath": "seven-os/sectors/overlays/sector-adjacency-engine.js"
+      },
+      {
+        "filename": "sector-mapping-logic.js",
+        "relativePath": "seven-os/sectors/overlays/sector-mapping-logic.js"
+      }
+    ],
+    "seven-os/sectors/pipe-lines": [
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/sectors/pipe-lines/index.js"
+      },
+      {
+        "filename": "manifest.json",
+        "relativePath": "seven-os/sectors/pipe-lines/manifest.json"
+      },
+      {
+        "filename": "schema.json",
+        "relativePath": "seven-os/sectors/pipe-lines/schema.json"
+      }
+    ],
+    "seven-os/sectors/pipelines": [
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/sectors/pipelines/index.js"
+      }
+    ],
+    "seven-os/sectors/ports/domain": [
+      {
+        "filename": "ports.json",
+        "relativePath": "seven-os/sectors/ports/domain/ports.json"
+      }
+    ],
+    "seven-os/sectors/ports": [
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/sectors/ports/index.js"
+      },
+      {
+        "filename": "manifest.json",
+        "relativePath": "seven-os/sectors/ports/manifest.json"
+      },
+      {
+        "filename": "schema.json",
+        "relativePath": "seven-os/sectors/ports/schema.json"
+      }
+    ],
+    "seven-os/sectors/power": [
+      {
+        "filename": "energy-pipeline.json",
+        "relativePath": "seven-os/sectors/power/energy-pipeline.json"
+      },
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/sectors/power/index.js"
+      },
+      {
+        "filename": "manifest.json",
+        "relativePath": "seven-os/sectors/power/manifest.json"
+      },
+      {
+        "filename": "schema.json",
+        "relativePath": "seven-os/sectors/power/schema.json"
+      }
+    ],
+    "seven-os/sectors/public_safety/domain": [
+      {
+        "filename": "public-safety.json",
+        "relativePath": "seven-os/sectors/public_safety/domain/public-safety.json"
+      }
+    ],
+    "seven-os/sectors/public_safety": [
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/sectors/public_safety/index.js"
+      },
+      {
+        "filename": "manifest.json",
+        "relativePath": "seven-os/sectors/public_safety/manifest.json"
+      },
+      {
+        "filename": "schema.json",
+        "relativePath": "seven-os/sectors/public_safety/schema.json"
+      }
+    ],
+    "seven-os/sectors/rail/domain": [
+      {
+        "filename": "rail.json",
+        "relativePath": "seven-os/sectors/rail/domain/rail.json"
+      }
+    ],
+    "seven-os/sectors/rail": [
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/sectors/rail/index.js"
+      },
+      {
+        "filename": "manifest.json",
+        "relativePath": "seven-os/sectors/rail/manifest.json"
+      },
+      {
+        "filename": "schema.json",
+        "relativePath": "seven-os/sectors/rail/schema.json"
+      }
+    ],
+    "seven-os/sectors/roads/domain": [
+      {
+        "filename": "bridges-tunnels.json",
+        "relativePath": "seven-os/sectors/roads/domain/bridges-tunnels.json"
+      },
+      {
+        "filename": "roads.json",
+        "relativePath": "seven-os/sectors/roads/domain/roads.json"
+      }
+    ],
+    "seven-os/sectors/roads": [
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/sectors/roads/index.js"
+      },
+      {
+        "filename": "manifest.json",
+        "relativePath": "seven-os/sectors/roads/manifest.json"
+      },
+      {
+        "filename": "schema.json",
+        "relativePath": "seven-os/sectors/roads/schema.json"
+      }
+    ],
+    "seven-os/sectors/roads/topology": [
+      {
+        "filename": "transport-topology.json",
+        "relativePath": "seven-os/sectors/roads/topology/transport-topology.json"
+      }
+    ],
+    "seven-os/sectors/telecom/domain": [
+      {
+        "filename": "telecom-infra.json",
+        "relativePath": "seven-os/sectors/telecom/domain/telecom-infra.json"
+      },
+      {
+        "filename": "telecom.json",
+        "relativePath": "seven-os/sectors/telecom/domain/telecom.json"
+      }
+    ],
+    "seven-os/sectors/telecom": [
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/sectors/telecom/index.js"
+      },
+      {
+        "filename": "manifest.json",
+        "relativePath": "seven-os/sectors/telecom/manifest.json"
+      },
+      {
+        "filename": "schema.json",
+        "relativePath": "seven-os/sectors/telecom/schema.json"
+      },
+      {
+        "filename": "telecomEngine.ts",
+        "relativePath": "seven-os/sectors/telecom/telecomEngine.ts"
+      }
+    ],
+    "seven-os/sectors/telecom/topology": [
+      {
+        "filename": "telecom-topology.json",
+        "relativePath": "seven-os/sectors/telecom/topology/telecom-topology.json"
+      }
+    ],
+    "seven-os/sectors/water/domain": [
+      {
+        "filename": "water.json",
+        "relativePath": "seven-os/sectors/water/domain/water.json"
+      }
+    ],
+    "seven-os/sectors/water": [
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/sectors/water/index.js"
+      },
+      {
+        "filename": "manifest.json",
+        "relativePath": "seven-os/sectors/water/manifest.json"
+      },
+      {
+        "filename": "schema.json",
+        "relativePath": "seven-os/sectors/water/schema.json"
+      }
+    ],
+    "seven-os/sectors/water/topology": [
+      {
+        "filename": "water-topology.json",
+        "relativePath": "seven-os/sectors/water/topology/water-topology.json"
+      }
+    ],
+    "seven-os/security": [
+      {
+        "filename": "clearance-guard.js",
+        "relativePath": "seven-os/security/clearance-guard.js"
+      },
+      {
+        "filename": "guard.js",
+        "relativePath": "seven-os/security/guard.js"
+      },
+      {
+        "filename": "hash-utils.js",
+        "relativePath": "seven-os/security/hash-utils.js"
+      },
+      {
+        "filename": "key-engine.js",
+        "relativePath": "seven-os/security/key-engine.js"
+      },
+      {
+        "filename": "keygen.js",
+        "relativePath": "seven-os/security/keygen.js"
+      },
+      {
+        "filename": "middleware.js",
+        "relativePath": "seven-os/security/middleware.js"
+      },
+      {
+        "filename": "otp-service.js",
+        "relativePath": "seven-os/security/otp-service.js"
+      },
+      {
+        "filename": "require-admin.js",
+        "relativePath": "seven-os/security/require-admin.js"
+      },
+      {
+        "filename": "session-service.js",
+        "relativePath": "seven-os/security/session-service.js"
+      },
+      {
+        "filename": "threat-engine.js",
+        "relativePath": "seven-os/security/threat-engine.js"
+      },
+      {
+        "filename": "token-service.js",
+        "relativePath": "seven-os/security/token-service.js"
+      },
+      {
+        "filename": "validate-token.js",
+        "relativePath": "seven-os/security/validate-token.js"
+      },
+      {
+        "filename": "worker-guard.js",
+        "relativePath": "seven-os/security/worker-guard.js"
+      }
+    ],
+    "seven-os/seven-runtime/adapters": [
+      {
+        "filename": "ground-rescue-unit.ts",
+        "relativePath": "seven-os/seven-runtime/adapters/ground-rescue-unit.ts"
+      }
+    ],
+    "seven-os/seven-runtime/ai": [
+      {
+        "filename": "ai-worker.js",
+        "relativePath": "seven-os/seven-runtime/ai/ai-worker.js"
+      },
+      {
+        "filename": "cortex.js",
+        "relativePath": "seven-os/seven-runtime/ai/cortex.js"
+      },
+      {
+        "filename": "identity.js",
+        "relativePath": "seven-os/seven-runtime/ai/identity.js"
+      },
+      {
+        "filename": "logic-engine.js",
+        "relativePath": "seven-os/seven-runtime/ai/logic-engine.js"
+      },
+      {
+        "filename": "schema-guard.js",
+        "relativePath": "seven-os/seven-runtime/ai/schema-guard.js"
+      }
+    ],
+    "seven-os/seven-runtime/ai/tools": [
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/seven-runtime/ai/tools/index.js"
+      }
+    ],
+    "seven-os/seven-runtime/ai/workflows": [
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/seven-runtime/ai/workflows/index.js"
+      }
+    ],
+    "seven-os/seven-runtime/analysis": [
+      {
+        "filename": "field-health-scanner.ts",
+        "relativePath": "seven-os/seven-runtime/analysis/field-health-scanner.ts"
+      },
+      {
+        "filename": "infrastructure-damage-scanner.ts",
+        "relativePath": "seven-os/seven-runtime/analysis/infrastructure-damage-scanner.ts"
+      }
+    ],
+    "seven-os/seven-runtime/api": [
+      {
+        "filename": "boundary.ts",
+        "relativePath": "seven-os/seven-runtime/api/boundary.ts"
+      },
+      {
+        "filename": "collars.js",
+        "relativePath": "seven-os/seven-runtime/api/collars.js"
+      },
+      {
+        "filename": "command-dashboard.ts",
+        "relativePath": "seven-os/seven-runtime/api/command-dashboard.ts"
+      },
+      {
+        "filename": "compliance.js",
+        "relativePath": "seven-os/seven-runtime/api/compliance.js"
+      },
+      {
+        "filename": "contractors.js",
+        "relativePath": "seven-os/seven-runtime/api/contractors.js"
+      },
+      {
+        "filename": "deep-mind.js",
+        "relativePath": "seven-os/seven-runtime/api/deep-mind.js"
+      },
+      {
+        "filename": "donors.js",
+        "relativePath": "seven-os/seven-runtime/api/donors.js"
+      },
+      {
+        "filename": "ewo.js",
+        "relativePath": "seven-os/seven-runtime/api/ewo.js"
+      },
+      {
+        "filename": "gov-view.ts",
+        "relativePath": "seven-os/seven-runtime/api/gov-view.ts"
+      },
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/seven-runtime/api/index.js"
+      },
+      {
+        "filename": "marketplace.js",
+        "relativePath": "seven-os/seven-runtime/api/marketplace.js"
+      },
+      {
+        "filename": "opportunities-active.js",
+        "relativePath": "seven-os/seven-runtime/api/opportunities-active.js"
+      },
+      {
+        "filename": "opportunity.js",
+        "relativePath": "seven-os/seven-runtime/api/opportunity.js"
+      },
+      {
+        "filename": "opportunity.ts",
+        "relativePath": "seven-os/seven-runtime/api/opportunity.ts"
+      },
+      {
+        "filename": "program-matching-dashboard.js",
+        "relativePath": "seven-os/seven-runtime/api/program-matching-dashboard.js"
+      },
+      {
+        "filename": "router.js",
+        "relativePath": "seven-os/seven-runtime/api/router.js"
+      },
+      {
+        "filename": "sector-math.js",
+        "relativePath": "seven-os/seven-runtime/api/sector-math.js"
+      },
+      {
+        "filename": "sector-status.js",
+        "relativePath": "seven-os/seven-runtime/api/sector-status.js"
+      },
+      {
+        "filename": "seven-responder-interface.ts",
+        "relativePath": "seven-os/seven-runtime/api/seven-responder-interface.ts"
+      },
+      {
+        "filename": "system.js",
+        "relativePath": "seven-os/seven-runtime/api/system.js"
+      },
+      {
+        "filename": "users.js",
+        "relativePath": "seven-os/seven-runtime/api/users.js"
+      },
+      {
+        "filename": "voice-flight-handler.js",
+        "relativePath": "seven-os/seven-runtime/api/voice-flight-handler.js"
+      }
+    ],
+    "seven-os/seven-runtime/api/gov": [
+      {
+        "filename": "gov-view.js",
+        "relativePath": "seven-os/seven-runtime/api/gov/gov-view.js"
+      },
+      {
+        "filename": "threats.js",
+        "relativePath": "seven-os/seven-runtime/api/gov/threats.js"
+      }
+    ],
+    "seven-os/seven-runtime/api/map": [
+      {
+        "filename": "map.js",
+        "relativePath": "seven-os/seven-runtime/api/map/map.js"
+      }
+    ],
+    "seven-os/seven-runtime/api/routes": [
+      {
+        "filename": "state.js",
+        "relativePath": "seven-os/seven-runtime/api/routes/state.js"
+      }
+    ],
+    "seven-os/seven-runtime/api/system": [
+      {
+        "filename": "health.js",
+        "relativePath": "seven-os/seven-runtime/api/system/health.js"
+      },
+      {
+        "filename": "uptime.js",
+        "relativePath": "seven-os/seven-runtime/api/system/uptime.js"
+      }
+    ],
+    "seven-os/seven-runtime/audit": [
+      {
+        "filename": "seven-repo-audit.ts",
+        "relativePath": "seven-os/seven-runtime/audit/seven-repo-audit.ts"
+      }
+    ],
+    "seven-os/seven-runtime/cattle": [
+      {
+        "filename": "boundary-engine.ts",
+        "relativePath": "seven-os/seven-runtime/cattle/boundary-engine.ts"
+      },
+      {
+        "filename": "boundary-service.ts",
+        "relativePath": "seven-os/seven-runtime/cattle/boundary-service.ts"
+      },
+      {
+        "filename": "boundary-types.ts",
+        "relativePath": "seven-os/seven-runtime/cattle/boundary-types.ts"
+      },
+      {
+        "filename": "cattle-collar-sync.ts",
+        "relativePath": "seven-os/seven-runtime/cattle/cattle-collar-sync.ts"
+      },
+      {
+        "filename": "cattle-rules.ts",
+        "relativePath": "seven-os/seven-runtime/cattle/cattle-rules.ts"
+      },
+      {
+        "filename": "dashboard.ts",
+        "relativePath": "seven-os/seven-runtime/cattle/dashboard.ts"
+      },
+      {
+        "filename": "rotation-engine.ts",
+        "relativePath": "seven-os/seven-runtime/cattle/rotation-engine.ts"
+      },
+      {
+        "filename": "types.ts",
+        "relativePath": "seven-os/seven-runtime/cattle/types.ts"
+      }
+    ],
+    "seven-os/seven-runtime/cattle/vendors": [
+      {
+        "filename": "gallagher.ts",
+        "relativePath": "seven-os/seven-runtime/cattle/vendors/gallagher.ts"
+      }
+    ],
+    "seven-os/seven-runtime/disaster": [
+      {
+        "filename": "disaster-launcher.ts",
+        "relativePath": "seven-os/seven-runtime/disaster/disaster-launcher.ts"
+      },
+      {
+        "filename": "disaster-swarm.ts",
+        "relativePath": "seven-os/seven-runtime/disaster/disaster-swarm.ts"
+      }
+    ],
+    "seven-os/seven-runtime/drone": [
+      {
+        "filename": "disaster-profile.ts",
+        "relativePath": "seven-os/seven-runtime/drone/disaster-profile.ts"
+      },
+      {
+        "filename": "drone-cotrol.test.ts",
+        "relativePath": "seven-os/seven-runtime/drone/drone-cotrol.test.ts"
+      },
+      {
+        "filename": "drone-cotrol.ts",
+        "relativePath": "seven-os/seven-runtime/drone/drone-cotrol.ts"
+      },
+      {
+        "filename": "drone-mission-planner.ts",
+        "relativePath": "seven-os/seven-runtime/drone/drone-mission-planner.ts"
+      },
+      {
+        "filename": "drone-orchestrator.test.ts",
+        "relativePath": "seven-os/seven-runtime/drone/drone-orchestrator.test.ts"
+      },
+      {
+        "filename": "drone-orchestrator.ts",
+        "relativePath": "seven-os/seven-runtime/drone/drone-orchestrator.ts"
+      },
+      {
+        "filename": "drone-plugin.ts",
+        "relativePath": "seven-os/seven-runtime/drone/drone-plugin.ts"
+      },
+      {
+        "filename": "drone-registry.ts",
+        "relativePath": "seven-os/seven-runtime/drone/drone-registry.ts"
+      },
+      {
+        "filename": "geofence.ts",
+        "relativePath": "seven-os/seven-runtime/drone/geofence.ts"
+      },
+      {
+        "filename": "swarm-cotroller.ts",
+        "relativePath": "seven-os/seven-runtime/drone/swarm-cotroller.ts"
+      },
+      {
+        "filename": "swarm-lightshow.ts",
+        "relativePath": "seven-os/seven-runtime/drone/swarm-lightshow.ts"
+      },
+      {
+        "filename": "terrain-routing.ts",
+        "relativePath": "seven-os/seven-runtime/drone/terrain-routing.ts"
+      }
+    ],
+    "seven-os/seven-runtime/functions": [
+      {
+        "filename": "error-handler.js",
+        "relativePath": "seven-os/seven-runtime/functions/error-handler.js"
+      },
+      {
+        "filename": "logging.js",
+        "relativePath": "seven-os/seven-runtime/functions/logging.js"
+      },
+      {
+        "filename": "middlewareauth.js",
+        "relativePath": "seven-os/seven-runtime/functions/middlewareauth.js"
+      },
+      {
+        "filename": "rate-limit.js",
+        "relativePath": "seven-os/seven-runtime/functions/rate-limit.js"
+      },
+      {
+        "filename": "routes-geo-router.js",
+        "relativePath": "seven-os/seven-runtime/functions/routes-geo-router.js"
+      }
+    ],
+    "seven-os/seven-runtime/geo": [
+      {
+        "filename": "geo-fallback-engine.ts",
+        "relativePath": "seven-os/seven-runtime/geo/geo-fallback-engine.ts"
+      }
+    ],
+    "seven-os/seven-runtime/ground": [
+      {
+        "filename": "ground-control.ts",
+        "relativePath": "seven-os/seven-runtime/ground/ground-control.ts"
+      },
+      {
+        "filename": "ground-registy.ts",
+        "relativePath": "seven-os/seven-runtime/ground/ground-registy.ts"
+      }
+    ],
+    "seven-os/seven-runtime/hub_logic": [
+      {
+        "filename": "accountant-ai.js",
+        "relativePath": "seven-os/seven-runtime/hub_logic/accountant-ai.js"
+      },
+      {
+        "filename": "banker-ai.js",
+        "relativePath": "seven-os/seven-runtime/hub_logic/banker-ai.js"
+      },
+      {
+        "filename": "contractor-engine.js",
+        "relativePath": "seven-os/seven-runtime/hub_logic/contractor-engine.js"
+      },
+      {
+        "filename": "jobs-engine.js",
+        "relativePath": "seven-os/seven-runtime/hub_logic/jobs-engine.js"
+      },
+      {
+        "filename": "payroll-calc.js",
+        "relativePath": "seven-os/seven-runtime/hub_logic/payroll-calc.js"
+      },
+      {
+        "filename": "payroll-run.js",
+        "relativePath": "seven-os/seven-runtime/hub_logic/payroll-run.js"
+      },
+      {
+        "filename": "space.js",
+        "relativePath": "seven-os/seven-runtime/hub_logic/space.js"
+      },
+      {
+        "filename": "staff-assign.js",
+        "relativePath": "seven-os/seven-runtime/hub_logic/staff-assign.js"
+      },
+      {
+        "filename": "staff-monitor.js",
+        "relativePath": "seven-os/seven-runtime/hub_logic/staff-monitor.js"
+      },
+      {
+        "filename": "staff-performance.js",
+        "relativePath": "seven-os/seven-runtime/hub_logic/staff-performance.js"
+      },
+      {
+        "filename": "staff-shifts.js",
+        "relativePath": "seven-os/seven-runtime/hub_logic/staff-shifts.js"
+      }
+    ],
+    "seven-os/seven-runtime/hybrid": [
+      {
+        "filename": "hybrid-mode.ts",
+        "relativePath": "seven-os/seven-runtime/hybrid/hybrid-mode.ts"
+      }
+    ],
+    "seven-os/seven-runtime/infra/ag": [
+      {
+        "filename": "ag.event.ts",
+        "relativePath": "seven-os/seven-runtime/infra/ag/ag.event.ts"
+      }
+    ],
+    "seven-os/seven-runtime/infra/ag/livestock": [
+      {
+        "filename": "audit.ts",
+        "relativePath": "seven-os/seven-runtime/infra/ag/livestock/audit.ts"
+      }
+    ],
+    "seven-os/seven-runtime/infra/ag/virtual-fence": [
+      {
+        "filename": "audit.ts",
+        "relativePath": "seven-os/seven-runtime/infra/ag/virtual-fence/audit.ts"
+      }
+    ],
+    "seven-os/seven-runtime/infra/ems": [
+      {
+        "filename": "audit.ts",
+        "relativePath": "seven-os/seven-runtime/infra/ems/audit.ts"
+      },
+      {
+        "filename": "ems.event.ts",
+        "relativePath": "seven-os/seven-runtime/infra/ems/ems.event.ts"
+      }
+    ],
+    "seven-os/seven-runtime/infra/fiber": [
+      {
+        "filename": "audit.ts",
+        "relativePath": "seven-os/seven-runtime/infra/fiber/audit.ts"
+      },
+      {
+        "filename": "fiber.event.ts",
+        "relativePath": "seven-os/seven-runtime/infra/fiber/fiber.event.ts"
+      }
+    ],
+    "seven-os/seven-runtime/infra": [
+      {
+        "filename": "infra.event.ts",
+        "relativePath": "seven-os/seven-runtime/infra/infra.event.ts"
+      },
+      {
+        "filename": "types.ts",
+        "relativePath": "seven-os/seven-runtime/infra/types.ts"
+      }
+    ],
+    "seven-os/seven-runtime/infra/power": [
+      {
+        "filename": "audit.ts",
+        "relativePath": "seven-os/seven-runtime/infra/power/audit.ts"
+      },
+      {
+        "filename": "power.event.ts",
+        "relativePath": "seven-os/seven-runtime/infra/power/power.event.ts"
+      }
+    ],
+    "seven-os/seven-runtime/infra/shared/types": [
+      {
+        "filename": "infra-event.ts",
+        "relativePath": "seven-os/seven-runtime/infra/shared/types/infra-event.ts"
+      }
+    ],
+    "seven-os/seven-runtime/infra/shared/utils": [
+      {
+        "filename": "events.ts",
+        "relativePath": "seven-os/seven-runtime/infra/shared/utils/events.ts"
+      }
+    ],
+    "seven-os/seven-runtime/infra/tower": [
+      {
+        "filename": "autit.ts",
+        "relativePath": "seven-os/seven-runtime/infra/tower/autit.ts"
+      },
+      {
+        "filename": "ingest.ts",
+        "relativePath": "seven-os/seven-runtime/infra/tower/ingest.ts"
+      },
+      {
+        "filename": "tower.events.ts",
+        "relativePath": "seven-os/seven-runtime/infra/tower/tower.events.ts"
+      },
+      {
+        "filename": "types.ts",
+        "relativePath": "seven-os/seven-runtime/infra/tower/types.ts"
+      }
+    ],
+    "seven-os/seven-runtime/intelligence": [
+      {
+        "filename": "debug-worker.js",
+        "relativePath": "seven-os/seven-runtime/intelligence/debug-worker.js"
+      },
+      {
+        "filename": "diagnostics.js",
+        "relativePath": "seven-os/seven-runtime/intelligence/diagnostics.js"
+      }
+    ],
+    "seven-os/seven-runtime/interop": [
+      {
+        "filename": "seven-interop.ts",
+        "relativePath": "seven-os/seven-runtime/interop/seven-interop.ts"
+      }
+    ],
+    "seven-os/seven-runtime/logs": [
+      {
+        "filename": "log-alerts.js",
+        "relativePath": "seven-os/seven-runtime/logs/log-alerts.js"
+      },
+      {
+        "filename": "log-analyzer.js",
+        "relativePath": "seven-os/seven-runtime/logs/log-analyzer.js"
+      },
+      {
+        "filename": "log-cleaner.js",
+        "relativePath": "seven-os/seven-runtime/logs/log-cleaner.js"
+      },
+      {
+        "filename": "log-dashboard.js",
+        "relativePath": "seven-os/seven-runtime/logs/log-dashboard.js"
+      },
+      {
+        "filename": "log-exporter.js",
+        "relativePath": "seven-os/seven-runtime/logs/log-exporter.js"
+      },
+      {
+        "filename": "log-health-check.js",
+        "relativePath": "seven-os/seven-runtime/logs/log-health-check.js"
+      },
+      {
+        "filename": "log-reader.js",
+        "relativePath": "seven-os/seven-runtime/logs/log-reader.js"
+      },
+      {
+        "filename": "log-rotation.js",
+        "relativePath": "seven-os/seven-runtime/logs/log-rotation.js"
+      },
+      {
+        "filename": "log-search.js",
+        "relativePath": "seven-os/seven-runtime/logs/log-search.js"
+      },
+      {
+        "filename": "log-self-test.js",
+        "relativePath": "seven-os/seven-runtime/logs/log-self-test.js"
+      },
+      {
+        "filename": "log-sync.js",
+        "relativePath": "seven-os/seven-runtime/logs/log-sync.js"
+      },
+      {
+        "filename": "log-ui-dashboard.js",
+        "relativePath": "seven-os/seven-runtime/logs/log-ui-dashboard.js"
+      },
+      {
+        "filename": "log-validator.js",
+        "relativePath": "seven-os/seven-runtime/logs/log-validator.js"
+      },
+      {
+        "filename": "log-writer.js",
+        "relativePath": "seven-os/seven-runtime/logs/log-writer.js"
+      }
+    ],
+    "seven-os/seven-runtime/matching": [
+      {
+        "filename": "contractor-matching.js",
+        "relativePath": "seven-os/seven-runtime/matching/contractor-matching.js"
+      },
+      {
+        "filename": "cyber-matching.js",
+        "relativePath": "seven-os/seven-runtime/matching/cyber-matching.js"
+      },
+      {
+        "filename": "multi-sector-matching.js",
+        "relativePath": "seven-os/seven-runtime/matching/multi-sector-matching.js"
+      },
+      {
+        "filename": "workforce-matching.js",
+        "relativePath": "seven-os/seven-runtime/matching/workforce-matching.js"
+      }
+    ],
+    "seven-os/seven-runtime/rescue": [
+      {
+        "filename": "adapters.ts",
+        "relativePath": "seven-os/seven-runtime/rescue/adapters.ts"
+      },
+      {
+        "filename": "resue-unit.ts",
+        "relativePath": "seven-os/seven-runtime/rescue/resue-unit.ts"
+      },
+      {
+        "filename": "seven-rescue-commander.ts",
+        "relativePath": "seven-os/seven-runtime/rescue/seven-rescue-commander.ts"
+      }
+    ],
+    "seven-os/seven-runtime/rf/FirmwareAuditor": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/seven-runtime/rf/FirmwareAuditor/index.ts"
+      }
+    ],
+    "seven-os/seven-runtime/rf/REObservation-layer": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/seven-runtime/rf/REObservation-layer/index.ts"
+      }
+    ],
+    "seven-os/seven-runtime/safety": [
+      {
+        "filename": "disaster-heavy-lift.ts",
+        "relativePath": "seven-os/seven-runtime/safety/disaster-heavy-lift.ts"
+      },
+      {
+        "filename": "disaster-profile.ts",
+        "relativePath": "seven-os/seven-runtime/safety/disaster-profile.ts"
+      },
+      {
+        "filename": "sector-safety-engine.ts",
+        "relativePath": "seven-os/seven-runtime/safety/sector-safety-engine.ts"
+      }
+    ],
+    "seven-os/seven-runtime/sensors": [
+      {
+        "filename": "nap-sectors.js",
+        "relativePath": "seven-os/seven-runtime/sensors/nap-sectors.js"
+      },
+      {
+        "filename": "nap-sectors.ts",
+        "relativePath": "seven-os/seven-runtime/sensors/nap-sectors.ts"
+      },
+      {
+        "filename": "search-thermal.ts",
+        "relativePath": "seven-os/seven-runtime/sensors/search-thermal.ts"
+      }
+    ],
+    "seven-os/seven-runtime": [
+      {
+        "filename": "seven.ts",
+        "relativePath": "seven-os/seven-runtime/seven.ts"
+      }
+    ],
+    "seven-os/seven-runtime/stack": [
+      {
+        "filename": "seven-stack.ts",
+        "relativePath": "seven-os/seven-runtime/stack/seven-stack.ts"
+      }
+    ],
+    "seven-os/seven-runtime/sync/core": [
+      {
+        "filename": "connection-monitor.ts",
+        "relativePath": "seven-os/seven-runtime/sync/core/connection-monitor.ts"
+      },
+      {
+        "filename": "event-queue.ts",
+        "relativePath": "seven-os/seven-runtime/sync/core/event-queue.ts"
+      },
+      {
+        "filename": "offlin-cache.ts",
+        "relativePath": "seven-os/seven-runtime/sync/core/offlin-cache.ts"
+      },
+      {
+        "filename": "offline-cache.ts",
+        "relativePath": "seven-os/seven-runtime/sync/core/offline-cache.ts"
+      }
+    ],
+    "seven-os/seven-runtime/sync/policies": [
+      {
+        "filename": "hybrid-mode.ts",
+        "relativePath": "seven-os/seven-runtime/sync/policies/hybrid-mode.ts"
+      },
+      {
+        "filename": "sync-priority.ts",
+        "relativePath": "seven-os/seven-runtime/sync/policies/sync-priority.ts"
+      }
+    ],
+    "seven-os/seven-runtime/sync": [
+      {
+        "filename": "satellite-continuity.ts",
+        "relativePath": "seven-os/seven-runtime/sync/satellite-continuity.ts"
+      },
+      {
+        "filename": "starlink-hybrid-sync-engine.ts",
+        "relativePath": "seven-os/seven-runtime/sync/starlink-hybrid-sync-engine.ts"
+      }
+    ],
+    "seven-os/seven-runtime/sync/transports": [
+      {
+        "filename": "lte.ts",
+        "relativePath": "seven-os/seven-runtime/sync/transports/lte.ts"
+      },
+      {
+        "filename": "scheduler.ts",
+        "relativePath": "seven-os/seven-runtime/sync/transports/scheduler.ts"
+      },
+      {
+        "filename": "starlink.ts",
+        "relativePath": "seven-os/seven-runtime/sync/transports/starlink.ts"
+      },
+      {
+        "filename": "wifi.ts",
+        "relativePath": "seven-os/seven-runtime/sync/transports/wifi.ts"
+      }
+    ],
+    "seven-os/seven-runtime/voice": [
+      {
+        "filename": "seven-narrator.ts",
+        "relativePath": "seven-os/seven-runtime/voice/seven-narrator.ts"
+      },
+      {
+        "filename": "voice-bus.ts",
+        "relativePath": "seven-os/seven-runtime/voice/voice-bus.ts"
+      }
+    ],
+    "seven-os/seven-runtime/workers": [
+      {
+        "filename": "admin-protect-worker.js",
+        "relativePath": "seven-os/seven-runtime/workers/admin-protect-worker.js"
+      },
+      {
+        "filename": "ai-worker.js",
+        "relativePath": "seven-os/seven-runtime/workers/ai-worker.js"
+      },
+      {
+        "filename": "api-worker.js",
+        "relativePath": "seven-os/seven-runtime/workers/api-worker.js"
+      },
+      {
+        "filename": "auth-worker.js",
+        "relativePath": "seven-os/seven-runtime/workers/auth-worker.js"
+      },
+      {
+        "filename": "debug-worker.js",
+        "relativePath": "seven-os/seven-runtime/workers/debug-worker.js"
+      },
+      {
+        "filename": "field-enginegps-mapper.js",
+        "relativePath": "seven-os/seven-runtime/workers/field-enginegps-mapper.js"
+      },
+      {
+        "filename": "gia-deep-mind-2100.js",
+        "relativePath": "seven-os/seven-runtime/workers/gia-deep-mind-2100.js"
+      },
+      {
+        "filename": "gov-view-worker.ts",
+        "relativePath": "seven-os/seven-runtime/workers/gov-view-worker.ts"
+      },
+      {
+        "filename": "intake.ts",
+        "relativePath": "seven-os/seven-runtime/workers/intake.ts"
+      },
+      {
+        "filename": "log-ingestion-worker.js",
+        "relativePath": "seven-os/seven-runtime/workers/log-ingestion-worker.js"
+      },
+      {
+        "filename": "opportunity-scanner-worker.ts",
+        "relativePath": "seven-os/seven-runtime/workers/opportunity-scanner-worker.ts"
+      },
+      {
+        "filename": "organizer.js",
+        "relativePath": "seven-os/seven-runtime/workers/organizer.js"
+      },
+      {
+        "filename": "project-search-worker.js",
+        "relativePath": "seven-os/seven-runtime/workers/project-search-worker.js"
+      },
+      {
+        "filename": "Topology Sync Worker.js",
+        "relativePath": "seven-os/seven-runtime/workers/Topology Sync Worker.js"
+      },
+      {
+        "filename": "worker.ts",
+        "relativePath": "seven-os/seven-runtime/workers/worker.ts"
+      }
+    ],
+    "seven-os/seven-runtime/workers/cyber/cyber": [
+      {
+        "filename": "anomaly-engine.js",
+        "relativePath": "seven-os/seven-runtime/workers/cyber/cyber/anomaly-engine.js"
+      },
+      {
+        "filename": "cyber-engine.js",
+        "relativePath": "seven-os/seven-runtime/workers/cyber/cyber/cyber-engine.js"
+      },
+      {
+        "filename": "cyber-trust.engine.js",
+        "relativePath": "seven-os/seven-runtime/workers/cyber/cyber/cyber-trust.engine.js"
+      },
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/seven-runtime/workers/cyber/cyber/index.js"
+      },
+      {
+        "filename": "threat-score.engine.js",
+        "relativePath": "seven-os/seven-runtime/workers/cyber/cyber/threat-score.engine.js"
+      }
+    ],
+    "seven-os/seven-runtime/workers/cyber": [
+      {
+        "filename": "cyber-normalizer.ts",
+        "relativePath": "seven-os/seven-runtime/workers/cyber/cyber-normalizer.ts"
+      },
+      {
+        "filename": "cyber-threat-intel.ts",
+        "relativePath": "seven-os/seven-runtime/workers/cyber/cyber-threat-intel.ts"
+      },
+      {
+        "filename": "cyber.escalation.ts",
+        "relativePath": "seven-os/seven-runtime/workers/cyber/cyber.escalation.ts"
+      },
+      {
+        "filename": "cyber.router.ts",
+        "relativePath": "seven-os/seven-runtime/workers/cyber/cyber.router.ts"
+      },
+      {
+        "filename": "cyber.soc-dashboard.ts",
+        "relativePath": "seven-os/seven-runtime/workers/cyber/cyber.soc-dashboard.ts"
+      },
+      {
+        "filename": "cyber.worker.ts",
+        "relativePath": "seven-os/seven-runtime/workers/cyber/cyber.worker.ts"
+      }
+    ],
+    "seven-os/seven-runtime/workers/debug": [
+      {
+        "filename": "debug-worker.ts",
+        "relativePath": "seven-os/seven-runtime/workers/debug/debug-worker.ts"
+      }
+    ],
+    "seven-os/seven-runtime/workers/emergency-router": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/seven-runtime/workers/emergency-router/index.ts"
+      }
+    ],
+    "seven-os/seven-runtime/workers/expansion": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/seven-runtime/workers/expansion/index.ts"
+      }
+    ],
+    "seven-os/seven-runtime/workers/fcc": [
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/seven-runtime/workers/fcc/index.js"
+      }
+    ],
+    "seven-os/seven-runtime/workers/finance": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/seven-runtime/workers/finance/index.ts"
+      }
+    ],
+    "seven-os/seven-runtime/workers/gov": [
+      {
+        "filename": "gov.escalation-handler.ts",
+        "relativePath": "seven-os/seven-runtime/workers/gov/gov.escalation-handler.ts"
+      },
+      {
+        "filename": "gov.worker.ts",
+        "relativePath": "seven-os/seven-runtime/workers/gov/gov.worker.ts"
+      }
+    ],
+    "seven-os/seven-runtime/workers/system-workers/admin-workers": [
+      {
+        "filename": "admin-endpoints.ts",
+        "relativePath": "seven-os/seven-runtime/workers/system-workers/admin-workers/admin-endpoints.ts"
+      },
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/seven-runtime/workers/system-workers/admin-workers/index.ts"
+      }
+    ],
+    "seven-os/seven-runtime/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/seven-runtime/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers/index.ts"
+      }
+    ],
+    "seven-os/seven-runtime/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers/public-worker/hr-worker": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/seven-runtime/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers/public-worker/hr-worker/index.ts"
+      }
+    ],
+    "seven-os/seven-runtime/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers/public-worker/payroll-worker/employee": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/seven-runtime/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers/public-worker/payroll-worker/employee/index.ts"
+      }
+    ],
+    "seven-os/seven-runtime/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers/public-worker/payroll-worker": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/seven-runtime/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers/public-worker/payroll-worker/index.ts"
+      }
+    ],
+    "seven-os/seven-runtime/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/seven-runtime/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/index.ts"
+      }
+    ],
+    "seven-os/seven-runtime/workers/system-workers/admin-workers/contractor-workers/deepgov-workers": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/seven-runtime/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/index.ts"
+      }
+    ],
+    "seven-os/seven-runtime/workers/system-workers/admin-workers/contractor-workers": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/seven-runtime/workers/system-workers/admin-workers/contractor-workers/index.ts"
+      }
+    ],
+    "seven-os/seven-runtime/workers/system-workers": [
+      {
+        "filename": "emergency-router.js",
+        "relativePath": "seven-os/seven-runtime/workers/system-workers/emergency-router.js"
+      },
+      {
+        "filename": "ewo-worker.ts",
+        "relativePath": "seven-os/seven-runtime/workers/system-workers/ewo-worker.ts"
+      },
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/seven-runtime/workers/system-workers/index.ts"
+      },
+      {
+        "filename": "protected-routes.js",
+        "relativePath": "seven-os/seven-runtime/workers/system-workers/protected-routes.js"
+      },
+      {
+        "filename": "routing.js",
+        "relativePath": "seven-os/seven-runtime/workers/system-workers/routing.js"
+      }
+    ],
+    "seven-os/seven-runtime/workforce": [
+      {
+        "filename": "public-workforce-grid.js",
+        "relativePath": "seven-os/seven-runtime/workforce/public-workforce-grid.js"
+      }
+    ],
+    "seven-os/stack": [
+      {
+        "filename": "seven-stack.ts",
+        "relativePath": "seven-os/stack/seven-stack.ts"
+      }
+    ],
+    "seven-os/sync/core": [
+      {
+        "filename": "connection-monitor.ts",
+        "relativePath": "seven-os/sync/core/connection-monitor.ts"
+      },
+      {
+        "filename": "event-queue.ts",
+        "relativePath": "seven-os/sync/core/event-queue.ts"
+      },
+      {
+        "filename": "offline-cache.ts",
+        "relativePath": "seven-os/sync/core/offline-cache.ts"
+      }
+    ],
+    "seven-os/sync/transports": [
+      {
+        "filename": "transport-mux.ts",
+        "relativePath": "seven-os/sync/transports/transport-mux.ts"
+      }
+    ],
+    "seven-os/system": [
+      {
+        "filename": "ai-decision.js",
+        "relativePath": "seven-os/system/ai-decision.js"
+      },
+      {
+        "filename": "ai-embedding.js",
+        "relativePath": "seven-os/system/ai-embedding.js"
+      },
+      {
+        "filename": "ai-filter.js",
+        "relativePath": "seven-os/system/ai-filter.js"
+      },
+      {
+        "filename": "ai-identity.js",
+        "relativePath": "seven-os/system/ai-identity.js"
+      },
+      {
+        "filename": "ai-logs.js",
+        "relativePath": "seven-os/system/ai-logs.js"
+      },
+      {
+        "filename": "ai-memory.js",
+        "relativePath": "seven-os/system/ai-memory.js"
+      },
+      {
+        "filename": "ai-policy.js",
+        "relativePath": "seven-os/system/ai-policy.js"
+      },
+      {
+        "filename": "ai-routing.js",
+        "relativePath": "seven-os/system/ai-routing.js"
+      },
+      {
+        "filename": "ai-safety.js",
+        "relativePath": "seven-os/system/ai-safety.js"
+      },
+      {
+        "filename": "ai-telemetry.js",
+        "relativePath": "seven-os/system/ai-telemetry.js"
+      },
+      {
+        "filename": "ai-worker.js",
+        "relativePath": "seven-os/system/ai-worker.js"
+      },
+      {
+        "filename": "api-routing-map.json",
+        "relativePath": "seven-os/system/api-routing-map.json"
+      },
+      {
+        "filename": "automation-tasks.js",
+        "relativePath": "seven-os/system/automation-tasks.js"
+      },
+      {
+        "filename": "CDE.js",
+        "relativePath": "seven-os/system/CDE.js"
+      },
+      {
+        "filename": "classifiers.json",
+        "relativePath": "seven-os/system/classifiers.json"
+      },
+      {
+        "filename": "domain-routing-map.json",
+        "relativePath": "seven-os/system/domain-routing-map.json"
+      },
+      {
+        "filename": "embeddings.json",
+        "relativePath": "seven-os/system/embeddings.json"
+      },
+      {
+        "filename": "failsafe-protocols.js",
+        "relativePath": "seven-os/system/failsafe-protocols.js"
+      },
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/system/index.js"
+      },
+      {
+        "filename": "info.js",
+        "relativePath": "seven-os/system/info.js"
+      },
+      {
+        "filename": "manifest.js",
+        "relativePath": "seven-os/system/manifest.js"
+      },
+      {
+        "filename": "map.json",
+        "relativePath": "seven-os/system/map.json"
+      },
+      {
+        "filename": "marketplace-engine.ts",
+        "relativePath": "seven-os/system/marketplace-engine.ts"
+      },
+      {
+        "filename": "metadata.js",
+        "relativePath": "seven-os/system/metadata.js"
+      },
+      {
+        "filename": "policy-engine.js",
+        "relativePath": "seven-os/system/policy-engine.js"
+      },
+      {
+        "filename": "restart.js",
+        "relativePath": "seven-os/system/restart.js"
+      },
+      {
+        "filename": "runtime-routing-map.json",
+        "relativePath": "seven-os/system/runtime-routing-map.json"
+      },
+      {
+        "filename": "sector-matching-engine.ts",
+        "relativePath": "seven-os/system/sector-matching-engine.ts"
+      },
+      {
+        "filename": "sector-routing-map.json",
+        "relativePath": "seven-os/system/sector-routing-map.json"
+      },
+      {
+        "filename": "system-ai.js",
+        "relativePath": "seven-os/system/system-ai.js"
+      },
+      {
+        "filename": "system-diagnostics.js",
+        "relativePath": "seven-os/system/system-diagnostics.js"
+      },
+      {
+        "filename": "system-domains.js",
+        "relativePath": "seven-os/system/system-domains.js"
+      },
+      {
+        "filename": "system-health.js",
+        "relativePath": "seven-os/system/system-health.js"
+      },
+      {
+        "filename": "system-infrastructure.js",
+        "relativePath": "seven-os/system/system-infrastructure.js"
+      },
+      {
+        "filename": "system-routing-map.json",
+        "relativePath": "seven-os/system/system-routing-map.json"
+      },
+      {
+        "filename": "system-routing.js",
+        "relativePath": "seven-os/system/system-routing.js"
+      },
+      {
+        "filename": "system-security.js",
+        "relativePath": "seven-os/system/system-security.js"
+      },
+      {
+        "filename": "system-storage.js",
+        "relativePath": "seven-os/system/system-storage.js"
+      },
+      {
+        "filename": "system-trust.js",
+        "relativePath": "seven-os/system/system-trust.js"
+      },
+      {
+        "filename": "system-uptime.js",
+        "relativePath": "seven-os/system/system-uptime.js"
+      },
+      {
+        "filename": "threat-report.js",
+        "relativePath": "seven-os/system/threat-report.js"
+      },
+      {
+        "filename": "worker-routing-map.json",
+        "relativePath": "seven-os/system/worker-routing-map.json"
+      }
+    ],
+    "seven-os/system/data": [
+      {
+        "filename": "data-contracts.json",
+        "relativePath": "seven-os/system/data/data-contracts.json"
+      },
+      {
+        "filename": "data-responce.json",
+        "relativePath": "seven-os/system/data/data-responce.json"
+      },
+      {
+        "filename": "MCP+DID+VC-integration.json",
+        "relativePath": "seven-os/system/data/MCP+DID+VC-integration.json"
+      },
+      {
+        "filename": "navigation.json",
+        "relativePath": "seven-os/system/data/navigation.json"
+      },
+      {
+        "filename": "sectors.json",
+        "relativePath": "seven-os/system/data/sectors.json"
+      }
+    ],
+    "seven-os/system/data/schemas": [
+      {
+        "filename": "interns.schema.json",
+        "relativePath": "seven-os/system/data/schemas/interns.schema.json"
+      },
+      {
+        "filename": "job-listings.schema.json",
+        "relativePath": "seven-os/system/data/schemas/job-listings.schema.json"
+      }
+    ],
+    "seven-os/system/indexer": [
+      {
+        "filename": "engine.js",
+        "relativePath": "seven-os/system/indexer/engine.js"
+      },
+      {
+        "filename": "engine.ts",
+        "relativePath": "seven-os/system/indexer/engine.ts"
+      },
+      {
+        "filename": "hub-indexer.js",
+        "relativePath": "seven-os/system/indexer/hub-indexer.js"
+      },
+      {
+        "filename": "resolver.ts",
+        "relativePath": "seven-os/system/indexer/resolver.ts"
+      },
+      {
+        "filename": "routing-scanner.js",
+        "relativePath": "seven-os/system/indexer/routing-scanner.js"
+      },
+      {
+        "filename": "routing-scanner.ts",
+        "relativePath": "seven-os/system/indexer/routing-scanner.ts"
+      },
+      {
+        "filename": "types.js",
+        "relativePath": "seven-os/system/indexer/types.js"
+      },
+      {
+        "filename": "types.ts",
+        "relativePath": "seven-os/system/indexer/types.ts"
+      }
+    ],
+    "seven-os/system/routing": [
+      {
+        "filename": "routing-builder.js",
+        "relativePath": "seven-os/system/routing/routing-builder.js"
+      },
+      {
+        "filename": "routing-classifier.js",
+        "relativePath": "seven-os/system/routing/routing-classifier.js"
+      },
+      {
+        "filename": "routing-report.js",
+        "relativePath": "seven-os/system/routing/routing-report.js"
+      },
+      {
+        "filename": "routing-scanner.js",
+        "relativePath": "seven-os/system/routing/routing-scanner.js"
+      },
+      {
+        "filename": "routing-validater.js",
+        "relativePath": "seven-os/system/routing/routing-validater.js"
+      },
+      {
+        "filename": "schema-loader.js",
+        "relativePath": "seven-os/system/routing/schema-loader.js"
+      },
+      {
+        "filename": "sector-loader.ts",
+        "relativePath": "seven-os/system/routing/sector-loader.ts"
+      }
+    ],
+    "seven-os/utilities/dashboard/universal/actions": [
+      {
+        "filename": "cattle.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/actions/cattle.ts"
+      },
+      {
+        "filename": "drone.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/actions/drone.ts"
+      },
+      {
+        "filename": "generic.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/actions/generic.ts"
+      },
+      {
+        "filename": "pipeline.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/actions/pipeline.ts"
+      },
+      {
+        "filename": "resue.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/actions/resue.ts"
+      },
+      {
+        "filename": "utilities.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/actions/utilities.ts"
+      }
+    ],
+    "seven-os/utilities/dashboard/universal/bindings": [
+      {
+        "filename": "bindings.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/bindings/bindings.ts"
+      },
+      {
+        "filename": "cattle.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/bindings/cattle.ts"
+      },
+      {
+        "filename": "drone.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/bindings/drone.ts"
+      },
+      {
+        "filename": "generic.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/bindings/generic.ts"
+      },
+      {
+        "filename": "pipeline.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/bindings/pipeline.ts"
+      },
+      {
+        "filename": "utilities.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/bindings/utilities.ts"
+      }
+    ],
+    "seven-os/utilities/dashboard/universal/layouts": [
+      {
+        "filename": "agriculture.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/layouts/agriculture.ts"
+      },
+      {
+        "filename": "air.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/layouts/air.ts"
+      },
+      {
+        "filename": "emergency.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/layouts/emergency.ts"
+      },
+      {
+        "filename": "generic.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/layouts/generic.ts"
+      },
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/layouts/index.ts"
+      },
+      {
+        "filename": "jobs-workflow-pipeline.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/layouts/jobs-workflow-pipeline.ts"
+      },
+      {
+        "filename": "layout.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/layouts/layout.ts"
+      },
+      {
+        "filename": "utilities.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/layouts/utilities.ts"
+      }
+    ],
+    "seven-os/utilities/dashboard/universal": [
+      {
+        "filename": "reanderer.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/reanderer.ts"
+      }
+    ],
+    "seven-os/utilities/dashboard/universal/shell": [
+      {
+        "filename": "builder.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/shell/builder.ts"
+      },
+      {
+        "filename": "shell.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/shell/shell.ts"
+      }
+    ],
+    "seven-os/utilities/dashboard/universal/themes": [
+      {
+        "filename": "contractor.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/themes/contractor.ts"
+      },
+      {
+        "filename": "default.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/themes/default.ts"
+      },
+      {
+        "filename": "emt.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/themes/emt.ts"
+      },
+      {
+        "filename": "farmer.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/themes/farmer.ts"
+      },
+      {
+        "filename": "gov.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/themes/gov.ts"
+      },
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/themes/index.ts"
+      },
+      {
+        "filename": "pilot.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/themes/pilot.ts"
+      },
+      {
+        "filename": "pubic.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/themes/pubic.ts"
+      },
+      {
+        "filename": "theme.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/themes/theme.ts"
+      }
+    ],
+    "seven-os/utilities/dashboard/universal/widgets": [
+      {
+        "filename": "card-widget.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/widgets/card-widget.ts"
+      },
+      {
+        "filename": "feed-widget.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/widgets/feed-widget.ts"
+      },
+      {
+        "filename": "graph-widget.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/widgets/graph-widget.ts"
+      },
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/widgets/index.ts"
+      },
+      {
+        "filename": "list-widget.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/widgets/list-widget.ts"
+      },
+      {
+        "filename": "map-widget.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/widgets/map-widget.ts"
+      },
+      {
+        "filename": "widget.ts",
+        "relativePath": "seven-os/utilities/dashboard/universal/widgets/widget.ts"
+      }
+    ],
+    "seven-os/utilities/services": [
+      {
+        "filename": "constants.js",
+        "relativePath": "seven-os/utilities/services/constants.js"
+      },
+      {
+        "filename": "logger.js",
+        "relativePath": "seven-os/utilities/services/logger.js"
+      },
+      {
+        "filename": "response.js",
+        "relativePath": "seven-os/utilities/services/response.js"
+      }
+    ],
+    "seven-os/utilities": [
+      {
+        "filename": "skd-interface.ts",
+        "relativePath": "seven-os/utilities/skd-interface.ts"
+      },
+      {
+        "filename": "write-report.cjs",
+        "relativePath": "seven-os/utilities/write-report.cjs"
+      }
+    ],
+    "seven-os/utilities/tools": [
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/utilities/tools/index.js"
+      }
+    ],
+    "seven-os/utilities/ui/web": [
+      {
+        "filename": "web-app.ts",
+        "relativePath": "seven-os/utilities/ui/web/web-app.ts"
+      }
+    ],
+    "seven-os/voice": [
+      {
+        "filename": "command-fallback.js",
+        "relativePath": "seven-os/voice/command-fallback.js"
+      },
+      {
+        "filename": "command-learning.js",
+        "relativePath": "seven-os/voice/command-learning.js"
+      },
+      {
+        "filename": "command-loader.js",
+        "relativePath": "seven-os/voice/command-loader.js"
+      },
+      {
+        "filename": "command-matcher.js",
+        "relativePath": "seven-os/voice/command-matcher.js"
+      },
+      {
+        "filename": "command-registry.js",
+        "relativePath": "seven-os/voice/command-registry.js"
+      },
+      {
+        "filename": "response-engine.js",
+        "relativePath": "seven-os/voice/response-engine.js"
+      },
+      {
+        "filename": "voice-mode.js",
+        "relativePath": "seven-os/voice/voice-mode.js"
+      }
+    ],
+    "seven-os/voice/disaster": [
+      {
+        "filename": "disaster-grid.js",
+        "relativePath": "seven-os/voice/disaster/disaster-grid.js"
+      },
+      {
+        "filename": "seven-rescue-supply.js",
+        "relativePath": "seven-os/voice/disaster/seven-rescue-supply.js"
+      }
+    ],
+    "seven-os/voice/mission": [
+      {
+        "filename": "mission-orchestrator.js",
+        "relativePath": "seven-os/voice/mission/mission-orchestrator.js"
+      }
+    ],
+    "seven-os/workers/ai-worker": [
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/workers/ai-worker/index.js"
+      }
+    ],
+    "seven-os/workers/cyber/cyber": [
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/workers/cyber/cyber/index.js"
+      }
+    ],
+    "seven-os/workers/emergency-router": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/workers/emergency-router/index.ts"
+      }
+    ],
+    "seven-os/workers/expansion": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/workers/expansion/index.ts"
+      }
+    ],
+    "seven-os/workers/fcc": [
+      {
+        "filename": "index.js",
+        "relativePath": "seven-os/workers/fcc/index.js"
+      }
+    ],
+    "seven-os/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers/index.ts"
+      }
+    ],
+    "seven-os/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers/public-worker/hr-worker": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers/public-worker/hr-worker/index.ts"
+      }
+    ],
+    "seven-os/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers/public-worker/payroll-worker/employee": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers/public-worker/payroll-worker/employee/index.ts"
+      }
+    ],
+    "seven-os/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers/public-worker/payroll-worker": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers/public-worker/payroll-worker/index.ts"
+      }
+    ],
+    "seven-os/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/index.ts"
+      }
+    ],
+    "seven-os/workers/system-workers/admin-workers/contractor-workers/deepgov-workers": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/index.ts"
+      }
+    ],
+    "seven-os/workers/system-workers/admin-workers/contractor-workers": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/workers/system-workers/admin-workers/contractor-workers/index.ts"
+      }
+    ],
+    "seven-os/workers/system-workers/admin-workers": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/workers/system-workers/admin-workers/index.ts"
+      }
+    ],
+    "seven-os/workers/system-workers": [
+      {
+        "filename": "index.ts",
+        "relativePath": "seven-os/workers/system-workers/index.ts"
+      }
+    ],
+    "src/pseudo": [
+      {
+        "filename": "requireRole.js",
+        "relativePath": "src/pseudo/requireRole.js"
+      }
+    ],
+    "templates": [
+      {
+        "filename": "template-auto-repair-engine.js",
+        "relativePath": "templates/template-auto-repair-engine.js"
+      },
+      {
+        "filename": "template-change-history-API.js",
+        "relativePath": "templates/template-change-history-API.js"
+      },
+      {
+        "filename": "template-diff-engine.js",
+        "relativePath": "templates/template-diff-engine.js"
+      },
+      {
+        "filename": "template-fallback-generator.js",
+        "relativePath": "templates/template-fallback-generator.js"
+      },
+      {
+        "filename": "template-migration-tool.js",
+        "relativePath": "templates/template-migration-tool.js"
+      },
+      {
+        "filename": "template-registry-auto.js",
+        "relativePath": "templates/template-registry-auto.js"
+      },
+      {
+        "filename": "template-registry.js",
+        "relativePath": "templates/template-registry.js"
+      },
+      {
+        "filename": "template-validation-engine.js",
+        "relativePath": "templates/template-validation-engine.js"
+      },
+      {
+        "filename": "template-versioning.js",
+        "relativePath": "templates/template-versioning.js"
+      }
+    ],
+    "topology": [
+      {
+        "filename": "agricultureSectors.json",
+        "relativePath": "topology/agricultureSectors.json"
+      },
+      {
+        "filename": "energy-topology.json",
+        "relativePath": "topology/energy-topology.json"
+      },
+      {
+        "filename": "feedlot topology.json",
+        "relativePath": "topology/feedlot topology.json"
+      },
+      {
+        "filename": "global-topology-utils.js",
+        "relativePath": "topology/global-topology-utils.js"
+      },
+      {
+        "filename": "humanitarian-topology.json",
+        "relativePath": "topology/humanitarian-topology.json"
+      },
+      {
+        "filename": "microgrid-topology.json",
+        "relativePath": "topology/microgrid-topology.json"
+      },
+      {
+        "filename": "public-services-topology.json",
+        "relativePath": "topology/public-services-topology.json"
+      },
+      {
+        "filename": "sector-topology.json",
+        "relativePath": "topology/sector-topology.json"
+      },
+      {
+        "filename": "sync-topology.json",
+        "relativePath": "topology/sync-topology.json"
+      },
+      {
+        "filename": "Topology Master Index.json",
+        "relativePath": "topology/Topology Master Index.json"
+      }
+    ],
+    "utilities": [
+      {
+        "filename": "api.cjs",
+        "relativePath": "utilities/api.cjs"
+      },
+      {
+        "filename": "ar.cjs",
+        "relativePath": "utilities/ar.cjs"
+      },
+      {
+        "filename": "az.cjs",
+        "relativePath": "utilities/az.cjs"
+      },
+      {
+        "filename": "be.cjs",
+        "relativePath": "utilities/be.cjs"
+      },
+      {
+        "filename": "ca.cjs",
+        "relativePath": "utilities/ca.cjs"
+      },
+      {
+        "filename": "coerce.cjs",
+        "relativePath": "utilities/coerce.cjs"
+      },
+      {
+        "filename": "color.cjs",
+        "relativePath": "utilities/color.cjs"
+      },
+      {
+        "filename": "compat.cjs",
+        "relativePath": "utilities/compat.cjs"
+      },
+      {
+        "filename": "cs.cjs",
+        "relativePath": "utilities/cs.cjs"
+      },
+      {
+        "filename": "de.cjs",
+        "relativePath": "utilities/de.cjs"
+      },
+      {
+        "filename": "doc.cjs",
+        "relativePath": "utilities/doc.cjs"
+      },
+      {
+        "filename": "en.cjs",
+        "relativePath": "utilities/en.cjs"
+      },
+      {
+        "filename": "enumUtil.cjs",
+        "relativePath": "utilities/enumUtil.cjs"
+      },
+      {
+        "filename": "eo.cjs",
+        "relativePath": "utilities/eo.cjs"
+      },
+      {
+        "filename": "errors.cjs",
+        "relativePath": "utilities/errors.cjs"
+      },
+      {
+        "filename": "errorUtil.cjs",
+        "relativePath": "utilities/errorUtil.cjs"
+      },
+      {
+        "filename": "es.cjs",
+        "relativePath": "utilities/es.cjs"
+      },
+      {
+        "filename": "external.cjs",
+        "relativePath": "utilities/external.cjs"
+      },
+      {
+        "filename": "fa.cjs",
+        "relativePath": "utilities/fa.cjs"
+      },
+      {
+        "filename": "fi.cjs",
+        "relativePath": "utilities/fi.cjs"
+      },
+      {
+        "filename": "fr-CA.cjs",
+        "relativePath": "utilities/fr-CA.cjs"
+      },
+      {
+        "filename": "fr.cjs",
+        "relativePath": "utilities/fr.cjs"
+      },
+      {
+        "filename": "function.cjs",
+        "relativePath": "utilities/function.cjs"
+      },
+      {
+        "filename": "generate-global-manifest.cjs",
+        "relativePath": "utilities/generate-global-manifest.cjs"
+      },
+      {
+        "filename": "he.cjs",
+        "relativePath": "utilities/he.cjs"
+      },
+      {
+        "filename": "hu.cjs",
+        "relativePath": "utilities/hu.cjs"
+      },
+      {
+        "filename": "id.cjs",
+        "relativePath": "utilities/id.cjs"
+      },
+      {
+        "filename": "index.cjs",
+        "relativePath": "utilities/index.cjs"
+      },
+      {
+        "filename": "iso.cjs",
+        "relativePath": "utilities/iso.cjs"
+      },
+      {
+        "filename": "it.cjs",
+        "relativePath": "utilities/it.cjs"
+      },
+      {
+        "filename": "ja.cjs",
+        "relativePath": "utilities/ja.cjs"
+      },
+      {
+        "filename": "json-schema.cjs",
+        "relativePath": "utilities/json-schema.cjs"
+      },
+      {
+        "filename": "kh.cjs",
+        "relativePath": "utilities/kh.cjs"
+      },
+      {
+        "filename": "ko.cjs",
+        "relativePath": "utilities/ko.cjs"
+      },
+      {
+        "filename": "lite.cjs",
+        "relativePath": "utilities/lite.cjs"
+      },
+      {
+        "filename": "mk.cjs",
+        "relativePath": "utilities/mk.cjs"
+      },
+      {
+        "filename": "mock.cjs",
+        "relativePath": "utilities/mock.cjs"
+      },
+      {
+        "filename": "ms.cjs",
+        "relativePath": "utilities/ms.cjs"
+      },
+      {
+        "filename": "nl.cjs",
+        "relativePath": "utilities/nl.cjs"
+      },
+      {
+        "filename": "no.cjs",
+        "relativePath": "utilities/no.cjs"
+      },
+      {
+        "filename": "ota.cjs",
+        "relativePath": "utilities/ota.cjs"
+      },
+      {
+        "filename": "parse.cjs",
+        "relativePath": "utilities/parse.cjs"
+      },
+      {
+        "filename": "parseUtil.cjs",
+        "relativePath": "utilities/parseUtil.cjs"
+      },
+      {
+        "filename": "partialUtil.cjs",
+        "relativePath": "utilities/partialUtil.cjs"
+      },
+      {
+        "filename": "pathe.BSlhyZSM.cjs",
+        "relativePath": "utilities/pathe.BSlhyZSM.cjs"
+      },
+      {
+        "filename": "pl.cjs",
+        "relativePath": "utilities/pl.cjs"
+      },
+      {
+        "filename": "ps.cjs",
+        "relativePath": "utilities/ps.cjs"
+      },
+      {
+        "filename": "pt.cjs",
+        "relativePath": "utilities/pt.cjs"
+      },
+      {
+        "filename": "regexes.cjs",
+        "relativePath": "utilities/regexes.cjs"
+      },
+      {
+        "filename": "registries.cjs",
+        "relativePath": "utilities/registries.cjs"
+      },
+      {
+        "filename": "ru.cjs",
+        "relativePath": "utilities/ru.cjs"
+      },
+      {
+        "filename": "scan-secrets.cjs",
+        "relativePath": "utilities/scan-secrets.cjs"
+      },
+      {
+        "filename": "schemas.cjs",
+        "relativePath": "utilities/schemas.cjs"
+      },
+      {
+        "filename": "sl.cjs",
+        "relativePath": "utilities/sl.cjs"
+      },
+      {
+        "filename": "standard-schema.cjs",
+        "relativePath": "utilities/standard-schema.cjs"
+      },
+      {
+        "filename": "sv.cjs",
+        "relativePath": "utilities/sv.cjs"
+      },
+      {
+        "filename": "ta.cjs",
+        "relativePath": "utilities/ta.cjs"
+      },
+      {
+        "filename": "th.cjs",
+        "relativePath": "utilities/th.cjs"
+      },
+      {
+        "filename": "to-json-schema.cjs",
+        "relativePath": "utilities/to-json-schema.cjs"
+      },
+      {
+        "filename": "tr.cjs",
+        "relativePath": "utilities/tr.cjs"
+      },
+      {
+        "filename": "typeAliases.cjs",
+        "relativePath": "utilities/typeAliases.cjs"
+      },
+      {
+        "filename": "types.cjs",
+        "relativePath": "utilities/types.cjs"
+      },
+      {
+        "filename": "ua.cjs",
+        "relativePath": "utilities/ua.cjs"
+      },
+      {
+        "filename": "ur.cjs",
+        "relativePath": "utilities/ur.cjs"
+      },
+      {
+        "filename": "util.cjs",
+        "relativePath": "utilities/util.cjs"
+      },
+      {
+        "filename": "utils.cjs",
+        "relativePath": "utilities/utils.cjs"
+      },
+      {
+        "filename": "verify-ws-test.cjs",
+        "relativePath": "utilities/verify-ws-test.cjs"
+      },
+      {
+        "filename": "versions.cjs",
+        "relativePath": "utilities/versions.cjs"
+      },
+      {
+        "filename": "vi.cjs",
+        "relativePath": "utilities/vi.cjs"
+      },
+      {
+        "filename": "write-report.cjs",
+        "relativePath": "utilities/write-report.cjs"
+      },
+      {
+        "filename": "ws-simulate.cjs",
+        "relativePath": "utilities/ws-simulate.cjs"
+      },
+      {
+        "filename": "ws-simulate2.cjs",
+        "relativePath": "utilities/ws-simulate2.cjs"
+      },
+      {
+        "filename": "zh-CN.cjs",
+        "relativePath": "utilities/zh-CN.cjs"
+      },
+      {
+        "filename": "zh-TW.cjs",
+        "relativePath": "utilities/zh-TW.cjs"
+      },
+      {
+        "filename": "ZodError.cjs",
+        "relativePath": "utilities/ZodError.cjs"
+      }
+    ]
+  }
+}

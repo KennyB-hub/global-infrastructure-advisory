@@ -1,0 +1,170 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-06-06T20:42:00Z",
+
+  "sectors": {
+    "infrastructure": {
+      "assets": [
+        {
+          "id": "tower-001",
+          "type": "tower",
+          "sector": "infrastructure",
+          "status": "active",
+          "location": "West Virginia",
+          "coordinates": { "lat": 38.3498, "lon": -81.6326 },
+          "category": "telecom",
+          "criticality": "high",
+          "owner": "GIA",
+          "relationships": {
+            "requires_supply": ["part-tower-bolt-01"],
+            "serviced_by": ["crew-telecom-01"],
+            "governed_by": ["fcc-rule-001"]
+          }
+        }
+      ]
+    },
+
+    "workforce": {
+      "crews": [
+        {
+          "id": "crew-telecom-01",
+          "type": "crew",
+          "sector": "workforce",
+          "status": "available",
+          "skills": ["tower-repair", "fiber-routing"],
+          "certifications": ["FCC-T1"],
+          "region": "WV",
+          "equipment": ["bucket-truck-01"],
+          "relationships": {
+            "assigned_to": ["tower-001"]
+          }
+        }
+      ]
+    },
+
+    "remediation": {
+      "tasks": [
+        {
+          "id": "rem-001",
+          "type": "remediation",
+          "sector": "remediation",
+          "status": "pending",
+          "asset_id": "tower-001",
+          "issue": "loose structural bolts",
+          "severity": "medium",
+          "required_skill": "tower-repair",
+          "relationships": {
+            "requires_supply": ["part-tower-bolt-01"],
+            "requires_workforce": ["crew-telecom-01"]
+          }
+        }
+      ]
+    },
+
+    "governance": {
+      "rules": [
+        {
+          "id": "fcc-rule-001",
+          "type": "policy",
+          "sector": "governance",
+          "status": "active",
+          "description": "FCC compliance for telecom tower maintenance",
+          "applies_to": ["tower"],
+          "thresholds": {
+            "inspection_interval_days": 180
+          }
+        }
+      ]
+    },
+
+    "supply-chain": {
+      "inventory": [
+        {
+          "id": "part-tower-bolt-01",
+          "type": "supply-item",
+          "sector": "supply-chain",
+          "status": "in-stock",
+          "description": "High-tensile tower bolt",
+          "quantity": 500,
+          "warehouse": "GIA-WV-01",
+          "relationships": {
+            "used_by": ["tower-001", "rem-001"]
+          }
+        }
+      ],
+      "warehouses": [
+        {
+          "id": "GIA-WV-01",
+          "type": "warehouse",
+          "sector": "supply-chain",
+          "status": "active",
+          "location": "Charleston, WV",
+          "capacity": 100000,
+          "current_load": 45000
+        }
+      ]
+    },
+
+    "space": {
+      "nodes": [
+        {
+          "id": "orbit-node-001",
+          "type": "orbital-node",
+          "sector": "space",
+          "status": "active",
+          "orbit_type": "LEO",
+          "body": "Earth",
+          "role": "relay",
+          "resources": {
+            "ice": 0,
+            "water": 0,
+            "hydrogen": 0,
+            "oxygen": 0
+          },
+          "relationships": {
+            "supports": ["digital-dc-001"]
+          }
+        }
+      ]
+    },
+
+    "hydro": {
+      "modules": [
+        {
+          "id": "hydro-001",
+          "type": "hydro-engine",
+          "sector": "hydro",
+          "status": "standby",
+          "body": "Ceres",
+          "resources": {
+            "ice": 1000000,
+            "water": 0,
+            "hydrogen": 0,
+            "oxygen": 0
+          },
+          "relationships": {
+            "feeds": ["orbit-node-001"]
+          }
+        }
+      ]
+    },
+
+    "digital": {
+      "datacenters": [
+        {
+          "id": "digital-dc-001",
+          "type": "datacenter",
+          "sector": "digital",
+          "status": "planned",
+          "location": "LEO",
+          "cooling": "hydro-loop",
+          "power": "hydrogen-fuel-cell",
+          "relationships": {
+            "powered_by": ["hydro-001"],
+            "linked_to": ["orbit-node-001"]
+          }
+        }
+      ]
+    }
+  }
+}

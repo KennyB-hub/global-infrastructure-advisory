@@ -1,0 +1,112 @@
+{
+  "platform_id": "GIA-SOVEREIGN-ALPHA",
+  "version": "12.0.4",
+  "active_sectors": ["Agriculture", "Workforce", "NATO_Gov"],
+  "failsafe_level": "AUTO_RECOVER",
+  "endpoints": {
+    "azure_math": "https://azure.net",
+    "azure_geo": "https://azure.net"
+  },
+  "integrations": {
+    "weather_api": {
+      "endpoint": "https://api.weather.com/v3/wx/forecast/daily/5day",
+      "api_key": "REPLACE_WITH_REAL_KEY"
+    },
+    "satellite_imagery": {
+      "endpoint": "https://api.satellite.com/v1/images",
+      "api_key": "REPLACE_WITH_REAL_KEY"
+    },
+    "economic_data": {
+      "endpoint": "https://api.economicdata.com/v1/indicators",
+      "api_key": "REPLACE_WITH_REAL_KEY"
+    },
+    "social_media": {
+      "endpoint": "https://api.socialmedia.com/v1/trends",
+      "api_key": "REPLACE_WITH_REAL_KEY"
+    },
+    "cyber_threat_intel": {
+      "endpoint": "https://api.cyberthreatintel.com/v1/feeds",
+      "api_key": "REPLACE_WITH_REAL_KEY"
+    },
+    "gov_contracts": {
+      "endpoint": "https://api.govcontracts.com/v1/opportunities",
+      "api_key": "REPLACE_WITH_REAL_KEY"
+    },
+    "labor_market": {
+      "endpoint": "https://api.labormarket.com/v1/jobs",
+      "api_key": "REPLACE_WITH_REAL_KEY"
+    },
+    "supply_chain": {
+      "endpoint": "https://api.supplychain.com/v1/shipments",
+      "api_key": "REPLACE_WITH_REAL_KEY"
+    },
+    "energy_grid": {
+      "endpoint": "https://api.energygrid.com/v1/status",
+      "api_key": "REPLACE_WITH_REAL_KEY"  
+    },
+    "healthcare": {
+      "endpoint": "https://api.healthcare.com/v1/patients",
+      "api_key": "REPLACE_WITH_REAL_KEY"
+    },
+    "education": {
+      "endpoint": "https://api.education.com/v1/schools",
+      "api_key": "REPLACE_WITH_REAL_KEY"
+    },
+    "transportation": {
+      "endpoint": "https://api.transportation.com/v1/traffic",
+      "api_key": "REPLACE_WITH_REAL_KEY"
+    },
+    "finance": {
+      "endpoint": "https://api.finance.com/v1/markets",
+      "api_key": "REPLACE_WITH_REAL_KEY"
+    },
+    "defense": {
+      "endpoint": "https://api.defense.com/v1/operations",
+      "api_key": "REPLACE_WITH_REAL_KEY"
+    },
+    "intelligence": {
+      "endpoint": "https://api.intelligence.com/v1/analysis",
+      "api_key": "REPLACE_WITH_REAL_KEY"
+    },
+    "diplomacy": {
+      "endpoint": "https://api.diplomacy.com/v1/relations",
+      "api_key": "REPLACE_WITH_REAL_KEY"
+    },
+    "space": {
+      "endpoint": "https://api.space.com/v1/missions",
+      "api_key": "REPLACE_WITH_REAL_KEY"
+    },
+    "cybersecurity": {
+      "endpoint": "https://api.cybersecurity.com/v1/incidents",
+      "api_key": "REPLACE_WITH_REAL_KEY"
+    },
+    "public_safety": {
+      "endpoint": "https://api.publicsafety.com/v1/incidents",
+      "api_key": "REPLACE_WITH_REAL_KEY"
+    },
+    "environment": {
+      "endpoint": "https://api.environment.com/v1/conditions",
+      "api_key": "REPLACE_WITH_REAL_KEY"
+    },
+    "agriculture": {
+      "endpoint": "https://api.agriculture.com/v1/crops",
+      "api_key": "REPLACE_WITH_REAL_KEY"
+    },
+    "workforce": {
+      "endpoint": "https://api.workforce.com/v1/labor",
+      "api_key": "REPLACE_WITH_REAL_KEY"
+    },
+    "nato_gov": {
+      "endpoint": "https://api.natogov.com/v1/policies",
+      "api_key": "REPLACE_WITH_REAL_KEY"
+    },
+    "energy": {
+      "endpoint": "https://api.energy.com/v1/production",
+      "api_key": "REPLACE_WITH_REAL_KEY"
+    },
+    "health": {
+      "endpoint": "https://api.health.com/v1/records",
+      "api_key": "REPLACE_WITH_REAL_KEY"
+    }
+  }
+}

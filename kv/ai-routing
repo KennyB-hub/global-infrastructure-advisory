@@ -3,6 +3,6 @@
   "DEFAULT_MODEL": "gpt-4o-mini",
   "GEO_ENGINE_ENABLED": true,
   "MATCHING_ENGINE_ENABLED": true,
-  "GPS_API_KEY": "YOUR_GPS_KEY_HERE",
-  "GIA_MASTER_KEY": "MASTER_KEY"
+  "GPS_API_KEY": null,
+  "GIA_MASTER_KEY": null
 }

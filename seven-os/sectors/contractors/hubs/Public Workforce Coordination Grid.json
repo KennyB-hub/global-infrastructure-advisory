@@ -1,0 +1,36 @@
+{
+  "gridId": "public-workforce-grid-v1",
+  "version": "v1",
+  "roles": [
+    "public-works",
+    "water-authority",
+    "road-crews",
+    "utility-techs",
+    "emergency-services",
+    "shelter-staff",
+    "community-volunteers"
+  ],
+  "capabilities": {
+    "taskAssignment": true,
+    "skillMatching": true,
+    "regionalDispatch": true,
+    "disasterMode": true,
+    "warZoneMode": true
+  },
+  "inputs": {
+    "tasks": "from cross-sector routing engine",
+    "workforceProfiles": "skills, certifications, availability",
+    "locationData": "from topology map",
+    "safetyStatus": "from disaster engine"
+  },
+  "outputs": {
+    "assignments": "who is deployed where",
+    "shiftPlans": "coverage for 24/7 operations",
+    "resourceNeeds": "equipment, vehicles, supplies",
+    "escalations": "when local capacity is exceeded"
+  },
+  "logging": {
+    "requires": ["session", "audit"],
+    "trackWorkerSafety": true
+  }
+}

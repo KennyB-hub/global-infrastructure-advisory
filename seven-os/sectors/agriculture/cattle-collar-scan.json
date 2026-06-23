@@ -1,0 +1,101 @@
+{
+  "scanned_at": "2026-06-03T17:22:37.107-04:00",
+  "summary": "Evidence linking cattle collar sync → event bus (NATS) → geo mapping + dashboard/web sync points.",
+  "findings": [
+    {
+      "component": "cattle-collar-sync",
+      "path": "seven-runtime/cattle/cattle-collar-sync.ts",
+      "role": "Poll collars (multiple vendors), normalize state, publish events",
+      "evidence": [
+        {
+          "line": 19,
+          "snippet": "const states = await adapter.fetchStates();"
+        },
+        {
+          "line": 27,
+          "snippet": "await publishEvent(\"CATTLE_STATE_UPDATED\", normalized);"
+        },
+        {
+          "line": 51,
+          "snippet": "if (state.gps?.distanceToBoundary < 10) { publishEvent(\"CATTLE_NEAR_BOUNDARY\", state); }"
+        }
+      ],
+      "notes": "Normalized state includes gps, pastureId, battery, motion and raw vendor payload. Events published to EventBus (NATS)."
+    },
+    {
+      "component": "cattle vendor adapters",
+      "path": "seven-runtime/cattle/vendors/gallagher.ts",
+      "role": "Adapter that fetches vendor-specific collar payloads and shapes them into CollarState",
+      "evidence": [
+        { "line": 7, "snippet": "async fetchStates(): Promise<CollarState[]> { // TODO: Replace with real Gallagher API integration" },
+        { "line": 14, "snippet": "gps: { lat: 38.9, lon: -80.2, distanceToBoundary: 15, outsidePasture: false }" }
+      ]
+    },
+    {
+      "component": "event-bus / NATS",
+      "path": "seven-os/event-bus.ts",
+      "role": "Publishes infra events to NATS subjects (seven.events.<source>.<type>) and seven.events.all",
+      "evidence": [
+        { "line": 36, "snippet": "const subject = `seven.events.${event.source}.${event.type}`;" },
+        { "line": 41, "snippet": "const success = await this.nats.publish(subject, event);" },
+        { "line": 44, "snippet": "await this.nats.publish(`seven.events.all`, event);" }
+      ],
+      "notes": "Any system that subscribes to NATS subjects (websocket bridge, dashboard, external systems) can receive collar events in real-time."
+    },
+    {
+      "component": "event-dispatcher",
+      "path": "seven-os/event-dispatcher.ts",
+      "role": "Local handler registry that wires EventBus events to internal handlers",
+      "evidence": [
+        { "line": 22, "snippet": "this.eventBus.registerHandler(eventType, handler);" },
+        { "line": 50, "snippet": "async dispatch(event: InfraEvent) { const handlers = this.getHandlers(event.type); ... }" }
+      ]
+    },
+    {
+      "component": "geo-mapping",
+      "path": "seven-runtime/utilities/geo/geo-mapping.js",
+      "role": "Resolve GPS coordinates to region/subregion/parcel/gridCell used by dashboards and overlays",
+      "evidence": [
+        { "line": 6, "snippet": "const { lat: nLat, lon: nLon } = GeoNormalize.normalize(lat, lon);" },
+        { "line": 9, "snippet": "const region = RegionMatcher.matchRegion(nLat, nLon);" },
+        { "line": 13, "snippet": "const gridCell = GeoGrid.cell(nLat, nLon);" }
+      ],
+      "notes": "GeoMapping.resolve is referenced by geo-context and backend overlay code; dashboards use ctx.location.gridCell to render overlays."
+    },
+    {
+      "component": "dashboard / overlays",
+      "path": "seven-runtime/sector/overlays/index.js and frontend map code",
+      "role": "Consume location.gridCell from seven-runtime context for visual overlays",
+      "evidence": [
+        { "path": "seven-runtime/sector/overlays/index.js", "snippet": "gridCell: ctx.location.gridCell" },
+        { "path": "src/frontend/map/map-utils.js", "snippet": "drawSectors(ctx, sectors)" }
+      ]
+    },
+    {
+      "component": "infra.event subscription hint",
+      "path": "seven-runtime/infra/infra.event.ts",
+      "role": "Example bridge showing bus.subscribe -> sevenHandleEvent(JSON.parse(msg)) — indicates runtime subscribes and routes external events",
+      "evidence": [
+        { "line": 31, "snippet": "topics.forEach(t => bus.subscribe(t, (msg) => sevenHandleEvent(JSON.parse(msg))));" }
+      ],
+      "notes": "This file demonstrates how NATS topics are consumed and handed to runtime handlers; a similar subscription can power websocket or HTTP push to web apps."
+    },
+    {
+      "component": "satellite continuity (sync fallback)",
+      "path": "seven-runtime/sync/satellite-continuity.ts",
+      "role": "Handles offline/resilient delivery of critical events when ground networks are down",
+      "evidence": [
+        { "line": 30, "snippet": "enterSatelliteOnly(reason: string) { this.status = { mode: 'SATELLITE_ONLY' ... }; this.speak('Satellite continuity mode engaged. Ground systems unavailable.'); }" },
+        { "line": 47, "snippet": "async flushCritical(events: QueuedEvent[]) { const sorted = SyncPriority.sort(events); for (const event of sorted) { console.log('[Satellite Continuity] Queued critical event:', event.type); } }" }
+      ],
+      "notes": "Useful to ensure collar critical events are not lost during connectivity outages; indicates design for reliable sync to external systems."
+    }
+  ],
+  "conclusion": "Cattle collar data flows: vendor adapters -> collar-collar-sync -> normalize -> publishEvent -> EventBus (NATS) -> subscribers/dispatchers -> geo-context/overlays/dashboards. Web app sync is supported indirectly via NATS subscriptions or a WebSocket bridge; GeoMapping.resolve is used to map GPS to gridCell for overlays.",
+  "recommendations": [
+    "Deploy a NATS-to-WebSocket bridge or lightweight WebSocket server subscribed to seven.events.* to push CATTLE_STATE_UPDATED events to browser dashboards in real-time.",
+    "Ensure GeoMapping.normalize is applied before publishing to public dashboards to avoid leaking raw coordinates if privacy is required (publish regionId/gridCell instead of exact lat/lon).",
+    "Add a handler registration for CATTLE_STATE_UPDATED in EventDispatcher to persist recent collar states to a fast store (Redis) used by dashboards for live queries.",
+    "Instrument collar vendor adapters (Gallagher, WaveTech, Moovement) with retry/backoff and credential rotation; avoid embedding secrets in code or config files."
+  ]
+}

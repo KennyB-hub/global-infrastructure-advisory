@@ -1,0 +1,45 @@
+name: "Seven‑OS Nightly Audit"
+
+on:
+  schedule:
+    - cron: "0 7 * * *"   # 3:00 AM EDT
+
+jobs:
+  nightly-audit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Deep Repo Audit
+        run: npm run scan:deep
+
+      - name: Run Secret Scan
+        run: npm run scan:secrets
+
+      - name: Run License Scan
+        run: npm run scan:licenses
+
+      - name: Run Dependency Audit
+        run: npm run audit
+
+      - name: Run CLI Sandbox Test
+        run: npm run test:cli-sandbox
+
+      - name: Run WS Verification
+        run: npm run verify:ws
+
+      - name: Run Smoke Test
+        run: npm run smoke

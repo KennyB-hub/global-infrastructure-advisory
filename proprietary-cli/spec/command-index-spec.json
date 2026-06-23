@@ -1,0 +1,37 @@
+{
+  "command": "proprietary-cli:commands:index",
+  "description": "Prints a formatted table of all registered proprietary-cli commands.",
+  "outputFormat": "table",
+  "columns": [
+    {
+      "name": "routeKey",
+      "width": 45,
+      "description": "The routing key used by the CLI to invoke the command."
+    },
+    {
+      "name": "description",
+      "width": 45,
+      "description": "Human-readable description of the command."
+    },
+    {
+      "name": "file",
+      "width": "auto",
+      "description": "Relative file path of the command implementation."
+    }
+  ],
+  "additionalCommands": [
+    {
+      "command": "proprietary-cli:commands:manifest:routing-integration",
+      "description": "Integrates Seven‑OS manifest routes with proprietary-cli commands and reports alignment.",
+      "inputs": [
+        "seven-os/manifest.json",
+        "proprietary-cli command registry"
+      ],
+      "outputs": {
+        "aligned": "Routes present in both manifest and CLI",
+        "missingInCLI": "Routes present in manifest but not implemented in CLI",
+        "extraInCLI": "Routes implemented in CLI but not declared in manifest"
+      }
+    }
+  ]
+}

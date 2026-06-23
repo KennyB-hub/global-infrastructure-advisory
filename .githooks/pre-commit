@@ -1,0 +1,28 @@
+#!/bin/sh
+# pre-commit hook: prevent committing secrets into proprietary-cli
+# Exit non-zero to block commit when sensitive files or strings are staged.
+
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM)
+if [ -z "$STAGED_FILES" ]; then
+  exit 0
+fi
+
+for file in $STAGED_FILES; do
+  case "$file" in
+    proprietary-cli/config.json|proprietary-cli/*.key|proprietary-cli/*.pem|proprietary-cli/.env)
+      echo "ERROR: Attempt to commit sensitive file: $file"
+      echo "Please keep secrets out of proprietary-cli. Use proprietary-cli/config.example.json and keep real secrets in a local config.json (gitignored)."
+      exit 1
+      ;;
+    proprietary-cli/*)
+      # Check staged content for common secret indicators
+      if git show :"$file" 2>/dev/null | grep -Ei "apiKey|API_KEY|PRIVATE[_-]?KEY|SECRET|PASSWORD|ACCESS[_-]?TOKEN" >/dev/null 2>&1; then
+        echo "ERROR: Sensitive string detected in staged file: $file"
+        echo "Please remove secrets or move them into proprietary-cli/config.json (ignored) before committing."
+        exit 1
+      fi
+      ;;
+  esac
+done
+
+exit 0

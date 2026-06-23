@@ -1,0 +1,29 @@
+{
+  "name": "proprietary-cli",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+
+  "bin": {
+    "seven": "./bin/cli.js"
+  },
+
+  "scripts": {
+    "start": "node ./bin/cli.js",
+    "dev": "node ./bin/cli.js",
+    "test": "node ./commands/dev/test.js",
+    "clean": "rm -rf node_modules",
+    "reinstall": "rm -rf node_modules && npm install"
+  },
+
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "inquirer": "^9.2.0",
+    "fs-extra": "^11.2.0",
+    "glob": "^13.0.6",
+    "ioredis": "^5.11.0",
+    "nats": "^2.29.3",
+    "ws": "^8.21.0",
+    "zod": "^3.22.0"
+  }
+}

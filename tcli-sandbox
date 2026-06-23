@@ -1,0 +1,427 @@
+* [33m8ab24d9[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m git commit
+* [33mf38d4a6[m git commit confrag
+* [33m324c35a[m git commit
+* [33m29bacac[m git cimmit
+* [33m86614cd[m git commit
+* [33ma097544[m git commit
+* [33m1596950[m git commit
+* [33me3bcb4f[m git commit
+* [33m1cba18f[m git commit
+* [33m3554b3f[m git commit update
+* [33m29be7e1[m git commit
+* [33m3752641[m git commit update
+* [33m50d7090[m git commit
+* [33m5c4f208[m git commit
+* [33mddc8cbf[m git commit
+* [33m5466891[m git commit
+* [33m15950d6[m git commit
+* [33mb5696f4[m git commit
+* [33m56286a9[m git commit
+* [33md2b208b[m Create codeql.yml (#311)
+* [33ma8516d4[m git commit
+* [33m0ac95b8[m git commit
+* [33m7c7fd3a[m git commit
+* [33me7e743a[m git commit
+* [33m03d4a1f[m get commit
+* [33me2b8dc1[m git commit
+* [33md79a1de[m git commit
+* [33m9363218[m git commit
+* [33mc6d9793[m git commit update
+* [33mb2cd632[m git commit update
+* [33m70a202a[m git commit
+* [33m5a1c6c2[m git commit
+* [33me95ed29[m git commit
+* [33m4a1e160[m git commit
+* [33m460ed31[m git commit update
+* [33m6174781[m git commit update
+* [33m6b67d5b[m git commit update
+* [33mafb0eb8[m git commit update
+* [33m8958d69[m get commit update
+* [33m9f7a5f2[m git commit
+* [33m43056e4[m git commit
+* [33m867db9c[m chore: replace hardcoded secrets with env vars (#310)
+* [33m62e671e[m chore: add .gitignore entries to exclude secrets
+*   [33m84c5fec[m[33m ([m[1;32mbackup-before-purge-20260603105606[m[33m)[m Merge branch 'fix-structure' into main
+[32m|[m[33m\[m  
+[32m|[m * [33m890f788[m[33m ([m[1;32mfix-structure[m[33m)[m Repo structure: move root/* to repository root and ignore sensitive files
+[32m|[m[32m/[m  
+* [33mcfaaf08[m git commit
+* [33m2125e63[m git commit
+* [33m2bf7d39[m git commit update
+* [33mda2a7ae[m git commit
+* [33m8f0b146[m git commit
+* [33mf9a6dc6[m git commit
+* [33m503d4b4[m git commit
+* [33m59fe116[m git commit update
+* [33m36acc17[m git commit update
+* [33m6adc7f1[m git commit
+* [33m52cde11[m git commit
+* [33m02c4b97[m git commit update
+* [33mcb362fe[m git commit update
+* [33m80389c3[m git commit
+* [33m4e3a7dc[m Update wrangler.toml (#309)
+* [33m189d33b[m Rename index.Js to index.js
+*   [33m6aadfe4[m Merge pull request #55 from Global-Infrastructure-Advisory/main
+[34m|[m[35m\[m  
+[34m|[m * [33m363dfb3[m git commit update
+[34m|[m[34m/[m  
+*   [33m5454961[m Merge pull request #54 from Global-Infrastructure-Advisory/main
+[36m|[m[1;31m\[m  
+[36m|[m * [33m6ce5571[m git commit
+[36m|[m[36m/[m  
+*   [33m7650f95[m Merge pull request #53 from Global-Infrastructure-Advisory/main
+[1;32m|[m[1;33m\[m  
+[1;32m|[m * [33mdfe6580[m git commit updates
+[1;32m|[m[1;32m/[m  
+*   [33mf7fabdc[m Merge pull request #52 from Global-Infrastructure-Advisory/main
+[1;34m|[m[1;35m\[m  
+[1;34m|[m * [33m1163e01[m git commit update
+[1;34m|[m[1;34m/[m  
+*   [33ma796d58[m Merge pull request #51 from Global-Infrastructure-Advisory/main
+[1;36m|[m[31m\[m  
+[1;36m|[m *   [33m75466ae[m Merge branch 'KennyB-hub:main' into main
+[1;36m|[m [32m|[m[1;36m\[m  
+[1;36m|[m [32m|[m[1;36m/[m  
+[1;36m|[m[1;36m/[m[32m|[m   
+* [32m|[m   [33m33dbe92[m Merge pull request #50 from Global-Infrastructure-Advisory/main
+[34m|[m[35m\[m [32m\[m  
+[34m|[m [35m|[m * [33mc0c10af[m git commit updates
+[34m|[m [35m|[m * [33m68dd969[m git commit update
+[34m|[m [35m|[m[35m/[m  
+[34m|[m * [33mda560a4[m git commit update routes
+[34m|[m[34m/[m  
+*   [33m400957e[m Merge pull request #49 from Global-Infrastructure-Advisory/main
+[36m|[m[1;31m\[m  
+[36m|[m * [33mf1fe36d[m git commit update
+[36m|[m * [33m094a1bc[m git commit merge updates
+[36m|[m[36m/[m  
+*   [33mf7aa604[m Merge pull request #48 from Global-Infrastructure-Advisory/main
+[1;32m|[m[1;33m\[m  
+[1;32m|[m * [33madc8afb[m git commit
+[1;32m|[m[1;32m/[m  
+*   [33m8af3cf3[m Merge pull request #47 from Global-Infrastructure-Advisory/main
+[1;34m|[m[1;35m\[m  
+[1;34m|[m * [33m28c52f4[m Merge pull request #8 from Global-Infrastructure-Advisory/KennyB-hub-patch-4
+[1;34m|[m[1;34m/[m[31m|[m 
+[1;34m|[m * [33mf247e23[m Add voice mode selection function
+[1;34m|[m[1;34m/[m  
+*   [33m986241e[m Merge pull request #46 from Global-Infrastructure-Advisory/main
+[32m|[m[33m\[m  
+[32m|[m * [33mb8a35ed[m git commit -m "Add Seven of Nine page and voice command system for disaster response missions"
+[32m|[m[32m/[m  
+*   [33m46b2c67[m Merge pull request #45 from Global-Infrastructure-Advisory/main
+[34m|[m[35m\[m  
+[34m|[m *   [33mc91e997[m Merge branch 'KennyB-hub:main' into main
+[34m|[m [36m|[m[34m\[m  
+[34m|[m [36m|[m[34m/[m  
+[34m|[m[34m/[m[36m|[m   
+* [36m|[m   [33mbb8f6bb[m Merge pull request #44 from Global-Infrastructure-Advisory/main
+[1;32m|[m[1;33m\[m [36m\[m  
+[1;32m|[m [1;33m|[m * [33m782271f[m git commit
+[1;32m|[m [1;33m|[m[1;33m/[m  
+[1;32m|[m * [33mf95e189[m feat: Add Mock Drone and Ground Unit implementations for testing and simulation
+[1;32m|[m[1;32m/[m  
+*   [33m1c93ff5[m Merge pull request #43 from Global-Infrastructure-Advisory/main
+[1;34m|[m[1;35m\[m  
+[1;34m|[m * [33m9c650ca[m git commit update
+[1;34m|[m * [33md3eb090[m git comit
+[1;34m|[m[1;34m/[m  
+*   [33m5b20d42[m Merge pull request #42 from Global-Infrastructure-Advisory/main
+[1;36m|[m[31m\[m  
+[1;36m|[m * [33m09a25de[m git commit
+[1;36m|[m *   [33m975d8db[m Merge pull request #7 from Global-Infrastructure-Advisory/KennyB-hub-patch-3
+[1;36m|[m [32m|[m[33m\[m  
+[1;36m|[m [32m|[m * [33ma5a4caa[m Add index.html for Global Map Intelligence hub
+[1;36m|[m [32m|[m[32m/[m  
+[1;36m|[m * [33m0da6992[m Delete root/src/hubs/global-map  directory
+[1;36m|[m *   [33mfd73b1f[m Merge pull request #6 from Global-Infrastructure-Advisory/KennyB-hub-patch-2
+[1;36m|[m [34m|[m[35m\[m  
+[1;36m|[m [34m|[m * [33m93c11de[m Implement global map dashboard with live data
+[1;36m|[m [34m|[m[34m/[m  
+[1;36m|[m * [33m934e7d4[m Create dss-file
+[1;36m|[m[1;36m/[m  
+*   [33ma25a7e4[m Merge pull request #39 from Global-Infrastructure-Advisory/main
+[36m|[m[1;31m\[m  
+[36m|[m * [33m1c7825a[m git commit
+[36m|[m * [33md8ff881[m git commit update
+[36m|[m[36m/[m  
+*   [33m50af73d[m Merge pull request #38 from Global-Infrastructure-Advisory/main
+[1;32m|[m[1;33m\[m  
+[1;32m|[m *   [33mdc8e83a[m Merge branch 'KennyB-hub:main' into main
+[1;32m|[m [1;34m|[m[1;32m\[m  
+[1;32m|[m [1;34m|[m[1;32m/[m  
+[1;32m|[m[1;32m/[m[1;34m|[m   
+* [1;34m|[m   [33m8b7dfd2[m Merge pull request #37 from Global-Infrastructure-Advisory/main
+[1;36m|[m[31m\[m [1;34m\[m  
+[1;36m|[m [31m|[m * [33md0506ed[m git commit push update
+[1;36m|[m [31m|[m[31m/[m  
+[1;36m|[m *   [33m20ee841[m Merge pull request #4 from Global-Infrastructure-Advisory/KennyB-hub-patch-1
+[1;36m|[m [32m|[m[33m\[m  
+[1;36m|[m [32m|[m * [33m660c168[m Implement Seven Interoperability Layer for external system
+[1;36m|[m [32m|[m[32m/[m  
+[1;36m|[m * [33mc90bdcc[m update
+[1;36m|[m *   [33m7fdb834[m Merge branch 'KennyB-hub:main' into main
+[1;36m|[m [34m|[m[1;36m\[m  
+[1;36m|[m [34m|[m[1;36m/[m  
+[1;36m|[m[1;36m/[m[34m|[m   
+* [34m|[m   [33mbfd9f68[m Merge pull request #36 from Global-Infrastructure-Advisory/main
+[36m|[m[1;31m\[m [34m\[m  
+[36m|[m [1;31m|[m * [33mc0925f1[m git commit update
+[36m|[m [1;31m|[m[1;31m/[m  
+[36m|[m * [33m738fb0d[m git commit udate
+[36m|[m * [33mcecc109[m git commit udates
+[36m|[m[36m/[m  
+*   [33m6e4a229[m Merge pull request #35 from Global-Infrastructure-Advisory/main
+[1;32m|[m[1;33m\[m  
+[1;32m|[m * [33mc6dff3a[m git commit
+[1;32m|[m[1;32m/[m  
+*   [33md76730e[m Merge pull request #34 from Global-Infrastructure-Advisory/main
+[1;34m|[m[1;35m\[m  
+[1;34m|[m * [33m5b5b445[m git commit updates
+[1;34m|[m * [33m672051d[m git commit updates
+[1;34m|[m[1;34m/[m  
+*   [33m8efb655[m Merge pull request #33 from Global-Infrastructure-Advisory/main
+[1;36m|[m[31m\[m  
+[1;36m|[m * [33m6947dd8[m git commit update
+[1;36m|[m[1;36m/[m  
+*   [33m9890178[m Merge pull request #32 from Global-Infrastructure-Advisory/main
+[32m|[m[33m\[m  
+[32m|[m * [33mfda9944[m git commit update
+[32m|[m * [33m5541265[m git commit
+[32m|[m * [33m4ceacfa[m git commit
+[32m|[m[32m/[m  
+*   [33m1138ce9[m Merge pull request #31 from Global-Infrastructure-Advisory/main
+[34m|[m[35m\[m  
+[34m|[m * [33m68670bd[m git commit update
+[34m|[m * [33m2df5515[m git commit updates
+[34m|[m[34m/[m  
+*   [33m1541e70[m Merge pull request #30 from Global-Infrastructure-Advisory/main
+[36m|[m[1;31m\[m  
+[36m|[m * [33m947aea2[m Generate final repo-audit.json with all completed work and pending items
+[36m|[m * [33mfa61181[m Create critical CSS assets, fix organize.js syntax, add remaining policy files
+[36m|[m * [33m770507a[m Add critical CSS assets and remaining policy files
+[36m|[m * [33m7bd0a6f[m Create remaining policy files, fix organize.js, and add critical CSS assets
+[36m|[m * [33m7b6be1c[m Create OMB M-14-06 administrative data policy
+[36m|[m * [33m0aee7ac[m Create OSTP Scientific Integrity policy definition
+[36m|[m * [33m95b96b7[m Create trust zone definitions with all 9 trust zones and AIEE enforcement
+[36m|[m * [33m247dafb[m Add marketplace job listings JSON schema
+[36m|[m * [33mbcb88ea[m Create OMB M-20-12 evidence act policy
+[36m|[m * [33m906d330[m Create Common Rule human subjects protection policy
+[36m|[m * [33m0973f5a[m Create DHS Compliance and Computer Matching policy
+[36m|[m * [33m4f5fdf4[m Create NCES Data Ethics policy
+[36m|[m * [33m74ffe07[m Create OGE Misconduct Reporting policy
+[36m|[m[36m/[m  
+*   [33m2fe43cc[m Merge pull request #29 from Global-Infrastructure-Advisory/main
+[1;32m|[m[1;33m\[m  
+[1;32m|[m * [33m003eb89[m git commit
+[1;32m|[m * [33mf666d67[m git commit update
+[1;32m|[m * [33mcb39ba1[m git commit updates
+[1;32m|[m * [33me4869a4[m git commit updates
+[1;32m|[m * [33mfd64c52[m git commit update
+[1;32m|[m * [33ma14aa90[m update commit
+[1;32m|[m * [33m16441c3[m commit and update
+[1;32m|[m *   [33mdbd5e77[m Merge pull request #3 from KennyB-hub/main
+[1;32m|[m [1;34m|[m[1;32m\[m  
+[1;32m|[m [1;34m|[m[1;32m/[m  
+[1;32m|[m[1;32m/[m[1;34m|[m   
+* [1;34m|[m [33m0806cd3[m Merge pull request #28 from Global-Infrastructure-Advisory/main
+[1;36m|[m[1;34m\[m[1;34m|[m 
+[1;36m|[m * [33m25c35f8[m git commit
+* [31m|[m [33mebd61e6[m Merge pull request #27 from Global-Infrastructure-Advisory/main
+[32m|[m[31m\[m[31m|[m 
+[32m|[m * [33ma0dc2f3[m git commit
+[32m|[m * [33m018ff87[m git.commit
+[32m|[m * [33mcfe1187[m git commit
+[32m|[m * [33m7eb27b4[m git commit
+[32m|[m * [33m77d9a64[m git commit updates
+[32m|[m * [33ma59792c[m git commit
+[32m|[m * [33m1fbcea6[m git commit update
+[32m|[m * [33m684f523[m git commit
+[32m|[m * [33mab9321a[m git commit
+[32m|[m * [33m927c01c[m git commit
+[32m|[m * [33m957b4ba[m git commit
+[32m|[m * [33m3c37229[m git commit
+[32m|[m * [33mb82b90c[m updated global manifest
+[32m|[m * [33m41f693b[m git commit changes
+[32m|[m[32m/[m  
+*   [33m31e85b4[m Merge pull request #26 from Global-Infrastructure-Advisory/main
+[34m|[m[35m\[m  
+[34m|[m *   [33m7c3d3a7[m Merge pull request #2 from KennyB-hub/main
+[34m|[m [36m|[m[34m\[m  
+[34m|[m [36m|[m[34m/[m  
+[34m|[m[34m/[m[36m|[m   
+* [36m|[m [33m9c5df34[m Merge pull request #25 from Global-Infrastructure-Advisory/main
+[1;32m|[m[36m\[m[36m|[m 
+[1;32m|[m * [33mde572a9[m git commit
+[1;32m|[m *   [33mb5be849[m Merge pull request #1 from KennyB-hub/main
+[1;32m|[m [1;34m|[m[1;35m\[m  
+* [1;34m|[m [1;35m|[m [33m153e394[m git commit update
+[1;35m|[m [1;34m|[m[1;35m/[m  
+[1;35m|[m[1;35m/[m[1;34m|[m   
+* [1;34m|[m [33mbe5f5f5[m Merge pull request #24 from Global-Infrastructure-Advisory/main
+[1;36m|[m[1;34m\[m[1;34m|[m 
+[1;36m|[m *   [33m35d7664[m Merge branch 'KennyB-hub:main' into main
+[1;36m|[m [32m|[m[1;36m\[m  
+[1;36m|[m [32m|[m[1;36m/[m  
+[1;36m|[m[1;36m/[m[32m|[m   
+* [32m|[m   [33maff7c34[m Merge pull request #23 from Global-Infrastructure-Advisory/main
+[34m|[m[35m\[m [32m\[m  
+[34m|[m [35m|[m * [33m1e57d6f[m git commit updated file system
+[34m|[m [35m|[m * [33m59880dc[m git commit update
+[34m|[m [35m|[m[35m/[m  
+[34m|[m * [33mea52e55[m git commit
+[34m|[m * [33m1b897dc[m git mommit changes
+[34m|[m[34m/[m  
+* [33m080c918[m git commit
+*   [33m81b0077[m Merge pull request #22 from Global-Infrastructure-Advisory/main
+[36m|[m[1;31m\[m  
+[36m|[m *   [33md8f2b72[m Merge branch 'KennyB-hub:main' into main
+[36m|[m [1;32m|[m[36m\[m  
+[36m|[m [1;32m|[m[36m/[m  
+[36m|[m[36m/[m[1;32m|[m   
+* [1;32m|[m   [33mf2853bf[m Merge pull request #21 from Global-Infrastructure-Advisory/main
+[1;34m|[m[1;35m\[m [1;32m\[m  
+[1;34m|[m [1;35m|[m * [33maba78c1[m git commit
+[1;34m|[m [1;35m|[m[1;35m/[m  
+[1;34m|[m * [33maf48e4f[m git commit updated files
+[1;34m|[m[1;34m/[m  
+*   [33ma7ab132[m Merge pull request #20 from Global-Infrastructure-Advisory/main
+[1;36m|[m[31m\[m  
+[1;36m|[m *   [33m0618dc5[m Merge branch 'KennyB-hub:main' into main
+[1;36m|[m [32m|[m[1;36m\[m  
+[1;36m|[m [32m|[m[1;36m/[m  
+[1;36m|[m[1;36m/[m[32m|[m   
+* [32m|[m   [33mf31023f[m Merge pull request #19 from KennyB-hub/KennyB-hub-patch-12
+[34m|[m[35m\[m [32m\[m  
+[34m|[m * [32m\[m   [33m00c7765[m Merge pull request #18 from KennyB-hub/main
+[34m|[m [36m|[m[34m\[m [32m\[m  
+[34m|[m [36m|[m[34m/[m [32m/[m  
+[34m|[m[34m/[m[36m|[m [32m|[m   
+[34m|[m [36m|[m * [33m2005b49[m git commit
+[34m|[m [36m|[m * [33m87b9a4f[m git commit updated files
+[34m|[m [36m|[m[34m/[m  
+[34m|[m[34m/[m[36m|[m   
+* [36m|[m [33m0ad027f[m git commit
+* [36m|[m   [33md9fe111[m Merge pull request #17 from Global-Infrastructure-Advisory/main
+[1;32m|[m[1;33m\[m [36m\[m  
+[1;32m|[m * [36m\[m   [33m730f0a0[m Merge branch 'KennyB-hub:main' into main
+[1;32m|[m [1;34m|[m[1;32m\[m [36m\[m  
+[1;32m|[m [1;34m|[m[1;32m/[m [36m/[m  
+[1;32m|[m[1;32m/[m[1;34m|[m [36m|[m   
+* [1;34m|[m [36m|[m   [33mc43d698[m Merge pull request #16 from Global-Infrastructure-Advisory/main
+[1;36m|[m[31m\[m [1;34m\[m [36m\[m  
+[1;36m|[m [31m|[m * [36m|[m [33m664fbc2[m git commit
+[1;36m|[m [31m|[m[31m/[m [36m/[m  
+[1;36m|[m * [36m|[m [33m2a230ac[m git commit push to KennyB-hub global-infrastructure-advisory update files to in tree
+[1;36m|[m * [36m|[m [33m32f28c2[m git commit
+[1;36m|[m[1;36m/[m [36m/[m  
+* [36m|[m   [33mb4c2609[m Merge pull request #15 from Global-Infrastructure-Advisory/main
+[32m|[m[33m\[m [36m\[m  
+[32m|[m * [36m|[m [33m4fee443[m git commit replace visual file in src
+[32m|[m * [36m|[m [33m05b1cf5[m git commit update files
+[32m|[m * [36m|[m [33m4018211[m git commit
+[32m|[m * [36m|[m [33m714b12d[m git commit filled some emty folders unpdated the index.htmal with admin dashboads
+[32m|[m * [36m|[m [33m321aa0d[m Delete logo-dark.svg
+[32m|[m * [36m|[m [33mfd1dc31[m git commit to main and update files
+[32m|[m[32m/[m [36m/[m  
+* [36m|[m   [33m36f0252[m Merge pull request #14 from Global-Infrastructure-Advisory/main
+[34m|[m[35m\[m [36m\[m  
+[34m|[m * [36m|[m [33m2567486[m git commit -m "Backend intelligence update: system endpoints, routing, diagnostics, PMO prep"
+[34m|[m * [36m|[m   [33m2f43baa[m Merge branch 'KennyB-hub:main' into main
+[34m|[m [36m|[m[34m\[m [36m\[m  
+[34m|[m [36m|[m[34m/[m [36m/[m  
+[34m|[m[34m/[m[36m|[m [36m|[m   
+* [36m|[m [36m|[m   [33me6ee955[m Merge pull request #13 from Global-Infrastructure-Advisory/main
+[1;32m|[m[1;33m\[m [36m\[m [36m\[m  
+[1;32m|[m [1;33m|[m * [36m|[m [33m3348d8e[m git commit to mainKennyB-hub/global-infrastructure-advisory
+[1;32m|[m [1;33m|[m[1;33m/[m [36m/[m  
+[1;32m|[m * [36m/[m [33m4c1de6c[m git commit to main update all new files git pull
+[1;32m|[m[1;32m/[m [36m/[m  
+* [36m|[m [33mb54ac9e[m git checkout cleanup-branch git push origin cleanup-branch:main --force
+* [36m|[m [33m1430618[m Delete src/gitignore
+* [36m|[m [33m37e4b00[m Rename space to space.js
+* [36m|[m [33m3d7394f[m Merge pull request #12 from KennyB-hub/KennyB-hub-patch-12
+[1;34m|[m[36m\[m[36m|[m 
+[1;34m|[m * [33m94f05a8[m Rename Python to Python.js
+[1;34m|[m[1;34m/[m  
+* [33m275310c[m git commit on main cleaning old html
+*   [33m0151cad[m Merge pull request #11 from KennyB-hub/KennyB-hub-patch-11
+[1;36m|[m[31m\[m  
+[1;36m|[m * [33m42e8ea5[m Update config.json
+[1;36m|[m[1;36m/[m  
+*   [33m3f997f0[m Merge pull request #10 from KennyB-hub/KennyB-hub-patch-10
+[32m|[m[33m\[m  
+[32m|[m * [33m24408a6[m Update decision-engine.js
+[32m|[m[32m/[m  
+* [33m728d0af[m Create session_001_log.json
+* [33m8f69bb1[m Delete src/src index.Js directory
+*   [33mb7e8040[m Merge pull request #9 from KennyB-hub/KennyB-hub-patch-9
+[34m|[m[35m\[m  
+[34m|[m * [33m542a7ce[m Create schema.js
+[34m|[m[34m/[m  
+*   [33mb0283ce[m Merge pull request #8 from KennyB-hub/KennyB-hub-patch-8
+[36m|[m[1;31m\[m  
+[36m|[m * [33mff5e8b7[m Create config.json
+[36m|[m[36m/[m  
+*   [33m2b36d5d[m Merge pull request #7 from KennyB-hub/KennyB-hub-patch-7
+[1;32m|[m[1;33m\[m  
+[1;32m|[m * [33m7ea2b2e[m Create navigation.json
+[1;32m|[m[1;32m/[m  
+*   [33m6c0920b[m Merge pull request #6 from KennyB-hub/KennyB-hub-patch-6
+[1;34m|[m[1;35m\[m  
+[1;34m|[m * [33m93387a7[m Create space
+[1;34m|[m[1;34m/[m  
+*   [33m3ba7117[m Merge pull request #5 from KennyB-hub/KennyB-hub-patch-5
+[1;36m|[m[31m\[m  
+[1;36m|[m * [33mbe4f490[m Create sectors
+[1;36m|[m[1;36m/[m  
+* [33m30b0522[m Delete src/data
+*   [33m3b9ee64[m Merge pull request #4 from KennyB-hub/KennyB-hub-patch-4
+[32m|[m[33m\[m  
+[32m|[m * [33m2858a49[m Create data
+[32m|[m[32m/[m  
+*   [33mdad8f0c[m Merge pull request #3 from KennyB-hub/KennyB-hub-patch-3
+[34m|[m[35m\[m  
+[34m|[m * [33mce7e72a[m Create index.Js
+[34m|[m[34m/[m  
+* [33mbfc6121[m Delete src/index.Js
+*   [33m9f0a67f[m Merge pull request #2 from KennyB-hub/KennyB-hub-patch-2
+[36m|[m[1;31m\[m  
+[36m|[m * [33m76ca8e7[m Create src-index.Js
+[36m|[m[36m/[m  
+* [33mcd362f8[m Create index.Js
+* [33m9e373f0[m Rename workforce.json.txt to workforce.json
+* [33m3022bbe[m Rename system-config.json.txt to system-config.json
+* [33m84eb746[m Delete kv/system-config.json
+* [33m294d1af[m Delete kv/workforce.json
+* [33m570f743[m Rename opportunities.json.txt to opportunities.json
+* [33mfd7c574[m Delete kv/opportunities.json
+* [33m0b2e838[m Rename donors.json.txt to donors.json
+* [33m1db6616[m Rename ai-config.json.txt to ai-config.json
+* [33m83bbb4e[m Delete kv/ai-config.json
+* [33mabf1169[m Update and rename New Text Documentt.txt to ai-routing
+* [33m8af4a01[m Rename seed.sql.txt to seed.sql
+* [33mce112b8[m Delete d1/seed.sql
+* [33m0c9f9f3[m Rename schema.sql.txt to schema.sql
+* [33mbad1d01[m Delete d1/schema.sql
+*   [33m7c97339[m Merge pull request #1 from KennyB-hub/KennyB-hub-patch-1
+[1;32m|[m[1;33m\[m  
+[1;32m|[m * [33m22b4da0[m Update shared components
+[1;32m|[m[1;32m/[m  
+* [33m8e36d00[m Rename FileUploader.tsx to FileUploader.ts
+* [33m0121dce[m Rename router.js.txt to router.js
+* [33m4cc32b4[m Rename field-enginegps-mapper.ts.txt to field-enginegps-mapper.ts
+* [33mf33bd97[m Rename api-worker.js.txt to api-worker.js
+* [33m629d316[m Rename admin-protect-worker.js.txt to admin-protect-worker.js
+* [33m634954c[m Rename r2-uploader.js.txt to r2-uploader.js
+* [33me028bda[m Rename New auth-gateway.jsTex to New auth-gateway.js
+* [33md330b32[m Rename staff-monitor.js.txt to staff-monitor.js
+* [33m774a00c[m Rename payroll-calc.js.txt to payroll-calc.js
+* [33m683a377[m Rename farmer-engine.js.txt to farmer-engine.js
+* [33m541f99b[m Rename contractor-engine.js.txt to contractor-engine.js
+* [33m9e21521[m Rename backend/BACKEND-INTELLIGENCE/hubs-logic/(Cloudflare Workers  AI Logic.txt to backend/BACKEND-INTELLIGENCE/hubs-logic/Cloudflare/Workers/AI Logic
+* [33m402322d[m Rename geo-mapping.js,.txt to geo-mapping.js
+* [33m78496f5[m Rename distance-calc.js.txt to distance-calc.js
+* [33m6dfa38a[m Delete .github directory
+* [33maf9ec17[m Delete .github/workflows/github work1.txt
+* [33m61213ae[m first commit

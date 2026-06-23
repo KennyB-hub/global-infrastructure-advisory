@@ -1,0 +1,15 @@
+{
+  "seven_os": "seven-os/",
+  "sectors": "seven-os/sectors/",
+  "system": "seven-os/system/",
+  "api": "seven-os/api/",
+  "workers": "seven-os/workers/",
+  "routing": "seven-os/system/routing/",
+  "reports": "reports/",
+  "public": "public/",
+  "runtime": "runtime/",
+  "logs": "reports/",
+  "scripts": "scripts/",
+  "templates": "templates/",
+  "topology": "topology/"
+}

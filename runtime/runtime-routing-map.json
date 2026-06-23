@@ -1,0 +1,29 @@
+{
+  "workers": [
+    "/ai/ai-worker.js",
+    "/ai/cortex.js",
+    "/ai/decision-engine.js",
+    "/ai/identity.js",
+    "/ai/logic-engine.js",
+    "/ai/schema-guard.js",
+    "/ai/tools/index.js",
+    "/ai/workflows/index.js",
+    "/context/context-builder.js",
+    "/context/context-engine.js",
+    "/context/context-validator.js",
+    "/context/context.js",
+    "/context/index.js",
+    "/interop/seven-interop.ts",
+    "/network/routing-engine.js",
+    "/policy/cloud-policies.js",
+    "/policy/engine.js",
+    "/rf/FirmwareAuditor/index.ts",
+    "/rf/REObservation-layer/index.ts",
+    "/security/auth-service.js",
+    "/security/build-guard.js",
+    "/security/entra-guard.js",
+    "/security/key-engine.js",
+    "/security/worker-gauard.js",
+    "/workforce/public-workforce-grid.js"
+  ]
+}

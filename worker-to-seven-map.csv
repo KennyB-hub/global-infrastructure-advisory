@@ -1,0 +1,12 @@
+component,component_type,calls,evidence_file,evidence_snippet
+auth-worker.js,worker,processAIRequest,seven-os/ai/workers/auth-worker.js,"const result = await processAIRequest( { text: \"auth login\", ... }, env );"
+ai-worker.js,worker,processAIRequest,seven-os/ai/workers/ai-worker.js,"result = await processAIRequest(request, env, ctx);"
+voice-flight-handler.js,function,VoiceBus.dispatch,functions/api/voice-flight-handler.js,"const result = await VoiceBus.dispatch({ text: message, role, sessionId, sensors, resources });"
+backend/routes/voice-flight.js,backend-route,orchestrateMission,backend/routes/voice-flight.js,"const mission = orchestrateMission({ text, role, sessionId, sensors, resources });"
+backend/functions/api/system.js,backend-service,SevenStack initialization,backend/functions/api/system.js,"const stack = new SevenStack(terrain, { speak: (msg) => console.log('[Seven Voice]', msg) });"
+backend/functions/api/router.js,backend-router,processAIRequest|/api/autonomous endpoints,backend/functions/api/router.js,"if (path === '/api/autonomous/task/enqueue') { ... processAIRequest(...)}"
+ai/engines/system/voice/voice-bus.ts,system-voice-bus,orchestrateMission,seven-os/voice/voice-bus.ts,"return orchestrateMission({ text, role, sessionId, sensors, resources });"
+backend/ai/ai-worker.js,backend-worker,runAI,backend/ai/ai-worker.js,"module.exports.runAI = async function(prompt) { ... }"
+seven-os/seven-runtime/**,runtime,SevenRuntime APIs,seven-os/seven-runtime/**,"SevenRuntime class and adapters (seven.ts, seven-stack.ts, safety/api, interop, command-dashboard)"
+
+# Notes: evidence_snippet is a short extracted line for quick reference. Use the listed files to inspect exact call sites and surrounding context.

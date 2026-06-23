@@ -1,0 +1,23 @@
+{
+  "command": "proprietary-cli:help",
+  "description": "Displays help information for all proprietary-cli commands.",
+  "source": "Unified routing map (manifest + CLI commands)",
+  "outputFormat": "table",
+  "columns": [
+    {
+      "name": "routeKey",
+      "width": 45,
+      "description": "The routing key used to invoke the command."
+    },
+    {
+      "name": "description",
+      "width": "auto",
+      "description": "Human-readable description of the command."
+    }
+  ],
+  "integration": {
+    "loader": "proprietary-cli/core/loader.js",
+    "helpEngine": "proprietary-cli/core/help.js",
+    "routerFallback": "If no command is provided, help is shown."
+  }
+}

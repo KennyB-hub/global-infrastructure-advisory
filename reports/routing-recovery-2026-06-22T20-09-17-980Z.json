@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-06-22T20:09:20.276Z",
+  "totals": {
+    "recovered": 1,
+    "missing": 1
+  },
+  "entries": [
+    {
+      "key": "infrastructure:jobs-workflow-pipeline",
+      "expected": "C:\\Users\\kenny\\global-infrastructure-advisory\\seven-os\\utilities\\dashboard\\universal\\layouts\\jobs-workflow-pipeline.ts",
+      "found": "C:\\Users\\kenny\\global-infrastructure-advisory\\seven-os\\utilities\\dashboard\\universal\\layouts\\render-jobs-workflow-pipeline.ts",
+      "movedTo": "C:\\Users\\kenny\\global-infrastructure-advisory\\seven-os\\utilities\\dashboard\\universal\\layouts\\jobs-workflow-pipeline.ts",
+      "status": "recovered"
+    }
+  ]
+}

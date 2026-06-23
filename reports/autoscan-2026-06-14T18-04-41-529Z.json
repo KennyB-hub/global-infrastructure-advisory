@@ -1,0 +1,5741 @@
+{
+  "runtime": [
+    {
+      "file": "runtime/ai/ai-worker.js",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/ai/cortex.js",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/ai/identity.js",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/ai/logic-engine.js",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/ai/schema-guard.js",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/ai/tools/index.js",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/ai/workflows/analysis-flow.md",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/ai/workflows/index.js",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/ai-decision.js",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/audit-runtime.cjs",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/AUTONOMOUS_ROUTING.md",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/collar-state-handler.ts",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/collar-state-redis-handler.ts",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/context/ai-giiContext.json",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/context/context-builder.js",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/context/context-engine.js",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/context/context-schema.json",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/context/context-validator.js",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/context/context.js",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/context/index.js",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/decision-engine.js",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/fix-runtime.cjs",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/fix-seven-runtime.ts",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/interop/seven-interop.ts",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/network/routing-engine.js",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/policy/cloud-policies.js",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/policy/engine.js",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/rebuild-runtime.cjs",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/restore-runtime.js",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/rf/FirmwareAuditor/index.ts",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/rf/REObservation-layer/index.ts",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/runtime-routing-map.json",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/scheduler.ts",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/security/auth-service.js",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/security/build-guard.js",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/security/entra-guard.js",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/security/key-engine.js",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/security/worker-gauard.js",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/state.js",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/state.ts",
+      "target": "runtime"
+    },
+    {
+      "file": "runtime/workforce/public-workforce-grid.js",
+      "target": "runtime"
+    }
+  ],
+  "dashboard": [
+    {
+      "file": "api/farmer/dashboard.js",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "api/program-matching-dashboard.js",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "api/security-posture-dashboard.js",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "backend/hubs/admin/admin-dashboard.js",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "backend/hubs/admin/dashboard.html",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "backend/hubs/admin/dashboard.js",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "backend/public/dashboard.html",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "hubs/accounting/dashboard.js",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "hubs/admin/dashboard.js",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "hubs/analytics/dashboard.js",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "hubs/Ansys/dashboard.js",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "hubs/Contractor/dashboard.js",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "hubs/Dashboard.js",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "hubs/deepgov/dashboard.js",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "hubs/employee/dashboard.js",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "hubs/ExecutiveDashboard.js",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "hubs/farmer/dashboard.js",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "hubs/global-map/dashboard.js",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "hubs/gov/dashboard.js",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "hubs/hr/dashboard.js",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "hubs/payroll/dashboard.js",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "hubs/public/dashboard.js",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "hubs/PublicDashboard.js",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "hubs/shared/sector-dashboard.js",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "hubs/Staff/dashboard.js",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "hubs/supervisor/dashboard.js",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "hubs/system/dashboard.js",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "program-matching-dashboard.html",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "public/seven-os-dashboard.html",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "seven-os/ai/document-audit-dashboard.js",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "seven-os/ai/engines/farmerProfitabilityDashboard.js",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "seven-os/logs/log-dashboard.js",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "seven-os/workers/cyber/cyber.soc-dashboard.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "src/dashboard.html",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/dashboard.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/readme.md",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/actions/cattle.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/actions/drone.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/actions/generic.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/actions/index.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/actions/pipeline.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/actions/resue.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/actions/utilities.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/bindings/bindings.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/bindings/cattle.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/bindings/drone.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/bindings/generic.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/bindings/index.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/bindings/pipeline.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/bindings/utilities.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/layouts/agriculture.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/layouts/air.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/layouts/emergency.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/layouts/generic.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/layouts/index.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/layouts/layout.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/layouts/pipeline.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/layouts/utilities.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/reanderer.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/shell/builder.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/shell/shell.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/themes/contractor.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/themes/default.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/themes/emt.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/themes/farmer.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/themes/gov.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/themes/index.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/themes/pilot.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/themes/pubic.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/themes/theme.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/widgets/card-widget.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/widgets/feed-widget.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/widgets/graph-widget.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/widgets/index.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/widgets/list-widget.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/widgets/map-widget.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/dashboard/universal/widgets/widget.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/ui/command-dashboard.ts",
+      "target": "utilities/dashboard"
+    },
+    {
+      "file": "utilities/ui/log-ui-dashboard.js",
+      "target": "utilities/dashboard"
+    }
+  ],
+  "sector": [
+    {
+      "file": ".dockerignore",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "api/auth-callback.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "api/auth-login.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "api/auth.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "api/contractors.js",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "api/cyber/analyze.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "api/cyber/defense.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "api/cyber/events.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "api/cyber.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "api/gov/sectors.js",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "api/gov/threat-model.js",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "api/gov/threats.js",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "api/hauler-discovery.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "api/incidents-scan-button.js",
+      "target": "seven-os/disaster-response",
+      "sector": "disaster_response"
+    },
+    {
+      "file": "api/incidents.js",
+      "target": "seven-os/disaster-response",
+      "sector": "disaster_response"
+    },
+    {
+      "file": "api/load-matching.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "api/marketplace.js",
+      "target": "seven-os/economics",
+      "sector": "economics"
+    },
+    {
+      "file": "api/opportunities-active.js",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "api/opportunities.js",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "api/opportunity.js",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "api/security-alerts.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "api/workforce.js",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "backend/audit/engine.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "backend/hub-logic/farmer-routes.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "cattle-collar-scan.json",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "commands/run-incident-scan.cjs",
+      "target": "seven-os/disaster-response",
+      "sector": "disaster_response"
+    },
+    {
+      "file": "commands/run-infra-audit.mjs",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "commands/run-route-audit.mjs",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "data/policy-object.json",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "data/schemas/contractor.schema.json",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "data/schemas/cyber-contractor.schema.json",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "data/schemas/cyber-jobs.schema.json",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "data/schemas/cyber-workforce.schema.json",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "data/schemas/workforce.schema.json",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "docker-compose.yml",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "Dockerfile",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "domain/airports.json",
+      "target": "seven-os/airports",
+      "sector": "airports"
+    },
+    {
+      "file": "domain/bridges-tunnels.json",
+      "target": "seven-os/roads",
+      "sector": "roads"
+    },
+    {
+      "file": "domain/climate.json",
+      "target": "seven-os/climate",
+      "sector": "climate"
+    },
+    {
+      "file": "domain/cloud.json",
+      "target": "seven-os/cloud",
+      "sector": "cloud"
+    },
+    {
+      "file": "domain/contractors.json",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "domain/cyber-sector.json",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "domain/cyber.json",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "domain/datacenters.json",
+      "target": "seven-os/datacenters",
+      "sector": "datacenters"
+    },
+    {
+      "file": "domain/disaster-response.json",
+      "target": "seven-os/disaster-response",
+      "sector": "disaster_response"
+    },
+    {
+      "file": "domain/economics.json",
+      "target": "seven-os/economics",
+      "sector": "economics"
+    },
+    {
+      "file": "domain/energy-pipeline.json",
+      "target": "seven-os/pipelines",
+      "sector": "pipelines"
+    },
+    {
+      "file": "domain/finance.json",
+      "target": "seven-os/financial",
+      "sector": "financial"
+    },
+    {
+      "file": "domain/food-supply.json",
+      "target": "seven-os/logistics",
+      "sector": "logistics"
+    },
+    {
+      "file": "domain/geomapping-logic.js/farmer engine.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "domain/government.json",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "domain/infrastructure/audit/audit-generator.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "domain/infrastructure/compliance/contractor-check.js",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "domain/infrastructure/hazards/bridge-hazards.js",
+      "target": "seven-os/public-safety",
+      "sector": "public_safety"
+    },
+    {
+      "file": "domain/infrastructure/hazards/road-hazards.js",
+      "target": "seven-os/public-safety",
+      "sector": "public_safety"
+    },
+    {
+      "file": "domain/infrastructure/hazards/tower-hazards.js",
+      "target": "seven-os/public-safety",
+      "sector": "public_safety"
+    },
+    {
+      "file": "domain/infrastructure/infrastructure-audit-engine.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "domain/infrastructure/infrastructure-loader.ts",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "domain/infrastructure/ingest/fcc-ingest.js",
+      "target": "seven-os/fcc",
+      "sector": "fcc"
+    },
+    {
+      "file": "domain/infrastructure/intelligence/roadmap.json",
+      "target": "seven-os/roads",
+      "sector": "roads"
+    },
+    {
+      "file": "domain/infrastructure/matching/contractor-matching.js",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "domain/infrastructure/matching/cyber-matching.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "domain/infrastructure/matching/workforce-matching.js",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "domain/infrastructure/reports/audit-generator.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "domain/infrastructure/reports/gis-overlay.js",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "domain/infrastructure/reports/modernization-plan.js",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "domain/infrastructure/run-repo-audit.ts",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "domain/infrastructure/security-audit.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "domain/infrastructure/threat/cyber-models.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "domain/infrastructure/threat/threat-reporting.js",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "domain/infrastructure/tools/r2-uploader.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "domain/infrastructure/workers/audit/integrity.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "domain/infrastructure/workers/audit/manifest.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "domain/infrastructure/workers/core/routing.js",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "domain/infrastructure/workers/core/sectors.js",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "domain/infrastructure/workers/finance/index.ts",
+      "target": "seven-os/financial",
+      "sector": "financial"
+    },
+    {
+      "file": "domain/logistics.json",
+      "target": "seven-os/logistics",
+      "sector": "logistics"
+    },
+    {
+      "file": "domain/mining.json",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "domain/oil-gas.json",
+      "target": "seven-os/pipelines",
+      "sector": "pipelines"
+    },
+    {
+      "file": "domain/ports.json",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "domain/public-safety.json",
+      "target": "seven-os/public-safety",
+      "sector": "public_safety"
+    },
+    {
+      "file": "domain/rail.json",
+      "target": "seven-os/rail",
+      "sector": "rail"
+    },
+    {
+      "file": "domain/roads.json",
+      "target": "seven-os/roads",
+      "sector": "roads"
+    },
+    {
+      "file": "domain/telecom-infra.json",
+      "target": "seven-os/telecom",
+      "sector": "telecom"
+    },
+    {
+      "file": "domain/telecom.json",
+      "target": "seven-os/telecom",
+      "sector": "telecom"
+    },
+    {
+      "file": "domain/transport.json",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "domain/water.json",
+      "target": "seven-os/water",
+      "sector": "water"
+    },
+    {
+      "file": "edge-vault/VAULT-LAYER/resumes/Parsed workforce data",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "frontend/gov/gov-threat.js",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "frontend/gov/gov.html",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "frontend/gov/intel.js",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "frontend/hooks/components/OpportunityCard.jsx",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "frontend/hooks/components/WorkforceTable.jsx",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "frontend/hooks/pages/OpportunitiesPage.jsx",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "frontend/hooks/pages/WorkforcePage.jsx",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "frontend/hooks/useActiveOpportunity.js",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "frontend/hooks/useOpportunities.js",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "frontend/hooks/useWorkforce.js",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "frontend/system/system-cyber.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "functions/Economics + feasibility evaluation.json",
+      "target": "seven-os/economics",
+      "sector": "economics"
+    },
+    {
+      "file": "functions/Trust + policy gate.json",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "hooks/before-execution.js",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "hubs/Ansys/blueprint viewer & upload.html",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "hubs/auth/callback.html",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "hubs/auth/login.html",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "hubs/Contractor/index.html",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "hubs/contractor-hub.js",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "hubs/deepgov/index.html",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "hubs/deepgov-hub.js",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "hubs/designer/collaboration_space_for_blueprints.html",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "hubs/farmer/farmer-engine.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "hubs/farmer/index.html",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "hubs/Farmer mobile UI spec.json",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "hubs/farmer-hub.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "hubs/Global Contractor Marketplace + Credentialing Engine.json",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "hubs/gov/index.html",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "hubs/gov-hub.js",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "hubs/Public Workforce Coordination Grid.json",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "hubs/security/msal-config.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "hub_logic/banker-ai.js",
+      "target": "seven-os/financial",
+      "sector": "financial"
+    },
+    {
+      "file": "hub_logic/contractor-engine.js",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "kv/opportunities.json",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "kv/workforce.json",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "logs/audit-log.json",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "logs/log-retention-policy.json",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "nvmrc",
+      "target": "seven-os/cloud",
+      "sector": "cloud"
+    },
+    {
+      "file": "proprietary-cli/commands/ai/run-workflow.js",
+      "target": "seven-os/pipelines",
+      "sector": "pipelines"
+    },
+    {
+      "file": "proprietary-cli/commands/contractors/global-contractor-marketplace.js",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "proprietary-cli/commands/manifest/loader.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "proprietary-cli/commands/manifest/loader.ts",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "proprietary-cli/core/executor.js",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "proprietary-cli/core/load-commands.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "proprietary-cli/core/logger.js",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "proprietary-cli/core/registry.js",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "public/assets/css/theme-gov.css",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "public/assets/js/admin-auth.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "public/assets/js/load-layout.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "public/pages/Contractor.html",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "public/pages/farmer.html",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "public/pages/workforce.html",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "reports/license-scan.json",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "reports/secret-scan.json",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "seven-os/adapters/ground-rescue-unit.ts",
+      "target": "seven-os/disaster-response",
+      "sector": "disaster_response"
+    },
+    {
+      "file": "seven-os/ai/ai-cyber.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/ai/ai-safety.js",
+      "target": "seven-os/public-safety",
+      "sector": "public_safety"
+    },
+    {
+      "file": "seven-os/ai/document-access-audit.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/ai/engines/ai-core.js",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "seven-os/ai/engines/contractor-workforce-engine.js",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "seven-os/ai/engines/core.ts",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "seven-os/ai/engines/csharp/ASP.NET Core(C#)",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "seven-os/ai/engines/csharp/Core DTOs (C#)",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "seven-os/ai/engines/csharp/Policy model in (C#)",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/ai/engines/cyber-auto-block.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/ai/engines/Disaster Deployment Engine.json",
+      "target": "seven-os/disaster-response",
+      "sector": "disaster_response"
+    },
+    {
+      "file": "seven-os/ai/engines/farmerHaulerMatchingEngine.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/ai/engines/Global Livestock Price Forecasting Engine.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/ai/engines/Livestock emergency evacuation engine.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/ai/engines/livestock-economic-core.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/ai/engines/livestockDiseaseRoutingEngine.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/ai/engines/livestockMarketRoutingEngine.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/ai/engines/livestockSustainabilityEngine.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/ai/engines/policy-object.json",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/ai/engines/sandbox-bridge.js",
+      "target": "seven-os/roads",
+      "sector": "roads"
+    },
+    {
+      "file": "seven-os/ai/engines/unified-ux/payload-builder.ts",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/ai/engines/unified-ux/unified-ux-core.ts",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "seven-os/ai/global-ai-loader.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/ai/hauler-registry.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/ai/haulerCredentialingModule.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/ai/incident-response-workflow.js",
+      "target": "seven-os/disaster-response",
+      "sector": "disaster_response"
+    },
+    {
+      "file": "seven-os/ai/incident-store.js",
+      "target": "seven-os/disaster-response",
+      "sector": "disaster_response"
+    },
+    {
+      "file": "seven-os/ai/incident-utils.js",
+      "target": "seven-os/disaster-response",
+      "sector": "disaster_response"
+    },
+    {
+      "file": "seven-os/ai/livestockLogisticsEngine.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/ai/load-matching-engine.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/ai/load-registry.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/ai/loader.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/ai/security-alerting-service.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/ai/workflows.js",
+      "target": "seven-os/pipelines",
+      "sector": "pipelines"
+    },
+    {
+      "file": "seven-os/api/collars.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/api/gov/gov-view.js",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/api/gov/threats.js",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/api/gov-view.ts",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/api/opportunity.ts",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "seven-os/audit/seven-repo-audit.ts",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/cattle/boundary-engine.ts",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/cattle/boundary-service.ts",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/cattle/boundary-types.ts",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/cattle/cattle-collar-sync.ts",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/cattle/cattle-rules.ts",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/cattle/rotation-engine.ts",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/cattle/types.ts",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/cattle/vendors/gallagher.ts",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/core/azure-bridge.js",
+      "target": "seven-os/cloud",
+      "sector": "cloud"
+    },
+    {
+      "file": "seven-os/core/inspector/ai-inspector.js",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "seven-os/core/math/geometry.ts",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "seven-os/core/math/index.ts",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "seven-os/core/math/orbital.ts",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "seven-os/core/math/terrain.ts",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "seven-os/core/remediation/index.ts",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "seven-os/core/sensors/fusion.ts",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "seven-os/core/sensors/lidar.ts",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "seven-os/core/seven-stack.ts",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "seven-os/core/seven.ts",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "seven-os/core/workforce/AI-workforce-sync-layer/index.ts",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "seven-os/core/zoning/zoning.js",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "seven-os/core-handler.ts",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "seven-os/disaster/disaster-launcher.ts",
+      "target": "seven-os/disaster-response",
+      "sector": "disaster_response"
+    },
+    {
+      "file": "seven-os/disaster/disaster-swarm.ts",
+      "target": "seven-os/disaster-response",
+      "sector": "disaster_response"
+    },
+    {
+      "file": "seven-os/drone/disaster-profile.ts",
+      "target": "seven-os/disaster-response",
+      "sector": "disaster_response"
+    },
+    {
+      "file": "seven-os/govervance/compliance-engine/index.ts",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/govervance/CONSTITUTION.md",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/govervance/goverance-brain/index.ts",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/govervance/Guvernance.md",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/govervance/trust-zone-definitions.json",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/govervance/types.ts",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/infra/ag/livestock/audit.ts",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/infra/ag/virtual-fence/audit.ts",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/infra/ems/audit.ts",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/infra/fiber/audit.ts",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/infra/fiber/fiber.event.ts",
+      "target": "seven-os/telecom",
+      "sector": "telecom"
+    },
+    {
+      "file": "seven-os/infra/power/audit.ts",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/infra/tower/autit.ts",
+      "target": "seven-os/telecom",
+      "sector": "telecom"
+    },
+    {
+      "file": "seven-os/infra/tower/tower.events.ts",
+      "target": "seven-os/telecom",
+      "sector": "telecom"
+    },
+    {
+      "file": "seven-os/infra/tower/types.ts",
+      "target": "seven-os/telecom",
+      "sector": "telecom"
+    },
+    {
+      "file": "seven-os/logs/log-disaster-recovery-plan.md",
+      "target": "seven-os/disaster-response",
+      "sector": "disaster_response"
+    },
+    {
+      "file": "seven-os/logs/log-exporter.js",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "seven-os/mci/loader.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/policy-packs/index.js",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/policy-packs/policy-cache.ts",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/policy-packs/policy-hasher.ts",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/policy-packs/policy-manifest.json",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/policy-packs/policy-validator.ts",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/policy-packs/sovereign/common-rule.json",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/policy-packs/sovereign/dhs-compliance.json",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/policy-packs/sovereign/nces-ethics.json",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/policy-packs/sovereign/oge-misconduct-reporting.json",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/policy-packs/sovereign/omb-m14-06.json",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/policy-packs/sovereign/omb-m20-12.json",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/policy-packs/sovereign/ostp-scientific-integrity.json",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/policy-packs/sovereign/sovereign-policy.ts",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/policy-packs/sovereign-policy-loader.ts",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/rescue/adapters.ts",
+      "target": "seven-os/disaster-response",
+      "sector": "disaster_response"
+    },
+    {
+      "file": "seven-os/rescue/resue-unit.ts",
+      "target": "seven-os/disaster-response",
+      "sector": "disaster_response"
+    },
+    {
+      "file": "seven-os/rescue/seven-rescue-commander.ts",
+      "target": "seven-os/disaster-response",
+      "sector": "disaster_response"
+    },
+    {
+      "file": "seven-os/routes/audit.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/routes/auth-gateway.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/routes/opportunities.js",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "seven-os/routes/security-audit.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/safety/api",
+      "target": "seven-os/public-safety",
+      "sector": "public_safety"
+    },
+    {
+      "file": "seven-os/safety/disaster-heavy-lift.ts",
+      "target": "seven-os/disaster-response",
+      "sector": "disaster_response"
+    },
+    {
+      "file": "seven-os/safety/disaster-profile.ts",
+      "target": "seven-os/disaster-response",
+      "sector": "disaster_response"
+    },
+    {
+      "file": "seven-os/safety/sector-safety-engine.ts",
+      "target": "seven-os/public-safety",
+      "sector": "public_safety"
+    },
+    {
+      "file": "seven-os/sector-engines/contractor-engine.js",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "seven-os/sector-engines/farmer-engine.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/sector-engines/gov-engine.js",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/sectors/agriculture/cattle-engine.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/sectors/airports/index.js",
+      "target": "seven-os/airports",
+      "sector": "airports"
+    },
+    {
+      "file": "seven-os/sectors/airports/schema.json",
+      "target": "seven-os/airports",
+      "sector": "airports"
+    },
+    {
+      "file": "seven-os/sectors/airports/Untitled-1.json",
+      "target": "seven-os/airports",
+      "sector": "airports"
+    },
+    {
+      "file": "seven-os/sectors/climate/index.js",
+      "target": "seven-os/climate",
+      "sector": "climate"
+    },
+    {
+      "file": "seven-os/sectors/climate/manifest.json",
+      "target": "seven-os/climate",
+      "sector": "climate"
+    },
+    {
+      "file": "seven-os/sectors/climate/schema.json",
+      "target": "seven-os/climate",
+      "sector": "climate"
+    },
+    {
+      "file": "seven-os/sectors/cloud/index.js",
+      "target": "seven-os/cloud",
+      "sector": "cloud"
+    },
+    {
+      "file": "seven-os/sectors/cloud/manifest.json",
+      "target": "seven-os/cloud",
+      "sector": "cloud"
+    },
+    {
+      "file": "seven-os/sectors/cloud/schema.json",
+      "target": "seven-os/cloud",
+      "sector": "cloud"
+    },
+    {
+      "file": "seven-os/sectors/contractors/index.js",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "seven-os/sectors/contractors/manifest.json",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "seven-os/sectors/contractors/schema.json",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "seven-os/sectors/cyber/anomaly-detector.ts",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/sectors/cyber/block.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/sectors/cyber/event-builder.ts",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/sectors/cyber/event-model.ts",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/sectors/cyber/incident-router.ts",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/sectors/cyber/index.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/sectors/cyber/index.ts",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/sectors/cyber/integrity-monitor.ts",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/sectors/cyber/manifest.json",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/sectors/cyber/policy.ts",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/sectors/cyber/schema.json",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/sectors/cyber/threat-surface.ts",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/sectors/cyber/worker-hook.ts",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/sectors/datacenters/index.js",
+      "target": "seven-os/datacenters",
+      "sector": "datacenters"
+    },
+    {
+      "file": "seven-os/sectors/datacenters/manifest.json",
+      "target": "seven-os/datacenters",
+      "sector": "datacenters"
+    },
+    {
+      "file": "seven-os/sectors/datacenters/schema.json",
+      "target": "seven-os/datacenters",
+      "sector": "datacenters"
+    },
+    {
+      "file": "seven-os/sectors/disaster_response/index.js",
+      "target": "seven-os/disaster-response",
+      "sector": "disaster_response"
+    },
+    {
+      "file": "seven-os/sectors/disaster_response/manifest.json",
+      "target": "seven-os/disaster-response",
+      "sector": "disaster_response"
+    },
+    {
+      "file": "seven-os/sectors/disaster_response/schema.json",
+      "target": "seven-os/disaster-response",
+      "sector": "disaster_response"
+    },
+    {
+      "file": "seven-os/sectors/economics/contractor-matching.js",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "seven-os/sectors/economics/funding-engine.js",
+      "target": "seven-os/economics",
+      "sector": "economics"
+    },
+    {
+      "file": "seven-os/sectors/fcc/carrier-network-compliance/governance-brain/compliance-engine/index.ts",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/sectors/fcc/carrier-network-compliance/governance-brain/compliance-engine/remediation-engine/index.ts",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/sectors/fcc/carrier-network-compliance/governance-brain/compliance-engine/remediation-engine/workforce-sync-layer/index.ts",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "seven-os/sectors/fcc/carrier-network-compliance/governance-brain/index.ts",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/sectors/fcc/carrier-network-compliance/governance-brain/types.ts",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/sectors/fcc/compliance-engine/index.ts",
+      "target": "seven-os/fcc",
+      "sector": "fcc"
+    },
+    {
+      "file": "seven-os/sectors/fcc/emergency-access-fallback/governance-brain/compliance-engine/index.ts",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/sectors/fcc/emergency-access-fallback/governance-brain/emergency-observation-layer/idex.ts",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/sectors/fcc/emergency-access-fallback/governance-brain/fallback-auditor/index.ts",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/sectors/fcc/emergency-access-fallback/governance-brain/index.ts",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/sectors/fcc/emergency-access-fallback/governance-brain/remediation-engine/index.ts",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/sectors/fcc/emergency-access-fallback/governance-brain/types.ts",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/sectors/fcc/emergency-access-fallback/governance-brain/workforce-sync-layer/index.ts",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "seven-os/sectors/fcc/firmware-auditor/index.ts",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/sectors/fcc/network-observation-layer/index.ts",
+      "target": "seven-os/fcc",
+      "sector": "fcc"
+    },
+    {
+      "file": "seven-os/sectors/fcc/remediation-engine/index.ts",
+      "target": "seven-os/fcc",
+      "sector": "fcc"
+    },
+    {
+      "file": "seven-os/sectors/fcc/rf-observation-layer/index.ts",
+      "target": "seven-os/fcc",
+      "sector": "fcc"
+    },
+    {
+      "file": "seven-os/sectors/fcc/telecom-equipment-authorization/index.ts",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/sectors/fcc/telecom-equipment-authorization/types.ts",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/sectors/fcc/workforce-sync-layer/index.ts",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "seven-os/sectors/financial/cost-models/labor-cost-model.json",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "seven-os/sectors/financial/workers/financial-reports.ts",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "seven-os/sectors/global-grid-governor.json",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/sectors/gov/aim-threat-model.html",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/sectors/gov/aim-threat-model.js",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/sectors/gov/formatAdvisory.js",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/sectors/gov/generateRecommendations.js",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/sectors/gov/index.js",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/sectors/gov/manifest.json",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/sectors/gov/schema.json",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/sectors/gov/sectorAnalysis.js",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/sectors/logistics/index.js",
+      "target": "seven-os/logistics",
+      "sector": "logistics"
+    },
+    {
+      "file": "seven-os/sectors/logistics/manifest.json",
+      "target": "seven-os/logistics",
+      "sector": "logistics"
+    },
+    {
+      "file": "seven-os/sectors/logistics/schema.json",
+      "target": "seven-os/logistics",
+      "sector": "logistics"
+    },
+    {
+      "file": "seven-os/sectors/mining/index.js",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "seven-os/sectors/mining/manifest.json",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "seven-os/sectors/mining/schema.json",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "seven-os/sectors/oil_gas/index.js",
+      "target": "seven-os/pipelines",
+      "sector": "pipelines"
+    },
+    {
+      "file": "seven-os/sectors/oil_gas/manifest.json",
+      "target": "seven-os/pipelines",
+      "sector": "pipelines"
+    },
+    {
+      "file": "seven-os/sectors/oil_gas/schema.json",
+      "target": "seven-os/pipelines",
+      "sector": "pipelines"
+    },
+    {
+      "file": "seven-os/sectors/pipelines/index.js",
+      "target": "seven-os/pipelines",
+      "sector": "pipelines"
+    },
+    {
+      "file": "seven-os/sectors/pipelines/manifest.json",
+      "target": "seven-os/pipelines",
+      "sector": "pipelines"
+    },
+    {
+      "file": "seven-os/sectors/pipelines/schema.json",
+      "target": "seven-os/pipelines",
+      "sector": "pipelines"
+    },
+    {
+      "file": "seven-os/sectors/ports/index.js",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "seven-os/sectors/ports/manifest.json",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "seven-os/sectors/ports/schema.json",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "seven-os/sectors/public_safety/index.js",
+      "target": "seven-os/public-safety",
+      "sector": "public_safety"
+    },
+    {
+      "file": "seven-os/sectors/public_safety/manifest.json",
+      "target": "seven-os/public-safety",
+      "sector": "public_safety"
+    },
+    {
+      "file": "seven-os/sectors/public_safety/schema.json",
+      "target": "seven-os/public-safety",
+      "sector": "public_safety"
+    },
+    {
+      "file": "seven-os/sectors/rail/index.js",
+      "target": "seven-os/rail",
+      "sector": "rail"
+    },
+    {
+      "file": "seven-os/sectors/rail/manifest.json",
+      "target": "seven-os/rail",
+      "sector": "rail"
+    },
+    {
+      "file": "seven-os/sectors/rail/schema.json",
+      "target": "seven-os/rail",
+      "sector": "rail"
+    },
+    {
+      "file": "seven-os/sectors/roads/index.js",
+      "target": "seven-os/roads",
+      "sector": "roads"
+    },
+    {
+      "file": "seven-os/sectors/roads/manifest.json",
+      "target": "seven-os/roads",
+      "sector": "roads"
+    },
+    {
+      "file": "seven-os/sectors/roads/schema.json",
+      "target": "seven-os/roads",
+      "sector": "roads"
+    },
+    {
+      "file": "seven-os/sectors/sector-loader.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/sectors/telecom/index.js",
+      "target": "seven-os/telecom",
+      "sector": "telecom"
+    },
+    {
+      "file": "seven-os/sectors/telecom/manifest.json",
+      "target": "seven-os/telecom",
+      "sector": "telecom"
+    },
+    {
+      "file": "seven-os/sectors/telecom/schema.json",
+      "target": "seven-os/telecom",
+      "sector": "telecom"
+    },
+    {
+      "file": "seven-os/sectors/water/index.js",
+      "target": "seven-os/water",
+      "sector": "water"
+    },
+    {
+      "file": "seven-os/sectors/water/manifest.json",
+      "target": "seven-os/water",
+      "sector": "water"
+    },
+    {
+      "file": "seven-os/sectors/water/schema.json",
+      "target": "seven-os/water",
+      "sector": "water"
+    },
+    {
+      "file": "seven-os/security/clearance-guard.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/security/guard.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/security/hash-utils.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/security/key-engine.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/security/keygen.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/security/middleware.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/security/otp-service.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/security/require-admin.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/security/session-service.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/security/threat-engine.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/security/token-service.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/security/validate-token.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/security/worker-guard.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/sync/core/connection-monitor.ts",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "seven-os/sync/core/event-queue.ts",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "seven-os/sync/core/offlin-cache.ts",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "seven-os/sync/core/offline-cache.ts",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "seven-os/sync/transports/lte.ts",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "seven-os/sync/transports/starlink.ts",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "seven-os/sync/transports/wifi.ts",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "seven-os/system/ai-policy.js",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/system/ai-safety.js",
+      "target": "seven-os/public-safety",
+      "sector": "public_safety"
+    },
+    {
+      "file": "seven-os/system/marketplace-engine.ts",
+      "target": "seven-os/economics",
+      "sector": "economics"
+    },
+    {
+      "file": "seven-os/system/mcp/mcp-cloud-boundary.js",
+      "target": "seven-os/cloud",
+      "sector": "cloud"
+    },
+    {
+      "file": "seven-os/system/mcp/mcp-policy-regisry.js",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/system/policy-engine.js",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/system/routing/sector-loader.ts",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/system/sector-report.js",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "seven-os/system/system-full-report.js",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "seven-os/system/threat-report.js",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "seven-os/telecomEngine.ts",
+      "target": "seven-os/telecom",
+      "sector": "telecom"
+    },
+    {
+      "file": "seven-os/transports/nats-client.ts",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "seven-os/voice/command-loader.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/voice/disaster/disaster-grid.js",
+      "target": "seven-os/disaster-response",
+      "sector": "disaster_response"
+    },
+    {
+      "file": "seven-os/voice/disaster/seven-rescue-supply.js",
+      "target": "seven-os/disaster-response",
+      "sector": "disaster_response"
+    },
+    {
+      "file": "seven-os/workers/auth-worker.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/workers/cyber/cyber/anomaly-engine.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/workers/cyber/cyber/cyber-engine.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/workers/cyber/cyber/cyber-trust.engine.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/workers/cyber/cyber/index.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/workers/cyber/cyber/threat-score.engine.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/workers/cyber/cyber-normalizer.ts",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/workers/cyber/cyber-threat-intel.ts",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/workers/cyber/cyber-worker.json",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/workers/cyber/cyber.escalation.ts",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/workers/cyber/cyber.router.ts",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/workers/cyber/cyber.worker.ts",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "seven-os/workers/fcc/index.js",
+      "target": "seven-os/fcc",
+      "sector": "fcc"
+    },
+    {
+      "file": "seven-os/workers/gov/gov.escalation-handler.ts",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/workers/gov/gov.worker.ts",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/workers/gov-view-worker.ts",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "seven-os/workers/opportunity-scanner-worker.ts",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "seven-os/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers/index.ts",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers/public-worker/hr-worker/index.ts",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers/public-worker/payroll-worker/employee/index.ts",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/gov-workers/public-worker/payroll-worker/index.ts",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/farmer-workers/index.ts",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "seven-os/workers/system-workers/admin-workers/contractor-workers/deepgov-workers/index.ts",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "seven-os/workers/system-workers/admin-workers/contractor-workers/index.ts",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "seven-os/workflow-generator.ts",
+      "target": "seven-os/pipelines",
+      "sector": "pipelines"
+    },
+    {
+      "file": "src/downloadables.html",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "system-security.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "templates/template-lifecycle-security.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "templates/template-security-classifier.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "templates/template-security-policy-enforcer.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "topology/contractor-topology.json",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "topology/Global Livestock Hub.json",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "topology/governance-topology.json",
+      "target": "seven-os/government",
+      "sector": "government"
+    },
+    {
+      "file": "topology/New auth-gateway.json",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "topology/supply-chain-topology.json",
+      "target": "seven-os/logistics",
+      "sector": "logistics"
+    },
+    {
+      "file": "topology/telecom-topology.json",
+      "target": "seven-os/telecom",
+      "sector": "telecom"
+    },
+    {
+      "file": "topology/transport-topology.json",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "topology/water-topology.json",
+      "target": "seven-os/water",
+      "sector": "water"
+    },
+    {
+      "file": "topology/workforce-topology.json",
+      "target": "seven-os/contractors",
+      "sector": "contractors"
+    },
+    {
+      "file": "utilities/cloudflare-tests.cjs",
+      "target": "seven-os/cloud",
+      "sector": "cloud"
+    },
+    {
+      "file": "utilities/core/constants.js",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "utilities/core/logger.js",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "utilities/core/response.js",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "utilities/core.cjs",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "utilities/functions/middlewareauth.js",
+      "target": "seven-os/cyber",
+      "sector": "cyber"
+    },
+    {
+      "file": "utilities/restore-root.cjs",
+      "target": "seven-os/mining",
+      "sector": "mining"
+    },
+    {
+      "file": "utilities/write-report.cjs",
+      "target": "seven-os/ports",
+      "sector": "ports"
+    },
+    {
+      "file": "ws/collar-ws-nats.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "ws/collar-ws.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    },
+    {
+      "file": "ws/run-collar-ws.js",
+      "target": "seven-os/agriculture",
+      "sector": "agriculture"
+    }
+  ],
+  "unknown": [
+    {
+      "file": ".dev.vars",
+      "target": null
+    },
+    {
+      "file": ".env.example",
+      "target": null
+    },
+    {
+      "file": ".vscode/launch.json",
+      "target": null
+    },
+    {
+      "file": ".vscode/platform-architecture",
+      "target": null
+    },
+    {
+      "file": ".vscode/settings.json",
+      "target": null
+    },
+    {
+      "file": ".vscode/tasks.json",
+      "target": null
+    },
+    {
+      "file": "ai-embedding.js",
+      "target": null
+    },
+    {
+      "file": "ai-routing.js",
+      "target": null
+    },
+    {
+      "file": "api/aim/defense.js",
+      "target": null
+    },
+    {
+      "file": "api/api-trust.js",
+      "target": null
+    },
+    {
+      "file": "api/documents.js",
+      "target": null
+    },
+    {
+      "file": "api/donors.js",
+      "target": null
+    },
+    {
+      "file": "api/index.js",
+      "target": null
+    },
+    {
+      "file": "api/risk-trends.js",
+      "target": null
+    },
+    {
+      "file": "api/system/heartbeat.js",
+      "target": null
+    },
+    {
+      "file": "api/users.js",
+      "target": null
+    },
+    {
+      "file": "api/voice-flight-handler.js",
+      "target": null
+    },
+    {
+      "file": "api/voice-flight.js",
+      "target": null
+    },
+    {
+      "file": "api/[[path]].js",
+      "target": null
+    },
+    {
+      "file": "api-routing-map.json",
+      "target": null
+    },
+    {
+      "file": "backend/hubs/admin/admin-api.js",
+      "target": null
+    },
+    {
+      "file": "backend/hubs/admin/admin-utils.js",
+      "target": null
+    },
+    {
+      "file": "backend/hubs/admin/admin.css",
+      "target": null
+    },
+    {
+      "file": "backend/hubs/admin/admin.html",
+      "target": null
+    },
+    {
+      "file": "backend/hubs/admin/adminhub.ts",
+      "target": null
+    },
+    {
+      "file": "backend/hubs/admin/login.html",
+      "target": null
+    },
+    {
+      "file": "backend/hubs/admin/login.js",
+      "target": null
+    },
+    {
+      "file": "backend/legal/civil-apps/# Private filings and draft applications",
+      "target": null
+    },
+    {
+      "file": "backend/legal/civil-apps/evidence-vault/# Encrypted docs from your 2011-2026 timeline",
+      "target": null
+    },
+    {
+      "file": "backend/legal/civil-apps/evidence-vault/compliance-check.js",
+      "target": null
+    },
+    {
+      "file": "backend/public/offline.html",
+      "target": null
+    },
+    {
+      "file": "backend/trust/engine.js",
+      "target": null
+    },
+    {
+      "file": "commands/autoscan.cjs",
+      "target": null
+    },
+    {
+      "file": "commands/autosorter-stage2.cjs",
+      "target": null
+    },
+    {
+      "file": "commands/autosorter-stage3.cjs",
+      "target": null
+    },
+    {
+      "file": "commands/autosorter.cjs",
+      "target": null
+    },
+    {
+      "file": "commands/checks.cjs",
+      "target": null
+    },
+    {
+      "file": "commands/classify.cjs",
+      "target": null
+    },
+    {
+      "file": "commands/cleanup.js",
+      "target": null
+    },
+    {
+      "file": "commands/doctor.cjs",
+      "target": null
+    },
+    {
+      "file": "commands/e2e-ws-nats.js",
+      "target": null
+    },
+    {
+      "file": "commands/generate-global-manifest.cjs",
+      "target": null
+    },
+    {
+      "file": "commands/install-git-hooks.sh",
+      "target": null
+    },
+    {
+      "file": "commands/license-scan.cjs",
+      "target": null
+    },
+    {
+      "file": "commands/normalise-domain.cjs",
+      "target": null
+    },
+    {
+      "file": "commands/organize.js",
+      "target": null
+    },
+    {
+      "file": "commands/rebuild-os.cjs",
+      "target": null
+    },
+    {
+      "file": "commands/register-commands.cjs",
+      "target": null
+    },
+    {
+      "file": "commands/sandbox.cjs",
+      "target": null
+    },
+    {
+      "file": "commands/scan-repo-run.cjs",
+      "target": null
+    },
+    {
+      "file": "commands/scan-repo.cjs",
+      "target": null
+    },
+    {
+      "file": "commands/scan-routing.cjs",
+      "target": null
+    },
+    {
+      "file": "commands/smoke-test.cjs",
+      "target": null
+    },
+    {
+      "file": "commands/sync-routing.cjs",
+      "target": null
+    },
+    {
+      "file": "commands/sync-topology.cjs",
+      "target": null
+    },
+    {
+      "file": "commands/test-cli-sandbox.cjs",
+      "target": null
+    },
+    {
+      "file": "commands/test-unit.cjs",
+      "target": null
+    },
+    {
+      "file": "commands/trigger-task.js",
+      "target": null
+    },
+    {
+      "file": "d1/schema.sql",
+      "target": null
+    },
+    {
+      "file": "d1/seed.sql",
+      "target": null
+    },
+    {
+      "file": "data/data-contracts.json",
+      "target": null
+    },
+    {
+      "file": "data/data-responce.json",
+      "target": null
+    },
+    {
+      "file": "data/mapping-logic.js",
+      "target": null
+    },
+    {
+      "file": "data/MCP+DID+VC-integration.json",
+      "target": null
+    },
+    {
+      "file": "data/navigation.json",
+      "target": null
+    },
+    {
+      "file": "data/normalize-location.js",
+      "target": null
+    },
+    {
+      "file": "data/queue.js",
+      "target": null
+    },
+    {
+      "file": "data/region-matcher.js",
+      "target": null
+    },
+    {
+      "file": "data/schema.js",
+      "target": null
+    },
+    {
+      "file": "data/schemas/interns.schema.json",
+      "target": null
+    },
+    {
+      "file": "data/schemas/job-listings.schema.json",
+      "target": null
+    },
+    {
+      "file": "data/schemas/schema-registry.js",
+      "target": null
+    },
+    {
+      "file": "data/schemas/schema-validator.js",
+      "target": null
+    },
+    {
+      "file": "data/sector-mapping.js",
+      "target": null
+    },
+    {
+      "file": "data/sectors.json",
+      "target": null
+    },
+    {
+      "file": "db/db-map.js",
+      "target": null
+    },
+    {
+      "file": "db/db-service.js",
+      "target": null
+    },
+    {
+      "file": "db/DB_SYSTEM.sql",
+      "target": null
+    },
+    {
+      "file": "DELIVERY_MANIFEST.md",
+      "target": null
+    },
+    {
+      "file": "domain/agriculture.json",
+      "target": null
+    },
+    {
+      "file": "domain/building-code.json",
+      "target": null
+    },
+    {
+      "file": "domain/dns-inspector.js",
+      "target": null
+    },
+    {
+      "file": "domain/energy-grid.json",
+      "target": null
+    },
+    {
+      "file": "domain/energy-storage.json",
+      "target": null
+    },
+    {
+      "file": "domain/energy-transmission.json",
+      "target": null
+    },
+    {
+      "file": "domain/energy.json",
+      "target": null
+    },
+    {
+      "file": "domain/geo/geo-context.js",
+      "target": null
+    },
+    {
+      "file": "domain/geo/geo-disance-calc.js",
+      "target": null
+    },
+    {
+      "file": "domain/geo/geo-grid.js",
+      "target": null
+    },
+    {
+      "file": "domain/geo/geo-mapping.js",
+      "target": null
+    },
+    {
+      "file": "domain/geo/geo-normalize.js",
+      "target": null
+    },
+    {
+      "file": "domain/geo/index.js",
+      "target": null
+    },
+    {
+      "file": "domain/geo/lookup.js",
+      "target": null
+    },
+    {
+      "file": "domain/geo/mapping logic.js",
+      "target": null
+    },
+    {
+      "file": "domain/geo/mapping.js",
+      "target": null
+    },
+    {
+      "file": "domain/geo/normalize location.js",
+      "target": null
+    },
+    {
+      "file": "domain/geo/project surch.js",
+      "target": null
+    },
+    {
+      "file": "domain/geo/region matcher.js",
+      "target": null
+    },
+    {
+      "file": "domain/geo/region.js",
+      "target": null
+    },
+    {
+      "file": "domain/geo/routing-inspector.js",
+      "target": null
+    },
+    {
+      "file": "domain/geomapping-logic.js/API.js",
+      "target": null
+    },
+    {
+      "file": "domain/geomapping-logic.js/dispatcher.js",
+      "target": null
+    },
+    {
+      "file": "domain/geomapping-logic.js/index.js",
+      "target": null
+    },
+    {
+      "file": "domain/geomapping-logic.js/Python.json",
+      "target": null
+    },
+    {
+      "file": "domain/geomapping-logic.js/resilient-search.js",
+      "target": null
+    },
+    {
+      "file": "domain/geomapping-logic.js/space engine.js",
+      "target": null
+    },
+    {
+      "file": "domain/geomapping-logic.js/system-heartbeat.js",
+      "target": null
+    },
+    {
+      "file": "domain/health.json",
+      "target": null
+    },
+    {
+      "file": "domain/house-building-code.json",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/analysis/field-health-scanner.ts",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/analysis/infrastructure-damage-scanner.ts",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/bootstrap.yaml",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/compliance/funding-check.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/compliance/misconduct-check.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/diagnostics.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/global-grid-topology-map.json",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/Humanitarian Infrastructure Module.json",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/index.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/infrastructure-operator-console.json",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/infrastructure-sector-playbook.md",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/ingest/dot-ingest.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/ingest/ingest.ts",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/ingest/sensor-ingest.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/ingest/usda-ingest.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/integrity/drone.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/integrity/file-map.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/integrity/index.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/integrity/integrity-check.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/integrity/sync-queue.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/intelligence/debug-worker.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/intelligence/diagnostics.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/intelligence/tasks.json",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/matching/multi-sector-matching.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/routing-inspector.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/scoring/sector-scoring.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/sensors/nap-sectors.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/sensors/nap-sectors.ts",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/sensors/search-thermal.ts",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/ssh-manager.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/threat/index.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/threat/threat-fetch.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/threat/threat-storage.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/threat/threat-summary.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/threat/threat-telemetry.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/tools/index.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/tools/inspect-routing.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/tools/r2-bucket-list.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/tools/r2-check.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/tools/r2-exposure.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/tools/r2-health.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/tools/r2-inspector.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/tools/storage-inspector.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/utils/infra-logger.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/utils/normalize-path.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/utils/parse-endpoint.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/utils/safe-shell.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/workers/config/os.json",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/workers/debug/debug-worker.ts",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/workers/index.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/workers/log-ingestion-worker.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure/workers/project-search-worker.js",
+      "target": null
+    },
+    {
+      "file": "domain/infrastructure-manifest.json",
+      "target": null
+    },
+    {
+      "file": "domain/manufacturing.json",
+      "target": null
+    },
+    {
+      "file": "domain/power-generation.json",
+      "target": null
+    },
+    {
+      "file": "domain/routing-inspector.js",
+      "target": null
+    },
+    {
+      "file": "domain/sanitation.json",
+      "target": null
+    },
+    {
+      "file": "domain/space.json",
+      "target": null
+    },
+    {
+      "file": "domain/transmission.json",
+      "target": null
+    },
+    {
+      "file": "domain-routing-map.json",
+      "target": null
+    },
+    {
+      "file": "ecosystem.config.js",
+      "target": null
+    },
+    {
+      "file": "edge-vault/air-gap-sync.js",
+      "target": null
+    },
+    {
+      "file": "edge-vault/VAULT-LAYER/blueprints/(Generated CAD files",
+      "target": null
+    },
+    {
+      "file": "edge-vault/VAULT-LAYER/identities/Encrypted credentials",
+      "target": null
+    },
+    {
+      "file": "edge-vault/VAULT-LAYER/protected/protectedmiddleware.js",
+      "target": null
+    },
+    {
+      "file": "edge-vault/VAULT-LAYER/protected/require-admin.js",
+      "target": null
+    },
+    {
+      "file": "edge-vault/VAULT-LAYER/protected/validate-token.js",
+      "target": null
+    },
+    {
+      "file": "edge-vault/verify-token.js",
+      "target": null
+    },
+    {
+      "file": "frontend/App.jsx",
+      "target": null
+    },
+    {
+      "file": "frontend/hooks/pages/DeepMindPage.jsx",
+      "target": null
+    },
+    {
+      "file": "frontend/hooks/useDeepMind.js",
+      "target": null
+    },
+    {
+      "file": "frontend/map/map-live.js",
+      "target": null
+    },
+    {
+      "file": "frontend/map/map-utils.js",
+      "target": null
+    },
+    {
+      "file": "frontend/router.jsx",
+      "target": null
+    },
+    {
+      "file": "frontend/system/system.html",
+      "target": null
+    },
+    {
+      "file": "functions/CandidateSet.json",
+      "target": null
+    },
+    {
+      "file": "geo-utilities/geoindex.js",
+      "target": null
+    },
+    {
+      "file": "hubs/# User-facing Hub Interfaces",
+      "target": null
+    },
+    {
+      "file": "hubs/accounting/index.html",
+      "target": null
+    },
+    {
+      "file": "hubs/admin/index.html",
+      "target": null
+    },
+    {
+      "file": "hubs/analytics/index.html",
+      "target": null
+    },
+    {
+      "file": "hubs/Ansys/index.html",
+      "target": null
+    },
+    {
+      "file": "hubs/designer/ai-blueprint-analyzer-starter.js",
+      "target": null
+    },
+    {
+      "file": "hubs/designer/ai-site-layout-generator.js",
+      "target": null
+    },
+    {
+      "file": "hubs/designer/annotation.js",
+      "target": null
+    },
+    {
+      "file": "hubs/employee/employee.html",
+      "target": null
+    },
+    {
+      "file": "hubs/employee/index.html",
+      "target": null
+    },
+    {
+      "file": "hubs/employee/jobs",
+      "target": null
+    },
+    {
+      "file": "hubs/employee/resume builder & Job matching.html",
+      "target": null
+    },
+    {
+      "file": "hubs/global-map/index.html",
+      "target": null
+    },
+    {
+      "file": "hubs/hr/index.html",
+      "target": null
+    },
+    {
+      "file": "hubs/infrastructure-hub.js",
+      "target": null
+    },
+    {
+      "file": "hubs/payroll/env.json",
+      "target": null
+    },
+    {
+      "file": "hubs/payroll/index.html",
+      "target": null
+    },
+    {
+      "file": "hubs/public/index.html",
+      "target": null
+    },
+    {
+      "file": "hubs/public/map.html",
+      "target": null
+    },
+    {
+      "file": "hubs/public-hub.js",
+      "target": null
+    },
+    {
+      "file": "hubs/PublicHub.js",
+      "target": null
+    },
+    {
+      "file": "hubs/shared/api-client.js",
+      "target": null
+    },
+    {
+      "file": "hubs/shared/nav-engine.js",
+      "target": null
+    },
+    {
+      "file": "hubs/shared/role.js",
+      "target": null
+    },
+    {
+      "file": "hubs/SpaceHub",
+      "target": null
+    },
+    {
+      "file": "hubs/Staff/heatmap.html",
+      "target": null
+    },
+    {
+      "file": "hubs/Staff/heatmap.js",
+      "target": null
+    },
+    {
+      "file": "hubs/Staff/index.html",
+      "target": null
+    },
+    {
+      "file": "hubs/supervisor/index.html",
+      "target": null
+    },
+    {
+      "file": "hubs/system/index.html",
+      "target": null
+    },
+    {
+      "file": "hub_logic/accountant-ai.js",
+      "target": null
+    },
+    {
+      "file": "hub_logic/hub_logic.json",
+      "target": null
+    },
+    {
+      "file": "hub_logic/jobs-engine.js",
+      "target": null
+    },
+    {
+      "file": "hub_logic/payroll-calc.js",
+      "target": null
+    },
+    {
+      "file": "hub_logic/payroll-run.js",
+      "target": null
+    },
+    {
+      "file": "hub_logic/space.js",
+      "target": null
+    },
+    {
+      "file": "hub_logic/staff-assign.js",
+      "target": null
+    },
+    {
+      "file": "hub_logic/staff-monitor.js",
+      "target": null
+    },
+    {
+      "file": "hub_logic/staff-performance.js",
+      "target": null
+    },
+    {
+      "file": "hub_logic/staff-shifts.js",
+      "target": null
+    },
+    {
+      "file": "index.js",
+      "target": null
+    },
+    {
+      "file": "kv/ai-config.json",
+      "target": null
+    },
+    {
+      "file": "kv/ai-routing",
+      "target": null
+    },
+    {
+      "file": "kv/donors.json",
+      "target": null
+    },
+    {
+      "file": "kv/system-config.json",
+      "target": null
+    },
+    {
+      "file": "LICENSE",
+      "target": null
+    },
+    {
+      "file": "LICENSE.md",
+      "target": null
+    },
+    {
+      "file": "logs/log-api-endpoints.js",
+      "target": null
+    },
+    {
+      "file": "logs/log-metrics.json",
+      "target": null
+    },
+    {
+      "file": "logs/log-schema.json",
+      "target": null
+    },
+    {
+      "file": "logs/log-storage-strategy.json",
+      "target": null
+    },
+    {
+      "file": "logs/log-thresholds.json",
+      "target": null
+    },
+    {
+      "file": "logs/memory-log.json",
+      "target": null
+    },
+    {
+      "file": "logs/session_log.json",
+      "target": null
+    },
+    {
+      "file": "logs/telemetry-log.json",
+      "target": null
+    },
+    {
+      "file": "org-tools.html",
+      "target": null
+    },
+    {
+      "file": "package.json",
+      "target": null
+    },
+    {
+      "file": "proprietary-cli/bin/cli.js",
+      "target": null
+    },
+    {
+      "file": "proprietary-cli/commands/ai/run-organ.js",
+      "target": null
+    },
+    {
+      "file": "proprietary-cli/commands/ai/validate.js",
+      "target": null
+    },
+    {
+      "file": "proprietary-cli/commands/config/node-registry.json",
+      "target": null
+    },
+    {
+      "file": "proprietary-cli/commands/config/system-manifest.json",
+      "target": null
+    },
+    {
+      "file": "proprietary-cli/commands/dev/build.js",
+      "target": null
+    },
+    {
+      "file": "proprietary-cli/commands/dev/clean.js",
+      "target": null
+    },
+    {
+      "file": "proprietary-cli/commands/dev/test.js",
+      "target": null
+    },
+    {
+      "file": "proprietary-cli/commands/index.js",
+      "target": null
+    },
+    {
+      "file": "proprietary-cli/commands/ops/dispatch.js",
+      "target": null
+    },
+    {
+      "file": "proprietary-cli/commands/ops/sector.js",
+      "target": null
+    },
+    {
+      "file": "proprietary-cli/commands/ops/telemetry.js",
+      "target": null
+    },
+    {
+      "file": "proprietary-cli/commands/zoning/check.js",
+      "target": null
+    },
+    {
+      "file": "proprietary-cli/helpers/colors.js",
+      "target": null
+    },
+    {
+      "file": "proprietary-cli/helpers/env.js",
+      "target": null
+    },
+    {
+      "file": "proprietary-cli/helpers/fs.js",
+      "target": null
+    },
+    {
+      "file": "proprietary-cli/helpers/prompts.js",
+      "target": null
+    },
+    {
+      "file": "proprietary-cli/mci/list.ts",
+      "target": null
+    },
+    {
+      "file": "proprietary-cli/package-lock.json",
+      "target": null
+    },
+    {
+      "file": "proprietary-cli/package.json",
+      "target": null
+    },
+    {
+      "file": "proprietary-cli/README.txt",
+      "target": null
+    },
+    {
+      "file": "public/assets/branding/logo/image.png",
+      "target": null
+    },
+    {
+      "file": "public/assets/branding/svg",
+      "target": null
+    },
+    {
+      "file": "public/assets/css/components/sector-card.css",
+      "target": null
+    },
+    {
+      "file": "public/assets/css/main-global-2050.css",
+      "target": null
+    },
+    {
+      "file": "public/assets/css/theme-admin.css",
+      "target": null
+    },
+    {
+      "file": "public/assets/css/theme-designer/annotation.css",
+      "target": null
+    },
+    {
+      "file": "public/assets/css/theme-global-map.css",
+      "target": null
+    },
+    {
+      "file": "public/assets/css/themes.css",
+      "target": null
+    },
+    {
+      "file": "public/assets/css/_root.css",
+      "target": null
+    },
+    {
+      "file": "public/assets/js/admin-logic.js",
+      "target": null
+    },
+    {
+      "file": "public/assets/js/brain-client.js",
+      "target": null
+    },
+    {
+      "file": "public/assets/js/hologram.js",
+      "target": null
+    },
+    {
+      "file": "public/assets/js/i18n/ar.json",
+      "target": null
+    },
+    {
+      "file": "public/assets/js/i18n/de.json",
+      "target": null
+    },
+    {
+      "file": "public/assets/js/i18n/en.json",
+      "target": null
+    },
+    {
+      "file": "public/assets/js/i18n/es.json",
+      "target": null
+    },
+    {
+      "file": "public/assets/js/i18n/fa.json",
+      "target": null
+    },
+    {
+      "file": "public/assets/js/i18n/fr.json",
+      "target": null
+    },
+    {
+      "file": "public/assets/js/i18n/he.json",
+      "target": null
+    },
+    {
+      "file": "public/assets/js/i18n/hi.json",
+      "target": null
+    },
+    {
+      "file": "public/assets/js/i18n/ja.json",
+      "target": null
+    },
+    {
+      "file": "public/assets/js/i18n/ko.json",
+      "target": null
+    },
+    {
+      "file": "public/assets/js/i18n/pt.json",
+      "target": null
+    },
+    {
+      "file": "public/assets/js/i18n/ru.json",
+      "target": null
+    },
+    {
+      "file": "public/assets/js/i18n/sw.json",
+      "target": null
+    },
+    {
+      "file": "public/assets/js/i18n/tr.json",
+      "target": null
+    },
+    {
+      "file": "public/assets/js/i18n/zh.json",
+      "target": null
+    },
+    {
+      "file": "public/assets/js/language-switcher.js",
+      "target": null
+    },
+    {
+      "file": "public/assets/js/mapdata.js",
+      "target": null
+    },
+    {
+      "file": "public/assets/js/menu-bar.js",
+      "target": null
+    },
+    {
+      "file": "public/assets/js/publicjsdb.js",
+      "target": null
+    },
+    {
+      "file": "public/assets/js/script js",
+      "target": null
+    },
+    {
+      "file": "public/assets/js/search-projects.js",
+      "target": null
+    },
+    {
+      "file": "public/assets/js/sw.js",
+      "target": null
+    },
+    {
+      "file": "public/assets/js/telemetry.js",
+      "target": null
+    },
+    {
+      "file": "public/CNAME",
+      "target": null
+    },
+    {
+      "file": "public/ewo/ewo-service.html",
+      "target": null
+    },
+    {
+      "file": "public/favicon.ico",
+      "target": null
+    },
+    {
+      "file": "public/index.html",
+      "target": null
+    },
+    {
+      "file": "public/pages/founder.html",
+      "target": null
+    },
+    {
+      "file": "public/pages/mission.html",
+      "target": null
+    },
+    {
+      "file": "public/pages/partner-hub.html",
+      "target": null
+    },
+    {
+      "file": "public/pages/seven-of-nine.html",
+      "target": null
+    },
+    {
+      "file": "public-map.html",
+      "target": null
+    },
+    {
+      "file": "README.md",
+      "target": null
+    },
+    {
+      "file": "sandbox/run-sandbox.js",
+      "target": null
+    },
+    {
+      "file": "schema.sql",
+      "target": null
+    },
+    {
+      "file": "sector-worker-evidence-expanded.json",
+      "target": null
+    },
+    {
+      "file": "sector-worker-evidence.json",
+      "target": null
+    },
+    {
+      "file": "sector-worker-mapping.csv",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/ai-aim.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/ai-context.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/ai-cortex.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/ai-geo.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/ai-matching.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/ai-matching.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/ai-utilities.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/build-engine.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/context-builder.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/Data contracts.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/document-generator.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/document-retrieval.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/document-temlate-registry.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engine.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/agents/drone-integrity.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/agents/drone-worker.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/agents/seven-of-nine.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/ai-geo.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/ai-giiContext.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/ai-globalcode.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/ai-utilities.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/ai.autonomy.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/building-code-engine.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/csharp/action(C#)",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/csharp/actor(C#)",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/csharp/ai-giicontext(C#)",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/csharp/AIEE-context(C#)",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/csharp/AutonomyContext(C#)",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/csharp/endin-interfaces (C#)",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/csharp/Engine implementation(C#)",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/csharp/environmnt(C#)",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/csharp/Expression evaluator(C#)",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/csharp/GiiContext(C#)",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/csharp/globalCode(C#)",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/csharp/Service interface (C#)",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/data-engine.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/distance.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/enforcement-responce.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/engine-index.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/engineering-engine.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/geothermal-engine.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/high-machine.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/integrity/auto-heal-engine.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/integrity/full-integrity-scan.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/integrity/repo-diff-analyzer.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/mapping-engine.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/math-engine.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/mechanics-engine.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/process-ai-request.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/README",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/renewables-engine.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/science-engine.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/shared.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/tasks/full-integrity-scan.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/tasks/repair-schemas.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/tasks/repo-diff-analyzer.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/tasks/task-registry.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/unified-ux/ai-classifier.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/unified-ux/field-prompts.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/unified-ux/fields.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/unified-ux/human-summary.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/unified-ux/trust-zone.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/worker.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/engines/zoning-engine.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/error-handler.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/intent-engine.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/lifecycle-manager.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/logic-engine.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/memory-manager.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/policies/index.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/response-sanitizer.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/risk-trend-analytics-engine.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/router.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/router.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/semantic-router.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/tools/analyzer.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/tools/index.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/tools/public/format-riefing.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/tools/public/index.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/tools/public/structureMessage.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/tools/public/summarize-for-public.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/tools/summarizer.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/tools.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/Topology Validation Engine.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/trustzone-firwall.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/utils/crypto.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/validation/schema-guard.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/validator.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai/zoning-landuse.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ai-engine-generator.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/api/boundary.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/api/compliance.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/api/deep-mind.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/api/ewo.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/api/index.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/api/router.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/api/sector-math.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/api/sector-status.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/api/seven-os/status.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/api/seven-responder-interface.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/api/system/health.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/api/system/uptime.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/api/system.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/api/users.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/api/voice-flight-handler.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/ARCHITECTURE.md",
+      "target": null
+    },
+    {
+      "file": "seven-os/auto-heal-engine.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/compliance-generator.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/composing.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/drone/drone-cotrol.test.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/drone/drone-cotrol.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/drone/drone-mission-planner.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/drone/drone-orchestrator.test.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/drone/drone-orchestrator.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/drone/drone-plugin.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/drone/drone-registry.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/drone/geofence.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/drone/swarm-cotroller.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/drone/swarm-lightshow.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/drone/terrain-routing.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/e2e.test.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/event-bus.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/event-dispatcher.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/event-handlers.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/expansion/expansion-engin.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/expansion-task.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/filemap.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/filters/code-filter.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/global-manifest.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/ground/ground-control.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/ground/ground-registy.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/hybrid/hybrid-mode.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/identity/did.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/identity/vc.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/INDEX.md",
+      "target": null
+    },
+    {
+      "file": "seven-os/infra/ag/ag.event.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/infra/ems/ems.event.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/infra/infra.event.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/infra/power/power.event.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/infra/shared/types/infra-event.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/infra/shared/utils/events.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/infra/types.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/logs/log-alerts.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/logs/log-analyzer.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/logs/log-cleaner.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/logs/log-health-check.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/logs/log-index.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/logs/log-reader.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/logs/log-rotation.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/logs/log-search.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/logs/log-self-test.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/logs/log-sync.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/logs/log-validator.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/logs/log-writer.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/mci/decision/engine.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/mci/decision/engine.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/mci/index.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/mci/index.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/mci/mci.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/mcp/mcp-client.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/mock-drone.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/mock-ground-unit.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/publisher.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/publishing.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/QUICK_REFERENCE.md",
+      "target": null
+    },
+    {
+      "file": "seven-os/repo-analyze.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/repo-scan.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/resolve.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/routes/executive-routes.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/routes/index.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/routes/public-ai-map.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/routes/public-map.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/routes/public-routes.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/routes/storage-routing vault-config.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/routes/voice-flight.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/sector-engines/jobs-engine.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/agriculture/crop-engine.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/agriculture/index.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/agriculture/land-engine.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/agriculture/manifest.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/agriculture/schema.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/agriculture/sector-sync.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/agriculture/visual/blueprint-engine.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/agriculture/visual/document-engine.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/agriculture/visual/engine-flight.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/agriculture/visual/engine-spectral.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/agriculture/visual/engine-twin.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/agriculture/visual/index.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/agriculture/visual/mapping-2d-engine.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/agriculture/visual/mapping-3d-engine.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/auto-scaler.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/cross-sector-routing-engine.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/financial/budget/schema.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/financial/contracts/contract.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/financial/cost-models/drone-cost-model.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/financial/cost-models/infrastructure-cost-model.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/financial/cost-models/material-cost-model.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/financial/engine/budget-engine.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/financial/engine/contract-engine.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/financial/engine/cost-engine.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/financial/models/budget.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/index.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/microgrid-engine-contract.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/overlays/index.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/overlays/sector-adjacency-engine.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/overlays/sector-mapping-logic.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/power/index.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/power/manifest.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/power/schema.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/rural-node-spec.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/sector-contract.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/sector-engine.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/sectorAnalysis.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/sectors.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/sectors/space.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/seven-bootstrap.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/seven-of-nine.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/SEVEN_COMPLETION_SUMMARY.md",
+      "target": null
+    },
+    {
+      "file": "seven-os/SEVEN_OPERATORS_GUIDE.md",
+      "target": null
+    },
+    {
+      "file": "seven-os/stack/seven-stack.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/sync/domains.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/sync/policies/hybrid-mode.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/sync/policies/sync-priority.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/sync/satellite-continuity.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/sync/starlink-hybrid-sync-engine.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/ai-filter.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/ai-identity.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/ai-logs.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/ai-memory.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/ai-routing.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/ai-telemetry.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/ai-worker.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/api-routing-map.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/automation-tasks.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/CDE.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/classifiers.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/domain-routing-map.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/embeddings.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/ewo/ewo-builder.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/ewo/ewo-router.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/ewo/ewo-schema.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/ewo/sector-router.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/failsafe-protocols.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/identity/did-vc-verifier.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/index.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/indexer/engine.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/indexer/engine.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/indexer/hub-indexer.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/indexer/resolver.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/indexer/routing-scanner.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/indexer/routing-scanner.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/indexer/types.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/indexer/types.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/info.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/logging/system-log.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/manifest.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/map.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/mcp/mcp-enforcer.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/mcp/mcp-evaluator.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/metadata.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/os-routing-map.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/restart.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/routing/ewo-router.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/routing/global-routing-map.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/sector-matching-engine.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/status.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/system-ai.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/system-diagnostics.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/system-domains.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/system-endpoints.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/system-health.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/system-infrastructure.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/system-map.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/system-routing.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/system-status.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/trust-middleware.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/trust.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/system/uptime.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/task-handler.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/task-queue.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/task-registry.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/unit.test.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/ux-rules-generator.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/voice/command-fallback.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/voice/command-learning.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/voice/command-matcher.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/voice/command-registry.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/voice/mission/mission-orchestrator.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/voice/narrator/seven-narrator.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/voice/response-engine.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/voice/voice-bus.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/voice/voice-mode.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/workers/admin-protect-worker.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/workers/agricultureWorkerHierarchy.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/workers/ai-worker/gia-deep-mind-2100.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/workers/ai-worker/index.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/workers/ai-worker.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/workers/anys-worker.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/workers/api-worker.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/workers/debug-worker.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/workers/emergency-router/index.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/workers/expansion/index.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/workers/field-enginegps-mapper.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/workers/gia-deep-mind-2100.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/workers/index.json",
+      "target": null
+    },
+    {
+      "file": "seven-os/workers/intake.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/workers/organizer.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/workers/system-workers/admin-workers/admin-endpoints.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/workers/system-workers/admin-workers/index.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/workers/system-workers/emergency-router.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/workers/system-workers/ewo-worker.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/workers/system-workers/heartbeat.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/workers/system-workers/index.ts",
+      "target": null
+    },
+    {
+      "file": "seven-os/workers/system-workers/protected-routes.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/workers/system-workers/routing.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/workers/Topology Sync Worker.js",
+      "target": null
+    },
+    {
+      "file": "seven-os/workers/worker.ts",
+      "target": null
+    },
+    {
+      "file": "SEVEN_DEPLOYMENT.md",
+      "target": null
+    },
+    {
+      "file": "shared/shared.ts",
+      "target": null
+    },
+    {
+      "file": "src/docs/founder-ethic.md",
+      "target": null
+    },
+    {
+      "file": "src/frameworks.html",
+      "target": null
+    },
+    {
+      "file": "src/identity-validator.js",
+      "target": null
+    },
+    {
+      "file": "src/identity.ts",
+      "target": null
+    },
+    {
+      "file": "src/package-lock.json",
+      "target": null
+    },
+    {
+      "file": "src/pseudo/requireRole.js",
+      "target": null
+    },
+    {
+      "file": "src/sectors.html",
+      "target": null
+    },
+    {
+      "file": "src/template-shop.html",
+      "target": null
+    },
+    {
+      "file": "src/toolkits.html",
+      "target": null
+    },
+    {
+      "file": "src/tools/seven-status.js",
+      "target": null
+    },
+    {
+      "file": "system-status.js",
+      "target": null
+    },
+    {
+      "file": "system-storage.js",
+      "target": null
+    },
+    {
+      "file": "system-trust.js",
+      "target": null
+    },
+    {
+      "file": "system-uptime.js",
+      "target": null
+    },
+    {
+      "file": "tcli-sandbox",
+      "target": null
+    },
+    {
+      "file": "templates/template-auto-repair-engine.js",
+      "target": null
+    },
+    {
+      "file": "templates/template-change-history-API.js",
+      "target": null
+    },
+    {
+      "file": "templates/template-diff-engine.js",
+      "target": null
+    },
+    {
+      "file": "templates/template-fallback-generator.js",
+      "target": null
+    },
+    {
+      "file": "templates/template-migration-tool.js",
+      "target": null
+    },
+    {
+      "file": "templates/template-registry-auto.js",
+      "target": null
+    },
+    {
+      "file": "templates/template-registry.js",
+      "target": null
+    },
+    {
+      "file": "templates/template-validation-engine.js",
+      "target": null
+    },
+    {
+      "file": "templates/template-versioning.js",
+      "target": null
+    },
+    {
+      "file": "topology/agricultureSectors.json",
+      "target": null
+    },
+    {
+      "file": "topology/energy-topology.json",
+      "target": null
+    },
+    {
+      "file": "topology/feedlot topology.json",
+      "target": null
+    },
+    {
+      "file": "topology/global-topology-utils.js",
+      "target": null
+    },
+    {
+      "file": "topology/humanitarian-topology.json",
+      "target": null
+    },
+    {
+      "file": "topology/microgrid-topology.json",
+      "target": null
+    },
+    {
+      "file": "topology/public-services-topology.json",
+      "target": null
+    },
+    {
+      "file": "topology/sector-topology.json",
+      "target": null
+    },
+    {
+      "file": "topology/Topology Master Index.json",
+      "target": null
+    },
+    {
+      "file": "trust/api-trust.js",
+      "target": null
+    },
+    {
+      "file": "utilities/api.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/ar.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/az.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/be.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/ca.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/coerce.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/color.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/compat.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/cs.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/de.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/doc.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/en.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/enumUtil.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/eo.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/errors.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/errorUtil.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/es.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/external.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/fa.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/fi.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/fr-CA.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/fr.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/function.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/functions/error-handler.js",
+      "target": null
+    },
+    {
+      "file": "utilities/functions/logging.js",
+      "target": null
+    },
+    {
+      "file": "utilities/functions/rate-limit.js",
+      "target": null
+    },
+    {
+      "file": "utilities/functions/routes-geo-router.js",
+      "target": null
+    },
+    {
+      "file": "utilities/generate-global-manifest.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/geo/geo-fallback-engine.ts",
+      "target": null
+    },
+    {
+      "file": "utilities/he.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/helpers.js",
+      "target": null
+    },
+    {
+      "file": "utilities/hu.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/id.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/index.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/iso.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/it.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/ja.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/json-schema.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/kh.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/ko.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/lite.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/mk.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/mock.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/ms.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/nl.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/no.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/ota.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/parse.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/parseUtil.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/partialUtil.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/pathe.BSlhyZSM.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/pl.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/ps.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/pt.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/regexes.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/registries.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/ru.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/scan-secrets.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/schemas.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/sdk/sdk/aiee/skd-interface.ts",
+      "target": null
+    },
+    {
+      "file": "utilities/services/constants.js",
+      "target": null
+    },
+    {
+      "file": "utilities/services/costants.js",
+      "target": null
+    },
+    {
+      "file": "utilities/services/db.js",
+      "target": null
+    },
+    {
+      "file": "utilities/services/dispatch-service.js",
+      "target": null
+    },
+    {
+      "file": "utilities/services/logger.js",
+      "target": null
+    },
+    {
+      "file": "utilities/services/request-parser.js",
+      "target": null
+    },
+    {
+      "file": "utilities/services/response.js",
+      "target": null
+    },
+    {
+      "file": "utilities/services/sector-service.js",
+      "target": null
+    },
+    {
+      "file": "utilities/sl.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/standard-schema.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/storage-inspector.js",
+      "target": null
+    },
+    {
+      "file": "utilities/sv.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/ta.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/th.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/to-json-schema.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/tools/check-public-exposure.js",
+      "target": null
+    },
+    {
+      "file": "utilities/tools/dns-inspector.js",
+      "target": null
+    },
+    {
+      "file": "utilities/tools/index.js",
+      "target": null
+    },
+    {
+      "file": "utilities/tools/inspect-config.js",
+      "target": null
+    },
+    {
+      "file": "utilities/tools/inspect-routing.js",
+      "target": null
+    },
+    {
+      "file": "utilities/tools/threat-scan.js",
+      "target": null
+    },
+    {
+      "file": "utilities/tr.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/typeAliases.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/types.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/ua.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/ui/map/map.html",
+      "target": null
+    },
+    {
+      "file": "utilities/ui/map/map.js",
+      "target": null
+    },
+    {
+      "file": "utilities/ui/web/web-app.ts",
+      "target": null
+    },
+    {
+      "file": "utilities/ur.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/util.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/utils.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/verify-ws-test.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/versions.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/vi.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/ws-simulate.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/ws-simulate2.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/zh-CN.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/zh-TW.cjs",
+      "target": null
+    },
+    {
+      "file": "utilities/ZodError.cjs",
+      "target": null
+    },
+    {
+      "file": "worker-to-seven-map.csv",
+      "target": null
+    },
+    {
+      "file": "wrangler.toml",
+      "target": null
+    },
+    {
+      "file": "ws/README.txt",
+      "target": null
+    }
+  ]
+}

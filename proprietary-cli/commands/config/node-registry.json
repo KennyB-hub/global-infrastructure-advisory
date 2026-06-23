@@ -1,0 +1,414 @@
+{
+  "version": "v12-sovereign",
+  "updated": "2026-05-29T00:00:00Z",
+
+  "system_defaults": {
+    "max_latency_ms": 1500,
+    "retry_threshold": 3,
+    "auto_reboot_on_lazy": true,
+    "health_check_interval": 30000
+  },
+
+  "clouds": {
+    "aws": {
+      "provider": "AWS",
+      "region": "us-east-1",
+      "sovereign_level": "public"
+    },
+    "azure": {
+      "provider": "Azure",
+      "region": "eastus",
+      "sovereign_level": "gov"
+    },
+    "gcp": {
+      "provider": "GCP",
+      "region": "us-central1",
+      "sovereign_level": "deepgov"
+    }
+  },
+
+  "trustZones": {
+    "public": { "level": 1 },
+    "contractor": { "level": 2 },
+    "gov": { "level": 3 },
+    "deepgov": { "level": 4 }
+  },
+
+  "clusters": [
+    {
+      "name": "NATO-EU-PRIMARY",
+      "hostname": "hub.nato-aligned.gia.int",
+      "port": 443,
+      "tls": true,
+      "cloud": "azure",
+      "trustZone": "gov",
+      "sector": "GOV_NATO",
+      "workers": ["gov", "govview", "cyber"],
+      "status": "ACTIVE",
+      "health_score": 98
+    },
+    {
+      "name": "AGRI-SEC-US",
+      "hostname": "field-node-01.gia.ag",
+      "port": 42069,
+      "tls": false,
+      "cloud": "aws",
+      "trustZone": "public",
+      "sector": "AGRI_INFRA",
+      "workers": ["farmer", "opportunity", "sector-match"],
+      "status": "ACTIVE",
+      "health_score": 92
+    },
+    {
+      "name": "FCC-COMPLIANCE",
+      "hostname": "fcc-node-01.gia.gov",
+      "port": 443,
+      "tls": true,
+      "cloud": "azure",
+      "trustZone": "gov",
+      "sector": "FCC_COMMS",
+      "workers": ["fcc", "cyber"],
+      "status": "ACTIVE",
+      "health_score": 95
+    },
+    {
+      "name": "DEEP-MIND-CORE",
+      "hostname": "deepmind-core.gia.sov",
+      "port": 443,
+      "tls": true,
+      "cloud": "gcp",
+      "trustZone": "deepgov",
+      "sector": "AI_LOGIC",
+      "workers": ["deepgov", "system", "cyber"],
+      "status": "ACTIVE",
+      "health_score": 100
+    },
+      {
+        "name": "WORKFORCE-OPTIMIZER",
+        "hostname": "workforce-opt.gia.int",
+        "port": 443,
+        "tls": true,
+        "cloud": "azure",
+        "trustZone": "gov",
+        "sector": "WORKFORCE",
+        "workers": ["workforce", "opportunity"],
+        "status": "ACTIVE",
+        "health_score": 97
+      },
+      {
+        "name": "ENERGY-GRID-MONITOR",
+        "hostname": "energy-grid.gia.int",
+        "port": 443,
+        "tls": true,
+        "cloud": "azure",
+        "trustZone": "gov",
+        "sector": "ENERGY",
+        "workers": ["energy", "opportunity"],
+        "status": "ACTIVE",
+        "health_score": 96
+      },
+      {
+        "name": "HEALTHCARE-ANALYTICS",
+        "hostname": "healthcare-analytics.gia.int",
+        "port": 443,
+        "tls": true,
+        "cloud": "azure",
+        "trustZone": "gov",
+        "sector": "HEALTHCARE",
+        "workers": ["healthcare", "opportunity"],
+        "status": "ACTIVE",
+        "health_score": 94
+      },
+      {
+        "name": "EDUCATION-INSIGHTS",
+        "hostname": "education-insights.gia.int",
+        "port": 443,
+        "tls": true,
+        "cloud": "azure",
+        "trustZone": "gov",
+        "sector": "EDUCATION",
+        "workers": ["education", "opportunity"],
+        "status": "ACTIVE",
+        "health_score": 93
+      },
+      {
+        "name": "TRANSPORTATION-TRAFFIC",
+        "hostname": "transportation-traffic.gia.int",
+        "port": 443,
+        "tls": true,
+        "cloud": "azure",
+        "trustZone": "gov",
+        "sector": "TRANSPORTATION",
+        "workers": ["transportation", "opportunity"],
+        "status": "ACTIVE",
+        "health_score": 95
+      },
+      {
+        "name": "FINANCE-MARKET-ANALYTICS",
+        "hostname": "finance-market.gia.int",
+        "port": 443,
+        "tls": true,
+        "cloud": "azure",
+        "trustZone": "gov",
+        "sector": "FINANCE",
+        "workers": ["finance", "opportunity"],
+        "status": "ACTIVE",
+        "health_score": 92
+      },
+      {
+        "name": "DEFENSE-OPERATIONS",
+        "hostname": "defense-operations.gia.int",
+        "port": 443,
+        "tls": true,
+        "cloud": "azure",
+        "trustZone": "gov",
+        "sector": "DEFENSE",
+        "workers": ["defense", "opportunity"],
+        "status": "ACTIVE",
+        "health_score": 94
+      },
+      {
+        "name": "INTELLIGENCE-ANALYSIS",
+        "hostname": "intelligence-analysis.gia.int",
+        "port": 443,
+        "tls": true,
+        "cloud": "azure",
+        "trustZone": "gov",
+        "sector": "INTELLIGENCE",
+        "workers": ["intelligence", "opportunity"],
+        "status": "ACTIVE",
+        "health_score": 96
+      },
+      {
+        "name": "DIPLOMACY-RELATIONS",
+        "hostname": "diplomacy-relations.gia.int",
+        "port": 443,
+        "tls": true,
+        "cloud": "azure",
+        "trustZone": "gov",
+        "sector": "DIPLOMACY",
+        "workers": ["diplomacy", "opportunity"],
+        "status": "ACTIVE",
+        "health_score": 95
+      },
+      {
+        "name": "SPACE-MISSIONS",
+        "hostname": "space-missions.gia.int",
+        "port": 443,
+        "tls": true,
+        "cloud": "azure",
+        "trustZone": "gov",
+        "sector": "SPACE",
+        "workers": ["space", "opportunity"],
+        "status": "ACTIVE",
+        "health_score": 97
+      },
+      {
+        "name": "CYBERSECURITY-INCIDENTS",
+        "hostname": "cybersecurity-incidents.gia.int",
+        "port": 443,
+        "tls": true,
+        "cloud": "azure",
+        "trustZone": "gov",
+        "sector": "CYBERSECURITY",
+        "workers": ["cybersecurity", "opportunity"],
+        "status": "ACTIVE",
+        "health_score": 98
+      },
+      {
+        "name": "PUBLIC-SAFETY-INCIDENTS",
+        "hostname": "public-safety-incidents.gia.int",
+        "port": 443,
+        "tls": true,
+        "cloud": "azure",
+        "trustZone": "gov",
+        "sector": "PUBLIC_SAFETY",
+        "workers": ["public_safety", "opportunity"],
+        "status": "ACTIVE",
+        "health_score": 97
+      },
+      {
+        "name": "ENVIRONMENT-CONDITIONS",
+        "hostname": "environment-conditions.gia.int",
+        "port": 443,
+        "tls": true,
+        "cloud": "azure",
+        "trustZone": "gov",
+        "sector": "ENVIRONMENT",
+        "workers": ["environment", "opportunity"],
+        "status": "ACTIVE",
+        "health_score": 96
+      },
+      {
+        "name": "AGRICULTURE-CROPS",
+        "hostname": "agriculture-crops.gia.int",
+        "port": 443,
+        "tls": true,
+        "cloud": "azure",
+        "trustZone": "gov",
+        "sector": "AGRICULTURE",
+        "workers": ["agriculture", "opportunity"],
+        "status": "ACTIVE",
+        "health_score": 95
+      },
+      {
+        "name": "WORKFORCE-LABOR",
+        "hostname": "workforce-labor.gia.int",
+        "port": 443,
+        "tls": true,
+        "cloud": "azure",
+        "trustZone": "gov",
+        "sector": "WORKFORCE",
+        "workers": ["workforce", "opportunity"],
+        "status": "ACTIVE",
+        "health_score": 94
+      },
+      {
+        "name": "NATO-GOV-POLICIES",
+        "hostname": "nato-gov-policies.gia.int",
+        "port": 443,
+        "tls": true,
+        "cloud": "azure",
+        "trustZone": "gov",
+        "sector": "NATO_GOV",
+        "workers": ["nato_gov", "opportunity"],
+        "status": "ACTIVE",
+        "health_score": 97
+      },
+      {
+        "name": "ENERGY-PRODUCTION",
+        "hostname": "energy-production.gia.int",
+        "port": 443,
+        "tls": true,
+        "cloud": "azure",
+        "trustZone": "gov",
+        "sector": "ENERGY",
+        "workers": ["energy", "opportunity"],
+        "status": "ACTIVE",
+        "health_score": 95
+      },
+      {
+        "name": "HEALTH-RECORDS",
+        "hostname": "health-records.gia.int",
+        "port": 443,
+        "tls": true,
+        "cloud": "azure",
+        "trustZone": "gov",
+        "sector": "HEALTH",
+        "workers": ["health", "opportunity"],
+        "status": "ACTIVE",
+        "health_score": 96
+      },
+        {
+          "name": "EDUCATION-RESOURCES",
+          "hostname": "education-resources.gia.int",
+          "port": 443,
+          "tls": true,
+          "cloud": "azure",
+          "trustZone": "gov",
+          "sector": "EDUCATION",
+          "workers": ["education", "opportunity"],
+          "status": "ACTIVE",
+          "health_score": 94
+        },
+        {
+          "name": "TRANSPORTATION-ROUTES",
+          "hostname": "transportation-routes.gia.int",
+          "port": 443,
+          "tls": true,
+          "cloud": "azure",
+          "trustZone": "gov",
+          "sector": "TRANSPORTATION",
+          "workers": ["transportation", "opportunity"],
+          "status": "ACTIVE",
+          "health_score": 95
+        },
+        {
+          "name": "FINANCE-TRANSACTIONS",
+          "hostname": "finance-transactions.gia.int",
+          "port": 443,
+          "tls": true,
+          "cloud": "azure",
+          "trustZone": "gov",
+          "sector": "FINANCE",
+          "workers": ["finance", "opportunity"],
+          "status": "ACTIVE",
+          "health_score": 93
+        },
+        {
+          "name": "DEFENSE-INTEL",
+          "hostname": "defense-intel.gia.int",
+          "port": 443,
+          "tls": true,
+          "cloud": "azure",
+          "trustZone": "gov",
+          "sector": "DEFENSE",
+          "workers": ["defense", "intelligence", "opportunity"],
+          "status": "ACTIVE",
+          "health_score": 95
+        },
+        {
+          "name": "INTELLIGENCE-REPORTS",
+          "hostname": "intelligence-reports.gia.int",
+          "port": 443,
+          "tls": true,
+          "cloud": "azure",
+          "trustZone": "gov",
+          "sector": "INTELLIGENCE",
+          "workers": ["intelligence", "opportunity"],
+          "status": "ACTIVE",
+          "health_score": 96
+        },
+        {
+          "name": "DIPLOMACY-AGREEMENTS",
+          "hostname": "diplomacy-agreements.gia.int",
+          "port": 443,
+          "tls": true,
+          "cloud": "azure",
+          "trustZone": "gov",
+          "sector": "DIPLOMACY",
+          "workers": ["diplomacy", "opportunity"],
+          "status": "ACTIVE",
+          "health_score": 95
+        },
+        {
+          "name": "SPACE-TELEMETRY",
+          "hostname": "space-telemetry.gia.int",
+          "port": 443,
+          "tls": true,
+          "cloud": "azure",
+          "trustZone": "gov",
+          "sector": "SPACE",
+          "workers": ["space", "opportunity"],
+          "status": "ACTIVE",
+          "health_score": 97
+        },
+        {
+          "name": "CYBERSECURITY-THREATS",
+          "hostname": "cybersecurity-threats.gia.int",
+          "port": 443,
+          "tls": true,
+          "cloud": "azure",
+          "trustZone": "gov",
+          "sector": "CYBERSECURITY",
+          "workers": ["cybersecurity", "opportunity"],
+          "status": "ACTIVE",
+          "health_score": 98
+        },
+        {
+          "name": "PUBLIC-SAFETY-RESPONSES",
+          "hostname": "public-safety-responses.gia.int",
+          "port": 443,
+          "tls": true,
+          "cloud": "azure",
+          "trustZone": "gov",
+          "sector": "PUBLIC_SAFETY",
+          "workers": ["public_safety", "opportunity"],
+          "status": "ACTIVE",
+          "health_score": 97
+        },
+        {
+          // Additional clusters can be added here following the same structure
+        }
+  ]
+}
