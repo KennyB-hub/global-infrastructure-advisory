@@ -132,6 +132,8 @@ async function start() {
         console.error('Error handling /__test/event:', err);
         res.writeHead(400, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ ok: false, error: 'bad_request' }));
+        res.writeHead(400, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ ok: false, error: String(err) }));
       }
       return;
     }
