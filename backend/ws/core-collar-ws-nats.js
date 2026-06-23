@@ -129,8 +129,9 @@ async function start() {
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ ok: true, sentToClients: wss.clients.size }));
       } catch (err) {
+        console.error('Error handling /__test/event:', err);
         res.writeHead(400, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ ok: false, error: String(err) }));
+        res.end(JSON.stringify({ ok: false, error: 'bad_request' }));
       }
       return;
     }
