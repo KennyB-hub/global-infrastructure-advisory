@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIA Staff Hub | Employee Intelligence</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script defer src="https://cloudflare.com"></script>
+</head>
+<body class="bg-slate-50 antialiased" x-data="staffPortal()">
+
+    <!-- Secure Staff Header -->
+    <header class="bg-slate-900 text-white p-4 shadow-xl">
+        <div class="container mx-auto flex justify-between items-center">
+            <span class="font-bold border-l-4 border-emerald-500 pl-3">GIA PERSONNEL SYSTEM</span>
+            <div class="text-xs text-slate-400">Status: <span class="text-emerald-400" x-text="status">Checking Pulse...</span></div>
+        </div>
+    </header>
+
+    <main class="container mx-auto py-10 px-6 max-w-5xl">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                <h3 class="text-slate-500 text-xs font-bold uppercase mb-4">Personnel Identity</h3>
+                <div class="flex items-center space-x-4 mb-6">
+                    <div class="w-12 h-12 bg-slate-200 rounded-full flex items-center justify-center font-bold text-slate-500">GIA</div>
+                    <div>
+                        <p class="font-bold text-slate-900">Kenny Bennett</p>
+                        <p class="text-xs text-slate-500">System Administrator</p>
+                    </div>
+                </div>
+                <button @click="clockIn()" :class="active ? 'bg-red-500' : 'bg-emerald-600'" class="w-full text-white py-3 rounded-lg font-bold transition-all">
+                    <span x-text="active ? 'SECURE LOGOUT' : 'CLOCK IN / ACTIVATE PULSE'"></span>
+                </button>
+            </div>
+
+            <!-- Payroll & AI Milestones -->
+            <div class="md:col-span-2 bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                <h3 class="text-slate-500 text-xs font-bold uppercase mb-4">AI-Driven Performance & Payroll</h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center p-3 bg-slate-50 rounded-lg">
+                        <span class="text-sm font-medium">Weekly Milestones Met</span>
+                        <span class="text-emerald-600 font-bold">12 / 15</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-slate-50 rounded-lg">
+                        <span class="text-sm font-medium">Estimated AI-Payroll</span>
+                        <span class="text-slate-900 font-bold">$1,250.00</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        function staffPortal() {
+            return {
+                active: false,
+                status: 'Ready',
+                async clockIn() {
+                    this.active = !this.active;
+                    this.status = this.active ? 'ACTIVE PULSE' : 'LOGGED OUT';
+                    
+                    // Send Heartbeat to the Worker
+                    await fetch('/api/heartbeat', {
+                        method: 'POST',
+                        body: JSON.stringify({ 
+                            userId: 'GIA-ADMIN-001', 
+                            action: this.active ? 'CLOCK_IN' : 'CLOCK_OUT' 
+                        })
+                    });
+                }
+            }
+        }
+    </script>
+</body>
+</html>

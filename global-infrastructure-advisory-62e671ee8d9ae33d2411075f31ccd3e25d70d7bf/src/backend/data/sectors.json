@@ -1,0 +1,27 @@
+{
+  "id": "power",
+  "label": "Power & Electrical Grid",
+  "category": "energy",
+  "description": "Generation, transmission, distribution, substations, grid stability, and rural power infrastructure.",
+  "features": [
+    "Grid Monitoring",
+    "Substation Mapping",
+    "Outage Tracking",
+    "Rural Line Maintenance"
+  ],
+
+  "status": "draft",
+  "createdAt": "2026-05-11T00:00:00Z",
+
+  "logic": {
+    "workflows": true,
+    "compliance": true,
+    "ux": true,
+    "ai": true
+  },
+
+  "workflows": [],
+  "compliance": [],
+  "ux_rules": [],
+  "ai_engine": []
+}

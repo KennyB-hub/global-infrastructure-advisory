@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "workforceClusters": [
+    {
+      "region": "na-appalachia",
+      "public": ["road-crews", "water-authority", "utility-techs"],
+      "capacity": "medium"
+    },
+    {
+      "region": "global-war-torn-001",
+      "public": ["local-responders"],
+      "capacity": "low"
+    }
+  ]
+}

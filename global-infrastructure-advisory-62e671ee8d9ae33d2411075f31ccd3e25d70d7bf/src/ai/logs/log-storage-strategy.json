@@ -1,0 +1,66 @@
+{
+  "strategyVersion": "v1",
+  "storageTiers": [
+    {
+      "name": "hot",
+      "description": "Fast local storage for active logs used in routing, debugging, and real-time monitoring.",
+      "location": "local-node",
+      "types": ["session", "telemetry", "memory"],
+      "maxSizeMb": 512,
+      "replication": "none",
+      "encryption": "at-rest",
+      "accessPattern": "high-read-write"
+    },
+    {
+      "name": "warm",
+      "description": "Cluster-level storage for recent history and investigations.",
+      "location": "cluster-storage",
+      "types": ["session", "telemetry", "audit", "memory"],
+      "maxSizeMb": 2048,
+      "replication": "cluster-replicated",
+      "encryption": "at-rest-and-in-transit",
+      "accessPattern": "medium-read-low-write"
+    },
+    {
+      "name": "cold",
+      "description": "Long-term archival for compliance and deep forensics.",
+      "location": "sovereign-archive",
+      "types": ["audit"],
+      "maxSizeMb": 10240,
+      "replication": "multi-region",
+      "encryption": "strong-at-rest-and-in-transit",
+      "accessPattern": "low-read-rare-write"
+    }
+  ],
+  "routingRules": [
+    {
+      "type": "session",
+      "primaryTier": "hot",
+      "secondaryTier": "warm"
+    },
+    {
+      "type": "telemetry",
+      "primaryTier": "hot",
+      "secondaryTier": "warm"
+    },
+    {
+      "type": "memory",
+      "primaryTier": "hot",
+      "secondaryTier": "warm"
+    },
+    {
+      "type": "audit",
+      "primaryTier": "warm",
+      "secondaryTier": "cold"
+    }
+  ],
+  "encryption": {
+    "enabled": true,
+    "keyManagement": "sovereign-kms",
+    "rotationDays": 90
+  },
+  "integrity": {
+    "hashing": "sha256",
+    "signAuditLogs": true
+  }
+}

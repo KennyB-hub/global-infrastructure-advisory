@@ -1,0 +1,19 @@
+{
+  "sessionId": "",
+  "timestamp": "",
+  "memoryEvent": "",
+  "key": "",
+  "value": "",
+  "context": {
+    "userId": "",
+    "role": "",
+    "trustZone": ""
+  },
+  "engine": "",
+  "source": "",
+  "expiresAt": "",
+  "metadata": {
+    "confidence": 0,
+    "tags": []
+  }
+}

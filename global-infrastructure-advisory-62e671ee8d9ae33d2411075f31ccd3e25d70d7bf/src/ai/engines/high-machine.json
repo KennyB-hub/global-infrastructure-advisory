@@ -1,0 +1,13 @@
+{
+  "states": [
+    "IDLE",
+    "SCAN_CANDIDATES",
+    "EVALUATE_ECONOMICS",
+    "CHECK_TRUST_AND_POLICY",
+    "PLAN_EXPANSION",
+    "EXECUTE_EXPANSION",
+    "VERIFY_AND_LOG",
+    "ROLLBACK_OR_TUNE"
+  ],
+  "initialState": "IDLE"
+}

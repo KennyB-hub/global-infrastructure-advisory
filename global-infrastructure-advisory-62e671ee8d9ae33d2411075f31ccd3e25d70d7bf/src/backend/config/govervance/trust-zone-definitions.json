@@ -1,0 +1,392 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GIA Trust Zone Definitions",
+  "description": "Machine-readable trust zone access control and policy definitions per CONSTITUTION.md Article IV",
+  "version": "1.0.0",
+  "lastUpdated": "2026-05-13",
+  "trustZones": {
+    "Public": {
+      "level": 0,
+      "description": "Public-facing, open access tier with masked/aggregated data",
+      "accessLevel": "unrestricted",
+      "dataClassification": "public",
+      "capabilities": {
+        "viewPublicData": true,
+        "viewMaskedMaps": true,
+        "submitApplications": true,
+        "accessMarketplace": false,
+        "executeWorkflows": false,
+        "modifyPolicy": false,
+        "accessAdminPanel": false,
+        "viewAuditLogs": false
+      },
+      "dataAccess": {
+        "generalizedGeoData": true,
+        "aggregatedStatistics": true,
+        "publicDocumentation": true,
+        "identifiableData": false,
+        "adminData": false,
+        "governmentData": false
+      },
+      "policies": [
+        "scientific-integrity-public-tier"
+      ],
+      "hubs": ["public-hub"],
+      "maxSessionDuration": 3600,
+      "requiresAuthentication": false
+    },
+    "Farmer": {
+      "level": 2,
+      "description": "Agricultural operators and pilot farmers with field-level access",
+      "accessLevel": "authenticated",
+      "dataClassification": "internal-restricted",
+      "capabilities": {
+        "viewPublicData": true,
+        "viewMaskedMaps": true,
+        "submitApplications": true,
+        "uploadGPSData": true,
+        "accessMarketplace": true,
+        "acceptFarmerJobs": true,
+        "executeWorkflows": false,
+        "modifyPolicy": false,
+        "accessAdminPanel": false,
+        "viewAuditLogs": false
+      },
+      "dataAccess": {
+        "personalFieldData": true,
+        "familiarLocationGeoData": true,
+        "aggregatedStatistics": true,
+        "cropData": true,
+        "equipmentData": true,
+        "identifiableData": false,
+        "adminData": false,
+        "governmentData": false
+      },
+      "policies": [
+        "scientific-integrity-research",
+        "omb-m14-06-agricultural-data",
+        "common-rule-human-subjects"
+      ],
+      "hubs": ["farmer-hub"],
+      "maxSessionDuration": 28800,
+      "requiresAuthentication": true,
+      "consentRequired": ["gps-tracking", "data-sharing"]
+    },
+    "Contractor": {
+      "level": 3,
+      "description": "Field contractors executing critical infrastructure work",
+      "accessLevel": "authenticated-verified",
+      "dataClassification": "internal-confidential",
+      "capabilities": {
+        "viewPublicData": true,
+        "viewMaskedMaps": true,
+        "acceptFarmerJobs": true,
+        "acceptContractorJobs": true,
+        "executeWorkflows": true,
+        "dispatchActions": true,
+        "uploadReports": true,
+        "modifyPolicy": false,
+        "accessAdminPanel": false,
+        "viewAuditLogs": false,
+        "ansysToolAccess": false
+      },
+      "dataAccess": {
+        "workZoneData": true,
+        "sectorStatusData": true,
+        "jobData": true,
+        "equipmentData": true,
+        "activityLogs": true,
+        "adminData": false,
+        "governmentData": false,
+        "deepGovData": false
+      },
+      "policies": [
+        "scientific-integrity-operations",
+        "dhs-compliance-contractor",
+        "contractor-liability"
+      ],
+      "hubs": ["contractor-hub"],
+      "maxSessionDuration": 43200,
+      "requiresAuthentication": true,
+      "backgroundCheckRequired": true,
+      "insuranceRequired": true,
+      "certificationRequired": ["field-operations", "equipment"]
+    },
+    "Employee": {
+      "level": 4,
+      "description": "GIA staff members with operational oversight",
+      "accessLevel": "authenticated-authorized",
+      "dataClassification": "internal-proprietary",
+      "capabilities": {
+        "viewPublicData": true,
+        "viewAllMaps": true,
+        "postJobs": true,
+        "assignContractors": true,
+        "executeWorkflows": true,
+        "modifyPolicy": false,
+        "accessAdminPanel": true,
+        "viewAuditLogs": true,
+        "ansysToolAccess": true
+      },
+      "dataAccess": {
+        "allOperationalData": true,
+        "employeeData": true,
+        "contractorData": true,
+        "sectorData": true,
+        "activityLogs": true,
+        "auditLogs": true,
+        "adminData": false,
+        "governmentData": false,
+        "deepGovData": false
+      },
+      "policies": [
+        "scientific-integrity-full",
+        "nces-ethics-employee",
+        "oge-conflict-of-interest",
+        "oge-misconduct-reporting"
+      ],
+      "hubs": ["employee-hub", "hr-hub", "staff-hub"],
+      "maxSessionDuration": 86400,
+      "requiresAuthentication": true,
+      "backgroundCheckRequired": true,
+      "trainingRequired": ["ethics", "scientific-integrity", "data-protection"],
+      "mustReport": ["misconduct", "conflicts", "violations"]
+    },
+    "Admin": {
+      "level": 5,
+      "description": "GIA administrators with system-level oversight",
+      "accessLevel": "authenticated-administrative",
+      "dataClassification": "internal-proprietary-admin",
+      "capabilities": {
+        "viewAllData": true,
+        "modifyPolicy": true,
+        "executeAdminWorkflows": true,
+        "accessAdminPanel": true,
+        "viewAuditLogs": true,
+        "modifyAuditLogs": false,
+        "ansysToolAccess": true,
+        "userManagement": true,
+        "emergencyOverride": false
+      },
+      "dataAccess": {
+        "allData": true,
+        "auditLogs": true,
+        "systemLogs": true,
+        "employeeData": true,
+        "contractorData": true,
+        "governmentData": true
+      },
+      "policies": [
+        "scientific-integrity-admin",
+        "omb-m20-12-evidence-act",
+        "nces-ethics-admin",
+        "oge-misconduct-reporting",
+        "admin-accountability"
+      ],
+      "hubs": ["admin-hub", "system-hub"],
+      "maxSessionDuration": 86400,
+      "requiresAuthentication": true,
+      "backgroundCheckRequired": true,
+      "securityClearanceRequired": "confidential",
+      "trainingRequired": [
+        "ethics",
+        "scientific-integrity",
+        "data-protection",
+        "administrative-law"
+      ],
+      "auditFrequency": "real-time"
+    },
+    "Gov": {
+      "level": 6,
+      "description": "Government agency oversight and coordination",
+      "accessLevel": "authenticated-governmental",
+      "dataClassification": "government-official-use",
+      "capabilities": {
+        "viewAllData": true,
+        "viewAuditLogs": true,
+        "modifyPolicy": true,
+        "requestEmergencyAction": true,
+        "blockOperations": true,
+        "accessAdminPanel": true,
+        "oversightAuthority": true,
+        "ansysToolAccess": true
+      },
+      "dataAccess": {
+        "allData": true,
+        "auditLogs": true,
+        "systemLogs": true,
+        "governmentData": true,
+        "deepGovData": false
+      },
+      "policies": [
+        "ostp-scientific-integrity",
+        "omb-m14-06-administrative-data",
+        "omb-m20-12-evidence-act",
+        "dhs-compliance",
+        "federal-policy-human-subjects"
+      ],
+      "hubs": ["gov-hub"],
+      "maxSessionDuration": 86400,
+      "requiresAuthentication": true,
+      "securityClearanceRequired": "secret",
+      "governmentAgencyRequired": true,
+      "auditFrequency": "real-time"
+    },
+    "DeepGov": {
+      "level": 7,
+      "description": "Executive-level government authority with strategic oversight",
+      "accessLevel": "authenticated-executive",
+      "dataClassification": "government-confidential",
+      "capabilities": {
+        "viewAllData": true,
+        "viewAuditLogs": true,
+        "modifyPolicy": true,
+        "modifyConstitution": false,
+        "requestEmergencyAction": true,
+        "blockOperations": true,
+        "overrideDecisions": false,
+        "accessAllHubs": true,
+        "strategicAnalysis": true
+      },
+      "dataAccess": {
+        "allData": true,
+        "auditLogs": true,
+        "systemLogs": true,
+        "governmentData": true,
+        "deepGovData": true,
+        "strategicAnalytics": true
+      },
+      "policies": [
+        "ostp-scientific-integrity-executive",
+        "omb-memoranda-all",
+        "executive-order-compliance",
+        "national-security",
+        "deepgov-accountability"
+      ],
+      "hubs": ["deepgov-hub"],
+      "maxSessionDuration": 86400,
+      "requiresAuthentication": true,
+      "securityClearanceRequired": "top-secret",
+      "executiveOfficeRequired": true,
+      "auditFrequency": "continuous"
+    },
+    "System": {
+      "level": 8,
+      "description": "AI Enforcement Engine (AIEE) and system-level autonomous operations",
+      "accessLevel": "autonomous-constitutional",
+      "dataClassification": "system-operational",
+      "capabilities": {
+        "enforcePolicy": true,
+        "blockViolations": true,
+        "auditAllActions": true,
+        "modifyPolicy": true,
+        "modifyConstitution": false,
+        "viewAllData": true,
+        "executeSystemWorkflows": true,
+        "ansysToolAccess": true
+      },
+      "dataAccess": {
+        "allData": true,
+        "auditLogs": true,
+        "systemLogs": true
+      },
+      "policies": [
+        "constitutional-enforcement",
+        "aiee-supremacy",
+        "system-integrity",
+        "self-preservation"
+      ],
+      "hubs": ["system-hub"],
+      "maxSessionDuration": "unlimited",
+      "requiresAuthentication": false,
+      "nonBypassable": true,
+      "auditFrequency": "continuous"
+    },
+    "ANSYS": {
+      "level": 4,
+      "description": "ANSYS simulation and engineering tools access (Employee tier +)",
+      "accessLevel": "authenticated-technical",
+      "dataClassification": "internal-confidential-technical",
+      "capabilities": {
+        "runSimulations": true,
+        "uploadDesigns": true,
+        "analyzeResults": true,
+        "shareReports": true,
+        "accessLibraries": true,
+        "executeWorkflows": true,
+        "modifyPolicy": false,
+        "accessAdminPanel": false
+      },
+      "dataAccess": {
+        "simulationData": true,
+        "designData": true,
+        "resultData": true,
+        "technicalDocumentation": true,
+        "adminData": false,
+        "governmentData": false
+      },
+      "policies": [
+        "scientific-integrity-ansys",
+        "engineering-standards",
+        "technical-documentation"
+      ],
+      "hubs": ["ansys-hub"],
+      "maxSessionDuration": 43200,
+      "requiresAuthentication": true,
+      "certificationsRequired": ["ANSYS", "engineering"],
+      "softwareLicenseRequired": true
+    }
+  },
+  "trustZoneHierarchy": [
+    "Public",
+    "Farmer",
+    "Contractor",
+    "Employee",
+    "Admin",
+    "Gov",
+    "DeepGov",
+    "System"
+  ],
+  "specializations": {
+    "ANSYS": {
+      "baseLevel": "Employee",
+      "description": "Technical tool access (can be added to any Employee+ tier)"
+    }
+  },
+  "transitionRules": {
+    "upgradeRequirements": {
+      "PublicToFarmer": [
+        "application-approved",
+        "identity-verified",
+        "background-check"
+      ],
+      "FarmerToContractor": [
+        "experience-verified",
+        "certification-provided",
+        "insurance-confirmed",
+        "contract-signed"
+      ],
+      "ContractorToEmployee": [
+        "hiring-approval",
+        "background-clearance",
+        "ethics-training"
+      ],
+      "EmployeeToAdmin": [
+        "executive-approval",
+        "security-clearance",
+        "administrative-training"
+      ],
+      "AdminToGov": [
+        "government-appointment",
+        "security-clearance-upgrade",
+        "executive-nomination"
+      ]
+    }
+  },
+  "enforcement": {
+    "description": "These trust zones are enforced by AIEE (Article I of CONSTITUTION)",
+    "bypassPolicy": "NONE - Trust zones are non-bypassable",
+    "violationReporting": "Mandatory escalation to audit logs and Gov hub",
+    "auditRequirements": "All trust zone decisions logged with timestamp, actor, rationale"
+  }
+}

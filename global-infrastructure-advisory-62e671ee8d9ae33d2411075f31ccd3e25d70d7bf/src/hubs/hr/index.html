@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-employee">
+<head>
+  <meta charset="UTF-8" />
+  <title>GIA — HR Hub</title>
+
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="/assets/css/_root.css" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/hologram.css" />
+  <link rel="stylesheet" href="/assets/css/themes.css" />
+
+  <!-- Components -->
+  <link rel="stylesheet" href="/assets/css/components/nav.css" />
+  <link rel="stylesheet" href="/assets/css/components/hero.css" />
+  <link rel="stylesheet" href="/assets/css/components/sector-card.css" />
+
+  <!-- HR Theme (inherits employee theme) -->
+  <link rel="stylesheet" href="/assets/css/theme-employee.css" />
+
+  <!-- Language + Layout -->
+  <script src="/assets/js/i18n.js" defer></script>
+  <script src="/assets/js/layout-loader.js" defer></script>
+
+  <!-- Hologram Engine -->
+  <script src="/assets/js/hologram-engine.js" defer></script>
+</head>
+
+<body>
+  <div class="page-shell">
+
+    <!-- Top Navigation -->
+    <header class="top-nav">
+      <div class="brand-block">
+        <img src="/assets/logo.svg" class="brand-logo" alt="GIA" />
+        <div>
+          <div class="brand-text">Global Infrastructure Advisory</div>
+          <div class="brand-text">HR Hub</div>
+        </div>
+      </div>
+      <nav class="nav-links" id="hr-nav"></nav>
+    </header>
+
+    <!-- People Directory -->
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-title">People</div>
+          <div class="section-sub">Staff, contractors, and roles</div>
+        </div>
+        <div class="pill-muted" id="hr-meta">Loading…</div>
+      </div>
+      <div class="sectors-grid" id="hr-grid"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+      <span>GIA HR Hub · 2050 Interface</span>
+      <span id="hr-footer-status">AI link: connecting…</span>
+    </footer>
+
+  </div>
+
+  <!-- Hub Logic -->
+  <script type="module" src="/hubs/hr/dashboard.js"></script>
+</body>
+</html>

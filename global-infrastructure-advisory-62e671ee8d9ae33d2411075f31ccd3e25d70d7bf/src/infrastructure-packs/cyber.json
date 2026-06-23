@@ -1,0 +1,175 @@
+{
+  "id": "cyber",
+  "name": "Cyber Infrastructure",
+  "version": "1.0",
+
+  "assets": [
+    "firewalls",
+    "ids_ips",
+    "vpn_gateways",
+    "identity_providers",
+    "siem",
+    "endpoint_protection",
+    "dns",
+    "email_security",
+    "zero_trust_edges"
+  ],
+
+  "failureModes": [
+    {
+      "name": "Ransomware Outbreak",
+      "severity": "Critical",
+      "indicators": {
+        "encryption_spike": true,
+        "file_rename_patterns": true,
+        "endpoint_offline_rate": ">0.3"
+      }
+    },
+    {
+      "name": "DDoS Attack",
+      "severity": "Severe",
+      "indicators": {
+        "traffic_spike": ">10x_baseline",
+        "service_latency_ms": ">2000",
+        "packet_drop_rate": ">0.4"
+      }
+    },
+    {
+      "name": "Credential Compromise",
+      "severity": "Moderate",
+      "indicators": {
+        "impossible_travel": true,
+        "failed_logins": ">50_per_hour",
+        "privilege_escalation": true
+      }
+    },
+    {
+      "name": "Lateral Movement",
+      "severity": "Severe",
+      "indicators": {
+        "east_west_traffic_spike": true,
+        "new_admin_sessions": true,
+        "suspicious_tooling": ["psexec", "wmic", "powershell_remoting"]
+      }
+    },
+    {
+      "name": "Data Exfiltration",
+      "severity": "Critical",
+      "indicators": {
+        "egress_spike": ">5x_baseline",
+        "unusual_destinations": true,
+        "off_hours_transfer": true
+      }
+    }
+  ],
+
+  "repairModels": {
+    "Ransomware Outbreak": {
+      "materials": 0,
+      "materialType": null,
+      "laborHours": 120,
+      "equipmentDays": 0,
+      "equipmentType": null,
+      "time": "3–7 days",
+      "steps": [
+        "Isolate affected segments",
+        "Shut down infected endpoints",
+        "Restore from clean backups",
+        "Rotate credentials and keys",
+        "Full forensic review"
+      ]
+    },
+    "DDoS Attack": {
+      "materials": 0,
+      "materialType": null,
+      "laborHours": 24,
+      "equipmentDays": 1,
+      "equipmentType": "ddos_mitigation_service_day",
+      "time": "4–24 hours",
+      "steps": [
+        "Engage DDoS mitigation provider",
+        "Rate-limit and filter malicious traffic",
+        "Reroute critical services",
+        "Harden exposed endpoints"
+      ]
+    },
+    "Credential Compromise": {
+      "materials": 0,
+      "materialType": null,
+      "laborHours": 16,
+      "equipmentDays": 0,
+      "equipmentType": null,
+      "time": "4–12 hours",
+      "steps": [
+        "Force password reset",
+        "Revoke tokens and sessions",
+        "Rotate privileged credentials",
+        "Review access logs",
+        "Tighten MFA policies"
+      ]
+    },
+    "Lateral Movement": {
+      "materials": 0,
+      "materialType": null,
+      "laborHours": 40,
+      "equipmentDays": 0,
+      "equipmentType": null,
+      "time": "1–3 days",
+      "steps": [
+        "Segment affected networks",
+        "Isolate suspicious hosts",
+        "Remove persistence mechanisms",
+        "Rebuild compromised systems"
+      ]
+    },
+    "Data Exfiltration": {
+      "materials": 0,
+      "materialType": null,
+      "laborHours": 80,
+      "equipmentDays": 0,
+      "equipmentType": null,
+      "time": "2–5 days",
+      "steps": [
+        "Block exfiltration channels",
+        "Identify scope of data loss",
+        "Notify required parties",
+        "Implement stricter egress controls"
+      ]
+    }
+  },
+
+  "costs": {
+    "materials": {
+      "hsm_unit": 15000,
+      "security_appliance": 8000
+    },
+    "labor": {
+      "security_analyst_hour": 140,
+      "incident_responder_hour": 220,
+      "forensics_hour": 260
+    },
+    "equipment": {
+      "ddos_mitigation_service_day": 6000
+    }
+  },
+
+  "economics": {
+    "regionalMultiplier": 1.0,
+    "businessImpact": {
+      "avg_hourly_downtime_cost_usd": 50000,
+      "regulatory_penalty_risk": "High"
+    }
+  },
+
+  "regulatory": {
+    "primary": [
+      "NIST CSF",
+      "ISO 27001",
+      "SOC 2",
+      "PCI-DSS",
+      "HIPAA (where applicable)"
+    ],
+    "notes": "Used for cyber incident classification, cost estimation, and response planning across all sectors."
+  }
+}
+

@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Cyber Contractor Profile",
+  "description": "Schema for cyber contractors performing security operations.",
+  "type": "object",
+  "required": ["id", "company", "services", "certifications"],
+  "properties": {
+    "id": { "type": "string" },
+    "company": { "type": "string" },
+    "services": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "SOC-as-a-Service",
+          "Penetration Testing",
+          "Incident Response",
+          "Threat Hunting",
+          "Forensics",
+          "Cloud Security",
+          "Zero Trust Deployment",
+          "OT/ICS Hardening",
+          "AI Security Audits"
+        ]
+      }
+    },
+    "certifications": { "type": "array", "items": { "type": "string" } },
+    "insurance": { "type": "boolean" },
+    "backgroundCheck": { "type": "boolean" },
+    "clearanceLevel": {
+      "type": "string",
+      "enum": ["none", "public-trust", "confidential", "secret", "top-secret"]
+    },
+    "sectorExperience": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "energy",
+          "water",
+          "telecom",
+          "transport",
+          "health",
+          "finance",
+          "government",
+          "education",
+          "agriculture"
+        ]
+      }
+    }
+  }
+}

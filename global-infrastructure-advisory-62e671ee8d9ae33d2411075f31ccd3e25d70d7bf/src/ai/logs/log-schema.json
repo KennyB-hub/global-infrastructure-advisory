@@ -1,0 +1,63 @@
+{
+  "session": {
+    "required": ["sessionId", "timestamp", "request", "output"],
+    "fields": {
+      "sessionId": "string",
+      "timestamp": "string",
+      "user": "object",
+      "request": "object",
+      "routing": "object",
+      "context": "object",
+      "engines": "object",
+      "security": "object",
+      "output": "object",
+      "audit": "object"
+    }
+  },
+  "audit": {
+    "required": ["auditId", "timestamp", "actor", "action"],
+    "fields": {
+      "auditId": "string",
+      "timestamp": "string",
+      "actor": "object",
+      "action": "string",
+      "resource": "string",
+      "sector": "string",
+      "node": "string",
+      "cluster": "string",
+      "input": "object",
+      "output": "object",
+      "security": "object",
+      "signature": "object"
+    }
+  },
+  "telemetry": {
+    "required": ["sessionId", "timestamp", "engine", "durationMs"],
+    "fields": {
+      "sessionId": "string",
+      "timestamp": "string",
+      "engine": "string",
+      "workflow": "string",
+      "durationMs": "number",
+      "resourceUsage": "object",
+      "engineMetrics": "object",
+      "router": "object",
+      "health": "object"
+    }
+  },
+  "memory": {
+    "required": ["sessionId", "timestamp", "memoryEvent", "key"],
+    "fields": {
+      "sessionId": "string",
+      "timestamp": "string",
+      "memoryEvent": "string",
+      "key": "string",
+      "value": "any",
+      "context": "object",
+      "engine": "string",
+      "source": "string",
+      "expiresAt": "string",
+      "metadata": "object"
+    }
+  }
+}

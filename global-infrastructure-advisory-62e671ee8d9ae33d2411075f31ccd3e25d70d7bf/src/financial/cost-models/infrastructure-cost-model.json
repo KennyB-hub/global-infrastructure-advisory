@@ -1,0 +1,23 @@
+{
+  "id": "infrastructure-global-model",
+  "type": "infrastructure",
+  "baseRates": {
+    "road_per_mile": 185000,
+    "bridge_per_foot": 9500,
+    "water_line_per_foot": 120,
+    "fiber_per_foot": 18,
+    "power_line_per_mile": 75000
+  },
+  "complexityMultipliers": {
+    "rural": 1.0,
+    "suburban": 1.2,
+    "urban": 1.5,
+    "mountain": 1.8,
+    "disaster_zone": 2.3
+  },
+  "materialMultipliers": {
+    "steel": 1.0,
+    "concrete": 1.1,
+    "composite": 1.3
+  }
+}

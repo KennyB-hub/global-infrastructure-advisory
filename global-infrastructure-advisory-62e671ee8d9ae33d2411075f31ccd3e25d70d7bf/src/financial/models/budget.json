@@ -1,0 +1,35 @@
+{
+  "$schema": "https://gia.local/schemas/budget.schema.json",
+  "id": "mission-phoenix-agriculture-phase-1",
+  "projectId": "mission-phoenix-agriculture",
+  "sector": "agriculture",
+  "totalBudget": 250000,
+  "currency": "USD",
+  "timeframe": {
+    "start": "2026-06-01",
+    "end": "2027-06-01"
+  },
+  "lineItems": [
+    {
+      "id": "drone-ops",
+      "label": "Drone Operations",
+      "allocated": 80000,
+      "actual": 0,
+      "tags": ["drone", "ops", "field"]
+    },
+    {
+      "id": "infrastructure-repair",
+      "label": "Infrastructure Repair",
+      "allocated": 120000,
+      "actual": 0,
+      "tags": ["roads", "bridges"]
+    }
+  ],
+  "contractMeta": {
+    "samUei": "TBD",
+    "naics": ["541330"],
+    "psc": ["R499"],
+    "fundingSource": "federal",
+    "contractId": null
+  }
+}

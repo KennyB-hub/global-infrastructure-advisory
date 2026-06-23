@@ -1,0 +1,8 @@
+{
+  "sector": "government",
+  "description": "Government infrastructure and public systems",
+  "endpoints": {
+    "status": "/government/status",
+    "dispatch": "/government/dispatch"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "function": "evaluateEconomics",
+  "inputs": ["candidateSet"],
+  "filters": [
+    "minROIThreshold",
+    "maxLatencyTarget",
+    "minPowerAvailability",
+    "policyCompliance"
+  ],
+  "outputs": ["viableCandidates"]
+}

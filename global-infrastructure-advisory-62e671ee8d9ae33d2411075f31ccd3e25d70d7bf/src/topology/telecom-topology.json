@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "telecom": [
+    {
+      "region": "na-appalachia",
+      "connectivity": ["cellular", "satellite"],
+      "status": "stable"
+    },
+    {
+      "region": "global-war-torn-001",
+      "connectivity": ["satellite", "mesh"],
+      "status": "fragile"
+    }
+  ]
+}

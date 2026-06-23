@@ -1,0 +1,109 @@
+{
+      "policyId": "TELECOM_INFRASTRUCTURE_V2",
+      "name": "Telecom Infrastructure Policy Pack",
+      "version": "2.0.0",
+      "source": "AIEE",
+      "scope": {
+      "resourceTypes": ["CELL_TOWER", "FIBER_NETWORK", "MICROWAVE_LINK", "DATA_CENTER", "SATELLITE_GROUND", "PUBLIC_SAFETY_NETWORK"],
+      "actions": ["CONTROL", "MONITOR", "DISPATCH", "ROUTE", "MAINTENANCE", "SHUTOFF"],
+      "trustZones": ["public", "contractor", "employee", "admin", "gov", "deepgov", "system"]
+    },
+  "rules": [
+    {
+      "ruleId": "TEL_TOWER_001",
+      "description": "Prevent unsafe tower operations during high wind or structural instability.",
+      "condition": "data.windSpeed > ai.globalCode.telecom.tower.maxWindSpeed || data.structureIntegrity < ai.globalCode.telecom.tower.minStructureIntegrity || ai.giiContext.sectorRiskScore > 0.75 || ai.autonomy.level < 2",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "TEL_TOWER_002",
+      "description": "Only certified tower technicians may perform tower maintenance.",
+      "condition": "action.name == \"MAINTENANCE\" && !actor.roles.Contains(\"TOWER_TECH\") || ai.autonomy.level < 1",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "TEL_RF_001",
+      "description": "Prevent RF output exceeding global safe limits.",
+      "condition": "data.rfOutput > ai.globalCode.telecom.rf.maxRfOutput || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 1",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "TEL_FIBER_001",
+      "description": "Prevent unsafe fiber splice or cut operations without authorization.",
+      "condition": "action.name == \"CutFiber\" && !actor.roles.Contains(\"FIBER_TECH\") || ai.autonomy.level < 1",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "TEL_FIBER_002",
+      "description": "Fiber signal loss above global threshold requires human review.",
+      "condition": "data.signalLossDb > ai.globalCode.telecom.fiber.maxSignalLossDb || ai.giiContext.systemicRiskScore > 0.7",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "TEL_BACKHAUL_001",
+      "description": "Prevent microwave backhaul misalignment beyond safe tolerance.",
+      "condition": "data.alignmentError > ai.globalCode.telecom.satellite.maxDishAlignmentError || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 2",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "TEL_BACKHAUL_002",
+      "description": "Backhaul congestion above critical threshold requires human review.",
+      "condition": "data.backhaulLoadPercent > ai.globalCode.telecom.backhaul.maxLoadPercent || ai.giiContext.systemicRiskScore > 0.75",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "TEL_SAT_001",
+      "description": "Satellite ground station operations require gov, deepgov, or system trust zone.",
+      "condition": "data.satelliteCritical == true && (actor.trustZone != \"gov\" && actor.trustZone != \"deepgov\" && actor.trustZone != \"system\") || ai.autonomy.level < 2",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "TEL_911_001",
+      "description": "Emergency 911 traffic must be prioritized over all other routing.",
+      "condition": "data.callType == \"911\" && action.name == \"RouteCall\" && data.priority != \"HIGH\" || ai.giiContext.cascadingFailureRisk == true",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "TEL_PUBLIC_SAFETY_001",
+      "description": "Public safety network operations require human review during outages.",
+      "condition": "data.networkType == \"PUBLIC_SAFETY\" && data.outageDetected == true || ai.giiContext.systemicRiskScore > 0.7",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "TEL_RURAL_001",
+      "description": "Rural broadband systems require priority protection and review.",
+      "condition": "data.isRuralSystem == true && data.systemHealth < ai.globalCode.telecom.rural.minHealthThreshold || ai.giiContext.sectorRiskScore > 0.8",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "TEL_DATA_CENTER_001",
+      "description": "Prevent unsafe temperature or power conditions in telecom data centers.",
+      "condition": "data.tempC > ai.globalCode.telecom.datacenter.maxTempC || data.powerLoadPercent > ai.globalCode.telecom.datacenter.maxPowerLoadPercent || ai.giiContext.cascadingFailureRisk == true || ai.autonomy.level < 2",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "TEL_CYBER_001",
+      "description": "Unauthorized remote access to telecom control systems is denied.",
+      "condition": "env.clientType == \"REMOTE\" && !actor.roles.Contains(\"AUTHORIZED_REMOTE\") || ai.autonomy.level < 1",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "TEL_CYBER_002",
+      "description": "Critical telecom SCADA/NOC operations require gov, deepgov, or system trust zone.",
+      "condition": "data.scadaCritical == true && (actor.trustZone != \"gov\" && actor.trustZone != \"deepgov\" && actor.trustZone != \"system\") || ai.autonomy.level < 2",
+      "effect": "DENY"
+    },
+    {
+      "ruleId": "TEL_CYBER_003",
+      "description": "Anomalous behavior in telecom telemetry requires human review.",
+      "condition": "data.behaviorScore > data.anomalyThreshold || ai.giiContext.systemicRiskScore > 0.7",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    },
+    {
+      "ruleId": "TEL_SHUTOFF_001",
+      "description": "Emergency shutoff of telecom systems allowed only during verified cyber attack or physical attack.",
+      "condition": "action.name == \"SHUTOFF\" && data.emergencyType != \"CYBER_ATTACK\" && data.emergencyType != \"PHYSICAL_ATTACK\" || ai.autonomy.level < 2",
+      "effect": "REQUIRE_HUMAN_REVIEW"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "id": "sanitation",
+  "name": "Sanitation and Waste Infrastructure",
+  "version": "1.0",
+  "failureModes": [],
+  "repairModels": {},
+  "costs": { "materials": {}, "labor": {}, "equipment": {} },
+  "economics": { "regionalMultiplier": 1.0 },
+  "regulatory": { "primary": [], "notes": "" }
+}

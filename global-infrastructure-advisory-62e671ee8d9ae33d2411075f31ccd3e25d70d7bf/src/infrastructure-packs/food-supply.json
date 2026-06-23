@@ -1,0 +1,10 @@
+{
+  "id": "food_supply",
+  "name": "Food Supply Chain Infrastructure",
+  "version": "1.0",
+  "failureModes": [],
+  "repairModels": {},
+  "costs": { "materials": {}, "labor": {}, "equipment": {} },
+  "economics": { "regionalMultiplier": 1.0 },
+  "regulatory": { "primary": [], "notes": "" }
+}

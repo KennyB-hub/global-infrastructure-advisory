@@ -1,0 +1,48 @@
+{
+  "contractId": "microgrid-engine-v1",
+  "description": "Standard interface for all microgrid engines operating in the sovereign infrastructure grid.",
+  "version": "v1",
+  "sector": "infrastructure",
+  "capabilities": {
+    "supportsIslandMode": true,
+    "supportsGridSync": true,
+    "supportsLoadShedding": true,
+    "supportsBatteryStorage": true,
+    "supportsRenewableMixing": true
+  },
+  "inputs": {
+    "gridState": {
+      "voltage": "number",
+      "frequency": "number",
+      "loadKw": "number",
+      "generationKw": "number",
+      "storageStateOfCharge": "number"
+    },
+    "forecast": {
+      "loadProfile": "array",
+      "generationProfile": "array",
+      "weather": "object"
+    },
+    "constraints": {
+      "maxExportKw": "number",
+      "maxImportKw": "number",
+      "criticalLoads": "array",
+      "nonCriticalLoads": "array"
+    }
+  },
+  "outputs": {
+    "dispatchPlan": {
+      "batteryKw": "number",
+      "generatorKw": "number",
+      "gridImportKw": "number",
+      "gridExportKw": "number",
+      "shedLoads": "array"
+    },
+    "mode": "string",
+    "stabilityScore": "number"
+  },
+  "logging": {
+    "requires": ["session", "telemetry", "audit"],
+    "telemetryTags": ["microgrid", "dispatch", "stability"]
+  }
+}

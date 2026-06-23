@@ -1,0 +1,9 @@
+{
+  "thresholds": {
+    "maxLatencyMs": 2000,
+    "maxFallbackEvents": 5,
+    "maxEngineFailures": 3,
+    "maxRoutingErrors": 2,
+    "maxTrustZoneMismatches": 1
+  }
+}
