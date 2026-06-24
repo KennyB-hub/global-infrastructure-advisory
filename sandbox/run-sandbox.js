@@ -63,6 +63,31 @@ export async function runSandbox(input = {}, env = {}) {
     const ctx = await buildContext(input, env);
 
     //
+    // B.1 Reject async code
+    //
+    if (/\bawait\b|\basync\b/.test(input.code)) {
+      return {
+        ok: false,
+        type: "sandbox-filter",
+        errors: ["Async code is not allowed in sovereign sandbox"],
+        integrity: { verified: false }
+      };
+    }
+
+    //
+    // B.2 Trust zone enforcement
+    //
+    const allowedZones = ["sandbox", "public", "internal", "vault"];
+    if (!allowedZones.includes(ctx.trustZone)) {
+      return {
+        ok: false,
+        type: "trust-zone",
+        errors: [`Invalid trust zone: ${ctx.trustZone}`],
+        integrity: { verified: false }
+      };
+    }
+
+    //
     // C. Apply trust‑zone policies
     //
     const policy = await applyPolicies(input, ctx);

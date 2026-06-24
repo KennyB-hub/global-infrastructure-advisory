@@ -1,4 +1,4 @@
-const manifest = require("../src/global-manifest.json");
+import manifest from "../../global-manifest.json" assert { type: "json" };
 
 function activateRoutingEngine() {
   return {
@@ -12,5 +12,8 @@ function activateRoutingEngine() {
   };
 }
 
-const routing = activateRoutingEngine();
-console.log("Routing Engine:", routing.status);
+export async function run() {
+  const routing = activateRoutingEngine();
+  console.log("Routing Engine:", routing.status);
+  return routing;
+}

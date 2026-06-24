@@ -18,7 +18,7 @@ async function main() {
     const registry = await loadCommands()
 
     try {
-        execute(args, registry)
+        await execute(args, registry)   // ← REQUIRED FIX
     } catch (err) {
         error("Command failed:", err.message)
         process.exit(1)

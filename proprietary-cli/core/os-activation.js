@@ -1,5 +1,4 @@
 import manifest from "../../manifest.json" assert { type: "json" };
-import { activateOS } from "./os-activation.js";
 
 function activateOS(manifest) {
   return {
