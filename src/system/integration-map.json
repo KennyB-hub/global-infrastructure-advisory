@@ -1,0 +1,75 @@
+{
+  "generated_at": "2026-06-24T06:09:00-04:00",
+  "version": "1.0",
+  "summary": "Unified integration map for all worker, backend, voice, mission, and runtime call-sites into Seven/autonomous.",
+  "components": [
+    {
+      "component": "auth-worker",
+      "component_type": "worker",
+      "calls": ["processAIRequest"],
+      "evidence_file": "src/ai/workers/auth-worker.js",
+      "evidence_snippet": "const result = await processAIRequest({ text: \"auth login\", ... }, env );"
+    },
+    {
+      "component": "ai-worker",
+      "component_type": "worker",
+      "calls": ["processAIRequest"],
+      "evidence_file": "src/ai/workers/ai-worker.js",
+      "evidence_snippet": "result = await processAIRequest(request, env, ctx);"
+    },
+    {
+      "component": "voice-flight-handler",
+      "component_type": "function",
+      "calls": ["VoiceBus.dispatch"],
+      "evidence_file": "src/functions/api/voice-flight-handler.js",
+      "evidence_snippet": "const result = await VoiceBus.dispatch({ text: message, role, sessionId, sensors, resources });"
+    },
+    {
+      "component": "backend-voice-flight",
+      "component_type": "backend-route",
+      "calls": ["orchestrateMission"],
+      "evidence_file": "src/backend/routes/voice-flight.js",
+      "evidence_snippet": "const mission = orchestrateMission({ text, role, sessionId, sensors, resources });"
+    },
+    {
+      "component": "backend-system-init",
+      "component_type": "backend-service",
+      "calls": ["SevenStack initialization"],
+      "evidence_file": "src/backend/functions/api/system.js",
+      "evidence_snippet": "const stack = new SevenStack(terrain, { speak: (msg) => console.log('[Seven Voice]', msg) });"
+    },
+    {
+      "component": "backend-autonomous-router",
+      "component_type": "backend-router",
+      "calls": ["processAIRequest", "/api/autonomous endpoints"],
+      "evidence_file": "src/backend/functions/api/router.js",
+      "evidence_snippet": "if (path === '/api/autonomous/task/enqueue') { ... processAIRequest(...)}"
+    },
+    {
+      "component": "system-voice-bus",
+      "component_type": "system-voice-bus",
+      "calls": ["orchestrateMission", "generateSevenResponse"],
+      "evidence_file": "src/ai/engines/system/voice/voice-bus.ts",
+      "evidence_snippet": "return orchestrateMission({ text, role, sessionId, sensors, resources });"
+    },
+    {
+      "component": "backend-ai-helper",
+      "component_type": "backend-worker",
+      "calls": ["runAI"],
+      "evidence_file": "src/backend/ai/ai-worker.js",
+      "evidence_snippet": "module.exports.runAI = async function(prompt) { ... }"
+    },
+    {
+      "component": "seven-runtime",
+      "component_type": "runtime",
+      "calls": ["SevenRuntime APIs"],
+      "evidence_file": "src/ai/engines/autonomous/seven-runtime/**",
+      "evidence_snippet": "SevenRuntime class and adapters (seven.ts, seven-stack.ts, safety/api, interop)"
+    }
+  ],
+  "notes": [
+    "This integration map is consumed by Seven’s routing engine.",
+    "Each component entry defines a call-site into Seven/autonomous.",
+    "Seven uses this map to build the full routing graph and detect missing bindings."
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "launch": ["launch drone", "start drone", "deploy drone"],
+  "send": ["send drone to", "move drone to"],
+  "scan": ["scan", "survey", "look over"],
+  "thermal": ["thermal", "heat scan", "heat search"],
+  "search": ["find", "locate", "search for"],
+  "follow": ["follow me", "follow mode"],
+  "patrol": ["perimeter patrol", "run patrol"],
+  "return": ["return drone", "come back"],
+  "land": ["land drone", "set down"]
+}

@@ -1,0 +1,112 @@
+{
+  "generated_at": "2026-06-24T06:15:00-04:00",
+  "version": "1.0",
+  "summary": "Defines which AI engines are responsible for each infrastructure sector.",
+  "bindings": {
+    "agri": {
+      "primary": ["SECTOR_ANALYSIS_ENGINE", "GEO_ENGINE"],
+      "secondary": ["DATA_ENGINE", "MATH_ENGINE"],
+      "compliance": ["BUILDING_CODE_ENGINE", "ZONING_ENGINE"]
+    },
+    "airports": {
+      "primary": ["GEO_ENGINE", "ENGINEERING_ENGINE"],
+      "secondary": ["SECTOR_ANALYSIS_ENGINE", "MATH_ENGINE"],
+      "compliance": ["SECURITY_ENGINE"]
+    },
+    "climate": {
+      "primary": ["SCIENCE_ENGINE", "GEO_ENGINE"],
+      "secondary": ["DATA_ENGINE", "MATH_ENGINE"],
+      "compliance": ["ENVIRONMENT_ENGINE"]
+    },
+    "cloud": {
+      "primary": ["DATA_ENGINE", "SECURITY_ENGINE"],
+      "secondary": ["SECTOR_ANALYSIS_ENGINE"],
+      "compliance": ["CYBER_ENGINE"]
+    },
+    "contractors": {
+      "primary": ["SECTOR_ANALYSIS_ENGINE"],
+      "secondary": ["DATA_ENGINE"],
+      "compliance": ["ZONING_ENGINE"]
+    },
+    "cyber": {
+      "primary": ["SECURITY_ENGINE"],
+      "secondary": ["DATA_ENGINE"],
+      "compliance": ["CYBER_ENGINE"]
+    },
+    "datacenters": {
+      "primary": ["ENGINEERING_ENGINE", "SECURITY_ENGINE"],
+      "secondary": ["DATA_ENGINE"],
+      "compliance": ["CYBER_ENGINE"]
+    },
+    "disaster_response": {
+      "primary": ["DISASTER_DEPLOYMENT_ENGINE", "GEO_ENGINE"],
+      "secondary": ["SECTOR_ANALYSIS_ENGINE"],
+      "compliance": ["SECURITY_ENGINE"]
+    },
+    "gov": {
+      "primary": ["SECTOR_ANALYSIS_ENGINE"],
+      "secondary": ["DATA_ENGINE"],
+      "compliance": ["POLICY_OBJECT"]
+    },
+    "logistics": {
+      "primary": ["GEO_ENGINE", "ENGINEERING_ENGINE"],
+      "secondary": ["SECTOR_ANALYSIS_ENGINE"],
+      "compliance": ["ZONING_ENGINE"]
+    },
+    "mining": {
+      "primary": ["MECHANICS_ENGINE", "ENGINEERING_ENGINE"],
+      "secondary": ["GEO_ENGINE"],
+      "compliance": ["ENVIRONMENT_ENGINE"]
+    },
+    "oil_gas": {
+      "primary": ["PIPELINE_ENGINE", "ENGINEERING_ENGINE"],
+      "secondary": ["GEO_ENGINE"],
+      "compliance": ["ENVIRONMENT_ENGINE"]
+    },
+    "pipelines": {
+      "primary": ["PIPELINE_ENGINE", "GEO_ENGINE"],
+      "secondary": ["ENGINEERING_ENGINE"],
+      "compliance": ["ENVIRONMENT_ENGINE"]
+    },
+    "ports": {
+      "primary": ["GEO_ENGINE", "ENGINEERING_ENGINE"],
+      "secondary": ["SECTOR_ANALYSIS_ENGINE"],
+      "compliance": ["SECURITY_ENGINE"]
+    },
+    "power": {
+      "primary": ["ENERGY_ENGINE", "GEO_ENGINE"],
+      "secondary": ["SECTOR_ANALYSIS_ENGINE"],
+      "compliance": ["SECURITY_ENGINE"]
+    },
+    "public_safety": {
+      "primary": ["SECTOR_ANALYSIS_ENGINE"],
+      "secondary": ["GEO_ENGINE"],
+      "compliance": ["SECURITY_ENGINE"]
+    },
+    "rail": {
+      "primary": ["ENGINEERING_ENGINE", "GEO_ENGINE"],
+      "secondary": ["SECTOR_ANALYSIS_ENGINE"],
+      "compliance": ["SECURITY_ENGINE"]
+    },
+    "roads": {
+      "primary": ["ENGINEERING_ENGINE", "GEO_ENGINE"],
+      "secondary": ["SECTOR_ANALYSIS_ENGINE"],
+      "compliance": ["ZONING_ENGINE"]
+    },
+    "space": {
+      "primary": ["SCIENCE_ENGINE", "GEO_ENGINE"],
+      "secondary": ["ENGINEERING_ENGINE"],
+      "compliance": ["SECURITY_ENGINE"]
+    },
+    "telecom": {
+      "primary": ["TELECOM_ENGINE", "GEO_ENGINE"],
+      "secondary": ["SECTOR_ANALYSIS_ENGINE"],
+      "compliance": ["FCC_COMPLIANCE_ENGINE"]
+    },
+    "water": {
+      "primary": ["WATER_ENGINE", "GEO_ENGINE"],
+      "secondary": ["SECTOR_ANALYSIS_ENGINE"],
+      "compliance": ["ENVIRONMENT_ENGINE"]
+    }
+  }
+}

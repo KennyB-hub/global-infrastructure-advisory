@@ -10,6 +10,8 @@
     "deploy": "npm run clean && wrangler deploy",
     "start:ws": "node src/backend/ws/run-collar-ws.js",
     "doctor": "node scripts/doctor.js",
+    "build:manifest": "node scripts/build-system-manifest.cjs",
+    "route:audit": "node scripts/route:aduit.cjs",
     "verify:ws": "node scripts/verify-ws-test.cjs",
     "scan:secrets": "node scripts/scan-secrets.cjs",
     "scan:licenses": "node scripts/license-scan.cjs",
