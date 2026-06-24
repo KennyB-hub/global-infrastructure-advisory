@@ -1,0 +1,122 @@
+{
+  "runtime_id": "SEVEN-RUNTIME-V12",
+  "version": "12.0.4",
+  "generated_from": "GLOBAL_MANIFEST_V12_ALPHA",
+  "generated_at": "2026-06-24T08:05:45.813Z",
+
+  "platform": {
+    "id": "GIA-SOVEREIGN-ALPHA",
+    "environment": "enterprise-gov",
+    "failsafe_level": "AUTO_RECOVER",
+    "heartbeat_interval": "1000ms"
+  },
+
+  "sandbox": {
+    "enabled": true,
+    "mode": "validation-only",
+    "max_token_budget": 500
+  },
+
+  "sectors": {
+    "public": {},
+    "contractor": {},
+    "farmer": {},
+    "employee": {},
+    "admin": {},
+    "gov": {},
+    "deepgov": {},
+    "system": {}
+  },
+
+  "trust_zones": {
+    "public": 1,
+    "internal": 2,
+    "vault": 3,
+    "admin": 4,
+    "gov": 5,
+    "deepgov": 6,
+    "system": 7
+  },
+
+  "engines": {
+    "engine-index": {
+      "engines": [
+        "CORE_ENGINE",
+        "AI_CORTEX",
+        "MAPPING_ENGINE",
+        "BLUEPRINT_ENGINE",
+        "DOCUMENT_ENGINE",
+        "SECURITY_ENGINE",
+        "GEO_ENGINE",
+        "MATH_ENGINE",
+        "DATA_ENGINE",
+        "SCIENCE_ENGINE",
+        "GEOTHERMAL_ENGINE",
+        "RENEWABLES_ENGINE",
+        "BUILDING_CODE_ENGINE",
+        "ZONING_ENGINE",
+        "SECTOR_ANALYSIS_ENGINE",
+        "ENGINEERING_ENGINE",
+        "MECHANICS_ENGINE"
+      ]
+    }
+  },
+
+  "workers": {
+    "index": {
+      "workers": [
+        "public-worker",
+        "contractor-worker",
+        "farmer-worker",
+        "employee-worker",
+        "admin-worker",
+        "gov-worker",
+        "deepgov-worker",
+        "system-worker",
+        "expansion-worker",
+        "organizer-worker",
+        "anys-worker",
+        "govview-worker",
+        "opportunity-scanner-worker",
+        "marketplace-engine-worker",
+        "sector-matching-worker",
+        "cyber-worker"
+      ]
+    }
+  },
+
+  "topology": {
+    "nodes": {
+      "gov": ["GOV_NATO"],
+      "farmer": ["AGRI_INFRA"],
+      "system": ["AI_LOGIC"],
+      "deepgov": ["DEEP-MIND-CORE"]
+    },
+    "clusters": {
+      "DEEP-MIND-CORE": { "sector": "deepgov", "health": 98 },
+      "AI_LOGIC": { "sector": "system", "health": 96 },
+      "AGRI_INFRA": { "sector": "farmer", "health": 94 },
+      "GOV_NATO": { "sector": "gov", "health": 97 }
+    }
+  },
+
+  "infrastructure_packs": {
+    "pack-gov": { "nodes": ["GOV_NATO"] },
+    "pack-agri": { "nodes": ["AGRI_INFRA"] },
+    "pack-ai": { "nodes": ["AI_LOGIC", "DEEP-MIND-CORE"] }
+  },
+
+  "endpoints": {
+    "azure_math": "https://azure.net",
+    "azure_geo": "https://azure.net",
+    "config_service": "https://config.gia.int",
+    "health_service": "https://health.gia.int",
+    "analytics_service": "https://analytics.gia.int"
+  },
+
+  "logging": {
+    "level": "info",
+    "format": "json",
+    "output": "stdout"
+  }
+}

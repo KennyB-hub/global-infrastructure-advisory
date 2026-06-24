@@ -1,11 +1,21 @@
-function activateRuntime(manifest) {
+export function activateRuntime(manifest) {
   return {
     status: "online",
-    trustZones: manifest.backend.config?.["govervance"]?.["trust-zone-definitions"],
-    autonomy: manifest.engines["ai.autonomy"],
-    policy: manifest.engines["policy-object"]
+
+    version: manifest.version,
+    systemVersion: manifest.system_version,
+
+    sectors: Object.keys(manifest.sectors),
+    trustZones: manifest.trust_zones,
+
+    engines: manifest.engines["engine-index"].engines,
+    workers: manifest.workers.index.workers,
+
+    topology: manifest.topology.nodes,
+    infrastructurePacks: manifest.infrastructure_packs,
+
+    sandbox: manifest.sandbox,
+    logging: manifest.logging
   };
 }
 
-const runtime = activateRuntime(manifest);
-console.log("Runtime:", runtime.status);

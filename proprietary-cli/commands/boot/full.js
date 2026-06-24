@@ -1,19 +1,23 @@
-import manifest from "../../manifest.json" assert { type: "json" };
-import { activateOS } from "./os-activation.js";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 
-function activateOS(manifest) {
-  return {
-    status: "online",
-    engines: manifest.engines["engine-index"].engines.length,
-    workers: manifest.workers.index.workers.length,
-    sectors: Object.keys(manifest.sectors).length,
-    topology: Object.keys(manifest.topology).length,
-    infrastructure: Object.keys(manifest.infrastructure_packs).length
-  };
-}
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Load manifest safely (sandbox‑compatible)
+const manifestPath = path.join(__dirname, "../../manifest.json");
+const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
 
 export async function run() {
-  const os = activateOS(manifest);
-  console.log("Seven‑OS:", os.status);
-  return os;
+  console.log("Booting Seven‑OS Runtime…");
+
+  return {
+    status: "booted",
+    version: manifest.version,
+    runtime: manifest.runtime_id || "unknown",
+    sectors: Object.keys(manifest.sectors || {}),
+    engines: manifest.engines?.["engine-index"]?.engines?.length || 0,
+    workers: manifest.workers?.index?.workers?.length || 0
+  };
 }
