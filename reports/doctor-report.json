@@ -1,0 +1,45 @@
+{
+  "generated": "2026-06-24T03:42:46.683Z",
+  "checks": [
+    {
+      "name": "Directory Structure",
+      "status": "FAIL",
+      "error": "Missing directory: autonomous-os"
+    },
+    {
+      "name": "Config Files",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "name": "TypeScript Syntax",
+      "status": "FAIL",
+      "error": "Command failed: npx tsc --noEmit"
+    },
+    {
+      "name": "Dependency Health",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "name": "Circular Dependencies",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "name": "OS Logic Integrity",
+      "status": "FAIL",
+      "error": "Missing file: ai-os/kernel.js"
+    },
+    {
+      "name": "Sector Mapping",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "name": "JSON Validation",
+      "status": "FAIL",
+      "error": "Unexpected token ''', ...\"entCode\": '\\\"public/\"... is not valid JSON"
+    }
+  ]
+}

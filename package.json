@@ -9,6 +9,7 @@
     "dev": "npm run clean && wrangler dev",
     "deploy": "npm run clean && wrangler deploy",
     "start:ws": "node src/backend/ws/run-collar-ws.js",
+    "doctor": "node scripts/doctor.js",
     "verify:ws": "node scripts/verify-ws-test.cjs",
     "scan:secrets": "node scripts/scan-secrets.cjs",
     "scan:licenses": "node scripts/license-scan.cjs",
@@ -26,7 +27,7 @@
     "@types/mocha": "^10.0.10",
     "mocha": "^11.3.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.0.0",
+    "typescript": "^5.9.3",
     "wrangler": "^4.98.0"
   }
 }
