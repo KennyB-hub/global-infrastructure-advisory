@@ -199,6 +199,7 @@ check("Governor Integrity", () => {
 
   requiredImports.forEach(symbol => {
     if (!governorCode.includes(symbol)) {
+      console.log("Loading:", filePath);
       throw new Error(`Governor missing required import: ${symbol}`);
     }
   });
