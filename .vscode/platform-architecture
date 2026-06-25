@@ -38,3 +38,29 @@
 │  [Interface_Layer](ca://s?q=Interface_Layer)                  │
 │  2050/2345 Hologram UI • Sector Hubs • Themes                 │
 └──────────────────────────────────────────────────────────────┘
+
+ROOT
+├── public/                 ← static assets + command UI
+├── cli/                    ← command tools
+├── commands/               ← node command layer
+│
+└── src/
+    ├── ai/
+    │   ├── system/         ← GOVERNOR + POLICY ENGINE
+    │   │   ├── sector-engine-binding.json
+    │   │   ├── integrity-rules.json
+    │   │   └── system-map.ts
+    │   │
+    │   └── engines/
+    │       └── autonomous/ ← OS KERNEL + RUNTIME
+    │           ├── seven-runtime/
+    │           ├── nats-client.ts
+    │           ├── event-bus.ts
+    │           ├── event-dispatcher.ts
+    │           ├── seven-bootstrap.ts
+    │           └── seven-of-nine.ts
+    │
+    ├── hubs/               ← sector hubs
+    ├── sectors/            ← sector logic
+    ├── logic/              ← thinking layer
+    └── backend/            ← API + SERVICES
