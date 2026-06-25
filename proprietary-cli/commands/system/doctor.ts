@@ -1,19 +1,16 @@
-import { runDoctor } from "../../../tools/doctor.js";
-import path from "path";
-import { fileURLToPath } from "url";
+// cli entry
+import { DoctorEngine } from '../src/ai/system/doctor/doctor-engine';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const doctor = new DoctorEngine();
+await doctor.init();
 
-export async function run() {
-  const projectRoot = path.join(__dirname, "../../../");
-  const report = runDoctor(projectRoot);
+async function runCommand(intent: string, context: any) {
+  const plan = doctor.route({
+    source: 'cli',
+    intent,
+    context,
+  });
 
-  if (!report.ok) {
-    console.error("Seven‑OS logic integrity FAILED:");
-    report.errors.forEach(e => console.error(" -", e));
-    process.exitCode = 1;
-  } else {
-    console.log("Seven‑OS logic integrity OK (TS compile clean).");
-  }
+  // now call the worker/runtime from plan
+  // e.g. enqueue task to /api/autonomous/task/enqueue with sector/grid/worker/runtime
 }
