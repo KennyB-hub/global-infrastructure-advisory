@@ -1,5 +1,0 @@
-{
-  "function": "discoverCandidates",
-  "inputs": ["demandSignals", "economicSignals", "policySignals"],
-  "outputs": ["candidateSet"]
-}

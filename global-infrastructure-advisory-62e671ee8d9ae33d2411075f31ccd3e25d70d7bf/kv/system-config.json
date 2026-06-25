@@ -1,5 +1,0 @@
-{
-  "PLATFORM_MODE": "production",
-  "LANGUAGES_ENABLED": ["en", "es", "fr", "ar", "zh"],
-  "UNLIMITED_LANGUAGE_EXPANSION": true
-}

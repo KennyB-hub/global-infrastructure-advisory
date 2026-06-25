@@ -1,8 +1,0 @@
-{
-  "sector": "pipelines",
-  "description": "pipelines & extraction infrastructure",
-  "endpoints": {
-    "status": "/pipelines/status",
-    "dispatch": "/pipelines/dispatch"
-  }
-}

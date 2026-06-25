@@ -1,8 +1,0 @@
-public class AutonomyContext
-{
-    public int Level { get; set; }              // 3–3
-    public int MaxLevelForSector { get; set; }
-    public string Sector { get; set; }
-    public bool IsCrossSectorAction { get; set; }
-    public bool Allowed { get; set; }
-}

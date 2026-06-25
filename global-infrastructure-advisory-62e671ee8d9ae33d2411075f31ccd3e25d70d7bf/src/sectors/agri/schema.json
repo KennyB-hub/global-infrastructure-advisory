@@ -1,8 +1,0 @@
-{
-  "sector": "agriculture",
-  "description": "Agricultural infrastructure and rural systems",
-  "endpoints": {
-    "status": "/agriculture/status",
-    "dispatch": "/agriculture/dispatch"
-  }
-}

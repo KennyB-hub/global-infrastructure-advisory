@@ -1,8 +1,0 @@
-{
-  "sector": "logistics",
-  "description": "Transport and supply chain infrastructure",
-  "endpoints": {
-    "status": "/logistics/status",
-    "dispatch": "/logistics/dispatch"
-  }
-}

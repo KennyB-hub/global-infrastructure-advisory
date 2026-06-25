@@ -1,5 +1,0 @@
-public interface IPolicyProvider
-{
-    Task<IReadOnlyList<PolicyDefinition>> GetActivePoliciesAsync(
-        CancellationToken cancellationToken = default);
-}
