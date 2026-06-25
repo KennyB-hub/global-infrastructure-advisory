@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-25T14:34:34.432Z",
+  "generated": "2026-06-25T18:41:02.477Z",
   "checks": [
     {
       "name": "Directory Structure",
@@ -19,7 +19,7 @@
     {
       "name": "Dependency Health",
       "status": "FAIL",
-      "error": "Command failed: npm ls --depth=0\nnpm error code ELSPROBLEMS\nnpm error invalid: chalk@4.1.2 C:\\Users\\kenny\\global-infrastructure-advisory\\node_modules\\chalk\nnpm error missing: inquirer@^9.2.0, required by global-infrastructure-advisory@1.0.0\nnpm error A complete log of this run can be found in: C:\\Users\\kenny\\AppData\\Local\\npm-cache\\_logs\\2026-06-25T14_34_46_032Z-debug-0.log\n"
+      "error": "Command failed: npm ls --depth=0\nnpm error code ELSPROBLEMS\nnpm error invalid: chalk@4.1.2 C:\\Users\\kenny\\global-infrastructure-advisory\\node_modules\\chalk\nnpm error missing: inquirer@^9.2.0, required by global-infrastructure-advisory@1.0.0\nnpm error A complete log of this run can be found in: C:\\Users\\kenny\\AppData\\Local\\npm-cache\\_logs\\2026-06-25T18_41_29_219Z-debug-0.log\n"
     },
     {
       "name": "Circular Dependencies",
