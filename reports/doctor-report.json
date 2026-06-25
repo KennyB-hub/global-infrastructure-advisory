@@ -1,15 +1,15 @@
 {
-  "generated": "2026-06-24T15:11:00.637Z",
+  "generated": "2026-06-25T01:39:29.640Z",
   "checks": [
     {
       "name": "Directory Structure",
       "status": "FAIL",
-      "error": "Missing directory: autonomous-os"
+      "error": "Missing directory: ai"
     },
     {
       "name": "Config Files",
-      "status": "PASS",
-      "error": null
+      "status": "FAIL",
+      "error": "Missing file: tsconfig.json"
     },
     {
       "name": "TypeScript Syntax",
@@ -18,8 +18,8 @@
     },
     {
       "name": "Dependency Health",
-      "status": "PASS",
-      "error": null
+      "status": "FAIL",
+      "error": "Command failed: npm ls --depth=0\nnpm error code ELSPROBLEMS\nnpm error invalid: chalk@4.1.2 C:\\Users\\kenny\\global-infrastructure-advisory\\node_modules\\chalk\nnpm error missing: inquirer@^9.2.0, required by global-infrastructure-advisory@1.0.0\nnpm error A complete log of this run can be found in: C:\\Users\\kenny\\AppData\\Local\\npm-cache\\_logs\\2026-06-25T01_39_35_415Z-debug-0.log\n"
     },
     {
       "name": "Circular Dependencies",
@@ -29,7 +29,12 @@
     {
       "name": "OS Logic Integrity",
       "status": "FAIL",
-      "error": "Missing file: ai-os/kernel.js"
+      "error": "Missing file: runtime/runtime-manifest.json"
+    },
+    {
+      "name": "Dashboard Engine Integrity",
+      "status": "FAIL",
+      "error": "Missing layouts directory"
     },
     {
       "name": "Sector Mapping",
@@ -40,6 +45,11 @@
       "name": "JSON Validation",
       "status": "PASS",
       "error": null
+    },
+    {
+      "name": "Governor Integrity",
+      "status": "FAIL",
+      "error": "Missing governor.js (OS brain entrypoint)"
     }
   ]
 }
