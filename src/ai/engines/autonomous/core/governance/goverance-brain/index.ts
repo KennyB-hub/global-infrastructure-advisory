@@ -1,4 +1,7 @@
 import { GovernanceRule } from '../types';
+import { loadGlobalManifest } from "../runtime/manifest-loader";
+
+const globalManifest = loadGlobalManifest();
 
 export interface GovernanceBrain {
   loadRules(rules: GovernanceRule[]): void;
