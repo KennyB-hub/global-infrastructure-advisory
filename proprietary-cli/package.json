@@ -20,7 +20,8 @@
     "test": "echo \"Running v12 logic tests...\" && exit 0",
     "start": "node ./bin/cli.cjs",
     "dev-test": "node ./bin/cli.cjs",
-    "test-cli": "node ./commands/dev/test-cli.cjs"
+    "test-cli": "node ./commands/dev/test-cli.cjs",
+    "cli:build": "node cli:build"
 
   },
   "dependencies": {
