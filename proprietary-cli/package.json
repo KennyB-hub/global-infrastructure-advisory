@@ -10,7 +10,7 @@
     "dev": "npm run clean && wrangler dev",
     "deploy": "npm run clean && wrangler deploy",
     "start:ws": "node src/backend/ws/run-collar-ws.js",
-    "doctor": "node scripts/doctor.ts",
+    "doctor": "node cli-doctor.ts",
     "build:manifest": "node scripts/build-system-manifest.cjs",
     "route-audit": "node scripts/route-aduit.cjs",
     "verify:ws": "node scripts/verify-ws-test.cjs",
