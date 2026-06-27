@@ -18,6 +18,8 @@
     "seven-autofix": "node scripts/seven-autofix.mjs",
     "scan:licenses": "node scripts/license-scan.cjs",
     "test:cli-sandbox": "node scripts/test-cli-sandbox.cjs",
+    "test:cli-workers": "node proprietary-cli/commands/dev/test.js workers",
+  "test:cli-routing": "node proprietary-cli/commands/dev/test.js routing",
     "test": "echo \"Running v12 logic tests...\" && exit 0",
     "start": "node ./bin/cli.cjs",
     "dev-test": "node ./bin/cli.cjs",

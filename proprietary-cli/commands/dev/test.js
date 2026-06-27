@@ -1,5 +1,55 @@
-export const name = "test"
+// proprietary-cli/commands/dev/test.js
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import { loadWorkers } from "../../loader/loadWorkers.js";
+import { loadRoutingTable } from "../../loader/loadRoutingTable.js";
+import { readJSON } from "../../helpers/json.js";
+import { resolvePath } from "../../helpers/paths.js";
 
-export function run() {
-    console.log("Running tests…")
+// Read the test mode from CLI arguments
+const mode = process.argv[2];
+
+export const name = "test";
+
+export async function run() {
+    console.log("Running tests…");
 }
+
+// Wrap test logic in an async function so we can use await safely
+async function main() {
+    console.log("Seven-OS CLI Test Mode:", mode);
+
+    if (mode === "sandbox") {
+        console.log("Running sandbox test…");
+        await run(); // your existing sandbox logic
+        process.exit(0);
+    }
+
+    if (mode === "workers") {
+        console.log("Running worker registry test…");
+
+        // IMPORTANT: replace with your actual worker loader
+        const workers = await loadWorkers();
+
+        console.log("Workers loaded:", Object.keys(workers));
+        process.exit(0);
+    }
+
+    if (mode === "routing") {
+        console.log("Running routing test…");
+
+        // IMPORTANT: replace with your actual routing loader
+        const routing = await loadRoutingTable();
+
+        console.log("Routing table:", routing);
+        process.exit(0);
+    }
+
+    console.log("Unknown test mode:", mode);
+    process.exit(1);
+}
+
+// Execute the test runner
+main();
+
