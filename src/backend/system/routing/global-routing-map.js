@@ -1,7 +1,7 @@
 // GIA Global Routing Map
 // Maps sectors to internal handlers / workers
 
-import { getSectorById } from "../../../sectors/sector-loader.js";
+import { getSectorById } from "../../../ai/engines/sector/sector-loader.js";
 
 export function resolveSectorRoute(ewo) {
   const sectorId = ewo.sector;

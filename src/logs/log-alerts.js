@@ -1,4 +1,4 @@
-import { analyzeLogs } from './log-analyzer.js';
+import { analyzeLogs } from '../backend/functions/api/logs/log-analyzer.js';
 
 export function checkForAlerts() {
   const analysis = analyzeLogs();

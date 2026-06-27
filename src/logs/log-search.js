@@ -1,4 +1,4 @@
-import { readLog } from './log-reader.js';
+import { readLog } from '../backend/functions/api/logs/log-reader.js';
 
 export function searchLogs(type, query) {
   const logs = readLog(type);

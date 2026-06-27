@@ -1,5 +1,5 @@
-import { writeLog } from './log-writer.js';
-import { readLog } from './log-reader.js';
+import { writeLog } from '../ai/logs/log-writer.js';
+import { readLog } from '../backend/functions/api/logs/log-reader.js';
 import { logHealthCheck } from './log-health-check.js';
 
 export async function logSelfTest() {

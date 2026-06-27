@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { validateLog } from './log-validator.js';
+import { validateLog } from '../ai/logs/log-validator.js';
 
 export function logHealthCheck() {
   const logDir = path.resolve('src/ai/logs');

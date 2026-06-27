@@ -1,5 +1,5 @@
-import { getLogDashboard } from './log-dashboard.js';
-import { analyzeLogs } from './log-analyzer.js';
+import { getLogDashboard } from '../backend/functions/api/logs/log-dashboard.js';
+import { analyzeLogs } from '../backend/functions/api/logs/log-analyzer.js';
 
 export async function buildLogUIDashboard() {
   const dashboard = await getLogDashboard();

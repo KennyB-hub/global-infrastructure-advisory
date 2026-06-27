@@ -1,6 +1,6 @@
 import { readLog } from './log-reader.js';
 import { exportLogs } from './log-exporter.js';
-import { searchLogs } from './log-search.js';
+import { searchLogs } from '../../../../logs/log-search.js';
 import { analyzeLogs } from './log-analyzer.js';
 import { getLogDashboard } from './log-dashboard.js';
 

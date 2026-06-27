@@ -1,4 +1,4 @@
-// /src/ai-engine/sector/sector-loader.js
+// /src/ai/engine/sector/sector-loader.js
 // GIA Sovereign Sector Loader – V12 Alpha
 
 import manifest from "../../../sectors/global-manifest.json" assert { type: "json" };

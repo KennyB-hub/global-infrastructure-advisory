@@ -7,41 +7,29 @@ import path from "path";
 
 const LOG_DIR = path.resolve("src/logs");
 
-export async function loadLogFile(filename) {
+export function loadLogFile(filename) {
+  const filePath = path.join(LOG_DIR, filename);
+  if (!fs.existsSync(filePath)) return null;
+
   try {
-    const filePath = path.join(LOG_DIR, filename);
-
-    if (!fs.existsSync(filePath)) {
-      return { ok: false, error: "Log file not found", filePath };
-    }
-
-    const raw = await fs.promises.readFile(filePath, "utf8");
-    const json = JSON.parse(raw);
-
-    return { ok: true, data: json };
+    return JSON.parse(fs.readFileSync(filePath, "utf8"));
   } catch (err) {
-    return { ok: false, error: err.message };
+    return { error: "Failed to parse log", details: err.message };
   }
 }
 
-export async function loadAllLogs() {
-  try {
-    const files = await fs.promises.readdir(LOG_DIR);
-    const jsonFiles = files.filter(f => f.endsWith(".json"));
+export function loadAllLogs() {
+  const files = fs.readdirSync(LOG_DIR).filter(f => f.endsWith(".json"));
+  const logs = {};
 
-    const logs = {};
-
-    for (const file of jsonFiles) {
-      try {
-        const raw = await fs.promises.readFile(path.join(LOG_DIR, file), "utf8");
-        logs[file] = JSON.parse(raw);
-      } catch (err) {
-        logs[file] = { error: "Failed to parse", details: err.message };
-      }
+  for (const file of files) {
+    try {
+      logs[file] = JSON.parse(fs.readFileSync(path.join(LOG_DIR, file), "utf8"));
+    } catch (err) {
+      logs[file] = { error: "Failed to parse", details: err.message };
     }
-
-    return { ok: true, logs };
-  } catch (err) {
-    return { ok: false, error: err.message };
   }
+
+  return logs;
 }
+

@@ -4,7 +4,7 @@
 import { DroneControl } from "./drone-control";
 import { DroneMissionPlanner, MissionPlan } from "./drone-mission-planner";
 import { TerrainAwareRouting } from "./terrain-routing";
-import { writeLog } from "../../../../../logs/log-writer.js";
+import { writeLog } from "../../../../logs/log-writer.js";
 
 export type SectorType =
     | "cattle"
