@@ -2,10 +2,16 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath, pathToFileURL } from "url";
 
+import { readJSON } from "../helpers/json.js";
+import { resolvePath } from "../helpers/paths.js";
+import { buildContext } from "../context/context.js";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-export async function loadCommands() {
+export async function loadCommands(options = {}) {
+  const ctx = buildContext({ mode: "commands", ...options });
+
   const commands = {};
   const base = path.join(__dirname, "..", "commands");
 
