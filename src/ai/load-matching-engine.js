@@ -1,10 +1,10 @@
 // load-matching-engine.js
 // V12 Alpha – Load Matching Engine
-import { createLoad, listLoads, updateLoadStatus } from "../ai/load-registry.js";
+import { createLoad, listLoads, updateLoadStatus } from "./load-registry.js";
 import { matchHaulersForLoad } from "../ai/load-matching-engine.js";
 
 const { listHaulers } = require("./hauler-registry");
-const { getLoadById } = require("./load-registry");
+const { getLoadById } = require("./load-registry.js");
 
 /**
  * Simple distance proxy: region equality or adjacency list later.

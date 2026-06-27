@@ -1,7 +1,7 @@
 // load-registry.js
 // V12 Alpha – Cattle Load Registry
-import { createLoad, listLoads, updateLoadStatus } from "../ai/load-registry.js";
-import { matchHaulersForLoad } from "../ai/load-matching-engine.js";
+import { createLoad, listLoads, updateLoadStatus } from "./load-registry.js";
+import { matchHaulersForLoad } from "./load-matching-engine.js";
 
 const fs = require("fs");
 const path = require("path");

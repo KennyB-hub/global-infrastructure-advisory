@@ -1,6 +1,6 @@
 // Contractor + Public Workforce Engine
 
-import { writeLog } from '../logs/log-writer.js';
+import { writeLog } from '../../logs/log-writer.js';
 
 export function matchWorkforce(task) {
   const { sector, location, skillsRequired, priority, context } = task;
