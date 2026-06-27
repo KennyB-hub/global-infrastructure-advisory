@@ -1,4 +1,4 @@
-import { routeRequest } from '../../backend/sector/cross-sector-routing-engine.js';
+import { routeRequest } from '../../sector/cross-sector-routing-engine.js';
 
 (async function(){
   try {
