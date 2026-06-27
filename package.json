@@ -11,7 +11,7 @@
     "deploy": "npm run clean && wrangler deploy",
     "start:ws": "node src/backend/ws/run-collar-ws.js",
     "build:manifest": "node scripts/build-system-manifest.cjs",
-    "route-audit": "node scripts/route-aduit.cjs",
+    "route-audit": "node scripts/route-aduit.js",
     "verify:ws": "node scripts/verify-ws-test.cjs",
     "scan:secrets": "node scripts/scan-secrets.cjs",
     "seven-autofix": "node scripts/seven-autofix.mjs",
