@@ -1,4 +1,4 @@
-// src/identity/vc.ts
+// backend/identity/vc.ts
 // VC helper for expansion flows.
 
 export class VC {

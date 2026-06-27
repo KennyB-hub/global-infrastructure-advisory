@@ -1,10 +1,12 @@
 // backend/system/identity/did-vc-verifier.js
 
+import { resolveDID } from "../../identity/did.ts";
+import { verifyVC } from "../../identity/vc.ts";
+
 /**
  * DID / VC Identity Verifier (V12 Alpha)
- * NOTE: This is a structural stub — you can later swap in a real VC library.
+ * Uses real DID + VC logic from TypeScript identity layer.
  */
-
 export async function verifyDidVcIdentity(request, env) {
   const auth = request.headers.get("Authorization") || "";
   const token = auth.startsWith("Bearer ") ? auth.slice(7) : null;
@@ -19,25 +21,35 @@ export async function verifyDidVcIdentity(request, env) {
     };
   }
 
-  // TODO: Replace with real VC / JWT verification
-  // For now, treat this as a decoded payload stub:
-  let decoded;
-  try {
-    decoded = JSON.parse(atob(token.split(".")[1] || "")); // VERY TEMPORARY
-  } catch {
+  // 1. Resolve DID
+  const did = await resolveDID(token);
+  if (!did.valid) {
     return {
       valid: false,
-      reason: "invalid_token_format",
+      reason: did.reason || "did_resolution_failed",
       trustZone: "public",
       subject: null,
       claims: {}
     };
   }
 
-  const subject = decoded.sub || decoded.credentialSubject?.id || null;
-  const claims = decoded.credentialSubject || decoded.claims || {};
+  // 2. Verify VC
+  const vc = await verifyVC(did);
+  if (!vc.valid) {
+    return {
+      valid: false,
+      reason: vc.reason || "vc_verification_failed",
+      trustZone: "public",
+      subject: did.subject,
+      claims: {}
+    };
+  }
 
-  // Map claims → trustZone (you can refine this later)
+  // 3. Extract claims
+  const claims = vc.claims || {};
+  const subject = did.subject;
+
+  // 4. Map trust zone
   let trustZone = "public";
   if (claims.trustZone) trustZone = claims.trustZone;
   else if (claims.role === "deepgov" || claims.clearance === "TS") trustZone = "deepgov";

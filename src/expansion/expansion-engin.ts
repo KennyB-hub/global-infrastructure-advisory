@@ -2,8 +2,8 @@
 // ExpansionEngine – orchestrates the full expansion lifecycle.
 
 import { MCP } from "../mcp/mcp-client";
-import { DID } from "../identity/did";
-import { VC } from "../identity/vc";
+import { DID } from "../backend/identity/did";
+import { VC } from "../backend/identity/vc";
 import { SovereignPolicy } from "../policy/sovereign-policy";
 
 export class ExpansionEngine {

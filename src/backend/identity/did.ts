@@ -1,4 +1,4 @@
-// src/identity/did.ts
+// backend/identity/did.ts
 // DID helper for expansion flows.
 
 export class DID {

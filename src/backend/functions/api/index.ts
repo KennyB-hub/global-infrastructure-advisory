@@ -1,11 +1,11 @@
 // ---------------------------------------------------------
 //  Core Imports
 // ---------------------------------------------------------
-import { handleApiRequest } from "../../../backend/functions/api/index.js";
-import { getTrustZone, checkTrust } from "../../../backend/system/trust-middleware.js";
+import { handleApiRequest } from "./index.js";
+import { getTrustZone, checkTrust } from "../../system/trust-middleware.js";
 
 import * as organizerWorker from "./organizer/index.js";
-import * as expansionWorker from "./expansion/index.js";
+import * as expansionWorker from "../../../ai/workers/expansion/index.js";
 import * as anysWorker from "./anys/index.js";
 
 import * as publicWorker from "./public/index.js";
@@ -20,11 +20,11 @@ import * as systemWorker from "../system/index.js";
 import * as govViewWorker from "./govView.worker.js";
 import * as opportunityScannerWorker from "./opportunityScanner.worker.js";
 
-import { runDecision } from "../engine/decision-engine.js";
-import { Cortex } from "../../../backend/ai/cortex.js";
+import { runDecision } from "../../src/ai/decision-engine.js";
+import { Cortex } from "../../ai/cortex.js";
 
-import systemManifest from "../config/system-manifest.json" assert { type: "json" };
-import nodeRegistry from "../config/node-registry.json" assert { type: "json" };
+import systemManifest from "../../config/system-manifest.json" assert { type: "json" };
+import nodeRegistry from "../../config/node-registry.json" assert { type: "json" };
 
 // ---------------------------------------------------------
 //  Identity + Policy Imports (NEW)

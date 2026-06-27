@@ -1,16 +1,16 @@
 // GIA Sovereign Gateway Worker – V12 Alpha (TypeScript)
 // Routes: Hubs, Contractors, Deep Mind, System Endpoints, Decision Engine
 
-import { runDecision } from "../../src/engine/decision-engine";
-import { systemStatus } from "../../src/system/system-endpoints";
-import { diagnostics } from "../../src/system/diagnostics";
-import { uptime } from "../../src/system/uptime";
+import { runDecision } from "../../ai/decision-engine";
+import { systemStatus } from "../system/system-endpoints";
+import { diagnostics } from "../../system/diagnostics";
+import { uptime } from "../..backend/system/uptime";
 import { fullReport } from "../../src/system/full-report";
 import { systemThreatReport } from "../../src/system/threat-report";
 import { runCloudflareDiagnostics } from "../../src/system/cloudflare-tests";
 
 import systemManifest from "../../src/config/system-manifest.json";
-import nodeRegistry from "../../src/config/node-registry.json";
+import nodeRegistry from "../../src/system/config/node-registry.json";
 
 let START_TIME = Date.now();
 
