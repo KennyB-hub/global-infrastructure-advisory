@@ -1,6 +1,7 @@
 {
     "version": "0.2.0",
     "configurations": [
+        
 
         // --- 1. Attach to Microsoft Edge ---
         {

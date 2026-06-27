@@ -14,7 +14,7 @@
     "route-audit": "node scripts/route-audit.mjs",
     "verify:ws": "node scripts/verify-ws-test.cjs",
     "scan:secrets": "node scripts/scan-secrets.cjs",
-    "move:workers": "node scripts/move-sector-workers.cjs",
+    "move-workers": "node scripts/move-workers.cjs",
     "seven-autofix": "node scripts/seven-autofix.mjs",
     "scan:licenses": "node scripts/license-scan.cjs",
     "test:cli-sandbox": "node scripts/test-cli-sandbox.cjs",

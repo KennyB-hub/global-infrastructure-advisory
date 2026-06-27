@@ -14,7 +14,7 @@
     "build:manifest": "node scripts/build-system-manifest.cjs",
     "route-audit": "node scripts/route-audit.cjs",
     "verify:ws": "node scripts/verify-ws-test.cjs",
-    "move:workers": "node scripts/move-sector-workers.cjs",
+    "move-workers": "node scripts/move-workers.cjs",
     "scan:secrets": "node scripts/scan-secrets.cjs",
     "scan:licenses": "node scripts/license-scan.cjs",
     "test:cli-sandbox": "node scripts/test-cli-sandbox.cjs",
