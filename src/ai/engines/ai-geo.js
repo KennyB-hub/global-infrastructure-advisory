@@ -1,7 +1,7 @@
 // /ai-engine/ai-geo.js
 // GIA Sovereign Geo Engine – V12 Alpha
 
-import { validatePayload } from "../utils/validator.js";
+import { validatePayload } from "./utils/validator.js";
 import { sanitizeOutput } from "./response-sanitizer.js";
 import { handleError } from "./error-handler.js";
 import { buildContext } from "./context-builder.js";

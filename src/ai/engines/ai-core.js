@@ -8,7 +8,7 @@ import { applyPolicies } from "./policy-engine.js";
 import { buildContext } from "./context-builder.js";
 import { sanitizeOutput } from "./response-sanitizer.js";
 import { handleError } from "./error-handler.js";
-import { validatePayload, validateTrustZone } from "../utils/validator.js";
+import { validatePayload, validateTrustZone } from "./utils/validator.js";
 
 export async function processAIRequest(request, env) {
   try {

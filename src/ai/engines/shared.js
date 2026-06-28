@@ -5,9 +5,9 @@ import {
   getNodeContext,
   getClusterContext,
   getAIContext
-} from "../utils/context.js";
+} from "./utils/context.js";
 
-import { validatePayload } from "../utils/validator.js";
+import { validatePayload } from "./utils/validator.js";
 
 export {
   sha256,

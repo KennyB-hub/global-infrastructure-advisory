@@ -1,7 +1,7 @@
 // /ai-engine/sandbox-bridge.js
 // GIA Sovereign Sandbox Bridge – V12 Alpha
 
-import { validatePayload } from "../utils/validator.js";
+import { validatePayload } from "./utils/validator.js";
 import { buildContext } from "./context-builder.js";
 import { sanitizeOutput } from "./response-sanitizer.js";
 import { handleError } from "./error-handler.js";

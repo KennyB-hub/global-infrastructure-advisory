@@ -1,8 +1,8 @@
 // src/backend/ai/decision-engine.js
 // GIA Sovereign Decision Engine – V12 Alpha
 
-import { validatePayload, validateTrustZone } from "../utils/validator.js";
-import { makeOk, makeError } from "../utils/context.js";
+import { validatePayload, validateTrustZone } from "./utils/validator.js";
+import { makeOk, makeError } from "./utils/context.js";
 
 import workflows from "./workflows/index.js";
 import policies from "./policies/index.js";
