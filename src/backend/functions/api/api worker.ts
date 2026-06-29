@@ -1,12 +1,12 @@
 // src/backend/ai/api-worker.js
 
-import { runDecisionEngine } from "../../ai/decision-engine.js";
+import { runDecisionEngine } from "../../../ai/decision-engine.js";
 import { Cortex } from "../../ai/cortex.js";
 
 import { verifyTrustZone } from "../../system/trust.js";
-import { applyPolicy } from "../../system/policy-engine.js";
+import { applyPolicy } from "../../../system/policy-engine.js";
 import { applyCodeFilter } from "../../system/code-filter.js";
-import { buildAIContext } from "../../system/ai-context.js";
+import { buildAIContext } from "../../../system/ai-context.js";
 import { computeIntegrityHash } from "../../system/integrity.js";
 
 import nodeRegistry from "../../config/node-registry.json" assert { type: "json" };
