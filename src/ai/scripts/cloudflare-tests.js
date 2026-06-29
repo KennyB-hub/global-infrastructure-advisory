@@ -9,7 +9,7 @@ import { applyPolicies } from "../ai-engine/policy-engine.js";
 import { buildContext } from "../ai-engine/context-builder.js";
 import { sanitizeOutput } from "../ai-engine/response-sanitizer.js";
 import { handleError } from "../ai-engine/error-handler.js";
-import { sha256 } from "../engines/utils/context.js";
+import { sha256 } from "../../ai-engines/utils/context.js";
 
 const CF_API = "https://api.cloudflare.com/client/v4";
 

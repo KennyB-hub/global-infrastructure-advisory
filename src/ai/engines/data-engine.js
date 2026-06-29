@@ -7,9 +7,9 @@ import {
   getNodeContext,
   getClusterContext,
   getAIContext
-} from "./utils/context.js";
+} from "../../ai-engines/utils/context.js";
 
-import { validatePayload } from "./utils/validator.js";
+import { validatePayload } from "../../ai-engines/utils/validator.js";
 
 export class DataEngine {
 
