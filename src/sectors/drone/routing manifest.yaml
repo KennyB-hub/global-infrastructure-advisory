@@ -1,0 +1,62 @@
+routes:
+  - name: drone_voice_control
+    origin: voice
+    sector: drone
+    entry_worker: drone.control.voice_ingress
+    auth_scope: drone.command
+    log_channel: drone.ops
+sectors:
+  drone:
+    router: drone.router
+    allowed_origins: [voice, api, cli]
+  finance:
+    router: finance.router
+    allowed_origins: [api, dashboard]
+  infra:
+    router: infra.router
+    allowed_origins: [cli, api]
+road_corridor:
+  offset_horizontal_m: 8
+  offset_vertical_m: 25
+  crossing_allowed: false
+  dynamic_vehicle_detection: true
+powerline_corridor:
+  offset_horizontal_m: 12
+  offset_vertical_m: 18
+  avoid_structures: true
+  conductor_tracking: true
+fenceline_spray:
+  offset_horizontal_m: 1
+  altitude_m: 3
+  wind_compensation: true
+  terrain_following: true
+routes:
+  - name: road_corridor_scan
+    sector: drone
+    type: roadway
+    worker: drone.scan.roadway
+
+  - name: powerline_inspection
+    sector: drone
+    type: powerline
+    worker: drone.inspect.powerline
+
+  - name: fenceline_spray
+    sector: drone
+    type: spray
+    worker: drone.spray.fenceline
+routes:
+  - name: drone_voice_ingress
+    sector: drone
+    worker: drone.control.voice_ingress
+    autonomy: level_3
+
+  - name: drone_corridor_planner
+    sector: drone
+    worker: drone.route.corridor_planner
+    autonomy: level_3
+
+  - name: global_sector_router
+    sector: global
+    worker: global.router.core
+    autonomy: level_3
