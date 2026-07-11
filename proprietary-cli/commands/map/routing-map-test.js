@@ -1,10 +1,11 @@
-if (mode === "routing") {
-    console.log("Running routing map test…");
+import { pathToFileURL } from "url";
 
-    const routing = loadJSON("routing-map.json");
+export const name = "routing-map-test";
 
-    console.log("Routing sectors:", Object.keys(routing.sectors));
-    console.log("Routing workers:", Object.keys(routing.workers));
+export function run() {
+    console.log("Routing map test placeholder");
+}
 
-    process.exit(0);
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+    run();
 }

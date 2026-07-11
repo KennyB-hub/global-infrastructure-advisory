@@ -1,7 +1,7 @@
 // proprietary-cli/commands/dev/test.js
 import fs from "fs";
 import path from "path";
-import { fileURLToPath } from "url";
+import { fileURLToPath, pathToFileURL } from "url";
 
 import { loadWorkers } from "../../loader/loadWorkers.js";
 import { loadRoutingTable } from "../../loader/loadRoutingTable.js";
@@ -10,6 +10,7 @@ import { readJSON } from "../../helpers/json.js";
 import { resolvePath } from "../../helpers/paths.js";
 
 import { buildContext } from "../../context/context.js";
+import { traceEvent } from "../../core/tracing.js";
 
 // Read the test mode from CLI arguments
 const mode = process.argv[2];
@@ -17,11 +18,13 @@ const mode = process.argv[2];
 export const name = "test";
 
 export async function run() {
+    traceEvent("cli.command.run", { command: "test" })
     console.log("Running tests…");
 }
 
 // Wrap test logic in an async function so we can use await safely
 async function main() {
+    traceEvent("cli.test.mode", { mode })
     console.log("Seven-OS CLI Test Mode:", mode);
 
     // Build context for this test run
@@ -68,7 +71,9 @@ async function main() {
     process.exit(1);
 }
 
-// Execute the test runner
-main();
+// Execute the test runner only when this file is invoked directly
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+    main();
+}
 
 

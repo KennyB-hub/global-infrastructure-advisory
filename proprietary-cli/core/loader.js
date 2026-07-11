@@ -5,6 +5,7 @@ import { fileURLToPath, pathToFileURL } from "url";
 import { readJSON } from "../helpers/json.js";
 import { resolvePath } from "../helpers/paths.js";
 import { buildContext } from "../context/context.js";
+import { traceEvent } from "./tracing.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -30,6 +31,7 @@ export async function loadCommands(options = {}) {
       const name = cmd.name || path.parse(file).name;
 
       commands[name] = cmd;
+      traceEvent("cli.command_discovered", { group, file, command: name });
     }
   }
 

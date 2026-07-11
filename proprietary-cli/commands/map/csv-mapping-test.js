@@ -1,10 +1,11 @@
-if (mode === "mapping") {
-    console.log("Running CSV mapping test…");
+import { pathToFileURL } from "url";
 
-    const csv = loadCSV("sector-worker-mapping.csv");
+export const name = "csv-mapping-test";
 
-    console.log("CSV length:", csv.length);
-    console.log("CSV preview:\n", csv.split("\n").slice(0, 5).join("\n"));
+export function run() {
+    console.log("CSV mapping test placeholder");
+}
 
-    process.exit(0);
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+    run();
 }

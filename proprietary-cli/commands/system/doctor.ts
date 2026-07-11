@@ -1,5 +1,5 @@
 // cli entry
-import { DoctorEngine } from '../src/ai/system/doctor/doctor-engine';
+import { DoctorEngine } from '../seven-os/ai/system/doctor/doctor-engine';
 
 const doctor = new DoctorEngine();
 await doctor.init();
