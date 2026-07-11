@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 export function syncLogs(targetPath) {
-  const logDir = path.resolve('src/ai/logs');
+  const logDir = path.resolve('seven-os/ai/logs');
   const files = fs.readdirSync(logDir);
 
   files.forEach(file => {

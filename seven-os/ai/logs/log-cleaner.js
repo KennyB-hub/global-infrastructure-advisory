@@ -5,10 +5,10 @@ export function cleanLogs(options = {}) {
   const { type = 'all', beforeDate = null } = options;
 
   const logPaths = {
-    session: path.resolve('src/ai/logs/session-log.json'),
-    audit: path.resolve('src/ai/logs/audit-log.json'),
-    telemetry: path.resolve('src/ai/logs/telemetry-log.json'),
-    memory: path.resolve('src/ai/logs/memory-log.json')
+    session: path.resolve('seven-os/ai/logs/session-log.json'),
+    audit: path.resolve('seven-os/ai/logs/audit-log.json'),
+    telemetry: path.resolve('seven-os/ai/logs/telemetry-log.json'),
+    memory: path.resolve('seven-os/ai/logs/memory-log.json')
   };
 
   const cleanFile = file => {
