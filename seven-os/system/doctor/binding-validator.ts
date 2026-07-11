@@ -1,6 +1,6 @@
 // binding-validator.ts
-import sectorBinding from '../../system/sector-engine-binding.json';
-import integrityRules from '../../system/integrity-rules.json';
+import sectorBinding from '../sector-engine-binding.json';
+import integrityRules from '../integrity-rules.json';
 
 export async function validateBindings(integrationMap: any) {
   // check that every component in integrationMap has:
