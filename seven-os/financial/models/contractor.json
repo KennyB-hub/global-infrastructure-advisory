@@ -1,0 +1,21 @@
+{
+  "utility": {
+    "hourly": 85,
+    "emergency_hourly": 125,
+    "equipment_fee": 45
+  },
+  "infrastructure": {
+    "hourly": 75,
+    "project_manager_hourly": 110,
+    "equipment_fee": 55
+  },
+  "agriculture": {
+    "hourly": 45,
+    "equipment_fee": 25
+  },
+  "rescue": {
+    "hourly": 95,
+    "emergency_hourly": 145,
+    "equipment_fee": 65
+  }
+}

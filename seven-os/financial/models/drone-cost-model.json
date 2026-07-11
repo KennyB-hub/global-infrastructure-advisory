@@ -1,0 +1,39 @@
+{
+  "id": "drone-ops-model",
+  "type": "drone",
+  "baseRatePerHour": 150,
+  "batteryCycleCost": 12,
+  "maintenancePerFlight": 8,
+  "payloadMultipliers": {
+    "light": 1.0,
+    "medium": 1.3,
+    "heavy": 1.8
+  },
+  "missionMultipliers": {
+    "mapping": 1.0,
+    "agriculture": 1.2,
+    "search_rescue": 1.5,
+    "heavy_lift": 2.0
+  },
+  "mission": {
+    "base_cost": 45,
+    "battery_cycle_cost": 3.5,
+    "maintenance_per_hour": 12,
+    "operator_supervision": 18
+  },
+  "payload": {
+    "spray_per_gallon": 6.5,
+    "thermal_scan": 22,
+    "lidar_scan": 48,
+    "camera_scan": 12
+  },
+  "flight": {
+    "per_mile": 1.8,
+    "hover_per_minute": 0.35
+  },
+  "risk": {
+    "low": 1.0,
+    "medium": 1.3,
+    "high": 1.8
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "$id": "https://gia.local/schemas/budget.schema.json",
+  "title": "Seven-OS Budget Schema",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "projectId": { "type": "string" },
+    "sector": { "type": "string" },
+    "currency": { "type": "string" },
+    "totalBudget": { "type": "number" },
+    "timeframe": {
+      "type": "object",
+      "properties": {
+        "start": { "type": "string", "format": "date" },
+        "end": { "type": "string", "format": "date" }
+      },
+      "required": ["start", "end"]
+    },
+    "lineItems": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" },
+          "allocated": { "type": "number" },
+          "actual": { "type": "number" },
+          "tags": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "required": ["id", "label", "allocated", "actual"]
+      }
+    },
+    "contractMeta": {
+      "type": "object",
+      "properties": {
+        "samUei": { "type": ["string", "null"] },
+        "naics": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "psc": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "fundingSource": { "type": "string" },
+        "contractId": { "type": ["string", "null"] }
+      }
+    }
+  },
+  "required": ["id", "projectId", "sector", "currency", "totalBudget", "timeframe", "lineItems"]
+}

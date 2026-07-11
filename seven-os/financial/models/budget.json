@@ -1,35 +1,26 @@
 {
-  "$schema": "https://gia.local/schemas/budget.schema.json",
-  "id": "mission-phoenix-agriculture-phase-1",
-  "projectId": "mission-phoenix-agriculture",
-  "sector": "agriculture",
-  "totalBudget": 250000,
-  "currency": "USD",
-  "timeframe": {
-    "start": "2026-06-01",
-    "end": "2027-06-01"
+  "sector": {
+    "agriculture": 25000,
+    "powergrid": 45000,
+    "infrastructure": 60000,
+    "drone": 30000,
+    "rescue": 40000,
+    "logistics": 35000
   },
-  "lineItems": [
-    {
-      "id": "drone-ops",
-      "label": "Drone Operations",
-      "allocated": 80000,
-      "actual": 0,
-      "tags": ["drone", "ops", "field"]
-    },
-    {
-      "id": "infrastructure-repair",
-      "label": "Infrastructure Repair",
-      "allocated": 120000,
-      "actual": 0,
-      "tags": ["roads", "bridges"]
-    }
-  ],
-  "contractMeta": {
-    "samUei": "TBD",
-    "naics": ["541330"],
-    "psc": ["R499"],
-    "fundingSource": "federal",
-    "contractId": null
+  "worker": {
+    "default": 1500,
+    "high_cost": 3500
+  },
+  "mission": {
+    "default": 1200,
+    "high_risk": 3500
+  },
+  "region": {
+    "urban": 5000,
+    "rural": 3000,
+    "mountain": 4500,
+    "coastal": 4000,
+    "disaster_zone": 8000
   }
 }
+

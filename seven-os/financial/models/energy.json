@@ -1,0 +1,13 @@
+{
+  "battery": {
+    "charge_per_cycle": 0.45,
+    "fast_charge_multiplier": 1.3
+  },
+  "generator": {
+    "diesel_per_hour": 4.5,
+    "propane_per_hour": 3.2
+  },
+  "grid": {
+    "kwh_cost": 0.14
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "inference": {
+    "per_1000_tokens": 0.002,
+    "mission_analysis": 0.015
+  },
+  "training": {
+    "per_hour": 0.85
+  },
+  "autonomous": {
+    "workflow_step": 0.004,
+    "mission_planning": 0.02
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "id": "infrastructure-global-model",
+  "type": "infrastructure",
+  "baseRates": {
+    "road_per_mile": 185000,
+    "bridge_per_foot": 9500,
+    "water_line_per_foot": 120,
+    "fiber_per_foot": 18,
+    "power_line_per_mile": 75000
+  },
+  "complexityMultipliers": {
+    "rural": 1.0,
+    "suburban": 1.2,
+    "urban": 1.5,
+    "mountain": 1.8,
+    "disaster_zone": 2.3
+  },
+  "materialMultipliers": {
+    "steel": 1.0,
+    "concrete": 1.1,
+    "composite": 1.3
+  },
+  "road": {
+    "paving_per_mile": 185000,
+    "resurface_per_mile": 95000,
+    "inspection_per_mile": 4500
+  },
+  "bridge": {
+    "inspection_per_foot": 12,
+    "repair_per_foot": 95,
+    "structural_scan": 2500
+  },
+  "fiber": {
+    "install_per_mile": 28000,
+    "repair_per_mile": 8500,
+    "locate_fault": 1200
+  },
+  "powerline": {
+    "inspection_per_mile": 3200,
+    "hazard_scan": 1800,
+    "vegetation_scan": 1500
+  },
+  "water": {
+    "pipe_inspection_per_mile": 2100,
+    "leak_detection": 900
+  },
+  "gas": {
+    "line_scan_per_mile": 3500,
+    "leak_detection": 1400
+  },
+  "multipliers": {
+    "urban": 1.4,
+    "rural": 1.0,
+    "mountain": 1.8,
+    "coastal": 1.3,
+    "disaster_zone": 2.2
+  }
+}

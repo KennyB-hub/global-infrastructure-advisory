@@ -1,0 +1,16 @@
+{
+  "base": {
+    "urban": 1.3,
+    "rural": 1.0,
+    "mountain": 1.8,
+    "coastal": 1.2,
+    "disaster_zone": 2.4
+  },
+  "fuel_adjustment": {
+    "urban": 1.1,
+    "rural": 1.0,
+    "mountain": 1.3,
+    "coastal": 1.1,
+    "disaster_zone": 1.5
+  }
+}

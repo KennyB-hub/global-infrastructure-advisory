@@ -1,0 +1,30 @@
+{
+  "id": "labor-cost-model",
+  "type": "labor",
+  "roles": {
+    "engineer": 95,
+    "contractor": 65,
+    "drone_pilot": 55,
+    "field_tech": 45,
+    "farmer": 35,
+    "emergency_responder": 50
+  },
+  "overtimeMultiplier": 1.5,
+  "hazardMultiplier": 1.8,
+
+  "rates": {
+    "general": 28,
+    "skilled": 42,
+    "specialist": 65,
+    "engineer": 95,
+    "emergency_responder": 55
+  },
+  "overtime": {
+    "multiplier": 1.5
+  },
+  "hazard": {
+    "low": 1.0,
+    "medium": 1.4,
+    "high": 1.9
+  }
+}

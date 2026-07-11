@@ -1,0 +1,27 @@
+{
+  "id": "material-cost-model",
+  "type": "materials",
+  "materials": {
+    "steel_per_ton": 950,
+    "concrete_per_cubic_yard": 140,
+    "fiber_per_foot": 8,
+    "pvc_pipe_per_foot": 4,
+    "sensor_unit": 120,
+    "battery_pack": 180
+  },
+  "chemicals": {
+    "herbicide_per_gallon": 18,
+    "fertilizer_per_gallon": 12,
+    "pesticide_per_gallon": 22
+  },
+  "parts": {
+    "drone_propeller": 14,
+    "drone_motor": 65,
+    "battery_pack": 120,
+    "sensor_replacement": 85
+  },
+  "repair": {
+    "frame_repair": 45,
+    "electronics_repair": 75
+  }
+}
