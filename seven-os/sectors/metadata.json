@@ -1,0 +1,12 @@
+"sector": {
+  "type": "string",
+  "enum": [
+    "agriculture",
+    "powergrid",
+    "infrastructure",
+    "drone",
+    "rescue",
+    "logistics",
+    "multi-sector"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "id": "na-appalachia-wv-south-001",
+  "type": "rural-node",
+  "microgrid": true,
+  "connectivity": ["cellular", "satellite"]
+}

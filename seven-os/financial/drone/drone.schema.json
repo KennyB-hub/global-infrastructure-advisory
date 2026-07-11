@@ -1,0 +1,88 @@
+{
+  "$id": "schemas/drone.schema.json",
+  "title": "Seven-OS Drone Registry Schema",
+  "type": "object",
+
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique hardware ID"
+    },
+
+    "name": {
+      "type": "string",
+      "description": "Human-readable name"
+    },
+
+    "type": {
+      "type": "string",
+      "enum": [
+        "quad",
+        "vtol",
+        "fixed-wing",
+        "heavy-lift",
+        "thermal",
+        "lidar"
+      ],
+      "description": "Drone class/type"
+    },
+
+    "sector": {
+      "type": "string",
+      "enum": [
+        "agriculture",
+        "powergrid",
+        "infrastructure",
+        "drone",
+        "rescue",
+        "logistics",
+        "multi-sector"
+      ],
+      "description": "Operational sector"
+    },
+
+    "region": {
+      "type": "string",
+      "description": "Region ID"
+    },
+
+    "capabilities": {
+      "type": "object",
+      "properties": {
+        "payloadKg": { "type": "number" },
+        "flightMinutes": { "type": "number" },
+        "rangeMiles": { "type": "number" },
+        "sensors": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "required": ["payloadKg", "flightMinutes", "rangeMiles"]
+    },
+
+    "active": {
+      "type": "boolean",
+      "description": "Whether the drone is active"
+    },
+
+    "lastMissionId": {
+      "type": ["string", "null"],
+      "description": "Last assigned mission"
+    },
+
+    "costModel": {
+      "type": ["object", "null"],
+      "description": "Bound cost model from financial/models/drone.json"
+    }
+  },
+
+  "required": [
+    "id",
+    "name",
+    "type",
+    "sector",
+    "region",
+    "capabilities",
+    "active"
+  ]
+}

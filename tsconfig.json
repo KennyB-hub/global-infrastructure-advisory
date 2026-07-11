@@ -11,6 +11,6 @@
     "outDir": "dist",
     "rootDir": "."
   },
-  "include": ["seven-os", "autonomous-os", "runtime", "src/system/doctor/.bindiing-validator.ts"],
+  "include": ["seven-os", "autonomous-os", "runtime", "seven-os/system/doctor/.bindiing-validator.ts"],
   "exclude": ["node_modules", "dist", "public"]
 }
