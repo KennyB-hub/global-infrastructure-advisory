@@ -1,7 +1,14 @@
 // /src/ai/engine/sector/sector-loader.js
 // GIA Sovereign Sector Loader – V12 Alpha
 
-import manifest from "../../../sectors/global-manifest.json" assert { type: "json" };
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const manifestPath = path.join(__dirname, "..", "..", "proprietary-cli", "global-manifest.json");
+const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
 
 export function getEnabledSectors() {
   return (manifest.sectors || []).filter(s => s.enabled);
@@ -14,6 +21,14 @@ export function getSectorById(id) {
 
 export function listSectorIds() {
   return getEnabledSectors().map(s => s.id);
+}
+
+export function loadSectors() {
+  return getEnabledSectors();
+}
+
+export function loadAllsectors() {
+  return manifest.sectors || [];
 }
 
 // NEW: sector metadata for AI engines

@@ -1,6 +1,6 @@
-import { gatekeeper } from './routes/auth-gateway.js';
-import { handleFarmerRequest } from './routes/farmer-routes.js';
-import { handleExecutiveRequest } from './routes/executive-routes.js';
+import { gatekeeper } from './auth-gateway.js';
+import { handlePublicRequest } from './public-routes.js';
+import { handleExecutiveRequest } from './executive-routes.js';
 
 export default {
   async fetch(request, env) {
@@ -11,10 +11,10 @@ export default {
     const authError = await gatekeeper(request);
     if (authError) return authError;
 
-    // 2. ROUTE TO WORLD A (Farmers)
-    // If the URL contains "/farmer", send them to the Farmer Hub logic
-    if (url.pathname.startsWith("/api/farmer")) {
-      return await handleFarmerRequest(request);
+    // 2. ROUTE TO WORLD A (Public / Farmer views)
+    // If the URL contains "/public", send them to the public-route handler
+    if (url.pathname.startsWith("/api/public") || url.pathname.startsWith("/public")) {
+      return await handlePublicRequest(request);
     }
 
     // 3. ROUTE TO WORLD B (NATO / Executive)

@@ -1,6 +1,3 @@
-// 1. Correct Imports using a CDN (so you don't need to install anything)
-import * as THREE from 'https://skypack.dev';
-
 let scene, camera, renderer, pointCloud;
 
 // ---------------------------------------------------------
@@ -9,8 +6,17 @@ let scene, camera, renderer, pointCloud;
 function initHologram() {
     const container = document.getElementById('hologram-container');
     const canvas = document.getElementById('hologram-canvas');
+    const log = document.getElementById('agri-logs');
     if (!container || !canvas) return;
 
+    if (!window.THREE) {
+        if (log) {
+            log.innerHTML += '<p style="color:#38bdf8">> Hologram preview disabled in this browser view.</p>';
+        }
+        return;
+    }
+
+    const THREE = window.THREE;
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(
         75,
