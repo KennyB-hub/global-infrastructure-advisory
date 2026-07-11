@@ -35,7 +35,7 @@ function loadDirectory(dir) {
 }
 
 function buildManifest() {
-  const root = path.join(process.cwd(), "src");
+  const root = path.join(process.cwd(), "seven-os");
 
   const manifest = {
     version: "1.0",
