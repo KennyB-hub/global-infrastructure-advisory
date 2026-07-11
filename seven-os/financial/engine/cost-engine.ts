@@ -12,3 +12,5 @@ export function calculateCost(model, params) {
       throw new Error("Unknown cost model type");
   }
 }
+
+export { createUniversalBuckets, bucketizeFinancialAndCrypto } from "./universal-buckets.js";
