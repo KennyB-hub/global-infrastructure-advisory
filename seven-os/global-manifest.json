@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generated_at": "2026-07-11T16:16:24.593Z",
+  "generated_at": "2026-07-12T08:34:52.968Z",
   "engines": {
     "agents": {
       "tasks": {}
@@ -305,6 +305,7 @@
         "drone": {
           "safety": {}
         },
+        "financial": {},
         "geo": {},
         "global-manifest": {
           "version": "1.0",
@@ -8338,7 +8339,7 @@
                   "calls": [
                     "processAIRequest"
                   ],
-                  "evidence_file": "src/ai/workers/auth-worker.js",
+                  "evidence_file": "seven-os/ai/workers/auth-worker.js",
                   "evidence_snippet": "const result = await processAIRequest({ text: \"auth login\", ... }, env );"
                 },
                 {
@@ -8347,7 +8348,7 @@
                   "calls": [
                     "processAIRequest"
                   ],
-                  "evidence_file": "src/ai/workers/ai-worker.js",
+                  "evidence_file": "seven-os/ai/workers/ai-worker.js",
                   "evidence_snippet": "result = await processAIRequest(request, env, ctx);"
                 },
                 {
@@ -8356,7 +8357,7 @@
                   "calls": [
                     "VoiceBus.dispatch"
                   ],
-                  "evidence_file": "src/functions/api/voice-flight-handler.js",
+                  "evidence_file": "seven-os/functions/api/voice-flight-handler.js",
                   "evidence_snippet": "const result = await VoiceBus.dispatch({ text: message, role, sessionId, sensors, resources });"
                 },
                 {
@@ -8365,7 +8366,7 @@
                   "calls": [
                     "orchestrateMission"
                   ],
-                  "evidence_file": "src/backend/routes/voice-flight.js",
+                  "evidence_file": "seven-os/backend/routes/voice-flight.js",
                   "evidence_snippet": "const mission = orchestrateMission({ text, role, sessionId, sensors, resources });"
                 },
                 {
@@ -8374,7 +8375,7 @@
                   "calls": [
                     "SevenStack initialization"
                   ],
-                  "evidence_file": "src/backend/functions/api/system.js",
+                  "evidence_file": "seven-os/backend/functions/api/system.js",
                   "evidence_snippet": "const stack = new SevenStack(terrain, { speak: (msg) => console.log('[Seven Voice]', msg) });"
                 },
                 {
@@ -8384,7 +8385,7 @@
                     "processAIRequest",
                     "/api/autonomous endpoints"
                   ],
-                  "evidence_file": "src/backend/functions/api/router.js",
+                  "evidence_file": "seven-os/backend/functions/api/router.js",
                   "evidence_snippet": "if (path === '/api/autonomous/task/enqueue') { ... processAIRequest(...)}"
                 },
                 {
@@ -8394,7 +8395,7 @@
                     "orchestrateMission",
                     "generateSevenResponse"
                   ],
-                  "evidence_file": "src/ai/engines/system/voice/voice-bus.ts",
+                  "evidence_file": "seven-os/ai/engines/system/voice/voice-bus.ts",
                   "evidence_snippet": "return orchestrateMission({ text, role, sessionId, sensors, resources });"
                 },
                 {
@@ -8403,7 +8404,7 @@
                   "calls": [
                     "runAI"
                   ],
-                  "evidence_file": "src/backend/ai/ai-worker.js",
+                  "evidence_file": "seven-os/backend/ai/ai-worker.js",
                   "evidence_snippet": "module.exports.runAI = async function(prompt) { ... }"
                 },
                 {
@@ -8412,7 +8413,7 @@
                   "calls": [
                     "SevenRuntime APIs"
                   ],
-                  "evidence_file": "src/ai/engines/autonomous/seven-runtime/**",
+                  "evidence_file": "seven-os/ai/engines/autonomous/seven-runtime/**",
                   "evidence_snippet": "SevenRuntime class and adapters (seven.ts, seven-stack.ts, safety/api, interop)"
                 }
               ],
@@ -9037,6 +9038,7 @@
           "tower": {}
         },
         "interop": {},
+        "region": {},
         "rescue": {},
         "rf": {
           "FirmwareAuditor": {},
@@ -12655,6 +12657,7 @@
         }
       }
     },
+    "metadata": null,
     "microgrid-engine-contract": {
       "contractId": "microgrid-engine-v1",
       "description": "Standard interface for all microgrid engines operating in the sovereign infrastructure grid.",
@@ -14860,6 +14863,15 @@
         "primary": [],
         "notes": ""
       }
+    },
+    "metadata": {
+      "id": "na-appalachia-wv-south-001",
+      "type": "rural-node",
+      "microgrid": true,
+      "connectivity": [
+        "cellular",
+        "satellite"
+      ]
     },
     "mining": {
       "id": "mining",
