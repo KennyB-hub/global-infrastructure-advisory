@@ -1,0 +1,12 @@
+{
+  "id": "telemetry-worker",
+  "type": "worker",
+  "sector": "infrastructure",
+  "routes": ["infra.telemetry.collect"],
+  "capabilities": ["metrics", "heartbeat"],
+  "evidence": {
+    "sectorWorkerEvidence": "evidence/sector-worker-evidence.json",
+    "workerToSevenMap": "evidence/worker-to-seven-map.csv",
+    "sectorWorkerMapping": "evidence/sector-worker-mapping.csv"
+  }
+}

@@ -1,5 +1,5 @@
-import { writeLog } from '../src/ai/logs/log-writer.js';
-import { validateLog } from '../src/ai/logs/log-validator.js';
+import { writeLog } from '../seven-os/ai/logs/log-writer.js';
+import { validateLog } from '../seven-os/ai/logs/log-validator.js';
 
 export default {
   async fetch(req) {

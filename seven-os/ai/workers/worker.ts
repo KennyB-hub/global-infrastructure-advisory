@@ -5,12 +5,12 @@ import { runDecision } from "../../ai/decision-engine";
 import { systemStatus } from "../system/system-endpoints";
 import { diagnostics } from "../../system/diagnostics";
 import { uptime } from "../..backend/system/uptime";
-import { fullReport } from "../../src/system/full-report";
-import { systemThreatReport } from "../../src/system/threat-report";
-import { runCloudflareDiagnostics } from "../../src/system/cloudflare-tests";
+import { fullReport } from "../../seven-os/system/full-report";
+import { systemThreatReport } from "../../seven-os/system/threat-report";
+import { runCloudflareDiagnostics } from "../../seven-os/system/cloudflare-tests";
 
-import systemManifest from "../../src/config/system-manifest.json";
-import nodeRegistry from "../../src/system/config/node-registry.json";
+import systemManifest from "../../seven-os/config/system-manifest.json";
+import nodeRegistry from "../../seven-os/system/config/node-registry.json";
 
 let START_TIME = Date.now();
 
