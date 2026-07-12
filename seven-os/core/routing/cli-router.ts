@@ -1,8 +1,8 @@
 import { RoutingEngine } from "./routing-engine";
 
 export class CLIRouter {
-  static listCommands() {
-    return RoutingEngine.getCLIRoutes();
+  static identity() {
+    return RoutingEngine.identity;
   }
 
   static execute(command: string, args: any) {
