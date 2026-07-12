@@ -3,7 +3,7 @@
 
 import fs from "fs";
 import path from "path";
-import aiIdentity from "../../system/identity/ai-identity.json";
+import aiIdentity from "../../system/ai-identity.json";
 
 export interface RouteManifest {
   id: string;
@@ -19,7 +19,7 @@ export class RoutingEngine {
   private static cliRoutes: Set<string> = new Set();
   private static workerRoutes: Set<string> = new Set();
   private static engineRoutes: Set<string> = new Set();
-  
+
   static identity = aiIdentity;
 
   static scan(baseDir: string) {
