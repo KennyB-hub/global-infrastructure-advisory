@@ -1,4 +1,4 @@
-// src/ai-engine/ai-router.js
+// seven-os/ai/engine/ai-router.js
 // GIA Sovereign AI Router – V12 Alpha
 
 import { sovereignWorkerGuard } from "../../system/security/worker-guard.js";
@@ -36,6 +36,7 @@ import { enforceAIPolicy } from "./ai-policy.js";
 import { enqueueTask, getNextPendingTask, updateTask } from "./autonomous/task-queue.js";
 import { getTaskHandler } from "./autonomous/task-registry.js";
 import { runSevenOfNineOnce } from "./autonomous/seven-of-nine.js";
+import { loadDynamicEngines } from "./dynamic-engine-loader.js";
 
 const sectorAnalysisEngine = new SectorAnalysisEngine();
 const scienceEngine = new ScienceEngine();
@@ -45,6 +46,7 @@ const buildingCodeEngine = new BuildingCodeEngine();
 const zoningEngine = new ZoningEngine();
 const engineeringEngine = new EngineeringEngine();
 const mechanicsEngine = new MechanicsEngine();
+const dynamicEngines = loadDynamicEngines("./");
 
 export async function processAIRequest(request, env) {
   try {
@@ -100,6 +102,12 @@ export async function processAIRequest(request, env) {
     // 7. Route to correct engine
     //
     let result;
+
+    // --- Dynamic Engine Routing (auto-discovery) ---
+    if (dynamicEngines[route + "-engine"]) {
+    result = await dynamicEngines[route + "-engine"].process(input, env, context);
+    return sanitizeOutput(result, env, context);
+}
 
     switch (route) {
       case "geo":

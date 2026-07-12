@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-
   "scripts": {
     "clean": "node organize.js",
     "build": "tsc",
@@ -27,19 +26,19 @@
     "start": "node ./bin/cli.cjs",
     "dev-test": "node ./bin/cli.cjs",
     "test-cli": "node ./commands/dev/test-cli.cjs"
-
   },
   "dependencies": {
+    "chalk": "^5.3.0",
     "glob": "^13.0.6",
+    "inquirer": "^9.2.0",
     "ioredis": "^5.11.0",
     "nats": "^2.29.3",
     "ws": "^8.21.0",
-    "zod": "^3.22.0",
-    "chalk": "^5.3.0",
-    "inquirer": "^9.2.0"
+    "zod": "^3.22.0"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.10",
+    "@types/node": "^26.1.1",
     "mocha": "^11.3.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3",

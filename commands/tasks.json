@@ -57,7 +57,7 @@
             "label": "[Validate_AI_Output](ca://s?q=Validate_AI_Output)",
             "type": "node",
             "command": "node",
-            "args": ["src/ai/validation/schema-guard.js"],
+            "args": ["seven-os/ai/validation/schema-guard.js"],
             "problemMatcher": []
         },
 
@@ -65,7 +65,7 @@
             "label": "[Run_Decision_Engine](ca://s?q=Run_Decision_Engine)",
             "type": "node",
             "command": "node",
-            "args": ["src/ai/decision-engine.js"],
+            "args": ["seven-os/ai/decision-engine.js"],
             "problemMatcher": []
         },
 
@@ -73,7 +73,7 @@
             "label": "[Run_AI_Workflow](ca://s?q=Run_AI_Workflow)",
             "type": "node",
             "command": "node",
-            "args": ["src/ai/workflow/index.js"],
+            "args": ["seven-os/ai/workflow/index.js"],
             "problemMatcher": []
         },
 

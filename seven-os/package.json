@@ -11,12 +11,13 @@
     "build": "echo 'Build optimized for GIA Sovereign Engine'"
   },
   "dependencies": {
-    "three": "^0.150.1",
     "@azure/identity": "^3.0.0",
-    "@azure/keyvault-secrets": "^4.7.0"
+    "@azure/keyvault-secrets": "^4.7.0",
+    "three": "^0.150.1"
   },
   "devDependencies": {
-    "wrangler": "^3.0.0",
-    "@cloudflare/workers-types": "^4.0.0"
+    "@cloudflare/workers-types": "^4.0.0",
+    "@types/node": "^26.1.1",
+    "wrangler": "^3.0.0"
   }
 }

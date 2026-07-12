@@ -1,4 +1,4 @@
-// src/system/get-ai-routing-map.js
+// seven-os/system/get-ai-routing-map.js
 // GIA Sovereign Routing Map – V12 Alpha
 
 import systemManifest from "../config/system-manifest.json" assert { type: "json" };
