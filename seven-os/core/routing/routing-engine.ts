@@ -3,7 +3,8 @@
 
 import fs from "fs";
 import path from "path";
-import aiIdentity from "../../system/ai-identity.json";
+import aiIdentity from "../../system/identity/machine-identity.json";
+import { WorkerDiscovery } from "./worker-discovery";
 
 export interface RouteManifest {
   id: string;
@@ -23,6 +24,14 @@ export class RoutingEngine {
   static identity = aiIdentity;
 
   static scan(baseDir: string) {
+    // Sovereign guard: prevent node_modules drift inside Seven-OS
+    if (RoutingEngine.identity.forbidLocalNodeModules) {
+      const localNM = path.join(baseDir, "node_modules");
+      if (fs.existsSync(localNM)) {
+        throw new Error("Forbidden: node_modules detected inside Seven-OS");
+      }
+    }
+
     const entries = fs.readdirSync(baseDir, { withFileTypes: true });
 
     for (const entry of entries) {
@@ -62,4 +71,9 @@ export class RoutingEngine {
   static getManifest(id: string) {
     return this.manifests.get(id) || null;
   }
+
+  static listWorkers() {
+    return WorkerDiscovery.listWorkers();
+  }
+
 }

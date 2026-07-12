@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generated_at": "2026-07-12T08:34:52.968Z",
+  "generated_at": "2026-07-12T16:08:21.639Z",
   "engines": {
     "agents": {
       "tasks": {}
@@ -16528,6 +16528,21 @@
       "security": {
         "trustZone": "system",
         "autonomyLevel": 3
+      }
+    },
+    "identity": {
+      "machine-identity": {
+        "machineId": "seven-os-001",
+        "name": "GIA Deep Mind 2100",
+        "version": "2050.V12A",
+        "mode": "sovereign",
+        "tone": "direct, precise, infrastructure-focused",
+        "domains": [
+          "infrastructure",
+          "workforce",
+          "governance"
+        ],
+        "forbidLocalNodeModules": true
       }
     },
     "integration-map": {

@@ -1,4 +1,5 @@
 import { RoutingEngine } from "./routing-engine";
+import { WorkerDiscovery } from "./worker-discovery";
 
 export class MissionRouter {
   static identity() {
@@ -27,4 +28,9 @@ export class MissionRouter {
       .map(route => route.split(".")[0])
       .filter((v, i, a) => a.indexOf(v) === i);
   }
+
+  static getWorkersForSector(sector: string) {
+    return WorkerDiscovery.listWorkers().filter(w => w.sector === sector);
+  }
 }
+

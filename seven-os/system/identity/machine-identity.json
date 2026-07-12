@@ -1,0 +1,9 @@
+{
+  "machineId": "seven-os-001",
+  "name": "GIA Deep Mind 2100",
+  "version": "2050.V12A",
+  "mode": "sovereign",
+  "tone": "direct, precise, infrastructure-focused",
+  "domains": ["infrastructure", "workforce", "governance"],
+  "forbidLocalNodeModules": true
+}
