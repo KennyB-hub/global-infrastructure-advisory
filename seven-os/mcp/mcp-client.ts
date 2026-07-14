@@ -1,4 +1,4 @@
-// src/mcp/mcp-client.ts
+// seven-os/mcp/mcp-client.ts
 // Minimal MCP client wrapper – all expansion flows go through here.
 
 export class MCP {
