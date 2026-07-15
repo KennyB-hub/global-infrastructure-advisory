@@ -1,10 +1,10 @@
 // © 2026 Global Infrastructure Advisory
 // Seven Runtime — Drone Orchestrator (Sector-Aware)
 
-import { DroneControl } from "./drone-control";
-import { DroneMissionPlanner, MissionPlan } from "./drone-mission-planner";
-import { TerrainAwareRouting } from "./terrain-routing";
-import { writeLog } from "../../../../logs/log-writer.js";
+import { DroneControl } from "./drone-control.js";
+import { DroneMissionPlanner, MissionPlan } from "./drone-mission-planner.js";
+import { TerrainAwareRouting } from "./terrain-routing.js";
+import { writeLog } from "../../ai/logs/log-writer.js";
 
 export type SectorType =
     | "cattle"

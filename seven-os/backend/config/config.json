@@ -7,7 +7,7 @@
   "security": {
     "trust_zones": ["public", "internal", "vault"],
     "enforce_schema": true,
-    "audit_logs": "src/data/logs"
+    "audit_logs": "seven-os/data/logs"
   },
   "ai_sandbox": {
     "enabled": true,
