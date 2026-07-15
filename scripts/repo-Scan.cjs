@@ -1,6 +1,8 @@
 // Seven‑OS Repo Scan Script (Sovereign Edition)
 // Scans entire seven-os/ tree for misplaced loaders, broken imports,
 // missing manifests, wrong engine paths, and old src/ references.
+// Seven‑OS Diagnostic Script
+// Mode: repo-scan
 
 const fs = require("fs");
 const path = require("path");

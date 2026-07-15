@@ -1,7 +1,7 @@
 // run-incident-scan.js
 // V12 Alpha – CLI Incident Scan Runner
 
-const { openIncidentsFromAlerts } = require("../ai/incident-response-workflow");
+const { openIncidentsFromAlerts } = require("../seven-os/ai/incident-response-workflow");
 
 (async () => {
   console.log("🔍 Running Security Incident Scan...");
