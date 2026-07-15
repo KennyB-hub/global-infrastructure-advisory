@@ -1,4 +1,4 @@
-import { DroneControl } from './drone-cotrol';
+import { DroneControl } from './drone-control';
 import { DroneMissionPlanner } from './drone-mission-planner';
 import { TerrainAwareRouting } from './terrain-routing';
 import { DroneOrchestrator } from './drone-orchestrator';

@@ -3,9 +3,9 @@ export function analyzeRepo(structure) {
   const missing = [];
 
   const expectedRoots = [
-    "src/ai-engine",
-    "src/system",
-    "src/api",
+    "seven-os/engines",
+    "seven-os/system",
+    "seven-os/fuctions/api",
     "data"
   ];
 
@@ -27,7 +27,7 @@ export function analyzeRepo(structure) {
         suggestions.push({
           issue: "TS file in data folder",
           file: node.path,
-          recommended: "Move to src/"
+          recommended: "Move to seven-os/"
         });
       }
     }

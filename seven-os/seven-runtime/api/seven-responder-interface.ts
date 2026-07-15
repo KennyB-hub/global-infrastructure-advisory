@@ -2,9 +2,9 @@
 // Seven Runtime — Responder Interface (EMS + Infrastructure Crews)
 
 import { SevenRuntime } from "../seven";
-import { TerrainModel } from "../../src/ai/engines/autonomous/seven-runtime/drone/terrain-routing";
-import { SevenNarrator, NarratorSink } from "../../src/ai/engines/autonomous/seven-runtime/voice/seven-narrator";
-import { SevenRescueCommander, RescueRequest } from "../../src/ai/engines/autonomous/seven-runtime/rescue/seven-rescue-commander";
+import { TerrainModel } from "../drone/terrain-routing";
+import { SevenNarrator, NarratorSink } from "../voice/seven-narrator";
+import { SevenRescueCommander, RescueRequest } from "../rescue/seven-rescue-commander";
 
 export class SevenResponderInterface {
     private seven: SevenRuntime;

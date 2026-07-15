@@ -1,7 +1,7 @@
 // © 2026 Global Infrastructure Advisory
 // Seven Runtime — Unified Sector + Swarm + Disaster Logic
 
-import { DroneControl } from "./drone/drone-cotrol";
+import { DroneControl } from "./drone/drone-control";
 import { DroneMissionPlanner } from "./drone/drone-mission-planner";
 import { TerrainAwareRouting, TerrainModel } from "./drone/terrain-routing";
 import { DroneOrchestrator, OrchestratorMissionRequest } from "./drone/drone-orchestrator";

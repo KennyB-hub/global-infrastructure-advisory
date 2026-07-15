@@ -1,9 +1,9 @@
 // © 2026 Global Infrastructure Advisory
 // Seven Runtime — Event Handlers (Tower, Drone, Ground Events)
 
-import { InfraEvent, EventHandler } from "../event-bus";
-import { getDispatcher } from "../event-dispatcher";
-import { collarStateRedisHandler } from "./collar-state-redis-handler";
+import { InfraEvent, EventHandler } from "./event-bus";
+import { getDispatcher } from "./event-dispatcher";
+import { collarStateRedisHandler } from "../autonomous/collar-state-redis-handler";
 
 // ===== TOWER EVENTS =====
 

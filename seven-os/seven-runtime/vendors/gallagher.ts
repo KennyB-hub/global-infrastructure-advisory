@@ -1,5 +1,5 @@
 // cattle/vendors/gallagher.ts
-import { CollarAdapter, CollarState } from "../types";
+import { CollarAdapter, CollarState } from "../cattle/types";
 
 export class GallagherAdapter implements CollarAdapter {
   vendor = "Gallagher";

@@ -1,7 +1,7 @@
 // © 2026 Global Infrastructure Advisory
 // Seven Runtime — Event Dispatcher (Handler Router)
 
-import { InfraEvent, getEventBus, EventHandler } from "../event-bus";
+import { InfraEvent, getEventBus, EventHandler } from "./event-bus";
 
 export class EventDispatcher {
   private handlers: Map<string, EventHandler[]> = new Map();

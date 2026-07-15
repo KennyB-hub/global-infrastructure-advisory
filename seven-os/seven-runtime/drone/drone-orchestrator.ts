@@ -1,7 +1,7 @@
 // © 2026 Global Infrastructure Advisory
 // Seven Runtime — Drone Orchestrator (Sector-Aware)
 
-import { DroneControl } from "./drone-control.js";
+import { DroneControl } from "./drone-control.ts";
 import { DroneMissionPlanner, MissionPlan } from "./drone-mission-planner.js";
 import { TerrainAwareRouting } from "./terrain-routing.js";
 import { writeLog } from "../../ai/logs/log-writer.js";

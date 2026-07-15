@@ -1,4 +1,4 @@
-// root/src/ai/autonomous/seven-runtime/cattle/types.ts
+// root/seven-os/ai/autonomous/seven-runtime/cattle/types.ts
 
 export interface CollarState {
     collarId: string;

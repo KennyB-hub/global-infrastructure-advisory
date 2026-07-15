@@ -1,7 +1,7 @@
 // © 2026 Global Infrastructure Advisory
 // Seven Runtime — Mock Drone (for testing & simulation)
 
-import { DroneTelemetry, DroneCommand, DroneStatus } from "./drone-cotrol";
+import { DroneTelemetry, DroneCommand, DroneStatus } from "./drone/drone-control";
 
 export class MockDrone {
   private status: DroneStatus = {
