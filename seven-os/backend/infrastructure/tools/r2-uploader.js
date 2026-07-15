@@ -1,6 +1,6 @@
-// src/backend/infrastructure/tools/r2-uploader.js
+// seven-os/backend/infrastructure/tools/r2-uploader.js
 
-import { makeOk, makeError } from "seven-os/backend/utils/context.js";
+import { makeOk, makeError } from "seven-os/backend/utilities/context.js";
 
 export async function r2Upload(env, bucketName, key, body, options = {}) {
   const bucket = env[bucketName];
