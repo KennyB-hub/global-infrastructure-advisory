@@ -1,10 +1,10 @@
 // /workers/system/system-full-report.js
 // GIA Sovereign Full System Report – V12 Alpha
 
-import { systemFullReport } from "src/backend/system/system-full-report.js";
+import { systemFullReport } from "seven-os/backend/system/system-full-report.js";
 import infra from "../../infrastructure/index.js";
-import { storageInspector } from "src/backend/infrastructure/tools/storage-inspector.js";
-import { inspectRouting } from "src/backend/security/tools/inspect-routing.js";
+import { storageInspector } from "seven-os/backend/infrastructure/tools/storage-inspector.js";
+import { inspectRouting } from "seven-os/backend/security/tools/inspect-routing.js";
 
 import systemManifest from "../../config/system-manifest.json" assert { type: "json" };
 import nodeRegistry from "../../config/node-registry.json" assert { type: "json" };

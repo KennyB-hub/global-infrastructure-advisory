@@ -1,7 +1,7 @@
 // /workers/system/system-storage.js
 // GIA Sovereign Storage Node – V12 Alpha
 
-import { storageInspector } from "src/backend/infrastructure/tools/storage-inspector.js";
+import { storageInspector } from "seven-os/backend/infrastructure/tools/storage-inspector.js";
 
 import systemManifest from "../../config/system-manifest.json" assert { type: "json" };
 import nodeRegistry from "../../config/node-registry.json" assert { type: "json" };

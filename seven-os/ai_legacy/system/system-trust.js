@@ -1,7 +1,7 @@
 // /workers/system/system-trust.js
 // GIA Sovereign Trust Zone Node – V12 Alpha
 
-import { getTrustZones } from "src/backend/system/trust.js";
+import { getTrustZones } from "seven-os/backend/system/trust.js";
 
 import systemManifest from "../../config/system-manifest.json" assert { type: "json" };
 import nodeRegistry from "../../config/node-registry.json" assert { type: "json" };

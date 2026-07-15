@@ -1,7 +1,7 @@
 // /workers/system/system-uptime.js
 // GIA Sovereign Uptime Node – V12 Alpha
 
-import { getUptime } from "src/backend/system/uptime.js";
+import { getUptime } from "seven-os/backend/system/uptime.js";
 import { EngineeringEngine } from "./engineering-engine.js";
 import { MechanicsEngine } from "./mechanics-engine.js";
 import systemManifest from "../../config/system-manifest.json" assert { type: "json" };

@@ -2,22 +2,22 @@
   "logs": [
     {
       "type": "session",
-      "path": "src/ai/logs/session-log.json",
+      "path": "seven-os/ai/logs/session-log.json",
       "description": "Tracks full request lifecycle"
     },
     {
       "type": "audit",
-      "path": "src/ai/logs/audit-log.json",
+      "path": "seven-os/ai/logs/audit-log.json",
       "description": "Signed compliance-grade audit entries"
     },
     {
       "type": "telemetry",
-      "path": "src/ai/logs/telemetry-log.json",
+      "path": "seven-os/ai/logs/telemetry-log.json",
       "description": "Engine performance and cluster health"
     },
     {
       "type": "memory",
-      "path": "src/ai/logs/memory-log.json",
+      "path": "seven-os/ai/logs/memory-log.json",
       "description": "AI memory writes, recalls, invalidations"
     }
   ]

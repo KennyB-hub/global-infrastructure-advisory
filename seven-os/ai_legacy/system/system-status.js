@@ -1,7 +1,7 @@
 // /workers/system/system-status.js
 // GIA Sovereign System Status Node – V12 Alpha
 
-import { systemStatusReport } from "src/backend/system/system-status.js";
+import { systemStatusReport } from "seven-os/backend/system/system-status.js";
 
 import systemManifest from "../../config/system-manifest.json" assert { type: "json" };
 import nodeRegistry from "../../config/node-registry.json" assert { type: "json" };
