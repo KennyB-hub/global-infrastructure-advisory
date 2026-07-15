@@ -1,5 +1,4 @@
-// Seven‑OS System Manifest Builder
-// Generates global-manifest.json from all OS components
+// Seven‑OS System Manifest Builder (Current Layout Edition)
 
 const fs = require("fs");
 const path = require("path");
@@ -14,6 +13,8 @@ function loadJSON(filePath) {
 }
 
 function loadDirectory(dir) {
+  if (!fs.existsSync(dir)) return {}; // prevents crashes
+
   const results = {};
   const files = fs.readdirSync(dir);
 
@@ -40,17 +41,20 @@ function buildManifest() {
   const manifest = {
     version: "1.0",
     generated_at: new Date().toISOString(),
+
+    // Your CURRENT folder layout
     engines: loadDirectory(path.join(root, "engines")),
-    workers: loadDirectory(path.join(root, "workers")),
-    ai_logs: loadDirectory(path.join(root, "ai/logs")),
+    autonomous: loadDirectory(path.join(root, "autonomous")),
+    seven_runtime: loadDirectory(path.join(root, "seven-runtime")),
+
     backend: loadDirectory(path.join(root, "backend")),
-    sectors: loadDirectory(path.join(root, "sectors")),
-    topology: loadDirectory(path.join(root, "topology")),
-    infrastructure_packs: loadDirectory(path.join(root, "infrastructure-packs")),
-    policy_packs: loadDirectory(path.join(root, "policy-packs")),
     system: loadDirectory(path.join(root, "system")),
-    hubs: loadDirectory(path.join(root, "hubs")),
-    functions: loadDirectory(path.join(root, "functions"))
+    config: loadDirectory(path.join(root, "config")),
+    data: loadDirectory(path.join(root, "data")),
+
+    // Optional folders (only included if they exist)
+    ai: loadDirectory(path.join(root, "ai")),
+    platform: loadDirectory(path.join(root, "platform"))
   };
 
   const outPath = path.join(root, "global-manifest.json");
