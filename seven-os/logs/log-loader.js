@@ -5,7 +5,7 @@
 import fs from "fs";
 import path from "path";
 
-const LOG_DIR = path.resolve("src/logs");
+const LOG_DIR = path.resolve("seven-os/logs");
 
 export function loadLogFile(filename) {
   const filePath = path.join(LOG_DIR, filename);
