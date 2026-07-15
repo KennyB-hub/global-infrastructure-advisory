@@ -40,8 +40,8 @@ function buildManifest() {
   const manifest = {
     version: "1.0",
     generated_at: new Date().toISOString(),
-    engines: loadDirectory(path.join(root, "ai/engines")),
-    workers: loadDirectory(path.join(root, "ai/workers")),
+    engines: loadDirectory(path.join(root, "engines")),
+    workers: loadDirectory(path.join(root, "workers")),
     ai_logs: loadDirectory(path.join(root, "ai/logs")),
     backend: loadDirectory(path.join(root, "backend")),
     sectors: loadDirectory(path.join(root, "sectors")),
