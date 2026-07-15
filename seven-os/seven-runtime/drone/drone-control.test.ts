@@ -1,4 +1,4 @@
-import { DroneControl } from './drone-cotrol';
+import { DroneControl } from './drone-control';
 import { createCircularGeofence } from './geofence';
 
 describe('DroneControl pre-arm safety checks', () => {

@@ -1,8 +1,8 @@
 // © 2026 Global Infrastructure Advisory
 // Seven Runtime — End-to-End Tests
 
-import { MockDrone } from "../mock-drone";
-import { initializeSevenRuntime } from "../seven-bootstrap";
+import { MockDrone } from "./mock-drone";
+import { initializeSevenRuntime } from "./seven-bootstrap";
 
 /**
  * E2E Test: Drone Mission Workflow
