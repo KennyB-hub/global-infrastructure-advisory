@@ -7,7 +7,7 @@
       "engineId": "CORE_ENGINE",
       "name": "DeepMind V12 Alpha Core",
       "type": "core",
-      "path": "src/ai/engine.js",
+      "path": "seven-os/ai/engine.js",
       "autonomyLevel": 3,
       "trustZone": "system"
     },
@@ -15,7 +15,7 @@
       "engineId": "AI_CORTEX",
       "name": "AI Cortex Reasoning Engine",
       "type": "reasoning",
-      "path": "src/ai/cortex.js",
+      "path": "seven-os/ai/cortex.js",
       "autonomyLevel": 2,
       "trustZone": "system"
     },
@@ -23,7 +23,7 @@
       "engineId": "MAPPING_ENGINE",
       "name": "Geospatial Mapping Engine",
       "type": "geo",
-      "path": "src/ai/engines/mapping-engine.js",
+      "path": "seven-os/engines/mapping-engine.js",
       "autonomyLevel": 2,
       "trustZone": "system"
     },
@@ -31,7 +31,7 @@
       "engineId": "BLUEPRINT_ENGINE",
       "name": "Blueprint & Design Engine",
       "type": "design",
-      "path": "src/ai/engines/blueprint-engine.js",
+      "path": "seven-os/engines/blueprint-engine.js",
       "autonomyLevel": 2,
       "trustZone": "system"
     },
@@ -39,7 +39,7 @@
       "engineId": "DOCUMENT_ENGINE",
       "name": "Document Intelligence Engine",
       "type": "document",
-      "path": "src/ai/engines/document-engine.js",
+      "path": "seven-os/engines/document-engine.js",
       "autonomyLevel": 1,
       "trustZone": "admin"
     },
@@ -47,7 +47,7 @@
       "engineId": "SECURITY_ENGINE",
       "name": "Security & Threat Engine",
       "type": "security",
-      "path": "src/ai/engines/security-engine.js",
+      "path": "seven-os/engines/security-engine.js",
       "autonomyLevel": 3,
       "trustZone": "deepgov"
     },
@@ -55,7 +55,7 @@
       "engineId": "GEO_ENGINE",
       "name": "Geo Intelligence Engine",
       "type": "geo",
-      "path": "src/ai/engines/geo-engine.js",
+      "path": "seven-os/engines/geo-engine.js",
       "autonomyLevel": 2,
       "trustZone": "system"
     },
@@ -63,7 +63,7 @@
       "engineId": "MATH_ENGINE",
       "name": "Mathematical Computation Engine",
       "type": "math",
-      "path": "src/ai/engines/math-engine.js",
+      "path": "seven-os/engines/math-engine.js",
       "autonomyLevel": 1,
       "trustZone": "admin"
     },
@@ -71,7 +71,7 @@
       "engineId": "DATA_ENGINE",
       "name": "Data Processing Engine",
       "type": "data",
-      "path": "src/ai/engines/data-engine.js",
+      "path": "seven-os/engines/data-engine.js",
       "autonomyLevel": 1,
       "trustZone": "admin"
     },
@@ -79,7 +79,7 @@
       "engineId": "SCIENCE_ENGINE",
       "name": "Science & Research Engine",
       "type": "science",
-      "path": "src/ai/science-engine.js",
+      "path": "seven-os/science-engine.js",
       "autonomyLevel": 2,
       "trustZone": "system"
     },
@@ -87,7 +87,7 @@
       "engineId": "GEOTHERMAL_ENGINE",
       "name": "Geothermal Analysis Engine",
       "type": "geothermal",
-      "path": "src/ai/geothermal-engine.js",
+      "path": "seven-os/ai/cortex.js",
       "autonomyLevel": 2,
       "trustZone": "system"
     },
@@ -95,7 +95,7 @@
       "engineId": "RENEWABLES_ENGINE",
       "name": "Renewables (Solar/Wind) Engine",
       "type": "renewables",
-      "path": "src/ai/renewables-engine.js",
+      "path": "seven-os/engines/geo-engine.js",
       "autonomyLevel": 2,
       "trustZone": "system"
     },
@@ -103,7 +103,7 @@
       "engineId": "BUILDING_CODE_ENGINE",
       "name": "Building Code Compliance Engine",
       "type": "building-code",
-      "path": "src/ai/building-code-engine.js",
+      "path": "seven-os/ai/building-code-engine.js",
       "autonomyLevel": 2,
       "trustZone": "system"
     },
@@ -111,7 +111,7 @@
       "engineId": "ZONING_ENGINE",
       "name": "Zoning & Land Use Engine",
       "type": "zoning",
-      "path": "src/ai/zoning-engine.js",
+      "path": "seven-os/ai/zoning-engine.js",
       "autonomyLevel": 2,
       "trustZone": "system"
     },
@@ -119,7 +119,7 @@
       "engineId": "SECTOR_ANALYSIS_ENGINE",
       "name": "Sector Analysis Engine",
       "type": "sector-analysis",
-      "path": "src/ai/sector-analysis.js",
+      "path": "seven-os/ai/sector-analysis.js",
       "autonomyLevel": 2,
       "trustZone": "system"
     },
@@ -127,7 +127,7 @@
       "engineId": "ENGINEERING_ENGINE",
       "name": "Engineering Analysis Engine",
       "type": "engineering",
-      "path": "src/ai/engineering-engine.js",
+      "path": "seven-os/ai/engineering-engine.js",
       "autonomyLevel": 2,
       "trustZone": "system"
     },
@@ -135,7 +135,7 @@
       "engineId": "MECHANICS_ENGINE",
       "name": "Mechanical Systems Engine",
       "type": "mechanics",
-      "path": "src/ai/mechanics-engine.js",
+      "path": "seven-os/ai/mechanics-engine.js",
       "autonomyLevel": 2,
       "trustZone": "system"
     }

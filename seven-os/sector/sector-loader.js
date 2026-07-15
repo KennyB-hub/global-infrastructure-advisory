@@ -1,4 +1,4 @@
-// /seven-os/sectors/sector-loader.js
+// /seven-os/sector/sector-loader.js
 // GIA Sovereign Sector Loader – V12 Alpha
 
 import fs from "fs";
