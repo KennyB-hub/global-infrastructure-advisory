@@ -1,4 +1,4 @@
-// src/backend/utils/context.js
+// seven-os/backend/utilities/context.js
 // Shared sovereign context + integrity helpers – V12 Alpha
 
 import systemManifest from "../../config/system-manifest.json" assert { type: "json" };
