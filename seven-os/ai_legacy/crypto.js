@@ -1,4 +1,4 @@
-// seven-os/ai-engine/utils/crypto.js
+// seven-os/ai/crypto.js
 // GIA Sovereign Crypto Utilities – V12
 
 export const CryptoV12 = {
