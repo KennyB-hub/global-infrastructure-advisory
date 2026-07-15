@@ -1,4 +1,4 @@
-// seven-os/backend/infrastructure/tools/r2-uploader.js
+// backend/infrastructure/tools/r2-uploader.js
 
 import { makeOk, makeError } from "../../utilities/context.js";
 
