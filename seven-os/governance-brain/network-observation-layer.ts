@@ -1,4 +1,4 @@
-import { TowerProfile, NetworkEvent } from '../governance-brain/types';
+import { TowerProfile, NetworkEvent } from './types';
 
 export class NetworkObservationLayer {
   private towers = new Map<string, TowerProfile>();

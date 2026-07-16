@@ -1,10 +1,17 @@
 import { DeviceRFProfile, BehaviorSample } from './types';
 
-export class RFObservationLayer {
+export interface RFObservationLayer {
+  registerDeviceProfile(profile: DeviceRFProfile): void;
+  recordBehavior(sample: BehaviorSample): void;
+  getProfiles(): DeviceRFProfile[];
+  getBehaviorForDevice(deviceId: string): BehaviorSample[];
+}
+
+export class InMemoryRFObservationLayer implements RFObservationLayer {
   private profiles = new Map<string, DeviceRFProfile>();
   private behavior: BehaviorSample[] = [];
 
-  registerProfile(profile: DeviceRFProfile) {
+  registerDeviceProfile(profile: DeviceRFProfile) {
     this.profiles.set(profile.deviceId, profile);
   }
 
@@ -12,11 +19,11 @@ export class RFObservationLayer {
     this.behavior.push(sample);
   }
 
-  getProfile(deviceId: string) {
-    return this.profiles.get(deviceId);
+  getProfiles() {
+    return Array.from(this.profiles.values());
   }
 
-  getBehavior(deviceId: string) {
+  getBehaviorForDevice(deviceId: string) {
     return this.behavior.filter(b => b.deviceId === deviceId);
   }
 }

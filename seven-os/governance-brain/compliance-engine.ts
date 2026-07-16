@@ -7,7 +7,7 @@ import {
   DeviceRFProfile,
   BehaviorSample,
   GovernanceViolation,
-} from '../goverance-brain/types';
+} from './types';
 
 type ComplianceDomain = 'rf' | 'emergency' | 'network';
 

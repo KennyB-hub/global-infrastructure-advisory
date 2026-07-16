@@ -13,7 +13,7 @@ import { GroundRescueUnit } from "../adapters/ground-rescue-unit";
 import { SevenNarrator, NarratorSink } from "../voice/seven-narrator";
 import { SevenRescueCommander } from "../rescue/seven-rescue-commander";
 
-import { NAPEvent } from "../sectors/nap-sectors";
+import { NAPEvent } from "../sector/nap-sector";
 import { SevenInterop } from "../interop/seven-interop";
 
 import { ConnectionMonitor } from "../core/connection-monitor";
