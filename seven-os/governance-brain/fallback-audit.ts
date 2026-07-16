@@ -1,4 +1,4 @@
-import { ComplianceEngine } from '../compliance-engine';
+import { ComplianceEngine } from './compliance-engine';
 
 export class FallbackAuditor {
   constructor(private compliance: ComplianceEngine) {}

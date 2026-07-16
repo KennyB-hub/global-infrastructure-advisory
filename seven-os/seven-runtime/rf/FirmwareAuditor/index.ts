@@ -1,5 +1,5 @@
-import { DeviceRFProfile, GovernanceViolation } from '../../governance/types';
-import { ComplianceEngine } from '../../governance/ComplianceEngine';
+import { DeviceRFProfile, GovernanceViolation } from '../seven-os/governance-brain/types';
+import { ComplianceEngine } from '../../governance-brain/ComplianceEngine';
 
 export interface FirmwareAuditor {
   evaluateFirmwareChange(

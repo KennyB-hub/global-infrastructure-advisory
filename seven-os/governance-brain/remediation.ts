@@ -1,4 +1,4 @@
-import { GovernanceViolation } from '../../governance/types';
+import { GovernanceViolation } from './types';
 
 export interface RemediationAction {
   id: string;
