@@ -3,10 +3,10 @@ import path from 'path';
 
 export function readLog(type, filters = {}) {
   const logPaths = {
-    session: path.resolve('src/ai/logs/session-log.json'),
-    audit: path.resolve('src/ai/logs/audit-log.json'),
-    telemetry: path.resolve('src/ai/logs/telemetry-log.json'),
-    memory: path.resolve('src/ai/logs/memory-log.json')
+    session: path.resolve('seven-os/engines/ai/logs/session-log.json'),
+    audit: path.resolve('seven-os/engines/ai/logs/audit-log.json'),
+    telemetry: path.resolve('seven-os/engines/ai/logs/telemetry-log.json'),
+    memory: path.resolve('seven-os/engines/ai/logs/memory-log.json')
   };
 
   const file = logPaths[type];

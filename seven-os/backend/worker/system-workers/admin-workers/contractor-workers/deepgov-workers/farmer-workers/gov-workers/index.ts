@@ -1,12 +1,12 @@
 // /workers/gov/index.ts
 // GIA Sovereign Gov Worker – V12 Sovereign Edition (TypeScript)
 
-import { basicSecurityGuard } from "../../src/security/worker-guard";
-import { PolicyEngine } from "../../src/ai-engine/policy-engine";
-import { CryptoV12 } from "../../src/ai-engine/utils/crypto.js";
+import { basicSecurityGuard } from "../../seven-os/security/worker-guard";
+import { PolicyEngine } from "../../seven-os/engine/policy-engine";
+import { CryptoV12 } from "../../seven-os/engine/ai/crypto.js";
 
-import { buildEvent } from "../../src/system/cyber/event-builder";
-import { cyberHook } from "../../src/system/cyber/worker-hook";
+import { buildEvent } from "../../seven-os/system/cyber/event-builder";
+import { cyberHook } from "../../seven-os/system/cyber/worker-hook";
 
 import { verifyDidVcIdentity } from "../../backend/system/identity/did-vc-verifier";
 import { enforceMCP } from "../../backend/system/mcp/mcp-enforcer";

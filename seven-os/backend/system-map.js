@@ -4,7 +4,7 @@
 import systemManifest from "../../config/system-manifest.json" assert { type: "json" };
 import nodeRegistry from "../../config/node-registry.json" assert { type: "json" };
 import clusterHealth from "../../config/cluster-health.json" assert { type: "json" };
-import { getTrustZones } from "src/backend/system/trust.js";
+import { getTrustZones } from "seven-os/backend/system/trust.js";
 
 function json(data, status = 200) {
   return new Response(JSON.stringify(data, null, 2), {
@@ -61,7 +61,7 @@ export async function onRequest(context) {
   //
   const organs = {
     infrastructure: {
-      root: "src/backend/infrastructure/",
+      root: "seven-os/backend/infrastructure/",
       core: [
         "bootstrap.yaml",
         "diagnostics.js",
@@ -86,7 +86,7 @@ export async function onRequest(context) {
     },
 
     security: {
-      root: "src/backend/security/",
+      root: "seven-os/backend/security/",
       tools: [
         "tools/inspect-routing.js",
         "tools/threat-scan.js"
@@ -94,7 +94,7 @@ export async function onRequest(context) {
     },
 
     systemWorkers: {
-      root: "src/backend/workers/system/",
+      root: "seven-os/backend/workers/system/",
       endpoints: [
         "system-status.js",
         "diagnostics.js",

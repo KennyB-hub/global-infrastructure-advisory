@@ -1,4 +1,4 @@
-// src/backend/system/system-status.js
+// seven-os/backend/system/system-status.js
 
 import { getUptime } from "./uptime.js";
 

@@ -17,7 +17,7 @@ export function exportLogs(type = 'all', format = 'json') {
       : { [type]: logs[type] || [] };
 
   const outputPath = path.resolve(
-    `src/ai/logs/export-${Date.now()}.${format === 'ndjson' ? 'ndjson' : 'json'}`
+    `seven-os/engines/ai/logs/export-${Date.now()}.${format === 'ndjson' ? 'ndjson' : 'json'}`
   );
 
   if (format === 'ndjson') {

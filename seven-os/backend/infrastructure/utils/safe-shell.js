@@ -1,6 +1,6 @@
-// src/backend/infrastructure/utils/safe-shell.js
+// seven-os/backend/infrastructure/utils/safe-shell.js
 
-import { makeOk, makeError } from "src/backend/utils/context.js";
+import { makeOk, makeError } from "./backend/utils/context.js";
 
 export async function safeShell(env, command, options = {}) {
   if (!command || typeof command !== "string") {

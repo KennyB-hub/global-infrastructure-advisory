@@ -1,4 +1,4 @@
-// src/backend/system/system-endpoints.js
+// seven-os/backend/system/system-endpoints.js
 
 export function getSystemEndpoints() {
   return {

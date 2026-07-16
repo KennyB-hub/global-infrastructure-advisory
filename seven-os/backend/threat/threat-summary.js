@@ -1,4 +1,4 @@
-// src/backend/threat/threat-summary.js
+// seven-os/backend/threat/threat-summary.js
 // GIA Sovereign Threat Summary Engine – V12 Alpha
 
 export function buildThreatSummary(events = []) {

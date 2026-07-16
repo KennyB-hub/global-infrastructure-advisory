@@ -20,8 +20,8 @@ import * as systemWorker from "../system/index.js";
 import * as govViewWorker from "./govView.worker.js";
 import * as opportunityScannerWorker from "./opportunityScanner.worker.js";
 
-import { runDecision } from "../../src/ai/decision-engine.js";
-import { Cortex } from "../../ai/cortex.js";
+import { runDecision } from "../../seven-os/engines/ai/decision-engine.js";
+import { Cortex } from "../engines/ai/ai-cortex.js";
 
 import systemManifest from "../../config/system-manifest.json" assert { type: "json" };
 import nodeRegistry from "../../config/node-registry.json" assert { type: "json" };

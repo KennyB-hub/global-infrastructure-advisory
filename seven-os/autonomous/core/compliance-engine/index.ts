@@ -3,7 +3,7 @@ import {
   DeviceRFProfile,
   BehaviorSample,
   GovernanceViolation,
-} from '../types';
+} from '../governance/types';
 import { GovernanceBrain } from '../GovernanceBrain';
 
 export interface ComplianceEngine {

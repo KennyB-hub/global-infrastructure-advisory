@@ -1,4 +1,4 @@
-// src/backend/system/uptime.js
+// seven-os/backend/system/uptime.js
 
 const START = Date.now();
 

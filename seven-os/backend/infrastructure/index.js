@@ -1,4 +1,4 @@
-// src/backend/infrastructure/index.js
+// seven-os/backend/infrastructure/index.js
 // GIA Sovereign Infrastructure Organ – V12 Alpha
 
 import * as tools from "./tools/index.js";

@@ -1,4 +1,4 @@
-// src/backend/system/trust.js
+// seven-os/backend/system/trust.js
 
 export function getTrustZones() {
   return {

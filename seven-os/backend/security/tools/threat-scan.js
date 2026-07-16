@@ -1,6 +1,6 @@
 // src/backend/security/tools/threat-scan.js
 
-import { makeOk } from "src/backend/utils/context.js";
+import { makeOk } from "../backend/utils/context.js";
 
 export async function threatScan(cf, ai) {
   const signals = {
