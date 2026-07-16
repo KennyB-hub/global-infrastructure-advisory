@@ -22,8 +22,8 @@
       "file": "root/public/assets/branding/logos/gia-logo.svg",
       "issue": "Git merge conflict markers present (unresolved conflict between logo implementations)",
       "affectedFiles": [
-        "root/src/hubs/PublicHub.js",
-        "root/src/dashboard.html",
+        "root/senen-os/hubs/PublicHub.js",
+        "root/seven-os/dashboard.html",
         "root/public/assets/js/load-layout.js"
       ],
       "impact": "Logo asset will not render; breaks all UI branding",
@@ -35,8 +35,8 @@
       "severity": "medium",
       "status": "identified",
       "files": [
-        "root/src/hubs/PublicHub.js",
-        "root/src/hubs/Dashboard.js"
+        "root/seven-os/hubs/PublicHub.js",
+        "root/seven-os/hubs/Dashboard.js"
       ],
       "issue": "MediaUpload and dashboard logic duplicated across Public and Farmer hubs",
       "recommendation": "Extract to root/src/shared/components/MediaUpload.js for DRY principle",
@@ -57,9 +57,9 @@
     {
       "id": "OUT-003",
       "severity": "medium",
-      "file": "root/src/index.Js",
+      "file": "root/seven-os/index.Js",
       "issue": "Incorrect file extension casing - uses uppercase .Js instead of .js",
-      "suggestedRename": "root/src/index.js",
+      "suggestedRename": "root/seven-os/index.js",
       "impact": "Inconsistent with project standards; may cause import issues on case-sensitive systems",
       "resolution": "PENDING: Rename to lowercase .js extension"
     },
@@ -76,7 +76,7 @@
     {
       "id": "MOVE-001",
       "severity": "medium",
-      "currentPath": "root/src/dashboard.html",
+      "currentPath": "root/seven-os/dashboard.html",
       "suggestedPath": "root/public/pages/dashboard.html",
       "reason": "HTML UI files should reside in public-facing directory, not src/logic",
       "category": "UI Layer",
@@ -85,8 +85,8 @@
     {
       "id": "MOVE-002",
       "severity": "low",
-      "currentPath": "root/src/ai/ai-geo.js",
-      "suggestedPath": "root/src/ai-engine/spatial/ai-geo.js",
+      "currentPath": "root/seven-os/engines/ai/ai-geo.js",
+      "suggestedPath": "root/seven-os/ai-engine/spatial/ai-geo.js",
       "reason": "Spatial logic should follow ai-engine module structure per index.js imports",
       "category": "AI Engine Module",
       "status": "pending-approval"
@@ -94,8 +94,8 @@
     {
       "id": "MOVE-003",
       "severity": "low",
-      "currentPath": "root/src/hubs/Dashboard.js",
-      "suggestedPath": "root/src/hubs/FarmerHub/Dashboard.js",
+      "currentPath": "root/seven-os/hubs/Dashboard.js",
+      "suggestedPath": "root/seven-os/hubs/FarmerHub/Dashboard.js",
       "reason": "File comment indicates FarmerHub content; path should match",
       "category": "Hub Organization",
       "status": "pending-approval"
@@ -103,7 +103,7 @@
     {
       "id": "MOVE-004",
       "severity": "low",
-      "currentPath": "root/src/ai/logs/log-disaster-recovery-plan.md",
+      "currentPath": "root/seven-os/engines/ai/logs/log-disaster-recovery-plan.md",
       "suggestedPath": "root/docs/operations/disaster-recovery.md",
       "reason": "Operations documentation should be in dedicated docs folder",
       "category": "Documentation",
@@ -135,9 +135,9 @@
           "path": "root/public/assets/css/themes.css",
           "status": "not-created",
           "referencedBy": [
-            "root/src/hubs/hr/index.html",
-            "root/src/hubs/Staff/heatmap.html",
-            "root/src/hubs/Contractor/index.html"
+            "root/seven-os/hubs/hr/index.html",
+            "root/seven-os/hubs/Staff/heatmap.html",
+            "root/seven-os/hubs/Contractor/index.html"
           ],
           "content": "Theme-specific CSS (employee, contractor, farmer themes)"
         }
@@ -164,9 +164,9 @@
         {
           "path": "root/public/assets/logo.svg",
           "referencedBy": [
-            "root/src/hubs/hr/index.html",
-            "root/src/hubs/Staff/heatmap.html",
-            "root/src/hubs/Contractor/index.html"
+            "root/seven-os/hubs/hr/index.html",
+            "root/seven-os/hubs/Staff/heatmap.html",
+            "root/seven-os/hubs/Contractor/index.html"
           ],
           "status": "missing",
           "priority": "high"
@@ -174,8 +174,8 @@
         {
           "path": "root/public/assets/gia-logo.png",
           "referencedBy": [
-            "root/src/hubs/PublicHub.js",
-            "root/src/dashboard.html"
+            "root/seven-os/hubs/PublicHub.js",
+            "root/seven-os/dashboard.html"
           ],
           "status": "missing",
           "priority": "high"
@@ -190,37 +190,37 @@
       "filesCreated": 7,
       "items": [
         {
-          "path": "root/src/data/policies/ostp-scientific-integrity.json",
+          "path": "root/seven-os/data/policies/ostp-scientific-integrity.json",
           "status": "created",
           "commit": "0aee7ac871bfff680cb0d798dcf4f668291c082d"
         },
         {
-          "path": "root/src/data/policies/omb-m14-06.json",
+          "path": "root/seven-os/data/policies/omb-m14-06.json",
           "status": "not-created",
           "description": "OMB Guidance for Administrative Data for Statistical Purposes"
         },
         {
-          "path": "root/src/data/policies/omb-m20-12.json",
+          "path": "root/seven-os/data/policies/omb-m20-12.json",
           "status": "created",
           "commit": "bcb88ea5e8140c32732b9212168a56a84b90eade"
         },
         {
-          "path": "root/src/data/policies/common-rule.json",
+          "path": "root/seven-os/data/policies/common-rule.json",
           "status": "created",
           "commit": "906d330de1ef3a0a672870279acad3abe086d0a4"
         },
         {
-          "path": "root/src/data/policies/dhs-compliance.json",
+          "path": "root/seven-os/data/policies/dhs-compliance.json",
           "status": "created",
           "commit": "0973f5a6daaeeea254816bc07738cc7be03aa4d1"
         },
         {
-          "path": "root/src/data/policies/nces-ethics.json",
+          "path": "root/seven-os/data/policies/nces-ethics.json",
           "status": "created",
           "commit": "4f5fdf47e9795536ec857a59eecb0df3b7492ced"
         },
         {
-          "path": "root/src/data/policies/oge-misconduct-reporting.json",
+          "path": "root/seven-os/data/policies/oge-misconduct-reporting.json",
           "status": "created",
           "commit": "74ffe0767d0b6da8333d74debfea0cef27ee1719"
         }
@@ -233,7 +233,7 @@
       "status": "created",
       "items": [
         {
-          "path": "root/src/ai-engine/policies/trust-zone-definitions.json",
+          "path": "root/seven-os/ai-engine/policies/trust-zone-definitions.json",
           "status": "created",
           "commit": "95b96b7b60a020d7fdff532d8b5e5f81851b5293",
           "trustZonesDefine": 9,
@@ -250,7 +250,7 @@
           ]
         },
         {
-          "path": "root/src/data/marketplace/job-listings.schema.json",
+          "path": "root/seven-os/data/marketplace/job-listings.schema.json",
           "status": "created",
           "commit": "247dafb930c4dacc38497d69cb75e6e9a7f455d1",
           "schemaFields": [
@@ -270,7 +270,7 @@
           ]
         },
         {
-          "path": "root/src/data/marketplace/listings.json",
+          "path": "root/seven-os/data/marketplace/listings.json",
           "status": "not-created",
           "description": "Sample job listings data (awaiting schema validation)"
         }
@@ -283,7 +283,7 @@
       "status": "identified",
       "items": [
         {
-          "directory": "root/src/hubs/Contractor/tools/",
+          "directory": "root/seven-os/hubs/Contractor/tools/",
           "missingFiles": [
             "gps-tracking.js",
             "job-dispatch.js",
@@ -293,7 +293,7 @@
           ]
         },
         {
-          "path": "root/src/data/sectors/sector-definitions.json",
+          "path": "root/seven-os/data/sectors/sector-definitions.json",
           "referencedBy": ["Contractor/index.html"],
           "status": "missing",
           "priority": "high"
@@ -317,11 +317,11 @@
       "issue": "Inconsistent hub directory naming conventions",
       "severity": "medium",
       "affected": [
-        "root/src/hubs/PublicHub.js (file, not directory)",
-        "root/src/hubs/Dashboard.js (file, not directory)",
-        "root/src/hubs/hr/ (lowercase)",
-        "root/src/hubs/Staff/ (PascalCase)",
-        "root/src/hubs/Contractor/ (PascalCase)"
+        "root/seven-os/hubs/PublicHub.js (file, not directory)",
+        "root/seven-os/hubs/Dashboard.js (file, not directory)",
+        "root/seven-os/hubs/hr/ (lowercase)",
+        "root/seven-os/hubs/Staff/ (PascalCase)",
+        "root/seven-os/hubs/Contractor/ (PascalCase)"
       ],
       "recommendation": "Standardize to lowercase with hyphens: public-hub/, farmer-hub/, contractor-hub/, hr-hub/, staff-hub/",
       "priority": "medium"
@@ -417,42 +417,42 @@
   ],
   "filesCreatedInAudit": [
     {
-      "path": "root/src/data/policies/oge-misconduct-reporting.json",
+      "path": "root/seven-os/data/policies/oge-misconduct-reporting.json",
       "commit": "74ffe0767d0b6da8333d74debfea0cef27ee1719",
       "size": "6446 bytes"
     },
     {
-      "path": "root/src/data/policies/nces-ethics.json",
+      "path": "root/seven-os/data/policies/nces-ethics.json",
       "commit": "4f5fdf47e9795536ec857a59eecb0df3b7492ced",
       "size": "4524 bytes"
     },
     {
-      "path": "root/src/data/policies/dhs-compliance.json",
+      "path": "root/seven-os/data/policies/dhs-compliance.json",
       "commit": "0973f5a6daaeeea254816bc07738cc7be03aa4d1",
       "size": "4382 bytes"
     },
     {
-      "path": "root/src/data/policies/common-rule.json",
+      "path": "root/seven-os/data/policies/common-rule.json",
       "commit": "906d330de1ef3a0a672870279acad3abe086d0a4",
       "size": "4812 bytes"
     },
     {
-      "path": "root/src/data/policies/omb-m20-12.json",
+      "path": "root/seven-os/data/policies/omb-m20-12.json",
       "commit": "bcb88ea5e8140c32732b9212168a56a84b90eade",
       "size": "4531 bytes"
     },
     {
-      "path": "root/src/data/marketplace/job-listings.schema.json",
+      "path": "root/seven-os/data/marketplace/job-listings.schema.json",
       "commit": "247dafb930c4dacc38497d69cb75e6e9a7f455d1",
       "size": "5547 bytes"
     },
     {
-      "path": "root/src/ai-engine/policies/trust-zone-definitions.json",
+      "path": "root/seven-os/ai-engine/policies/trust-zone-definitions.json",
       "commit": "95b96b7b60a020d7fdff532d8b5e5f81851b5293",
       "size": "12074 bytes"
     },
     {
-      "path": "root/src/data/policies/ostp-scientific-integrity.json",
+      "path": "root/seven-os/data/policies/ostp-scientific-integrity.json",
       "commit": "0aee7ac871bfff680cb0d798dcf4f668291c082d",
       "size": "3205 bytes"
     }

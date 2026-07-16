@@ -1,0 +1,178 @@
+calculate-layer:
+  version: 1.0.0
+  description: >
+    Universal financial calculation layer for Seven‑OS.
+    Supports all infrastructure sectors, missions, vehicles, contractors,
+    materials, energy, labor, AI compute, and region/sector multipliers.
+
+  modules:
+    # ---------------------------------------------------------
+    # UNIVERSAL ROOT ENGINE
+    # ---------------------------------------------------------
+    - id: universal-calculate
+      file: financial/calculate/calculate.js
+      purpose: >
+        Root math engine for all cost models. Deterministic, auditable,
+        sector-aware, region-aware, risk-aware, mission-aware.
+
+    # ---------------------------------------------------------
+    # MISSION COST ENGINE
+    # ---------------------------------------------------------
+    - id: mission-cost
+      file: financial/calculate/mission.js
+      purpose: >
+        Universal mission cost calculator for all infrastructure missions:
+        rescue, inspection, mapping, delivery, contractor, utility, repair,
+        maintenance, agriculture, mining, emergency.
+
+    # ---------------------------------------------------------
+    # MATERIALS COST ENGINE
+    # ---------------------------------------------------------
+    - id: materials-cost
+      file: financial/calculate/materials.js
+      purpose: >
+        Universal materials cost calculator for all sectors. Supports
+        consumables, fuel, batteries, sensors, payloads, medical kits,
+        contractor supplies, agriculture chemicals, mapping consumables.
+
+    # ---------------------------------------------------------
+    # CONTRACTOR COST ENGINE
+    # ---------------------------------------------------------
+    - id: contractor-cost
+      file: financial/calculate/contractor.js
+      purpose: >
+        Universal contractor cost model. Handles labor, equipment, materials,
+        dispatch, compliance, sector multipliers, region multipliers, risk.
+
+    # ---------------------------------------------------------
+    # DRONE COST ENGINE
+    # ---------------------------------------------------------
+    - id: drone-cost
+      file: financial/calculate/drone.js
+      purpose: >
+        Drone-specific cost model. Supports quad, vtol, fixed-wing, heavy-lift,
+        lidar, thermal, mapping, inspection, rescue.
+
+    # ---------------------------------------------------------
+    # LABOR COST ENGINE
+    # ---------------------------------------------------------
+    - id: labor-cost
+      file: financial/calculate/labor.js
+      purpose: >
+        Universal labor cost calculator for all sectors. Supports skilled,
+        unskilled, emergency, contractor, union, overtime, hazard pay.
+
+    # ---------------------------------------------------------
+    # ENERGY COST ENGINE
+    # ---------------------------------------------------------
+    - id: energy-cost
+      file: financial/calculate/energy.js
+      purpose: >
+        Universal energy cost calculator. Supports electricity, fuel,
+        batteries, solar, generator, hybrid, drone energy, rover energy.
+
+    # ---------------------------------------------------------
+    # REGION MULTIPLIER ENGINE
+    # ---------------------------------------------------------
+    - id: region-cost
+      file: financial/calculate/region.js
+      purpose: >
+        Region-specific cost multipliers. Supports global, national, state,
+        county, municipal, rural, urban, disaster zones.
+
+    # ---------------------------------------------------------
+    # SECTOR MULTIPLIER ENGINE
+    # ---------------------------------------------------------
+    - id: sector-cost
+      file: financial/calculate/sector.js
+      purpose: >
+        Sector-specific cost multipliers for all infrastructure sectors:
+        roads, bridges, telecom, water, power, ports, rail, airports,
+        pipelines, agriculture, mining, emergency, logistics.
+
+    # ---------------------------------------------------------
+    # AI COMPUTE COST ENGINE
+    # ---------------------------------------------------------
+    - id: ai-compute-cost
+      file: financial/calculate/ai-compute.js
+      purpose: >
+        Universal AI compute cost calculator. Supports inference, training,
+        routing, mapping, simulation, optimization, compliance evaluation.
+
+  # ---------------------------------------------------------
+  # INFRASTRUCTURE SECTORS (22)
+  # ---------------------------------------------------------
+  sectors:
+    - roads
+    - bridges
+    - telecom
+    - water
+    - power
+    - ports
+    - rail
+    - airports
+    - pipelines
+    - agriculture
+    - mining
+    - emergency
+    - logistics
+    - construction
+    - contractor
+    - inspection
+    - mapping
+    - delivery
+    - utility
+    - repair
+    - maintenance
+    - manufacturing
+
+  # ---------------------------------------------------------
+  # REGION TIERS
+  # ---------------------------------------------------------
+  regions:
+    - global
+    - national
+    - state
+    - county
+    - municipal
+    - rural
+    - urban
+    - disaster-zone
+
+  # ---------------------------------------------------------
+  # RISK LEVELS
+  # ---------------------------------------------------------
+  risk-levels:
+    - low
+    - medium
+    - high
+    - critical
+
+  # ---------------------------------------------------------
+  # VEHICLE TYPES (UniversalVehiclePlugin)
+  # ---------------------------------------------------------
+  vehicles:
+    - rover
+    - ugv
+    - utility
+    - custom
+    - quad
+    - vtol
+    - fixed-wing
+    - heavy-lift
+    - thermal
+    - lidar
+
+  # ---------------------------------------------------------
+  # AUDIT REQUIREMENTS
+  # ---------------------------------------------------------
+  audit:
+    deterministic: true
+    json-output: true
+    breakdown-required: true
+    multiplier-logging: true
+    region-validation: true
+    sector-validation: true
+    risk-validation: true
+    vehicle-validation: true
+    contractor-validation: true

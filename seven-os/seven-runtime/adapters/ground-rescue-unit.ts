@@ -1,7 +1,7 @@
 // © 2026 Global Infrastructure Advisory
 // Seven Runtime — Ground Rescue Adapter
 
-import { GroundPlugin } from "../../ground/ground-plugin";
+import { GroundPlugin } from "../ground/ground-plugin";
 
 export class GroundRescueUnit {
     constructor(private unit: GroundPlugin) {}
