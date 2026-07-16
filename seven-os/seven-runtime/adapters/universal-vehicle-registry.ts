@@ -5,8 +5,8 @@ import { UniversalVehiclePlugin } from "./universal-vehicle-plugin";
 import { calculateDroneCost } from "../../financial/calculate/drone";
 import { calculateMissionCost } from "../../financial/calculate/mission";
 
-import { RegionMeta } from "../regions/region-meta";
-import { SectorMeta } from "../sectors/sector-meta";
+import { RegionMeta } from "../../regions/region-meta";
+import { SectorMeta } from "../../sector/sector-meta";
 
 export interface VehicleCapabilities {
   payloadKg?: number;

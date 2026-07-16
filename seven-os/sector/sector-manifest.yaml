@@ -1,0 +1,200 @@
+seven-os-sector:
+  version: 1.0.0
+  description: >
+    Canonical manifest for Seven‑OS sector layer. Defines all infrastructure
+    sectors, metadata, multipliers, engines, compliance modules, mission
+    templates, and AI reasoning subsystems.
+
+  # ---------------------------------------------------------
+  # ROOTS
+  # ---------------------------------------------------------
+  roots:
+    - seven-os/sector
+    - seven-os/sector/meta
+    - seven-os/sector/engines
+    - seven-os/sector/compliance
+    - seven-os/sector/missions
+    - seven-os/sector/interop
+    - seven-os/sector/ai
+
+  # ---------------------------------------------------------
+  # SECTOR DEFINITIONS (22 infrastructure sectors)
+  # ---------------------------------------------------------
+  sectors:
+    - roads
+    - bridges
+    - telecom
+    - water
+    - power
+    - ports
+    - rail
+    - airports
+    - pipelines
+    - agriculture
+    - mining
+    - emergency
+    - logistics
+    - construction
+    - contractor
+    - inspection
+    - mapping
+    - delivery
+    - utility
+    - repair
+    - maintenance
+    - manufacturing
+
+  # ---------------------------------------------------------
+  # SECTOR META (sector-meta.js)
+  # ---------------------------------------------------------
+  meta:
+    file: seven-os/sector/meta/sector-meta.js
+    fields:
+      - id
+      - name
+      - description
+      - costMultiplier
+      - riskProfile
+      - missionTypes
+      - complianceRules
+      - aiModels
+
+  # ---------------------------------------------------------
+  # SECTOR MULTIPLIERS
+  # ---------------------------------------------------------
+  multipliers:
+    file: seven-os/sector/meta/sector-multipliers.json
+    description: >
+      Defines cost multipliers for each sector. Used by calculate.js,
+      contractor.js, mission.js, drone.js, and universal vehicle registry.
+
+  # ---------------------------------------------------------
+  # SECTOR ENGINES
+  # ---------------------------------------------------------
+  engines:
+    - id: roads-engine
+      file: seven-os/sector/engines/roads-engine.js
+      purpose: Road inspection, repair, routing, compliance.
+
+    - id: bridges-engine
+      file: seven-os/sector/engines/bridges-engine.js
+      purpose: Bridge inspection, load analysis, compliance.
+
+    - id: telecom-engine
+      file: seven-os/sector/engines/telecom-engine.js
+      purpose: Fiber, RF, tower, spectrum, routing.
+
+    - id: water-engine
+      file: seven-os/sector/engines/water-engine.js
+      purpose: Water systems, pressure, contamination, routing.
+
+    - id: power-engine
+      file: seven-os/sector/engines/power-engine.js
+      purpose: Grid, substations, outage routing.
+
+    - id: ports-engine
+      file: seven-os/sector/engines/ports-engine.js
+      purpose: Port logistics, vessel routing.
+
+    - id: rail-engine
+      file: seven-os/sector/engines/rail-engine.js
+      purpose: Rail inspection, routing, compliance.
+
+    - id: airports-engine
+      file: seven-os/sector/engines/airports-engine.js
+      purpose: Runway inspection, routing, compliance.
+
+    - id: pipelines-engine
+      file: seven-os/sector/engines/pipelines-engine.js
+      purpose: Pipeline inspection, leak detection.
+
+    - id: agriculture-engine
+      file: seven-os/sector/engines/agriculture-engine.js
+      purpose: Crop analysis, soil, irrigation.
+
+    - id: mining-engine
+      file: seven-os/sector/engines/mining-engine.js
+      purpose: Mine inspection, hazard detection.
+
+    - id: emergency-engine
+      file: seven-os/sector/engines/emergency-engine.js
+      purpose: Emergency routing, rescue, dispatch.
+
+    - id: logistics-engine
+      file: seven-os/sector/engines/logistics-engine.js
+      purpose: Routing, delivery, optimization.
+
+    - id: contractor-engine
+      file: seven-os/sector/engines/contractor-engine.js
+      purpose: Contractor dispatch, job routing.
+
+    - id: inspection-engine
+      file: seven-os/sector/engines/inspection-engine.js
+      purpose: Inspection workflows for all sectors.
+
+    - id: mapping-engine
+      file: seven-os/sector/engines/mapping-engine.js
+      purpose: Mapping, lidar, terrain.
+
+    - id: utility-engine
+      file: seven-os/sector/engines/utility-engine.js
+      purpose: Utility repair, outage routing.
+
+    - id: repair-engine
+      file: seven-os/sector/engines/repair-engine.js
+      purpose: Repair workflows for all sectors.
+
+    - id: maintenance-engine
+      file: seven-os/sector/engines/maintenance-engine.js
+      purpose: Maintenance workflows for all sectors.
+
+    - id: manufacturing-engine
+      file: seven-os/sector/engines/manufacturing-engine.js
+      purpose: Factory inspection, robotics, compliance.
+
+  # ---------------------------------------------------------
+  # SECTOR COMPLIANCE
+  # ---------------------------------------------------------
+  compliance:
+    file: seven-os/sector/compliance/sector-compliance.js
+    description: >
+      Sector-specific compliance rules. Integrated with FCC compliance engine,
+      remediation engine, and governance brain.
+
+  # ---------------------------------------------------------
+  # SECTOR MISSIONS
+  # ---------------------------------------------------------
+  missions:
+    file: seven-os/sector/missions/mission-templates.json
+    description: >
+      Mission templates for all sectors. Used by MissionRouter and
+      UniversalVehicleRegistry.
+
+  # ---------------------------------------------------------
+  # SECTOR INTEROP
+  # ---------------------------------------------------------
+  interop:
+    file: seven-os/sector/interop/sector-interop.js
+    description: >
+      Interop with NAP, CAD, C2, SCADA, and external infrastructure systems.
+
+  # ---------------------------------------------------------
+  # SECTOR AI
+  # ---------------------------------------------------------
+  ai:
+    file: seven-os/sector/ai/sector-ai.js
+    description: >
+      AI reasoning models for each sector. Integrated with AI Cortex.
+
+  # ---------------------------------------------------------
+  # AUDIT REQUIREMENTS
+  # ---------------------------------------------------------
+  audit:
+    deterministic: true
+    folder-validation: true
+    engine-validation: true
+    mission-validation: true
+    compliance-validation: true
+    ai-validation: true
+    interop-validation: true
+    multipliers-validation: true

@@ -1,7 +1,7 @@
 import { TerrainModel } from "../drone/terrain-routing";
 import { SevenRuntime } from "../seven";
 
-import { VehicleRegistry } from "../adapters/vehicle-registry";
+import { UniversalVehicleRegistry } from "../adapters/universal-vehicle-registry";
 import { UniversalVehiclePlugin } from "../adapters/universal-vehicle-plugin";
 
 import { SevenNarrator, NarratorSink } from "../voice/seven-narrator";
@@ -19,7 +19,7 @@ import { GeoFallbackEngine } from "../geo/geo-fallback-engine";
 
 export class SevenStack {
   readonly runtime: SevenRuntime;
-  readonly vehicles: VehicleRegistry;
+  readonly vehicles: UniversalVehicleRegistry;
   readonly narrator: SevenNarrator;
   readonly rescue: SevenRescueCommander;
   readonly interop: SevenInterop;
