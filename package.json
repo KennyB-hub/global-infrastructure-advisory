@@ -14,6 +14,7 @@
     "build:manifest": "node scripts/build-system-manifest.cjs",
     "route-audit": "node scripts/route-audit.mjs",
     "verify:ws": "node scripts/verify-ws-test.cjs",
+    "repo:scan:auto-fix": "node scripts/repo-scan-auto-fix.cjs",
     "scan:secrets": "node scripts/scan-secrets.cjs",
     "move-workers": "node scripts/move-workers.cjs",
     "seven-autofix": "node scripts/seven-autofix.mjs",
