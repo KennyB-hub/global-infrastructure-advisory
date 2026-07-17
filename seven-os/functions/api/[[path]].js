@@ -4,7 +4,7 @@
 import { sovereignWorkerGuard } from "../../system/security/sovereign-worker-guard.js";
 import { enforceAIPolicy } from "../../system/security/ai-policy.js";
 import { requireKey } from "../../system/security/require-key.js";
-import { Workflows } from "../../ai-engine/workflows.js";
+import { Workflows } from "../../ai/workflows.js";
 import { DBService } from "../../system/db/db-service.js";
 
 export async function onRequest(context) {

@@ -1,4 +1,4 @@
-// src/routes/api/system/cyber/analyze.js
+// seven-os/routes/api/system/cyber/analyze.js
 import { DBService } from "../../../system/db/db-service.js";
 import { requireRole } from "../../../system/security/require-role.js";
 import { routeAI } from "../../../system/ai-router.js";

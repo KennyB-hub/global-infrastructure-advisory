@@ -1,4 +1,4 @@
-// src/routes/api/system/cyber/events.js
+// seven-os/routes/api/system/cyber/events.js
 import { DBService } from "../../../system/db/db-service.js";
 import { requireRole } from "../../../system/security/require-role.js";
 

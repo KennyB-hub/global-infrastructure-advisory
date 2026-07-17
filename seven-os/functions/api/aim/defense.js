@@ -1,4 +1,4 @@
-import { Workflows } from "../../../ai-engine/workflows.js";
+import { Workflows } from "../../../ai/workflows.js";
 import { requireRole } from "../../../system/security/require-role.js";
 
 export async function onRequestPost(context) {
