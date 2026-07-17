@@ -1,7 +1,7 @@
 // seven-os/financial/calculate/mission.js
 
 import { RegionMeta } from "../../regions/region-meta";
-import { SectorMeta } from "../../sectors/sector-meta";
+import { SectorMeta } from "../../sector/sector-meta";
 
 export function calculateMissionCost(params) {
   const {

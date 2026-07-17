@@ -1,15 +1,15 @@
 // GIA Expansion Worker – Worker 9-of-12 (V12 Alpha)
 // Safely expands the Collective across clouds, regions, satellites, and infra zones.
 
-import { buildEvent } from "../../seven-os/system/cyber/event-builder";
-import { cyberHook } from "../../seven-os/system/cyber/worker-hook";
+import { buildEvent } from "../../system/cyber/event-builder";
+import { cyberHook } from "../../system/cyber/worker-hook";
 
-import { MCP } from "../../seven-os/mcp/mcp-client";
-import { DID } from "../../seven-os/identity/did";
-import { VC } from "../../seven-os/identity/vc";
-import { SovereignPolicy } from "../../seven-os/policy/sovereign-policy";
+import { MCP } from "./mcp/mcp-client";
+import { DID } from "./backend/identity/did";
+import { VC } from "./backend/identity/vc";
+import { SovereignPolicy } from "../../policy/sovereign-policy";
 
-import { ExpansionEngine } from "../../seven-os/expansion/expansion-engine";
+import { ExpansionEngine } from "../../expansion/expansion-engine";
 
 export default {
   async fetch(request: Request, env: any): Promise<Response> {

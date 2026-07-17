@@ -1,7 +1,7 @@
 // /workers/admin/access.ts
 // GIA Sovereign Admin Access Endpoint – V12 Sovereign Edition (TypeScript)
 
-import { basicSecurityGuard } from "../../seven-os/security/worker-guard";
+import { basicSecurityGuard } from "../seven-os/security/worker-guard";
 import { PolicyEngine } from "../../seven-os/engine/policy-engine";
 import { CryptoV12 } from "../../seven-os/engine/ai/crypto.js";
 

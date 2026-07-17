@@ -1,7 +1,7 @@
 // © 2026 Global Infrastructure Advisory
 // Seven Runtime — Sector Safety Engine (Generic)
 
-import { MissionPlan } from "../drone/drone-mission-planner";
+import { MissionPlan } from "../drone-mission-planner";
 
 export interface SafetyZone {
     lat: number;

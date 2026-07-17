@@ -1,7 +1,7 @@
 // © 2026 Global Infrastructure Advisory
 // Seven Runtime — Heavy-Lift Disaster Drone Profile
 
-import { DisasterProfile } from "./disaster-profile";
+import { DisasterProfile } from "../disaster-profile";
 
 export interface HeavyLiftProfile extends DisasterProfile {
     payloadKg: number;

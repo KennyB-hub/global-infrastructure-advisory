@@ -3,7 +3,7 @@
 
 import { SevenStack } from "../stack/seven-stack";
 import { RescueRequest, GroundRescueRequest } from "../rescue/seven-rescue-commander";
-import { NAPEvent } from "../sectors/nap-sectors";
+import { NAPEvent } from "../sector/nap-sector";
 
 export type ExternalSystem = "CAD" | "C2" | "SCADA" | "NACI" | "NAP";
 
@@ -64,15 +64,15 @@ export class SevenInterop {
         if (ev.type === "MISSION_STATUS") {
             return {
                 runtime: this.stack.runtime,
-                drones: this.stack.droneRegistry.list(),
-                ground: this.stack.groundRegistry.list()
+                drones: this.stack.UniversalVehicleRegistry.list(),
+                ground: this.stack.UniversalVehicleRegistry.list()
             };
         }
 
         if (ev.type === "UNIT_QUERY") {
             return {
-                drones: this.stack.droneRegistry.list(),
-                ground: this.stack.groundRegistry.list()
+                drones: this.stack.UniversalVehicleRegistry.list(),
+                ground: this.stack.UniversalVehicleRegistry.list()
             };
         }
 
