@@ -11,7 +11,7 @@ import { buildEvent } from "../../seven-os/system/cyber/event-builder";
 import { cyberHook } from "../../seven-os/system/cyber/worker-hook";
 
 import { verifyDidVcIdentity } from "../../backend/system/identity/did-vc-verifier";
-import { enforceMCP } from "../../backend/system/mcp/mcp-enforcer";
+import { enforceMCP } from "../../mcp/mcp-enforcer";
 
 const policy = new PolicyEngine();
 
