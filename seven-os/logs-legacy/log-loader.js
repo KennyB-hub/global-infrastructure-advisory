@@ -1,7 +1,4 @@
 // © 2026 Global Infrastructure Advisory
-// Seven‑OS V12 Alpha — Log Loader (seven-os/logs)
-// Used by routing audit + infra audit engines
-
 import fs from "fs";
 import path from "path";
 

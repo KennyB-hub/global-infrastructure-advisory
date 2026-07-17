@@ -1,6 +1,3 @@
-// global-ai-loader.js
-// V12 Alpha – Global AI Engine Loader
-
 const fs = require("fs");
 const path = require("path");
 
