@@ -8,10 +8,10 @@ import { HashUtils } from "../../seven-os/security/hash-utils";
 import { CryptoV12 } from "../../seven-os/engine/ai/crypto.js";
 
 import { buildEvent } from "../../seven-os/system/cyber/event-builder";
-import { cyberHook } from "../../seven-os/system/cyber/worker-hook";
+import { cyberHook } from "../../../system/cyber/worker-hook";
 
 import { verifyDidVcIdentity } from "../../backend/system/identity/did-vc-verifier";
-import { enforceMCP } from "../../mcp/mcp-enforcer";
+import { enforceMCP } from "../../../mcp/mcp-enforcer";
 
 const policy = new PolicyEngine();
 

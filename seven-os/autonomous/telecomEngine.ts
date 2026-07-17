@@ -1,9 +1,9 @@
-import { InMemoryGovernanceBrain } from './core/governance/GovernanceBrain';
-import { InMemoryRFObservationLayer } from './core/rf/RFObservationLayer';
-import { SimpleComplianceEngine } from './core/governance/ComplianceEngine';
-import { SimpleFirmwareAuditor } from './core/rf/FirmwareAuditor';
-import { SimpleRemediationEngine } from './core/remediation/RemediationEngine';
-import { LoggingWorkforceSync } from './core/workforce/AIWorkforceSyncLayer';
+import { InMemoryGovernanceBrain } from '../governance-brain';
+import { InMemoryRFObservationLayer } from '../governance-brain/rf-observation-layer';
+import { SimpleComplianceEngine } from '../governance-brain/compliance-engine';
+import { SimpleFirmwareAuditor } from '../governance-brain/firmware-auditor';
+import { SimpleRemediationEngine } from '../governance-brain/remediation-engine';
+import { LoggingWorkforceSync } from './core/AI-workforce-sync-layer';
 
 export function createTelecomEquipmentAuthorizationEngine() {
   const brain = new InMemoryGovernanceBrain();

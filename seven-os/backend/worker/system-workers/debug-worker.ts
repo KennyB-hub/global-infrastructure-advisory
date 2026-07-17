@@ -12,9 +12,9 @@
 
 import { AI } from "../ai/engine";
 
-import systemManifest from "../../config/system-manifest.json";
-import nodeRegistry from "../../config/node-registry.json";
-import clusterHealth from "../../config/cluster-health.json";
+import systemManifest from "../../../config/system-manifest.json";
+import nodeRegistry from "../../../config/node-registry.json";
+import clusterHealth from "../../../config/cluster-health.json";
 
 // ---------------------------------------------------------
 // Unified JSON responder

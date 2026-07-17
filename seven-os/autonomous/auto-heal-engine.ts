@@ -1,7 +1,7 @@
 // auto-heal-engine.ts
 
-import { FullIntegrityScan } from "./full-integrity-scan";
-import { RepoDiffAnalyzer } from "./repo-diff-analyzer";
+import { FullIntegrityScan } from "../agents/tasks/full-integrity-scan";
+import { RepoDiffAnalyzer } from "../agents/tasks/repo-diff-analyzer";
 import { queueTask } from "./task-queue";
 
 export class AutoHealEngine {

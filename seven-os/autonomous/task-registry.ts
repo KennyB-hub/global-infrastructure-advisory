@@ -1,8 +1,8 @@
 // V12 Alpha – Task registry: what 7 of 9 is allowed to do
 
 import { Task } from "./task-queue.js";
-import { matchHaulersForLoad } from "../../ai/load-matching-engine.js";
-import { listLoads, updateLoadStatus } from "../../ai/load-registry.js";
+import { matchHaulersForLoad } from "../ai/load-matching-engine.js";
+import { listLoads, updateLoadStatus } from "../ai/load-registry.js";
 
 type TaskHandler = (task: Task) => Promise<void>;
 
@@ -28,7 +28,7 @@ export function getTaskHandler(type: string): TaskHandler | null {
 }
 
 import { scanRepo } from "./repo-scan.js";
-import { analyzeRepo } from "../src/ai/engines/autonomous/repo-analyze.js";
+import { analyzeRepo } from "../autonomous/repo-analyze.js";
 import fs from "fs";
 
 handlers["repo-scan"] = async () => {

@@ -1,4 +1,5 @@
 import fs from "fs";
+import path from "path";
 
 export function generateUXRulesForSector(sector) {
   const category = sector.category || "general";

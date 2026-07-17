@@ -1,7 +1,7 @@
 // V12 Alpha – Autonomous Worker "7 of 9" (Task Queue Worker)
 
-import { getNextPendingTask, updateTask, Task } from "./task-queue";
-import { getTaskHandler } from "./task-registry";
+import { getNextPendingTask, updateTask, Task } from "../autonomous/task-queue";
+import { getTaskHandler } from "../agents/tasks/task-registry";
 
 async function runSingleTask(task: Task): Promise<void> {
   const handler = getTaskHandler(task.type);

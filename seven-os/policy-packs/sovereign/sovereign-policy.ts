@@ -1,9 +1,9 @@
-// src/policy/sovereign-policy.ts
+// seven-os/policy/sovereign-policy.ts
 // Sovereign policy loader + expansion validator.
 
-import globalPolicy from "../../config/globalPolicy.json";
-import sovereignOverrides from "../../config/sovereignOverrides.json";
-import trustZones from "../../config/trustZones.json";
+import globalPolicy from "../../config/global-policy.json";
+import sovereignOverrides from "../config/sovereignOverrides.json";
+import trustZones from "../config/trustZones.json";
 
 export class SovereignPolicy {
   private env: any;

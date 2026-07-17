@@ -1,7 +1,7 @@
 // /ai-engine/policy-engine.js
 // GIA Sovereign Policy Engine – V12 Alpha
 
-import { sha256 } from "../../ai-engines/utils/context.js";
+import { sha256 } from "../../ai/ai-context.js";
 
 //
 // 7 Sovereign Trust Zones
