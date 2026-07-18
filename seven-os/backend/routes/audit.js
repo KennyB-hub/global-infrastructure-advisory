@@ -1,20 +1,21 @@
-import express from "express";
 import { InfrastructureAuditEngine } from "../infrastructure/infrastructure-audit-engine.js";
 
-const router = express.Router();
-
-router.get("/:target", async (req, res) => {
+export async function handleAuditRoute(input) {
   try {
-    const target = req.params.target;
-    const options = req.query || {};
+    const target = input.target;
+    const options = input.options || {};
 
     const audit = await InfrastructureAuditEngine.runAudit(target, options);
 
-    res.json(audit);
+    return {
+      ok: true,
+      audit
+    };
   } catch (err) {
     console.error("Audit error:", err);
-    res.status(500).json({ error: "Audit failed." });
+    return {
+      ok: false,
+      error: "Audit failed."
+    };
   }
-});
-
-export default router;
+}

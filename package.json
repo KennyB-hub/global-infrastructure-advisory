@@ -1,37 +1,48 @@
 {
   "name": "global-infrastructure-advisory",
-  "version": "1.0.0",
-  "private": true,
+  "version": "1.2.0",
+  "description": "GIA Deep Mind Sovereign Infrastructure Tool",
+  "main": "seven-os/index.js",
   "type": "module",
+
   "scripts": {
     "clean": "node organize.js",
     "build": "tsc",
     "dev": "npm run clean && wrangler dev",
     "deploy": "npm run clean && wrangler deploy",
+    "logs": "wrangler tail",
+
     "start:ws": "node seven-os/backend/ws/run-collar-ws.js",
+
     "repo:scan": "node scripts/repo-scan.cjs",
     "repo:fix": "node scripts/repo-scan-auto-fix.cjs",
+    "repo:scan:auto-fix": "node scripts/repo-scan-auto-fix.cjs",
+
     "build:manifest": "node scripts/build-system-manifest.cjs",
     "route-audit": "node scripts/route-audit.mjs",
     "verify:ws": "node scripts/verify-ws-test.cjs",
-    "repo:scan:auto-fix": "node scripts/repo-scan-auto-fix.cjs",
+
     "scan:secrets": "node scripts/scan-secrets.cjs",
-    "move-workers": "node scripts/move-workers.cjs",
-    "seven-autofix": "node scripts/seven-autofix.mjs",
     "scan:licenses": "node scripts/license-scan.cjs",
+    "move-workers": "node scripts/move-workers.cjs",
+
+    "seven-autofix": "node scripts/seven-autofix.mjs",
+
     "test:cli-sandbox": "node scripts/test-cli-sandbox.cjs",
     "test:cli-build": "node scripts/test-cli-build.cjs",
     "test:cli-loader": "node proprietary-cli/commands/dev/test.js loader",
     "test:cli-mapping": "node proprietary-cli/commands/dev/test.js mapping",
     "test:cli-workers": "node proprietary-cli/commands/dev/test.js workers",
     "test:cli-routing": "node proprietary-cli/commands/dev/test.js routing",
-    "cli:system-fix": "node proprietary-cli/commands/scan/system-needs.js system-fix",
-    "test": "echo \"Running v12 logic tests...\" && exit 0",
-    "start": "node ./bin/cli.cjs",
-    "dev-test": "node ./bin/cli.cjs",
-    "test-cli": "node ./commands/dev/test-cli.cjs"
+
+    "test": "echo \"Running v12 logic tests...\" && exit 0"
   },
+
   "dependencies": {
+    "@azure/identity": "^3.0.0",
+    "@azure/keyvault-secrets": "^4.7.0",
+    "three": "^0.150.1",
+
     "chalk": "^5.3.0",
     "glob": "^13.0.6",
     "inquirer": "^9.2.0",
@@ -40,15 +51,15 @@
     "ws": "^8.21.0",
     "zod": "^3.22.0"
   },
+
   "devDependencies": {
-    "@types/mocha": "^10.0.10",
+    "@cloudflare/workers-types": "^4.0.0",
     "@types/node": "^26.1.1",
+    "@types/mocha": "^10.0.10",
+
     "mocha": "^11.3.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3",
     "wrangler": "^4.98.0"
-  },
-  "bin": {
-    "seven": "./bin/cli.js"
   }
 }
