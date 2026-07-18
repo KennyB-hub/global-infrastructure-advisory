@@ -2,7 +2,8 @@
 
 import { matchVoiceCommand } from "./command-matcher.js";
 import { fallbackAskToLearn, fallbackAskIntent, fallbackStoreLearned } from "./command-fallback.js";
-import { selectVoiceMode } from "../../routes/voice-flight.js"; // or move to /system if preferred
+import { selectVoiceMode } from "../../routes/selectVoiceMode.js";
+
 
 // ---------------------------------------------
 // MAIN RESPONSE ENGINE

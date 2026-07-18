@@ -17,6 +17,8 @@ import { EventQueue } from "../core/event-queue";
 import { HybridMode } from "../hybrid/hybrid-mode";
 import { SatelliteContinuityLayer } from "../sync/satellite-continuity";
 import { GeoFallbackEngine } from "../geo/geo-fallback-engine";
+import { selectVoiceMode } from "../../backend/routes/selectVoiceMode.js";
+
 
 export class SevenStack {
   readonly runtime: SevenRuntime;

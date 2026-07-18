@@ -60,23 +60,3 @@ export async function handleVoiceFlight(input) {
     };
   }
 }
-
-function selectVoiceMode(role, priority = "normal") {
-
-  if (priority === "critical") return "emergency";
-  if (priority === "emergency") return "emergency";
-  if (priority === "warning" && role === "rescue") return "tactical";
-
-  switch (role) {
-    case "farmer":
-      return "rural";
-    case "contractor":
-      return "engineering";
-    case "emt":
-      return "emergency";
-    case "rescue":
-      return "tactical";
-    default:
-      return "rural";
-  }
-}

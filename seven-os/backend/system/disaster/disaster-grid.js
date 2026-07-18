@@ -1,6 +1,6 @@
 // system/disaster/disaster-grid.js
 
-import { selectVoiceMode } from "../voice/voice-mode.js";
+import { selectVoiceMode } from "../../routes/selectVoiceMode.js";
 
 // ---------------------------------------------
 // Disaster Types Seven Understands
