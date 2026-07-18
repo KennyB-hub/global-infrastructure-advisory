@@ -6,7 +6,7 @@ import { UniversalVehiclePlugin } from "../adapters/universal-vehicle-plugin";
 
 import { SevenNarrator, NarratorSink } from "../voice/seven-narrator";
 import { SevenRescueCommander } from "../rescue/seven-rescue-commander";
-import { UniversalRescueUnit } from "../rescue/universal-rescue-unit";
+import { UniversalRescueUnit } from "../rescue/universal-resue-unit";
 
 import { NAPEvent } from "../sector/nap-sector";
 import { SevenInterop } from "../interop/seven-interop";
@@ -17,7 +17,6 @@ import { EventQueue } from "../core/event-queue";
 import { HybridMode } from "../hybrid/hybrid-mode";
 import { SatelliteContinuityLayer } from "../sync/satellite-continuity";
 import { GeoFallbackEngine } from "../geo/geo-fallback-engine";
-import { selectVoiceMode } from "../../backend/routes/selectVoiceMode.js";
 
 
 export class SevenStack {

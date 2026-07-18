@@ -1,4 +1,4 @@
-import model from '../models/infrastructure.json';
+import model from '../models/infrastructure-cost-model.json';
 import { calculateCost } from './calculate.js';
 
 export function calculateInfrastructureCost(params) {
