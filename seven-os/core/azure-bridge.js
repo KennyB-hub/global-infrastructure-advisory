@@ -1,4 +1,4 @@
-// src/core/azure-bridge.js
+// seven-os/core/azure-bridge.js
 export async function fetchSectorData(sectorId, env) {
     // Securely calling your Azure Function or Logic App
     const response = await fetch(`https://azurewebsites.net{sectorId}`, {

@@ -39,7 +39,7 @@
         "root/seven-os/hubs/Dashboard.js"
       ],
       "issue": "MediaUpload and dashboard logic duplicated across Public and Farmer hubs",
-      "recommendation": "Extract to root/src/shared/components/MediaUpload.js for DRY principle",
+      "recommendation": "Extract to root/seven-os/shared/components/MediaUpload.js for DRY principle",
       "estimatedEffort": "2-4 hours"
     }
   ],
@@ -345,7 +345,7 @@
       "id": "STRUCT-003",
       "issue": "No unified shared components directory",
       "severity": "low",
-      "recommendation": "Create root/src/shared/components/ for reusable UI components (MediaUpload, GPSMonitor, etc.)",
+      "recommendation": "Create root/seven-os/shared/components/ for reusable UI components (MediaUpload, GPSMonitor, etc.)",
       "priority": "low"
     }
   ],
@@ -401,7 +401,7 @@
     {
       "id": "ACTION-007",
       "priority": "medium",
-      "task": "Extract duplicate components to root/src/shared/components/",
+      "task": "Extract duplicate components to root/seven-os/shared/components/",
       "responsible": "frontend-team",
       "estimatedTime": "2-4 hours",
       "status": "pending"

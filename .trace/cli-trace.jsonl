@@ -1,0 +1,2 @@
+{"timestamp":"2026-07-18T04:36:05.533Z","event":"cli.test.mode","payload":{"mode":"mapping"}}
+{"timestamp":"2026-07-18T11:35:14.488Z","event":"cli.test.mode","payload":{"mode":"routing"}}

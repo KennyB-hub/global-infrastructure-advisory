@@ -16,7 +16,7 @@ export async function loadWorkers(options = {}) {
     const ctx = buildContext({ mode: "workers", ...options });
 
     // Adjust this if your workers live somewhere else
-    const workersDir = path.join(ctx.repoRoot, "src", "backend", "worker");
+    const workersDir = path.join(ctx.repoRoot, "seven-os", "backend", "worker");
 
     const workers = {};
 

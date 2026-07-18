@@ -11,7 +11,7 @@ const __dirname = path.dirname(__filename);
 export async function loadRoutingTable(options = {}) {
     const ctx = buildContext({ mode: "routing", ...options });
 
-    const routingDir = path.join(ctx.repoRoot, "src", "backend", "routes");
+    const routingDir = path.join(ctx.repoRoot, "seven-os", "backend", "routes");
     const table = {};
 
     for (const file of fs.readdirSync(routingDir)) {

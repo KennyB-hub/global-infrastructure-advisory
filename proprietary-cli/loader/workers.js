@@ -11,11 +11,11 @@ import { readJSON } from "../helpers/json.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Load all workers from /src/workers
+// Load all workers from /seven-os/workers
 export async function loadWorkers(options = {}) {
     const ctx = buildContext({ mode: "workers", ...options });
 
-    const workersDir = path.join(ctx.repoRoot, "src", "workers");
+    const workersDir = path.join(ctx.repoRoot, "seven-os", "workers");
     const workers = {};
 
     // Scan worker directory

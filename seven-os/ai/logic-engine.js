@@ -1,4 +1,4 @@
-// src/ai/logic-engine.js
+// seven-os/ai/logic-engine.js
 // Core Logic Engine for Deep Mind Telemetry + AI Reasoning Layer
 
 export async function logicEngine(input, context) {
