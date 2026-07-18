@@ -1,12 +1,12 @@
-// seven-os/ai/engine/ai-router.js
+// seven-os/engine/ai-router.js
 // GIA Sovereign AI Router – V12 Alpha
 
 import { sovereignWorkerGuard } from "../../system/security/worker-guard.js";
 import { validatePayload, validateTrustZone } from "./validator.js";
 import { matchIntent } from "./ai-matching.js";
-import { buildContext } from "./context-builder.js";
-import { sanitizeOutput } from "./response-sanitizer.js";
-import { handleError } from "./error-handler.js";
+import { buildContext } from "../engines/context-builder.js";
+import { sanitizeOutput } from "../engines/response-sanitizer.js";
+import { handleError } from "../engines/error-handler.js";
 import { processUX } from "./unified-ux/unified-ux-core.js";
 import * as organizerWorker from "../workers/organizer/index.js";
 import * as expansionWorker from "../workers/expansion/index.js";
@@ -16,19 +16,19 @@ import { createLoad, listLoads, updateLoadStatus } from "../load-registry.js";
 import { matchHaulersForLoad } from "../load-matching-engine.js";
 
 // Core engines
-import { runGeoTask } from "./ai-geo.js";
-import { runUtilityTask } from "./ai-utilities.js";
-import { runDecisionEngine } from "./decision-engine.js";
-import { runSandboxAI } from "./sandbox-bridge.js";
-import { EngineeringEngine } from "./engineering-engine.js";
-import { MechanicsEngine } from "./mechanics-engine.js";
+import { runGeoTask } from "../engines/ai-geo.js";
+import { runUtilityTask } from "../engines/ai-utilities.js";
+import { runDecisionEngine } from "../engines/decision-engine.js";
+import { runSandboxAI } from "../engines/sandbox-bridge.js";
+import { EngineeringEngine } from "../engines/engineering-engine.js";
+import { MechanicsEngine } from "../engines/mechanics-engine.js";
 
 // New V12 Alpha engines
-import { ScienceEngine } from "./science-engine.js";
-import { GeothermalEngine } from "./geothermal-engine.js";
-import { RenewablesEngine } from "./renewables-engine.js";
-import { BuildingCodeEngine } from "./building-code-engine.js";
-import { ZoningEngine } from "./zoning-engine.js";
+import { ScienceEngine } from "../engines/science-engine.js";
+import { GeothermalEngine } from "../engines/geothermal-engine.js";
+import { RenewablesEngine } from "../engines/renewables-engine.js";
+import { BuildingCodeEngine } from "../engines/building-code-engine.js";
+import { ZoningEngine } from "../engines/zoning-engine.js";
 import { SectorAnalysisEngine } from "./sector-analysis.js";
 import { enforceAIPolicy } from "./ai-policy.js";
 
@@ -36,7 +36,8 @@ import { enforceAIPolicy } from "./ai-policy.js";
 import { enqueueTask, getNextPendingTask, updateTask } from "./autonomous/task-queue.js";
 import { getTaskHandler } from "./autonomous/task-registry.js";
 import { runSevenOfNineOnce } from "./autonomous/seven-of-nine.js";
-import { loadDynamicEngines } from "./dynamic-engine-loader.js";
+import { loadDynamicEngines } from "../engines/dynamic-engine-loader.js";
+import { routeMissionWithPhoenix } from "../financial/engine.js";
 
 const sectorAnalysisEngine = new SectorAnalysisEngine();
 const scienceEngine = new ScienceEngine();
@@ -126,6 +127,10 @@ export async function processAIRequest(request, env) {
         result = await runSandboxAI(input, env, context);
         break;
 
+      case "mission":
+        result = await routeMissionWithPhoenix(input);
+        break;
+  
       // --- NEW: Cattle logistics intents ---
 
       case "cattle-load-create": {

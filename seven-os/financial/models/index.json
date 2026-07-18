@@ -1,0 +1,45 @@
+{
+  "version": "1.0.1",
+  "models": [
+    {
+      "id": "credit-score",
+      "name": "Credit Score Model",
+      "engine": "seven-financial-core",
+      "description": "Evaluates creditworthiness for rural contractors, farms, and public applicants.",
+      "inputs": ["identity", "income", "history"],
+      "outputs": ["score", "riskBand"]
+    },
+    {
+      "id": "farm-grant",
+      "name": "Farm Grant Eligibility Model",
+      "engine": "seven-financial-core",
+      "description": "Determines eligibility for agricultural grants, subsidies, and rural assistance.",
+      "inputs": ["acreage", "cropType", "location", "yield"],
+      "outputs": ["eligibility", "grantAmount"]
+    },
+    {
+      "id": "contractor-bid",
+      "name": "Contractor Bid Model",
+      "engine": "seven-financial-core",
+      "description": "Calculates fair bid pricing for rural contractors based on materials, labor, and distance.",
+      "inputs": ["materials", "labor", "distance"],
+      "outputs": ["bidPrice", "margin"]
+    },
+    {
+      "id": "public-assistance",
+      "name": "Public Assistance Model",
+      "engine": "seven-financial-core",
+      "description": "Evaluates public assistance eligibility for rural residents.",
+      "inputs": ["identity", "income", "dependents"],
+      "outputs": ["eligibility", "programs"]
+    },
+    {
+      "id": "mission-phoenix",
+      "name": "Mission Phoenix Funding Model",
+      "engine": "seven-financial-core",
+      "description": "Allocates operational funding from Mission Phoenix for Seven‑OS infrastructure, rescue, and rural development missions.",
+      "inputs": ["missionType", "sector", "costProfile", "region"],
+      "outputs": ["fundingAmount", "programEligibility", "costOffset"]
+    }
+  ]
+}

@@ -7,8 +7,8 @@ import { loadIntegrationMap } from "./system/loaders/integration-loader.js";
 import { loadSectorEngineBinding } from "./system/loaders/engine-binding-loader.js";
 import integrityRules from "./system/integrity-rules.json" assert { type: "json" };
 
-import { WorkerRouter } from "./runtime/worker-router.js";
-import { EngineRegistry } from "./runtime/engine-registry.js";
+import { WorkerRouter } from "./seven-runtime/worker-router.js";
+import { EngineRegistry } from "./seven-runtime/engine-registry.js";
 import { VoiceSystem } from "./voice/voice-system.js";
 import { MissionSystem } from "./missions/mission-system.js";
 

@@ -5,6 +5,7 @@ import { UniversalVehicleRegistry } from "../adapters/universal-vehicle-registry
 import { UniversalVehiclePlugin } from "../adapters/universal-vehicle-plugin";
 
 import { SevenNarrator, NarratorSink } from "../voice/seven-narrator";
+import { SevenRescueCommander } from "../rescue/seven-rescue-commander";
 import { UniversalRescueUnit } from "../rescue/universal-rescue-unit";
 
 import { NAPEvent } from "../sector/nap-sector";
@@ -37,10 +38,10 @@ export class SevenStack {
     this.narrator = new SevenNarrator(sink);
     const speakFn = (msg: string) => this.narrator.say(msg);
 
-    // Universal registry
-    this.vehicles = new VehicleRegistry(speakFn);
+    // Universal Vehicle Registry
+    this.vehicles = new UniversalVehicleRegistry(speakFn);
 
-    // Rescue Commander (now universal)
+    // Rescue Commander (universal)
     this.rescue = new SevenRescueCommander(this.runtime, this.narrator);
 
     // Connectivity + Sync
