@@ -7,3 +7,5 @@
 {"timestamp":"2026-07-18T15:14:16.476Z","event":"cli.test.mode","payload":{"mode":"routing"}}
 {"timestamp":"2026-07-18T15:23:23.706Z","event":"cli.test.mode","payload":{"mode":"routing"}}
 {"timestamp":"2026-07-18T15:32:39.262Z","event":"cli.test.mode","payload":{"mode":"routing"}}
+{"timestamp":"2026-07-18T15:36:44.073Z","event":"cli.test.mode","payload":{"mode":"routing"}}
+{"timestamp":"2026-07-18T15:51:26.948Z","event":"cli.test.mode","payload":{"mode":"routing"}}
