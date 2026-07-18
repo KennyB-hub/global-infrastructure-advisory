@@ -1,7 +1,7 @@
 // seven-os/engine/ai-router.js
 // GIA Sovereign AI Router – V12 Alpha
 
-import { sovereignWorkerGuard } from "../../system/security/worker-guard.js";
+import { sovereignWorkerGuard } from "../system/security/worker-guard.js";
 import { validatePayload, validateTrustZone } from "./validator.js";
 import { matchIntent } from "./ai-matching.js";
 import { buildContext } from "../engines/context-builder.js";
