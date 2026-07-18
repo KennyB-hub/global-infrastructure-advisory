@@ -17,7 +17,7 @@ import { FailsafeProtocols } from "./system/failsafe-protocols.js";
 // NEW API ROUTERS
 import { handleCyberApi } from "./system/api/cyber.js";
 import { handleGovViewApi } from "./system/api/gov-view.js";
-import { handleOpportunityApi } from "./system/api/opportunity.js";
+import { handleOpportunityApi } from "./functions/api/opportunity.js";
 import { handleMarketplaceApi } from "./system/api/marketplace.js";
 import { handleSectorMatchApi } from "./system/api/sector-match.js";
 

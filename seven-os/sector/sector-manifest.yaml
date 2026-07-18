@@ -20,7 +20,7 @@ seven-os-sector:
   # ---------------------------------------------------------
   # SECTOR DEFINITIONS (22 infrastructure sector)
   # ---------------------------------------------------------
-  sectors:
+  sector:
     - roads
     - bridges
     - telecom

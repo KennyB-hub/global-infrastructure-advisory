@@ -1,11 +1,11 @@
 // /functions/api/opportunities.js
 // 2050 V12 Alpha — Opportunities Listing
 
-import { buildSovereignMetadata } from "../metadata.js";
+import { buildSovereignMetadata } from "../../system/metadata.js";
 import { computeIntegrityHash } from "../../system/integrity.js";
-import { applyPolicy } from "../policy-engine.js";
-import { buildAIContext } from "../ai-context.js";
-import { requireRole } from "../trust/api-trust.js";
+import { applyPolicy } from "../../system/policy-engine.js";
+import { buildAIContext } from "../../system/ai-context.js";
+import { requireRole } from "../../system/trust/api-trust.js";
 
 export async function onRequestGet(context) {
   const request = context.request;

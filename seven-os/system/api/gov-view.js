@@ -1,5 +1,5 @@
 // system/api/gov-view.js
-import { govView } from "../../workers/system/govView.worker.js";
+import { govView } from "../../workers/system/govView.worker.ts";
 
 export async function handleGovViewApi(request, env) {
   const url = new URL(request.url);

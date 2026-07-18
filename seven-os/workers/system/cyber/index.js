@@ -12,7 +12,7 @@ export async function handle(payload, context) {
   const anomalies = detectAnomalies(data, context);
   const workerMap = {
   ...
-  cyber: cyberWorker
+  cyber, cyberWorker
 };
 
   return {

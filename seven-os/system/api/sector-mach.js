@@ -1,5 +1,5 @@
 // system/api/sector-match.js
-import { matchBySector } from "../workers/system/sector-matching.engine.ts";
+import { matchBySector } from "../../workers/system/sector-matching.engine.ts";
 
 export async function handleSectorMatchApi(request, env) {
   const url = new URL(request.url);

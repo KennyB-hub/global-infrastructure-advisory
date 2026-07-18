@@ -1,7 +1,5 @@
 // workers/system/cyber/threat-score.engine.js
 
-// workers/system/cyber/threat-score.engine.js
-
 const INDICATOR_WEIGHTS = {
   // Identity / Auth
   invalid_token: 40,
