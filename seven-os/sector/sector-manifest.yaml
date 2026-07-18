@@ -18,7 +18,7 @@ seven-os-sector:
     - seven-os/sector/ai
 
   # ---------------------------------------------------------
-  # SECTOR DEFINITIONS (22 infrastructure sectors)
+  # SECTOR DEFINITIONS (22 infrastructure sector)
   # ---------------------------------------------------------
   sectors:
     - roads

@@ -3,14 +3,14 @@
  * Master Entrypoint for Sovereign Infrastructure
  */
 
-import { runDecisionEngine } from "./ai-engine/decision-engine.js";
-import tools from "./ai-engine/tools/index.js";
-import policies from "./ai-engine/policies/index.js";
-import workflows from "./ai-engine/workflow/index.js";
-import { filterAIOutput } from "./ai-engine/filters/code-filter.js";
-import { beforeExecution } from "./ai-engine/hooks/before-execution.js";
-import { afterExecution } from "./ai-engine/hooks/after-execution.js";
-import { validateAIOutput } from "./ai-engine/validation/schema-guard.js";
+import { runDecisionEngine } from "./ai/decision-engine.js";
+import tools from "./ai/tools/index.js";
+import policies from "./ai/policies/index.js";
+import workflows from "./ai/workflow/index.js";
+import { filterAIOutput } from "./ai/filters/code-filter.js";
+import { beforeExecution } from "./ai/hooks/before-execution.js";
+import { afterExecution } from "./ai/hooks/after-execution.js";
+import { validateAIOutput } from "./ai/validation/schema-guard.js";
 import { AutomationTasks } from "./system/automation-tasks.js";
 import { FailsafeProtocols } from "./system/failsafe-protocols.js";
 

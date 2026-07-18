@@ -1,6 +1,6 @@
-import contracts from "../financial/contracts/contract.json";
-import sectors from "../sectors/index.json";
-import workers from "../workers/index.json";
+import contracts from "../../financial/contracts/contract.json";
+import sector from "../../sector/index.json";
+import workers from "../index.json";
 
 export async function opportunityScanner(query) {
   switch (query.type) {
@@ -22,7 +22,7 @@ function matchByNaics(naics) {
 }
 
 function matchBySector(sector) {
-  return contracts.filter(c => c.missionPhoenix.sectors.includes(sector));
+  return contracts.filter(c => c.missionPhoenix.sector.includes(sector));
 }
 
 function matchByRole(role) {

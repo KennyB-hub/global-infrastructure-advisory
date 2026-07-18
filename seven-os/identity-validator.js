@@ -1,7 +1,7 @@
 // V12 Alpha — Identity Validator
 // Validates EIN, salt binding, and identity anchor integrity
 
-import { generateIdentityAnchor } from "./identity-anchor.js";
+import { generateIdentityAnchor } from "./identity-anchor.ts";
 
 export async function validateIdentityAnchor(
   ein: string,

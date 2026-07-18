@@ -1,5 +1,5 @@
 import budgets from "../financial/models/budgets.json";
-import contracts from "../financial/contracts/contract.json";
+import contracts from "../../financial/contracts/contract.json";
 import costModels from "../financial/models/index.json";
 
 export async function govView(query) {

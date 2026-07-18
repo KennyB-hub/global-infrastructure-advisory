@@ -2,8 +2,8 @@
 // GIA Sovereign System Worker – V12 Sovereign Edition
 
 import { basicSecurityGuard } from "../../seven-os/security/worker-guard.js";
-import { PolicyEngine } from "../../seven-os/ai-engine/policy-engine.js";
-import { CryptoV12 } from "../../seven-os/ai-engine/utils/crypto.js";
+import { PolicyEngine } from "../../seven-os/ai/policy-engine.js";
+import { CryptoV12 } from "../../seven-os/ai/crypto.js";
 import { SectorEngine } from "../../seven-os/backend/sector/sector-engine.js";
 
 import { verifyDidVcIdentity } from "../../backend/system/identity/did-vc-verifier.js";
