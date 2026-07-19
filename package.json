@@ -35,7 +35,8 @@
     "test:cli-mapping": "node proprietary-cli/commands/dev/test.js mapping",
     "test:cli-workers": "node proprietary-cli/commands/dev/test.js workers",
     "test:cli-routing": "node proprietary-cli/commands/dev/test.js routing",
-
+    "test-cli": "node ./commands/dev/test-cli.cjs",
+    "cli:build": "node cli:build",
     "test": "echo \"Running v12 logic tests...\" && exit 0"
   },
 
