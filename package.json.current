@@ -25,6 +25,8 @@
     "scan:secrets": "node scripts/scan-secrets.cjs",
     "scan:licenses": "node scripts/license-scan.cjs",
     "move-workers": "node scripts/move-workers.cjs",
+    "audit:seven-os": "ts-node --esm --project ./seven-os/tsconfig.json seven-os/index.ts audit-routes --trace ./logs/traces/cli/seven-os-audit.jsonl"
+},
 
     "seven-autofix": "node scripts/seven-autofix.mjs",
     "audit-routes": "node scripts/audit-routes.mjs",
