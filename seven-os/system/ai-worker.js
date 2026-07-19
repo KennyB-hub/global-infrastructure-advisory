@@ -1,10 +1,10 @@
 // 2050 V12 Alpha — AI Worker
 
-import { routeAI } from "./ai-router.js";
-import { filterAIInput } from "./ai-filter.js";
+import { routeAI } from "../route/ai-router.js";
+import { filterAIInput } from "../ai/filters/ai-filter.js";
 import { sanitizeAIOutput } from "./ai-sanitizer.js";
-import { enforceAIPolicy } from "./ai-policy.js";
-import { rememberShortTerm } from "./ai-memory.js";
+import { enforceAIPolicy } from "../ai/policy/index.js";
+import { rememberShortTerm } from "../ai/ai-memory.js";
 import { checkAISafety } from "./ai-safety.js";
 import { logAIEvent } from "./ai-logs.js";
 import { recordAITelemetry } from "./ai-telemetry.js";

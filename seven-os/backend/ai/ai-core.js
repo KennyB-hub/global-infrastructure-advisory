@@ -5,9 +5,9 @@
 import { basicSecurityGuard } from "../backend/security/worker-guard.js";
 import { routeAIRequest } from "./ai-router.js";
 import { applyPolicies } from "./policy-engine.js";
-import { buildContext } from "./context-builder.js";
-import { sanitizeOutput } from "./response-sanitizer.js";
-import { handleError } from "./error-handler.js";
+import { buildContext } from "../../engines/context-builder.js";
+import { sanitizeOutput } from "../../engines/response-sanitizer.js";
+import { handleError } from "../../engines/error-handler.js";
 import { validatePayload, validateTrustZone } from "../../ai-engines/utils/validator.js";
 
 export async function processAIRequest(request, env) {

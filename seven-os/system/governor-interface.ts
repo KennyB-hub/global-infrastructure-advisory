@@ -1,5 +1,5 @@
 // governor-interface.ts
-import integrityRules from '../../system/integrity-rules.json';
+import integrityRules from '../autonomous/integrity';
 
 export type GovernorCheck = {
   source: string;

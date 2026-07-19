@@ -2,7 +2,7 @@
 
 import { FullIntegrityScan } from "../agents/tasks/full-integrity-scan";
 import { RepoDiffAnalyzer } from "../agents/tasks/repo-diff-analyzer";
-import { queueTask } from "./task-queue";
+import { queueTask } from "./queueTask";
 
 export class AutoHealEngine {
   static run() {

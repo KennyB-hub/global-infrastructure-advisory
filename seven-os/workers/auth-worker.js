@@ -3,7 +3,7 @@
  * Authentication Worker — Identity Anchor Gateway
  */
 
-import { processAIRequest } from "../backend/ai-engine/ai-core.js";
+import { processAIRequest } from "../backend/ai/ai-core.js";
 
 export default {
   async fetch(request, env) {

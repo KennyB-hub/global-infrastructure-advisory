@@ -2,7 +2,7 @@
 // GIA EWO Gateway Worker – V12 Alpha (TypeScript)
 
 import { handleEWORequest } from "../backend/system/ewo/ewo-router";
-import { getTrustZone, checkTrust } from "../system/trust-middleware";
+import { getTrustZone, checkTrust } from "../backend/system/trust-middleware";
 
 import systemManifest from "../config/system-manifest.json";
 import nodeRegistry from "../config/node-registry.json";

@@ -1,4 +1,4 @@
-import { runCyberEngine } from "./ai-cyber.js";
+import { runCyberEngine } from "./cyber/index.ts";
 
 export function routeAI(task, env) {
   switch (task.type) {
