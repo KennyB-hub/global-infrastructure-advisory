@@ -130,7 +130,7 @@ Production deployment guide:
 
 ### New Core Files (7)
 ```
-src/ai/engines/autonomous/
+seven-os/ai/engines/autonomous/
 ├── nats-client.ts              ✨ NATS message bus client
 ├── event-bus.ts                ✨ Event publishing infrastructure
 ├── event-dispatcher.ts         ✨ Event handler router
@@ -143,7 +143,7 @@ src/ai/engines/autonomous/
 
 ### Updated Files (2)
 ```
-src/ai/engines/
+seven-os/ai/engines/
 ├── autonomous/seven-runtime/drone/drone-cotrol.ts    (Real SDK hooks)
 └── autonomous/seven-runtime/ground/ground-control.ts (Real SDK hooks)
 ```
@@ -152,7 +152,7 @@ src/ai/engines/
 ```
 root/
 ├── SEVEN_DEPLOYMENT.md                      ✨ Deployment guide
-src/ai/engines/autonomous/
+seven-os/ai/engines/autonomous/
 ├── SEVEN_OPERATORS_GUIDE.md                 ✨ Operations manual
 ├── SEVEN_COMPLETION_SUMMARY.md              ✨ This file
 └── AUTONOMOUS_ROUTING.md                    ✨ API reference

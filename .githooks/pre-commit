@@ -26,3 +26,17 @@ for file in $STAGED_FILES; do
 done
 
 exit 0
+#!/bin/sh
+if git diff --cached --name-only | grep -q '^package.json$'; then
+  staged=$(git show :package.json 2>/dev/null || cat package.json)
+  echo "$staged" | grep -q '"test:cli-routing"' || {
+    echo "ERROR: commit would remove or modify the test:cli-routing script in package.json."
+    exit 1
+  }
+fi
+if git diff --cached --name-only | grep -q '^proprietary-cli/commands/dev/test.js$'; then
+  echo "ERROR: commit would modify the test delegator. Use PR and get approval."
+  exit 1
+fi
+exit 0
+
