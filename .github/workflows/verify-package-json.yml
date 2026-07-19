@@ -1,0 +1,13 @@
+name: Verify package.json integrity
+on: [pull_request, push]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate package.json parses
+        run: |
+          node -e "const fs=require('fs'); JSON.parse(fs.readFileSync('package.json','utf8')); console.log('package.json valid')"
+      - name: Ensure test:cli-routing script exists
+        run: |
+          node -e "const fs=require('fs'); const p=JSON.parse(fs.readFileSync('package.json','utf8')); if(!p.scripts || !p.scripts['test:cli-routing']){console.error('Missing test:cli-routing script'); process.exit(1)}; console.log('test:cli-routing present')"
