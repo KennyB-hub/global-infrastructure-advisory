@@ -1,6 +1,6 @@
 // V12 Alpha – Task registry: what 7 of 9 is allowed to do
 
-import { Task } from "./task-queue.js";
+import { Task } from "./task-queue.ts";
 import { matchHaulersForLoad } from "../ai/load-matching-engine.js";
 import { listLoads, updateLoadStatus } from "../ai/load-registry.js";
 
