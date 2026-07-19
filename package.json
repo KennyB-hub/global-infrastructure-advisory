@@ -28,6 +28,7 @@
 
     "seven-autofix": "node scripts/seven-autofix.mjs",
 
+    "cli:audit-routes": "node scripts/audit-routes.cjs",
     "test:cli-sandbox": "node scripts/test-cli-sandbox.cjs",
     "test:cli-build": "node scripts/test-cli-build.cjs",
     "test:cli-loader": "node proprietary-cli/commands/dev/test.js loader",

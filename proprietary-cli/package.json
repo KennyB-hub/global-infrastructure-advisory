@@ -18,6 +18,7 @@
     "scan:secrets": "node scripts/scan-secrets.cjs",
     "scan:licenses": "node scripts/license-scan.cjs",
     "test:cli-sandbox": "node scripts/test-cli-sandbox.cjs",
+    "audit:routes": "node scripts/audit-routes.cjs",
     "test:cli-build": "node scripts/test-cil-build",
     "test:cli-loader": "node proprietary-cli/commands/dev/test.js loader",
     "test:cli-mapping": "node proprietary-cli/commands/dev/test.js mapping",
