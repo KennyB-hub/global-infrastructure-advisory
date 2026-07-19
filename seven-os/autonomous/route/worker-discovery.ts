@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { RoutingEngine } from "./routing-engine";
+import { RoutingEngine } from "./routing-engine.js";
 
 export interface WorkerInfo {
   id: string;

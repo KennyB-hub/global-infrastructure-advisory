@@ -1,4 +1,4 @@
-import { evaluateMissionPhoenixFunding, applyPhoenixActuals } from "../financial/engine";
+import { evaluateMissionPhoenixFunding, applyPhoenixActuals } from "../../financial/engine.js";
 
 type Mission = {
   id: string;

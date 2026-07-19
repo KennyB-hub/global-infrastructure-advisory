@@ -3,8 +3,8 @@
 
 import fs from "fs";
 import path from "path";
-import aiIdentity from "../system/identity/machine-identity.json";
-import { WorkerDiscovery } from "./worker-discovery";
+import aiIdentity from "../../system/identity/machine-identity.json";
+import { WorkerDiscovery } from "./worker-discovery.js";
 
 export interface RouteManifest {
   id: string;

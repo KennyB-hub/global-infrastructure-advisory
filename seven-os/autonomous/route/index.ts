@@ -1,5 +1,5 @@
-import * as aiRouter from "../ai/ai-router.js";
-import sevenStackRouter from "./seven-stack-router";
+import * as aiRouter from "../../ai/ai-router.js";
+import sevenStackRouter from "./seven-stack-router.js";
 
 export async function route(input: any, env: any) {
   if (aiRouter.canHandle(input)) {
