@@ -27,6 +27,7 @@
     "move-workers": "node scripts/move-workers.cjs",
 
     "seven-autofix": "node scripts/seven-autofix.mjs",
+    "audit-routes": "node scripts/audit-routes.mjs",
 
     "test:cli-sandbox": "node scripts/test-cli-sandbox.cjs",
     "test:cli-build": "node scripts/test-cli-build.cjs",
