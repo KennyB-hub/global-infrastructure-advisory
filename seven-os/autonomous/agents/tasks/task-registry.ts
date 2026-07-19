@@ -1,5 +1,5 @@
-import { fixBackendStructure } from "../tasks/fix-backend";
-import { repairSchemas } from "../tasks/repair-schemas";
+import { fixBackendStructure } from "./fix-backend";
+import { repairSchemas } from "./repair-schemas";
 
 export function getTaskHandler(type: string) {
   switch (type) {
