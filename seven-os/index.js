@@ -2,6 +2,15 @@
  * GIA v12 GOVERNOR & ORCHESTRATOR
  * Master Entrypoint for Sovereign Infrastructure
  */
+// >>> bootstrap TS loader if present (paste at top of seven-os/index.js)
+import fs from 'fs';
+import path from 'path';
+
+const loaderPath = path.resolve(process.cwd(), 'proprietary-cli', 'ts-loader.js');
+if (fs.existsSync(loaderPath)) {
+  // dynamic import ensures ESM loader is loaded correctly
+  await import(loaderPath);
+}
 
 import { runDecisionEngine } from "./ai/decision-engine.js";
 import tools from "./ai/tools/index.js";
