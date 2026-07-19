@@ -1,4 +1,4 @@
-import * as aiRouter from "./ai-router.js";
+import * as aiRouter from "../ai/ai-router.js";
 import sevenStackRouter from "./seven-stack-router";
 
 export async function route(input: any, env: any) {

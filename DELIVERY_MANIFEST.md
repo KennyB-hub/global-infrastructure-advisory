@@ -345,7 +345,7 @@
 ## 📞 Support & Escalation
 
 ### Documentation Location
-All docs in: `/src/ai/engines/autonomous/`
+All docs in: `/seven-os/autonomous/`
 
 ### Key Files for Reference
 - Quick answers → QUICK_REFERENCE.md

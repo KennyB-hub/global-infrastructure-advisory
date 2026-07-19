@@ -171,7 +171,7 @@ npm test -- e2e.test.ts
 
 ### Source Code
 ```
-src/ai/engines/autonomous/
+seven-os/ai/engines/autonomous/
 ├── nats-client.ts           # Message bus
 ├── event-bus.ts             # Event publishing
 ├── event-dispatcher.ts      # Event routing
