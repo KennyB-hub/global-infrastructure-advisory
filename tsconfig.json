@@ -1,24 +1,41 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "ES2022",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
+    "allowJs": true,                     /* Crucial: Allows JS and TS to live together */
+    "checkJs": false,                    /* Skips type checking legacy JS files */
+    "strict": true,
     "esModuleInterop": true,
-    "allowJs": true,
-    "checkJs": false,
-    "resolveJsonModule": true,
     "skipLibCheck": true,
-    "strict": false,
-    "noEmit": true,
-    "rootDir": "."
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",
+    "baseUrl": ".",                      /* Sets repo root as base for absolute imports */
+    "paths": {
+      "@seven-os/*": ["./seven-os/*"],
+      "@ai-engines/*": ["./ai-engines/*"],
+      "@autonomous/*": ["./autonomous/*"],
+      "@runtime/*": ["./seven-runtime/*"],
+      "@proprietary-cli/*": ["./proprietary-cli/*"],
+      "@scripts/*": ["./scripts/*"],
+      
+      /* Explicit Config & Data Path Bridges */
+      "@config/*": ["./seven-os/config/*"],
+      "@data/*": ["./data/*"],
+      "config/*": ["./seven-os/config/*"],
+      "data/*": ["./data/*"]
+    }
   },
   "include": [
-    "**/*",
-    "../proprietary-cli/**/*",
-    "../scripts/**/*"
+    "seven-os/**/*",
+    "ai-engines/**/*",
+    "autonomous/**/*",
+    "seven-runtime/**/*",
+    "platform/**/*",
+    "proprietary-cli/**/*",
+    "scripts/**/*",
+    "data/**/*"                          /* Included to parse your root data folder */
   ],
-  "exclude": [
-    "dist",
-    "node_modules"
-  ]
+  "exclude": ["node_modules", "dist"]
 }
+
