@@ -1,5 +1,5 @@
-import { InMemoryGovernanceBrain } from '../governance-brain';
-import { InMemoryRFObservationLayer } from '../governance-brain/rf-observation-layer';
+import { InMemoryGovernanceBrain } from '../ai/governance-brain';
+import { InMemoryRFObservationLayer } from './governance-brain/rf-observation-layer';
 import { SimpleComplianceEngine } from '../governance-brain/compliance-engine';
 import { SimpleFirmwareAuditor } from '../governance-brain/firmware-auditor';
 import { SimpleRemediationEngine } from '../governance-brain/remediation-engine';
