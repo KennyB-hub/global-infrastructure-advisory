@@ -7,11 +7,12 @@ import {
   getNodeContext,
   getClusterContext,
   getAIContext
-} from "../../ai-engines/utils/context.js";
+} from "../ai/ai-context.js";
 
-import { validatePayload } from "../../ai-engines/utils/validator.js";
+import { validatePayload } from "../ai/validation/validator.js";
 
 export class DataEngine {
+
 
   //
   // 1. Normalize input fields (sovereign-safe)

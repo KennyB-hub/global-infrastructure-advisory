@@ -19,7 +19,7 @@ import workflows from "./ai/workflow/index.js";
 import { filterAIOutput } from "./ai/filters/code-filter.js";
 import { beforeExecution } from "./ai/hooks/before-execution.js";
 import { afterExecution } from "./ai/hooks/after-execution.js";
-import { validateAIOutput } from "./ai/validation/schema-guard.js";
+import { validateAIOutput } from "./ai/validation/validator.js";
 import { AutomationTasks } from "./system/automation-tasks.js";
 import { FailsafeProtocols } from "./system/failsafe-protocols.js";
 

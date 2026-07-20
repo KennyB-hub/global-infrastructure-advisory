@@ -1,7 +1,7 @@
 // /ai-engine/code-filter.js
 // GIA Sovereign AI Output Filter – V12 Alpha
 
-import { sha256 } from "../../ai-engines/utils/context.js";
+import { sha256 } from "../../ai/ai-context.js";
 
 export async function filterAIOutput(output = {}, context = {}) {
   const errors = [];

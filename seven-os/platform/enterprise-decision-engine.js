@@ -20,28 +20,28 @@ import { sovereignAudit } from "./audit-engine.js";
 // Core Engines
 // ─────────────────────────────────────────────────────────────
 
-import { mathEngine } from "./engines/math-engine.js";
-import { mappingEngine } from "./engines/math-mapping-engine.js";
-import { logicEngine } from "./engines/logic-engine.js";
-import { dataEngine } from "./engines/data-engine.js";
+import { mathEngine } from "./ai/engines/math-engine.js";
+import { mappingEngine } from "./ai/engines/math-mapping-engine.js";
+import { logicEngine } from "./ai/engines/logic-engine.js";
+import { dataEngine } from "./ai/engines/data-engine.js";
 
 // ─────────────────────────────────────────────────────────────
 // Sector Engines
 // ─────────────────────────────────────────────────────────────
 
-import { contractorEngine } from "./engines/sector-contractor-engine.js";
-import { farmerEngine } from "./engines/sector-farmer-engine.js";
-import { publicEngine } from "./engines/sector-public-engine.js";
-import { govEngine } from "./engines/sector-gov-engine.js";
-import { deepGovEngine } from "./engines/sector-deepgov-engine.js";
-import { alfaEngine } from "./engines/sector-alfa-engine.js";
+import { contractorEngine } from "./ai/engines/sector-contractor-engine.js";
+import { farmerEngine } from "./ai/engines/sector-farmer-engine.js";
+import { publicEngine } from "./ai/engines/sector-public-engine.js";
+import { govEngine } from "./ai/engines/sector-gov-engine.js";
+import { deepGovEngine } from "./ai/engines/sector-deepgov-engine.js";
+import { alfaEngine } from "./ai/engines/sector-alfa-engine.js";
 
 // ─────────────────────────────────────────────────────────────
 // Optional Data + Schema Registry
 // ─────────────────────────────────────────────────────────────
 
 import { MockData } from "../data/mock-data.js";
-import { getSectorSchema } from "./schema-registry.js";
+import { getSectorSchema } from "../ai/valdation/schema-registry.js";
 
 function log(...args) {
   console.info("[ENTERPRISE-GOVERNOR]", ...args);

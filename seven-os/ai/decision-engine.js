@@ -27,13 +27,13 @@ import { publicEngine } from './engines/sector-public-engine.js';
 import { govEngine } from './engines/sector-gov-engine.js';
 import { deepGovEngine } from './engines/sector-deepgov-engine.js';
 import { alfaEngine } from './engines/sector-alfa-engine.js';
-import { runEnterpriseDecision } from "../../platform/enterprise-decision-engine.js";
+import { runEnterpriseDecision } from "../platform/enterprise-decision-engine.js";
 
 // Optional mock data
 import { MockData } from '../data/mock-data.js';
 
 // Optional schema registry
-import { getSectorSchema } from './schema-registry.js';
+import { getSectorSchema } from './validation/schema-registry.js';
 
 function log(...args) {
   console.info('[DECISION-ENGINE]', ...args);

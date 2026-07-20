@@ -9,7 +9,7 @@ import {
   getAIContext
 } from "../../ai/ai-context.js";
 
-import { validatePayload } from "../../core/validator.js";
+import { validatePayload } from "../../ai/validator/validator.js";
 
 export class SectorAnalysisEngine {
 

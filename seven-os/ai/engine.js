@@ -1,4 +1,4 @@
-// src/ai/engine.js
+// seven-os/ai/engine.js
 
 // ---------------------------------------------------------
 // IMPORTS MUST BE AT THE TOP (JS requirement)

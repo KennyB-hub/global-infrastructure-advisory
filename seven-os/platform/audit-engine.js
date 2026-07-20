@@ -1,3 +1,5 @@
+// audit-router.cjs
+
 const fs = require('fs');
 const path = require('path');
 
@@ -99,3 +101,4 @@ console.log(`Total files scanned: ${visitedFiles.size}`);
 console.log(`Total missing files found: ${missingFiles.length}`);
 
 process.exit(missingFiles.length > 0 ? 1 : 0);
+
