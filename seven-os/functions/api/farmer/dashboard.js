@@ -1,4 +1,4 @@
-// src/functions/api/farmer/dashboard.js
+// seven-os/functions/api/farmer/dashboard.js
 import { requireRole } from "../../../system/trust/api-trust.js";
 import { buildSovereignMetadata } from "../../../system/metadata.js";
 import { computeIntegrityHash } from "../../../system/integrity.js";

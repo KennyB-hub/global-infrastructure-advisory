@@ -1,5 +1,5 @@
-import { DeviceRFProfile, GovernanceViolation } from './types.js';
-import { ComplianceEngine } from './compliance-engine.js';
+import { DeviceRFProfile, GovernanceViolation } from '../../governance/types';
+import { ComplianceEngine } from '../../governance/ComplianceEngine';
 
 export interface FirmwareAuditor {
   evaluateFirmwareChange(

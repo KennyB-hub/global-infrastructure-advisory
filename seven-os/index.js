@@ -14,7 +14,7 @@ if (fs.existsSync(loaderPath)) {
 
 import { runDecisionEngine } from "./ai/decision-engine.js";
 import tools from "./ai/tools/index.js";
-import policies from "./ai/policies/index.js";
+import policies from "./ai/policy/index.js";
 import workflows from "./ai/workflow/index.js";
 import { filterAIOutput } from "./ai/filters/code-filter.js";
 import { beforeExecution } from "./ai/hooks/before-execution.js";

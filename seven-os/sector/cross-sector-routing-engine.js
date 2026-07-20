@@ -1,6 +1,6 @@
 // Cross-Sector Routing Engine (infrastructure, energy, water, transport, public, gov)
 
-import { loadAllsectors, loadSectors } from "../sector/sector-loader.js";
+import { loadAllsectors, loadSectors } from "../backend/system/sector-loader.js";
 import { loadWorkforceStatus } from '../workforce/public-workforce-grid.js';
 import { loadContractorStatus } from '../contractors/global-contractor-marketplace.js';
 import { getRegionStatus } from '../topology/global-topology-utils.js';

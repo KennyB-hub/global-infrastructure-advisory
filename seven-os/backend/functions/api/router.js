@@ -1,8 +1,8 @@
 import { handleGlobalMap, handleSectorMap, handleLiveSectors, handleLiveRisk, handleLiveRoutes } from "./map.js";
 import { handleSystemHealth, handleSystemUptime } from "./system.js";
-import { handleAIMFarmer } from "../../functions/api/aim/farmer/index.js";
-import { handleAIMGov } from "../../functions/api/aim/gov/index.js";
-import { handleAIMSystem } from "../../functions/api/aim/system/index.js";
+import { handleAIMFarmer } from "../seven-os/functions/api/aim/farmer/dashboard.js";
+import { handleAIMGov } from "../seven-os/functions/api/gov/sector.js";
+import { handleAIMSystem } from "../../functions/api/system/index.js";
 import { processAIRequest } from "../../engines/ai-router.js";
 import { handleGetLatestCollars } from "./collars.js";
 

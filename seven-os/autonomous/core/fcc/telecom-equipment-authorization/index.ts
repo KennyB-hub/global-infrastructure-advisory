@@ -1,9 +1,9 @@
-import { EmergencyRule } from './types.ts';
+import { GovernanceRule } from '../../governance/types.ts';
 
 export class GovernanceBrain {
-  private rules: EmergencyRule[] = [];
+  private rules: GovernanceRule[] = [];
 
-  loadRules(rules: EmergencyRule[]) {
+  loadRules(rules: GovernanceRule[]) {
     this.rules = rules;
   }
 

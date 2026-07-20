@@ -1,7 +1,4 @@
-import { GovernanceRule } from './types.js';
-import { loadGlobalManifest } from "../seven-runtime/manifest-loader";
-
-const globalManifest = loadGlobalManifest();
+import { GovernanceRule } from '../types';
 
 export interface GovernanceBrain {
   loadRules(rules: GovernanceRule[]): void;
