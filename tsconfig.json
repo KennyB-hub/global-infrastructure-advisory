@@ -1,38 +1,24 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
-    "module": "ESNext",
-    "moduleResolution": "Node",
-
-    "strict": false,
+    "target": "ES2020",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-
     "allowJs": true,
     "checkJs": false,
-
-    "baseUrl": ".",
-    "paths": {
-      "*": ["./*"]
-    },
-
-    "outDir": "dist",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "noEmit": true,
     "rootDir": "."
   },
-
   "include": [
-    "seven-os/platform/**/*",
-    "seven-os/backend/**/*",
-    "seven-os/ai/**/*",
-    "seven-os/system/**/*",
-    "seven-os/runtime/**/*",
-    "seven-os/autonomous-os/**/*"
+    "**/*",
+    "../proprietary-cli/**/*",
+    "../scripts/**/*"
   ],
-
   "exclude": [
-    "node_modules",
     "dist",
-    "public"
+    "node_modules"
   ]
 }
