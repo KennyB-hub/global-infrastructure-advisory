@@ -20,7 +20,10 @@
     "scan:secrets": "node scripts/scan-secrets.cjs",
     "scan:licenses": "node scripts/license-scan.cjs",
     "move-workers": "node scripts/move-workers.cjs",
+<<<<<<< HEAD
     "cli-routing": "node scripts/cli-routing.cjs",
+=======
+>>>>>>> main
     "seven-autofix": "node scripts/seven-autofix.mjs",
     "audit-routes": "node scripts/audit-routes.mjs",
     "test:cli-sandbox": "node scripts/test-cli-sandbox.cjs",

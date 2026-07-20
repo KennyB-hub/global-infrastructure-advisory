@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2022",
+<<<<<<< HEAD
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "allowJs": true,                     /* Crucial: Allows JS and TS to live together */
@@ -30,3 +31,40 @@
   }
 }
 
+=======
+    "module": "ESNext",
+    "moduleResolution": "Node",
+
+    "strict": false,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+
+    "allowJs": true,
+    "checkJs": false,
+
+    "baseUrl": ".",
+    "paths": {
+      "*": ["./*"]
+    },
+
+    "outDir": "dist",
+    "rootDir": "."
+  },
+
+  "include": [
+    "seven-os/platform/**/*",
+    "seven-os/backend/**/*",
+    "seven-os/ai/**/*",
+    "seven-os/system/**/*",
+    "seven-os/runtime/**/*",
+    "seven-os/autonomous-os/**/*"
+  ],
+
+  "exclude": [
+    "node_modules",
+    "dist",
+    "public"
+  ]
+}
+>>>>>>> main
