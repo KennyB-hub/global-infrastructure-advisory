@@ -1,4 +1,4 @@
-import * as opportunityScannerWorker from "../workers/system/opportunityScanner.worker.ts";
+import * as opportunityScannerWorker from "../../workers/opportunityScanner.worker.js";
 
 export async function handleOpportunityApi(request: Request) {
   const url = new URL(request.url);

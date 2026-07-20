@@ -1,4 +1,4 @@
-import { EmergencyEvent, FallbackPath } from '../governance-brain/types';
+import { EmergencyEvent, FallbackPath } from './types.js';
 
 export class EmergencyObservationLayer {
   private events: EmergencyEvent[] = [];

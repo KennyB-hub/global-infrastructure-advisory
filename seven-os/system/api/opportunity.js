@@ -1,5 +1,5 @@
 // system/api/opportunity.js
-import { opportunityScanner } from "../../workers/system/opportunityScanner.worker.js";
+import { opportunityScanner } from "../../workers/opportunityScanner.worker.js";
 
 export async function handleOpportunityApi(request, env) {
   const url = new URL(request.url);

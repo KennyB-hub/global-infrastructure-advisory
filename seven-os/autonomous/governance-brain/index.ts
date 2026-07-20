@@ -1,4 +1,4 @@
-import { GovernanceRule } from './types';
+import { GovernanceRule } from './types.js';
 import { loadGlobalManifest } from "../seven-runtime/manifest-loader";
 
 const globalManifest = loadGlobalManifest();

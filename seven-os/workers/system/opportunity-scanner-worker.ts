@@ -1,4 +1,4 @@
-import contracts from "../../financial/contracts/contract.json";
+import contracts from "../../fcontracts/contract.json";
 import sector from "../../sector/index.json";
 import workers from "../index.json";
 

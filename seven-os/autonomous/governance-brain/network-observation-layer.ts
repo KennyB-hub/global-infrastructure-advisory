@@ -1,4 +1,4 @@
-import { TowerProfile, NetworkEvent } from './types';
+import { TowerProfile, NetworkEvent } from './types.js';
 
 export class NetworkObservationLayer {
   private towers = new Map<string, TowerProfile>();

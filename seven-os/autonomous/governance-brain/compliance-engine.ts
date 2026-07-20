@@ -1,13 +1,13 @@
-import { GovernanceBrain } from '../governance-brain';
-import { RFObservationLayer } from './rf-observation-layer';
-import { EmergencyObservationLayer } from './emergency-observation-layer';
-import { NetworkObservationLayer } from './network-observation-layer';
+import { GovernanceBrain } from './index.js';
+import { RFObservationLayer } from './rf-observation-layer.js';
+import { EmergencyObservationLayer } from './emergency-observation-layer.js';
+import { NetworkObservationLayer } from './network-observation-layer.js';
 
 import {
   DeviceRFProfile,
   BehaviorSample,
   GovernanceViolation,
-} from './types';
+} from './types.js';
 
 type ComplianceDomain = 'rf' | 'emergency' | 'network';
 

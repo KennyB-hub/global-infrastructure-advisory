@@ -10,32 +10,23 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "outDir": "./dist",
-    "baseUrl": ".",                      /* Sets repo root as base for absolute imports */
+    "baseUrl": ".",
     "paths": {
       "@seven-os/*": ["./seven-os/*"],
       "@ai-engines/*": ["./ai-engines/*"],
-      "@autonomous/*": ["./autonomous/*"],
+      "@autonomous/*": ["./seven-os/autonomous/*"],
       "@runtime/*": ["./seven-runtime/*"],
       "@proprietary-cli/*": ["./proprietary-cli/*"],
       "@scripts/*": ["./scripts/*"],
-      
-      /* Explicit Config & Data Path Bridges */
       "@config/*": ["./seven-os/config/*"],
       "@data/*": ["./data/*"],
+      
+      /* Dynamic Fallback Path Bridges for Legacy Imports */
+      "autonomous/*": ["./seven-os/autonomous/*"],
       "config/*": ["./seven-os/config/*"],
       "data/*": ["./data/*"]
-    }
-  },
-  "include": [
-    "seven-os/**/*",
-    "ai-engines/**/*",
-    "autonomous/**/*",
-    "seven-runtime/**/*",
-    "platform/**/*",
-    "proprietary-cli/**/*",
-    "scripts/**/*",
-    "data/**/*"                          /* Included to parse your root data folder */
-  ],
-  "exclude": ["node_modules", "dist"]
+    },
+     "exclude": ["node_modules", "dist"]
+  }
 }
 

@@ -1,4 +1,4 @@
-import { DeviceRFProfile, BehaviorSample } from './types';
+import { DeviceRFProfile, BehaviorSample } from './types.js';
 
 export interface RFObservationLayer {
   registerDeviceProfile(profile: DeviceRFProfile): void;
