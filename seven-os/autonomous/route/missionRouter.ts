@@ -1,4 +1,4 @@
-import { evaluateMissionPhoenixFunding, applyPhoenixActuals } from "../../financial/engine.js";
+import { evaluateMissionPhoenixFunding, applyPhoenixActuals } from "../../backend/trust/engine.js";
 
 type Mission = {
   id: string;

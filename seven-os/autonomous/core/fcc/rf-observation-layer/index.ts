@@ -1,4 +1,4 @@
-import { DeviceRFProfile, BehaviorSample } from '../governance-brain/types';
+import { DeviceRFProfile, BehaviorSample } from '../carrier-network-compliance/governance-brain/types';
 
 export class RFObservationLayer {
   private profiles = new Map<string, DeviceRFProfile>();

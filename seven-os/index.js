@@ -1,3 +1,4 @@
+require('../register-aliases.cjs');
 /**
  * GIA v12 GOVERNOR & ORCHESTRATOR
  * Master Entrypoint for Sovereign Infrastructure
@@ -150,3 +151,4 @@ async function runAI(input, env) {
     audit: { start: startAudit, end: endAudit }
   };
 }
+

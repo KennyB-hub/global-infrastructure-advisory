@@ -6,7 +6,7 @@
  */
 
 import { AI } from "../ai/engine.js";
-import manifest from "../ai/config/manifest.json";
+import manifest from "../sector/water/manifest.json";
 
 let START_TIME = Date.now();
 export default {

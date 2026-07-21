@@ -1,12 +1,12 @@
 // src/backend/workers/index.js
 import { getTrustZone, checkTrust } from "../system/trust-middleware.js";
-import * as publicWorker from "./public/index.js";
-import * as contractorWorker from "./contractor/index.js";
-import * as farmerWorker from "./farmer/index.js";
-import * as govWorker from "./gov/index.js";
-import * as deepgovWorker from "./deepgov/index.js";
-import * as adminWorker from "./admin/index.js";
-import * as systemWorker from "./system/index.js";
+import * as publicWorker from "../../workers/system/index.js";
+import * as contractorWorker from "../../workers/system/index.js";
+import * as farmerWorker from "../../workers/system/index.js";
+import * as govWorker from "../../workers/system/index.js";
+import * as deepgovWorker from "../../workers/system/index.js";
+import * as adminWorker from "../../workers/system/index.js";
+import * as systemWorker from "../../workers/system/index.js";
 
 export async function onRequest(context) {
     const url = new URL(context.request.url);

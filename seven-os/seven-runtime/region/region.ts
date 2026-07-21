@@ -1,7 +1,7 @@
 // © 2026 Global Infrastructure Advisory
 // Seven Runtime — Region Metadata (Sovereign Grade)
 
-import regionModel from "../financial/models/region.json";
+import regionModel from "../../financial/models/region.json";
 
 export interface RegionDefinition {
   id: string;               // region id (na-appalachia-wv-south-001)

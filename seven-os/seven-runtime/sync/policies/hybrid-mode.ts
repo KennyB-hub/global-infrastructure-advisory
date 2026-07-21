@@ -1,8 +1,8 @@
 // © 2026 Global Infrastructure Advisory
 // Seven Runtime — Hybrid Mode Logic (Starlink Hybrid Sync Engine)
 
-import { ConnectionMonitor, ConnectionStatus } from "../core/connection-monitor";
-import { EventQueue, QueuedEvent } from "../core/event-queue";
+import { ConnectionMonitor, ConnectionStatus } from "../../core/connection-monitor";
+import { EventQueue, QueuedEvent } from "../../core/event-queue";
 
 export type HybridModeState = "ONLINE" | "DEGRADED" | "OFFLINE";
 

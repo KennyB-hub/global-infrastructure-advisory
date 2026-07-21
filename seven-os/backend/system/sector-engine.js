@@ -1,6 +1,6 @@
 // Sector Engine – V12 Sovereign Edition
 
-import { SectorAutoScaler } from "./auto-scaler.js";
+import { SectorAutoScaler } from "../../sector/auto-scaler.js";
 
 export class SectorEngine {
   constructor(env, nodeRegistry) {

@@ -1,9 +1,9 @@
 // seven-os/backend/functions/api/map.js
-import { getEnabledSectors, getSectorById } from "../../system/sectors/sector-loader.js";
-import { requireRole } from "../../trust/engine.js";
-import { handleSystemHealth, handleSystemUptime } from "./system.js";
+import { getEnabledSectors, getSectorById } from "../../../system/sector-loader.js";
+import { requireRole } from "../../../trust/engine.js";
+import { handleSystemHealth, handleSystemUptime } from "../system.js";
 // Live Data Handlers (V12 Alpha)
-import { handleLiveSectors, handleLiveRisk, handleLiveRoutes } from "./map-live.js";
+import { handleLiveSectors, handleLiveRisk, handleLiveRoutes } from "../../../../map/map-live.js";
 
 export async function handleGlobalMap(request) {
   const trust = requireRole("public", request);

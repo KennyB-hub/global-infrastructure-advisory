@@ -1,7 +1,7 @@
 // seven-os/backend/threat/threat-storage.js
 // GIA Sovereign Threat Storage Engine – V12 Alpha
 
-import systemManifest from "../config/system-manifest.json" assert { type: "json" };
+import systemManifest from "../../config/system-manifest.json" assert { type: "json" };
 import nodeRegistry from "../config/node-registry.json" assert { type: "json" };
 import clusterHealth from "../../config/cluster-health.json" assert { type: "json" };
 

@@ -1,6 +1,6 @@
 // frontend/src/hubs/ExecutiveDashboard/ExecutiveDashboard.js
 import React from 'react';
-import IdentityCard from '../../shared/components/IdentityCard';
+import IdentityCard from '../shared/components/IdentityCard';
 
 export default function ExecutiveDashboard() {
   return (

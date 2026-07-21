@@ -1,15 +1,15 @@
-// /workers/farmer/index.ts
-// GIA Sovereign Farmer Worker – V12 Sovereign Edition
+// /workers/employee/index.ts
+// GIA Sovereign Employee Worker – V12 Sovereign Edition
 
-import { basicSecurityGuard } from "../../seven-os/security/worker-guard";
-import { PolicyEngine } from "../../seven-os/ai-engine/policy-engine";
-import { CryptoV12 } from "../../seven-os/engine/ai/crypto.js";
+import { basicSecurityGuard } from "../../../../../../../../../../../system/security/worker-guard";
+import { PolicyEngine } from "../../../../../../../../../../../system/policy-engine";
+import { CryptoV12 } from "../../../../../../../../../../../ai-engines/utils/crypto.js";
 
-import { buildEvent } from "../../seven-os/system/cyber/event-builder";
-import { cyberHook } from "../../seven-os/system/cyber/worker-hook";
+import { buildEvent } from "../../../../../../../../../../../system/cyber/event-builder";
+import { cyberHook } from "../../../../../../../../../../../system/cyber/worker-hook";
 
-import { verifyDidVcIdentity } from "../../backend/system/identity/did-vc-verifier";
-import { enforceMCP } from "../../backend/system/mcp/mcp-enforcer";
+import { verifyDidVcIdentity } from "../../../../../../../../../../system/identity/did-vc-verifier";
+import { enforceMCP } from "../../../../../../../../../../../mcp/mcp-enforcer";
 
 const policy = new PolicyEngine();
 
@@ -22,14 +22,14 @@ function json(data: Record<string, any>, status: number = 200): Response {
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
-      "GIA-Trust-Zone": "farmer",
+      "GIA-Trust-Zone": "employee",
       "GIA-Version": "v12-sovereign"
     }
   });
 }
 
 // ---------------------------------------------------------
-// MAIN FARMER WORKER
+// MAIN EMPLOYEE WORKER
 // ---------------------------------------------------------
 export async function onRequest(context: {
   request: Request;
@@ -57,8 +57,8 @@ export async function onRequest(context: {
   // 3. Cyber Threat Scoring
   //
   const event = buildEvent({
-    source: "farmer-worker",
-    sector: "farmer",
+    source: "employee-worker",
+    sector: "employee",
     trustZone,
     type: "access_attempt",
     metadata: {
@@ -109,7 +109,7 @@ export async function onRequest(context: {
   }
 
   //
-  // 5. Integrity Verification (Decision Engine → Farmer Worker)
+  // 5. Integrity Verification (Decision Engine → Employee Worker)
   //
   let integrityToken: string | null = null;
   let decisionPayload: any = null;
@@ -142,29 +142,11 @@ export async function onRequest(context: {
   }
 
   //
-  // 6. Farmer Authentication
-  //
-  const auth = request.headers.get("Authorization");
-  if (!auth) {
-    return json(
-      {
-        ok: false,
-        zone: "farmer",
-        status: "unauthorized",
-        reason: "Missing Authorization header",
-        systemTraceId,
-        timestamp: new Date().toISOString()
-      },
-      401
-    );
-  }
-
-  //
-  // 7. Policy Check
+  // 6. Policy Check
   //
   const decision = await policy.check({
     trustZone,
-    workflow: "farmer-access",
+    workflow: "employee-access",
     action: "view"
   });
 
@@ -174,7 +156,7 @@ export async function onRequest(context: {
       type: "policy-deny",
       reason: decision.reason,
       trustZone,
-      workflow: "farmer-access",
+      workflow: "employee-access",
       systemTraceId,
       timestamp: new Date().toISOString()
     };
@@ -192,12 +174,12 @@ export async function onRequest(context: {
   }
 
   //
-  // 8. Farmer Status Endpoint
+  // 7. Employee Status Endpoint
   //
-  if (url.pathname.endsWith("/farmer/status")) {
+  if (url.pathname.endsWith("/employee/status")) {
     const payload = {
       ok: true,
-      zone: "farmer",
+      zone: "employee",
       endpoint: "status",
       status: "ok",
       systemTraceId,
@@ -205,7 +187,7 @@ export async function onRequest(context: {
       timestamp: new Date().toISOString(),
       meta: {
         trustZone,
-        workflow: "farmer-access",
+        workflow: "employee-access",
         version: "v12-sovereign"
       }
     };
@@ -219,11 +201,11 @@ export async function onRequest(context: {
   }
 
   //
-  // 9. Fallback
+  // 8. Fallback
   //
   const fallback = {
     ok: false,
-    zone: "farmer",
+    zone: "employee",
     status: "not-found",
     path: url.pathname,
     systemTraceId,
@@ -231,7 +213,7 @@ export async function onRequest(context: {
     timestamp: new Date().toISOString(),
     meta: {
       trustZone,
-      workflow: "farmer-access",
+      workflow: "employee-access",
       version: "v12-sovereign"
     }
   };
@@ -243,3 +225,4 @@ export async function onRequest(context: {
 
   return json(fallback, 404);
 }
+

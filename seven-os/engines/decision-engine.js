@@ -1,12 +1,12 @@
 // seven-os/backend/ai/decision-engine.js
 // GIA Sovereign Decision Engine – V12 Alpha
 
-import { validatePayload, validateTrustZone } from "../../ai/validator/validator.ts";
-import { makeOk, makeError } from "../../ai/ai-context.js";
+import { validatePayload, validateTrustZone } from "../core/validator.ts";
+import { makeOk, makeError } from "../system/ai-context.js";
 
-import workflows from "./workflows/index.js";
-import policies from "./policies/index.js";
-import { runDecisionEngine } from "../../backend/ai/decision-engine.js";
+import workflows from "../workers/system/index.js";
+import policies from "../workers/system/index.js";
+import { runDecisionEngine } from "./decision-engine.js";
 import { CryptoV12 } from "../ai-engines/utils/crypto.js"; // ← NEW
 
 export async function runDecisionEngine(input, env) {

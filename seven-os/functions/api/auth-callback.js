@@ -1,10 +1,10 @@
 // 2050 V12 Alpha — Auth Callback Handler
 // Global Infrastructure Platform — Authentication Layer
 
-import { buildSovereignMetadata } from "../system/metadata.js";
-import { computeIntegrityHash } from "../system/integrity.js";
-import { applyPolicy } from "../system/policy-engine.js";
-import { buildAIContext } from "../system/ai-context.js";
+import { buildSovereignMetadata } from "../../system/metadata.js";
+import { computeIntegrityHash } from "../../system/integrity.js";
+import { applyPolicy } from "../../system/policy-engine.js";
+import { buildAIContext } from "../../system/ai-context.js";
 
 export async function handleAuthCallback(request, env) {
   const url = new URL(request.url);

@@ -1,9 +1,9 @@
 // backend/hubs-logic/space-engine.js
 
-const { mapLocationToContext } = require('../utilities/geo/mapping-logic');
+const { mapLocationToContext } = require('../../countries/data/mapping-logic');
 
 module.exports.processSpaceInput = async function(spaceInput) {
-const { runAI } = require('../ai/ai-worker');
+const { runAI } = require('../../ai/ai-worker');
 
   const locationContext = await mapLocationToContext({
     country: spaceInput.country,

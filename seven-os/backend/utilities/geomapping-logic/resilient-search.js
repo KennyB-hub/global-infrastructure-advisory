@@ -3,9 +3,9 @@
  * Resilient Search Engine — Heartbeat + Failover + Triage
  */
 
-import { checkSystemPulse } from "../utilities/system-heartbeat.js";
-import { runEmergencyMatch } from "./emergency-failover.js";
-import { applyTriage } from "./priority-triage.js";
+import { checkSystemPulse } from "./system-heartbeat.js";
+import { runEmergencyMatch } from "../geo/emergency-failover.js";
+import { applyTriage } from "../geo/priority-triage.js";
 import { findNearbyProjects } from "./project-search.js";
 
 export const runResilientProjectSearch = async (lat, lon, primaryEndpoint) => {

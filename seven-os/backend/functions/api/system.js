@@ -5,11 +5,11 @@ import express from "express";
 import cors from "cors";
 
 import { TerrainModel } from "../../seven-runtime/drone/terrain-routing.js";
-import { SevenStack } from "../../seven-runtime/stack/seven-stack.js";
+import { SevenStack } from "../../../stack/seven-stack.js";
 
-import { handleSystemHealth, handleSystemUptime } from "./system-diagnostics.js";
+import { handleSystemHealth, handleSystemUptime } from "../../../ai/system/system-diagnostics.js";
 import createVoiceRouter from "./routes/voice.js";
-import createAuditRouter from "./routes/audit.js";
+import createAuditRouter from "../../routes/audit.js";
 import createStateRouter from "./routes/state.js";
 
 const app = express();

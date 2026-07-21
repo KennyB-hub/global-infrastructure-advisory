@@ -2,13 +2,13 @@
 // /ai-engine/process-ai-request.js
 // GIA Sovereign AI Request Processor – V12 Alpha
 
-import { basicSecurityGuard } from "../backend/security/worker-guard.js";
-import { routeAIRequest } from "./ai-router.js";
-import { applyPolicies } from "./policy-engine.js";
+import { basicSecurityGuard } from "../system/security/worker-guard.js";
+import { routeAIRequest } from "../ai/ai-router.js";
+import { applyPolicies } from "../system/policy-engine.js";
 import { buildContext } from "./context-builder.js";
 import { sanitizeOutput } from "./response-sanitizer.js";
 import { handleError } from "./error-handler.js";
-import { validatePayload, validateTrustZone } from "../../ai-engines/utils/validator.js";
+import { validatePayload, validateTrustZone } from "../ai/validation/validator.js";
 
 export async function processAIRequest(request, env) {
   try {

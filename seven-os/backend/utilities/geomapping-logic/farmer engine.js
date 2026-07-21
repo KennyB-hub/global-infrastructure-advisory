@@ -1,6 +1,6 @@
 // backend/hubs-logic/farmer-engine.js
 
-const { mapLocationToContext } = require('../utilities/geo/mapping-logic');
+const { mapLocationToContext } = require('../../countries/data/mapping-logic');
 
 module.exports.processFarmerInput = async function(farmerInput) {
 

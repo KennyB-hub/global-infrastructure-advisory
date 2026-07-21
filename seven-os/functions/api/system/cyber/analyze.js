@@ -1,7 +1,7 @@
 // seven-os/routes/api/system/cyber/analyze.js
-import { DBService } from "../../../system/db/db-service.js";
-import { requireRole } from "../../../system/security/require-role.js";
-import { routeAI } from "../../../system/ai-router.js";
+import { DBService } from "../../../../system/db/db-service.js";
+import { requireRole } from "../../../../system/security/require-role.js";
+import { routeAI } from "../../../../ai/ai-router.js";
 
 export async function onRequestPost(context) {
   const { request, env } = context;

@@ -1,4 +1,4 @@
-import { GovernanceViolation } from '../../governance/types';
+import { GovernanceViolation } from '../fcc/carrier-network-compliance/governance-brain/types';
 
 export interface RemediationAction {
   id: string;

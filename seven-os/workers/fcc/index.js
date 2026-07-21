@@ -1,6 +1,6 @@
 // FCC Worker – V12 Sovereign Edition
 
-import { safeInspectInfra } from "../../seven-os/backend/ai/tools/safe-infra.js";
+import { safeInspectInfra } from "../../backend/ai/tools/safe-infra.js";
 
 export async function handleFCC(event, context) {
   const { data, identity, trustZone, threat, mcp } = event;

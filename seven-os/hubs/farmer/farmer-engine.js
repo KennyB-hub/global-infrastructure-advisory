@@ -3,8 +3,8 @@
  * Farmer Engine — Hub Logic
  */
 
-const { mapLocationToContext } = require('../utilities/geo/mapping-logic');
-const { runAI } = require('../ai/ai-worker');
+const { mapLocationToContext } = require('../../backend/countries/data/mapping-logic');
+const { runAI } = require('../../backend/ai/ai-worker');
 
 module.exports.processFarmerInput = async function(farmerInput) {
 

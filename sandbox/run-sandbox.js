@@ -7,13 +7,13 @@
  */
 
 import vm from "node:vm";
-import { filterAIOutput } from "../ai-engine/code-filter.js";
-import { applyPolicies } from "../ai-engine/policy-engine.js";
-import { validatePayload } from "../ai-engine/validator.js";
-import { buildContext } from "../ai-engine/context-builder.js";
-import { sanitizeOutput } from "../ai-engine/response-sanitizer.js";
-import { handleError } from "../ai-engine/error-handler.js";
-import { sha256 } from "../utils/context.js";
+import { filterAIOutput } from "../seven-os/ai/filters/code-filter.js";
+import { applyPolicies } from "../seven-os/system/policy-engine.js";
+import { validatePayload } from "../seven-os/ai/validation/validator.js";
+import { buildContext } from "../seven-os/engines/context-builder.js";
+import { sanitizeOutput } from "../seven-os/engines/response-sanitizer.js";
+import { handleError } from "../seven-os/engines/error-handler.js";
+import { sha256 } from "../seven-os/backend/utils/context.js";
 
 // --- 1. Sovereign sandbox environment ---
 const sandboxEnv = {

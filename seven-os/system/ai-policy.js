@@ -1,6 +1,6 @@
 // 2050 V12 Alpha — AI Policy Engine with Cyber Logging
 
-import { DBService } from "../db/db-service.js";
+import { DBService } from "./db/db-service.js";
 
 export async function enforceAIPolicy({ trustZone, workflow, request, env }) {
   const blocked = [

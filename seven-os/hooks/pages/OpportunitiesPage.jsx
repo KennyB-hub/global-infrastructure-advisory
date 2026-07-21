@@ -1,4 +1,4 @@
-import { useOpportunities } from "../hooks/useOpportunities";
+import { useOpportunities } from "../../frontend/hooks/useOpportunities";
 import { OpportunityCard } from "../components/OpportunityCard";
 
 export default function OpportunitiesPage() {

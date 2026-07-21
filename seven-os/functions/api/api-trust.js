@@ -4,11 +4,11 @@
 // 2050 V12 Alpha — Sovereign Trust‑Zone Guard
 // Replaces requireRole()
 
-import { checkTrust } from "./trust-middleware.js";
-import { applyPolicy } from "../system/policy-engine.js";
-import { buildSovereignMetadata } from "../system/metadata.js";
-import { computeIntegrityHash } from "../system/integrity.js";
-import { buildAIContext } from "../system/ai-context.js";
+import { checkTrust } from "../../system/trust-middleware.js";
+import { applyPolicy } from "../../system/policy-engine.js";
+import { buildSovereignMetadata } from "../../system/metadata.js";
+import { computeIntegrityHash } from "../../system/integrity.js";
+import { buildAIContext } from "../../system/ai-context.js";
 
 export function requireRole(zone, request, env) {
   const path = new URL(request.url).pathname;

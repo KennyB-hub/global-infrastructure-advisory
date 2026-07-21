@@ -1,8 +1,8 @@
 // /workers/system/system-security.js
 // GIA Sovereign Security Node – V12 Alpha
 
-import { inspectRouting } from "../../security/tools/inspect-routing.js";
-import { threatScan } from "../../security/tools/threat-scan.js";
+import { inspectRouting } from "../../backend/security/tools/inspect-routing.js";
+import { threatScan } from "../../backend/security/tools/threat-scan.js";
 
 import systemManifest from "../../config/system-manifest.json" assert { type: "json" };
 import nodeRegistry from "../../config/node-registry.json" assert { type: "json" };

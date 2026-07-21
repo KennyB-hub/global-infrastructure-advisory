@@ -2,7 +2,7 @@
 // GIA Sovereign Infrastructure Organ – V12 Alpha
 
 import * as tools from "./tools/index.js";
-import * as utils from "./utils/index.js";
+import * as utils from "../../workers/system/index.js";
 
 import diagnostics from "./diagnostics.js";
 import routingInspector from "./routing-inspector.js";

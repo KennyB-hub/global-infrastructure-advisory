@@ -4,32 +4,32 @@
 import { handleApiRequest } from "./index.js";
 import { getTrustZone, checkTrust } from "../../system/trust-middleware.js";
 
-import * as organizerWorker from "./organizer/index.js";
-import * as expansionWorker from "../../../ai/workers/expansion/index.js";
-import * as anysWorker from "./anys/index.js";
+import * as organizerWorker from "../../../workers/system/index.js";
+import * as expansionWorker from "../../../workers/system/index.js";
+import * as anysWorker from "../../../workers/system/index.js";
 
-import * as publicWorker from "./public/index.js";
-import * as contractorWorker from "./contractor/index.js";
-import * as farmerWorker from "./farmer/index.js";
-import * as govWorker from "./gov/index.js";
-import * as deepgovWorker from "./deepgov/index.js";
-import * as adminWorker from "./admin/index.js";
-import * as systemWorker from "../system/index.js";
+import * as publicWorker from "../../../workers/system/index.js";
+import * as contractorWorker from "../../../workers/system/index.js";
+import * as farmerWorker from "../../../workers/system/index.js";
+import * as govWorker from "../../../workers/system/index.js";
+import * as deepgovWorker from "../../../workers/system/index.js";
+import * as adminWorker from "../../../workers/system/index.js";
+import * as systemWorker from "../../../workers/system/index.js";
 
 // NEW WORKERS
 import * as govViewWorker from "./govView.worker.js";
 import * as opportunityScannerWorker from "./opportunityScanner.worker.js";
 
-import { runDecision } from "../../seven-os/engines/ai/decision-engine.js";
-import { Cortex } from "../engines/ai/ai-cortex.js";
+import { runDecision } from "../../../engines/decision-engine.js";
+import { Cortex } from "../../../system/ai-cortex.js";
 
-import systemManifest from "../../config/system-manifest.json" assert { type: "json" };
+import systemManifest from "../../../config/system-manifest.json" assert { type: "json" };
 import nodeRegistry from "../../config/node-registry.json" assert { type: "json" };
 
 // ---------------------------------------------------------
 //  Identity + Policy Imports (NEW)
 // ---------------------------------------------------------
-import * as cyberWorker from "./cyber/index.js";
+import * as cyberWorker from "../../../workers/system/index.js";
 import { resolveDID } from "../../../backend/identity/did-resolver.js";
 import { verifyVC } from "../../../backend/identity/vc-verifier.js";
 import { enforceMCP } from "../../../backend/system/mcp-policy.js";

@@ -1,15 +1,15 @@
 // © 2026 Global Infrastructure Advisory
 // Seven Runtime — Unified Sector + Disaster Mission Logic
 
-import { DroneControl } from "./drone/drone-control";
-import { DroneMissionPlanner } from "./drone/drone-mission-planner";
-import { TerrainAwareRouting, TerrainModel } from "./drone/terrain-routing";
-import { DroneOrchestrator, OrchestratorMissionRequest } from "./drone/drone-orchestrator";
+import { DroneControl } from "../drone/drone-control";
+import { DroneMissionPlanner } from "../drone/drone-mission-planner";
+import { TerrainAwareRouting, TerrainModel } from "../drone/terrain-routing";
+import { DroneOrchestrator, OrchestratorMissionRequest } from "../drone/drone-orchestrator";
 
-import { SectorSafetyEngine, SafetyContext } from "./safety/sector-safety-engine";
-import { DisasterType, DisasterProfiles } from "./safety/disaster-profile";
+import { SectorSafetyEngine, SafetyContext } from "../drone/safety/sector-safety-engine";
+import { DisasterType, DisasterProfiles } from "../drone/disaster-profile";
 
-import { FieldHealthScanner, HealthSector, HealthSample } from "./analysis/field-health-scanner";
+import { FieldHealthScanner, HealthSector, HealthSample } from "../analysis/field-health-scanner";
 
 export class SevenRuntime {
     private droneControl: DroneControl;

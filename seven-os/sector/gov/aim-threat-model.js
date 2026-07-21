@@ -1,4 +1,4 @@
-import { api } from "../shared/api-client.js";
+import { api } from "../../hubs/shared/api-client.js";
 
 const statusEl = document.getElementById("aim-status");
 const attackEl = document.getElementById("aim-attack-surface");

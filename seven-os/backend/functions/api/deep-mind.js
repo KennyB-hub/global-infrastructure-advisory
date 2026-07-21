@@ -1,11 +1,11 @@
 // 2050 V12 Alpha — Deep Mind Bridge
 // Global Infrastructure Platform — AI Core Gateway
 
-import { buildSovereignMetadata } from "../system/metadata.js";
-import { computeIntegrityHash } from "../system/integrity.js";
-import { applyPolicy } from "../system/policy-engine.js";
-import { applyCodeFilter } from "../system/code-filter.js";
-import { buildAIContext } from "../system/ai-context.js";
+import { buildSovereignMetadata } from "../../../system/metadata.js";
+import { computeIntegrityHash } from "../../../system/integrity.js";
+import { applyPolicy } from "../../../system/policy-engine.js";
+import { applyCodeFilter } from "../../../ai/filters/code-filter.js";
+import { buildAIContext } from "../../../system/ai-context.js";
 
 export async function onRequestPost(context) {
   const request = context.request;

@@ -1,6 +1,6 @@
 // /services/dispatch-service.js
-import { LogicEngine } from "../ai/engines/logic-engine.js";
-import { MathEngine } from "../ai/engines/math-engine.js";
+import { LogicEngine } from "../ai/logic-engine.js";
+import { MathEngine } from "../../engines/math-engine.js";
 
 export class DispatchService {
   constructor(env) {

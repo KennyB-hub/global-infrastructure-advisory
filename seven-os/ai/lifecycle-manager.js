@@ -6,8 +6,8 @@ const path = require("path");
 
 const registryPath = path.join(__dirname, "document-template-registry.json");
 
-const { enforceSecurity } = require("./template-lifecycle-security");
-const { enforcePolicy } = require("./template-security-policy-enforcer");
+const { enforceSecurity } = require("../templates/template-lifecycle-security");
+const { enforcePolicy } = require("../templates/template-security-policy-enforcer");
 const { recordTemplateChange } = require("../api/template-change-history-api");
 
 function loadRegistry() {

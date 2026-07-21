@@ -4,7 +4,7 @@ import {
   DashboardConfig,
   LayoutDefinition,
   ThemeDefinition
-} from "./types";
+} from "../../../autonomous/core/fcc/carrier-network-compliance/governance-brain/types";
 import { farmerCattleLayout } from "./layouts/farmer.cattle.layout";
 import { govCyberLayout } from "./layouts/gov.cyber.layout";
 import { Holo2050Theme } from "./themes/holo2050.theme";

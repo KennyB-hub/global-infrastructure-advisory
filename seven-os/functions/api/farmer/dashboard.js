@@ -5,8 +5,8 @@ import { computeIntegrityHash } from "../../../system/integrity.js";
 import { applyPolicy } from "../../../system/policy-engine.js";
 import { buildAIContext } from "../../../system/ai-context.js";
 import { buildFarmerView } from "../../../system/engines/farmer-engine.js";
-import { KeyEngine } from "../../system/security/key-engine.js";
-import { dbQuery } from "../../system/db/db-access.js";
+import { KeyEngine } from "../../../system/security/key-engine.js";
+import { dbQuery } from "../../../system/db/db-access.js";
 
 export async function onRequestGet(context) {
   const { request, env } = context;

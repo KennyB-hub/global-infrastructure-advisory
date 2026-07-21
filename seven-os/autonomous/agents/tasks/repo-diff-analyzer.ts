@@ -1,7 +1,7 @@
 // repo-diff-analyzer.ts
 
 import { execSync } from "child_process";
-import { queueTask } from "../../autonomous/task-queue";
+import { queueTask } from "../../task-queue";
 
 export class RepoDiffAnalyzer {
   static analyze() {

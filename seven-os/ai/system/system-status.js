@@ -6,8 +6,8 @@ import { systemStatusReport } from "seven-os/backend/system/system-status.js";
 import systemManifest from "../../config/system-manifest.json" assert { type: "json" };
 import nodeRegistry from "../../config/node-registry.json" assert { type: "json" };
 import clusterHealth from "../../config/cluster-health.json" assert { type: "json" };
-import { EngineeringEngine } from "./engineering-engine.js";
-import { MechanicsEngine } from "./mechanics-engine.js";
+import { EngineeringEngine } from "../../engines/engineering-engine.js";
+import { MechanicsEngine } from "../../engines/mechanics-engine.js";
 
 // Unified JSON responder
 function json(data, status = 200, extraHeaders = {}) {

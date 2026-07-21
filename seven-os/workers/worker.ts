@@ -3,14 +3,14 @@
 
 import { runDecision } from "../ai/decision-engine";
 import { systemStatus } from "../ai/system/system-endpoints";
-import { diagnostics } from "../../system/diagnostics";
-import { uptime } from "../..backend/system/uptime";
+import { diagnostics } from "../backend/infrastructure/diagnostics";
+import { uptime } from "../backend/functions/api/system/uptime";
 import { fullReport } from "../../system/full-report";
-import { systemThreatReport } from "../../system/threat-report";
-import { runCloudflareDiagnostics } from "../../system/cloudflare-tests";
+import { systemThreatReport } from "../ai/system/threat-report";
+import { runCloudflareDiagnostics } from "../../scripts/cloudflare-tests";
 
-import systemManifest from "../../config/system-manifest.json";
-import nodeRegistry from "../../system/config/node-registry.json";
+import systemManifest from "../config/system-manifest.json";
+import nodeRegistry from "../config/node-registry.json";
 
 let START_TIME = Date.now();
 

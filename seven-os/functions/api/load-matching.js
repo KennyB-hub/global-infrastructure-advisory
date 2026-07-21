@@ -5,7 +5,7 @@ const {
   createLoad,
   listLoads,
   updateLoadStatus
-} = require("../../../ai/load-registry");
+} = require("../../ai/load-registry");
 const { matchHaulersForLoad } = require("../../ai/load-matching-engine");
 
 module.exports = function (router) {

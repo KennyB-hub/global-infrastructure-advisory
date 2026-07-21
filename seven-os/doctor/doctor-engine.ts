@@ -3,7 +3,7 @@ import { loadIntegrationMap } from './integration-map-loader';
 import { validateBindings } from './binding-validator';
 import { buildSectorGraph } from './sector-map';
 import { buildGridGraph } from './grid-map';
-import { Governor } from './governor-interface';
+import { Governor } from '../system/governor-interface';
 
 export type DoctorRouteRequest = {
   source: 'cli' | 'api' | 'voice' | 'system';

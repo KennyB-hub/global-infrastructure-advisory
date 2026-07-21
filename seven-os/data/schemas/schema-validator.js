@@ -1,5 +1,5 @@
 import Ajv from "ajv";
-import { loadSchemaRegistry } from "./schema-registry.js";
+import { loadSchemaRegistry } from "../../ai/validation/schema-registry.js";
 
 const ajv = new Ajv({ allErrors: true });
 const registry = loadSchemaRegistry();

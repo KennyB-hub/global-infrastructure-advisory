@@ -1,7 +1,7 @@
 // © 2026 Global Infrastructure Advisory
 // Seven Runtime — LTE Transport Module
 
-import { QueuedEvent } from "../core/event-queue";
+import { QueuedEvent } from "../../core/event-queue";
 
 export interface LTEStatus {
     available: boolean;

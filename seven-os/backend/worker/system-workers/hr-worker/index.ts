@@ -1,12 +1,12 @@
-// /workers/payroll/index.ts
-// GIA Sovereign Payroll Worker – V12 Alpha (TypeScript)
+// /workers/hr/index.ts
+// GIA Sovereign HR Worker – V12 Alpha (TypeScript)
 
-import { basicSecurityGuard } from "../../seven-os/security/worker-guard";
-import { PolicyEngine } from "../../seven-os/engine/policy-engine";
-import { CryptoV12 } from "../../seven-os/engine/ai/crypto.js";
+import { basicSecurityGuard } from "../../../../../../../../../../system/security/worker-guard";
+import { PolicyEngine } from "../../../../../../../../../../system/policy-engine";
+import { CryptoV12 } from "../../../../../../../../../../ai-engines/utils/crypto.js";
 
-import { buildEvent } from "../../seven-os/system/cyber/event-builder";
-import { cyberHook } from "../../seven-os/system/cyber/worker-hook";
+import { buildEvent } from "../../../../../../../../../../system/cyber/event-builder";
+import { cyberHook } from "../../../../../../../../../../system/cyber/worker-hook";
 
 const policy = new PolicyEngine();
 
@@ -22,14 +22,14 @@ function json(
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
-      "GIA-Trust-Zone": "payroll",
+      "GIA-Trust-Zone": "hr",
       "GIA-Version": "v12-alpha"
     }
   });
 }
 
 // ---------------------------------------------------------
-// MAIN PAYROLL WORKER
+// MAIN HR WORKER
 // ---------------------------------------------------------
 export async function onRequest(
   context: { request: Request; env: any; waitUntil: (p: Promise<any>) => void }
@@ -50,11 +50,11 @@ export async function onRequest(
   const trustZone = request.headers.get("GIA-Trust-Zone") || "public";
 
   // ---------------------------------------------------------
-  // 3. Cyber Engine Hook (Payroll Worker)
+  // 3. Cyber Engine Hook (HR Worker)
   // ---------------------------------------------------------
   const event = buildEvent({
-    source: "payroll-worker",
-    sector: "payroll",
+    source: "hr-worker",
+    sector: "hr",
     trustZone,
     type: "access_attempt",
     metadata: {
@@ -71,7 +71,7 @@ export async function onRequest(
   // ---------------------------------------------------------
   const decision = await policy.check({
     trustZone,
-    workflow: "payroll-access",
+    workflow: "hr-access",
     action: "view"
   });
 
@@ -81,7 +81,7 @@ export async function onRequest(
       type: "policy-deny",
       reason: decision.reason,
       trustZone,
-      workflow: "payroll-access",
+      workflow: "hr-access",
       timestamp: new Date().toISOString()
     };
 
@@ -98,18 +98,18 @@ export async function onRequest(
   }
 
   // ---------------------------------------------------------
-  // 5. Payroll Status Endpoint
+  // 5. HR Status Endpoint
   // ---------------------------------------------------------
-  if (url.pathname.endsWith("/payroll/status")) {
+  if (url.pathname.endsWith("/hr/status")) {
     const payload = {
       ok: true,
-      zone: "payroll",
+      zone: "hr",
       endpoint: "status",
       status: "ok",
       timestamp: new Date().toISOString(),
       meta: {
         trustZone,
-        workflow: "payroll-access",
+        workflow: "hr-access",
         version: "v12-alpha"
       }
     };
@@ -127,13 +127,13 @@ export async function onRequest(
   // ---------------------------------------------------------
   const fallback = {
     ok: false,
-    zone: "payroll",
+    zone: "hr",
     status: "not-found",
     path: url.pathname,
     timestamp: new Date().toISOString(),
     meta: {
       trustZone,
-      workflow: "payroll-access",
+      workflow: "hr-access",
       version: "v12-alpha"
     }
   };

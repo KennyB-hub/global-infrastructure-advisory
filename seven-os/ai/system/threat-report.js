@@ -1,7 +1,7 @@
 // src/backend/system/system-threat-report.js
 // GIA Sovereign Threat Engine – V12 Alpha
 
-import { fetchThreatEvents, buildThreatSummary } from "../threat/threat-reporting.js";
+import { fetchThreatEvents, buildThreatSummary } from "../../backend/threat/threat-reporting.js";
 
 import systemManifest from "../../config/system-manifest.json" assert { type: "json" };
 import nodeRegistry from "../../config/node-registry.json" assert { type: "json" };

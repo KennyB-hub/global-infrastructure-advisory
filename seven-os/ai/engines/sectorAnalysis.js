@@ -7,9 +7,9 @@ import {
   getNodeContext,
   getClusterContext,
   getAIContext
-} from "../../ai-context.js";
+} from "../../system/ai-context.js";
 
-import { validatePayload } from "../../validator/validator.js";
+import { validatePayload } from "../validation/validator.js";
 
 export class SectorAnalysisEngine {
 

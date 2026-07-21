@@ -1,4 +1,4 @@
-import { SevenStack } from "../../seven-runtime/seven-stack";
+import { SevenStack } from "../../seven-runtime/stack/seven-stack";
 
 const stack = new SevenStack(null, { say: console.log });
 

@@ -2,11 +2,11 @@
 // Global Infrastructure Platform — Emergency Work Order Engine
 
 import { routeEwo } from "../../system/routing/ewo-router.js";
-import { requireRole } from "../../system/trust/api-trust.js";
-import { buildSovereignMetadata } from "../../system/metadata.js";
-import { computeIntegrityHash } from "../../system/integrity.js";
-import { applyPolicy } from "../../system/policy-engine.js";
-import { buildAIContext } from "../../system/ai-context.js";
+import { requireRole } from "../../../system/trust/api-trust.js";
+import { buildSovereignMetadata } from "../../../system/metadata.js";
+import { computeIntegrityHash } from "../../../system/integrity.js";
+import { applyPolicy } from "../../../system/policy-engine.js";
+import { buildAIContext } from "../../../system/ai-context.js";
 
 export async function handleEwoDispatch(request, env) {
   const path = "/api/ewo/dispatch";

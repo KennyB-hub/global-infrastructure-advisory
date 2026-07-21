@@ -1,9 +1,9 @@
 // GIA Sovereign Worker Guard – V12 Alpha
 // Protects AI entrypoints, system endpoints, trust‑zones, and auto‑blocking
 
-import { sha256 } from "../ai/crypto.js";
-import { PolicyEngine } from "../ai-engine/policy-engine.js";
-import { DBService } from "../db/db-service.js";
+import { sha256 } from "../../ai-engines/utils/crypto.js";
+import { PolicyEngine } from "../../system/policy-engine.js";
+import { DBService } from "../../system/db/db-service.js";
 
 const policy = new PolicyEngine();
 

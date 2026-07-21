@@ -1,4 +1,4 @@
-import { GovernanceRule } from '../governance-brain/types';
+import { GovernanceRule } from '../carrier-network-compliance/governance-brain/types';
 import { RFObservationLayer } from '../rf-observation-layer';
 import { GovernanceBrain } from '../governance-brain';
 

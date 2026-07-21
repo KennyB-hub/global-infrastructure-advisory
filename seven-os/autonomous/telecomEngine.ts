@@ -1,4 +1,4 @@
-import { InMemoryGovernanceBrain } from '../ai/governance-brain';
+import { InMemoryGovernanceBrain } from './core/governance/goverance-brain';
 import { InMemoryRFObservationLayer } from './governance-brain/rf-observation-layer';
 import { SimpleComplianceEngine } from '../governance-brain/compliance-engine';
 import { SimpleFirmwareAuditor } from '../governance-brain/firmware-auditor';

@@ -7,8 +7,8 @@ import {
   getNodeContext,
   getClusterContext,
   getAIContext
-} from "../../ai-engines/utils/context.js";
-import { validatePayload } from "../../ai-engines/utils/validator.js";
+} from "../backend/utils/context.js";
+import { validatePayload } from "../ai/validation/validator.js";
 
 export class MechanicsEngine {
   async process(input = {}, env = {}, context = {}) {

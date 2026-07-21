@@ -1,5 +1,5 @@
 // /services/sector-service.js
-import { LogicEngine } from "../ai/engines/logic-engine.js";
+import { LogicEngine } from "../ai/logic-engine.js";
 
 export class SectorService {
   constructor() {

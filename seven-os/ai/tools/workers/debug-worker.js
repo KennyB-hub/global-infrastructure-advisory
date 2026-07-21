@@ -6,7 +6,7 @@
  * Logs everything and returns raw AI engine output.
  */
 
-import { AI } from "../ai/engine.js";
+import { AI } from "../../../backend/trust/engine.js";
 
 export default {
     async fetch(request, env, ctx) {

@@ -4,7 +4,7 @@ import {
   BehaviorSample,
   GovernanceViolation,
 } from '../../governance/types.js';
-import { GovernanceBrain } from '../../governance-brain/index.ts';
+import { GovernanceBrain } from '../../../../workers/finance/index.ts';
 
 export interface ComplianceEngine {
   evaluateDevice(

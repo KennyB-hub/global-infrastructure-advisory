@@ -2,8 +2,8 @@
 // Global Infrastructure Platform — Workforce Opportunity Layer
 
 import { buildSovereignMetadata } from "../seven-os/system/metadata.js";
-import { computeIntegrityHash } from "../../utilities/index.js";
-import { applyPolicy } from "../../seven-os/ai//policy/index.js";
+import { computeIntegrityHash } from "../../../workers/system/index.js";
+import { applyPolicy } from "../../../workers/system/index.js";
 import { buildAIContext } from "../seven-os/system/ai-context.js";
 import { requireRole } from "../../trust/engine.js";
 

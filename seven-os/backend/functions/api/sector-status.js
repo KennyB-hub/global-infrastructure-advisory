@@ -1,15 +1,15 @@
-import { getSectorById } from "../../system/sectors/sector-loader.js";
-import { requireRole } from "../../system/trust/api-trust.js";
+import { getSectorById } from "../../system/sector-loader.js";
+import { requireRole } from "../../../system/trust/api-trust.js";
 
 // 2050 V12 Alpha — Sector Status Handler
 // Global Infrastructure Platform — Government Intelligence Layer
 
 import { requireRole } from "../../trust/engine.js";
 import { getSectorById } from "../../system/sector-loader.js";
-import { buildSovereignMetadata } from "../../seven-os/system/metadata.js";
-import { computeIntegrityHash } from "../seven-os/autonomous/core/full-integrity-scan.ts";
-import { applyPolicy } from "../../system/policy-engine.js";
-import { buildAIContext } from "../../system/ai-context.js";
+import { buildSovereignMetadata } from "../../../system/metadata.js";
+import { computeIntegrityHash } from "../../../autonomous/integrity/full-integrity-scan.ts";
+import { applyPolicy } from "../../../system/policy-engine.js";
+import { buildAIContext } from "../../../system/ai-context.js";
 
 export async function handleSectorStatus(request, env) {
   const path = new URL(request.url).pathname;

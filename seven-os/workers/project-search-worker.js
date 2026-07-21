@@ -3,7 +3,7 @@
  * Project Search Worker — Resilient Mode
  */
 
-import { runResilientProjectSearch } from "../backend/hubs-logic/resilient-search.js";
+import { runResilientProjectSearch } from "../backend/utilities/geomapping-logic/resilient-search.js";
 
 export default {
   async fetch(request, env) {

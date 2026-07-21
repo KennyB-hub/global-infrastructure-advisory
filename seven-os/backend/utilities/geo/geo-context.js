@@ -1,5 +1,5 @@
 import { GeoMapping } from "./geo-mapping.js";
-import { IntegrityDrone } from "../../../integrity/index.js";
+import { IntegrityDrone } from "../../../workers/system/index.js";
 
 export class GeoContext {
   static build(lat, lon) {

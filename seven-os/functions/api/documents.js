@@ -6,7 +6,7 @@ const router = express.Router();
 
 const {
   firewallGenerateDocumentFromQuery
-} = require("../ai/trustzone-firewall");
+} = require("../../ai/trustzone-firewall");
 
 /**
  * POST /api/documents/generate

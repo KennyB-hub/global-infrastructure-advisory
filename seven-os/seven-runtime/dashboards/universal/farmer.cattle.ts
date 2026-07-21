@@ -1,4 +1,4 @@
-import { LayoutDefinition } from "../types";
+import { LayoutDefinition } from "../../../autonomous/core/fcc/carrier-network-compliance/governance-brain/types";
 
 export const farmerCattleLayout: LayoutDefinition = {
   layout: "grid-3",

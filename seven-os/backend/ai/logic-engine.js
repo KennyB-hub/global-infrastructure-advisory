@@ -2,7 +2,7 @@
 // GIA Sovereign Logic Engine – V12 Alpha
 
 import { sha256 } from "../utils/context.js";
-import { validatePayload } from "../utils/validator.js";
+import { validatePayload } from "../../ai/validation/validator.js";
 
 export class LogicEngine {
 

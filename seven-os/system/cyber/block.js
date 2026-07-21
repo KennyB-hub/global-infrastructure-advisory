@@ -1,7 +1,7 @@
 // SystemHub – Cyber Auto‑Block API (V12 Alpha)
 
-import { DBService } from "../../../system/db/db-service.js";
-import { requireRole } from "../../../system/security/require-role.js";
+import { DBService } from "../db/db-service.js";
+import { requireRole } from "../security/require-role.js";
 
 export async function onRequestGet(context) {
   const { request, env } = context;

@@ -1,5 +1,5 @@
 import { storageInspector } from "./storage-inspector.js";
-import { makeOk, makeError } from "../../utilities/context.js";
+import { makeOk, makeError } from "../utils/context.js";
 
 export async function inspectStorage(env) {
   const cf = env?.cf;
