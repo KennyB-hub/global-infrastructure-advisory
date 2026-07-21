@@ -5,14 +5,10 @@ const Module = require('module');
 const REPO_ROOT = path.resolve(__dirname);
 const SEVEN_OS = path.join(REPO_ROOT, 'seven-os');
 const RUNTIME = path.join(SEVEN_OS, 'seven-runtime');
-const PROPRIETARY_CLI = path.join(REPO_ROOT, 'proprietary-cli');
 const UNIVERSAL_DASHBOARD = path.join(RUNTIME, 'dashboards/universal');
 const originalResolveFilename = Module._resolveFilename;
 
-// Unified infrastructure domain registry tracking your post-autosort folder depth shifts
-const ULTIMATE_INFRA_DOMAINS = [
-    path.join(SEVEN_OS, 'engines'),                                    // Your active engines location
-    PROPRIETARY_CLI,                                                   // Your active ts-loader location
+const ULTIMATE_DOMAINS = [
     path.join(SEVEN_OS, 'config'),
     path.join(SEVEN_OS, 'system/db'),
     path.join(SEVEN_OS, 'system/cyber'),
@@ -20,13 +16,14 @@ const ULTIMATE_INFRA_DOMAINS = [
     path.join(SEVEN_OS, 'system/security'),
     path.join(SEVEN_OS, 'system/engines'),
     path.join(SEVEN_OS, 'system/api'),
+    path.join(SEVEN_OS, 'workers/system-workers'),
+    path.join(SEVEN_OS, 'backend/worker/system-workers'),
     path.join(REPO_ROOT, 'data'),
     path.join(SEVEN_OS, 'ai'),
-    path.join(SEVEN_OS, 'autonomous'),
-    path.join(SEVEN_OS, 'sector'),
+    path.join(SEVEN_OS, 'ai/engines'),
+    path.join(SEVEN_OS, 'ai/policy-packs'),
+    path.join(SEVEN_OS, 'ai/config'),
     path.join(SEVEN_OS, 'engines'),
-    path.join(SEVEN_OS, 'policy-packs'),
-    path.join(SEVEN_OS, 'config'),
     path.join(SEVEN_OS, 'security'),
     path.join(SEVEN_OS, 'backend'),
     path.join(SEVEN_OS, 'backend/security'),
@@ -61,13 +58,26 @@ const ULTIMATE_INFRA_DOMAINS = [
 Module._resolveFilename = function (request, parent, isMain, options) {
     let modifiedRequest = request;
 
-    // 1. SURGICAL REPAIR: Directly catch ts-loader targets and route to proprietary-cli
-    if (request.includes('ts-loader')) {
-        const proprietaryTsLoader = path.join(PROPRIETARY_CLI, 'ts-loader.js');
-        if (fs.existsSync(proprietaryTsLoader)) return proprietaryTsLoader;
+    // 1. EXTENSION INTERCEPT UPGRADE: If a file requests a .js or .jsx but only a .ts/.tsx exists, swap it!
+    if (request.endsWith('.js') || request.endsWith('.jsx')) {
+        const baseRequestWithoutExt = request.replace(/\.js[x]?$/, '');
+        const currentDir = parent ? path.dirname(parent.id) : REPO_ROOT;
+        
+        const possibleTsPaths = [
+            path.resolve(currentDir, baseRequestWithoutExt + '.ts'),
+            path.resolve(currentDir, baseRequestWithoutExt + '.tsx'),
+            path.resolve(REPO_ROOT, baseRequestWithoutExt + '.ts'),
+            path.resolve(SEVEN_OS, baseRequestWithoutExt + '.ts')
+        ];
+
+        for (const tsPath of possibleTsPaths) {
+            if (fs.existsSync(tsPath)) {
+                return tsPath; // Return the underlying TypeScript file directly
+            }
+        }
     }
 
-    // 2. MACRO REPAIR: Map legacy 'src/' path requests directly to your new 'seven-os' layout
+    // 2. MACRO REPAIR: Map legacy 'src/' path requests directly to your new 'seven-os' folder layout
     if (request.startsWith('src/')) {
         modifiedRequest = path.resolve(REPO_ROOT, request.replace(/^src\//, 'seven-os/'));
     }
@@ -106,29 +116,29 @@ Module._resolveFilename = function (request, parent, isMain, options) {
         if (fs.existsSync(fallbackApiFile)) return fallbackApiFile;
     }
 
-    // 7. Unify naming variations (autonomous or engines -> ai or engines)
-    if (request.includes('ai-engine/') || request.includes('atonomous/')) {
-        modifiedRequest = request.replace(/ai [s]?\//, 'engines/'); 
+    // 7. Unify naming variations (ai-engine or ai-engines -> ai or engines)
+    if (request.includes('ai-engine/') || request.includes('ai-engines/')) {
+        modifiedRequest = request.replace(/ai-engine[s]?\//, 'engines/'); 
     }
 
-    // 8. Flatten seven-os redundant path loops using synchronized array reference
+    // 8. Flatten seven-os redundant path loops
     if (request.includes('seven-os/')) {
         const baseName = path.basename(request);
-        for (const dir of ULTIMATE_INFRA_DOMAINS) {
+        for (const dir of ULTIMATE_DOMAINS) {
             const checkFile = path.join(dir, baseName);
             if (fs.existsSync(checkFile)) return checkFile;
             for (const ext of ['.ts', '.js', '.json']) { if (fs.existsSync(checkFile + ext)) return checkFile + ext; }
         }
     }
 
-    // 9. Global fallback resolution matrix loop
+    // 9. Global fallback resolution matrix loop with extension fallback matching
     try {
         return originalResolveFilename.call(this, modifiedRequest, parent, isMain, options);
     } catch (err) {
-        const baseName = path.basename(modifiedRequest);
+        const baseName = path.basename(modifiedRequest).replace(/\.js[x]?$/, '');
         const extensions = ['.ts', '.js', '.json', '.jsx', '.tsx'];
 
-        for (const dir of ULTIMATE_INFRA_DOMAINS) {
+        for (const dir of ULTIMATE_DOMAINS) {
             const testPath = path.join(dir, baseName);
             if (fs.existsSync(testPath) && fs.statSync(testPath).isFile()) return testPath;
             
@@ -149,4 +159,4 @@ Module._resolveFilename = function (request, parent, isMain, options) {
     }
 };
 
-console.log("[\x1b[32mSECURE\x1b[0m] Proprietary CLI Loader & Sector Engines Matrix Connected.");
+console.log("[\x1b[32mSECURE\x1b[0m] Dynamic JS-to-TS File Extension Swapper Active.");
