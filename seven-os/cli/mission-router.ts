@@ -1,4 +1,4 @@
-import { RoutingEngine } from "../../proprietary-cli/commands/activate/routing-engine";
+import { RoutingEngine } from "../../proprietary-cli/core/loader";
 import { WorkerDiscovery } from "../autonomous/route/worker-discovery";
 
 export class MissionRouter {
