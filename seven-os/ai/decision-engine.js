@@ -28,6 +28,7 @@ import { govEngine } from './engines/sector-gov-engine.js';
 import { deepGovEngine } from './engines/sector-deepgov-engine.js';
 import { alfaEngine } from './engines/sector-alfa-engine.js';
 import { runEnterpriseDecision } from "../platform/enterprise-decision-engine.js";
+import { CryptoV12 } from "../ai-engines/utils/crypto.js";
 
 // Optional mock data
 import { MockData } from '../data/mock-data.js';
