@@ -1,4 +1,3 @@
-require('../register-aliases.cjs');
 /**
  * GIA v12 GOVERNOR & ORCHESTRATOR
  * Master Entrypoint for Sovereign Infrastructure
@@ -152,3 +151,27 @@ async function runAI(input, env) {
   };
 }
 
+// ====================================================================
+//      SEVEN-OS SOVEREIGN GOVERNANCE & POLICY ROUTING ENGINE
+// ====================================================================
+
+try {
+    console.log("\n[SYSTEM] Booting Sovereign Governance Framework...");
+
+    // 1. Route the Governance Brain (Auditing RF Stacks and Firmware)
+    const governanceBrain = require('.//autonomous/core/governance/goverance-brain/index.js');
+    
+    // 2. Route the Policy Packs and its deep TypeScript validation suite
+    const policyPacks = require('./policy-packs/index.js');
+    const { PolicyValidator } = require('./policy-packs/validator.ts');
+
+    // 3. Instantiate Runtime Compliance Validation Block
+    const validatorInstance = new PolicyValidator();
+    
+    // Mock-executing an initial firmware alignment scan check at boot
+    const bootFirmwareSample = { component: "RF-Transceiver-Autonomous-V7", scope: "global-infrastructure" };
+    validatorInstance.auditFirmwareNetwork(bootFirmwareSample);
+
+} catch (routingError) {
+    console.error("[\x1b[31mROUTING BREAKDOWN\x1b[0m] Failed to safely link secure compliance modules:", routingError.message);
+}
