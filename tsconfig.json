@@ -1,11 +1,10 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-<<<<<<< HEAD
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "allowJs": true,                     /* Crucial: Allows JS and TS to live together */
-    "checkJs": false,                    /* Skips type checking legacy JS files */
+    "allowJs": true,
+    "checkJs": false,
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -14,57 +13,31 @@
     "baseUrl": ".",
     "paths": {
       "@seven-os/*": ["./seven-os/*"],
-      "@ai-engines/*": ["./ai-engines/*"],
-      "@autonomous/*": ["./seven-os/autonomous/*"],
+      "@ai-engines/*": ["./engines/*"],
+      "@autonomous/*": ["./autonomous/*"],
       "@runtime/*": ["./seven-runtime/*"],
       "@proprietary-cli/*": ["./proprietary-cli/*"],
       "@scripts/*": ["./scripts/*"],
       "@config/*": ["./seven-os/config/*"],
       "@data/*": ["./data/*"],
       
-      /* Dynamic Fallback Path Bridges for Legacy Imports */
-      "autonomous/*": ["./seven-os/autonomous/*"],
-      "config/*": ["./seven-os/config/*"],
-      "data/*": ["./data/*"]
-    },
-     "exclude": ["node_modules", "dist"]
-  }
-}
-
-=======
-    "module": "ESNext",
-    "moduleResolution": "Node",
-
-    "strict": false,
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-
-    "allowJs": true,
-    "checkJs": false,
-
-    "baseUrl": ".",
-    "paths": {
-      "*": ["./*"]
-    },
-
-    "outDir": "dist",
-    "rootDir": "."
+      "ai/engines/*": ["./engines/*", "./seven-os/ai/*"],
+      "seven-runtime/*": ["./seven-runtime/*", "./seven-os/seven-runtime/*"],
+      "autonomous/*": ["./autonomous/*", "./seven-os/autonomous/*"]
+    }
   },
-
   "include": [
-    "seven-os/platform/**/*",
-    "seven-os/backend/**/*",
-    "seven-os/ai/**/*",
-    "seven-os/system/**/*",
-    "seven-os/runtime/**/*",
-    "seven-os/autonomous-os/**/*"
+    "seven-os/**/*",
+    "engines/**/*",
+    "autonomous/**/*",
+    "seven-runtime/**/*",
+    "platform/**/*",
+    "proprietary-cli/**/*",
+    "scripts/**/*"
   ],
-
   "exclude": [
     "node_modules",
     "dist",
     "public"
   ]
 }
->>>>>>> main

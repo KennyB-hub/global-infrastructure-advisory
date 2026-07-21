@@ -8,36 +8,28 @@ const RUNTIME = path.join(SEVEN_OS, 'seven-runtime');
 const UNIVERSAL_DASHBOARD = path.join(RUNTIME, 'dashboards/universal');
 const originalResolveFilename = Module._resolveFilename;
 
-const ULTIMATE_DOMAINS = [
-    path.join(SEVEN_OS, 'config'),
-    path.join(SEVEN_OS, 'system/db'),
-    path.join(SEVEN_OS, 'system/cyber'),
-    path.join(SEVEN_OS, 'system'),
-    path.join(SEVEN_OS, 'system/security'),
-    path.join(SEVEN_OS, 'system/engines'),
-    path.join(SEVEN_OS, 'system/api'),
-    path.join(SEVEN_OS, 'workers/system-workers'),
-    path.join(SEVEN_OS, 'backend/worker/system-workers'),
-    path.join(REPO_ROOT, 'data'),
+const SYSTEM_WIDE_DOMAINS = [
     path.join(SEVEN_OS, 'ai'),
     path.join(SEVEN_OS, 'ai/engines'),
     path.join(SEVEN_OS, 'ai/policy-packs'),
     path.join(SEVEN_OS, 'ai/config'),
+    path.join(SEVEN_OS, 'autonomous'),
     path.join(SEVEN_OS, 'engines'),
     path.join(SEVEN_OS, 'security'),
+    path.join(SEVEN_OS, 'system'),
+    path.join(SEVEN_OS, 'system/engines'),
+    path.join(SEVEN_OS, 'system/security'),
+    path.join(SEVEN_OS, 'system/cyber'),
+    path.join(SEVEN_OS, 'system/voice'),
+    path.join(SEVEN_OS, 'system/api'),
     path.join(SEVEN_OS, 'backend'),
     path.join(SEVEN_OS, 'backend/security'),
     path.join(SEVEN_OS, 'backend/system/identity'),
     path.join(SEVEN_OS, 'backend/system/mcp'),
-    path.join(SEVEN_OS, 'backend/utils'),
-    path.join(SEVEN_OS, 'backend/hubs-logic'),
     path.join(SEVEN_OS, 'functions/api'),
     path.join(SEVEN_OS, 'workers'),
-    path.join(SEVEN_OS, 'workers/system'),
     path.join(SEVEN_OS, 'templates'),
     path.join(SEVEN_OS, 'policy-packs'),
-    path.join(SEVEN_OS, 'cli'),
-    path.join(SEVEN_OS, 'core'),
     path.join(RUNTIME),
     path.join(RUNTIME, 'core'),
     path.join(RUNTIME, 'drone'),
@@ -52,93 +44,70 @@ const ULTIMATE_DOMAINS = [
     path.join(UNIVERSAL_DASHBOARD, 'themes'),
     path.join(RUNTIME, 'types'),
     path.join(REPO_ROOT, 'ai-engines/utils'),
-    path.join(REPO_ROOT, 'config/sovereign')
+    path.join(REPO_ROOT, 'config')
 ];
 
 Module._resolveFilename = function (request, parent, isMain, options) {
     let modifiedRequest = request;
 
-    // 1. EXTENSION INTERCEPT UPGRADE: If a file requests a .js or .jsx but only a .ts/.tsx exists, swap it!
-    if (request.endsWith('.js') || request.endsWith('.jsx')) {
-        const baseRequestWithoutExt = request.replace(/\.js[x]?$/, '');
-        const currentDir = parent ? path.dirname(parent.id) : REPO_ROOT;
+    // 1. Intercept universal dashboard sibling lookups (e.g., matching types, themes, layouts)
+    if (parent && parent.id.includes('universal')) {
+        const baseName = path.basename(request);
+        const extensions = ['.ts', '.js', '.json'];
         
-        const possibleTsPaths = [
-            path.resolve(currentDir, baseRequestWithoutExt + '.ts'),
-            path.resolve(currentDir, baseRequestWithoutExt + '.tsx'),
-            path.resolve(REPO_ROOT, baseRequestWithoutExt + '.ts'),
-            path.resolve(SEVEN_OS, baseRequestWithoutExt + '.ts')
+        // Search directly within your universal dashboard folder boundaries
+        const checkLocations = [
+            UNIVERSAL_DASHBOARD,
+            path.join(UNIVERSAL_DASHBOARD, 'layouts'),
+            path.join(UNIVERSAL_DASHBOARD, 'themes'),
+            path.join(RUNTIME, 'types')
         ];
 
-        for (const tsPath of possibleTsPaths) {
-            if (fs.existsSync(tsPath)) {
-                return tsPath; // Return the underlying TypeScript file directly
+        for (const loc of checkLocations) {
+            const fileCheck = path.join(loc, baseName);
+            if (fs.existsSync(fileCheck) && fs.statSync(fileCheck).isFile()) return fileCheck;
+            for (const ext of extensions) {
+                if (fs.existsSync(fileCheck + ext)) return fileCheck + ext;
             }
         }
     }
 
-    // 2. MACRO REPAIR: Map legacy 'src/' path requests directly to your new 'seven-os' folder layout
-    if (request.startsWith('src/')) {
-        modifiedRequest = path.resolve(REPO_ROOT, request.replace(/^src\//, 'seven-os/'));
+    // 2. Resolve namespaced mocks from voxel AI
+    if (request.startsWith('@voxel-dot-ai/')) {
+        return path.join(RUNTIME, 'drone/mavsdk-mock.ts');
     }
 
-    // 3. Map backend matching folder relative lookups targeting data straight to root level data
-    if (request.includes('/data/') || request.startsWith('../data/')) {
-        const baseName = path.basename(request);
-        const rootDataCheck = path.join(REPO_ROOT, 'data', baseName);
-        if (fs.existsSync(rootDataCheck)) return rootDataCheck;
-        for (const ext of ['.ts', '.js', '.json']) { if (fs.existsSync(rootDataCheck + ext)) return rootDataCheck + ext; }
+    // 3. Unify name variations (ai-engine or ai-engines -> ai)
+    if (request.includes('ai-engine/') || request.includes('ai-engines/')) {
+        modifiedRequest = request.replace(/ai-engine[s]?\//, 'ai/');
     }
 
-    // 4. Intercept your universal dashboard sibling lookups (types, themes, layouts)
-    if (parent && parent.id.includes('universal')) {
-        const baseName = path.basename(request);
-        const extensions = ['.ts', '.js', '.json'];
-        const checkLocations = [UNIVERSAL_DASHBOARD, path.join(UNIVERSAL_DASHBOARD, 'layouts'), path.join(UNIVERSAL_DASHBOARD, 'themes'), path.join(RUNTIME, 'types')];
-        for (const loc of checkLocations) {
-            const fileCheck = path.join(loc, baseName);
-            if (fs.existsSync(fileCheck) && fs.statSync(fileCheck).isFile()) return fileCheck;
-            for (const ext of extensions) { if (fs.existsSync(fileCheck + ext)) return fileCheck + ext; }
-        }
-    }
-
-    // 5. Intercept platform engine references to math or sector engines
-    if (request.includes('./engines/') && parent && parent.id.includes('platform')) {
-        const baseName = path.basename(request);
-        const engineCheck = path.join(SEVEN_OS, 'engines', baseName); 
-        if (fs.existsSync(engineCheck)) return engineCheck;
-        for (const ext of ['.ts', '.js', '.json']) { if (fs.existsSync(engineCheck + ext)) return engineCheck + ext; }
-    }
-
-    // 6. Intercept local frontend relative api-hooks jumps (matching '../api')
+    // 4. Resolve local relative api-hooks jumps (matching '../api')
     if (request === '../api' && parent && parent.id.includes('hooks')) {
         const fallbackApiFile = path.join(SEVEN_OS, 'functions/api/[[path]].js');
         if (fs.existsSync(fallbackApiFile)) return fallbackApiFile;
     }
 
-    // 7. Unify naming variations (ai-engine or ai-engines -> ai or engines)
-    if (request.includes('ai-engine/') || request.includes('ai-engines/')) {
-        modifiedRequest = request.replace(/ai-engine[s]?\//, 'engines/'); 
-    }
-
-    // 8. Flatten seven-os redundant path loops
+    // 5. Flatten seven-os redundant path loops
     if (request.includes('seven-os/')) {
         const baseName = path.basename(request);
-        for (const dir of ULTIMATE_DOMAINS) {
+        for (const dir of SYSTEM_WIDE_DOMAINS) {
             const checkFile = path.join(dir, baseName);
             if (fs.existsSync(checkFile)) return checkFile;
-            for (const ext of ['.ts', '.js', '.json']) { if (fs.existsSync(checkFile + ext)) return checkFile + ext; }
+            for (const ext of ['.ts', '.js', '.json']) {
+                if (fs.existsSync(checkFile + ext)) return checkFile + ext;
+            }
         }
     }
 
-    // 9. Global fallback resolution matrix loop with extension fallback matching
+    // 6. Global fallback lookup loop
     try {
         return originalResolveFilename.call(this, modifiedRequest, parent, isMain, options);
     } catch (err) {
-        const baseName = path.basename(modifiedRequest).replace(/\.js[x]?$/, '');
+        const baseName = path.basename(modifiedRequest);
         const extensions = ['.ts', '.js', '.json', '.jsx', '.tsx'];
 
-        for (const dir of ULTIMATE_DOMAINS) {
+        for (const dir of SYSTEM_WIDE_DOMAINS) {
             const testPath = path.join(dir, baseName);
             if (fs.existsSync(testPath) && fs.statSync(testPath).isFile()) return testPath;
             
@@ -159,4 +128,4 @@ Module._resolveFilename = function (request, parent, isMain, options) {
     }
 };
 
-console.log("[\x1b[32mSECURE\x1b[0m] Dynamic JS-to-TS File Extension Swapper Active.");
+console.log("[\x1b[32mSECURE\x1b[0m] Universal Dashboard Layout Realignment Active.");
