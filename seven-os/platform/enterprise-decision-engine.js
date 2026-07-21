@@ -41,7 +41,7 @@ import { alfaEngine } from "../ai/engines/sector-alfa-engine.js";
 // ─────────────────────────────────────────────────────────────
 
 import { MockData } from "../data/mock-data.js";
-import { getSectorSchema } from "../ai/vaildation/schema-registry.js";
+import { getSectorSchema } from "../ai/vaildation/sector-schema.js";
 
 function log(...args) {
   console.info("[ENTERPRISE-GOVERNOR]", ...args);
