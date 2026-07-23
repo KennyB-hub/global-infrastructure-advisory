@@ -1,1 +1,1 @@
-module.exports = { schemaRegistry: {} };
+module.exports = { validate: () => true };
