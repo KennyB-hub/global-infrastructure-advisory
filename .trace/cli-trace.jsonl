@@ -123,3 +123,5 @@
 {"timestamp":"2026-07-19T14:28:43.880Z","event":"cli.test.mode","payload":{"mode":"routing"}}
 {"timestamp":"2026-07-19T14:54:33.615Z","event":"cli.test.mode","payload":{"mode":"routing"}}
 {"timestamp":"2026-07-19T18:18:29.115Z","event":"cli.test.mode","payload":{"mode":"routing"}}
+{"timestamp":"2026-07-23T11:36:40.113Z","event":"cli.test.mode","payload":{"mode":"routing"}}
+{"timestamp":"2026-07-23T13:11:10.468Z","event":"cli.test.mode","payload":{"mode":"routing"}}
