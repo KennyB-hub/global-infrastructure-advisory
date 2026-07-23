@@ -2,147 +2,141 @@ const fs = require('fs');
 const path = require('path');
 
 const REPO_ROOT = path.resolve(__dirname);
+let START_FILE = null;
 
-// Recursively sweep the entire repository to map what actually exists on disk
-function buildPhysicalFileTree(dir, fileList = new Set()) {
-    if (!fs.existsSync(dir)) return fileList;
-    const items = fs.readdirSync(dir);
-    for (const item of items) {
-        const fullPath = path.join(dir, item);
-        // Skip dependencies and cache folders to keep audit clean
-        if (item === 'node_modules' || item === '.git' || item === 'dist' || item === '.vscode') continue;
-        
-        if (fs.statSync(fullPath).isDirectory()) {
-            buildPhysicalFileTree(fullPath, fileList);
-        } else {
-            fileList.add(fullPath);
+const possibleEntries = [
+    path.join(REPO_ROOT, 'seven-os', 'index.js'),
+    path.join(REPO_ROOT, 'seven-os', 'index.ts'),
+    path.join(REPO_ROOT, 'proprietary-cli', 'index.js'),
+    path.join(REPO_ROOT, 'proprietary-cli', 'index.ts'),
+    path.join(REPO_ROOT, 'index.js'),
+    path.join(REPO_ROOT, 'index.ts')
+];
+
+for (const entry of possibleEntries) {
+    if (fs.existsSync(entry)) {
+        START_FILE = entry;
+        break;
+    }
+}
+
+const visitedFiles = new Set();
+const missingFiles = [];
+
+const NODE_BUILTINS = new Set([
+    'fs', 'path', 'crypto', 'os', 'http', 'https', 'child_process', 'cluster', 'events', 'util', 'stream'
+]);
+
+const IMPORT_REGEX = /(?:require\(['"]([^'"]+)['"]\)|from\s+['"]([^'"]+)['"]|import\(['"]([^'"]+)['"]\)|import\s+['"]([^'"]+)['"])/g;
+
+function resolveFilePath(baseDir, importPath) {
+    if (!importPath || typeof importPath !== 'string') return null;
+    importPath = importPath.trim();
+
+    if (NODE_BUILTINS.has(importPath) || (!importPath.startsWith('.') && !importPath.startsWith('/') && !importPath.includes('/') && !importPath.startsWith('@'))) {
+        return null; 
+    }
+
+    // Comprehensive Path Alias Resolution Matrix
+    let virtualImportPath = importPath;
+    if (importPath.startsWith('@seven-os/')) virtualImportPath = importPath.replace('@seven-os/', 'seven-os/');
+    if (importPath.startsWith('@engines/')) virtualImportPath = importPath.replace('@engines/', 'engines/');
+    if (importPath.startsWith('@autonomous/')) virtualImportPath = importPath.replace('@autonomous/', 'autonomous/');
+    if (importPath.startsWith('@runtime/')) virtualImportPath = importPath.replace('@runtime/', 'seven-runtime/');
+    if (importPath.startsWith('@proprietary-cli/')) virtualImportPath = importPath.replace('@proprietary-cli/', 'proprietary-cli/');
+    if (importPath.startsWith('@scripts/')) virtualImportPath = importPath.replace('@scripts/', 'scripts/');
+
+    const potentialPaths = [
+        path.resolve(baseDir, virtualImportPath),                     
+        path.resolve(REPO_ROOT, virtualImportPath),                    
+        path.resolve(REPO_ROOT, 'seven-os', virtualImportPath),
+        path.resolve(REPO_ROOT, 'proprietary-cli', virtualImportPath),
+        path.resolve(REPO_ROOT, 'scripts', virtualImportPath)
+    ];
+
+    if (importPath.startsWith('..')) {
+        potentialPaths.push(path.resolve(REPO_ROOT, importPath.replace(/^\.\.\//, '')));
+    }
+
+    const extensions = ['.ts', '.tsx', '.js', '.jsx', '.json'];
+
+    for (const fullPath of potentialPaths) {
+        if (fs.existsSync(fullPath) && fs.statSync(fullPath).isFile()) {
+            return fullPath;
+        }
+        for (const ext of extensions) {
+            const withExt = fullPath + ext;
+            if (fs.existsSync(withExt) && fs.statSync(withExt).isFile()) return withExt;
+        }
+        if (fs.existsSync(fullPath) && fs.statSync(fullPath).isDirectory()) {
+            for (const ext of extensions) {
+                const indexPath = path.join(fullPath, `index${ext}`);
+                if (fs.existsSync(indexPath) && fs.statSync(indexPath).isFile()) return indexPath;
+            }
         }
     }
-    return fileList;
+    
+    return path.resolve(baseDir, importPath);
+}
+
+function auditFile(filePath, importedFrom = 'Root') {
+    if (visitedFiles.has(filePath)) return;
+    
+    if (!fs.existsSync(filePath)) {
+        missingFiles.push({ missing: filePath, from: importedFrom });
+        console.log(`\x1b[31m[MISSING]\x1b[0m ${path.relative(REPO_ROOT, filePath)}\n          (imported from ${path.relative(REPO_ROOT, importedFrom)})\n`);
+        return;
+    }
+
+    visitedFiles.add(filePath);
+    const displayPath = path.relative(REPO_ROOT, filePath);
+    const lowerPath = filePath.toLowerCase();
+    
+    if (lowerPath.includes('proprietary-cli')) {
+        console.log(`\x1b[33m[PROPRIETARY CLI]\x1b[0m ${displayPath}`);
+    } else if (lowerPath.includes('scripts')) {
+        console.log(`\x1b[34m[AUTOMATION SCRIPT]\x1b[0m ${displayPath}`);
+    } else if (lowerPath.includes('ai-router') || lowerPath.includes('autonomous')) {
+        console.log(`\x1b[35m[AI / AUTONOMOUS STACK]\x1b[0m ${displayPath}`);
+    } else {
+        console.log(`\x1b[32m[AUDITED]\x1b[0m ${displayPath}`);
+    }
+
+    try {
+        const content = fs.readFileSync(filePath, 'utf8');
+        const currentDir = path.dirname(filePath);
+        let match;
+
+        IMPORT_REGEX.lastIndex = 0;
+        while ((match = IMPORT_REGEX.exec(content)) !== null) {
+            const importPath = match || match || match || match;
+            
+            if (importPath) {
+                const resolvedPath = resolveFilePath(currentDir, importPath);
+                if (resolvedPath) {
+                    auditFile(resolvedPath, filePath);
+                }
+            }
+        }
+    } catch (err) {
+        console.log(`\x1b[33m[WARN]\x1b[0m Failed parsing ${displayPath}: ${err.message}`);
+    }
 }
 
 console.log("====================================================");
-console.log("   LEXICAL DEEP-STACK ARCHITECTURE ROUTING AUDITOR   ");
+console.log("    GLOBAL SEVEN-OS ARCHITECTURE ROUTING AUDITOR    ");
 console.log("====================================================\n");
 
-console.log("[1/3] Mapping physical layout files on disk...");
-const physicalFiles = buildPhysicalFileTree(REPO_ROOT);
-console.log(`      Found ${physicalFiles.size} active source files in the repository.\n`);
-
-console.log("[2/3] Extracting structural imports across all files...");
-const importMap = new Map();
-const NODE_BUILTINS = new Set(['fs', 'path', 'crypto', 'os', 'http', 'https', 'child_process', 'cluster', 'events', 'util', 'stream']);
-
-// Captures clean import tokens even if split across dynamic arrays, loops, or backticks
-const BROAD_IMPORT_REGEX = /(?:require|import|from)\s*\(?\s*['"`]([^'"`]+)['"`]/g;
-
-for (const filePath of physicalFiles) {
-    if (!filePath.endsWith('.js') && !filePath.endsWith('.ts') && !filePath.endsWith('.json') && !filePath.endsWith('.tsx')) continue;
-    
-    try {
-        const content = fs.readFileSync(filePath, 'utf8');
-        let match;
-        BROAD_IMPORT_REGEX.lastIndex = 0;
-        
-        while ((match = BROAD_IMPORT_REGEX.exec(content)) !== null) {
-            let targetPath = match[1].trim();
-            
-            // Skip builtins and node packages
-            if (NODE_BUILTINS.has(targetPath) || (!targetPath.startsWith('.') && !targetPath.startsWith('/') && !targetPath.includes('/') && !targetPath.startsWith('@'))) {
-                continue;
-            }
-            
-            if (!importMap.has(filePath)) importMap.set(filePath, []);
-            importMap.get(filePath).push(targetPath);
-        }
-    } catch (e) {
-        // Suppress reading locks
-    }
+if (!START_FILE) {
+    console.error(`\x1b[31mError: Could not locate a valid entry file root.\x1b[0m`);
+    process.exit(1);
 }
 
-console.log(`      Scanned dependencies across active modules.\n`);
-console.log("[3/3] Commencing resolution matrix check...");
+console.log(`Targeting root index context at: .\\${path.relative(REPO_ROOT, START_FILE)}\n`);
+auditFile(START_FILE);
 
-let auditedCount = 0;
-let brokenCount = 0;
-const missingRegistry = new Map();
+console.log('\n--- Realignment Audit Summary ---');
+console.log(`Total files scanned: ${visitedFiles.size}`);
+console.log(`Total missing files found: ${missingFiles.length}`);
 
-for (const [sourceFile, imports] of importMap.entries()) {
-    const baseDir = path.dirname(sourceFile);
-    
-    for (const rawImport of imports) {
-        let aliasPath = rawImport;
-        
-        // Translate tsconfig path aliases seamlessly
-        if (rawImport.startsWith('@seven-os/')) aliasPath = rawImport.replace('@seven-os/', 'seven-os/');
-        if (rawImport.startsWith('@engines/')) aliasPath = rawImport.replace('@engines/', 'engines/');
-        if (rawImport.startsWith('@autonomous/')) aliasPath = rawImport.replace('@autonomous/', 'autonomous/');
-        if (rawImport.startsWith('@runtime/')) aliasPath = rawImport.replace('@runtime/', 'seven-runtime/');
-        if (rawImport.startsWith('@proprietary-cli/')) aliasPath = rawImport.replace('@proprietary-cli/', 'proprietary-cli/');
-        if (rawImport.startsWith('@scripts/')) aliasPath = rawImport.replace('@scripts/', 'scripts/');
-
-        const testPaths = [];
-        if (rawImport.startsWith('.') || rawImport.startsWith('/')) {
-            testPaths.push(path.resolve(baseDir, aliasPath));
-        } else {
-            testPaths.push(path.resolve(REPO_ROOT, aliasPath));
-            testPaths.push(path.resolve(REPO_ROOT, 'seven-os', aliasPath));
-        }
-
-        if (rawImport.startsWith('..')) {
-            testPaths.push(path.resolve(REPO_ROOT, rawImport.replace(/^\.\.\//, '')));
-        }
-
-        let resolved = false;
-        const extensions = ['.ts', '.tsx', '.js', '.jsx', '.json'];
-
-        for (const fullTest of testPaths) {
-            if (fs.existsSync(fullTest) && fs.statSync(fullTest).isFile()) { resolved = true; break; }
-            
-            // Check file extensions
-            for (const ext of extensions) {
-                if (fs.existsSync(fullTest + ext) && fs.statSync(fullTest + ext).isFile()) { resolved = true; break; }
-            }
-            if (resolved) break;
-
-            // Check index structures
-            if (fs.existsSync(fullTest) && fs.statSync(fullTest).isDirectory()) {
-                for (const ext of extensions) {
-                    const indexCheck = path.join(fullTest, `index${ext}`);
-                    if (fs.existsSync(indexCheck) && fs.statSync(indexCheck).isFile()) { resolved = true; break; }
-                }
-            }
-            if (resolved) break;
-        }
-
-        const sourceDisplay = path.relative(REPO_ROOT, sourceFile);
-        if (resolved) {
-            auditedCount++;
-        } else {
-            brokenCount++;
-            if (!missingRegistry.has(sourceDisplay)) missingRegistry.set(sourceDisplay, []);
-            missingRegistry.get(sourceDisplay).push(rawImport);
-        }
-    }
-}
-
-// Visual layout rendering engine for results
-for (const [file, items] of missingRegistry.entries()) {
-    const lower = file.toLowerCase();
-    let prefix = "\x1b[32m[AUDITED]\x1b[0m";
-    if (lower.includes('proprietary-cli')) prefix = "\x1b[33m[PROPRIETARY CLI]\x1b[0m";
-    else if (lower.includes('scripts')) prefix = "\x1b[34m[AUTOMATION SCRIPT]\x1b[0m";
-    else if (lower.includes('ai-router') || lower.includes('autonomous')) prefix = "\x1b[35m[AI / AUTONOMOUS STACK]\x1b[0m";
-    else if (lower.includes('seven-runtime') || lower.includes('stack')) prefix = "\x1b[36m[RUNTIME ENGINE]\x1b[0m";
-
-    console.log(`${prefix} ${file}`);
-    for (const missing of items) {
-        console.log(`   \x1b[31m[MISSING CONNECTION]\x1b[0m --> ${missing}`);
-    }
-    console.log('');
-}
-
-console.log('--- Deep Stack Audit Summary ---');
-console.log(`Total active pathways verified: ${auditedCount}`);
-console.log(`Total broken paths uncovered: ${brokenCount}`);
-process.exit(brokenCount > 0 ? 1 : 0);
+process.exit(missingFiles.length > 0 ? 1 : 0);
