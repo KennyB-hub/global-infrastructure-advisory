@@ -1,18 +1,26 @@
-/**
- * GIA v12 GOVERNOR & ORCHESTRATOR
- * Master Entrypoint for Sovereign Infrastructure
- */
-// >>> bootstrap TS loader if present (paste at top of seven-os/index.js)
-import fs from 'fs';
-import path from 'path';
+// seven-os/index.js
+// Seven‑OS Sovereign Router – Unified Entrypoint
 
-const loaderPath = path.resolve(process.cwd(), 'proprietary-cli', 'ts-loader.js');
+import fs from "fs";
+import path from "path";
+
+// ─────────────────────────────────────────────────────────────
+// Optional TS Loader (your original logic)
+// ─────────────────────────────────────────────────────────────
+
+const loaderPath = path.resolve(process.cwd(), "proprietary-cli", "ts-loader.js");
 if (fs.existsSync(loaderPath)) {
-  // dynamic import ensures ESM loader is loaded correctly
   await import(loaderPath);
 }
 
+// ─────────────────────────────────────────────────────────────
+// Seven‑OS Governors
+// ─────────────────────────────────────────────────────────────
+
+import { runEnterpriseDecision } from "./platform/enterprise-decision-engine.js";
 import { runDecisionEngine } from "./ai/decision-engine.js";
+
+// AI Subsystems
 import tools from "./ai/tools/index.js";
 import policies from "./ai/policies/index.js";
 import workflows from "./ai/workflow/index.js";
@@ -20,96 +28,73 @@ import { filterAIOutput } from "./ai/filters/code-filter.js";
 import { beforeExecution } from "./ai/hooks/before-execution.js";
 import { afterExecution } from "./ai/hooks/after-execution.js";
 import { validateAIOutput } from "./ai/validation/schema-guard.js";
+
+// System Subsystems
 import { AutomationTasks } from "./system/automation-tasks.js";
 import { FailsafeProtocols } from "./system/failsafe-protocols.js";
 
-// NEW API ROUTERS
+// API Routers
 import { handleCyberApi } from "./system/api/cyber.js";
 import { handleGovViewApi } from "./system/api/gov-view.js";
 import { handleOpportunityApi } from "./functions/api/opportunity.js";
 import { handleMarketplaceApi } from "./system/api/marketplace.js";
 import { handleSectorMatchApi } from "./system/api/sector-match.js";
 
-export default {
-  // 1. THE HEARTBEAT (Autonomous Cron Trigger)
-  async scheduled(event, env, ctx) {
-    console.log("[GOVERNOR] Heartbeat Active: Initiating Diagnostics...");
-    ctx.waitUntil(AutomationTasks.runDailyOps(env));
-  },
+// ─────────────────────────────────────────────────────────────
+// Seven‑OS Route Classifier
+// ─────────────────────────────────────────────────────────────
 
-  // 2. THE COMMAND INTERFACE (Main Gateway)
-  async fetch(request, env) {
-    const url = new URL(request.url);
+function classifyRoute(input) {
+  if (!input || !input.route) return "enterprise";
 
-    try {
-      // ---------------------------------------------------------
-      // ROUTING LAYER
-      // ---------------------------------------------------------
+  const r = String(input.route).toLowerCase();
 
-      if (url.pathname.startsWith("/api/cyber")) {
-        return handleCyberApi(request, env);
-      }
+  if (r.startsWith("ai")) return "ai";
+  if (r.startsWith("api")) return "api";
 
-      if (url.pathname.startsWith("/api/gov/view")) {
-        return handleGovViewApi(request, env);
-      }
+  return "enterprise";
+}
 
-      if (url.pathname.startsWith("/api/opportunities")) {
-        return handleOpportunityApi(request, env);
-      }
+// ─────────────────────────────────────────────────────────────
+// Sovereign Router
+// ─────────────────────────────────────────────────────────────
 
-      if (url.pathname.startsWith("/api/marketplace")) {
-        return handleMarketplaceApi(request, env);
-      }
+export async function sevenRouter(input = {}, env = {}) {
+  const route = classifyRoute(input);
 
-      if (url.pathname.startsWith("/api/sector/match")) {
-        return handleSectorMatchApi(request, env);
-      }
+  switch (route) {
+    case "ai":
+      return await runAI(input, env);
 
-      // ---------------------------------------------------------
-      // AI / Deep Mind Telemetry Route
-      // ---------------------------------------------------------
-      if (url.pathname === "/api/deep-mind") {
-        const input = await request.json();
-        const aiResponse = await runAI(input, env);
-        return new Response(JSON.stringify(aiResponse), {
-          status: aiResponse.error ? 400 : 200,
-          headers: { "Content-Type": "application/json" }
-        });
-      }
+    case "api":
+      return await routeApi(input, env);
 
-      // ---------------------------------------------------------
-      // DEFAULT GOVERNOR STATUS RESPONSE
-      // ---------------------------------------------------------
-      return new Response("GIA v12 Governor Online | Sovereign Link: STABLE", {
-        status: 200,
-        headers: { "Content-Type": "text/plain" }
-      });
-
-    } catch (err) {
-      console.error(`[GOVERNOR CRITICAL] ${err.message}`);
-
-      await FailsafeProtocols.execute("GLOBAL", "GOVERNOR_FAULT", env);
-
-      return new Response(
-        JSON.stringify({
-          error: "Governor Failure",
-          details: err.message,
-          status: "FAILSAFE_ACTIVE"
-        }),
-        {
-          status: 500,
-          headers: { "Content-Type": "application/json" }
-        }
-      );
-    }
+    case "enterprise":
+    default:
+      return await runEnterpriseDecision(input, env);
   }
-};
+}
 
-/**
- * CORE ORCHESTRATION LOGIC
- * Manages TrustZones and AI Lifecycle
- */
+// ─────────────────────────────────────────────────────────────
+// API Routing Layer (your original Worker fetch logic)
+// ─────────────────────────────────────────────────────────────
+
+async function routeApi(input, env) {
+  const { pathname } = new URL(input.url);
+
+  if (pathname.startsWith("/api/cyber")) return handleCyberApi(input, env);
+  if (pathname.startsWith("/api/gov/view")) return handleGovViewApi(input, env);
+  if (pathname.startsWith("/api/opportunities")) return handleOpportunityApi(input, env);
+  if (pathname.startsWith("/api/marketplace")) return handleMarketplaceApi(input, env);
+  if (pathname.startsWith("/api/sector/match")) return handleSectorMatchApi(input, env);
+
+  return { status: "API_ROUTE_NOT_FOUND" };
+}
+
+// ─────────────────────────────────────────────────────────────
+// AI Orchestration (your original logic)
+// ─────────────────────────────────────────────────────────────
+
 async function runAI(input, env) {
   const trustZone = input.trustZone || "public";
 

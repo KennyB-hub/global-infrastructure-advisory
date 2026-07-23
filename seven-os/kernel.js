@@ -81,3 +81,56 @@ export async function bootSevenOS() {
   return { workerRouter, engineRegistry, voice, missions, runtime, stack, safety, telemetry };
 }
 
+// seven-os/kernel.js
+// Seven‑OS Sovereign Kernel – Root Execution Spine
+// Integrates integrity-checked bootstrap + sovereign router
+
+import { bootSevenOS as bootstrapKernel } from "./boot/kernel-bootstrap.js";
+import { sevenRouter } from "./index.js";
+
+function log(...args) {
+  console.info("[SEVEN-KERNEL]", ...args);
+}
+
+// ─────────────────────────────────────────────────────────────
+// Kernel Boot Context
+// ─────────────────────────────────────────────────────────────
+
+export async function bootKernel(env = {}) {
+  const runtimeCtx = {
+    GLOBAL_DB: env.GLOBAL_DB,
+    KV: env.KV || {},
+    runtime: {
+      startedAt: Date.now(),
+      version: "1.0.0-kernel"
+    }
+  };
+
+  // Boot the Seven-OS subsystem (your integrity-checked bootstrap)
+  const subsystems = await bootstrapKernel();
+
+  return { ...runtimeCtx, subsystems };
+}
+
+// ─────────────────────────────────────────────────────────────
+// Kernel Execution
+// ─────────────────────────────────────────────────────────────
+
+export async function seven(input = {}, env = {}) {
+  const kernelEnv = await bootKernel(env);
+
+  log("Kernel received request", {
+    route: input.route,
+    sector: input.sector,
+    mode: input.mode
+  });
+
+  const result = await sevenRouter(input, kernelEnv);
+
+  return {
+    ok: true,
+    route: input.route || "enterprise",
+    sector: input.sector || null,
+    result
+  };
+}
