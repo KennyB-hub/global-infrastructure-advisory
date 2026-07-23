@@ -1,0 +1,6 @@
+public static class ResolverFactory {
+    public static IResolver Create(string env) {
+        if (env == "dotnet") return new DotNetResolver();
+        throw new Exception("Node resolver not implemented");
+    }
+}

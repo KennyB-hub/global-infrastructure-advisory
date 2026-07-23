@@ -1,0 +1,4 @@
+public static class SovereignMap {
+    public static readonly string[] Domains = { ... };
+    public static readonly string[] Extensions = { ".cs", ".json" };
+}
