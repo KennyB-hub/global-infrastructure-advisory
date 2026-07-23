@@ -2,7 +2,7 @@
 FROM node:18-alpine
 
 # Create app directory
-WORKDIR /usr/src/app
+WORKDIR /usr/seven-os/app
 
 # Copy package files first to leverage layer caching
 COPY package.json package-lock.json* ./
