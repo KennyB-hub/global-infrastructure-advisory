@@ -2,10 +2,10 @@
 // Seven‑OS — Universal Routing Spine
 
 import { SevenValidator } from "./validator";
-import { MissionRouter } from "../cli/mission-router";
+import { MissionRouter } from "../../proprietary-cli/commands/activate/mission-router";
 import { UniversalVehicleRegistry } from "../seven-runtime/adapters/universal-vehicle-registry";
 import { SevenRescueCommander } from "../seven-runtime/rescue/seven-rescue-commander";
-import { SectorMeta } from "../sector/sector-meta";
+import { SectorMeta } from "../../seven-os/ai/engines/sector-mata";
 
 // Interop is part of runtime
 import { SevenInterop } from "../seven-runtime/interop/seven-interop";

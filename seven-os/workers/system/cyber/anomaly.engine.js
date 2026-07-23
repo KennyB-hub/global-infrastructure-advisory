@@ -1,1 +1,1 @@
-module.exports = { detectAnomalies: () => [] };
+module.exports = { evaluateAnomaly: () => 0.0 };

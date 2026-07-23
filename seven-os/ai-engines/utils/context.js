@@ -1,6 +1,9 @@
-import systemManifest from "../../seven-os/config/system-manifest.json" assert { type: "json" };
-import nodeRegistry from "../../seven-os/config/node-registry.json" assert { type: "json" };
-import clusterHealth from "../../seven-os/config/cluster-health.json" assert { type: "json" };
+// seven-os/backend/utilities/context.js
+// Shared sovereign context + integrity helpers – V12 Alpha
+
+import systemManifest from "../../config/system-manifest.json" assert { type: "json" };
+import nodeRegistry from "../../config/node-registry.json" assert { type: "json" };
+import clusterHealth from "../../config/cluster-health.json" assert { type: "json" };
 
 export function getPlatformContext() {
   return {

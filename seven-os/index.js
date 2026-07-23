@@ -2,31 +2,22 @@
  * GIA v12 GOVERNOR & ORCHESTRATOR
  * Master Entrypoint for Sovereign Infrastructure
  */
-// >>> bootstrap TS loader if present (paste at top of seven-os/index.js)
-import fs from 'fs';
-import path from 'path';
-
-const loaderPath = path.resolve(process.cwd(), 'proprietary-cli', 'ts-loader.js');
-if (fs.existsSync(loaderPath)) {
-  // dynamic import ensures ESM loader is loaded correctly
-  await import(loaderPath);
-}
 
 import { runDecisionEngine } from "./ai/decision-engine.js";
 import tools from "./ai/tools/index.js";
-import policies from "./ai/policy/index.js";
+import policies from "./policy-packs/index.js";
 import workflows from "./ai/workflow/index.js";
 import { filterAIOutput } from "./ai/filters/code-filter.js";
 import { beforeExecution } from "./ai/hooks/before-execution.js";
 import { afterExecution } from "./ai/hooks/after-execution.js";
-import { validateAIOutput } from "./ai/validation/validator.js";
+import { validateAIOutput } from "./ai/validation/schema-guard.js";
 import { AutomationTasks } from "./system/automation-tasks.js";
 import { FailsafeProtocols } from "./system/failsafe-protocols.js";
 
 // NEW API ROUTERS
 import { handleCyberApi } from "./system/api/cyber.js";
 import { handleGovViewApi } from "./system/api/gov-view.js";
-import { handleOpportunityApi } from "./functions/api/opportunity.js";
+import { handleOpportunityApi } from "./system/api/opportunity.js";
 import { handleMarketplaceApi } from "./system/api/marketplace.js";
 import { handleSectorMatchApi } from "./system/api/sector-match.js";
 
@@ -149,29 +140,4 @@ async function runAI(input, env) {
     output: rawOutput,
     audit: { start: startAudit, end: endAudit }
   };
-}
-
-// ====================================================================
-//      SEVEN-OS SOVEREIGN GOVERNANCE & POLICY ROUTING ENGINE
-// ====================================================================
-
-try {
-    console.log("\n[SYSTEM] Booting Sovereign Governance Framework...");
-
-    // 1. Route the Governance Brain (Auditing RF Stacks and Firmware)
-    const governanceBrain = require('.//autonomous/core/governance/goverance-brain/index.js');
-    
-    // 2. Route the Policy Packs and its deep TypeScript validation suite
-    const policyPacks = require('./policy-packs/index.js');
-    const { PolicyValidator } = require('./policy-packs/validator.ts');
-
-    // 3. Instantiate Runtime Compliance Validation Block
-    const validatorInstance = new PolicyValidator();
-    
-    // Mock-executing an initial firmware alignment scan check at boot
-    const bootFirmwareSample = { component: "RF-Transceiver-Autonomous-V7", scope: "global-infrastructure" };
-    validatorInstance.auditFirmwareNetwork(bootFirmwareSample);
-
-} catch (routingError) {
-    console.error("[\x1b[31mROUTING BREAKDOWN\x1b[0m] Failed to safely link secure compliance modules:", routingError.message);
 }

@@ -1,7 +1,7 @@
 // seven-os/backend/ai/decision-engine.js
 // GIA Sovereign Decision Engine – V12 Alpha
 
-import { validatePayload, validateTrustZone } from "../core/validator.ts";
+import { validatePayload, validateTrustZone } from "../core/validator.js";
 import { makeOk, makeError } from "../system/ai-context.js";
 
 import workflows from "../workers/system/index.js";

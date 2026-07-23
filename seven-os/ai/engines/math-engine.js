@@ -1,4 +1,4 @@
-// /ai-engine/math-engine.js
+// /engine/math-engine.js
 // GIA Sovereign Math Engine – V12 Alpha
 
 import {

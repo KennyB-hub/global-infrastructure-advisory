@@ -9,7 +9,7 @@ import {
   getAIContext
 } from "../system/ai-context.js";
 
-import { validatePayload } from "../core/validator.ts";
+import { validatePayload } from "../core/validator.js";
 
 export class MappingEngine {
   constructor() {

@@ -1,4 +1,4 @@
-import { RoutingEngine } from "../../proprietary-cli/commands/activate/routing-engine";
+import { RoutingEngine } from "./routing-engine";
 
 export class CLIRouter {
   static identity() {

@@ -1,34 +1,106 @@
-// seven-os/ai/logic-engine.js
-// Core Logic Engine for Deep Mind Telemetry + AI Reasoning Layer
+// /ai-engine/logic-engine.js
+// GIA Sovereign Logic Engine – V12 Alpha
 
-export async function logicEngine(input, context) {
-    try {
-        // Example: Pull from Azure Math / Geo endpoints if needed
-        // const math = await fetch(context.endpoints.azure_math).then(r => r.json());
+import { sha256 } from "../utils/context.js";
+import { validatePayload } from "../../ai/validation/validator.js";
 
-        const result = {
-            moisture: "42%",
-            nitrogen: "Optimal",
-            temperature: "18.4°C",
-            status: "Deep Mind Telemetry OK",
-            timestamp: Date.now(),
-            node: context.node?.name || null,
-            platform: context.platformId,
-            trustZone: context.trustZone
-        };
+export class LogicEngine {
 
-        return {
-            ok: true,
-            type: "logic-core",
-            result
-        };
-
-    } catch (err) {
-        return {
-            ok: false,
-            type: "logic-core",
-            error: "Deep Mind offline",
-            details: err.message
-        };
+  //
+  // 1. Sovereign Rule Evaluator
+  //
+  async evaluateRules(rules = [], context = {}, env = {}) {
+    for (const rule of rules) {
+      try {
+        if (rule.when(context)) {
+          const result = await rule.then(context);
+          return await this._wrapDecision("rule-match", result, context, env);
+        }
+      } catch (err) {
+        return await this._wrapError("Rule evaluation failed", err, context, env);
+      }
     }
+
+    return await this._wrapDecision("rule-none", null, context, env);
+  }
+
+  //
+  // 2. Priority Resolver (sovereign-safe)
+  //
+  async resolvePriority(items = [], context = {}, env = {}) {
+    if (!Array.isArray(items) || items.length === 0) {
+      return await this._wrapDecision("priority-none", null, context, env);
+    }
+
+    const sorted = [...items].sort((a, b) => (b.priority || 0) - (a.priority || 0));
+    const top = sorted[0];
+
+    return await this._wrapDecision("priority-selected", top, context, env);
+  }
+
+  //
+  // 3. Sector Router (sovereign-aware)
+  //
+  async routeToSector(input = "", context = {}, env = {}) {
+    const map = {
+      "veteran": "vets",
+      "education": "education",
+      "job": "jobs",
+      "contract": "contracts",
+      "payment": "payments",
+      "hr": "hr"
+    };
+
+    const key = String(input).toLowerCase().trim();
+    const sector = map[key] || "general";
+
+    return await this._wrapDecision("sector-route", { sector }, context, env);
+  }
+
+  //
+  // --- INTERNAL SOVEREIGN HELPERS ------------------------------------------
+  //
+
+  async _wrapDecision(type, result, context, env) {
+    const payload = {
+      ok: true,
+      type,
+      result,
+      contextSummary: this._summarizeContext(context),
+      timestamp: new Date().toISOString()
+    };
+
+    payload.integrity = {
+      hash: await sha256(JSON.stringify(payload)),
+      verified: true
+    };
+
+    return payload;
+  }
+
+  async _wrapError(type, err, context, env) {
+    const payload = {
+      ok: false,
+      type,
+      error: err?.message || "Unknown logic engine error",
+      contextSummary: this._summarizeContext(context),
+      timestamp: new Date().toISOString()
+    };
+
+    payload.integrity = {
+      hash: await sha256(JSON.stringify(payload)),
+      verified: true
+    };
+
+    return payload;
+  }
+
+  _summarizeContext(context = {}) {
+    return {
+      trustZone: context.trustZone || "public",
+      workflow: context.workflow || null,
+      inputHash: context.inputHash || null,
+      contextHash: context.contextHash || null
+    };
+  }
 }
