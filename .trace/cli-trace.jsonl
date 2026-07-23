@@ -149,3 +149,5 @@
 {"timestamp":"2026-07-23T13:41:45.341Z","event":"cli.commands_loaded","payload":{"commandCount":20}}
 {"timestamp":"2026-07-23T13:41:45.342Z","event":"cli.execute","payload":{"command":"audit-routes","args":["--trace","C:\\Users\\kenny\\global-infrastructure-advisory\\logs\\traces\\cli\\audit-routes-2026-07-23T13-41-44.860Z.jsonl"]}}
 {"timestamp":"2026-07-23T13:41:45.342Z","event":"cli.unknown_command","payload":{"command":"audit-routes"}}
+{"timestamp":"2026-07-23T15:36:56.854Z","event":"cli.test.mode","payload":{"mode":"routing"}}
+{"timestamp":"2026-07-23T15:55:35.488Z","event":"cli.test.mode","payload":{"mode":"routing"}}
