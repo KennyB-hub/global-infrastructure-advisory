@@ -209,6 +209,8 @@ export async function runEnterpriseDecision(input = {}, env = {}) {
   const trustZone = resolveTrustZone(input);
   const node = resolveNodeForSector(input.sector);
 
+  const companyProfile = env.companyIdentity?.getProfile() || null;
+
   log("Incoming enterprise decision", {
     platformId: getPlatformId(),
     trustZone,
@@ -248,4 +250,13 @@ export async function runEnterpriseDecision(input = {}, env = {}) {
 
     const logId = await persistDecisionLog(input, result, trustZone, env, node);
 
-    return
+     const coreEngine = selectCoreEngine(input);
+  const sectorEngine = selectSectorEngine(trustZone);
+
+  const coreResult = await coreEngine(input, context);
+  const result = await sectorEngine(input, coreResult, context);
+
+  const logId = await persistDecisionLog(input, result, trustZone, env, node);
+
+  return result;
+}

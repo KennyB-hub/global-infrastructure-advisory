@@ -61,4 +61,3 @@ export async function validateIdentityAnchor(
     ein: cleanEIN
   };
 }
-

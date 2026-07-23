@@ -134,3 +134,18 @@ export async function seven(input = {}, env = {}) {
     result
   };
 }
+
+import { decryptVaultBlob } from "../system/security/vault-decryptor.js";
+import { CompanyIdentity } from "../system/business/company-identity.js";
+
+export async function bootKernel(env = {}) {
+  const encryptedBlob = await env.EDGE_VAULT.get("company/identity.enc");
+  const identityData = decryptVaultBlob(encryptedBlob, env);
+
+  const companyIdentity = new CompanyIdentity(identityData);
+
+  return {
+    ...env,
+    companyIdentity
+  };
+}
