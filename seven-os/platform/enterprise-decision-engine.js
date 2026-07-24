@@ -14,27 +14,27 @@ import systemManifest from "../config/system-manifest.json" assert { type: "json
 // Enterprise Audit Engine
 // ─────────────────────────────────────────────────────────────
 
-import { sovereignAudit } from "./audit-engine.js";
+import { sovereignAudit } from "../ai/audit/audit-engine.js";
 
 // ─────────────────────────────────────────────────────────────
 // Core Engines
 // ─────────────────────────────────────────────────────────────
 
-import { mathEngine } from "./engines/math-engine.js";
-import { mappingEngine } from "./engines/math-mapping-engine.js";
+import { mathEngine } from "../sector/engines/math-engine.js";
+import { mappingEngine } from "../sector/engines/math-mapping-engine.js";
 import { logicEngine } from "../backend/ai/logic-engine.js";
-import { dataEngine } from "./engines/data-engine.js";
+import { dataEngine } from "../ai/engines/data-engine.js";
 
 // ─────────────────────────────────────────────────────────────
 // Sector Engines
 // ─────────────────────────────────────────────────────────────
 
-import { contractorEngine } from "./engines/sector-contractor-engine.js";
+import { contractorEngine } from "../sector/engines/sector-contractor-engine.js";
 import { farmerEngine } from "./engines/sector-farmer-engine.js";
-import { publicEngine } from "./engines/sector-public-engine.js";
-import { govEngine } from "./engines/sector-gov-engine.js";
-import { deepGovEngine } from "./engines/sector-deepgov-engine.js";
-import { alfaEngine } from "./engines/sector-alfa-engine.js";
+import { publicEngine } from "../sector/engines/sector-public-engine.js";
+import { govEngine } from "../sector/engines/sector-gov-engine.js";
+import { deepGovEngine } from "../sector/engines/sector-deepgov-engine.js";
+import { alfaEngine } from "../sector/engines/sector-alfa-engine.js";
 
 // ─────────────────────────────────────────────────────────────
 // Optional Data + Schema Registry

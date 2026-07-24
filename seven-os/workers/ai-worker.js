@@ -4,8 +4,8 @@
 import { basicSecurityGuard } from "../system/security/worker-guard.js";
 import { PolicyEngine } from "../system/policy-engine.js";
 import { enforceAIPolicy } from "../ai/enforce-ai-policy.js";
-import { buildContext } from "../sector/engines/context-builder.js";
-import { sanitizeOutput } from "../sector/engines/response-sanitizer.js";
+import { buildContext } from "../backend/gii/context/context-builder.js";
+import { sanitizeOutput } from "../ai/engines/response-sanitizer.js";
 import { handleError } from "../ai/engines/error-handler.js";
 import { processAIRequest } from "../ai/ai-router.js";
 import { CryptoV12 } from "../../seven-os/ai-engines/utils/crypto.js";

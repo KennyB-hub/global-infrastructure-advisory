@@ -3,7 +3,7 @@
 
 import { getUptime } from "seven-os/backend/system/uptime.js";
 import { EngineeringEngine } from "../engines/engineering-engine.js";
-import { MechanicsEngine } from "../../sector/engines/mechanics-engine.js";
+import { MechanicsEngine } from "../engines/mechanics-engine.js";
 import systemManifest from "../../config/system-manifest.json" assert { type: "json" };
 import nodeRegistry from "../../backend/config/node-registry.json" assert { type: "json" };
 import clusterHealth from "../../config/cluster-health.json" assert { type: "json" };

@@ -8,7 +8,7 @@ import {
   getClusterContext,
   getAIContext,
   validatePayload
-} from "../_shared.js";
+} from "./_shared.js";
 
 export class GeothermalEngine {
   async process(input = {}, env = {}, context = {}) {

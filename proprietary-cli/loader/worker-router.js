@@ -1,6 +1,6 @@
 // proprietary-cli/loader/worker-router.js
 
-import { loadWorkers } from "../../seven-os/sector/engines/worker.js";
+import { loadWorkers } from "../../seven-os/ai/engines/worker.js";
 
 export async function buildWorkerRouter(options = {}) {
     const workers = await loadWorkers(options);

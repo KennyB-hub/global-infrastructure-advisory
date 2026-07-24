@@ -1,7 +1,7 @@
 import { fetchTowerTelemetry } from "./infra/ingest";
 import { auditTower } from "./audit";
 import { InfraEvent } from "../autonomous/core/fcc/telecom-equipment-authorization/types";
-import { bus } from "../../event-bus/client"; // your NATS/MQTT client
+import { bus } from "./event-bus/client"; // your NATS/MQTT client
 
 export async function runTowerAuditCycle() {
   const towers = await fetchTowerTelemetry();

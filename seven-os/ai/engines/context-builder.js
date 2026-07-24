@@ -7,7 +7,7 @@ import {
   getClusterContext,
   getAIContext,
   sha256
-} from "../../../backend/utils/context.js";
+} from "../../backend/utils/context.js";
 
 export async function buildContext(input = {}, env = {}) {
   const timestamp = Date.now();

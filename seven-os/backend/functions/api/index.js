@@ -17,7 +17,7 @@ import { computeIntegrityHash } from "../../../system/integrity.js";
 import { buildAIContext } from "../../../system/ai-context.js";
 import { verifyDidVcIdentity } from "../../identity/did-vc-verifier.js";
 
-import { runDecisionEngine } from "../../../engines/decision-engine.js";
+import { runDecisionEngine } from "../../ai/decision-engine.js";
 import { Cortex } from "../../ai/cortex.js";
 import nodeRegistry from "../../config/node-registry.json" assert { type: "json" };
 

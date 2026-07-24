@@ -9,9 +9,9 @@
 import vm from "node:vm";
 import { filterAIOutput } from "../seven-os/ai/filters/code-filter.js";
 import { applyPolicies } from "../seven-os/system/policy-engine.js";
-import { validatePayload } from "../seven-os/ai/validator/schema-guard.js";
-import { buildContext } from "../seven-os/sector/engines/context-builder.js";
-import { sanitizeOutput } from "../seven-os/sector/engines/response-sanitizer.js";
+import { validatePayload } from "../seven-os/backend/ai/schema-guard.js";
+import { buildContext } from "../seven-os/backend/gii/context/context-builder.js";
+import { sanitizeOutput } from "../seven-os/ai/engines/response-sanitizer.js";
 import { handleError } from "../seven-os/ai/engines/error-handler.js";
 import { sha256 } from "../seven-os/backend/utils/context.js";
 
