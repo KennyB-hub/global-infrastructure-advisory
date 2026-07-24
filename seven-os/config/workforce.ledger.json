@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaTitle": "Seven-OS Unified Workforce Ledger",
-    "updatedAt": "2026-07-24T12:50:46Z",
+    "updatedAt": "2026-07-24T14:04:19Z",
     "runtimeStatus": "online",
     "engineStage": "First-Stage-Autonomous-Mix",
     "securityGuard": "mcp-enforcer"
@@ -63,7 +63,7 @@
       "workerId": "WKR-CYBER-4311",
       "name": "cyber",
       "type": "autonomous",
-      "assignedSector": "security",
+      "assignedSector": "cyber",
       "status": "online",
       "evidenceMatrix": {
         "verificationHash": "e1ec3f59-f750-4a22-9191-0c8329a627c3",
@@ -115,20 +115,20 @@
       "workerId": "WKR-FARMER-6174",
       "name": "farmer",
       "type": "autonomous",
-      "assignedSector": "infrastructure",
+      "assignedSector": "agri",
       "status": "online",
       "evidenceMatrix": {
         "verificationHash": "dbdc5e16-42f5-4226-b09f-60ef0048c7eb",
         "lastAudit": "2026-07-24T12:50:42Z",
         "executionStatus": "verified",
-        "csvMapBinding": "seven-os\\config\\csv\\maps\\farmer-evidence.csv"
+        "csvMapBinding": "seven-os\\config\\csv\\maps\\agri-farmer-evidence.csv"
       }
     },
     {
       "workerId": "WKR-FCC-2222",
       "name": "fcc",
       "type": "autonomous",
-      "assignedSector": "infrastructure",
+      "assignedSector": "telecom",
       "status": "online",
       "evidenceMatrix": {
         "verificationHash": "dd87592d-071d-48dc-b97e-dcca5b084b13",
