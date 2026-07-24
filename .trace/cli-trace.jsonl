@@ -48,3 +48,5 @@
 {"timestamp":"2026-07-24T01:58:06.325Z","event":"cli.unknown_command","payload":{"command":"audit-routes"}}
 {"timestamp":"2026-07-24T07:48:49.827Z","event":"cli.test.mode","payload":{"mode":"routing"}}
 {"timestamp":"2026-07-24T07:55:09.891Z","event":"cli.test.mode","payload":{"mode":"routing"}}
+{"timestamp":"2026-07-24T22:09:20.333Z","event":"cli.test.mode","payload":{"mode":"routing"}}
+{"timestamp":"2026-07-24T22:17:00.773Z","event":"cli.test.mode","payload":{"mode":"routing"}}

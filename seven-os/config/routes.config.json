@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-24T16:56:29Z",
+  "updatedAt": "2026-07-24T19:18:22Z",
   "runtimeStatus": "online",
   "activeRoutes": [
     "/api/sector/sector/autoscaler",
@@ -148,7 +148,14 @@
     "/api/sector/shared/metadata",
     "/api/sector/shared/rundecision",
     "/api/sector/shared/scienceengine",
-    "/api/sector/shared/zoningengine"
+    "/api/sector/shared/zoningengine",
+    "/api/sector/finance/bridge",
+    "/api/sector/finance/global-livestock-price-forecasting",
+    "/api/sector/finance/risk-trend-analytics",
+    "/api/sector/finance/enterprise-decision",
+    "/api/sector/shared/voice-education-hub",
+    "/api/sector/space/isru-fuel-cell",
+    "/api/sector/space/flight-path-matrix"
   ],
   "activeWorkers": [
     "admin",
@@ -173,5 +180,5 @@
   ],
   "runtimeEngine": "Native-TS-Engine",
   "stage": "First-Stage-Mix",
-  "engineRegistryStatus": "fully-connected-and-deduplicated"
+  "engineRegistryStatus": "space-isru-matrix-activated"
 }
