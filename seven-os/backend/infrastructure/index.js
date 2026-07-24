@@ -2,14 +2,14 @@
 // GIA Sovereign Infrastructure Organ – V12 Alpha
 
 import * as tools from "./tools/index.js";
-import * as utils from "./utils/index.js";
+import * as utils from "../../workers/system/index.js";
 
 import diagnostics from "./diagnostics.js";
 import routingInspector from "./routing-inspector.js";
 import sshManager from "./ssh-manager.js";
 
 import systemManifest from "../../config/system-manifest.json" assert { type: "json" };
-import nodeRegistry from "../../config/node-registry.json" assert { type: "json" };
+import nodeRegistry from "../config/node-registry.json" assert { type: "json" };
 import clusterHealth from "../../config/cluster-health.json" assert { type: "json" };
 
 export default {

@@ -7,7 +7,7 @@ import {
   getNodeContext,
   getClusterContext,
   getAIContext
-} from "../../ai/ai-context.js";
+} from "../system/ai-context.js";
 
 import { validatePayload } from "../../core/validator.js";
 

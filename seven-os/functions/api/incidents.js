@@ -6,7 +6,7 @@ const {
   listIncidents,
   setIncidentStatus,
   addIncidentNote
-} = require("../ai/incident-response-workflow");
+} = require("../../ai/incident-response-workflow");
 
 module.exports = function (router) {
   // Trigger incident creation from current alerts

@@ -3,7 +3,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const { diffTemplates } = require("../ai/template-diff-engine");
+const { diffTemplates } = require("./template-diff-engine");
 
 const HISTORY_DIR = path.join(process.cwd(), "logs/template-history");
 

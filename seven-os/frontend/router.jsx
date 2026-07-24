@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import OpportunitiesPage from "./pages/OpportunitiesPage";
-import WorkforcePage from "./pages/WorkforcePage";
-import DeepMindPage from "./pages/DeepMindPage";
+import OpportunitiesPage from "../hooks/pages/OpportunitiesPage.jsx";
+import WorkforcePage from "../hooks/pages/WorkforcePage.jsx";
+import DeepMindPage from "../hooks/pages/DeepMindPage.jsx";
 
 export default function AppRouter() {
   return (

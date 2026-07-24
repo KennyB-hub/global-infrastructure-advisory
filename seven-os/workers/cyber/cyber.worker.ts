@@ -1,7 +1,7 @@
 import { DroneTelemetry } from "../../drone/drone-telemetry";
 import { DamageClassifier } from "../../drone/damage-classifier";
 import { CostEstimator } from "../../drone/cost-estimator";
-import { InfrastructureLoader } from "../../../infrastructure-packs/infrastructure-loader";
+import { InfrastructureLoader } from "../../infrastructure-packs/infrastructure-loader";
 
 import { CyberEscalation } from "./cyber.escalation";
 import { CyberThreatIntelEngine } from "./cyber.threat-intel";

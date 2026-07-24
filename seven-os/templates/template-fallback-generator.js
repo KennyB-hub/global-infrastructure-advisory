@@ -1,7 +1,7 @@
 // template-fallback-generator.js
 // V12 Alpha – AI Fallback Template Generator
 
-const { getEngine } = require("../ai/global-ai-loader");
+const { getEngine } = require("../engines/global-ai-loader");
 const fs = require("fs");
 const path = require("path");
 

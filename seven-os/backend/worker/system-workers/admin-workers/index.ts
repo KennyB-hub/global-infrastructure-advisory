@@ -1,17 +1,17 @@
 // /workers/admin/index.ts
 // GIA Sovereign Admin Worker – V12 Sovereign Edition
 
-import { basicSecurityGuard } from "../../seven-os/security/worker-guard";
-import { PolicyEngine } from "../../seven-os/engines/ai/policy-engine";
-import { TokenService } from "../../seven-os/security/token-service";
-import { HashUtils } from "../../seven-os/security/hash-utils";
-import { CryptoV12 } from "../../seven-os/engine/ai/crypto.js";
+import { basicSecurityGuard } from "../../../../system/security/worker-guard";
+import { PolicyEngine } from "../../../../system/policy-engine";
+import { TokenService } from "../../../../security/token-service";
+import { HashUtils } from "../../../../security/hash-utils";
+import { CryptoV12 } from "../../../../ai-engines/utils/crypto.js";
 
-import { buildEvent } from "../../seven-os/system/cyber/event-builder";
-import { cyberHook } from "../../../system/cyber/worker-hook";
+import { buildEvent } from "../../../../sector/event-builder";
+import { cyberHook } from "../../../../sector/worker-hook";
 
-import { verifyDidVcIdentity } from "../../backend/system/identity/did-vc-verifier";
-import { enforceMCP } from "../../../mcp/mcp-enforcer";
+import { verifyDidVcIdentity } from "../../../identity/did-vc-verifier";
+import { enforceMCP } from "../../../../mcp/mcp-enforcer";
 
 const policy = new PolicyEngine();
 

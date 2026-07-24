@@ -3,30 +3,30 @@
 
 import { handleEwoDispatch } from "./ewo.js";
 import { handleSectorStatus } from "./sector-status.js";
-import { handleGlobalMap, handleSectorMap } from "./map.js";
-import { handleAuthLogin } from "./auth-login.js";
-import { handleAuthCallback } from "./auth-callback.js";
-import { openIncidentsFromAlerts } from "../ai/incident-response-workflow.js";
+import { handleGlobalMap, handleSectorMap } from "./map/map.js";
+import { handleAuthLogin } from "../../../functions/api/auth-login.js";
+import { handleAuthCallback } from "../../../functions/api/auth-callback.js";
+import { openIncidentsFromAlerts } from "../../../ai/incident-response-workflow.js";
 
 // --- V12 Alpha Utility Imports ---
-import { buildSovereignMetadata } from "../../backend/system/metadata.js";
-import { verifyTrustZone } from "../../backend/system/trust-middleware.js";
-import { applyPolicy } from "../../backend/system/policy-engine.js";
-import { applyCodeFilter } from "../../backend/system/code-filter.js";
-import { computeIntegrityHash } from "../../backend/system/integrity.js";
-import { buildAIContext } from "../../backend/system/ai-context.js";
-import { verifyDidVcIdentity } from "../../backend/identity/did-vc-verifier.js";
+import { buildSovereignMetadata } from "../../../system/metadata.js";
+import { verifyTrustZone } from "../../../system/trust-middleware.js";
+import { applyPolicy } from "../../../system/policy-engine.js";
+import { applyCodeFilter } from "../../../ai/filters/code-filter.js";
+import { computeIntegrityHash } from "../../../system/integrity.js";
+import { buildAIContext } from "../../../system/ai-context.js";
+import { verifyDidVcIdentity } from "../../identity/did-vc-verifier.js";
 
-import { runDecisionEngine } from "../../ai-engine/decision-engine.js";
-import { Cortex } from "../../ai-engine/cortex.js";
+import { runDecisionEngine } from "../../../engines/decision-engine.js";
+import { Cortex } from "../../ai/cortex.js";
 import nodeRegistry from "../../config/node-registry.json" assert { type: "json" };
 
 import { enforceMCP } from "../../backend/system/mcp/enforcer.js";
-import { handleCyberApi } from "./cyber.js";
-import { handleGovViewApi } from "./gov-view.js";
-import { handleOpportunityApi } from "./opportunity.js";
-import { handleMarketplaceApi } from "./marketplace.js";
-import { handleSectorMatchApi } from "./sector-match.js";
+import { handleCyberApi } from "../../../system/api/cyber.js";
+import { handleGovViewApi } from "../../../system/api/gov-view.js";
+import { handleOpportunityApi } from "../../../system/api/opportunity.js";
+import { handleMarketplaceApi } from "../../../system/api/marketplace.js";
+import { handleSectorMatchApi } from "../../../system/api/sector-match.js";
 
 export async function handleApiRequest(request, env, ctx) {
   const url = new URL(request.url);

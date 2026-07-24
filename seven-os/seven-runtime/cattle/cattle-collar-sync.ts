@@ -4,7 +4,7 @@ import { publishEvent } from "../event-bus";
 import { CollarAdapter, CollarState } from "./types";
 import { WaveTechAdapter } from "./vendors/wavetech";
 import { MoovementAdapter } from "./vendors/moovement";
-import { GallagherAdapter } from "./vendors/gallagher";
+import { GallagherAdapter } from "../vendors/gallagher";
 
 export class CollarSyncService {
     private adapters: CollarAdapter[] = [];

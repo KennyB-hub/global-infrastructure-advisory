@@ -1,9 +1,9 @@
 // /workers/system/system-routing.js
 // GIA Sovereign Routing Inspector – V12 Alpha
 
-import { inspectRouting } from "../../security/tools/inspect-routing.js";
+import { inspectRouting } from "../../backend/security/tools/inspect-routing.js";
 import systemManifest from "../../config/system-manifest.json" assert { type: "json" };
-import nodeRegistry from "../../config/node-registry.json" assert { type: "json" };
+import nodeRegistry from "../../backend/config/node-registry.json" assert { type: "json" };
 import clusterHealth from "../../config/cluster-health.json" assert { type: "json" };
 
 // Unified JSON responder

@@ -22,7 +22,7 @@ import { sovereignAudit } from "./audit-engine.js";
 
 import { mathEngine } from "./engines/math-engine.js";
 import { mappingEngine } from "./engines/math-mapping-engine.js";
-import { logicEngine } from "./engines/logic-engine.js";
+import { logicEngine } from "../backend/ai/logic-engine.js";
 import { dataEngine } from "./engines/data-engine.js";
 
 // ─────────────────────────────────────────────────────────────
@@ -41,7 +41,7 @@ import { alfaEngine } from "./engines/sector-alfa-engine.js";
 // ─────────────────────────────────────────────────────────────
 
 import { MockData } from "../backend/data/mock-data.js";
-import { getSectorSchema } from "./schema-registry.js";
+import { getSectorSchema } from "../data/schemas/schema-registry.js";
 
 function log(...args) {
   console.info("[ENTERPRISE-GOVERNOR]", ...args);

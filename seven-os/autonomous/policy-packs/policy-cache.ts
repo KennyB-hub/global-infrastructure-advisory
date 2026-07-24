@@ -1,9 +1,9 @@
 // policy-cache.ts – V12 Alpha
 // In-memory cache for sovereign policy bundles.
 
-import { SovereignPolicyLoader } from "./sovereign-policy-loader";
-import { PolicyValidator } from "./policy-validator";
-import { PolicyHasher } from "./policy-hasher";
+import { SovereignPolicyLoader } from "./sovereign-policy-loader.js";
+import { PolicyValidator } from "./policy-validator.js";
+import { PolicyHasher } from "./policy-hasher.js";
 
 export class PolicyCache {
   private static cache: any = null;

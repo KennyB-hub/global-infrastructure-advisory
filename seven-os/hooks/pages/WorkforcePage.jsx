@@ -1,4 +1,4 @@
-import { useWorkforce } from "../hooks/useWorkforce";
+import { useWorkforce } from "../useWorkforce";
 import { WorkforceTable } from "../components/WorkforceTable";
 
 export default function WorkforcePage() {

@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { normalizeLocation } = require('./normalize-location');
+const { normalizeLocation } = require('../../countries/data/normalize-location');
 const { calculateDistance } = require('./distance');
 const { matchRegion } = require('./region-matcher');
 

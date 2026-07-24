@@ -1,9 +1,9 @@
 // /workers/system/system-map.js
 // GIA Sovereign System Map Engine – V12 Alpha
 
-import systemManifest from "../../config/system-manifest.json" assert { type: "json" };
+import systemManifest from "../config/system-manifest.json" assert { type: "json" };
 import nodeRegistry from "../../config/node-registry.json" assert { type: "json" };
-import clusterHealth from "../../config/cluster-health.json" assert { type: "json" };
+import clusterHealth from "../config/cluster-health.json" assert { type: "json" };
 import { getTrustZones } from "seven-os/backend/system/trust.js";
 
 function json(data, status = 200) {

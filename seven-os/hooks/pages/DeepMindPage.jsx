@@ -1,4 +1,4 @@
-import { useDeepMind } from "../hooks/useDeepMind";
+import { useDeepMind } from "../useDeepMind";
 
 export default function DeepMindPage() {
   const { result, ask } = useDeepMind();

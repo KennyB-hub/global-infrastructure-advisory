@@ -1,15 +1,15 @@
 // /workers/contractor/index.ts
 // GIA Sovereign Contractor Worker – V12 Sovereign Edition
 
-import { basicSecurityGuard } from "../seven-os/security/worker-guard";
-import { PolicyEngine } from "../seven-os/engine/policy-engine";
-import { CryptoV12 } from "../seven-os/engine/ai/crypto.js";
+import { basicSecurityGuard } from "../../../../../system/security/worker-guard";
+import { PolicyEngine } from "../../../../../system/policy-engine";
+import { CryptoV12 } from "../../../../../ai-engines/utils/crypto.js";
 
 import { buildEvent } from "../seven-os/system/cyber/event-builder";
 import { cyberHook } from "../seven-os/system/cyber/worker-hook";
 
-import { verifyDidVcIdentity } from "../backend/system/identity/did-vc-verifier";
-import { enforceMCP } from "../../backend/mcp/mcp-enforcer";
+import { verifyDidVcIdentity } from "../../../../identity/did-vc-verifier";
+import { enforceMCP } from "../../../../../mcp/mcp-enforcer";
 
 const policy = new PolicyEngine();
 

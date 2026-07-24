@@ -1,7 +1,7 @@
 // © 2026 Global Infrastructure Advisory
 // Seven Runtime — WiFi Transport Module
 
-import { QueuedEvent } from "../core/event-queue";
+import { QueuedEvent } from "../../core/event-queue";
 
 export interface WiFiStatus {
     available: boolean;

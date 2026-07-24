@@ -4,7 +4,7 @@
 const fs = require("fs");
 const path = require("path");
 const { registry } = require("./template-registry");
-const { autoRepairTemplate } = require("../ai/template-auto-repair-engine");
+const { autoRepairTemplate } = require("./template-auto-repair-engine");
 
 /**
  * Validate that a template file exists.

@@ -7,7 +7,7 @@ export function generateAIEngineStubForSector(sector: any) {
   const category = sector.category || "general";
 
   return `// Auto-generated AI engine stub for sector: ${label}
-import { runWorkflow } from "../workflows/runner";
+import { runWorkflow } from "./workflows/runner";
 
 export async function handle${toPascal(id)}Request(context: any) {
   const { intent, payload } = context;

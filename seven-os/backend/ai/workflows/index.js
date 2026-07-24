@@ -19,7 +19,7 @@
 
 import { safeAnalyze } from "../../../ai/tools/analyzer.js";
 import { safeSummarize } from "../../../ai/tools/summarizer.js";
-import { safeInspectInfra } from "../tools/infra-inspector.js";
+import { safeInspectInfra } from "../../../ai/tools/infra-inspector.js";
 
 const workflows = {
 

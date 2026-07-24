@@ -1,7 +1,7 @@
 // © 2026 Global Infrastructure Advisory
 // Seven Runtime — Sync Priority Rules
 
-import { QueuedEvent } from "../core/event-queue";
+import { QueuedEvent } from "../../core/event-queue";
 
 export class SyncPriority {
     static getPriority(event: QueuedEvent): number {

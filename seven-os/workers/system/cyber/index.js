@@ -2,7 +2,7 @@
 import { scoreThreat } from "./threat-score.engine.js";
 import { detectAnomalies } from "./anomaly.engine.js";
 import { evaluateTrust } from "./cyber-trust.engine.js";
-import * as cyberWorker from "./cyber/index.js";
+import * as cyberWorker from "../index.js";
 
 export async function handle(payload, context) {
   const { eventType = "generic", data = {} } = payload || {};

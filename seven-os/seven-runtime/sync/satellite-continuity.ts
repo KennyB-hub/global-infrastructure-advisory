@@ -3,7 +3,7 @@
 
 import { ConnectionMonitor } from "../core/connection-monitor";
 import { EventQueue, QueuedEvent } from "../core/event-queue";
-import { SyncPriority } from "./sync-priority";
+import { SyncPriority } from "./policies/sync-priority";
 
 export interface SatelliteContinuityStatus {
     mode: "NORMAL" | "SATELLITE_ONLY";

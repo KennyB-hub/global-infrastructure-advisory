@@ -3,10 +3,10 @@
 // Enable TypeScript support
 import './ts-loader.js';
 
-import doctorCommand from './command/system/doctor.ts';
-import repairRouting from './command/system/repair-routing.ts';
-import scanMissing from './command/system/scan-missing.ts';
-import fixValidators from './command/system/fix-validators.ts';
+import doctorCommand from '../seven-os/ai/tools/security/command/system/doctor.ts';
+import repairRouting from '../seven-os/ai/tools/security/command/system/repair-routing.ts';
+import scanMissing from '../seven-os/ai/tools/security/command/system/scan-missing.ts';
+import fixValidators from '../seven-os/ai/tools/security/command/system/fix-validators.ts';
 
 const args = process.argv.slice(2);
 const command = args[0];

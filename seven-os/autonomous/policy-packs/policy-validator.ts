@@ -1,7 +1,7 @@
 // policy-validator.ts – V12 Alpha
 // Validates globalPolicy, sovereignOverrides, trustZones, and manifest integrity.
 
-import { SovereignPolicyBundle } from "./sovereign-policy-loader";
+import { SovereignPolicyBundle } from "./sovereign-policy-loader.js";
 
 export class PolicyValidator {
   static validate(bundle: SovereignPolicyBundle): { ok: boolean; errors: string[] } {

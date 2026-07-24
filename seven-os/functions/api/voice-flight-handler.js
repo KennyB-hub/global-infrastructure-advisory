@@ -1,6 +1,6 @@
 // seven-os/functions/api/voiceFlightHandler.js
 
-import { VoiceBus } from "../../../system/voice/voice-bus.js";
+import { VoiceBus } from "../../backend/system/voice/voice-bus.js";
 
 export async function voiceFlightHandler(payload) {
   const { message, role = "farmer", sessionId = "local-demo", sensors = {}, resources = {} } = payload;

@@ -1,5 +1,5 @@
-import { buildEvent } from '../../../system/cyber/event-builder';
-import { cyberHook } from '../../../system/cyber/worker-hook';
+import { buildEvent } from '../../sector/event-builder';
+import { cyberHook } from '../../sector/worker-hook';
 
 export default {
   async fetch(request: Request) {

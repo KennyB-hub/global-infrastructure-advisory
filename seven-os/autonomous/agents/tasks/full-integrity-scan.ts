@@ -2,7 +2,7 @@
 
 import fs from "fs";
 import path from "path";
-import { queueTask } from "../../autonomous/task-queue";
+import { queueTask } from "../../task-queue";
 
 export class FullIntegrityScan {
   static run() {

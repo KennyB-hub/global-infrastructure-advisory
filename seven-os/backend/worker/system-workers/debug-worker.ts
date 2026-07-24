@@ -13,7 +13,7 @@
 import { AI } from "../../../engines/global-ai-loader";
 
 import systemManifest from "../../../config/system-manifest.json";
-import nodeRegistry from "../../../config/node-registry.json";
+import nodeRegistry from "../../config/node-registry.json";
 import clusterHealth from "../../../config/cluster-health.json";
 
 // ---------------------------------------------------------

@@ -7,7 +7,7 @@ import { DisasterType } from "../safety/disaster-profile";
 import { SevenNarrator } from "../voice/seven-narrator";
 
 import { GroundControl } from "../ground/ground-control";
-import { GeoThermalSearch, ThermalSample } from "../sensors/search-thermal";
+import { GeoThermalSearch, ThermalSample } from "../sensor/search-thermal";
 import { RescueUnit } from "./rescue-unit";
 
 export type RescueSector =

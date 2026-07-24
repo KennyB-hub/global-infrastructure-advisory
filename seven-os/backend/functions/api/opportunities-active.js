@@ -1,11 +1,11 @@
 // 2050 V12 Alpha — Active Opportunity Engine
 // Global Infrastructure Platform — Workforce Opportunity Layer
 
-import { buildSovereignMetadata } from "../../system/metadata.js";
-import { computeIntegrityHash } from "../../system/integrity.js";
-import { applyPolicy } from "../../system/policy-engine.js";
-import { buildAIContext } from "../../system/ai-context.js";
-import { requireRole } from "../../system/trust/api-trust.js";
+import { buildSovereignMetadata } from "../../../system/metadata.js";
+import { computeIntegrityHash } from "../../../system/integrity.js";
+import { applyPolicy } from "../../../system/policy-engine.js";
+import { buildAIContext } from "../../../system/ai-context.js";
+import { requireRole } from "../../../system/trust/api-trust.js";
 
 export async function onRequestGet(context) {
   const request = context.request;

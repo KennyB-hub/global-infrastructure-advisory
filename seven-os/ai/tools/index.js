@@ -11,7 +11,7 @@
  *  - public: public communication tools
  */
 
-import securityTools from "./security/index.js";
+import securityTools from "../../workers/system/index.js";
 import govTools from "./gov/index.js";
 import publicTools from "./public/index.js";
 

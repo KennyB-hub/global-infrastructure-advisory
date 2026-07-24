@@ -1,7 +1,7 @@
 // backend/system/identity/did-vc-verifier.js
 
-import { resolveDID } from "../../identity/did.ts";
-import { verifyVC } from "../../identity/vc.ts";
+import { resolveDID } from "../../workers/expansion/did.ts";
+import { verifyVC } from "../../workers/expansion/vc.ts";
 
 /**
  * DID / VC Identity Verifier (V12 Alpha)

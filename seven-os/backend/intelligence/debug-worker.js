@@ -1,5 +1,5 @@
 debug-worker.js
-import { AI } from "../ai/engine.js";
+import { AI } from "../trust/engine.js";
 
 export default {
     async fetch(request) {

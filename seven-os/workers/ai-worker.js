@@ -1,13 +1,13 @@
 // /workers/ai/ai-worker.js
 // GIA Sovereign AI Worker – V12 Alpha
 
-import { basicSecurityGuard } from "../../seven-os/security/worker-guard.js";
-import { PolicyEngine } from "../../seven-os/ai-engine/policy-engine.js";
-import { enforceAIPolicy } from "../../seven-os/ai-engine/enforce-ai-policy.js";
-import { buildContext } from "../../ai-engine/context-builder.js";
-import { sanitizeOutput } from "../../ai-engine/response-sanitizer.js";
-import { handleError } from "../../ai-engine/error-handler.js";
-import { processAIRequest } from "../../ai-engine/ai-router.js";
+import { basicSecurityGuard } from "../system/security/worker-guard.js";
+import { PolicyEngine } from "../system/policy-engine.js";
+import { enforceAIPolicy } from "../ai-engines/enforce-ai-policy.js";
+import { buildContext } from "../engines/context-builder.js";
+import { sanitizeOutput } from "../engines/response-sanitizer.js";
+import { handleError } from "../engines/error-handler.js";
+import { processAIRequest } from "../ai/ai-router.js";
 import { CryptoV12 } from "../../seven-os/ai-engines/utils/crypto.js";
 
 

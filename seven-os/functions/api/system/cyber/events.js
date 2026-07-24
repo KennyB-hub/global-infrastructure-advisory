@@ -1,6 +1,6 @@
 // seven-os/routes/api/system/cyber/events.js
-import { DBService } from "../../../system/db/db-service.js";
-import { requireRole } from "../../../system/security/require-role.js";
+import { DBService } from "../../../../system/db/db-service.js";
+import { requireRole } from "../../../../system/security/require-role.js";
 
 export async function onRequestGet(context) {
   const { request, env } = context;

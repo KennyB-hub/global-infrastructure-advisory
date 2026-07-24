@@ -1,7 +1,7 @@
 // © 2026 Global Infrastructure Advisory
 // Seven Runtime — Unit Tests
 
-import { MockDrone } from "../mock-drone";
+import { MockDrone } from "./mock-drone";
 
 // ===== MOCK DRONE TESTS =====
 

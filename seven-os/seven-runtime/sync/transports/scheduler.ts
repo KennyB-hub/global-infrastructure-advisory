@@ -2,7 +2,7 @@
 // Seven Runtime — Sync Scheduler (Hybrid Mode Compatible)
 
 import { HybridMode } from "../policies/hybrid-mode";
-import { EventQueue } from "./event-queue";
+import { EventQueue } from "../../core/event-queue";
 import { StarlinkTransport } from "../transports/starlink";
 import { LTETransport } from "../transports/lte";
 import { WiFiTransport } from "../transports/wifi";

@@ -1,4 +1,4 @@
-import { GovernanceRule } from '../autonomous/core/fcc/telecom-equipment-authorization/types';
+import { GovernanceRule } from '../core/fcc/telecom-equipment-authorization/types';
 
 export class GovernanceBrain {
   private rules: GovernanceRule[] = [];

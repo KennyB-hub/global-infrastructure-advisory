@@ -1,4 +1,4 @@
-import manifest from "../../manifest.json" assert { type: "json" };
+import manifest from "../../seven-os/sector/water/manifest.json" assert { type: "json" };
 
 function activateOS(manifest) {
   return {

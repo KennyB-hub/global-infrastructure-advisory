@@ -1,7 +1,7 @@
 // Auto-Heal Engine
 
-import { FullIntegrityScan } from "./full-integrity-scan";
-import { RepoDiffAnalyzer } from "./repo-diff-analyzer";
+import { FullIntegrityScan } from "../integrity/full-integrity-scan";
+import { RepoDiffAnalyzer } from "../integrity/repo-diff-analyzer";
 import { queueTask } from "../../autonomous/task-queue";
 
 export class AutoHealEngine {

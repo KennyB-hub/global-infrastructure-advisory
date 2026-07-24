@@ -1,5 +1,5 @@
 // /frontend/system/system-cyber.js
-import { api } from "../shared/api-client.js";
+import { api } from "../../hubs/shared/api-client.js";
 
 const eventsEl = document.getElementById("cyber-events");
 const analysisEl = document.getElementById("cyber-analysis");

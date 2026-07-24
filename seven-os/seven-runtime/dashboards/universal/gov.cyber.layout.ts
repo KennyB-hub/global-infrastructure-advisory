@@ -1,4 +1,4 @@
-import { LayoutDefinition } from "../types";
+import { LayoutDefinition } from "../../../autonomous/core/fcc/telecom-equipment-authorization/types";
 
 export const govCyberLayout: LayoutDefinition = {
   layout: "grid-2",

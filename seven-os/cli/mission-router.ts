@@ -1,5 +1,5 @@
-import { RoutingEngine } from "../route/routing-engine";
-import { WorkerDiscovery } from "../route/worker-discovery";
+import { RoutingEngine } from "../../proprietary-cli/commands/activate/routing-engine";
+import { WorkerDiscovery } from "../../proprietary-cli/worker-discovery";
 
 export class MissionRouter {
   static identity() {

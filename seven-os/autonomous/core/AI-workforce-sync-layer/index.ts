@@ -1,4 +1,4 @@
-import { RemediationAction } from '../goverance-brain/remediation/remediation-engine';
+import { RemediationAction } from '../../governance-brain/remediation-engine';
 
 export interface AIWorkforceSyncLayer {
   dispatch(actions: RemediationAction[]): Promise<void>;

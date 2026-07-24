@@ -1,7 +1,7 @@
 // security-alerts.js
 // API endpoint for Security Alerting Service
 
-const { getSecurityAlerts } = require("../ai/security-alerting-service");
+const { getSecurityAlerts } = require("../../ai/security-alerting-service");
 
 module.exports = function (router) {
   router.get("/security/alerts", (req, res) => {

@@ -1,7 +1,7 @@
 // incidents-scan-button.js
 // Backend route for "Run Incident Scan" dashboard button
 
-const { openIncidentsFromAlerts } = require("../ai/incident-response-workflow");
+const { openIncidentsFromAlerts } = require("../../ai/incident-response-workflow");
 
 module.exports = function (router) {
   router.post("/admin/run-incident-scan", (req, res) => {

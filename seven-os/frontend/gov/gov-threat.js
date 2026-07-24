@@ -1,4 +1,4 @@
-import { api } from "../shared/api-client.js";
+import { api } from "../../hubs/shared/api-client.js";
 
 const statusEl = document.getElementById("gov-threat-status");
 const postureEl = document.getElementById("gov-threat-posture");

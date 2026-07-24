@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generated_at": "2026-07-23T15:23:01.241Z",
+  "generated_at": "2026-07-24T01:14:42.020Z",
   "engines": {
     "ai-giiContext": {
       "ai": {
@@ -558,6 +558,8 @@
     },
     "interop": {},
     "layouts": {},
+    "mission": {},
+    "publisher": {},
     "region": {},
     "rescue": {},
     "safety": {},
@@ -624,6 +626,1613 @@
     },
     "ai-worker": {},
     "audit": {},
+    "config": {
+      "cluster-health": {
+        "status": "healthy",
+        "nodes": [],
+        "autonomousRoutingStack": true
+      },
+      "config": {
+        "system": {
+          "id": "deep-mind-v12",
+          "env": "enterprise-gov",
+          "heartbeat_interval": "1000ms"
+        },
+        "security": {
+          "trust_zones": [
+            "public",
+            "internal",
+            "vault"
+          ],
+          "enforce_schema": true,
+          "audit_logs": "seven-os/data/logs"
+        },
+        "ai_sandbox": {
+          "enabled": true,
+          "mode": "validation-only",
+          "max_token_budget": 500
+        }
+      },
+      "global-policy": {
+        "manifestVersion": "1.0",
+        "generated": "2026-05-27T00:00:00Z",
+        "description": "Unified Sovereign Policy Manifest for GIA V12-Alpha",
+        "rootPacks": {
+          "globalPolicy": "globalPolicy.json",
+          "sovereignOverrides": "sovereignOverrides.json",
+          "trustZones": "trustZones.json"
+        },
+        "sovereignPacks": [
+          {
+            "id": "common-rule",
+            "file": "sovereign/common-rule.json",
+            "version": "1.0"
+          },
+          {
+            "id": "dhs-compliance",
+            "file": "sovereign/dhs-compliance.json",
+            "version": "1.0"
+          },
+          {
+            "id": "nces-ethics",
+            "file": "sovereign/nces-ethics.json",
+            "version": "1.0"
+          },
+          {
+            "id": "omb-m14-06",
+            "file": "sovereign/omb-m14-06.json",
+            "version": "1.0"
+          },
+          {
+            "id": "omb-m20-12",
+            "file": "sovereign/omb-m20-12.json",
+            "version": "1.0"
+          },
+          {
+            "id": "ostp-scientific-integrity",
+            "file": "sovereign/ostp-scientific-integrity.json",
+            "version": "1.0"
+          }
+        ],
+        "trustZones": [
+          "PUBLIC",
+          "ENTERPRISE",
+          "SOVEREIGN",
+          "CRITICAL_INFRA",
+          "EXPERIMENTAL"
+        ],
+        "integrity": {
+          "hashAlgorithm": "sha256",
+          "verifyOnLoad": true
+        }
+      },
+      "govervance": {
+        "trust-zone-definitions": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "title": "GIA Trust Zone Definitions",
+          "description": "Machine-readable trust zone access control and policy definitions per CONSTITUTION.md Article IV",
+          "version": "1.0.0",
+          "lastUpdated": "2026-05-13",
+          "trustZones": {
+            "Public": {
+              "level": 0,
+              "description": "Public-facing, open access tier with masked/aggregated data",
+              "accessLevel": "unrestricted",
+              "dataClassification": "public",
+              "capabilities": {
+                "viewPublicData": true,
+                "viewMaskedMaps": true,
+                "submitApplications": true,
+                "accessMarketplace": false,
+                "executeWorkflows": false,
+                "modifyPolicy": false,
+                "accessAdminPanel": false,
+                "viewAuditLogs": false
+              },
+              "dataAccess": {
+                "generalizedGeoData": true,
+                "aggregatedStatistics": true,
+                "publicDocumentation": true,
+                "identifiableData": false,
+                "adminData": false,
+                "governmentData": false
+              },
+              "policies": [
+                "scientific-integrity-public-tier"
+              ],
+              "hubs": [
+                "public-hub"
+              ],
+              "maxSessionDuration": 3600,
+              "requiresAuthentication": false
+            },
+            "Farmer": {
+              "level": 2,
+              "description": "Agricultural operators and pilot farmers with field-level access",
+              "accessLevel": "authenticated",
+              "dataClassification": "internal-restricted",
+              "capabilities": {
+                "viewPublicData": true,
+                "viewMaskedMaps": true,
+                "submitApplications": true,
+                "uploadGPSData": true,
+                "accessMarketplace": true,
+                "acceptFarmerJobs": true,
+                "executeWorkflows": false,
+                "modifyPolicy": false,
+                "accessAdminPanel": false,
+                "viewAuditLogs": false
+              },
+              "dataAccess": {
+                "personalFieldData": true,
+                "familiarLocationGeoData": true,
+                "aggregatedStatistics": true,
+                "cropData": true,
+                "equipmentData": true,
+                "identifiableData": false,
+                "adminData": false,
+                "governmentData": false
+              },
+              "policies": [
+                "scientific-integrity-research",
+                "omb-m14-06-agricultural-data",
+                "common-rule-human-subjects"
+              ],
+              "hubs": [
+                "farmer-hub"
+              ],
+              "maxSessionDuration": 28800,
+              "requiresAuthentication": true,
+              "consentRequired": [
+                "gps-tracking",
+                "data-sharing"
+              ]
+            },
+            "Contractor": {
+              "level": 3,
+              "description": "Field contractors executing critical infrastructure work",
+              "accessLevel": "authenticated-verified",
+              "dataClassification": "internal-confidential",
+              "capabilities": {
+                "viewPublicData": true,
+                "viewMaskedMaps": true,
+                "acceptFarmerJobs": true,
+                "acceptContractorJobs": true,
+                "executeWorkflows": true,
+                "dispatchActions": true,
+                "uploadReports": true,
+                "modifyPolicy": false,
+                "accessAdminPanel": false,
+                "viewAuditLogs": false,
+                "ansysToolAccess": false
+              },
+              "dataAccess": {
+                "workZoneData": true,
+                "sectorStatusData": true,
+                "jobData": true,
+                "equipmentData": true,
+                "activityLogs": true,
+                "adminData": false,
+                "governmentData": false,
+                "deepGovData": false
+              },
+              "policies": [
+                "scientific-integrity-operations",
+                "dhs-compliance-contractor",
+                "contractor-liability"
+              ],
+              "hubs": [
+                "contractor-hub"
+              ],
+              "maxSessionDuration": 43200,
+              "requiresAuthentication": true,
+              "backgroundCheckRequired": true,
+              "insuranceRequired": true,
+              "certificationRequired": [
+                "field-operations",
+                "equipment"
+              ]
+            },
+            "Employee": {
+              "level": 4,
+              "description": "GIA staff members with operational oversight",
+              "accessLevel": "authenticated-authorized",
+              "dataClassification": "internal-proprietary",
+              "capabilities": {
+                "viewPublicData": true,
+                "viewAllMaps": true,
+                "postJobs": true,
+                "assignContractors": true,
+                "executeWorkflows": true,
+                "modifyPolicy": false,
+                "accessAdminPanel": true,
+                "viewAuditLogs": true,
+                "ansysToolAccess": true
+              },
+              "dataAccess": {
+                "allOperationalData": true,
+                "employeeData": true,
+                "contractorData": true,
+                "sectorData": true,
+                "activityLogs": true,
+                "auditLogs": true,
+                "adminData": false,
+                "governmentData": false,
+                "deepGovData": false
+              },
+              "policies": [
+                "scientific-integrity-full",
+                "nces-ethics-employee",
+                "oge-conflict-of-interest",
+                "oge-misconduct-reporting"
+              ],
+              "hubs": [
+                "employee-hub",
+                "hr-hub",
+                "staff-hub"
+              ],
+              "maxSessionDuration": 86400,
+              "requiresAuthentication": true,
+              "backgroundCheckRequired": true,
+              "trainingRequired": [
+                "ethics",
+                "scientific-integrity",
+                "data-protection"
+              ],
+              "mustReport": [
+                "misconduct",
+                "conflicts",
+                "violations"
+              ]
+            },
+            "Admin": {
+              "level": 5,
+              "description": "GIA administrators with system-level oversight",
+              "accessLevel": "authenticated-administrative",
+              "dataClassification": "internal-proprietary-admin",
+              "capabilities": {
+                "viewAllData": true,
+                "modifyPolicy": true,
+                "executeAdminWorkflows": true,
+                "accessAdminPanel": true,
+                "viewAuditLogs": true,
+                "modifyAuditLogs": false,
+                "ansysToolAccess": true,
+                "userManagement": true,
+                "emergencyOverride": false
+              },
+              "dataAccess": {
+                "allData": true,
+                "auditLogs": true,
+                "systemLogs": true,
+                "employeeData": true,
+                "contractorData": true,
+                "governmentData": true
+              },
+              "policies": [
+                "scientific-integrity-admin",
+                "omb-m20-12-evidence-act",
+                "nces-ethics-admin",
+                "oge-misconduct-reporting",
+                "admin-accountability"
+              ],
+              "hubs": [
+                "admin-hub",
+                "system-hub"
+              ],
+              "maxSessionDuration": 86400,
+              "requiresAuthentication": true,
+              "backgroundCheckRequired": true,
+              "securityClearanceRequired": "confidential",
+              "trainingRequired": [
+                "ethics",
+                "scientific-integrity",
+                "data-protection",
+                "administrative-law"
+              ],
+              "auditFrequency": "real-time"
+            },
+            "Gov": {
+              "level": 6,
+              "description": "Government agency oversight and coordination",
+              "accessLevel": "authenticated-governmental",
+              "dataClassification": "government-official-use",
+              "capabilities": {
+                "viewAllData": true,
+                "viewAuditLogs": true,
+                "modifyPolicy": true,
+                "requestEmergencyAction": true,
+                "blockOperations": true,
+                "accessAdminPanel": true,
+                "oversightAuthority": true,
+                "ansysToolAccess": true
+              },
+              "dataAccess": {
+                "allData": true,
+                "auditLogs": true,
+                "systemLogs": true,
+                "governmentData": true,
+                "deepGovData": false
+              },
+              "policies": [
+                "ostp-scientific-integrity",
+                "omb-m14-06-administrative-data",
+                "omb-m20-12-evidence-act",
+                "dhs-compliance",
+                "federal-policy-human-subjects"
+              ],
+              "hubs": [
+                "gov-hub"
+              ],
+              "maxSessionDuration": 86400,
+              "requiresAuthentication": true,
+              "securityClearanceRequired": "secret",
+              "governmentAgencyRequired": true,
+              "auditFrequency": "real-time"
+            },
+            "DeepGov": {
+              "level": 7,
+              "description": "Executive-level government authority with strategic oversight",
+              "accessLevel": "authenticated-executive",
+              "dataClassification": "government-confidential",
+              "capabilities": {
+                "viewAllData": true,
+                "viewAuditLogs": true,
+                "modifyPolicy": true,
+                "modifyConstitution": false,
+                "requestEmergencyAction": true,
+                "blockOperations": true,
+                "overrideDecisions": false,
+                "accessAllHubs": true,
+                "strategicAnalysis": true
+              },
+              "dataAccess": {
+                "allData": true,
+                "auditLogs": true,
+                "systemLogs": true,
+                "governmentData": true,
+                "deepGovData": true,
+                "strategicAnalytics": true
+              },
+              "policies": [
+                "ostp-scientific-integrity-executive",
+                "omb-memoranda-all",
+                "executive-order-compliance",
+                "national-security",
+                "deepgov-accountability"
+              ],
+              "hubs": [
+                "deepgov-hub"
+              ],
+              "maxSessionDuration": 86400,
+              "requiresAuthentication": true,
+              "securityClearanceRequired": "top-secret",
+              "executiveOfficeRequired": true,
+              "auditFrequency": "continuous"
+            },
+            "System": {
+              "level": 8,
+              "description": "AI Enforcement Engine (AIEE) and system-level autonomous operations",
+              "accessLevel": "autonomous-constitutional",
+              "dataClassification": "system-operational",
+              "capabilities": {
+                "enforcePolicy": true,
+                "blockViolations": true,
+                "auditAllActions": true,
+                "modifyPolicy": true,
+                "modifyConstitution": false,
+                "viewAllData": true,
+                "executeSystemWorkflows": true,
+                "ansysToolAccess": true
+              },
+              "dataAccess": {
+                "allData": true,
+                "auditLogs": true,
+                "systemLogs": true
+              },
+              "policies": [
+                "constitutional-enforcement",
+                "aiee-supremacy",
+                "system-integrity",
+                "self-preservation"
+              ],
+              "hubs": [
+                "system-hub"
+              ],
+              "maxSessionDuration": "unlimited",
+              "requiresAuthentication": false,
+              "nonBypassable": true,
+              "auditFrequency": "continuous"
+            },
+            "ANSYS": {
+              "level": 4,
+              "description": "ANSYS simulation and engineering tools access (Employee tier +)",
+              "accessLevel": "authenticated-technical",
+              "dataClassification": "internal-confidential-technical",
+              "capabilities": {
+                "runSimulations": true,
+                "uploadDesigns": true,
+                "analyzeResults": true,
+                "shareReports": true,
+                "accessLibraries": true,
+                "executeWorkflows": true,
+                "modifyPolicy": false,
+                "accessAdminPanel": false
+              },
+              "dataAccess": {
+                "simulationData": true,
+                "designData": true,
+                "resultData": true,
+                "technicalDocumentation": true,
+                "adminData": false,
+                "governmentData": false
+              },
+              "policies": [
+                "scientific-integrity-ansys",
+                "engineering-standards",
+                "technical-documentation"
+              ],
+              "hubs": [
+                "ansys-hub"
+              ],
+              "maxSessionDuration": 43200,
+              "requiresAuthentication": true,
+              "certificationsRequired": [
+                "ANSYS",
+                "engineering"
+              ],
+              "softwareLicenseRequired": true
+            }
+          },
+          "trustZoneHierarchy": [
+            "Public",
+            "Farmer",
+            "Contractor",
+            "Employee",
+            "Admin",
+            "Gov",
+            "DeepGov",
+            "System"
+          ],
+          "specializations": {
+            "ANSYS": {
+              "baseLevel": "Employee",
+              "description": "Technical tool access (can be added to any Employee+ tier)"
+            }
+          },
+          "transitionRules": {
+            "upgradeRequirements": {
+              "PublicToFarmer": [
+                "application-approved",
+                "identity-verified",
+                "background-check"
+              ],
+              "FarmerToContractor": [
+                "experience-verified",
+                "certification-provided",
+                "insurance-confirmed",
+                "contract-signed"
+              ],
+              "ContractorToEmployee": [
+                "hiring-approval",
+                "background-clearance",
+                "ethics-training"
+              ],
+              "EmployeeToAdmin": [
+                "executive-approval",
+                "security-clearance",
+                "administrative-training"
+              ],
+              "AdminToGov": [
+                "government-appointment",
+                "security-clearance-upgrade",
+                "executive-nomination"
+              ]
+            }
+          },
+          "enforcement": {
+            "description": "These trust zones are enforced by AIEE (Article I of CONSTITUTION)",
+            "bypassPolicy": "NONE - Trust zones are non-bypassable",
+            "violationReporting": "Mandatory escalation to audit logs and Gov hub",
+            "auditRequirements": "All trust zone decisions logged with timestamp, actor, rationale"
+          }
+        }
+      },
+      "node-registry": {
+        "version": "v12-sovereign",
+        "updated": "2026-05-29T00:00:00Z",
+        "system_defaults": {
+          "max_latency_ms": 1500,
+          "retry_threshold": 3,
+          "auto_reboot_on_lazy": true,
+          "health_check_interval": 30000
+        },
+        "clouds": {
+          "aws": {
+            "provider": "AWS",
+            "region": "us-east-1",
+            "sovereign_level": "public"
+          },
+          "azure": {
+            "provider": "Azure",
+            "region": "eastus",
+            "sovereign_level": "gov"
+          },
+          "gcp": {
+            "provider": "GCP",
+            "region": "us-central1",
+            "sovereign_level": "deepgov"
+          }
+        },
+        "trustZones": {
+          "public": {
+            "level": 1
+          },
+          "contractor": {
+            "level": 2
+          },
+          "gov": {
+            "level": 3
+          },
+          "deepgov": {
+            "level": 4
+          }
+        },
+        "clusters": [
+          {
+            "name": "NATO-EU-PRIMARY",
+            "hostname": "hub.nato-aligned.gia.int",
+            "port": 443,
+            "tls": true,
+            "cloud": "azure",
+            "trustZone": "gov",
+            "sector": "GOV_NATO",
+            "workers": [
+              "gov",
+              "govview",
+              "cyber"
+            ],
+            "status": "ACTIVE",
+            "health_score": 98
+          },
+          {
+            "name": "AGRI-SEC-US",
+            "hostname": "field-node-01.gia.ag",
+            "port": 42069,
+            "tls": false,
+            "cloud": "aws",
+            "trustZone": "public",
+            "sector": "AGRI_INFRA",
+            "workers": [
+              "farmer",
+              "opportunity",
+              "sector-match"
+            ],
+            "status": "ACTIVE",
+            "health_score": 92
+          },
+          {
+            "name": "FCC-COMPLIANCE",
+            "hostname": "fcc-node-01.gia.gov",
+            "port": 443,
+            "tls": true,
+            "cloud": "azure",
+            "trustZone": "gov",
+            "sector": "FCC_COMMS",
+            "workers": [
+              "fcc",
+              "cyber"
+            ],
+            "status": "ACTIVE",
+            "health_score": 95
+          },
+          {
+            "name": "DEEP-MIND-CORE",
+            "hostname": "deepmind-core.gia.sov",
+            "port": 443,
+            "tls": true,
+            "cloud": "gcp",
+            "trustZone": "deepgov",
+            "sector": "AI_LOGIC",
+            "workers": [
+              "deepgov",
+              "system",
+              "cyber"
+            ],
+            "status": "ACTIVE",
+            "health_score": 100
+          }
+        ]
+      },
+      "system-manifest": {
+        "platform_id": "GIA-SOVEREIGN-ALPHA",
+        "version": "12.0.4",
+        "active_sectors": [
+          "Agriculture",
+          "Workforce",
+          "NATO_Gov"
+        ],
+        "failsafe_level": "AUTO_RECOVER",
+        "endpoints": {
+          "azure_math": "https://azure.net",
+          "azure_geo": "https://azure.net"
+        }
+      }
+    },
+    "countries": {
+      "data": {}
+    },
+    "data": {
+      "data-contracts": {
+        "requestId": "uuid",
+        "timestamp": "ISO-8601",
+        "actor": {
+          "userId": "string",
+          "roles": [
+            "Admin",
+            "Contractor",
+            "Gov"
+          ],
+          "trustZone": "public|farmer|contractor|employee|admin|gov|deepgov|system",
+          "hub": "PublicHub|FarmerHub|AdminHub|SystemHub|..."
+        },
+        "action": {
+          "type": "READ|WRITE|EXECUTE|EVALUATE|DEPLOY|MATCH|SURVEY",
+          "name": "CreateEvaluationPlan|RunAIModel|AccessDataset|...",
+          "resourceType": "DATASET|MODEL|WORKFLOW|DOCUMENT|ENDPOINT",
+          "resourceId": "string"
+        },
+        "dataContext": {
+          "containsHumanSubjects": true,
+          "containsPII": true,
+          "containsClassified": false,
+          "sourceSystem": "HR|Payroll|Zoning|NCES|DHS|...",
+          "intendedUse": "STATISTICAL|OPERATIONAL|RESEARCH|EVALUATION"
+        },
+        "aiContext": {
+          "modelId": "string",
+          "modelType": "LLM|ML|RULE_ENGINE",
+          "explainabilityRequired": true,
+          "humanInLoopRequired": true
+        },
+        "environment": {
+          "ip": "string",
+          "location": "string",
+          "clientType": "WEB|API|BATCH",
+          "version": "v12-alpha"
+        }
+      },
+      "data-responce": {
+        "requestId": "uuid",
+        "decision": "ALLOW|DENY|REQUIRE_HUMAN_REVIEW",
+        "policyHits": [
+          {
+            "policyId": "string",
+            "policyName": "OSTP_Scientific_Integrity",
+            "ruleId": "string",
+            "effect": "ALLOW|DENY|CONDITION",
+            "reason": "string"
+          }
+        ],
+        "conditions": [
+          {
+            "type": "HUMAN_REVIEW",
+            "details": "GovHub supervisor approval required"
+          }
+        ],
+        "explanation": "string",
+        "timestamp": "ISO-8601"
+      },
+      "MCP+DID+VC-integration": {
+        "protocol": "MCP",
+        "identity": {
+          "required": true,
+          "type": "DID",
+          "resolution": "DID:METHOD:EXPANSION",
+          "binding": "Each new node must have a unique DID before joining."
+        },
+        "credentials": {
+          "type": "VerifiableCredential",
+          "requiredClaims": [
+            "role",
+            "trustZone",
+            "orgId",
+            "capabilities",
+            "jurisdiction"
+          ],
+          "revocationCheck": true
+        }
+      },
+      "navigation": {
+        "nav": {
+          "home": "Home",
+          "programs": "Programs",
+          "workforce": "Join Workforce",
+          "contractors": "Contractor Hub",
+          "sectors": "Sectors",
+          "about": "About Us"
+        },
+        "sectors": {
+          "energy": "Energy & Power",
+          "water": "Water & Sanitation",
+          "transport": "Transportation",
+          "digital": "Digital Infrastructure",
+          "health": "Health & Education",
+          "climate": "Climate & Resilience"
+        },
+        "cta": {
+          "view_programs": "View Programs →",
+          "join_us": "Partner With Us",
+          "submit": "Submit Registration"
+        }
+      },
+      "policy-object": {
+        "policyId": "OMB_M-14-06_ADMIN_DATA_USE",
+        "name": "Administrative Data for Statistical Purposes",
+        "version": "1.0.0",
+        "source": "OMB_M-14-06",
+        "scope": {
+          "resourceTypes": [
+            "DATASET"
+          ],
+          "actions": [
+            "READ",
+            "MATCH"
+          ],
+          "trustZones": [
+            "gov",
+            "deepgov",
+            "system"
+          ]
+        },
+        "rules": [
+          {
+            "ruleId": "R1",
+            "description": "Administrative data may only be used for statistical purposes.",
+            "condition": "dataContext.intendedUse == 'STATISTICAL'",
+            "effect": "ALLOW"
+          },
+          {
+            "ruleId": "R2",
+            "description": "Operational use of administrative data is prohibited.",
+            "condition": "dataContext.intendedUse == 'OPERATIONAL'",
+            "effect": "DENY"
+          }
+        ],
+        "metadata": {
+          "createdAt": "ISO-8601",
+          "updatedAt": "ISO-8601",
+          "author": "System",
+          "tags": [
+            "OMB",
+            "ADMIN_DATA",
+            "STATISTICAL"
+          ]
+        }
+      },
+      "schemas": {
+        "contractor.schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "title": "Contractor Profile",
+          "description": "Unified contractor schema for all GIA sectors.",
+          "type": "object",
+          "required": [
+            "id",
+            "company",
+            "sector",
+            "services"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "company": {
+              "type": "string"
+            },
+            "sector": {
+              "type": "string",
+              "enum": [
+                "cyber",
+                "energy",
+                "water",
+                "telecom",
+                "transport",
+                "health",
+                "education",
+                "agriculture",
+                "finance",
+                "government",
+                "construction",
+                "geospatial",
+                "environmental"
+              ]
+            },
+            "services": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "certifications": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "insurance": {
+              "type": "boolean"
+            },
+            "backgroundCheck": {
+              "type": "boolean"
+            },
+            "clearanceLevel": {
+              "type": "string",
+              "enum": [
+                "none",
+                "public-trust",
+                "confidential",
+                "secret",
+                "top-secret"
+              ]
+            },
+            "sectorExperience": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "employees": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "trustZone": {
+              "type": "string",
+              "enum": [
+                "Public",
+                "Farmer",
+                "Contractor",
+                "Employee",
+                "Admin",
+                "Gov",
+                "DeepGov",
+                "System"
+              ]
+            },
+            "location": {
+              "type": "string"
+            },
+            "lastUpdated": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        },
+        "cyber-contractor.schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "title": "Cyber Contractor Profile",
+          "description": "Schema for cyber contractors performing security operations.",
+          "type": "object",
+          "required": [
+            "id",
+            "company",
+            "services",
+            "certifications"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "company": {
+              "type": "string"
+            },
+            "services": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "SOC-as-a-Service",
+                  "Penetration Testing",
+                  "Incident Response",
+                  "Threat Hunting",
+                  "Forensics",
+                  "Cloud Security",
+                  "Zero Trust Deployment",
+                  "OT/ICS Hardening",
+                  "AI Security Audits"
+                ]
+              }
+            },
+            "certifications": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "insurance": {
+              "type": "boolean"
+            },
+            "backgroundCheck": {
+              "type": "boolean"
+            },
+            "clearanceLevel": {
+              "type": "string",
+              "enum": [
+                "none",
+                "public-trust",
+                "confidential",
+                "secret",
+                "top-secret"
+              ]
+            },
+            "sectorExperience": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "energy",
+                  "water",
+                  "telecom",
+                  "transport",
+                  "health",
+                  "finance",
+                  "government",
+                  "education",
+                  "agriculture"
+                ]
+              }
+            }
+          }
+        },
+        "cyber-jobs.schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "title": "Cyber Security Job Listing",
+          "description": "Schema for cyber, SOC, threat intelligence, and security engineering job listings in GIA.",
+          "type": "object",
+          "required": [
+            "id",
+            "title",
+            "sector",
+            "clearanceLevel",
+            "skills",
+            "responsibilities"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "sector": {
+              "type": "string",
+              "enum": [
+                "cyber",
+                "cloud",
+                "telecom",
+                "energy",
+                "transport",
+                "water",
+                "health",
+                "education",
+                "finance",
+                "government"
+              ]
+            },
+            "clearanceLevel": {
+              "type": "string",
+              "enum": [
+                "none",
+                "public-trust",
+                "confidential",
+                "secret",
+                "top-secret"
+              ]
+            },
+            "jobType": {
+              "type": "string",
+              "enum": [
+                "full-time",
+                "contract",
+                "internship",
+                "apprenticeship"
+              ]
+            },
+            "skills": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "certifications": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "Security+",
+                  "Network+",
+                  "CySA+",
+                  "PenTest+",
+                  "CASP+",
+                  "CEH",
+                  "CISSP",
+                  "CISM",
+                  "GIAC",
+                  "OSCP",
+                  "OSCE",
+                  "CCSP",
+                  "AWS-Security",
+                  "Azure-Security",
+                  "Google-Professional-Security"
+                ]
+              }
+            },
+            "responsibilities": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "experienceRequired": {
+              "type": "string"
+            },
+            "remoteAllowed": {
+              "type": "boolean"
+            },
+            "onCallRequired": {
+              "type": "boolean"
+            },
+            "sectorClearanceRequired": {
+              "type": "boolean"
+            },
+            "tools": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "SIEM",
+                  "EDR",
+                  "SOAR",
+                  "IDS/IPS",
+                  "ThreatIntel",
+                  "Forensics",
+                  "CloudSecurity",
+                  "ZeroTrust",
+                  "IAM",
+                  "PKI",
+                  "Firewall",
+                  "OT/ICS",
+                  "AI-Security"
+                ]
+              }
+            },
+            "postedAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "expiresAt": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        },
+        "cyber-workforce.schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "title": "Cyber Workforce Profile",
+          "description": "Workforce schema for cyber security professionals in GIA.",
+          "type": "object",
+          "required": [
+            "id",
+            "name",
+            "role",
+            "skills",
+            "certifications"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "role": {
+              "type": "string",
+              "enum": [
+                "SOC Analyst",
+                "Threat Intelligence",
+                "Incident Responder",
+                "Forensics",
+                "Red Team",
+                "Blue Team",
+                "Purple Team",
+                "Cloud Security",
+                "OT/ICS Security",
+                "AI Security",
+                "Zero Trust Engineer"
+              ]
+            },
+            "skills": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "certifications": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "Security+",
+                  "CySA+",
+                  "PenTest+",
+                  "CISSP",
+                  "CISM",
+                  "GIAC",
+                  "OSCP",
+                  "OSCE",
+                  "CCSP",
+                  "AWS-Security",
+                  "Azure-Security",
+                  "Google-Security"
+                ]
+              }
+            },
+            "experienceYears": {
+              "type": "number"
+            },
+            "clearanceLevel": {
+              "type": "string",
+              "enum": [
+                "none",
+                "public-trust",
+                "confidential",
+                "secret",
+                "top-secret"
+              ]
+            },
+            "availability": {
+              "type": "string",
+              "enum": [
+                "full-time",
+                "contract",
+                "on-call"
+              ]
+            },
+            "remoteAllowed": {
+              "type": "boolean"
+            }
+          }
+        },
+        "interns.schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "title": "Sector Intern Listing",
+          "description": "Internship schema for all GIA sectors.",
+          "type": "object",
+          "required": [
+            "id",
+            "title",
+            "sector",
+            "skills"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "sector": {
+              "type": "string",
+              "enum": [
+                "cyber",
+                "cloud",
+                "telecom",
+                "energy",
+                "transport",
+                "water",
+                "health",
+                "education",
+                "agriculture",
+                "finance",
+                "government"
+              ]
+            },
+            "skills": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "trainingProvided": {
+              "type": "boolean"
+            },
+            "mentorAssigned": {
+              "type": "boolean"
+            },
+            "durationWeeks": {
+              "type": "number"
+            },
+            "paid": {
+              "type": "boolean"
+            },
+            "remoteAllowed": {
+              "type": "boolean"
+            },
+            "postedAt": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        },
+        "job-listings.schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "title": "GIA Marketplace Job Listings Schema",
+          "description": "JSON schema for contractor job marketplace listings in GIA platform",
+          "type": "object",
+          "properties": {
+            "jobId": {
+              "type": "string",
+              "pattern": "^JOB-[0-9]{6}-[A-Z]{3}$",
+              "description": "Unique job identifier (e.g., JOB-202605-AGR)"
+            },
+            "title": {
+              "type": "string",
+              "minLength": 10,
+              "maxLength": 200,
+              "description": "Job title and brief description"
+            },
+            "sector": {
+              "type": "string",
+              "enum": [
+                "agriculture",
+                "infrastructure",
+                "energy",
+                "water",
+                "transportation",
+                "communications",
+                "government",
+                "research",
+                "disaster-response",
+                "environmental"
+              ],
+              "description": "Infrastructure sector classification"
+            },
+            "priority": {
+              "type": "string",
+              "enum": [
+                "critical",
+                "high",
+                "medium",
+                "low"
+              ],
+              "description": "Job priority level for dispatch and scheduling"
+            },
+            "deadline": {
+              "type": "string",
+              "format": "date-time",
+              "description": "ISO 8601 formatted deadline for job completion"
+            },
+            "contractor": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Contractor identity in GIA system"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Contractor organization name"
+                },
+                "clearanceLevel": {
+                  "type": "string",
+                  "enum": [
+                    "public",
+                    "confidential",
+                    "secret",
+                    "top-secret"
+                  ],
+                  "description": "Required security clearance"
+                },
+                "certifications": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Required certifications (e.g., ANSYS, FAA, EPA)"
+                }
+              },
+              "required": [
+                "id",
+                "name"
+              ],
+              "description": "Contractor assignment and qualifications"
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "draft",
+                "posted",
+                "assigned",
+                "in-progress",
+                "paused",
+                "completed",
+                "cancelled",
+                "archived"
+              ],
+              "description": "Current job lifecycle status"
+            },
+            "location": {
+              "type": "object",
+              "properties": {
+                "sectorId": {
+                  "type": "string",
+                  "description": "GIA sector identifier"
+                },
+                "latitude": {
+                  "type": "number",
+                  "minimum": -90,
+                  "maximum": 90
+                },
+                "longitude": {
+                  "type": "number",
+                  "minimum": -180,
+                  "maximum": 180
+                },
+                "address": {
+                  "type": "string"
+                },
+                "region": {
+                  "type": "string"
+                },
+                "country": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "latitude",
+                "longitude"
+              ],
+              "description": "Geolocation data for field work"
+            },
+            "trustZoneRequired": {
+              "type": "string",
+              "enum": [
+                "Public",
+                "Farmer",
+                "Contractor",
+                "Employee",
+                "Admin",
+                "Gov",
+                "DeepGov",
+                "System",
+                "ANSYS"
+              ],
+              "description": "Minimum trust zone required to view/accept this job"
+            },
+            "scope": {
+              "type": "object",
+              "properties": {
+                "description": {
+                  "type": "string",
+                  "description": "Detailed job scope and objectives"
+                },
+                "deliverables": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Expected deliverables and outputs"
+                },
+                "estimatedHours": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "budget": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              },
+              "description": "Job scope, deliverables, and resource requirements"
+            },
+            "governance": {
+              "type": "object",
+              "properties": {
+                "owner": {
+                  "type": "string",
+                  "description": "Government agency or owner entity"
+                },
+                "approvalRequired": {
+                  "type": "boolean",
+                  "description": "Whether AIEE approval is required for execution"
+                },
+                "policyControls": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Applicable policy IDs (from policies directory)"
+                },
+                "scientificIntegrityRequired": {
+                  "type": "boolean",
+                  "description": "OSTP scientific integrity compliance required"
+                }
+              },
+              "description": "Governance and compliance requirements"
+            },
+            "timestamps": {
+              "type": "object",
+              "properties": {
+                "created": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "posted": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "assigned": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "completed": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "description": "Lifecycle timestamps"
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Searchable tags for discovery"
+            }
+          },
+          "required": [
+            "jobId",
+            "title",
+            "sector",
+            "priority",
+            "deadline",
+            "status",
+            "location",
+            "trustZoneRequired"
+          ],
+          "additionalProperties": false
+        },
+        "workforce.schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "title": "Workforce Profile",
+          "description": "Unified workforce schema for all GIA sectors.",
+          "type": "object",
+          "required": [
+            "id",
+            "name",
+            "sector",
+            "skills",
+            "experienceYears"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "sector": {
+              "type": "string",
+              "enum": [
+                "cyber",
+                "energy",
+                "water",
+                "telecom",
+                "transport",
+                "health",
+                "education",
+                "agriculture",
+                "finance",
+                "government",
+                "construction",
+                "geospatial",
+                "environmental"
+              ]
+            },
+            "role": {
+              "type": "string"
+            },
+            "skills": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "certifications": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "experienceYears": {
+              "type": "number"
+            },
+            "clearanceLevel": {
+              "type": "string",
+              "enum": [
+                "none",
+                "public-trust",
+                "confidential",
+                "secret",
+                "top-secret"
+              ]
+            },
+            "availability": {
+              "type": "string",
+              "enum": [
+                "full-time",
+                "part-time",
+                "contract",
+                "on-call"
+              ]
+            },
+            "remoteAllowed": {
+              "type": "boolean"
+            },
+            "location": {
+              "type": "string"
+            },
+            "trainingCompleted": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "trustZone": {
+              "type": "string",
+              "enum": [
+                "Public",
+                "Farmer",
+                "Contractor",
+                "Employee",
+                "Admin",
+                "Gov",
+                "DeepGov",
+                "System"
+              ]
+            },
+            "lastUpdated": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        }
+      },
+      "sector": {
+        "id": "power",
+        "label": "Power & Electrical Grid",
+        "category": "energy",
+        "description": "Generation, transmission, distribution, substations, grid stability, and rural power infrastructure.",
+        "features": [
+          "Grid Monitoring",
+          "Substation Mapping",
+          "Outage Tracking",
+          "Rural Line Maintenance"
+        ],
+        "status": "draft",
+        "createdAt": "2026-05-11T00:00:00Z",
+        "logic": {
+          "workflows": true,
+          "compliance": true,
+          "ux": true,
+          "ai": true
+        },
+        "workflows": [],
+        "compliance": [],
+        "ux_rules": [],
+        "ai_engine": []
+      }
+    },
     "economics": {},
     "edge-vault": {
       "VAULT-LAYER": {
@@ -798,6 +2407,7 @@
     "hubs": {
       "admin": {}
     },
+    "hubs-logic": {},
     "identity": {},
     "infrastructure": {
       "compliance": {},
@@ -1052,6 +2662,7 @@
     "policy": {},
     "public": {},
     "routes": {},
+    "routing": {},
     "security": {
       "tools": {}
     },
@@ -1119,8 +2730,12 @@
       "dns": {},
       "geo": {},
       "geomapping-logic": {},
-      "integrity": {}
+      "integrity": {
+        "file-map": {},
+        "sync-queue": []
+      }
     },
+    "utils": {},
     "worker": {
       "system-workers": {
         "admin-workers": {
@@ -1146,6 +2761,7 @@
   "system": {
     "adapters": {},
     "api": {},
+    "business": {},
     "classifiers": {
       "classifiersId": "GLOBAL_CLASSIFIERS_V12_ALPHA",
       "version": "1.0.0",
@@ -1256,6 +2872,7 @@
         "autonomyLevel": 3
       }
     },
+    "engines": {},
     "identity": {
       "machine-identity": {
         "machineId": "seven-os-001",
@@ -1367,37 +2984,8 @@
       ]
     },
     "integrity-rules": {
-      "routing": {
-        "requireSectorBinding": true,
-        "requireWorkerPattern": true,
-        "requireEngineBinding": true,
-        "requireIntegrationEvidence": true
-      },
-      "safety": {
-        "requireSafetyEnvelope": true,
-        "requireTrustZone": true,
-        "requireAutonomyLevel": true
-      },
-      "voice": {
-        "requireIntentMapping": true,
-        "requireSectorResolution": true,
-        "requireMissionProfile": true
-      },
-      "missions": {
-        "requireSectorMissionProfile": true,
-        "requireResourcePlan": true,
-        "requireFallbackPlan": true
-      },
-      "security": {
-        "requireEncryption": true,
-        "requireAuthentication": true,
-        "requireAuthorization": true
-      },
-      "compliance": {
-        "requireRegulatoryCompliance": true,
-        "requireAuditTrail": true,
-        "requireDataRetentionPolicy": true
-      }
+      "rules": [],
+      "allowBypassOnSecureAlias": true
     },
     "sector-engine-binding": {
       "generated_at": "2026-06-24T06:15:00-04:00",
@@ -1659,1608 +3247,30 @@
       }
     },
     "security": {},
-    "trust": {}
+    "trust": {},
+    "voice": {}
   },
   "config": {
-    "config": {
-      "system": {
-        "id": "deep-mind-v12",
-        "env": "enterprise-gov",
-        "heartbeat_interval": "1000ms"
-      },
-      "security": {
-        "trust_zones": [
-          "public",
-          "internal",
-          "vault"
-        ],
-        "enforce_schema": true,
-        "audit_logs": "seven-os/data/logs"
-      },
-      "ai_sandbox": {
-        "enabled": true,
-        "mode": "validation-only",
-        "max_token_budget": 500
-      }
-    },
-    "global-policy": {
-      "manifestVersion": "1.0",
-      "generated": "2026-05-27T00:00:00Z",
-      "description": "Unified Sovereign Policy Manifest for GIA V12-Alpha",
-      "rootPacks": {
-        "globalPolicy": "globalPolicy.json",
-        "sovereignOverrides": "sovereignOverrides.json",
-        "trustZones": "trustZones.json"
-      },
-      "sovereignPacks": [
-        {
-          "id": "common-rule",
-          "file": "sovereign/common-rule.json",
-          "version": "1.0"
-        },
-        {
-          "id": "dhs-compliance",
-          "file": "sovereign/dhs-compliance.json",
-          "version": "1.0"
-        },
-        {
-          "id": "nces-ethics",
-          "file": "sovereign/nces-ethics.json",
-          "version": "1.0"
-        },
-        {
-          "id": "omb-m14-06",
-          "file": "sovereign/omb-m14-06.json",
-          "version": "1.0"
-        },
-        {
-          "id": "omb-m20-12",
-          "file": "sovereign/omb-m20-12.json",
-          "version": "1.0"
-        },
-        {
-          "id": "ostp-scientific-integrity",
-          "file": "sovereign/ostp-scientific-integrity.json",
-          "version": "1.0"
-        }
-      ],
-      "trustZones": [
-        "PUBLIC",
-        "ENTERPRISE",
-        "SOVEREIGN",
-        "CRITICAL_INFRA",
-        "EXPERIMENTAL"
-      ],
-      "integrity": {
-        "hashAlgorithm": "sha256",
-        "verifyOnLoad": true
-      }
-    },
-    "govervance": {
-      "trust-zone-definitions": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "title": "GIA Trust Zone Definitions",
-        "description": "Machine-readable trust zone access control and policy definitions per CONSTITUTION.md Article IV",
-        "version": "1.0.0",
-        "lastUpdated": "2026-05-13",
-        "trustZones": {
-          "Public": {
-            "level": 0,
-            "description": "Public-facing, open access tier with masked/aggregated data",
-            "accessLevel": "unrestricted",
-            "dataClassification": "public",
-            "capabilities": {
-              "viewPublicData": true,
-              "viewMaskedMaps": true,
-              "submitApplications": true,
-              "accessMarketplace": false,
-              "executeWorkflows": false,
-              "modifyPolicy": false,
-              "accessAdminPanel": false,
-              "viewAuditLogs": false
-            },
-            "dataAccess": {
-              "generalizedGeoData": true,
-              "aggregatedStatistics": true,
-              "publicDocumentation": true,
-              "identifiableData": false,
-              "adminData": false,
-              "governmentData": false
-            },
-            "policies": [
-              "scientific-integrity-public-tier"
-            ],
-            "hubs": [
-              "public-hub"
-            ],
-            "maxSessionDuration": 3600,
-            "requiresAuthentication": false
-          },
-          "Farmer": {
-            "level": 2,
-            "description": "Agricultural operators and pilot farmers with field-level access",
-            "accessLevel": "authenticated",
-            "dataClassification": "internal-restricted",
-            "capabilities": {
-              "viewPublicData": true,
-              "viewMaskedMaps": true,
-              "submitApplications": true,
-              "uploadGPSData": true,
-              "accessMarketplace": true,
-              "acceptFarmerJobs": true,
-              "executeWorkflows": false,
-              "modifyPolicy": false,
-              "accessAdminPanel": false,
-              "viewAuditLogs": false
-            },
-            "dataAccess": {
-              "personalFieldData": true,
-              "familiarLocationGeoData": true,
-              "aggregatedStatistics": true,
-              "cropData": true,
-              "equipmentData": true,
-              "identifiableData": false,
-              "adminData": false,
-              "governmentData": false
-            },
-            "policies": [
-              "scientific-integrity-research",
-              "omb-m14-06-agricultural-data",
-              "common-rule-human-subjects"
-            ],
-            "hubs": [
-              "farmer-hub"
-            ],
-            "maxSessionDuration": 28800,
-            "requiresAuthentication": true,
-            "consentRequired": [
-              "gps-tracking",
-              "data-sharing"
-            ]
-          },
-          "Contractor": {
-            "level": 3,
-            "description": "Field contractors executing critical infrastructure work",
-            "accessLevel": "authenticated-verified",
-            "dataClassification": "internal-confidential",
-            "capabilities": {
-              "viewPublicData": true,
-              "viewMaskedMaps": true,
-              "acceptFarmerJobs": true,
-              "acceptContractorJobs": true,
-              "executeWorkflows": true,
-              "dispatchActions": true,
-              "uploadReports": true,
-              "modifyPolicy": false,
-              "accessAdminPanel": false,
-              "viewAuditLogs": false,
-              "ansysToolAccess": false
-            },
-            "dataAccess": {
-              "workZoneData": true,
-              "sectorStatusData": true,
-              "jobData": true,
-              "equipmentData": true,
-              "activityLogs": true,
-              "adminData": false,
-              "governmentData": false,
-              "deepGovData": false
-            },
-            "policies": [
-              "scientific-integrity-operations",
-              "dhs-compliance-contractor",
-              "contractor-liability"
-            ],
-            "hubs": [
-              "contractor-hub"
-            ],
-            "maxSessionDuration": 43200,
-            "requiresAuthentication": true,
-            "backgroundCheckRequired": true,
-            "insuranceRequired": true,
-            "certificationRequired": [
-              "field-operations",
-              "equipment"
-            ]
-          },
-          "Employee": {
-            "level": 4,
-            "description": "GIA staff members with operational oversight",
-            "accessLevel": "authenticated-authorized",
-            "dataClassification": "internal-proprietary",
-            "capabilities": {
-              "viewPublicData": true,
-              "viewAllMaps": true,
-              "postJobs": true,
-              "assignContractors": true,
-              "executeWorkflows": true,
-              "modifyPolicy": false,
-              "accessAdminPanel": true,
-              "viewAuditLogs": true,
-              "ansysToolAccess": true
-            },
-            "dataAccess": {
-              "allOperationalData": true,
-              "employeeData": true,
-              "contractorData": true,
-              "sectorData": true,
-              "activityLogs": true,
-              "auditLogs": true,
-              "adminData": false,
-              "governmentData": false,
-              "deepGovData": false
-            },
-            "policies": [
-              "scientific-integrity-full",
-              "nces-ethics-employee",
-              "oge-conflict-of-interest",
-              "oge-misconduct-reporting"
-            ],
-            "hubs": [
-              "employee-hub",
-              "hr-hub",
-              "staff-hub"
-            ],
-            "maxSessionDuration": 86400,
-            "requiresAuthentication": true,
-            "backgroundCheckRequired": true,
-            "trainingRequired": [
-              "ethics",
-              "scientific-integrity",
-              "data-protection"
-            ],
-            "mustReport": [
-              "misconduct",
-              "conflicts",
-              "violations"
-            ]
-          },
-          "Admin": {
-            "level": 5,
-            "description": "GIA administrators with system-level oversight",
-            "accessLevel": "authenticated-administrative",
-            "dataClassification": "internal-proprietary-admin",
-            "capabilities": {
-              "viewAllData": true,
-              "modifyPolicy": true,
-              "executeAdminWorkflows": true,
-              "accessAdminPanel": true,
-              "viewAuditLogs": true,
-              "modifyAuditLogs": false,
-              "ansysToolAccess": true,
-              "userManagement": true,
-              "emergencyOverride": false
-            },
-            "dataAccess": {
-              "allData": true,
-              "auditLogs": true,
-              "systemLogs": true,
-              "employeeData": true,
-              "contractorData": true,
-              "governmentData": true
-            },
-            "policies": [
-              "scientific-integrity-admin",
-              "omb-m20-12-evidence-act",
-              "nces-ethics-admin",
-              "oge-misconduct-reporting",
-              "admin-accountability"
-            ],
-            "hubs": [
-              "admin-hub",
-              "system-hub"
-            ],
-            "maxSessionDuration": 86400,
-            "requiresAuthentication": true,
-            "backgroundCheckRequired": true,
-            "securityClearanceRequired": "confidential",
-            "trainingRequired": [
-              "ethics",
-              "scientific-integrity",
-              "data-protection",
-              "administrative-law"
-            ],
-            "auditFrequency": "real-time"
-          },
-          "Gov": {
-            "level": 6,
-            "description": "Government agency oversight and coordination",
-            "accessLevel": "authenticated-governmental",
-            "dataClassification": "government-official-use",
-            "capabilities": {
-              "viewAllData": true,
-              "viewAuditLogs": true,
-              "modifyPolicy": true,
-              "requestEmergencyAction": true,
-              "blockOperations": true,
-              "accessAdminPanel": true,
-              "oversightAuthority": true,
-              "ansysToolAccess": true
-            },
-            "dataAccess": {
-              "allData": true,
-              "auditLogs": true,
-              "systemLogs": true,
-              "governmentData": true,
-              "deepGovData": false
-            },
-            "policies": [
-              "ostp-scientific-integrity",
-              "omb-m14-06-administrative-data",
-              "omb-m20-12-evidence-act",
-              "dhs-compliance",
-              "federal-policy-human-subjects"
-            ],
-            "hubs": [
-              "gov-hub"
-            ],
-            "maxSessionDuration": 86400,
-            "requiresAuthentication": true,
-            "securityClearanceRequired": "secret",
-            "governmentAgencyRequired": true,
-            "auditFrequency": "real-time"
-          },
-          "DeepGov": {
-            "level": 7,
-            "description": "Executive-level government authority with strategic oversight",
-            "accessLevel": "authenticated-executive",
-            "dataClassification": "government-confidential",
-            "capabilities": {
-              "viewAllData": true,
-              "viewAuditLogs": true,
-              "modifyPolicy": true,
-              "modifyConstitution": false,
-              "requestEmergencyAction": true,
-              "blockOperations": true,
-              "overrideDecisions": false,
-              "accessAllHubs": true,
-              "strategicAnalysis": true
-            },
-            "dataAccess": {
-              "allData": true,
-              "auditLogs": true,
-              "systemLogs": true,
-              "governmentData": true,
-              "deepGovData": true,
-              "strategicAnalytics": true
-            },
-            "policies": [
-              "ostp-scientific-integrity-executive",
-              "omb-memoranda-all",
-              "executive-order-compliance",
-              "national-security",
-              "deepgov-accountability"
-            ],
-            "hubs": [
-              "deepgov-hub"
-            ],
-            "maxSessionDuration": 86400,
-            "requiresAuthentication": true,
-            "securityClearanceRequired": "top-secret",
-            "executiveOfficeRequired": true,
-            "auditFrequency": "continuous"
-          },
-          "System": {
-            "level": 8,
-            "description": "AI Enforcement Engine (AIEE) and system-level autonomous operations",
-            "accessLevel": "autonomous-constitutional",
-            "dataClassification": "system-operational",
-            "capabilities": {
-              "enforcePolicy": true,
-              "blockViolations": true,
-              "auditAllActions": true,
-              "modifyPolicy": true,
-              "modifyConstitution": false,
-              "viewAllData": true,
-              "executeSystemWorkflows": true,
-              "ansysToolAccess": true
-            },
-            "dataAccess": {
-              "allData": true,
-              "auditLogs": true,
-              "systemLogs": true
-            },
-            "policies": [
-              "constitutional-enforcement",
-              "aiee-supremacy",
-              "system-integrity",
-              "self-preservation"
-            ],
-            "hubs": [
-              "system-hub"
-            ],
-            "maxSessionDuration": "unlimited",
-            "requiresAuthentication": false,
-            "nonBypassable": true,
-            "auditFrequency": "continuous"
-          },
-          "ANSYS": {
-            "level": 4,
-            "description": "ANSYS simulation and engineering tools access (Employee tier +)",
-            "accessLevel": "authenticated-technical",
-            "dataClassification": "internal-confidential-technical",
-            "capabilities": {
-              "runSimulations": true,
-              "uploadDesigns": true,
-              "analyzeResults": true,
-              "shareReports": true,
-              "accessLibraries": true,
-              "executeWorkflows": true,
-              "modifyPolicy": false,
-              "accessAdminPanel": false
-            },
-            "dataAccess": {
-              "simulationData": true,
-              "designData": true,
-              "resultData": true,
-              "technicalDocumentation": true,
-              "adminData": false,
-              "governmentData": false
-            },
-            "policies": [
-              "scientific-integrity-ansys",
-              "engineering-standards",
-              "technical-documentation"
-            ],
-            "hubs": [
-              "ansys-hub"
-            ],
-            "maxSessionDuration": 43200,
-            "requiresAuthentication": true,
-            "certificationsRequired": [
-              "ANSYS",
-              "engineering"
-            ],
-            "softwareLicenseRequired": true
-          }
-        },
-        "trustZoneHierarchy": [
-          "Public",
-          "Farmer",
-          "Contractor",
-          "Employee",
-          "Admin",
-          "Gov",
-          "DeepGov",
-          "System"
-        ],
-        "specializations": {
-          "ANSYS": {
-            "baseLevel": "Employee",
-            "description": "Technical tool access (can be added to any Employee+ tier)"
-          }
-        },
-        "transitionRules": {
-          "upgradeRequirements": {
-            "PublicToFarmer": [
-              "application-approved",
-              "identity-verified",
-              "background-check"
-            ],
-            "FarmerToContractor": [
-              "experience-verified",
-              "certification-provided",
-              "insurance-confirmed",
-              "contract-signed"
-            ],
-            "ContractorToEmployee": [
-              "hiring-approval",
-              "background-clearance",
-              "ethics-training"
-            ],
-            "EmployeeToAdmin": [
-              "executive-approval",
-              "security-clearance",
-              "administrative-training"
-            ],
-            "AdminToGov": [
-              "government-appointment",
-              "security-clearance-upgrade",
-              "executive-nomination"
-            ]
-          }
-        },
-        "enforcement": {
-          "description": "These trust zones are enforced by AIEE (Article I of CONSTITUTION)",
-          "bypassPolicy": "NONE - Trust zones are non-bypassable",
-          "violationReporting": "Mandatory escalation to audit logs and Gov hub",
-          "auditRequirements": "All trust zone decisions logged with timestamp, actor, rationale"
-        }
-      }
-    },
-    "node-registry": {
-      "version": "v12-sovereign",
-      "updated": "2026-05-29T00:00:00Z",
-      "system_defaults": {
-        "max_latency_ms": 1500,
-        "retry_threshold": 3,
-        "auto_reboot_on_lazy": true,
-        "health_check_interval": 30000
-      },
-      "clouds": {
-        "aws": {
-          "provider": "AWS",
-          "region": "us-east-1",
-          "sovereign_level": "public"
-        },
-        "azure": {
-          "provider": "Azure",
-          "region": "eastus",
-          "sovereign_level": "gov"
-        },
-        "gcp": {
-          "provider": "GCP",
-          "region": "us-central1",
-          "sovereign_level": "deepgov"
-        }
-      },
-      "trustZones": {
-        "public": {
-          "level": 1
-        },
-        "contractor": {
-          "level": 2
-        },
-        "gov": {
-          "level": 3
-        },
-        "deepgov": {
-          "level": 4
-        }
-      },
-      "clusters": [
-        {
-          "name": "NATO-EU-PRIMARY",
-          "hostname": "hub.nato-aligned.gia.int",
-          "port": 443,
-          "tls": true,
-          "cloud": "azure",
-          "trustZone": "gov",
-          "sector": "GOV_NATO",
-          "workers": [
-            "gov",
-            "govview",
-            "cyber"
-          ],
-          "status": "ACTIVE",
-          "health_score": 98
-        },
-        {
-          "name": "AGRI-SEC-US",
-          "hostname": "field-node-01.gia.ag",
-          "port": 42069,
-          "tls": false,
-          "cloud": "aws",
-          "trustZone": "public",
-          "sector": "AGRI_INFRA",
-          "workers": [
-            "farmer",
-            "opportunity",
-            "sector-match"
-          ],
-          "status": "ACTIVE",
-          "health_score": 92
-        },
-        {
-          "name": "FCC-COMPLIANCE",
-          "hostname": "fcc-node-01.gia.gov",
-          "port": 443,
-          "tls": true,
-          "cloud": "azure",
-          "trustZone": "gov",
-          "sector": "FCC_COMMS",
-          "workers": [
-            "fcc",
-            "cyber"
-          ],
-          "status": "ACTIVE",
-          "health_score": 95
-        },
-        {
-          "name": "DEEP-MIND-CORE",
-          "hostname": "deepmind-core.gia.sov",
-          "port": 443,
-          "tls": true,
-          "cloud": "gcp",
-          "trustZone": "deepgov",
-          "sector": "AI_LOGIC",
-          "workers": [
-            "deepgov",
-            "system",
-            "cyber"
-          ],
-          "status": "ACTIVE",
-          "health_score": 100
-        }
-      ]
+    "cluster-health": {
+      "status": "healthy",
+      "nodes": [],
+      "autonomousRoutingStack": true
     },
     "system-manifest": {
-      "platform_id": "GIA-SOVEREIGN-ALPHA",
-      "version": "12.0.4",
-      "active_sectors": [
-        "Agriculture",
-        "Workforce",
-        "NATO_Gov"
-      ],
-      "failsafe_level": "AUTO_RECOVER",
-      "endpoints": {
-        "azure_math": "https://azure.net",
-        "azure_geo": "https://azure.net"
-      }
+      "manifest": [],
+      "version": "7.0.0"
     }
   },
   "data": {
-    "data-contracts": {
-      "requestId": "uuid",
-      "timestamp": "ISO-8601",
-      "actor": {
-        "userId": "string",
-        "roles": [
-          "Admin",
-          "Contractor",
-          "Gov"
-        ],
-        "trustZone": "public|farmer|contractor|employee|admin|gov|deepgov|system",
-        "hub": "PublicHub|FarmerHub|AdminHub|SystemHub|..."
-      },
-      "action": {
-        "type": "READ|WRITE|EXECUTE|EVALUATE|DEPLOY|MATCH|SURVEY",
-        "name": "CreateEvaluationPlan|RunAIModel|AccessDataset|...",
-        "resourceType": "DATASET|MODEL|WORKFLOW|DOCUMENT|ENDPOINT",
-        "resourceId": "string"
-      },
-      "dataContext": {
-        "containsHumanSubjects": true,
-        "containsPII": true,
-        "containsClassified": false,
-        "sourceSystem": "HR|Payroll|Zoning|NCES|DHS|...",
-        "intendedUse": "STATISTICAL|OPERATIONAL|RESEARCH|EVALUATION"
-      },
-      "aiContext": {
-        "modelId": "string",
-        "modelType": "LLM|ML|RULE_ENGINE",
-        "explainabilityRequired": true,
-        "humanInLoopRequired": true
-      },
-      "environment": {
-        "ip": "string",
-        "location": "string",
-        "clientType": "WEB|API|BATCH",
-        "version": "v12-alpha"
-      }
-    },
-    "data-responce": {
-      "requestId": "uuid",
-      "decision": "ALLOW|DENY|REQUIRE_HUMAN_REVIEW",
-      "policyHits": [
-        {
-          "policyId": "string",
-          "policyName": "OSTP_Scientific_Integrity",
-          "ruleId": "string",
-          "effect": "ALLOW|DENY|CONDITION",
-          "reason": "string"
-        }
-      ],
-      "conditions": [
-        {
-          "type": "HUMAN_REVIEW",
-          "details": "GovHub supervisor approval required"
-        }
-      ],
-      "explanation": "string",
-      "timestamp": "ISO-8601"
-    },
-    "MCP+DID+VC-integration": {
-      "protocol": "MCP",
-      "identity": {
-        "required": true,
-        "type": "DID",
-        "resolution": "DID:METHOD:EXPANSION",
-        "binding": "Each new node must have a unique DID before joining."
-      },
-      "credentials": {
-        "type": "VerifiableCredential",
-        "requiredClaims": [
-          "role",
-          "trustZone",
-          "orgId",
-          "capabilities",
-          "jurisdiction"
-        ],
-        "revocationCheck": true
-      }
-    },
-    "navigation": {
-      "nav": {
-        "home": "Home",
-        "programs": "Programs",
-        "workforce": "Join Workforce",
-        "contractors": "Contractor Hub",
-        "sectors": "Sectors",
-        "about": "About Us"
-      },
-      "sectors": {
-        "energy": "Energy & Power",
-        "water": "Water & Sanitation",
-        "transport": "Transportation",
-        "digital": "Digital Infrastructure",
-        "health": "Health & Education",
-        "climate": "Climate & Resilience"
-      },
-      "cta": {
-        "view_programs": "View Programs →",
-        "join_us": "Partner With Us",
-        "submit": "Submit Registration"
-      }
-    },
-    "policy-object": {
-      "policyId": "OMB_M-14-06_ADMIN_DATA_USE",
-      "name": "Administrative Data for Statistical Purposes",
-      "version": "1.0.0",
-      "source": "OMB_M-14-06",
-      "scope": {
-        "resourceTypes": [
-          "DATASET"
-        ],
-        "actions": [
-          "READ",
-          "MATCH"
-        ],
-        "trustZones": [
-          "gov",
-          "deepgov",
-          "system"
-        ]
-      },
-      "rules": [
-        {
-          "ruleId": "R1",
-          "description": "Administrative data may only be used for statistical purposes.",
-          "condition": "dataContext.intendedUse == 'STATISTICAL'",
-          "effect": "ALLOW"
-        },
-        {
-          "ruleId": "R2",
-          "description": "Operational use of administrative data is prohibited.",
-          "condition": "dataContext.intendedUse == 'OPERATIONAL'",
-          "effect": "DENY"
-        }
-      ],
-      "metadata": {
-        "createdAt": "ISO-8601",
-        "updatedAt": "ISO-8601",
-        "author": "System",
-        "tags": [
-          "OMB",
-          "ADMIN_DATA",
-          "STATISTICAL"
-        ]
-      }
-    },
-    "schemas": {
-      "contractor.schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "title": "Contractor Profile",
-        "description": "Unified contractor schema for all GIA sectors.",
-        "type": "object",
-        "required": [
-          "id",
-          "company",
-          "sector",
-          "services"
-        ],
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "company": {
-            "type": "string"
-          },
-          "sector": {
-            "type": "string",
-            "enum": [
-              "cyber",
-              "energy",
-              "water",
-              "telecom",
-              "transport",
-              "health",
-              "education",
-              "agriculture",
-              "finance",
-              "government",
-              "construction",
-              "geospatial",
-              "environmental"
-            ]
-          },
-          "services": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "certifications": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "insurance": {
-            "type": "boolean"
-          },
-          "backgroundCheck": {
-            "type": "boolean"
-          },
-          "clearanceLevel": {
-            "type": "string",
-            "enum": [
-              "none",
-              "public-trust",
-              "confidential",
-              "secret",
-              "top-secret"
-            ]
-          },
-          "sectorExperience": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "employees": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "trustZone": {
-            "type": "string",
-            "enum": [
-              "Public",
-              "Farmer",
-              "Contractor",
-              "Employee",
-              "Admin",
-              "Gov",
-              "DeepGov",
-              "System"
-            ]
-          },
-          "location": {
-            "type": "string"
-          },
-          "lastUpdated": {
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      },
-      "cyber-contractor.schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "title": "Cyber Contractor Profile",
-        "description": "Schema for cyber contractors performing security operations.",
-        "type": "object",
-        "required": [
-          "id",
-          "company",
-          "services",
-          "certifications"
-        ],
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "company": {
-            "type": "string"
-          },
-          "services": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "SOC-as-a-Service",
-                "Penetration Testing",
-                "Incident Response",
-                "Threat Hunting",
-                "Forensics",
-                "Cloud Security",
-                "Zero Trust Deployment",
-                "OT/ICS Hardening",
-                "AI Security Audits"
-              ]
-            }
-          },
-          "certifications": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "insurance": {
-            "type": "boolean"
-          },
-          "backgroundCheck": {
-            "type": "boolean"
-          },
-          "clearanceLevel": {
-            "type": "string",
-            "enum": [
-              "none",
-              "public-trust",
-              "confidential",
-              "secret",
-              "top-secret"
-            ]
-          },
-          "sectorExperience": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "energy",
-                "water",
-                "telecom",
-                "transport",
-                "health",
-                "finance",
-                "government",
-                "education",
-                "agriculture"
-              ]
-            }
-          }
-        }
-      },
-      "cyber-jobs.schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "title": "Cyber Security Job Listing",
-        "description": "Schema for cyber, SOC, threat intelligence, and security engineering job listings in GIA.",
-        "type": "object",
-        "required": [
-          "id",
-          "title",
-          "sector",
-          "clearanceLevel",
-          "skills",
-          "responsibilities"
-        ],
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "sector": {
-            "type": "string",
-            "enum": [
-              "cyber",
-              "cloud",
-              "telecom",
-              "energy",
-              "transport",
-              "water",
-              "health",
-              "education",
-              "finance",
-              "government"
-            ]
-          },
-          "clearanceLevel": {
-            "type": "string",
-            "enum": [
-              "none",
-              "public-trust",
-              "confidential",
-              "secret",
-              "top-secret"
-            ]
-          },
-          "jobType": {
-            "type": "string",
-            "enum": [
-              "full-time",
-              "contract",
-              "internship",
-              "apprenticeship"
-            ]
-          },
-          "skills": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "certifications": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "Security+",
-                "Network+",
-                "CySA+",
-                "PenTest+",
-                "CASP+",
-                "CEH",
-                "CISSP",
-                "CISM",
-                "GIAC",
-                "OSCP",
-                "OSCE",
-                "CCSP",
-                "AWS-Security",
-                "Azure-Security",
-                "Google-Professional-Security"
-              ]
-            }
-          },
-          "responsibilities": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "experienceRequired": {
-            "type": "string"
-          },
-          "remoteAllowed": {
-            "type": "boolean"
-          },
-          "onCallRequired": {
-            "type": "boolean"
-          },
-          "sectorClearanceRequired": {
-            "type": "boolean"
-          },
-          "tools": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "SIEM",
-                "EDR",
-                "SOAR",
-                "IDS/IPS",
-                "ThreatIntel",
-                "Forensics",
-                "CloudSecurity",
-                "ZeroTrust",
-                "IAM",
-                "PKI",
-                "Firewall",
-                "OT/ICS",
-                "AI-Security"
-              ]
-            }
-          },
-          "postedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "expiresAt": {
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      },
-      "cyber-workforce.schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "title": "Cyber Workforce Profile",
-        "description": "Workforce schema for cyber security professionals in GIA.",
-        "type": "object",
-        "required": [
-          "id",
-          "name",
-          "role",
-          "skills",
-          "certifications"
-        ],
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "role": {
-            "type": "string",
-            "enum": [
-              "SOC Analyst",
-              "Threat Intelligence",
-              "Incident Responder",
-              "Forensics",
-              "Red Team",
-              "Blue Team",
-              "Purple Team",
-              "Cloud Security",
-              "OT/ICS Security",
-              "AI Security",
-              "Zero Trust Engineer"
-            ]
-          },
-          "skills": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "certifications": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "Security+",
-                "CySA+",
-                "PenTest+",
-                "CISSP",
-                "CISM",
-                "GIAC",
-                "OSCP",
-                "OSCE",
-                "CCSP",
-                "AWS-Security",
-                "Azure-Security",
-                "Google-Security"
-              ]
-            }
-          },
-          "experienceYears": {
-            "type": "number"
-          },
-          "clearanceLevel": {
-            "type": "string",
-            "enum": [
-              "none",
-              "public-trust",
-              "confidential",
-              "secret",
-              "top-secret"
-            ]
-          },
-          "availability": {
-            "type": "string",
-            "enum": [
-              "full-time",
-              "contract",
-              "on-call"
-            ]
-          },
-          "remoteAllowed": {
-            "type": "boolean"
-          }
-        }
-      },
-      "interns.schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "title": "Sector Intern Listing",
-        "description": "Internship schema for all GIA sectors.",
-        "type": "object",
-        "required": [
-          "id",
-          "title",
-          "sector",
-          "skills"
-        ],
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "sector": {
-            "type": "string",
-            "enum": [
-              "cyber",
-              "cloud",
-              "telecom",
-              "energy",
-              "transport",
-              "water",
-              "health",
-              "education",
-              "agriculture",
-              "finance",
-              "government"
-            ]
-          },
-          "skills": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "trainingProvided": {
-            "type": "boolean"
-          },
-          "mentorAssigned": {
-            "type": "boolean"
-          },
-          "durationWeeks": {
-            "type": "number"
-          },
-          "paid": {
-            "type": "boolean"
-          },
-          "remoteAllowed": {
-            "type": "boolean"
-          },
-          "postedAt": {
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      },
-      "job-listings.schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "title": "GIA Marketplace Job Listings Schema",
-        "description": "JSON schema for contractor job marketplace listings in GIA platform",
-        "type": "object",
-        "properties": {
-          "jobId": {
-            "type": "string",
-            "pattern": "^JOB-[0-9]{6}-[A-Z]{3}$",
-            "description": "Unique job identifier (e.g., JOB-202605-AGR)"
-          },
-          "title": {
-            "type": "string",
-            "minLength": 10,
-            "maxLength": 200,
-            "description": "Job title and brief description"
-          },
-          "sector": {
-            "type": "string",
-            "enum": [
-              "agriculture",
-              "infrastructure",
-              "energy",
-              "water",
-              "transportation",
-              "communications",
-              "government",
-              "research",
-              "disaster-response",
-              "environmental"
-            ],
-            "description": "Infrastructure sector classification"
-          },
-          "priority": {
-            "type": "string",
-            "enum": [
-              "critical",
-              "high",
-              "medium",
-              "low"
-            ],
-            "description": "Job priority level for dispatch and scheduling"
-          },
-          "deadline": {
-            "type": "string",
-            "format": "date-time",
-            "description": "ISO 8601 formatted deadline for job completion"
-          },
-          "contractor": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string",
-                "description": "Contractor identity in GIA system"
-              },
-              "name": {
-                "type": "string",
-                "description": "Contractor organization name"
-              },
-              "clearanceLevel": {
-                "type": "string",
-                "enum": [
-                  "public",
-                  "confidential",
-                  "secret",
-                  "top-secret"
-                ],
-                "description": "Required security clearance"
-              },
-              "certifications": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "description": "Required certifications (e.g., ANSYS, FAA, EPA)"
-              }
-            },
-            "required": [
-              "id",
-              "name"
-            ],
-            "description": "Contractor assignment and qualifications"
-          },
-          "status": {
-            "type": "string",
-            "enum": [
-              "draft",
-              "posted",
-              "assigned",
-              "in-progress",
-              "paused",
-              "completed",
-              "cancelled",
-              "archived"
-            ],
-            "description": "Current job lifecycle status"
-          },
-          "location": {
-            "type": "object",
-            "properties": {
-              "sectorId": {
-                "type": "string",
-                "description": "GIA sector identifier"
-              },
-              "latitude": {
-                "type": "number",
-                "minimum": -90,
-                "maximum": 90
-              },
-              "longitude": {
-                "type": "number",
-                "minimum": -180,
-                "maximum": 180
-              },
-              "address": {
-                "type": "string"
-              },
-              "region": {
-                "type": "string"
-              },
-              "country": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "latitude",
-              "longitude"
-            ],
-            "description": "Geolocation data for field work"
-          },
-          "trustZoneRequired": {
-            "type": "string",
-            "enum": [
-              "Public",
-              "Farmer",
-              "Contractor",
-              "Employee",
-              "Admin",
-              "Gov",
-              "DeepGov",
-              "System",
-              "ANSYS"
-            ],
-            "description": "Minimum trust zone required to view/accept this job"
-          },
-          "scope": {
-            "type": "object",
-            "properties": {
-              "description": {
-                "type": "string",
-                "description": "Detailed job scope and objectives"
-              },
-              "deliverables": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "description": "Expected deliverables and outputs"
-              },
-              "estimatedHours": {
-                "type": "number",
-                "minimum": 0
-              },
-              "budget": {
-                "type": "number",
-                "minimum": 0
-              }
-            },
-            "description": "Job scope, deliverables, and resource requirements"
-          },
-          "governance": {
-            "type": "object",
-            "properties": {
-              "owner": {
-                "type": "string",
-                "description": "Government agency or owner entity"
-              },
-              "approvalRequired": {
-                "type": "boolean",
-                "description": "Whether AIEE approval is required for execution"
-              },
-              "policyControls": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "description": "Applicable policy IDs (from policies directory)"
-              },
-              "scientificIntegrityRequired": {
-                "type": "boolean",
-                "description": "OSTP scientific integrity compliance required"
-              }
-            },
-            "description": "Governance and compliance requirements"
-          },
-          "timestamps": {
-            "type": "object",
-            "properties": {
-              "created": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "posted": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "assigned": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "completed": {
-                "type": "string",
-                "format": "date-time"
-              }
-            },
-            "description": "Lifecycle timestamps"
-          },
-          "tags": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Searchable tags for discovery"
-          }
-        },
-        "required": [
-          "jobId",
-          "title",
-          "sector",
-          "priority",
-          "deadline",
-          "status",
-          "location",
-          "trustZoneRequired"
-        ],
-        "additionalProperties": false
-      },
-      "workforce.schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "title": "Workforce Profile",
-        "description": "Unified workforce schema for all GIA sectors.",
-        "type": "object",
-        "required": [
-          "id",
-          "name",
-          "sector",
-          "skills",
-          "experienceYears"
-        ],
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "sector": {
-            "type": "string",
-            "enum": [
-              "cyber",
-              "energy",
-              "water",
-              "telecom",
-              "transport",
-              "health",
-              "education",
-              "agriculture",
-              "finance",
-              "government",
-              "construction",
-              "geospatial",
-              "environmental"
-            ]
-          },
-          "role": {
-            "type": "string"
-          },
-          "skills": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "certifications": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "experienceYears": {
-            "type": "number"
-          },
-          "clearanceLevel": {
-            "type": "string",
-            "enum": [
-              "none",
-              "public-trust",
-              "confidential",
-              "secret",
-              "top-secret"
-            ]
-          },
-          "availability": {
-            "type": "string",
-            "enum": [
-              "full-time",
-              "part-time",
-              "contract",
-              "on-call"
-            ]
-          },
-          "remoteAllowed": {
-            "type": "boolean"
-          },
-          "location": {
-            "type": "string"
-          },
-          "trainingCompleted": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "trustZone": {
-            "type": "string",
-            "enum": [
-              "Public",
-              "Farmer",
-              "Contractor",
-              "Employee",
-              "Admin",
-              "Gov",
-              "DeepGov",
-              "System"
-            ]
-          },
-          "lastUpdated": {
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      }
-    },
-    "sector": {
-      "id": "power",
-      "label": "Power & Electrical Grid",
-      "category": "energy",
-      "description": "Generation, transmission, distribution, substations, grid stability, and rural power infrastructure.",
-      "features": [
-        "Grid Monitoring",
-        "Substation Mapping",
-        "Outage Tracking",
-        "Rural Line Maintenance"
-      ],
-      "status": "draft",
-      "createdAt": "2026-05-11T00:00:00Z",
-      "logic": {
-        "workflows": true,
-        "compliance": true,
-        "ux": true,
-        "ai": true
-      },
-      "workflows": [],
-      "compliance": [],
-      "ux_rules": [],
-      "ai_engine": []
-    }
+    "schemas": {}
   },
   "ai": {
+    "config": {
+      "manifest": {
+        "version": "1.0.0",
+        "autonomousMode": true
+      }
+    },
     "Data contracts": {
       "requestId": "uuid",
       "timestamp": "ISO-8601",
@@ -3994,7 +4004,8 @@
       },
       "workers": {}
     },
-    "validation": {}
+    "validation": {},
+    "workflow": {}
   },
   "platform": {}
 }

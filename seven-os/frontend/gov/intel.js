@@ -1,6 +1,6 @@
-import { Workflows } from "../../../ai-engine/workflows.js";
-import { DBService } from "../../../system/db/db-service.js";
-import { requireRole } from "../../../system/security/require-role.js";
+import { Workflows } from "../../backend/ai/workflows.js";
+import { DBService } from "../../system/db/db-service.js";
+import { requireRole } from "../../system/security/require-role.js";
 
 export async function onRequestPost(context) {
   const { request, env } = context;

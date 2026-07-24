@@ -1,12 +1,12 @@
 // /workers/finance/index.ts
 // GIA Sovereign Finance Worker – V12 Alpha (TypeScript)
 
-import { basicSecurityGuard } from "../../seven-os/security/worker-guard";
-import { PolicyEngine } from "../../seven-os/ai-engine/policy-engine";
-import { sha256 } from "../../seven-os/ai-engine/utils/crypto";
+import { basicSecurityGuard } from "../../system/security/worker-guard";
+import { PolicyEngine } from "../../system/policy-engine";
+import { sha256 } from "../../ai/crypto";
 
-import { buildEvent } from "../../seven-os/system/cyber/event-builder";
-import { cyberHook } from "../../seven-os/system/cyber/worker-hook";
+import { buildEvent } from "../../sector/event-builder";
+import { cyberHook } from "../../sector/worker-hook";
 
 const policy = new PolicyEngine();
 

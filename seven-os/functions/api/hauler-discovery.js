@@ -6,7 +6,7 @@ const {
   listHaulers,
   findHaulersByRegion,
   verifyHauler
-} = require("../ai/hauler-registry");
+} = require("../../ai/hauler-registry");
 
 module.exports = function (router) {
   // Register a hauler

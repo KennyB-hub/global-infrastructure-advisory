@@ -5,10 +5,10 @@ const fs = require("fs");
 const path = require("path");
 
 const { retrieveDocuments } = require("./document-retrieval");
-const { getEngine } = require("./global-ai-loader");
-const { getActiveTemplate } = require("./template-versioning");
-const { generateFallbackTemplate } = require("./template-fallback-generator");
-const { autoInsertTemplate } = require("./template-registry-auto");
+const { getEngine } = require("../engines/global-ai-loader");
+const { getActiveTemplate } = require("../templates/template-versioning");
+const { generateFallbackTemplate } = require("../templates/template-fallback-generator");
+const { autoInsertTemplate } = require("../templates/template-registry-auto");
 const { logDocumentAccess } = require("./document-access-audit");
 
 // Load your PDF generator engine (html-pdf, puppeteer, etc.)

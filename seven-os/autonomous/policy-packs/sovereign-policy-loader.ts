@@ -2,10 +2,10 @@
 // Loads globalPolicy.json, sovereignOverrides.json, and trustZones.json
 // Produces a unified, validated sovereign policy object.
 
-import globalPolicy from "../policy-packs/globalPolicy.json";
-import sovereignOverrides from "../policy-packs/sovereignOverrides.json";
-import trustZones from "../policy-packs/trustZones.json";
-import manifest from "../policy-packs/policy-manifest.json";
+import globalPolicy from "./globalPolicy.json";
+import sovereignOverrides from "./sovereignOverrides.json";
+import trustZones from "./trustZones.json";
+import manifest from "./policy-manifest.json";
 
 export interface SovereignPolicyBundle {
   manifest: any;

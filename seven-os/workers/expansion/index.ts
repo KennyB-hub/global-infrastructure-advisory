@@ -7,7 +7,7 @@ import { cyberHook } from "../../system/cyber/worker-hook";
 import { MCP } from "./mcp/mcp-client";
 import { DID } from "./backend/identity/did";
 import { VC } from "./backend/identity/vc";
-import { SovereignPolicy } from "../../policy/sovereign-policy";
+import { SovereignPolicy } from "../../policy-packs/sovereign/sovereign-policy";
 
 import { ExpansionEngine } from "../../expansion/expansion-engine";
 

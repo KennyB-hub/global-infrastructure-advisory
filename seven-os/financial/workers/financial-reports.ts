@@ -1,4 +1,4 @@
-import { Budget, calculateBudgetUsage } from "../engine/budgetEngine";
+import { Budget, calculateBudgetUsage } from "./budgetEngine";
 
 export async function getBudgetReport(budget: Budget) {
   const usage = calculateBudgetUsage(budget);

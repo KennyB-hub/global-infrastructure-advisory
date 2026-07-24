@@ -2,12 +2,12 @@
 // GIA Sovereign Full System Report – V12 Alpha
 
 import { systemFullReport } from "seven-os/backend/system/system-full-report.js";
-import infra from "../../infrastructure/index.js";
+import infra from "../../workers/system/index.js";
 import { storageInspector } from "seven-os/backend/infrastructure/tools/storage-inspector.js";
 import { inspectRouting } from "seven-os/backend/security/tools/inspect-routing.js";
 
 import systemManifest from "../../config/system-manifest.json" assert { type: "json" };
-import nodeRegistry from "../../config/node-registry.json" assert { type: "json" };
+import nodeRegistry from "../../backend/config/node-registry.json" assert { type: "json" };
 import clusterHealth from "../../config/cluster-health.json" assert { type: "json" };
 
 // Unified JSON responder
