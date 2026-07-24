@@ -1,5 +1,5 @@
 import { generateSevenResponse } from "../system/voice/response-engine.js";
-import { orchestrateMission } from "../system/mission/mission-orchestrator.js";
+import { orchestrateMission } from "../system/mission/orchestrateMission.js";
 
 export async function handleVoiceFlight(input) {
   try {

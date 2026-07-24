@@ -5,7 +5,7 @@ import { SevenValidator } from "./validator";
 import { MissionRouter } from "../cli/mission-router";
 import { UniversalVehicleRegistry } from "../seven-runtime/adapters/universal-vehicle-registry";
 import { SevenRescueCommander } from "../seven-runtime/rescue/seven-rescue-commander";
-import { SectorMeta } from "../sector/meta/sector-meta";
+import { SectorMeta } from "../sector/sector-meta";
 
 // Interop is part of runtime
 import { SevenInterop } from "../seven-runtime/interop/seven-interop";

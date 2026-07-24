@@ -1,4 +1,4 @@
-$physicalFiles = Get-ChildItem -Path . -Recurse -Include *.js, *.ts, *.json, *.tsx, *.jsx -ErrorAction SilentlyContinue | Where-Object { $_.FullName -notlike "*\node_modules\*" -and $_.FullName -notlike "*\.git\*" -and $_.FullName -notlike "*\dist\*" }
+-$physicalFiles = Get-ChildItem -Path . -Recurse -Include *.js, *.ts, *.json, *.tsx, *.jsx -ErrorAction SilentlyContinue | Where-Object { $_.FullName -notlike "*\node_modules\*" -and $_.FullName -notlike "*\.git\*" -and $_.FullName -notlike "*\dist\*" }
 $assetRegistry = @{}
 $physicalFiles | ForEach-Object { 
     $assetRegistry[$_.Name] = $_.FullName

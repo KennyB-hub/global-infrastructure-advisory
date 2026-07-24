@@ -47,8 +47,8 @@ try {
     console.log("\n[SYSTEM] Booting Sovereign Governance Framework...");
 
     // Explicitly route governance-brain and policy-packs
-    const governanceBrain = require('./autonomous/coer/governance-brain/index.js');
-    const policyPacks = require('./autonomous/core/policy-packs/index.js');
+    const governanceBrain = require('./workers/system/index.js');
+    const policyPacks = require('./workers/system/index.js');
     const { PolicyValidator } = require('./policy-validator.ts');
 
     // Instantiate Runtime Compliance Validation Block
@@ -58,6 +58,52 @@ try {
     const ogeData = require('../config/oge.json');
     const ombData = require('../config/omb.json');
     const ostpData = require('../config/ostp.json');
+
+} catch (routingError) {
+    console.error("[ROUTING BREAKDOWN] Secure pathways halted:", routingError.message);
+}
+
+// ====================================================================
+//      SEVEN-OS SOVEREIGN GOVERNANCE & POLICY ROUTING MATRIX
+// ====================================================================
+try {
+    console.log("\n[SYSTEM] Booting Sovereign Governance Framework...");
+
+    // Explicitly route governance-brain and policy-packs
+    const governanceBrain = require('./workers/system/index.js');
+    const policyPacks = require('./workers/system/index.js');
+    const { PolicyValidator } = require('./core/validator.ts');
+
+    // Instantiate Runtime Compliance Validation Block
+    const validatorInstance = new PolicyValidator();
+    
+    // Auto-scan placeholders for sovereign OGE, OMB, OSTP JSON specs
+    const ogeData = require('../config/sovereign/oge.json');
+    const ombData = require('../config/sovereign/omb.json');
+    const ostpData = require('../config/sovereign/ostp.json');
+
+} catch (routingError) {
+    console.error("[ROUTING BREAKDOWN] Secure pathways halted:", routingError.message);
+}
+
+// ====================================================================
+//      SEVEN-OS SOVEREIGN GOVERNANCE & POLICY ROUTING MATRIX
+// ====================================================================
+try {
+    console.log("\n[SYSTEM] Booting Sovereign Governance Framework...");
+
+    // Explicitly route governance-brain and policy-packs
+    const governanceBrain = require('./workers/system/index.js');
+    const policyPacks = require('./workers/system/index.js');
+    const { PolicyValidator } = require('./core/validator.ts');
+
+    // Instantiate Runtime Compliance Validation Block
+    const validatorInstance = new PolicyValidator();
+    
+    // Auto-scan placeholders for sovereign OGE, OMB, OSTP JSON specs
+    const ogeData = require('../config/sovereign/oge.json');
+    const ombData = require('../config/sovereign/omb.json');
+    const ostpData = require('../config/sovereign/ostp.json');
 
 } catch (routingError) {
     console.error("[ROUTING BREAKDOWN] Secure pathways halted:", routingError.message);

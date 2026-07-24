@@ -1,7 +1,7 @@
 // seven-os/financial/calculate/calculate.js
 
 import { RegionMeta } from "../../regions/region-meta";
-import { SectorMeta } from "../../sectors/sector-meta";
+import { SectorMeta } from "../../sector/sector-meta";
 
 /**
  * Universal math engine for ALL infrastructure sectors.
