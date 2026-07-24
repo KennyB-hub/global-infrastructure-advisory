@@ -11,7 +11,7 @@ import { enforceMCP } from "../../mcp/mcp-enforcer.js";
 import * as cyberWorker from "./cyber/index.js";
 
 // Worker imports (you already have these)
-import { publicWorker } from "../public/index.js";
+import { publicWorker } from "../system-workers/public-worker/index.js";
 import { contractorWorker } from "../contractor/index.js";
 import { farmerWorker } from "../farmer/index.js";
 import { govWorker } from "../gov/index.js";
@@ -19,7 +19,7 @@ import { deepgovWorker } from "../deepgov/index.js";
 import { adminWorker } from "../admin/index.js";
 import { expansionWorker } from "../expansion/index.js";
 import { organizerWorker } from "../organizer/index.js";
-import { anysWorker } from "../anys/index.js";
+import { anysWorker } from "../system-workers/index.js";
 import { govViewWorker } from "../govview/index.js";
 import { opportunityScannerWorker } from "../opportunity/index.js";
 import * as fccWorker from "../fcc/index.js";

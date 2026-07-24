@@ -1,15 +1,15 @@
-// /workers/admin/access.ts
-// GIA Sovereign Admin Access Endpoint – V12 Sovereign Edition (TypeScript)
+// /workers/gov/index.ts
+// GIA Sovereign Gov Worker – V12 Sovereign Edition (TypeScript)
 
-import { basicSecurityGuard } from "../../../../system/security/worker-guard";
-import { PolicyEngine } from "../../../../system/policy-engine";
-import { CryptoV12 } from "../../../../ai-engines/utils/crypto.js";
+import { basicSecurityGuard } from "../../../system/security/worker-guard.js";
+import { PolicyEngine } from "../../../system/policy-engine.js";
+import { CryptoV12 } from "../../../ai-engines/utils/crypto.js";
 
-import { buildEvent } from "../../../../sector/event-builder";
-import { cyberHook } from "../../../../sector/worker-hook";
+import { buildEvent } from "../../../sector/event-builder.js";
+import { cyberHook } from "../../../sector/worker-hook.js";
 
-import { verifyDidVcIdentity } from "../../../identity/did-vc-verifier";
-import { enforceMCP } from "../../../../mcp/mcp-enforcer";
+import { verifyDidVcIdentity } from "../../../backend/identity/did-vc-verifier.js";
+import { enforceMCP } from "../../../mcp/mcp-enforcer.js";
 
 const policy = new PolicyEngine();
 
@@ -22,14 +22,14 @@ function json(data: Record<string, any>, status: number = 200): Response {
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
-      "GIA-Trust-Zone": "admin",
+      "GIA-Trust-Zone": "gov",
       "GIA-Version": "v12-sovereign"
     }
   });
 }
 
 // ---------------------------------------------------------
-// MAIN WORKER
+// MAIN GOV WORKER
 // ---------------------------------------------------------
 export async function onRequest(context: {
   request: Request;
@@ -57,13 +57,13 @@ export async function onRequest(context: {
   // 3. Cyber Threat Scoring
   //
   const event = buildEvent({
-    source: "admin-access-worker",
-    sector: "admin",
+    source: "gov-worker",
+    sector: "gov",
     trustZone,
     type: "access_attempt",
     metadata: {
-      method: request.method,
       path: url.pathname,
+      method: request.method,
       ip: request.headers.get("cf-connecting-ip")
     }
   });
@@ -109,7 +109,7 @@ export async function onRequest(context: {
   }
 
   //
-  // 5. Integrity Verification (Decision Engine → Admin Access Worker)
+  // 5. Integrity Verification (Decision Engine → Gov Worker)
   //
   let integrityToken: string | null = null;
   let decisionPayload: any = null;
@@ -137,7 +137,7 @@ export async function onRequest(context: {
         );
       }
     } catch {
-      // No JSON → skip integrity check
+      // No JSON body → skip integrity check
     }
   }
 
@@ -146,7 +146,7 @@ export async function onRequest(context: {
   //
   const decision = await policy.check({
     trustZone,
-    workflow: "admin-access",
+    workflow: "gov-access",
     action: "view"
   });
 
@@ -156,7 +156,7 @@ export async function onRequest(context: {
       type: "policy-deny",
       reason: decision.reason,
       trustZone,
-      workflow: "admin-access",
+      workflow: "gov-access",
       systemTraceId,
       timestamp: new Date().toISOString()
     };
@@ -174,27 +174,54 @@ export async function onRequest(context: {
   }
 
   //
-  // 7. Success Response
+  // 7. Gov Status Endpoint
   //
-  const payload = {
-    ok: true,
-    zone: "admin",
-    access: "admin-only",
-    status: "ok",
+  if (url.pathname.endsWith("/gov/status")) {
+    const payload = {
+      ok: true,
+      zone: "gov",
+      endpoint: "status",
+      status: "ok",
+      systemTraceId,
+      integrityToken,
+      timestamp: new Date().toISOString(),
+      meta: {
+        trustZone,
+        workflow: "gov-access",
+        version: "v12-sovereign"
+      }
+    };
+
+    payload.integrity = {
+      hash: await CryptoV12.sha256(JSON.stringify(payload)),
+      verified: true
+    };
+
+    return json(payload);
+  }
+
+  //
+  // 8. Fallback
+  //
+  const fallback = {
+    ok: false,
+    zone: "gov",
+    status: "not-found",
+    path: url.pathname,
     systemTraceId,
     integrityToken,
     timestamp: new Date().toISOString(),
     meta: {
       trustZone,
-      workflow: "admin-access",
+      workflow: "gov-access",
       version: "v12-sovereign"
     }
   };
 
-  payload["integrity"] = {
-    hash: await CryptoV12.sha256(JSON.stringify(payload)),
+  fallback.integrity = {
+    hash: await CryptoV12.sha256(JSON.stringify(fallback)),
     verified: true
   };
 
-  return json(payload);
+  return json(fallback, 404);
 }

@@ -16,7 +16,7 @@
     "**/*",
     "../proprietary-cli/**/*",
     "../scripts/**/*"
-  ],
+, "../payroll-worker"  ],
   "exclude": [
     "dist",
     "node_modules"

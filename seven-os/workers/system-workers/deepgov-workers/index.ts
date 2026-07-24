@@ -1,15 +1,15 @@
 // /workers/deepgov/index.ts
 // GIA Sovereign DeepGov Worker – V12 Sovereign Edition
 
-import { basicSecurityGuard } from "../../../../../../system/security/worker-guard";
-import { PolicyEngine } from "../../../../../../system/policy-engine";
-import { CryptoV12 } from "../../../../../../ai-engines/utils/crypto.js";
+import { basicSecurityGuard } from "../../../system/security/worker-guard.js";
+import { PolicyEngine } from "../../../system/policy-engine.js";
+import { CryptoV12 } from "../../../ai-engines/utils/crypto.js";
 
-import { buildEvent } from "../../../../../../sector/event-builder";
-import { cyberHook } from "../../../../../../sector/worker-hook";
+import { buildEvent } from "../../../sector/event-builder.js";
+import { cyberHook } from "../../../sector/worker-hook.js";
 
-import { verifyDidVcIdentity } from "../../../../../identity/did-vc-verifier";
-import { enforceMCP } from "../../../../../../mcp/mcp-enforcer";
+import { verifyDidVcIdentity } from "../../../backend/identity/did-vc-verifier.js";
+import { enforceMCP } from "../../../mcp/mcp-enforcer.js";
 
 const policy = new PolicyEngine();
 

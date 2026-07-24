@@ -10,11 +10,11 @@
 // GIA Sovereign Debug Worker – V12 Alpha
 // Raw AI execution surface (no trust zones, no filters)
 
-import { AI } from "../../../ai/engines/global-ai-loader";
+import { AI } from "../../ai/engines/global-ai-loader.js";
 
-import systemManifest from "../../../config/system-manifest.json";
-import nodeRegistry from "../../config/node-registry.json";
-import clusterHealth from "../../../config/cluster-health.json";
+import systemManifest from "../../config/system-manifest.json";
+import nodeRegistry from "../../backend/config/node-registry.json";
+import clusterHealth from "../../config/cluster-health.json";
 
 // ---------------------------------------------------------
 // Unified JSON responder

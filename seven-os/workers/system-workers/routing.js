@@ -4,12 +4,12 @@
 import { secure } from "backend/security/middleware.js";
 import { protectedRoutes } from "./protected-routes.js";
 import { adminEndpoints } from "./admin-endpoints.js";
-import { Cortex } from "../../ai/cortex.js";
-import { runDecision } from "../../../ai/engines/decision-engine.js";
-import { EngineeringEngine } from "../../../ai/engines/engineering-engine.js";
-import { MechanicsEngine } from "../../../ai/engines/mechanics-engine.js";
+import { Cortex } from "../../backend/ai/cortex.js";
+import { runDecision } from "../../ai/engines/decision-engine.js";
+import { EngineeringEngine } from "../../ai/engines/engineering-engine.js";
+import { MechanicsEngine } from "../../ai/engines/mechanics-engine.js";
 
-import systemManifest from "../../../config/system-manifest.json" assert { type: "json" };
+import systemManifest from "../../config/system-manifest.json" assert { type: "json" };
 import nodeRegistry from "../config/node-registry.json" assert { type: "json" };
 
 // ---------------------------------------------------------

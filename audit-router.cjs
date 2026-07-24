@@ -4,11 +4,10 @@ const path = require('path');
 const REPO_ROOT = path.resolve(__dirname);
 let START_FILE = null;
 
+// Primary entry file discovery array
 const possibleEntries = [
     path.join(REPO_ROOT, 'seven-os', 'index.js'),
     path.join(REPO_ROOT, 'seven-os', 'index.ts'),
-    path.join(REPO_ROOT, 'proprietary-cli', 'index.js'),
-    path.join(REPO_ROOT, 'proprietary-cli', 'index.ts'),
     path.join(REPO_ROOT, 'index.js'),
     path.join(REPO_ROOT, 'index.ts')
 ];
@@ -23,51 +22,36 @@ for (const entry of possibleEntries) {
 const visitedFiles = new Set();
 const missingFiles = [];
 
-const NODE_BUILTINS = new Set([
-    'fs', 'path', 'crypto', 'os', 'http', 'https', 'child_process', 'cluster', 'events', 'util', 'stream'
-]);
-
-const IMPORT_REGEX = /(?:require\(['"]([^'"]+)['"]\)|from\s+['"]([^'"]+)['"]|import\(['"]([^'"]+)['"]\)|import\s+['"]([^'"]+)['"])/g;
+// Advanced RegExp mapping capturing all core import formats, including absolute route aliases
+const IMPORT_REGEX = /(?:require\(['"](.+?)['"]\)|from\s+['"](.+?)['"]|import\(['"](.+?)['"]\)|import\s+['"](.+?)['"])/g;
 
 function resolveFilePath(baseDir, importPath) {
     if (!importPath || typeof importPath !== 'string') return null;
-    importPath = importPath.trim();
 
-    if (NODE_BUILTINS.has(importPath) || (!importPath.startsWith('.') && !importPath.startsWith('/') && !importPath.includes('/') && !importPath.startsWith('@'))) {
-        return null; 
-    }
+    const potentialPaths = [];
 
-    // Comprehensive Path Alias Resolution Matrix
-    let virtualImportPath = importPath;
-    if (importPath.startsWith('@seven-os/')) virtualImportPath = importPath.replace('@seven-os/', 'seven-os/');
-    if (importPath.startsWith('@engines/')) virtualImportPath = importPath.replace('@engines/', 'engines/');
-    if (importPath.startsWith('@autonomous/')) virtualImportPath = importPath.replace('@autonomous/', 'autonomous/');
-    if (importPath.startsWith('@runtime/')) virtualImportPath = importPath.replace('@runtime/', 'seven-runtime/');
-    if (importPath.startsWith('@proprietary-cli/')) virtualImportPath = importPath.replace('@proprietary-cli/', 'proprietary-cli/');
-    if (importPath.startsWith('@scripts/')) virtualImportPath = importPath.replace('@scripts/', 'scripts/');
-
-    const potentialPaths = [
-        path.resolve(baseDir, virtualImportPath),                     
-        path.resolve(REPO_ROOT, virtualImportPath),                    
-        path.resolve(REPO_ROOT, 'seven-os', virtualImportPath),
-        path.resolve(REPO_ROOT, 'proprietary-cli', virtualImportPath),
-        path.resolve(REPO_ROOT, 'scripts', virtualImportPath)
-    ];
-
-    if (importPath.startsWith('..')) {
-        potentialPaths.push(path.resolve(REPO_ROOT, importPath.replace(/^\.\.\//, '')));
+    // 1. Resolve standard relative paths
+    if (importPath.startsWith('.') || importPath.startsWith('/')) {
+        potentialPaths.push(path.resolve(baseDir, importPath));
+    } else {
+        // 2. Resolve root-level structural layouts (autonomous, backend, seven-runtime, seven-os modules)
+        potentialPaths.push(path.resolve(REPO_ROOT, importPath));
+        potentialPaths.push(path.resolve(REPO_ROOT, 'seven-os', importPath));
     }
 
     const extensions = ['.ts', '.tsx', '.js', '.jsx', '.json'];
 
     for (const fullPath of potentialPaths) {
+        // Direct file matching layer
         if (fs.existsSync(fullPath) && fs.statSync(fullPath).isFile()) {
             return fullPath;
         }
+        // File extension checking layer
         for (const ext of extensions) {
             const withExt = fullPath + ext;
             if (fs.existsSync(withExt) && fs.statSync(withExt).isFile()) return withExt;
         }
+        // Index folder resolution fallback engine
         if (fs.existsSync(fullPath) && fs.statSync(fullPath).isDirectory()) {
             for (const ext of extensions) {
                 const indexPath = path.join(fullPath, `index${ext}`);
@@ -76,7 +60,10 @@ function resolveFilePath(baseDir, importPath) {
         }
     }
     
-    return path.resolve(baseDir, importPath);
+    // Return relative resolution fallback to catch missing paths
+    return importPath.startsWith('.') || importPath.startsWith('/') 
+        ? path.resolve(baseDir, importPath) 
+        : path.resolve(REPO_ROOT, importPath);
 }
 
 function auditFile(filePath, importedFrom = 'Root') {
@@ -92,12 +79,13 @@ function auditFile(filePath, importedFrom = 'Root') {
     const displayPath = path.relative(REPO_ROOT, filePath);
     const lowerPath = filePath.toLowerCase();
     
-    if (lowerPath.includes('proprietary-cli')) {
-        console.log(`\x1b[33m[PROPRIETARY CLI]\x1b[0m ${displayPath}`);
-    } else if (lowerPath.includes('scripts')) {
-        console.log(`\x1b[34m[AUTOMATION SCRIPT]\x1b[0m ${displayPath}`);
-    } else if (lowerPath.includes('ai-router') || lowerPath.includes('autonomous')) {
+    // Custom terminal color codes for your specific architectural pipelines
+    if (lowerPath.includes('ai-router') || lowerPath.includes('autonomous')) {
         console.log(`\x1b[35m[AI / AUTONOMOUS STACK]\x1b[0m ${displayPath}`);
+    } else if (lowerPath.includes('seven-runtime') || lowerPath.includes('seven-stack')) {
+        console.log(`\x1b[36m[RUNTIME ENGINE]\x1b[0m ${displayPath}`);
+    } else if (lowerPath.includes('backend')) {
+        console.log(`\x1b[34m[BACKEND CORE]\x1b[0m ${displayPath}`);
     } else {
         console.log(`\x1b[32m[AUDITED]\x1b[0m ${displayPath}`);
     }
@@ -109,7 +97,8 @@ function auditFile(filePath, importedFrom = 'Root') {
 
         IMPORT_REGEX.lastIndex = 0;
         while ((match = IMPORT_REGEX.exec(content)) !== null) {
-            const importPath = match || match || match || match;
+            // Safe filter to check position slots (1, 2, 3, or 4) based on regex capture rules
+            const importPath = match[1] || match[2] || match[3] || match[4];
             
             if (importPath) {
                 const resolvedPath = resolveFilePath(currentDir, importPath);
@@ -124,7 +113,7 @@ function auditFile(filePath, importedFrom = 'Root') {
 }
 
 console.log("====================================================");
-console.log("    GLOBAL SEVEN-OS ARCHITECTURE ROUTING AUDITOR    ");
+console.log("     SEVEN-OS DEEP INTEGRATION MULTI-INDEX AUDITOR  ");
 console.log("====================================================\n");
 
 if (!START_FILE) {

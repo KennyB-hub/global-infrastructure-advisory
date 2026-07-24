@@ -1,7 +1,7 @@
 // /workers/protected-routes.js
 // GIA Protected API Layer – V12 Alpha
 
-import systemManifest from "../../../config/system-manifest.json" assert { type: "json" };
+import systemManifest from "../../config/system-manifest.json" assert { type: "json" };
 
 // Unified JSON responder
 function json(data, status = 200, extraHeaders = {}) {

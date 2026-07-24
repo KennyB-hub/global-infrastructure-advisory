@@ -1,12 +1,12 @@
 // /workers/payroll/index.ts
 // GIA Sovereign Payroll Worker – V12 Alpha (TypeScript)
 
-import { basicSecurityGuard } from "../../../../../../../../../../system/security/worker-guard";
-import { PolicyEngine } from "../../../../../../../../../../system/policy-engine";
-import { CryptoV12 } from "../../../../../../../../../../ai-engines/utils/crypto.js";
+import { basicSecurityGuard } from "../seven-os/system/security/worker-guard.js";
+import { PolicyEngine } from "../seven-os/system/policy-engine.js";
+import { CryptoV12 } from "../seven-os/ai-engines/utils/crypto.js";
 
-import { buildEvent } from "../../../../../../../../../../sector/event-builder";
-import { cyberHook } from "../../../../../../../../../../sector/worker-hook";
+import { buildEvent } from "../seven-os/sector/event-builder.js";
+import { cyberHook } from "../seven-os/sector/worker-hook.js";
 
 const policy = new PolicyEngine();
 

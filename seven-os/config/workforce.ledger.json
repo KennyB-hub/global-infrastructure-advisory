@@ -1,0 +1,258 @@
+{
+  "meta": {
+    "schemaTitle": "Seven-OS Unified Workforce Ledger",
+    "updatedAt": "2026-07-24T12:50:46Z",
+    "runtimeStatus": "online",
+    "engineStage": "First-Stage-Autonomous-Mix",
+    "securityGuard": "mcp-enforcer"
+  },
+  "workforceManifest": [
+    {
+      "workerId": "WKR-ADMIN-9096",
+      "name": "admin",
+      "type": "autonomous",
+      "assignedSector": "infrastructure",
+      "status": "online",
+      "evidenceMatrix": {
+        "verificationHash": "ed6d841a-34f9-4ef5-a869-144a21214ed3",
+        "lastAudit": "2026-07-24T12:50:42Z",
+        "executionStatus": "verified",
+        "csvMapBinding": "seven-os\\config\\csv\\maps\\admin-evidence.csv"
+      }
+    },
+    {
+      "workerId": "WKR-ANYS-9027",
+      "name": "anys",
+      "type": "autonomous",
+      "assignedSector": "infrastructure",
+      "status": "online",
+      "evidenceMatrix": {
+        "verificationHash": "82a77f1b-0a1c-44bd-b185-a17030e5e7b6",
+        "lastAudit": "2026-07-24T12:50:42Z",
+        "executionStatus": "verified",
+        "csvMapBinding": "seven-os\\config\\csv\\maps\\anys-evidence.csv"
+      }
+    },
+    {
+      "workerId": "WKR-BACKEND-7532",
+      "name": "backend",
+      "type": "autonomous",
+      "assignedSector": "infrastructure",
+      "status": "online",
+      "evidenceMatrix": {
+        "verificationHash": "bd5e780d-2f0e-48cb-b609-336087d526cf",
+        "lastAudit": "2026-07-24T12:50:42Z",
+        "executionStatus": "verified",
+        "csvMapBinding": "seven-os\\config\\csv\\maps\\backend-evidence.csv"
+      }
+    },
+    {
+      "workerId": "WKR-CONTRACTOR-8972",
+      "name": "contractor",
+      "type": "autonomous",
+      "assignedSector": "infrastructure",
+      "status": "online",
+      "evidenceMatrix": {
+        "verificationHash": "4b0ca866-bfba-457d-a377-6e0c244e41a3",
+        "lastAudit": "2026-07-24T12:50:42Z",
+        "executionStatus": "verified",
+        "csvMapBinding": "seven-os\\config\\csv\\maps\\contractor-evidence.csv"
+      }
+    },
+    {
+      "workerId": "WKR-CYBER-4311",
+      "name": "cyber",
+      "type": "autonomous",
+      "assignedSector": "security",
+      "status": "online",
+      "evidenceMatrix": {
+        "verificationHash": "e1ec3f59-f750-4a22-9191-0c8329a627c3",
+        "lastAudit": "2026-07-24T12:50:42Z",
+        "executionStatus": "verified",
+        "csvMapBinding": "seven-os\\config\\csv\\maps\\cyber-evidence.csv"
+      }
+    },
+    {
+      "workerId": "WKR-DEEPGOV-9949",
+      "name": "deepgov",
+      "type": "autonomous",
+      "assignedSector": "governance",
+      "status": "online",
+      "evidenceMatrix": {
+        "verificationHash": "600d0edb-80b7-422a-9dcf-2390ca86a61f",
+        "lastAudit": "2026-07-24T12:50:42Z",
+        "executionStatus": "verified",
+        "csvMapBinding": "seven-os\\config\\csv\\maps\\deepgov-evidence.csv"
+      }
+    },
+    {
+      "workerId": "WKR-EMERGENCY-ROUTER-2844",
+      "name": "emergency-router",
+      "type": "autonomous",
+      "assignedSector": "infrastructure",
+      "status": "online",
+      "evidenceMatrix": {
+        "verificationHash": "e9c3f120-7f16-41a4-81a6-f1c194059951",
+        "lastAudit": "2026-07-24T12:50:42Z",
+        "executionStatus": "verified",
+        "csvMapBinding": "seven-os\\config\\csv\\maps\\emergency-router-evidence.csv"
+      }
+    },
+    {
+      "workerId": "WKR-EXPANSION-7263",
+      "name": "expansion",
+      "type": "autonomous",
+      "assignedSector": "infrastructure",
+      "status": "online",
+      "evidenceMatrix": {
+        "verificationHash": "3751bfb5-17bc-45f3-aa35-93505559caa3",
+        "lastAudit": "2026-07-24T12:50:42Z",
+        "executionStatus": "verified",
+        "csvMapBinding": "seven-os\\config\\csv\\maps\\expansion-evidence.csv"
+      }
+    },
+    {
+      "workerId": "WKR-FARMER-6174",
+      "name": "farmer",
+      "type": "autonomous",
+      "assignedSector": "infrastructure",
+      "status": "online",
+      "evidenceMatrix": {
+        "verificationHash": "dbdc5e16-42f5-4226-b09f-60ef0048c7eb",
+        "lastAudit": "2026-07-24T12:50:42Z",
+        "executionStatus": "verified",
+        "csvMapBinding": "seven-os\\config\\csv\\maps\\farmer-evidence.csv"
+      }
+    },
+    {
+      "workerId": "WKR-FCC-2222",
+      "name": "fcc",
+      "type": "autonomous",
+      "assignedSector": "infrastructure",
+      "status": "online",
+      "evidenceMatrix": {
+        "verificationHash": "dd87592d-071d-48dc-b97e-dcca5b084b13",
+        "lastAudit": "2026-07-24T12:50:42Z",
+        "executionStatus": "verified",
+        "csvMapBinding": "seven-os\\config\\csv\\maps\\fcc-evidence.csv"
+      }
+    },
+    {
+      "workerId": "WKR-FINANCE-2577",
+      "name": "finance",
+      "type": "autonomous",
+      "assignedSector": "infrastructure",
+      "status": "online",
+      "evidenceMatrix": {
+        "verificationHash": "3b96c125-7b01-4753-832a-edcd37cbc9d0",
+        "lastAudit": "2026-07-24T12:50:42Z",
+        "executionStatus": "verified",
+        "csvMapBinding": "seven-os\\config\\csv\\maps\\finance-evidence.csv"
+      }
+    },
+    {
+      "workerId": "WKR-GOV-7004",
+      "name": "gov",
+      "type": "autonomous",
+      "assignedSector": "governance",
+      "status": "online",
+      "evidenceMatrix": {
+        "verificationHash": "3caae0a2-5758-4eff-894e-65212a375d86",
+        "lastAudit": "2026-07-24T12:50:42Z",
+        "executionStatus": "verified",
+        "csvMapBinding": "seven-os\\config\\csv\\maps\\gov-evidence.csv"
+      }
+    },
+    {
+      "workerId": "WKR-GOVVIEW-9853",
+      "name": "govview",
+      "type": "autonomous",
+      "assignedSector": "infrastructure",
+      "status": "online",
+      "evidenceMatrix": {
+        "verificationHash": "6ac27f79-5135-4921-986e-772af3251cbe",
+        "lastAudit": "2026-07-24T12:50:42Z",
+        "executionStatus": "verified",
+        "csvMapBinding": "seven-os\\config\\csv\\maps\\govview-evidence.csv"
+      }
+    },
+    {
+      "workerId": "WKR-MCP-4719",
+      "name": "mcp",
+      "type": "autonomous",
+      "assignedSector": "infrastructure",
+      "status": "online",
+      "evidenceMatrix": {
+        "verificationHash": "42d9ea07-0cd9-4a4f-862d-e9a6a04ad6bf",
+        "lastAudit": "2026-07-24T12:50:42Z",
+        "executionStatus": "verified",
+        "csvMapBinding": "seven-os\\config\\csv\\maps\\mcp-evidence.csv"
+      }
+    },
+    {
+      "workerId": "WKR-OPPORTUNITY-8782",
+      "name": "opportunity",
+      "type": "autonomous",
+      "assignedSector": "infrastructure",
+      "status": "online",
+      "evidenceMatrix": {
+        "verificationHash": "dcf9f7f1-2562-4b7c-a32f-6897791592ac",
+        "lastAudit": "2026-07-24T12:50:42Z",
+        "executionStatus": "verified",
+        "csvMapBinding": "seven-os\\config\\csv\\maps\\opportunity-evidence.csv"
+      }
+    },
+    {
+      "workerId": "WKR-ORGANIZER-7297",
+      "name": "organizer",
+      "type": "autonomous",
+      "assignedSector": "operations",
+      "status": "online",
+      "evidenceMatrix": {
+        "verificationHash": "36e64fe4-1e1e-47b7-9c49-70683762548e",
+        "lastAudit": "2026-07-24T12:50:42Z",
+        "executionStatus": "verified",
+        "csvMapBinding": "seven-os\\config\\csv\\maps\\organizer-evidence.csv"
+      }
+    },
+    {
+      "workerId": "WKR-POLICY-5044",
+      "name": "policy",
+      "type": "autonomous",
+      "assignedSector": "infrastructure",
+      "status": "online",
+      "evidenceMatrix": {
+        "verificationHash": "2d86b8c2-de0f-49ad-b5ed-996229bbacf7",
+        "lastAudit": "2026-07-24T12:50:42Z",
+        "executionStatus": "verified",
+        "csvMapBinding": "seven-os\\config\\csv\\maps\\policy-evidence.csv"
+      }
+    },
+    {
+      "workerId": "WKR-SYSTEM-1724",
+      "name": "system",
+      "type": "autonomous",
+      "assignedSector": "infrastructure",
+      "status": "online",
+      "evidenceMatrix": {
+        "verificationHash": "dbc21b71-bc60-47d5-9142-9ab62a4059b5",
+        "lastAudit": "2026-07-24T12:50:42Z",
+        "executionStatus": "verified",
+        "csvMapBinding": "seven-os\\config\\csv\\maps\\system-evidence.csv"
+      }
+    },
+    {
+      "workerId": "WKR-SYSTEM-WORKERS-9215",
+      "name": "system-workers",
+      "type": "autonomous",
+      "assignedSector": "infrastructure",
+      "status": "online",
+      "evidenceMatrix": {
+        "verificationHash": "a64582a6-76ce-4dbe-a462-37dad1f23923",
+        "lastAudit": "2026-07-24T12:50:42Z",
+        "executionStatus": "verified",
+        "csvMapBinding": "seven-os\\config\\csv\\maps\\system-workers-evidence.csv"
+      }
+    }
+  ]
+}

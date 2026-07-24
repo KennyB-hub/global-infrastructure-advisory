@@ -1,9 +1,28 @@
 {
-  "updatedAt": "2026-07-24T04:41:45Z",
+  "updatedAt": "2026-07-24T12:15:54Z",
   "runtimeStatus": "online",
-  "activeRoutes": [],
-  "compilerMode": "TypeScript-Autonomous",
-  "buildTarget": "dist/seven-os",
+  "activeRoutes": "/api/",
+  "activeWorkers": [
+    "admin",
+    "anys",
+    "backend",
+    "contractor",
+    "cyber",
+    "deepgov",
+    "emergency-router",
+    "expansion",
+    "farmer",
+    "fcc",
+    "finance",
+    "gov",
+    "govview",
+    "mcp",
+    "opportunity",
+    "organizer",
+    "policy",
+    "system",
+    "system-workers"
+  ],
   "runtimeEngine": "Native-TS-Engine",
   "stage": "First-Stage-Mix"
 }
