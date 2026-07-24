@@ -3,5 +3,7 @@
   "runtimeStatus": "online",
   "activeRoutes": [],
   "compilerMode": "TypeScript-Autonomous",
-  "buildTarget": "dist/seven-os"
+  "buildTarget": "dist/seven-os",
+  "runtimeEngine": "Native-TS-Engine",
+  "stage": "First-Stage-Mix"
 }
