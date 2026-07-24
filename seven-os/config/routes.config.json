@@ -1,5 +1,7 @@
 {
   "updatedAt": "2026-07-24T04:41:45Z",
   "runtimeStatus": "online",
-  "activeRoutes": []
+  "activeRoutes": [],
+  "compilerMode": "TypeScript-Autonomous",
+  "buildTarget": "dist/seven-os"
 }
