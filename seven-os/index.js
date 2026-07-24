@@ -6,9 +6,9 @@ const policyPacks = require('./workers/system/index.js');
 const validatorEngine = require('./core/validator.ts');
 
 // Sovereign Compliance Mapping Profiles
-const ogeProfile = require('../autonomous/policy-packs/sovereign/oge.json');
-const ombProfile = require('../autonomous/policy-packs/sovereign/omb.json');
-const ostpProfile = require('../autonomous/policy-packs/sovereign/ostp.json');
+const ogeProfile = require('./config/oge.json');
+const ombProfile = require('./config/omb.json');
+const ostpProfile = require('./config/ostp.json');
 
 module.exports = {
     status: "online",
@@ -32,9 +32,9 @@ try {
     const validatorInstance = new PolicyValidator();
     
     // Auto-scan placeholders for sovereign OGE, OMB, OSTP JSON specs
-    const ogeData = require('../config/sovereign/oge.json');
-    const ombData = require('../config/sovereign/omb.json');
-    const ostpData = require('../config/sovereign/ostp.json');
+    const ogeData = require('../config/oge.json');
+    const ombData = require('../config/omb.json');
+    const ostpData = require('../config/ostp.json');
 
 } catch (routingError) {
     console.error("[ROUTING BREAKDOWN] Secure pathways halted:", routingError.message);
@@ -55,9 +55,9 @@ try {
     const validatorInstance = new PolicyValidator();
     
     // Auto-scan placeholders for sovereign OGE, OMB, OSTP JSON specs
-    const ogeData = require('../config/sovereign/oge.json');
-    const ombData = require('../config/sovereign/omb.json');
-    const ostpData = require('../config/sovereign/ostp.json');
+    const ogeData = require('../config/oge.json');
+    const ombData = require('../config/omb.json');
+    const ostpData = require('../config/ostp.json');
 
 } catch (routingError) {
     console.error("[ROUTING BREAKDOWN] Secure pathways halted:", routingError.message);
