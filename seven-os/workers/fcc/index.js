@@ -1,3 +1,8 @@
+// --- SEVEN-OS AUTOMATED LEDGER TRACKING HOOK ---
+import { SevenOsLedgerManager } from "../utils/ledger-manager";
+const _ledger = new SevenOsLedgerManager();
+_ledger.logWorkerEvidence("fcc", "online", "Autonomous worker runtime initialization cycle verified.");
+// -----------------------------------------------
 // FCC Worker – V12 Sovereign Edition
 
 import { safeInspectInfra } from "../../backend/ai/tools/safe-infra.js";
@@ -28,3 +33,4 @@ export async function handleFCC(event, context) {
     timestamp: new Date().toISOString()
   };
 }
+

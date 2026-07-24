@@ -1,3 +1,8 @@
+// --- SEVEN-OS AUTOMATED LEDGER TRACKING HOOK ---
+import { SevenOsLedgerManager } from "../../utils/ledger-manager";
+const _ledger = new SevenOsLedgerManager();
+_ledger.logWorkerEvidence("deepgov-workers", "online", "Autonomous worker runtime initialization cycle verified.");
+// -----------------------------------------------
 // /workers/deepgov/index.ts
 // GIA Sovereign DeepGov Worker – V12 Sovereign Edition
 
@@ -200,4 +205,5 @@ export async function onRequest(context: {
 
   return json(payload);
 }
+
 

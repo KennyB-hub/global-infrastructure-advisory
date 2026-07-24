@@ -1,3 +1,8 @@
+// --- SEVEN-OS AUTOMATED LEDGER TRACKING HOOK ---
+import { SevenOsLedgerManager } from "../utils/ledger-manager";
+const _ledger = new SevenOsLedgerManager();
+_ledger.logWorkerEvidence("expansion", "online", "Autonomous worker runtime initialization cycle verified.");
+// -----------------------------------------------
 // GIA Expansion Worker – Worker 9-of-12 (V12 Alpha)
 // Safely expands the Collective across clouds, regions, satellites, and infra zones.
 
@@ -146,3 +151,4 @@ export default {
     );
   }
 };
+

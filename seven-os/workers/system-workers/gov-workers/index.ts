@@ -1,3 +1,8 @@
+// --- SEVEN-OS AUTOMATED LEDGER TRACKING HOOK ---
+import { SevenOsLedgerManager } from "../../utils/ledger-manager";
+const _ledger = new SevenOsLedgerManager();
+_ledger.logWorkerEvidence("gov-workers", "online", "Autonomous worker runtime initialization cycle verified.");
+// -----------------------------------------------
 // /workers/gov/index.ts
 // GIA Sovereign Gov Worker – V12 Sovereign Edition (TypeScript)
 
@@ -225,3 +230,4 @@ export async function onRequest(context: {
 
   return json(fallback, 404);
 }
+

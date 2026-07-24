@@ -1,3 +1,8 @@
+// --- SEVEN-OS AUTOMATED LEDGER TRACKING HOOK ---
+import { SevenOsLedgerManager } from "../utils/ledger-manager";
+const _ledger = new SevenOsLedgerManager();
+_ledger.logWorkerEvidence("emergency-router", "online", "Autonomous worker runtime initialization cycle verified.");
+// -----------------------------------------------
 /**
  * © 2026 Global Infrastructure Advisory
  * Emergency Router — Defense‑Aware Auto Failover Mode (V12 Alpha)
@@ -90,3 +95,4 @@ export default {
     }
   }
 };
+

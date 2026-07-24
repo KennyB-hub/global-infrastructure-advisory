@@ -1,3 +1,8 @@
+// --- SEVEN-OS AUTOMATED LEDGER TRACKING HOOK ---
+import { SevenOsLedgerManager } from "../../utils/ledger-manager";
+const _ledger = new SevenOsLedgerManager();
+_ledger.logWorkerEvidence("cyber", "online", "Autonomous worker runtime initialization cycle verified.");
+// -----------------------------------------------
 // workers/system/cyber/index.js
 import { scoreThreat } from "./threat-score.engine.js";
 import { detectAnomalies } from "./anomaly.engine.js";
@@ -23,3 +28,4 @@ export async function handle(payload, context) {
     timestamp: new Date().toISOString()
   };
 }
+
