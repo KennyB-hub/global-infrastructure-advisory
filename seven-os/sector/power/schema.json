@@ -1,8 +1,0 @@
-{
-  "sector": "power",
-  "description": "Electrical grid and power infrastructure",
-  "endpoints": {
-    "status": "/power/status",
-    "dispatch": "/power/dispatch"
-  }
-}

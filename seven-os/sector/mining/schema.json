@@ -1,8 +1,0 @@
-{
-  "sector": "mining",
-  "description": "Mining & extraction infrastructure",
-  "endpoints": {
-    "status": "/mining/status",
-    "dispatch": "/mining/dispatch"
-  }
-}

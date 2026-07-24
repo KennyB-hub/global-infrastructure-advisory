@@ -1,8 +1,0 @@
-{
-  "sector": "cyber",
-  "description": "cyber & infrastructure",
-  "endpoints": {
-    "status": "/cyber/status",
-    "dispatch": "/cyber/dispatch"
-  }
-}

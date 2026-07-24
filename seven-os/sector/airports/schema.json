@@ -1,8 +1,0 @@
-{
-  "sector": "airports",
-  "description": "airports & infrastructure",
-  "endpoints": {
-    "status": "/airports/status",
-    "dispatch": "/airports/dispatch"
-  }
-}
