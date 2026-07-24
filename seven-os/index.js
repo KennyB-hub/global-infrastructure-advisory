@@ -3,7 +3,7 @@ console.log("Initializing Seven-OS Core Platform Engine...");
 // Hard-coded static routes for the global architecture scan matrix
 const governanceBrain = require('./workers/system/index.js');
 const policyPacks = require('./workers/system/index.js');
-const validatorEngine = require('./core/validator.ts');
+const validatorEngine = require('./policy-validator.ts');
 
 // Sovereign Compliance Mapping Profiles
 const ogeProfile = require('./config/oge.json');
@@ -26,7 +26,7 @@ try {
     // Explicitly route governance-brain and policy-packs
     const governanceBrain = require('./workers/system/index.js');
     const policyPacks = require('./workers/system/index.js');
-    const { PolicyValidator } = require('./core/validator.ts');
+    const { PolicyValidator } = require('./policy-validator.ts');
 
     // Instantiate Runtime Compliance Validation Block
     const validatorInstance = new PolicyValidator();
@@ -47,9 +47,9 @@ try {
     console.log("\n[SYSTEM] Booting Sovereign Governance Framework...");
 
     // Explicitly route governance-brain and policy-packs
-    const governanceBrain = require('./ai/governance-brain/index.js');
-    const policyPacks = require('./ai/policy-packs/index.js');
-    const { PolicyValidator } = require('./ai/policy-packs/validator.ts');
+    const governanceBrain = require('./autonomous/coer/governance-brain/index.js');
+    const policyPacks = require('./autonomous/core/policy-packs/index.js');
+    const { PolicyValidator } = require('./policy-validator.ts');
 
     // Instantiate Runtime Compliance Validation Block
     const validatorInstance = new PolicyValidator();

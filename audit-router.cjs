@@ -4,7 +4,6 @@ const path = require('path');
 const REPO_ROOT = path.resolve(__dirname);
 let START_FILE = null;
 
-// Primary entry file discovery array
 const possibleEntries = [
     path.join(REPO_ROOT, 'seven-os', 'index.js'),
     path.join(REPO_ROOT, 'seven-os', 'index.ts'),
@@ -22,36 +21,45 @@ for (const entry of possibleEntries) {
 const visitedFiles = new Set();
 const missingFiles = [];
 
-// Advanced RegExp mapping capturing all core import formats, including absolute route aliases
-const IMPORT_REGEX = /(?:require\(['"](.+?)['"]\)|from\s+['"](.+?)['"]|import\(['"](.+?)['"]\)|import\s+['"](.+?)['"])/g;
+// List of built-in Node modules to ignore so they don't flag as missing files
+const NODE_BUILTINS = new Set([
+    'fs', 'path', 'crypto', 'os', 'http', 'https', 'child_process', 'cluster', 'events', 'util', 'stream'
+]);
+
+// Strict Regex to capture clean import strings and ignore random inline code brackets
+const IMPORT_REGEX = /(?:require\(['"]([^'"]+)['"]\)|from\s+['"]([^'"]+)['"]|import\(['"]([^'"]+)['"]\)|import\s+['"]([^'"]+)['"])/g;
 
 function resolveFilePath(baseDir, importPath) {
     if (!importPath || typeof importPath !== 'string') return null;
+    
+    // Trim extra spaces
+    importPath = importPath.trim();
+
+    // Skip native packages or third-party node_modules
+    if (NODE_BUILTINS.has(importPath) || (!importPath.startsWith('.') && !importPath.startsWith('/') && !importPath.includes('/'))) {
+        return null; 
+    }
 
     const potentialPaths = [];
 
-    // 1. Resolve standard relative paths
-    if (importPath.startsWith('.') || importPath.startsWith('/')) {
-        potentialPaths.push(path.resolve(baseDir, importPath));
-    } else {
-        // 2. Resolve root-level structural layouts (autonomous, backend, seven-runtime, seven-os modules)
+    // Prioritize checking your NEW root directory folders since you reorganized them
+    if (!importPath.startsWith('.') && !importPath.startsWith('/')) {
         potentialPaths.push(path.resolve(REPO_ROOT, importPath));
         potentialPaths.push(path.resolve(REPO_ROOT, 'seven-os', importPath));
+    } else {
+        potentialPaths.push(path.resolve(baseDir, importPath));
     }
 
     const extensions = ['.ts', '.tsx', '.js', '.jsx', '.json'];
 
     for (const fullPath of potentialPaths) {
-        // Direct file matching layer
         if (fs.existsSync(fullPath) && fs.statSync(fullPath).isFile()) {
             return fullPath;
         }
-        // File extension checking layer
         for (const ext of extensions) {
             const withExt = fullPath + ext;
             if (fs.existsSync(withExt) && fs.statSync(withExt).isFile()) return withExt;
         }
-        // Index folder resolution fallback engine
         if (fs.existsSync(fullPath) && fs.statSync(fullPath).isDirectory()) {
             for (const ext of extensions) {
                 const indexPath = path.join(fullPath, `index${ext}`);
@@ -60,7 +68,6 @@ function resolveFilePath(baseDir, importPath) {
         }
     }
     
-    // Return relative resolution fallback to catch missing paths
     return importPath.startsWith('.') || importPath.startsWith('/') 
         ? path.resolve(baseDir, importPath) 
         : path.resolve(REPO_ROOT, importPath);
@@ -77,18 +84,8 @@ function auditFile(filePath, importedFrom = 'Root') {
 
     visitedFiles.add(filePath);
     const displayPath = path.relative(REPO_ROOT, filePath);
-    const lowerPath = filePath.toLowerCase();
     
-    // Custom terminal color codes for your specific architectural pipelines
-    if (lowerPath.includes('ai-router') || lowerPath.includes('autonomous')) {
-        console.log(`\x1b[35m[AI / AUTONOMOUS STACK]\x1b[0m ${displayPath}`);
-    } else if (lowerPath.includes('seven-runtime') || lowerPath.includes('seven-stack')) {
-        console.log(`\x1b[36m[RUNTIME ENGINE]\x1b[0m ${displayPath}`);
-    } else if (lowerPath.includes('backend')) {
-        console.log(`\x1b[34m[BACKEND CORE]\x1b[0m ${displayPath}`);
-    } else {
-        console.log(`\x1b[32m[AUDITED]\x1b[0m ${displayPath}`);
-    }
+    console.log(`\x1b[32m[AUDITED]\x1b[0m ${displayPath}`);
 
     try {
         const content = fs.readFileSync(filePath, 'utf8');
@@ -97,7 +94,7 @@ function auditFile(filePath, importedFrom = 'Root') {
 
         IMPORT_REGEX.lastIndex = 0;
         while ((match = IMPORT_REGEX.exec(content)) !== null) {
-            // Safe filter to check position slots (1, 2, 3, or 4) based on regex capture rules
+            // Safely extract from whatever capturing group matched (1, 2, 3, or 4)
             const importPath = match[1] || match[2] || match[3] || match[4];
             
             if (importPath) {
@@ -113,7 +110,7 @@ function auditFile(filePath, importedFrom = 'Root') {
 }
 
 console.log("====================================================");
-console.log("     SEVEN-OS DEEP INTEGRATION MULTI-INDEX AUDITOR  ");
+console.log("     SEVEN-OS REORGANIZED WORKSPACE AUDITOR         ");
 console.log("====================================================\n");
 
 if (!START_FILE) {
