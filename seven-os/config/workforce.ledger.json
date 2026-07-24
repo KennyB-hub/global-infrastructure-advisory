@@ -1,9 +1,9 @@
 {
   "meta": {
     "schemaTitle": "Seven-OS Unified Workforce Ledger",
-    "updatedAt": "2026-07-24T14:04:19Z",
+    "updatedAt": "2026-07-24T14:39:39Z",
     "runtimeStatus": "online",
-    "engineStage": "First-Stage-Autonomous-Mix",
+    "engineStage": "First-Stage-Autonomous-Hardware-Mix",
     "securityGuard": "mcp-enforcer"
   },
   "workforceManifest": [
@@ -253,6 +253,44 @@
         "executionStatus": "verified",
         "csvMapBinding": "seven-os\\config\\csv\\maps\\system-workers-evidence.csv"
       }
+    }
+  ],
+  "roboticFleet": [
+    {
+      "assetId": "ROB-DRN-VALKYRIE",
+      "type": "drone",
+      "model": "Valkyrie-X4-Autonomous",
+      "status": "online",
+      "batteryStatus": 94,
+      "currentPayload": "Thermal-Infrared / LIDAR-3D-Mapping",
+      "capabilities": [
+        "airborne_structural_scanning",
+        "disaster_mesh_broadcast",
+        "gas_ventilation_mapping"
+      ],
+      "assignedSector": "emergency",
+      "operationalMissions": [
+        "disaster_response",
+        "mine_safety"
+      ]
+    },
+    {
+      "assetId": "ROB-RVR-VANGUARD",
+      "type": "rover",
+      "model": "Vanguard-T6-Subterranean",
+      "status": "online",
+      "batteryStatus": 88,
+      "currentPayload": "Multi-Gas-Sniffer / Seismic-Acoustic-Sensor",
+      "capabilities": [
+        "subterranean_shaft_navigation",
+        "toxic_gas_threshold_detection",
+        "thermal_heat_tracking"
+      ],
+      "assignedSector": "public_safety",
+      "operationalMissions": [
+        "mine_safety",
+        "disaster_response"
+      ]
     }
   ]
 }
