@@ -1,0 +1,20 @@
+{
+  "identity_layer": {
+    "organization_name": "Global Infrastructure Advisory",
+    "business_ein": "41-4721740",
+    "sovereign_id": "GIA-SOV-2026-991A",
+    "issuing_jurisdiction": "US"
+  },
+  "contract_metadata": {
+    "contract_id": "GOV-CON-77042",
+    "job_type": "Federal Infrastructure Execution",
+    "execution_framework": "Seven-os Engine v12",
+    "timestamp_utc": "2026-07-23T21:47:00Z"
+  },
+  "financial_layer": {
+    "escrow_ledger": "CHIPS-DLT-PROD-01",
+    "contract_value_usd": 1500000.00,
+    "crypto_settlement_asset": "USDC",
+    "allocation_hash": "a4f210b39c0d23f41e598ba9910c23d4"
+  }
+}

@@ -5,9 +5,9 @@
 
 const fs = require('fs').promises;
 const path = require('path');
-const { normalizeLocation } = require('./normalize-location');
-const { matchRegion } = require('./region-matcher');
-const { mapSectorContext } = require('./sector-mapping');
+const { normalizeLocation } = require('./normalize-location.js');
+const { matchRegion } = require('./region-matcher.js');
+const { mapSectorContext } = require('./sector-mapping.js');
 
 module.exports = {
 

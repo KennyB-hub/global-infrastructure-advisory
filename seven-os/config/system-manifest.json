@@ -1,10 +1,1 @@
-{
-  "platform_id": "GIA-SOVEREIGN-ALPHA",
-  "version": "12.0.4",
-  "active_sectors": ["Agriculture", "Workforce", "NATO_Gov"],
-  "failsafe_level": "AUTO_RECOVER",
-  "endpoints": {
-    "azure_math": "https://azure.net",
-    "azure_geo": "https://azure.net"
-  }
-}
+{"manifest": [], "version": "7.0.0"}

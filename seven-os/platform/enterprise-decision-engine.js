@@ -40,7 +40,7 @@ import { alfaEngine } from "./engines/sector-alfa-engine.js";
 // Optional Data + Schema Registry
 // ─────────────────────────────────────────────────────────────
 
-import { MockData } from "../data/mock-data.js";
+import { MockData } from "../backend/data/mock-data.js";
 import { getSectorSchema } from "./schema-registry.js";
 
 function log(...args) {

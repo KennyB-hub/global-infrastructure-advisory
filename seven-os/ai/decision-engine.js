@@ -30,7 +30,7 @@ import { alfaEngine } from './engines/sector-alfa-engine.js';
 import { runEnterpriseDecision } from "../../platform/enterprise-decision-engine.js";
 
 // Optional mock data
-import { MockData } from '../data/mock-data.js';
+import { MockData } from '../backend/data/mock-data.js';
 
 // Optional schema registry
 import { getSectorSchema } from './schema-registry.js';

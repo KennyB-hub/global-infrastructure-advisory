@@ -7,8 +7,6 @@ let START_FILE = null;
 const possibleEntries = [
     path.join(REPO_ROOT, 'seven-os', 'index.js'),
     path.join(REPO_ROOT, 'seven-os', 'index.ts'),
-    path.join(REPO_ROOT, 'proprietary-cli', 'index.js'),
-    path.join(REPO_ROOT, 'proprietary-cli', 'index.ts'),
     path.join(REPO_ROOT, 'index.js'),
     path.join(REPO_ROOT, 'index.ts')
 ];
@@ -27,12 +25,11 @@ const NODE_BUILTINS = new Set([
     'fs', 'path', 'crypto', 'os', 'http', 'https', 'child_process', 'cluster', 'events', 'util', 'stream'
 ]);
 
-const IMPORT_REGEX = /(?:require\(['"]([^'"]+)['"]\)|from\s+['"]([^'"]+)['"]|import\(['"]([^'"]+)['"]\)|import\s+['"]([^'"]+)['"])/g;
-
 function resolveFilePath(baseDir, importPath) {
     if (!importPath || typeof importPath !== 'string') return null;
     importPath = importPath.trim();
 
+    // Ignore node core modules and standard npm packages
     if (NODE_BUILTINS.has(importPath) || (!importPath.startsWith('.') && !importPath.startsWith('/') && !importPath.includes('/') && !importPath.startsWith('@'))) {
         return null; 
     }
@@ -40,7 +37,7 @@ function resolveFilePath(baseDir, importPath) {
     // Comprehensive Path Alias Resolution Matrix
     let virtualImportPath = importPath;
     if (importPath.startsWith('@seven-os/')) virtualImportPath = importPath.replace('@seven-os/', 'seven-os/');
-    if (importPath.startsWith('@engines/')) virtualImportPath = importPath.replace('@engines/', 'engines/');
+    if (importPath.startsWith('@ai-engines/')) virtualImportPath = importPath.replace('@ai-engines/', 'ai-engines/');
     if (importPath.startsWith('@autonomous/')) virtualImportPath = importPath.replace('@autonomous/', 'autonomous/');
     if (importPath.startsWith('@runtime/')) virtualImportPath = importPath.replace('@runtime/', 'seven-runtime/');
     if (importPath.startsWith('@proprietary-cli/')) virtualImportPath = importPath.replace('@proprietary-cli/', 'proprietary-cli/');
@@ -79,6 +76,26 @@ function resolveFilePath(baseDir, importPath) {
     return path.resolve(baseDir, importPath);
 }
 
+function extractImports(content) {
+    const foundPaths = [];
+    // Broad parser catching single quotes, double quotes, and backticks across formatting splits
+    const patterns = [
+        /require\s*\(\s*['"`]([^'"`]+)['"`]\s*\)/g,
+        /from\s*['"`]([^'"`]+)['"`]/g,
+        /import\s*\(\s*['"`]([^'"`]+)['"`]\s*\)/g,
+        /import\s+['"`]([^'"`]+)['"`]/g
+    ];
+
+    for (const pattern of patterns) {
+        let match;
+        pattern.lastIndex = 0;
+        while ((match = pattern.exec(content)) !== null) {
+            if (match[1]) foundPaths.push(match[1]);
+        }
+    }
+    return foundPaths;
+}
+
 function auditFile(filePath, importedFrom = 'Root') {
     if (visitedFiles.has(filePath)) return;
     
@@ -105,17 +122,12 @@ function auditFile(filePath, importedFrom = 'Root') {
     try {
         const content = fs.readFileSync(filePath, 'utf8');
         const currentDir = path.dirname(filePath);
-        let match;
+        const importedPaths = extractImports(content);
 
-        IMPORT_REGEX.lastIndex = 0;
-        while ((match = IMPORT_REGEX.exec(content)) !== null) {
-            const importPath = match || match || match || match;
-            
-            if (importPath) {
-                const resolvedPath = resolveFilePath(currentDir, importPath);
-                if (resolvedPath) {
-                    auditFile(resolvedPath, filePath);
-                }
+        for (const importPath of importedPaths) {
+            const resolvedPath = resolveFilePath(currentDir, importPath);
+            if (resolvedPath) {
+                auditFile(resolvedPath, filePath);
             }
         }
     } catch (err) {
@@ -124,7 +136,7 @@ function auditFile(filePath, importedFrom = 'Root') {
 }
 
 console.log("====================================================");
-console.log("    GLOBAL SEVEN-OS ARCHITECTURE ROUTING AUDITOR    ");
+console.log("   DEEP-STACK RECOGNITION CONTEXT ROUTING AUDITOR   ");
 console.log("====================================================\n");
 
 if (!START_FILE) {
@@ -132,10 +144,10 @@ if (!START_FILE) {
     process.exit(1);
 }
 
-console.log(`Targeting root index context at: .\\${path.relative(REPO_ROOT, START_FILE)}\n`);
+console.log(`Targeting full routing stack index at: .\\${path.relative(REPO_ROOT, START_FILE)}\n`);
 auditFile(START_FILE);
 
-console.log('\n--- Realignment Audit Summary ---');
+console.log('\n--- Deep Stack Audit Summary ---');
 console.log(`Total files scanned: ${visitedFiles.size}`);
 console.log(`Total missing files found: ${missingFiles.length}`);
 

@@ -21,7 +21,7 @@
     "scan:licenses": "node scripts/license-scan.cjs",
     "move-workers": "node scripts/move-workers.cjs",
     "seven-autofix": "node scripts/seven-autofix.mjs",
-    "audit-routes": "node scripts/audit-routes.mjs",
+    "audit-routes": "node scripts/audit-routes.cjs",
     "test:cli-sandbox": "node scripts/test-cli-sandbox.cjs",
     "test:cli-build": "node scripts/test-cli-build.cjs",
     "test:cli-loader": "node proprietary-cli/commands/dev/test.js loader",

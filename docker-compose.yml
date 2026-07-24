@@ -1,6 +1,7 @@
 version: '3.8'
 
 services:
+  # 1. Your Existing WebSockets Service (Updated to join network and depend on Vault)
   collar-ws:
     build: .
     image: gia/collar-ws:latest
@@ -8,15 +9,84 @@ services:
     environment:
       NATS_URL: "nats://nats:4222"
       WS_PORT: "8081"
+      VAULT_ADDR: "http://edge-vault:8200"
+      VAULT_TOKEN: "root-sovereign-token-2026"
     ports:
       - "8081:8081"
     depends_on:
       - nats
+      - vault-initializer
     volumes:
       - ./logs:/usr/seven-os/app/logs
+    networks:
+      - sevenos-net
 
+  # 2. Your Existing NATS Messaging Queue
   nats:
     image: nats:2.9
     restart: unless-stopped
     ports:
       - "4222:4222"
+    networks:
+      - sevenos-net
+
+  # 3. Secure Edge-Vault Core Service
+  edge-vault:
+    image: hashicorp/vault:1.15.4
+    container_name: edge-vault
+    restart: unless-stopped
+    ports:
+      - "8200:8200"
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: "root-sovereign-token-2026"
+      VAULT_LOCAL_CONFIG: |
+        storage "file" {
+          path = "/vault/file"
+        }
+        listener "tcp" {
+          address     = "0.0.0.0:8200"
+          tls_disable = 1
+        }
+        ui = true
+    volumes:
+      - vault_data:/vault/file
+    cap_add:
+      - IPC_LOCK
+    networks:
+      - sevenos-net
+
+  # 4. Automated Regulatory Initialization Service
+  vault-initializer:
+    image: alpine:latest
+    container_name: vault-initializer
+    depends_on:
+      - edge-vault
+    networks:
+      - sevenos-net
+    environment:
+      VAULT_ADDR: "http://edge-vault:8200"
+      VAULT_TOKEN: "root-sovereign-token-2026"
+    entrypoint: >
+      /bin/sh -c "
+        apk add --no-cache curl;
+        echo 'Waiting for Vault core to wake up...';
+        while ! curl -s $$VAULT_ADDR/v1/sys/health | grep -q 'initialized'; do sleep 2; done;
+        
+        echo 'Mounting compliant Transit secrets engine...';
+        curl -H 'X-Vault-Token: $$VAULT_TOKEN' -H 'Content-Type: application/json' \
+          -X POST -d '{\"type\":\"transit\"}' $$VAULT_ADDR/v1/sys/mounts/transit;
+        
+        echo 'Initializing non-exportable ed25519 government signing key...';
+        curl -H 'X-Vault-Token: $$VAULT_TOKEN' -H 'Content-Type: application/json' \
+          -X POST -d '{\"type\":\"ed25519\",\"exportable\":false}' $$VAULT_ADDR/v1/transit/keys/sevenos-contract-signer;
+        
+        echo 'Infrastructure Environment Initialization Complete.';
+      "
+
+volumes:
+  vault_data:
+
+networks:
+  sevenos-net:
+    driver: bridge
+
