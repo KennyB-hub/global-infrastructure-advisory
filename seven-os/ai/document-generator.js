@@ -5,7 +5,7 @@ const fs = require("fs");
 const path = require("path");
 
 const { retrieveDocuments } = require("./document-retrieval");
-const { getEngine } = require("../engines/global-ai-loader");
+const { getEngine } = require("./engines/global-ai-loader.js");
 const { getActiveTemplate } = require("../templates/template-versioning");
 const { generateFallbackTemplate } = require("../templates/template-fallback-generator");
 const { autoInsertTemplate } = require("../templates/template-registry-auto");

@@ -1,7 +1,7 @@
 // 2050 V12 Alpha — Cyber Auto-Blocking Engine
 // Works with Cyber Engine + AI-Policy + DB_SYSTEM
 
-import { DBService } from "../system/db/db-service.js";
+import { DBService } from "../../../system/db/db-service.js";
 
 export async function cyberAutoBlock({ analysis, request, env }) {
   const db = new DBService(env);

@@ -5,9 +5,9 @@ import { secure } from "backend/security/middleware.js";
 import { protectedRoutes } from "./protected-routes.js";
 import { adminEndpoints } from "./admin-endpoints.js";
 import { Cortex } from "../../ai/cortex.js";
-import { runDecision } from "../../../engines/decision-engine.js";
-import { EngineeringEngine } from "../../../engines/engineering-engine.js";
-import { MechanicsEngine } from "../../../engines/mechanics-engine.js";
+import { runDecision } from "../../../ai/engines/decision-engine.js";
+import { EngineeringEngine } from "../../../ai/engines/engineering-engine.js";
+import { MechanicsEngine } from "../../../sector/engines/mechanics-engine.js";
 
 import systemManifest from "../../../config/system-manifest.json" assert { type: "json" };
 import nodeRegistry from "../config/node-registry.json" assert { type: "json" };

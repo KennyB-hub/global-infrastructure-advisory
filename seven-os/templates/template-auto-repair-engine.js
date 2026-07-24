@@ -3,7 +3,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const { getEngine } = require("../engines/global-ai-loader");
+const { getEngine } = require("../ai/engines/global-ai-loader.js");
 
 const repairAI = getEngine("DOCUMENT_ENGINE");
 

@@ -7,7 +7,7 @@ import {
   getClusterContext,
   getAIContext,
   sha256
-} from "../backend/utils/context.js";
+} from "../../../backend/utils/context.js";
 
 export async function sanitizeOutput(output = {}, env = {}, context = {}) {
   //

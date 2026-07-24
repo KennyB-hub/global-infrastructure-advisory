@@ -20,7 +20,7 @@ import * as systemWorker from "../../../workers/system/index.js";
 import * as govViewWorker from "./govView.worker.js";
 import * as opportunityScannerWorker from "./opportunityScanner.worker.js";
 
-import { runDecision } from "../../../engines/decision-engine.js";
+import { runDecision } from "../../../ai/engines/decision-engine.js";
 import { Cortex } from "../../../system/ai-cortex.js";
 
 import systemManifest from "../../config/system-manifest.json" assert { type: "json" };

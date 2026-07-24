@@ -12,7 +12,7 @@ import { DisasterType, DisasterProfiles } from "./drone/disaster-profile";
 import { FieldHealthScanner, HealthSector, HealthSample } from "./analysis/field-health-scanner";
 
 import { DroneRegistry, DronePlugin } from "./drone/drone-registry";
-import { SwarmController } from "./drone/swarm-cotroller";
+import { SwarmController } from "./drone/swarm-controller";
 import { DisasterSwarm } from "./disaster/disaster-swarm";
 
 export class SevenRuntime {
