@@ -5,7 +5,7 @@
  * JSON in, JSON out. Safe, audited, policy-enforced.
  */
 
-import { AI } from "../ai/engine.js";
+import { AI } from "../sector/general/engine.js";
 import manifest from "../ai/config/manifest.json";
 
 let START_TIME = Date.now();

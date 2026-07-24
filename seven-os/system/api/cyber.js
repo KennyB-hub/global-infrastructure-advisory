@@ -1,5 +1,5 @@
 // system/api/cyber.js
-import { handle as handleCyber } from "../../workers/system/cyber/index.js";
+import { handle as handleCyber } from "../../workers/system-workers/public-worker/index.js";
 
 export async function handleCyberApi(request, env) {
   const body = request.method !== "GET" ? await request.json().catch(() => ({})) : {};

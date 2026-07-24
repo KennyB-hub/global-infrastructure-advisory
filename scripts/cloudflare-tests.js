@@ -7,8 +7,8 @@
 
 import { applyPolicies } from "../seven-os/system/policy-engine.js";
 import { buildContext } from "../seven-os/backend/gii/context/context-builder.js";
-import { sanitizeOutput } from "../seven-os/ai/engines/response-sanitizer.js";
-import { handleError } from "../seven-os/ai/engines/error-handler.js";
+import { sanitizeOutput } from "../seven-os/sector/general/response-sanitizer.js";
+import { handleError } from "../seven-os/sector/general/error-handler.js";
 import { sha256 } from "../seven-os/backend/utils/context.js";
 
 const CF_API = "https://api.cloudflare.com/client/v4";

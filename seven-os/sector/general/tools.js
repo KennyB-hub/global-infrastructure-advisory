@@ -1,12 +1,12 @@
 // /src/ai/tools.js
 import { MathEngine } from "./engines/math-engine.js";
-import { LogicEngine } from "../backend/ai/logic-engine.js";
+import { LogicEngine } from "./logic-engine.js";
 import { MappingEngine } from "./mapping-engine.js";
-import { DataEngine } from "./engines/data-engine.js";
-import { Mapping2DEngine } from "../sector/agri/visual/mapping-2d-engine.js";
-import { Mapping3DEngine } from "../sector/agri/visual/mapping-3d-engine.js";
-import { BlueprintEngine } from "../sector/agri/visual/blueprint-engine.js";
-import { DocumentEngine } from "../sector/agri/visual/document-engine.js";
+import { DataEngine } from "../shared/data-engine.js";
+import { Mapping2DEngine } from "../agri/visual/mapping-2d-engine.js";
+import { Mapping3DEngine } from "../agri/visual/mapping-3d-engine.js";
+import { BlueprintEngine } from "../agri/visual/blueprint-engine.js";
+import { DocumentEngine } from "../agri/visual/document-engine.js";
 
 export class Tools {
   constructor(env) {

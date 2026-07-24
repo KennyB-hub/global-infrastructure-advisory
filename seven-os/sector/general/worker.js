@@ -1,5 +1,5 @@
 // worker.js (simplified core)
-import { KeyEngine } from "./key-engine.js";
+import { KeyEngine } from "../../system/security/key-engine.js";
 
 export default {
   async fetch(request, env, ctx) {

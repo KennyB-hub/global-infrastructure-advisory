@@ -3,7 +3,6 @@ const path = require('path');
 
 const REPO_ROOT = path.resolve(__dirname);
 
-// Fast directory traversal to catalog where files actually live now after the autosort
 function buildAssetRegistry(dir, registry = new Map()) {
     if (!fs.existsSync(dir)) return registry;
     try {
@@ -15,11 +14,9 @@ function buildAssetRegistry(dir, registry = new Map()) {
             if (item.isDirectory()) {
                 buildAssetRegistry(fullPath, registry);
             } else if (item.isFile()) {
-                // Catalog files by their base name so we can find them when imported
                 const ext = path.extname(item.name);
                 if (['.js', '.ts', '.json', '.tsx', '.jsx'].includes(ext)) {
                     registry.set(item.name, fullPath);
-                    // Also catalog without extension for extensionless imports
                     const nameWithoutExt = path.basename(item.name, ext);
                     if (!registry.has(nameWithoutExt)) {
                         registry.set(nameWithoutExt, fullPath);
@@ -41,7 +38,6 @@ console.log(`      Cataloged ${assetRegistry.size} resolvable target endpoints.\
 
 console.log("[2/3] Tracing code connections for broken paths...");
 
-// Sweeping criteria matching your macro auditor
 function fastBuildFileTree(dir, fileList = new Set()) {
     if (!fs.existsSync(dir)) return fileList;
     try {
@@ -57,36 +53,30 @@ function fastBuildFileTree(dir, fileList = new Set()) {
 }
 
 const physicalFiles = fastBuildFileTree(REPO_ROOT);
-const BROAD_IMPORT_REGEX = /(require\s*\(\s*['"`]([^'"`]+)['"`]\s*\)|from\s*['"`]([^'"`]+)['"`]|import\s*\(\s*['"`]([^'"`]+)['"`]\s*\)|import\s+['"`]([^'"`]+)['"`])/g;
+const BROAD_IMPORT_REGEX = /(?:require\s*\(\s*['"`]([^'"`]+)['"`]\s*\)|from\s*['"`]([^'"`]+)['"`]|import\s*\(\s*['"`]([^'"`]+)['"`]\s*\)|import\s+['"`]([^'"`]+)['"`])/g;
 
 let totalFixed = 0;
 
 for (const filePath of physicalFiles) {
-    if (filePath === __filename) continue; // Skip this repair script
+    if (filePath === __filename || filePath.endsWith('fix-routing-stack.js') || filePath.endsWith('fix-routing-stack.cjs')) continue;
     
     try {
         let fileContent = fs.readFileSync(filePath, 'utf8');
         let hasChanges = false;
         const currentDir = path.dirname(filePath);
         
-        // Reset regex index
         BROAD_IMPORT_REGEX.lastIndex = 0;
         let match;
-        
-        // Accumulate replacements to execute safely per file
         const replacements = [];
         
         while ((match = BROAD_IMPORT_REGEX.exec(fileContent)) !== null) {
             const fullStatement = match[0];
-            // Find whichever capture group held the raw path string
-            const rawImport = match[2] || match[3] || match[4] || match[5];
+            const rawImport = match[1] || match[2] || match[3] || match[4];
             if (!rawImport) continue;
 
-            // Test if the import is already working or a builtin
             const cleanImport = rawImport.trim();
             if (!cleanImport.startsWith('.') && !cleanImport.startsWith('/') && !cleanImport.startsWith('@')) continue;
 
-            // Check if it resolves natively
             let resolved = false;
             const testPaths = [
                 path.resolve(currentDir, cleanImport),
@@ -100,19 +90,16 @@ for (const filePath of physicalFiles) {
                 for (const e of extensions) { if (fs.existsSync(t + e)) { resolved = true; break; } }
             }
 
-            // If it is broken, trace and patch it!
             if (!resolved) {
                 const baseName = path.basename(cleanImport);
                 const actualFileLocation = assetRegistry.get(baseName);
 
                 if (actualFileLocation) {
-                    // Calculate a new clean relative path from the current file to where the autosorter put it
                     let relativeReplacement = path.relative(currentDir, actualFileLocation).replace(/\\/g, '/');
                     if (!relativeReplacement.startsWith('.')) {
                         relativeReplacement = './' + relativeReplacement;
                     }
 
-                    // Preserving code extensions if originally used
                     const originalExt = path.extname(cleanImport);
                     if (!originalExt && (relativeReplacement.endsWith('.js') || relativeReplacement.endsWith('.ts') || relativeReplacement.endsWith('.json'))) {
                         const targetExt = path.extname(relativeReplacement);
@@ -128,7 +115,6 @@ for (const filePath of physicalFiles) {
             }
         }
 
-        // Apply file modifications
         if (replacements.length > 0) {
             for (const r of replacements) {
                 if (fileContent.includes(r.oldStr)) {
@@ -142,9 +128,7 @@ for (const filePath of physicalFiles) {
                 fs.writeFileSync(filePath, fileContent, 'utf8');
             }
         }
-    } catch (err) {
-        // Suppress reading locks
-    }
+    } catch (err) {}
 }
 
 console.log("\n[3/3] Execution complete.");

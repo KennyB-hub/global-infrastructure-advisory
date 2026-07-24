@@ -11,8 +11,8 @@ import { filterAIOutput } from "../seven-os/ai/filters/code-filter.js";
 import { applyPolicies } from "../seven-os/system/policy-engine.js";
 import { validatePayload } from "../seven-os/backend/ai/schema-guard.js";
 import { buildContext } from "../seven-os/backend/gii/context/context-builder.js";
-import { sanitizeOutput } from "../seven-os/ai/engines/response-sanitizer.js";
-import { handleError } from "../seven-os/ai/engines/error-handler.js";
+import { sanitizeOutput } from "../seven-os/sector/general/response-sanitizer.js";
+import { handleError } from "../seven-os/sector/general/error-handler.js";
 import { sha256 } from "../seven-os/backend/utils/context.js";
 
 // --- 1. Sovereign sandbox environment ---

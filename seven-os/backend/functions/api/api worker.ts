@@ -1,6 +1,6 @@
 // src/backend/ai/api-worker.js
 
-import { runDecisionEngine } from "../../../ai/decision-engine.js";
+import { runDecisionEngine } from "../../../sector/shared/decision-engine.js";
 import { Cortex } from "../../ai/cortex.js";
 
 import { verifyTrustZone } from "../../system/trust.js";

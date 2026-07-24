@@ -9,16 +9,16 @@ import nodeRegistry from '../config/node-registry.json' assert { type: 'json' };
 import clusterHealth from '../config/cluster-health.json' assert { type: 'json' };
 
 // Platform/system manifest (your last JSON)
-import systemManifest from '../config/system-manifest.json' assert { type: 'json' };
+import systemManifest from '../../config/system-manifest.json' assert { type: 'json' };
 
 // Enterprise audit engine
-import { sovereignAudit } from './audit/audit-engine.js';
+import { sovereignAudit } from '../../ai/audit/audit-engine.js';
 
 // Core engines
 import { mathEngine } from './engines/math-engine.js';
 import { mappingEngine } from './engines/math-mapping-engine.js'; // or mapping-engine.js
-import { logicEngine } from '../backend/ai/logic-engine.js';
-import { dataEngine } from './engines/data-engine.js';
+import { logicEngine } from '../general/logic-engine.js';
+import { dataEngine } from './data-engine.js';
 
 // Sector / hub engines
 import { contractorEngine } from './engines/sector-contractor-engine.js';
@@ -27,13 +27,13 @@ import { publicEngine } from './engines/sector-public-engine.js';
 import { govEngine } from './engines/sector-gov-engine.js';
 import { deepGovEngine } from './engines/sector-deepgov-engine.js';
 import { alfaEngine } from './engines/sector-alfa-engine.js';
-import { runEnterpriseDecision } from "../platform/enterprise-decision-engine.js";
+import { runEnterpriseDecision } from "../../platform/enterprise-decision-engine.js";
 
 // Optional mock data
-import { MockData } from '../backend/data/mock-data.js';
+import { MockData } from '../../data/mock-data.js';
 
 // Optional schema registry
-import { getSectorSchema } from '../data/schemas/schema-registry.js';
+import { getSectorSchema } from '../../data/schemas/schema-registry.js';
 
 function log(...args) {
   console.info('[DECISION-ENGINE]', ...args);

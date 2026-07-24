@@ -1,7 +1,7 @@
 // GIA Sovereign Gateway Worker – V12 Alpha (TypeScript)
 // Routes: Hubs, Contractors, Deep Mind, System Endpoints, Decision Engine
 
-import { runDecision } from "../ai/decision-engine";
+import { runDecision } from "../backend/ai/decision-engine";
 import { systemStatus } from "../ai/system/system-endpoints";
 import { diagnostics } from "../backend/infrastructure/diagnostics";
 import { uptime } from "../backend/functions/api/system/uptime";

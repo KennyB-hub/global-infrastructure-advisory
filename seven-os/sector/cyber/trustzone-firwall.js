@@ -1,8 +1,8 @@
 // trustzone-firewall.js
 // V12 Alpha – TrustZone Memory Firewall
 
-const { retrieveDocuments } = require("./document-retrieval");
-const { generatePdfDocument } = require("./document-generator");
+const { retrieveDocuments } = require("../education/document-retrieval");
+const { generatePdfDocument } = require("../education/document-generator");
 
 // Hard V12 Alpha trustZone hierarchy
 const TRUSTZONE_RANK = {

@@ -3,7 +3,7 @@
 // GIA Sovereign AI Request Processor – V12 Alpha
 
 import { basicSecurityGuard } from "../../system/security/worker-guard.js";
-import { routeAIRequest } from "../ai-router.js";
+import { routeAIRequest } from "./ai-router.js";
 import { applyPolicies } from "../../system/policy-engine.js";
 import { buildContext } from "../../backend/gii/context/context-builder.js";
 import { sanitizeOutput } from "./response-sanitizer.js";

@@ -13,7 +13,7 @@ import { SectorEngine } from "../../sector/sector-engine.js";
 
 import { verifyDidVcIdentity } from "../../backend/identity/did-vc-verifier.js";
 import { enforceMCP } from "../../mcp/mcp-enforcer.js";
-import * as cyberWorker from "./cyber/index.js";
+import * as cyberWorker from "../system-workers/public-worker/index.js";
 
 // Worker imports (you already have these)
 import { publicWorker } from "../system-workers/public-worker/index.js";

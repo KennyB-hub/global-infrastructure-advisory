@@ -20,16 +20,16 @@ import { sovereignAudit } from "../ai/audit/audit-engine.js";
 // Core Engines
 // ─────────────────────────────────────────────────────────────
 
-import { mathEngine } from "../sector/engines/math-engine.js";
-import { mappingEngine } from "../sector/engines/math-mapping-engine.js";
+import { mathEngine } from "../sector/shared/math-engine.js";
+import { mappingEngine } from "../sector/shared/math-mapping-engine.js";
 import { logicEngine } from "../backend/ai/logic-engine.js";
-import { dataEngine } from "../ai/engines/data-engine.js";
+import { dataEngine } from "../sector/shared/data-engine.js";
 
 // ─────────────────────────────────────────────────────────────
 // Sector Engines
 // ─────────────────────────────────────────────────────────────
 
-import { contractorEngine } from "../sector/engines/sector-contractor-engine.js";
+import { contractorEngine } from "../sector/construction/sector-contractor-engine.js";
 import { farmerEngine } from "./engines/sector-farmer-engine.js";
 import { publicEngine } from "../sector/engines/sector-public-engine.js";
 import { govEngine } from "../sector/engines/sector-gov-engine.js";

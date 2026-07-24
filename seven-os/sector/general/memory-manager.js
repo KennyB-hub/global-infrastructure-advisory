@@ -2,7 +2,7 @@
 // V12 Alpha – Global AI Memory Manager
 
 const { buildSemanticRoutingPlan } = require("./semantic-router");
-const { assertTrustZoneAccess } = require("./trustzone-firewall");
+const { assertTrustZoneAccess } = require("../../ai/trustzone-firewall");
 
 // Stub: replace with your real vector DB (R2, Pinecone, pgvector, etc.)
 const vectorDB = {

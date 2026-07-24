@@ -8,7 +8,7 @@ import {
   getClusterContext,
   getAIContext,
   validatePayload
-} from "./_shared.js";
+} from "../general/_shared.js";
 
 export class RenewablesEngine {
   async process(input = {}, env = {}, context = {}) {

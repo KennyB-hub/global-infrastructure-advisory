@@ -3,7 +3,7 @@ import { handleSystemHealth, handleSystemUptime } from "./system.js";
 import { handleAIMFarmer } from "../../../workers/system/index.js";
 import { handleAIMGov } from "../../../workers/system/index.js";
 import { handleAIMSystem } from "../../../workers/system/index.js";
-import { processAIRequest } from "../../../ai/ai-router.js";
+import { processAIRequest } from "../../../sector/general/ai-router.js";
 import { handleGetLatestCollars } from "./collars.js";
 
 export async function router(request) {

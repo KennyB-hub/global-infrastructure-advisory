@@ -3,8 +3,8 @@
 // ---------------------------------------------------------
 // IMPORTS MUST BE AT THE TOP (JS requirement)
 // ---------------------------------------------------------
-import { analyzeThreat } from "../system/security/threat-engine.js";
-import { recordThreatEvent } from "../backend/threat/threat-telemetry.js";
+import { analyzeThreat } from "../../system/security/threat-engine.js";
+import { recordThreatEvent } from "../../backend/threat/threat-telemetry.js";
 
 // ---------------------------------------------------------
 // MAIN AI ENGINE

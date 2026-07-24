@@ -1,7 +1,7 @@
 // document-retrieval.js
 // V12 Alpha – Unified Document Retrieval API
 
-const { buildSemanticRoutingPlan } = require("./semantic-router");
+const { buildSemanticRoutingPlan } = require("../general/semantic-router");
 const fs = require("fs");
 const path = require("path");
 

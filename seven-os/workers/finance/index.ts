@@ -1,5 +1,5 @@
 // --- SEVEN-OS AUTOMATED LEDGER TRACKING HOOK ---
-import { SevenOsLedgerManager } from "../utils/ledger-manager";
+import { SevenOsLedgerManager } from "../../utils/ledger-manager";
 const _ledger = new SevenOsLedgerManager();
 _ledger.logWorkerEvidence("finance", "online", "Autonomous worker runtime initialization cycle verified.");
 // -----------------------------------------------
@@ -8,7 +8,7 @@ _ledger.logWorkerEvidence("finance", "online", "Autonomous worker runtime initia
 
 import { basicSecurityGuard } from "../../system/security/worker-guard";
 import { PolicyEngine } from "../../system/policy-engine";
-import { sha256 } from "../../ai/crypto";
+import { sha256 } from "../../ai-engines/utils/crypto";
 
 import { buildEvent } from "../../sector/event-builder";
 import { cyberHook } from "../../sector/worker-hook";
