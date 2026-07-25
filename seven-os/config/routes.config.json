@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-25T03:11:09Z",
+  "updatedAt": "2026-07-25T04:22:52Z",
   "runtimeStatus": "online",
   "activeRoutes": [
     "/api/sector/sector/autoscaler",
@@ -309,7 +309,9 @@
     "/api/sector/space/isrufuelcell",
     "/api/r2-stream/space/isrufuelcell",
     "/api/sector/space/testisruharvest",
-    "/api/r2-stream/space/testisruharvest"
+    "/api/r2-stream/space/testisruharvest",
+    "/api/autonomous/core/integration-check",
+    "/api/workers/govview/portal"
   ],
   "activeWorkers": [
     "admin",
