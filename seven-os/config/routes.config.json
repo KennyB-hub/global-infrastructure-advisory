@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-24T19:18:22Z",
+  "updatedAt": "2026-07-24T21:01:12Z",
   "runtimeStatus": "online",
   "activeRoutes": [
     "/api/sector/sector/autoscaler",
@@ -155,7 +155,12 @@
     "/api/sector/finance/enterprise-decision",
     "/api/sector/shared/voice-education-hub",
     "/api/sector/space/isru-fuel-cell",
-    "/api/sector/space/flight-path-matrix"
+    "/api/sector/space/flight-path-matrix",
+    "/api/sector/shared/math-engine",
+    "/api/sector/shared/spatial-mapping",
+    "/api/sector/shared/cyber-cloud-logic",
+    "/api/sector/shared/sector-audit-engine",
+    "/api/sector/shared/financial-audit-engine"
   ],
   "activeWorkers": [
     "admin",
@@ -180,5 +185,5 @@
   ],
   "runtimeEngine": "Native-TS-Engine",
   "stage": "First-Stage-Mix",
-  "engineRegistryStatus": "space-isru-matrix-activated"
+  "engineRegistryStatus": "government-audit-compliance-active"
 }

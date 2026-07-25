@@ -1,510 +1,7 @@
 {
   "version": "1.0",
-  "generated_at": "2026-07-24T01:14:42.020Z",
-  "engines": {
-    "ai-giiContext": {
-      "ai": {
-        "giiContext": {
-          "systemicRiskScore": 0.72,
-          "sectorRiskScore": 0.81,
-          "sector": "ENERGY",
-          "assetId": "GRID_123",
-          "cascadingFailureRisk": true,
-          "affectedSectors": [
-            "WATER",
-            "TELECOM"
-          ],
-          "recommendedActions": [
-            "SHED_LOAD",
-            "ISOLATE_SUBSTATION"
-          ],
-          "timeHorizonMinutes": 30
-        }
-      }
-    },
-    "ai-globalcode": {
-      "ai": {
-        "globalCode": {
-          "building": {
-            "structural": {
-              "maxStructuralLoad": 120,
-              "seismicDesignCoefficient": 0.35,
-              "windDesignSpeed": 120,
-              "snowLoad": 40
-            },
-            "fire": {
-              "maxEgressDistance": 30,
-              "minExitCount": 2,
-              "sprinklerRequired": true
-            },
-            "accessibility": {
-              "requiresRamp": true,
-              "minDoorWidthInches": 36,
-              "elevatorRequiredAboveFloors": 3
-            },
-            "energyEfficiency": {
-              "minRValueWall": 13,
-              "minRValueRoof": 30,
-              "maxUValueWindow": 0.32
-            }
-          },
-          "energy": {
-            "grid": {
-              "minFrequency": 59.5,
-              "maxFrequency": 60.5,
-              "maxVoltageKv": 500,
-              "maxLineLoadingPercent": 100
-            },
-            "generation": {
-              "maxRampRateMwPerMin": 50,
-              "minSpinningReservePercent": 10,
-              "maxThermalOutputPercent": 100
-            },
-            "substation": {
-              "maxTransformerLoadingPercent": 100,
-              "maxTransformerTempC": 110,
-              "maxArcFlashRisk": 0.7
-            },
-            "pipeline": {
-              "maxPressurePsi": 1200,
-              "minPressurePsi": 200,
-              "maxFlowRate": 10000
-            }
-          },
-          "water": {
-            "quality": {
-              "maxContamination": 0.01,
-              "maxPathogenCount": 100,
-              "maxToxicityIndex": 1,
-              "maxTurbidity": 5
-            },
-            "pressure": {
-              "minPressurePsi": 40,
-              "maxPressurePsi": 120
-            },
-            "storage": {
-              "minReservoirLevel": 0.2,
-              "maxReservoirLevel": 0.95
-            }
-          },
-          "wastewater": {
-            "treatment": {
-              "minTreatmentLevel": "SECONDARY",
-              "maxPathogenCount": 200,
-              "maxToxicityIndex": 1.5
-            },
-            "flow": {
-              "maxFlowRate": 8000
-            },
-            "cso": {
-              "maxCsoEventsPerYear": 4
-            }
-          },
-          "telecom": {
-            "rf": {
-              "maxRfOutput": 100
-            },
-            "fiber": {
-              "maxSignalLossDb": 20
-            },
-            "tower": {
-              "maxWindSpeed": 80,
-              "minStructureIntegrity": 0.8
-            },
-            "satellite": {
-              "maxDishAlignmentError": 2
-            }
-          },
-          "transport": {
-            "road": {
-              "minConditionIndex": 0.6,
-              "maxPavementTemperatureC": 60
-            },
-            "bridge": {
-              "minIntegrity": 0.8,
-              "maxLoadPercent": 100
-            },
-            "rail": {
-              "maxAxleLoad": 32.5,
-              "maxTrackTemperatureC": 55
-            },
-            "airport": {
-              "minVisibility": 0.5,
-              "maxWindSpeed": 40
-            },
-            "seaport": {
-              "maxStormSurgeRisk": 0.7,
-              "maxWaveHeightMeters": 4
-            }
-          },
-          "pipeline": {
-            "pressure": {
-              "maxPressurePsi": 1200,
-              "minPressurePsi": 200
-            },
-            "flow": {
-              "maxFlowRate": 10000
-            },
-            "integrity": {
-              "maxCorrosionRate": 0.1,
-              "maxLeakRate": 0
-            }
-          },
-          "agriculture": {
-            "waterUse": {
-              "maxIrrigationVolumePerDay": 1000
-            },
-            "chemicalUse": {
-              "maxPesticideRate": 1,
-              "maxFertilizerRate": 2
-            },
-            "animalWelfare": {
-              "minSpacePerAnimalSqFt": 10
-            }
-          },
-          "environment": {
-            "emissions": {
-              "maxCo2PerMwh": 500,
-              "maxNoXPerMwh": 1
-            },
-            "airQuality": {
-              "maxPM25": 35,
-              "maxPM10": 50
-            },
-            "waterDischarge": {
-              "maxBod": 30,
-              "maxCod": 125
-            }
-          },
-          "cyber": {
-            "auth": {
-              "minPasswordLength": 12,
-              "mfaRequired": true
-            },
-            "network": {
-              "maxOpenPorts": 10,
-              "maxFailedLogins": 5
-            },
-            "logging": {
-              "minRetentionDays": 365
-            }
-          },
-          "mining": {
-            "underground": {
-              "minVentilationCfmPerPerson": 100,
-              "maxGasConcentrationMethanePercent": 1,
-              "maxGasConcentrationCoPercent": 0.005,
-              "maxDustMgPerM3": 1.5,
-              "maxSeismicActivityIndex": 0.7,
-              "minRoofSupportFactor": 1.5
-            },
-            "openPit": {
-              "maxSlopeAngleDegrees": 55,
-              "minBenchWidthMeters": 8,
-              "maxHaulRoadGradientPercent": 10,
-              "maxWallDeformationRateMmPerDay": 5
-            },
-            "blasting": {
-              "maxExplosiveChargeKg": 500,
-              "minStandoffDistanceMeters": 300,
-              "maxVibrationMmPerSec": 12,
-              "maxAirblastDb": 133
-            },
-            "tailings": {
-              "maxPorePressureKpa": 150,
-              "maxWaterLevelPercent": 90,
-              "minFreeboardMeters": 1.5,
-              "maxSlopeFactorOfSafety": 1.3
-            },
-            "equipment": {
-              "maxLoadTonnes": 240,
-              "maxSpeedKph": 40,
-              "minBrakeEfficiencyPercent": 85
-            },
-            "workerSafety": {
-              "maxShiftHours": 12,
-              "minEscapeRouteCount": 2,
-              "minPpeCompliancePercent": 100
-            },
-            "environment": {
-              "maxWaterDischargePh": 9,
-              "minWaterDischargePh": 6,
-              "maxHeavyMetalsMgPerL": 0.1,
-              "maxDustEmissionsMgPerM3": 2
-            }
-          }
-        }
-      }
-    },
-    "ai.autonomy": {
-      "ai": {
-        "autonomy": {
-          "level": 2,
-          "maxLevelForSector": 3,
-          "sector": "ENERGY",
-          "isCrossSectorAction": true,
-          "allowed": true
-        }
-      }
-    },
-    "csharp": {},
-    "Disaster Deployment Engine": {
-      "engineId": "global-disaster-deployment-engine-v1",
-      "version": "v1",
-      "purpose": "Coordinate global disaster response across infrastructure, energy, water, transport, public services, contractors, NGOs, and government.",
-      "inputs": {
-        "telemetry": "real-time infrastructure + microgrid data",
-        "alerts": "cross-sector routing engine alerts",
-        "topology": "global-grid-topology-map",
-        "workforce": "contractor + public workforce engine",
-        "weather": "forecast + severe weather feeds",
-        "logistics": "supply chain + transport availability"
-      },
-      "outputs": {
-        "deploymentPlan": "who goes where, when, and with what resources",
-        "resourceRequests": "fuel, generators, water, medical, comms",
-        "sectorOverrides": "priority changes for infrastructure sectors",
-        "humanitarianCorridors": "safe routes for civilians + responders",
-        "microgridDirectives": "island mode, load shedding, battery strategy"
-      },
-      "modes": {
-        "monitoring": true,
-        "regional-disaster": true,
-        "multi-country-disaster": true,
-        "war-zone-humanitarian": true
-      },
-      "logging": {
-        "requires": [
-          "session",
-          "telemetry",
-          "audit"
-        ],
-        "mustSignDecisions": true
-      }
-    },
-    "enforcement-responce": {
-      "requestId": "uuid",
-      "decision": "ALLOW|DENY|REQUIRE_HUMAN_REVIEW",
-      "policyHits": [
-        {
-          "policyId": "string",
-          "policyName": "OSTP_Scientific_Integrity",
-          "ruleId": "string",
-          "effect": "ALLOW|DENY|CONDITION",
-          "reason": "string"
-        }
-      ],
-      "conditions": [
-        {
-          "type": "HUMAN_REVIEW",
-          "details": "GovHub supervisor approval required"
-        }
-      ],
-      "explanation": "string",
-      "timestamp": "ISO-8601"
-    },
-    "engine-index": {
-      "manifestId": "GLOBAL_AI_ENGINE_INDEX_V12_ALPHA",
-      "version": "12.0.0-alpha",
-      "description": "Unified index manifest for all AI engines operating under V12 Alpha security doctrine.",
-      "engines": [
-        {
-          "engineId": "CORE_ENGINE",
-          "name": "DeepMind V12 Alpha Core",
-          "type": "core",
-          "path": "seven-os/ai/engine.js",
-          "autonomyLevel": 3,
-          "trustZone": "system"
-        },
-        {
-          "engineId": "AI_CORTEX",
-          "name": "AI Cortex Reasoning Engine",
-          "type": "reasoning",
-          "path": "seven-os/ai/cortex.js",
-          "autonomyLevel": 2,
-          "trustZone": "system"
-        },
-        {
-          "engineId": "MAPPING_ENGINE",
-          "name": "Geospatial Mapping Engine",
-          "type": "geo",
-          "path": "seven-os/engines/mapping-engine.js",
-          "autonomyLevel": 2,
-          "trustZone": "system"
-        },
-        {
-          "engineId": "BLUEPRINT_ENGINE",
-          "name": "Blueprint & Design Engine",
-          "type": "design",
-          "path": "seven-os/engines/blueprint-engine.js",
-          "autonomyLevel": 2,
-          "trustZone": "system"
-        },
-        {
-          "engineId": "DOCUMENT_ENGINE",
-          "name": "Document Intelligence Engine",
-          "type": "document",
-          "path": "seven-os/engines/document-engine.js",
-          "autonomyLevel": 1,
-          "trustZone": "admin"
-        },
-        {
-          "engineId": "SECURITY_ENGINE",
-          "name": "Security & Threat Engine",
-          "type": "security",
-          "path": "seven-os/engines/security-engine.js",
-          "autonomyLevel": 3,
-          "trustZone": "deepgov"
-        },
-        {
-          "engineId": "GEO_ENGINE",
-          "name": "Geo Intelligence Engine",
-          "type": "geo",
-          "path": "seven-os/engines/geo-engine.js",
-          "autonomyLevel": 2,
-          "trustZone": "system"
-        },
-        {
-          "engineId": "MATH_ENGINE",
-          "name": "Mathematical Computation Engine",
-          "type": "math",
-          "path": "seven-os/engines/math-engine.js",
-          "autonomyLevel": 1,
-          "trustZone": "admin"
-        },
-        {
-          "engineId": "DATA_ENGINE",
-          "name": "Data Processing Engine",
-          "type": "data",
-          "path": "seven-os/engines/data-engine.js",
-          "autonomyLevel": 1,
-          "trustZone": "admin"
-        },
-        {
-          "engineId": "SCIENCE_ENGINE",
-          "name": "Science & Research Engine",
-          "type": "science",
-          "path": "seven-os/science-engine.js",
-          "autonomyLevel": 2,
-          "trustZone": "system"
-        },
-        {
-          "engineId": "GEOTHERMAL_ENGINE",
-          "name": "Geothermal Analysis Engine",
-          "type": "geothermal",
-          "path": "seven-os/ai/cortex.js",
-          "autonomyLevel": 2,
-          "trustZone": "system"
-        },
-        {
-          "engineId": "RENEWABLES_ENGINE",
-          "name": "Renewables (Solar/Wind) Engine",
-          "type": "renewables",
-          "path": "seven-os/engines/geo-engine.js",
-          "autonomyLevel": 2,
-          "trustZone": "system"
-        },
-        {
-          "engineId": "BUILDING_CODE_ENGINE",
-          "name": "Building Code Compliance Engine",
-          "type": "building-code",
-          "path": "seven-os/ai/building-code-engine.js",
-          "autonomyLevel": 2,
-          "trustZone": "system"
-        },
-        {
-          "engineId": "ZONING_ENGINE",
-          "name": "Zoning & Land Use Engine",
-          "type": "zoning",
-          "path": "seven-os/ai/zoning-engine.js",
-          "autonomyLevel": 2,
-          "trustZone": "system"
-        },
-        {
-          "engineId": "SECTOR_ANALYSIS_ENGINE",
-          "name": "Sector Analysis Engine",
-          "type": "sector-analysis",
-          "path": "seven-os/ai/sector-analysis.js",
-          "autonomyLevel": 2,
-          "trustZone": "system"
-        },
-        {
-          "engineId": "ENGINEERING_ENGINE",
-          "name": "Engineering Analysis Engine",
-          "type": "engineering",
-          "path": "seven-os/ai/engineering-engine.js",
-          "autonomyLevel": 2,
-          "trustZone": "system"
-        },
-        {
-          "engineId": "MECHANICS_ENGINE",
-          "name": "Mechanical Systems Engine",
-          "type": "mechanics",
-          "path": "seven-os/ai/mechanics-engine.js",
-          "autonomyLevel": 2,
-          "trustZone": "system"
-        }
-      ]
-    },
-    "high-machine": {
-      "states": [
-        "IDLE",
-        "SCAN_CANDIDATES",
-        "EVALUATE_ECONOMICS",
-        "CHECK_TRUST_AND_POLICY",
-        "PLAN_EXPANSION",
-        "EXECUTE_EXPANSION",
-        "VERIFY_AND_LOG",
-        "ROLLBACK_OR_TUNE"
-      ],
-      "initialState": "IDLE"
-    },
-    "policy-object": {
-      "policyId": "OMB_M-14-06_ADMIN_DATA_USE",
-      "name": "Administrative Data for Statistical Purposes",
-      "version": "1.0.0",
-      "source": "OMB_M-14-06",
-      "scope": {
-        "resourceTypes": [
-          "DATASET"
-        ],
-        "actions": [
-          "READ",
-          "MATCH"
-        ],
-        "trustZones": [
-          "gov",
-          "deepgov",
-          "system"
-        ]
-      },
-      "rules": [
-        {
-          "ruleId": "R1",
-          "description": "Administrative data may only be used for statistical purposes.",
-          "condition": "dataContext.intendedUse == 'STATISTICAL'",
-          "effect": "ALLOW"
-        },
-        {
-          "ruleId": "R2",
-          "description": "Operational use of administrative data is prohibited.",
-          "condition": "dataContext.intendedUse == 'OPERATIONAL'",
-          "effect": "DENY"
-        }
-      ],
-      "metadata": {
-        "createdAt": "ISO-8601",
-        "updatedAt": "ISO-8601",
-        "author": "System",
-        "tags": [
-          "OMB",
-          "ADMIN_DATA",
-          "STATISTICAL"
-        ]
-      }
-    },
-    "sector-engines": {}
-  },
+  "generated_at": "2026-07-25T01:50:15.450Z",
+  "engines": {},
   "autonomous": {
     "agents": {
       "tasks": {}
@@ -516,8 +13,632 @@
       },
       "workforce-sync-layer": {}
     },
+    "drone": {},
     "governance-brain": {},
     "integrity": {},
+    "policy-packs": {
+      "globalPolicy": {},
+      "policy-manifest": {
+        "manifest": []
+      },
+      "sovereign": {
+        "common-rule": {
+          "policyId": "common-rule",
+          "title": "Federal Policy for the Protection of Human Research Subjects",
+          "authority": "Department of Health and Human Services (HHS), Office for Human Research Protections (OHRP)",
+          "regulationNumber": "45 CFR 46",
+          "version": "2018-revision",
+          "effectiveDate": "2019-01-21",
+          "scope": "GIA workflows involving human research subjects or identifiable human data",
+          "description": "Establishes protections for human research subjects including consent, review, and risk assessment requirements",
+          "principles": [
+            {
+              "id": "HR-001",
+              "title": "Respect for Persons",
+              "description": "Human subjects must be treated as autonomous agents capable of deliberation and choice",
+              "requirement": "mandatory"
+            },
+            {
+              "id": "HR-002",
+              "title": "Beneficence",
+              "description": "Maximize benefits and minimize harms to research subjects",
+              "requirement": "mandatory"
+            },
+            {
+              "id": "HR-003",
+              "title": "Justice",
+              "description": "Benefits and burdens of research must be fairly distributed",
+              "requirement": "mandatory"
+            },
+            {
+              "id": "HR-004",
+              "title": "Informed Consent",
+              "description": "Subjects must provide voluntary, informed consent before research participation",
+              "requirement": "mandatory"
+            },
+            {
+              "id": "HR-005",
+              "title": "IRB Review",
+              "description": "Research involving human subjects must receive Institutional Review Board approval",
+              "requirement": "mandatory"
+            }
+          ],
+          "applicableWorkflows": [
+            "farmer-data-collection",
+            "gps-tracking-programs",
+            "environmental-health-research",
+            "infrastructure-impact-studies",
+            "workforce-development-programs"
+          ],
+          "riskCategories": {
+            "minimal_risk": {
+              "description": "No greater risk than ordinary life",
+              "irbReviewRequired": "expedited",
+              "consentRequired": true
+            },
+            "moderate_risk": {
+              "description": "Minor discomfort or inconvenience",
+              "irbReviewRequired": "full",
+              "consentRequired": true,
+              "dataMonitoringRequired": true
+            },
+            "greater_than_minimal_risk": {
+              "description": "Risk of harm greater than everyday activities",
+              "irbReviewRequired": "full",
+              "consentRequired": true,
+              "dataMonitoringRequired": true,
+              "aieeApprovalRequired": true
+            }
+          },
+          "consentRequirements": [
+            {
+              "element": "study-purpose",
+              "mandatory": true
+            },
+            {
+              "element": "procedures",
+              "mandatory": true
+            },
+            {
+              "element": "discomforts-and-risks",
+              "mandatory": true
+            },
+            {
+              "element": "benefits",
+              "mandatory": true
+            },
+            {
+              "element": "alternative-procedures",
+              "mandatory": false
+            },
+            {
+              "element": "confidentiality-protections",
+              "mandatory": true
+            },
+            {
+              "element": "contact-for-questions",
+              "mandatory": true
+            },
+            {
+              "element": "voluntary-nature",
+              "mandatory": true
+            }
+          ],
+          "trustZoneApplicability": {
+            "Public": "no-research-allowed",
+            "Farmer": "consent-required-minimal-risk-only",
+            "Contractor": "consent-required-minimal-risk-only",
+            "Employee": "can-design-research",
+            "Admin": "can-approve-irbr",
+            "Gov": "regulatory-oversight",
+            "DeepGov": "policy-development"
+          },
+          "irbRequirements": [
+            {
+              "requirement": "Board composition (5+ members, diverse expertise)",
+              "status": "mandatory"
+            },
+            {
+              "requirement": "Conflict of interest disclosure",
+              "status": "mandatory"
+            },
+            {
+              "requirement": "Continuing review (at least annually)",
+              "status": "mandatory"
+            },
+            {
+              "requirement": "Adverse event reporting",
+              "status": "mandatory"
+            }
+          ],
+          "controls": [
+            {
+              "control": "HR-CTL-001",
+              "description": "Block research workflows without IRB approval documentation",
+              "checkType": "gate-review"
+            },
+            {
+              "control": "HR-CTL-002",
+              "description": "Verify informed consent document compliance",
+              "checkType": "automated-audit"
+            },
+            {
+              "control": "HR-CTL-003",
+              "description": "Monitor data access for consent compliance",
+              "checkType": "automated-enforcement"
+            },
+            {
+              "control": "HR-CTL-004",
+              "description": "Annual continuing review enforcement",
+              "checkType": "calendar-alert"
+            }
+          ],
+          "violationReporting": {
+            "escalationPath": "Audit Log -> IRB -> HHS OHRP",
+            "timeToReport": "within-5-business-days"
+          },
+          "references": [
+            "https://www.hhs.gov/ohrp/regulations-and-policy/regulations/45-cfr-46/index.html",
+            "45 CFR 46 (2018 Revision)",
+            "Declaration of Helsinki",
+            "Belmont Report",
+            "GIA CONSTITUTION.md Article III"
+          ],
+          "lastReviewed": "2026-05-13",
+          "nextReview": "2027-05-13"
+        },
+        "dhs-compliance": {
+          "policyId": "dhs-compliance",
+          "title": "Department of Homeland Security Compliance and Computer Matching Programs",
+          "authority": "Department of Homeland Security (DHS), Office of Compliance",
+          "scope": "GIA infrastructure protection and computer-assisted data matching operations",
+          "description": "Establishes DHS compliance standards for critical infrastructure operations and data matching between federal systems",
+          "principles": [
+            {
+              "id": "DHS-001",
+              "title": "Critical Infrastructure Protection",
+              "description": "All infrastructure operations must maintain security and operational resilience",
+              "requirement": "mandatory"
+            },
+            {
+              "id": "DHS-002",
+              "title": "Computer Matching Agreement",
+              "description": "Formal CMA required before matching data between systems",
+              "requirement": "mandatory"
+            },
+            {
+              "id": "DHS-003",
+              "title": "Notice and Validation",
+              "description": "Data matching must include accuracy verification and subject notification",
+              "requirement": "mandatory"
+            },
+            {
+              "id": "DHS-004",
+              "title": "Data Quality Standards",
+              "description": "Source data must meet accuracy and completeness standards",
+              "requirement": "mandatory"
+            },
+            {
+              "id": "DHS-005",
+              "title": "Security Incident Reporting",
+              "description": "All security incidents must be reported to DHS",
+              "requirement": "mandatory"
+            }
+          ],
+          "appliesTo": [
+            "infrastructure-monitoring-operations",
+            "cross-agency-contractor-vetting",
+            "critical-facility-coordination",
+            "emergency-response-data-sharing",
+            "infrastructure-threat-assessment"
+          ],
+          "computerMatchingAgreement": {
+            "required": true,
+            "template": "DHS-CMA-standard",
+            "mustInclude": [
+              "purpose-and-authority",
+              "data-sources",
+              "matching-criteria",
+              "accuracy-procedures",
+              "security-standards",
+              "dispute-resolution",
+              "termination-clauses"
+            ],
+            "duration": "3-years-renewable"
+          },
+          "dataMatchingStandards": {
+            "threshold": "95% accuracy minimum",
+            "verification": "required-before-use",
+            "auditTrail": "complete-and-immutable",
+            "notificationRequired": true
+          },
+          "trustZoneApplicability": {
+            "Public": "not-applicable",
+            "Farmer": "aggregate-results-only",
+            "Contractor": "site-specific-matching",
+            "Employee": "program-level-matching",
+            "Admin": "full-matching-oversight",
+            "Gov": "interagency-coordination",
+            "DeepGov": "strategic-data-fusion"
+          },
+          "infraProtectionStandards": [
+            {
+              "category": "energy-sector",
+              "standards": [
+                "NERC-CIP",
+                "FERC-requirements"
+              ],
+              "enforcement": "continuous-audit"
+            },
+            {
+              "category": "water-sector",
+              "standards": [
+                "AWWA-security",
+                "EPA-guidelines"
+              ],
+              "enforcement": "quarterly-review"
+            },
+            {
+              "category": "transportation-sector",
+              "standards": [
+                "FMCSA-standards",
+                "DOT-directives"
+              ],
+              "enforcement": "quarterly-review"
+            },
+            {
+              "category": "communications-sector",
+              "standards": [
+                "FCC-requirements",
+                "CISA-standards"
+              ],
+              "enforcement": "continuous-audit"
+            }
+          ],
+          "controls": [
+            {
+              "control": "DHS-CTL-001",
+              "description": "Block data matching without signed CMA",
+              "checkType": "automated-enforcement"
+            },
+            {
+              "control": "DHS-CTL-002",
+              "description": "Verify data accuracy before use",
+              "checkType": "automated-validation"
+            },
+            {
+              "control": "DHS-CTL-003",
+              "description": "Monitor infrastructure operations for anomalies",
+              "checkType": "continuous-monitoring"
+            },
+            {
+              "control": "DHS-CTL-004",
+              "description": "Log all critical infrastructure access",
+              "checkType": "real-time-audit"
+            }
+          ],
+          "incidentReporting": {
+            "types": [
+              "security-breach",
+              "unauthorized-access",
+              "data-loss",
+              "operational-failure",
+              "malicious-activity"
+            ],
+            "timeToReport": "immediately",
+            "recipient": "DHS-CISA"
+          },
+          "references": [
+            "Computer Matching and Privacy Protection Act of 1988 (5 USC 552a)",
+            "OMB Circular A-108 (Federal Agency Responsibilities for Review, Reporting, and Publication)",
+            "DHS Policy Directive 2400.01G (FISMA Compliance)",
+            "GIA CONSTITUTION.md Article II"
+          ],
+          "lastReviewed": "2026-05-13",
+          "nextReview": "2027-05-13"
+        },
+        "nces-ethics": {
+          "policyId": "nces-ethics",
+          "title": "Department of Education NCES — The Forum Guide to Data Ethics",
+          "authority": "National Center for Education Statistics (NCES), Department of Education",
+          "version": "3.0",
+          "effectiveDate": "2020-01-01",
+          "scope": "GIA workforce development, human capital data, and educational infrastructure programs",
+          "description": "Provides ethical standards for handling sensitive human data in educational and workforce contexts",
+          "principles": [
+            {
+              "id": "DE-001",
+              "title": "Respect for Individuals",
+              "description": "Recognize the dignity and autonomy of data subjects",
+              "requirement": "mandatory"
+            },
+            {
+              "id": "DE-002",
+              "title": "Beneficence",
+              "description": "Ensure data use produces net social benefit",
+              "requirement": "mandatory"
+            },
+            {
+              "id": "DE-003",
+              "title": "Justice in Data Distribution",
+              "description": "Ensure benefits and burdens of data use are fairly distributed",
+              "requirement": "mandatory"
+            },
+            {
+              "id": "DE-004",
+              "title": "Transparency",
+              "description": "Be transparent about data collection, use, and limitations",
+              "requirement": "mandatory"
+            },
+            {
+              "id": "DE-005",
+              "title": "Accountability",
+              "description": "Take responsibility for ethical consequences of data use",
+              "requirement": "mandatory"
+            }
+          ],
+          "applicableDataTypes": [
+            "workforce-demographics",
+            "skills-and-training-data",
+            "employment-outcomes",
+            "contractor-qualifications",
+            "human-capital-metrics"
+          ],
+          "ethicalFramework": {
+            "dataCollection": {
+              "necessity": "only-essential-data",
+              "proportionality": "balanced-against-benefits",
+              "consent": "informed-and-voluntary"
+            },
+            "dataProcessing": {
+              "minimization": "limit-to-intended-purpose",
+              "accuracy": "verify-and-validate",
+              "security": "protect-confidentiality"
+            },
+            "dataUse": {
+              "purpose-limitation": "use-only-as-declared",
+              "beneficence": "maximize-benefit-minimize-harm",
+              "fairness": "no-discrimination"
+            },
+            "dataRetention": {
+              "necessity": "retain-only-required-duration",
+              "destruction": "secure-deletion-when-no-longer-needed"
+            }
+          },
+          "trustZoneApplicability": {
+            "Public": "aggregate-summary-only",
+            "Farmer": "personal-program-data",
+            "Contractor": "performance-and-qualifications",
+            "Employee": "program-analytics",
+            "Admin": "institutional-analytics",
+            "Gov": "policy-evaluation"
+          },
+          "discriminationProhibitions": [
+            {
+              "basis": "race-or-ethnicity",
+              "check": "automated-bias-audit"
+            },
+            {
+              "basis": "gender-or-gender-identity",
+              "check": "automated-bias-audit"
+            },
+            {
+              "basis": "age",
+              "check": "automated-bias-audit"
+            },
+            {
+              "basis": "disability-status",
+              "check": "automated-bias-audit"
+            },
+            {
+              "basis": "national-origin",
+              "check": "automated-bias-audit"
+            },
+            {
+              "basis": "socioeconomic-status",
+              "check": "automated-bias-audit"
+            }
+          ],
+          "controls": [
+            {
+              "control": "DE-CTL-001",
+              "description": "Audit all workforce data processing for discrimination",
+              "checkType": "monthly-automated-scan"
+            },
+            {
+              "control": "DE-CTL-002",
+              "description": "Verify data minimization in collection",
+              "checkType": "design-review"
+            },
+            {
+              "control": "DE-CTL-003",
+              "description": "Monitor for algorithmic bias in hiring/promotion recommendations",
+              "checkType": "continuous-monitoring"
+            },
+            {
+              "control": "DE-CTL-004",
+              "description": "Enforce purpose-limitation in data use",
+              "checkType": "access-control-enforcement"
+            }
+          ],
+          "violationScenarios": [
+            {
+              "violation": "Using sensitive data without stated purpose",
+              "action": "block-operation-log-violation"
+            },
+            {
+              "violation": "Discriminatory algorithmic output detected",
+              "action": "quarantine-results-human-review"
+            },
+            {
+              "violation": "Data retained beyond required duration",
+              "action": "automatic-secure-deletion-notify-privacy"
+            }
+          ],
+          "references": [
+            "https://nces.ed.gov/pubsearch/pubsinfo.asp?pubid=2008066",
+            "NCES Data Ethics Forum Publications",
+            "FERPA (Family Educational Rights and Privacy Act)",
+            "Equal Employment Opportunity Commission Guidelines",
+            "GIA CONSTITUTION.md Article III"
+          ],
+          "lastReviewed": "2026-05-13",
+          "nextReview": "2027-05-13"
+        },
+        "omb-m20-12": {
+          "policyId": "omb-m20-12",
+          "title": "Phase 4 Implementation of the Evidence Act: Program Evaluation Standards and Practices",
+          "authority": "Office of Management and Budget (OMB)",
+          "memorandumNumber": "M-20-12",
+          "issuedDate": "2020-04-07",
+          "effectiveDate": "2020-04-07",
+          "version": "1.0",
+          "scope": "GIA evaluation methodology and evidence standards for infrastructure programs",
+          "description": "Establishes evidence standards for program evaluation, ensuring GIA recommendations are grounded in rigorous, unbiased analysis",
+          "principles": [
+            {
+              "id": "EV-001",
+              "title": "Rigorous Evaluation Design",
+              "description": "All program evaluations must use recognized methodologies (RCT, quasi-experimental, observational)",
+              "requirement": "mandatory"
+            },
+            {
+              "id": "EV-002",
+              "title": "Bias Assessment",
+              "description": "All evaluations must document potential biases and mitigation strategies",
+              "requirement": "mandatory"
+            },
+            {
+              "id": "EV-003",
+              "title": "Evidence Quality Tiering",
+              "description": "Evaluate and tier evidence by quality level (Tier 1: RCT, Tier 2: Quasi-exp, Tier 3: Observational)",
+              "requirement": "mandatory"
+            },
+            {
+              "id": "EV-004",
+              "title": "Evaluation Planning",
+              "description": "Comprehensive evaluation plans required before program launch",
+              "requirement": "mandatory"
+            },
+            {
+              "id": "EV-005",
+              "title": "Learning Agenda Development",
+              "description": "All agencies must maintain evidence-building learning agendas",
+              "requirement": "mandatory"
+            }
+          ],
+          "evaluationStandards": {
+            "minimumSampleSize": 30,
+            "confidenceLevel": 0.95,
+            "powerLevel": 0.8,
+            "bias": {
+              "documentation": "required",
+              "mitigationRequired": true
+            }
+          },
+          "trustZoneApplicability": {
+            "Public": "summary-results-only",
+            "Farmer": "aggregate-results",
+            "Contractor": "program-impact-data",
+            "Employee": "evaluation-details",
+            "Admin": "evaluation-methodology",
+            "Gov": "full-evaluation-reports",
+            "DeepGov": "meta-analysis-capability"
+          },
+          "evaluationFramework": [
+            {
+              "stage": "Planning",
+              "requirements": [
+                "clear-program-goals",
+                "theory-of-change",
+                "success-metrics",
+                "evaluation-design",
+                "budget-allocation"
+              ]
+            },
+            {
+              "stage": "Implementation",
+              "requirements": [
+                "data-collection-protocols",
+                "quality-assurance",
+                "baseline-establishment",
+                "comparison-group-maintenance"
+              ]
+            },
+            {
+              "stage": "Analysis",
+              "requirements": [
+                "bias-documentation",
+                "effect-size-calculation",
+                "statistical-testing",
+                "sensitivity-analysis",
+                "confidence-interval-reporting"
+              ]
+            },
+            {
+              "stage": "Reporting",
+              "requirements": [
+                "methods-transparency",
+                "limitations-disclosure",
+                "results-accuracy",
+                "policy-implications"
+              ]
+            }
+          ],
+          "controls": [
+            {
+              "control": "EV-CTL-001",
+              "description": "Verify evaluation plan approved before program execution",
+              "checkType": "gate-review"
+            },
+            {
+              "control": "EV-CTL-002",
+              "description": "Validate bias assessment documentation",
+              "checkType": "automated-audit"
+            },
+            {
+              "control": "EV-CTL-003",
+              "description": "Peer review of evaluation methodology",
+              "checkType": "human-review"
+            },
+            {
+              "control": "EV-CTL-004",
+              "description": "Block publication of unvetted evaluation results",
+              "checkType": "automated-enforcement"
+            }
+          ],
+          "violationScenarios": [
+            {
+              "violation": "Publishing evaluation results without methodology documentation",
+              "action": "block-publication-require-documentation"
+            },
+            {
+              "violation": "Evaluation sample size below statistical minimum",
+              "action": "require-human-review-flag-findings"
+            },
+            {
+              "violation": "Undisclosed bias in evaluation design",
+              "action": "escalate-to-gov-scientific-integrity"
+            }
+          ],
+          "reportingRequirements": {
+            "annualLearningAgenda": true,
+            "evaluationRegistry": true,
+            "resultsDissemination": "public-database-required"
+          },
+          "references": [
+            "https://www.whitehouse.gov/omb/memoranda/2020/m-20-12/",
+            "Federal Register 85 FR 23485 (April 28, 2020)",
+            "Evidence Act of 2016",
+            "GIA CONSTITUTION.md Article III"
+          ],
+          "lastReviewed": "2026-05-13",
+          "nextReview": "2027-05-13"
+        }
+      },
+      "sovereignOverrides": {},
+      "trustZones": {}
+    },
     "route": {},
     "routing": {},
     "unified-ux": {},
@@ -528,10 +649,14 @@
     "analysis": {},
     "api": {},
     "audit": {},
-    "cattle": {},
+    "cattle": {
+      "models": {},
+      "vendors": {}
+    },
     "core": {},
     "dashboards": {
       "universal": {
+        "layouts": {},
         "themes": {}
       }
     },
@@ -539,6 +664,7 @@
     "drone": {
       "safety": {}
     },
+    "event-bus": {},
     "geo": {},
     "ground": {},
     "hybrid": {},
@@ -561,16 +687,23 @@
     "mission": {},
     "publisher": {},
     "region": {},
+    "regions": {
+      "region-meta": {}
+    },
     "rescue": {},
     "safety": {},
-    "sector": {},
+    "sector": {
+      "sector-meta": {}
+    },
     "sensor": {},
+    "sensors": {},
     "stack": {},
     "sync": {
       "policies": {},
       "transports": {}
     },
     "tools": {},
+    "types": {},
     "vendors": {},
     "voice": {
       "intents": {
@@ -625,7 +758,6 @@
       "workflows": {}
     },
     "ai-worker": {},
-    "audit": {},
     "config": {
       "cluster-health": {
         "status": "healthy",
@@ -2736,26 +2868,7 @@
       }
     },
     "utils": {},
-    "worker": {
-      "system-workers": {
-        "admin-workers": {
-          "contractor-workers": {
-            "deepgov-workers": {
-              "farmer-workers": {
-                "gov-workers": {
-                  "public-worker": {
-                    "hr-worker": {},
-                    "payroll-worker": {
-                      "employee": {}
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
+    "worker": {},
     "ws": {}
   },
   "system": {
@@ -2987,6 +3100,7 @@
       "rules": [],
       "allowBypassOnSecureAlias": true
     },
+    "loaders": {},
     "sector-engine-binding": {
       "generated_at": "2026-06-24T06:15:00-04:00",
       "version": "1.0",
@@ -3256,145 +3370,942 @@
       "nodes": [],
       "autonomousRoutingStack": true
     },
+    "oge-misconduct-reporting": {
+      "policyId": "oge-misconduct-reporting",
+      "title": "Office of Government Ethics (OGE) — Where to Report Misconduct and Conflict of Interest",
+      "authority": "Office of Government Ethics (OGE), Executive Branch",
+      "regulationNumber": "5 CFR Part 2635",
+      "version": "2.0",
+      "effectiveDate": "2023-01-01",
+      "scope": "GIA employee conduct, conflict of interest disclosure, and misconduct reporting",
+      "description": "Establishes mandatory reporting requirements for government employees and contractors regarding ethics violations, misconduct, and conflicts of interest",
+      "principles": [
+        {
+          "id": "ETH-001",
+          "title": "Public Service Integrity",
+          "description": "All employees must prioritize public interest over personal gain",
+          "requirement": "mandatory"
+        },
+        {
+          "id": "ETH-002",
+          "title": "Conflict of Interest Avoidance",
+          "description": "Employees must disclose and recuse from situations with conflicts",
+          "requirement": "mandatory"
+        },
+        {
+          "id": "ETH-003",
+          "title": "Mandatory Reporting",
+          "description": "Suspected misconduct must be reported immediately",
+          "requirement": "mandatory"
+        },
+        {
+          "id": "ETH-004",
+          "title": "Protected Reporting",
+          "description": "Reporters must be protected from retaliation",
+          "requirement": "mandatory"
+        },
+        {
+          "id": "ETH-005",
+          "title": "Transparency and Accountability",
+          "description": "Ethics violations must be investigated and acted upon",
+          "requirement": "mandatory"
+        }
+      ],
+      "applicablePersonnel": [
+        "GIA employees",
+        "contractors-with-federal-authority",
+        "interns-and-fellows",
+        "special-government-employees",
+        "board-members"
+      ],
+      "conflictOfInterestTypes": [
+        {
+          "type": "financial-interest",
+          "description": "Stocks, partnerships, loans, gifts in regulated companies",
+          "disclosureRequired": true,
+          "recusalRequired": true
+        },
+        {
+          "type": "employment-relationships",
+          "description": "Relatives employed by regulated entities",
+          "disclosureRequired": true,
+          "recusalRequired": "case-dependent"
+        },
+        {
+          "type": "outside-activities",
+          "description": "Consulting, speaking, board service",
+          "disclosureRequired": true,
+          "approvalRequired": "case-dependent"
+        },
+        {
+          "type": "gifts-and-entertainment",
+          "description": "Gifts, meals, travel from prohibited sources",
+          "restrictionLevel": "prohibited"
+        },
+        {
+          "type": "future-employment",
+          "description": "Negotiations with companies involved in current decisions",
+          "disclosureRequired": true,
+          "recusalRequired": true
+        }
+      ],
+      "misconduct": {
+        "types": [
+          "fraud-or-misappropriation",
+          "falsification-of-records",
+          "unauthorized-disclosure-of-information",
+          "conflict-of-interest-violation",
+          "abuse-of-authority",
+          "gross-mismanagement",
+          "violation-of-law-or-regulation"
+        ],
+        "mustReport": true,
+        "timeline": "immediately"
+      },
+      "reportingChannels": [
+        {
+          "channel": "immediate-supervisor",
+          "applicability": "non-serious-concerns",
+          "priority": "first-attempt"
+        },
+        {
+          "channel": "agency-ethics-office",
+          "applicability": "all-concerns",
+          "priority": "always-available"
+        },
+        {
+          "channel": "inspector-general",
+          "applicability": "serious-misconduct",
+          "priority": "for-fraud-or-waste"
+        },
+        {
+          "channel": "office-of-government-ethics",
+          "applicability": "ethics-violations",
+          "priority": "for-systemic-issues"
+        },
+        {
+          "channel": "designated-agency-ethics-counselor",
+          "applicability": "confidential-consultation",
+          "priority": "for-advice"
+        },
+        {
+          "channel": "merit-systems-protection-board",
+          "applicability": "whistleblower-protection",
+          "priority": "if-retaliation-feared"
+        },
+        {
+          "channel": "office-of-special-counsel",
+          "applicability": "whistleblower-protection",
+          "priority": "if-retaliation-feared"
+        }
+      ],
+      "disclosure": {
+        "requiredForms": [
+          "SF-278-Executive-Branch-Personnel-Public-Financial-Disclosure",
+          "OGE-Form-450-Confidential-Financial-Disclosure"
+        ],
+        "frequency": "annual-and-upon-change",
+        "penalties": {
+          "failure-to-disclose": "civil-penalties-up-to-50k",
+          "false-disclosure": "criminal-penalties"
+        }
+      },
+      "trustZoneApplicability": {
+        "Public": "not-applicable",
+        "Farmer": "not-applicable",
+        "Contractor": "limited-disclosure-required",
+        "Employee": "full-disclosure-required",
+        "Admin": "enhanced-disclosure-required",
+        "Gov": "enhanced-disclosure-required",
+        "DeepGov": "maximum-transparency-required"
+      },
+      "controls": [
+        {
+          "control": "ETH-CTL-001",
+          "description": "Mandatory ethics training for all employees",
+          "frequency": "annual"
+        },
+        {
+          "control": "ETH-CTL-002",
+          "description": "Automated conflict of interest screening",
+          "checkType": "real-time-on-assignment"
+        },
+        {
+          "control": "ETH-CTL-003",
+          "description": "Anonymous reporting hotline",
+          "availability": "24/7"
+        },
+        {
+          "control": "ETH-CTL-004",
+          "description": "Retaliation protection monitoring",
+          "checkType": "continuous"
+        },
+        {
+          "control": "ETH-CTL-005",
+          "description": "Investigation tracking and case management",
+          "auditTrail": "complete-and-confidential"
+        }
+      ],
+      "retaliation": {
+        "prohibited": true,
+        "protectedActivities": [
+          "reporting-misconduct",
+          "refusing-illegal-orders",
+          "cooperating-with-investigations",
+          "filing-grievances",
+          "disclosing-classified-information-to-inspectors-general"
+        ],
+        "reportRetaliation": "immediately-to-IG-or-OSC"
+      },
+      "penalties": {
+        "misconduct": "termination-and-criminal-prosecution",
+        "conflict-of-interest": "removal-or-disciplinary-action",
+        "false-reporting": "disciplinary-action-up-to-termination",
+        "retaliation": "removal-and-damages"
+      },
+      "references": [
+        "https://www.oge.gov/web/oge.nsf/",
+        "5 CFR Part 2635 (Standards of Ethical Conduct)",
+        "5 USC 7211 (Whistleblower Protection)",
+        "Whistleblower Protection Act of 1989",
+        "Dodd-Frank Act (Securities Whistleblower)",
+        "GIA CONSTITUTION.md Article III"
+      ],
+      "lastReviewed": "2026-05-13",
+      "nextReview": "2027-05-13"
+    },
+    "oge": {
+      "status": "active",
+      "governanceLayer": "Seven-OS",
+      "lastUpdated": "2026-07-24T11:55:58Z",
+      "policies": []
+    },
+    "omb-m14-06": {
+      "policyId": "omb-m14-06",
+      "title": "OMB Memorandum M-14-06 — Guidance for Providing and Using Administrative Data for Statistical Purposes",
+      "authority": "Office of Management and Budget (OMB)",
+      "memorandumNumber": "M-14-06",
+      "issuedDate": "2014-04-24",
+      "effectiveDate": "2014-04-24",
+      "version": "1.0",
+      "scope": "GIA use of administrative data for agriculture, contractor, and workforce analytics",
+      "description": "Establishes standards for federal agencies using administrative data for statistical and research purposes",
+      "principles": [
+        {
+          "id": "AD-001",
+          "title": "Legal Authority",
+          "description": "Statistical use of administrative data must have clear legal authority",
+          "requirement": "mandatory"
+        },
+        {
+          "id": "AD-002",
+          "title": "Transparency and Confidentiality",
+          "description": "Statistical uses must be transparent; confidentiality of individual records must be protected",
+          "requirement": "mandatory"
+        },
+        {
+          "id": "AD-003",
+          "title": "Data Quality",
+          "description": "Administrative data must meet defined quality standards for statistical use",
+          "requirement": "mandatory"
+        },
+        {
+          "id": "AD-004",
+          "title": "Purpose Limitation",
+          "description": "Data collected for administrative purposes may only be used for statistical purposes with safeguards",
+          "requirement": "mandatory"
+        },
+        {
+          "id": "AD-005",
+          "title": "Data Governance",
+          "description": "Clear data governance structures must define roles and responsibilities",
+          "requirement": "mandatory"
+        }
+      ],
+      "administrativeDataTypes": [
+        "farmer-program-data",
+        "contractor-employment-records",
+        "infrastructure-maintenance-logs",
+        "equipment-registration-data",
+        "permit-and-license-data"
+      ],
+      "trustZoneApplicability": {
+        "Public": "aggregate-only",
+        "Farmer": "program-data-only",
+        "Contractor": "employment-records",
+        "Employee": "analysis-approval",
+        "Admin": "data-governance",
+        "Gov": "statistical-oversight"
+      },
+      "controls": [
+        {
+          "control": "AD-CTL-001",
+          "description": "Verify legal authority for each administrative data use",
+          "checkType": "gate-review"
+        },
+        {
+          "control": "AD-CTL-002",
+          "description": "De-identify data when possible before statistical analysis",
+          "checkType": "automated-enforcement"
+        },
+        {
+          "control": "AD-CTL-003",
+          "description": "Prevent disclosure of individual records in statistical products",
+          "checkType": "automated-validation"
+        },
+        {
+          "control": "AD-CTL-004",
+          "description": "Maintain clear audit trail of all data access and use",
+          "checkType": "continuous-logging"
+        }
+      ],
+      "references": [
+        "https://www.whitehouse.gov/omb/memoranda/2014/m-14-06/",
+        "Federal Register 79 FR 23503 (April 28, 2014)",
+        "GIA CONSTITUTION.md Article III"
+      ],
+      "lastReviewed": "2026-05-13",
+      "nextReview": "2027-05-13"
+    },
+    "omb": {
+      "status": "active",
+      "governanceLayer": "Seven-OS",
+      "lastUpdated": "2026-07-24T11:55:58Z",
+      "policies": []
+    },
+    "ostp-scientific-integrity": {
+      "policyId": "ostp-scientific-integrity",
+      "title": "OSTP Scientific Integrity Policy",
+      "authority": "Executive Office of the President, Office of Science and Technology Policy",
+      "effectiveDate": "2023-01-01",
+      "version": "2.0",
+      "scope": "Global Infrastructure Advisory AI systems and scientific operations",
+      "description": "Ensures all GIA operations maintain scientific integrity, transparency, and freedom from political interference",
+      "principles": [
+        {
+          "id": "SI-001",
+          "title": "Transparency and Openness",
+          "description": "Methods must be transparent, reproducible, and openly documented",
+          "enforcedBy": "AIEE",
+          "violation": "block-operation"
+        },
+        {
+          "id": "SI-002",
+          "title": "Data Integrity",
+          "description": "Data must not be fabricated, suppressed, or misrepresented",
+          "enforcedBy": "AIEE",
+          "violation": "block-operation"
+        },
+        {
+          "id": "SI-003",
+          "title": "Freedom from Political Pressure",
+          "description": "Scientific conclusions must not be altered for political purposes",
+          "enforcedBy": "AIEE",
+          "violation": "escalate-to-gov"
+        },
+        {
+          "id": "SI-004",
+          "title": "Peer Review",
+          "description": "High-impact research findings must undergo independent review",
+          "enforcedBy": "AIEE",
+          "violation": "require-human-review"
+        },
+        {
+          "id": "SI-005",
+          "title": "Conflict of Interest Disclosure",
+          "description": "All personnel must disclose conflicts that could bias analysis",
+          "enforcedBy": "OGE-reporting",
+          "violation": "require-disclosure"
+        }
+      ],
+      "applicableAreas": [
+        "data-analysis",
+        "modeling",
+        "decision-engine-output",
+        "policy-recommendations",
+        "research-conclusions"
+      ],
+      "trustZoneApplicability": {
+        "Public": "advisory",
+        "Farmer": "required",
+        "Contractor": "required",
+        "Employee": "required",
+        "Admin": "required",
+        "Gov": "required",
+        "DeepGov": "required",
+        "System": "required"
+      },
+      "controls": [
+        {
+          "control": "SI-CTL-001",
+          "description": "All analytical methods must be documented and auditable",
+          "checkType": "automated-audit"
+        },
+        {
+          "control": "SI-CTL-002",
+          "description": "Data sources must be cited and verifiable",
+          "checkType": "automated-audit"
+        },
+        {
+          "control": "SI-CTL-003",
+          "description": "High-impact decisions require review by System trust zone",
+          "checkType": "human-review"
+        },
+        {
+          "control": "SI-CTL-004",
+          "description": "Temporal data manipulation is prohibited",
+          "checkType": "automated-block"
+        }
+      ],
+      "violationReporting": {
+        "escalationPath": "Audit Log -> Gov Hub -> OSTP",
+        "mustReport": [
+          "suspected-falsification",
+          "suppressed-findings",
+          "political-pressure-evidence",
+          "methodology-violations"
+        ],
+        "timeToReport": "immediately"
+      },
+      "references": [
+        "https://www.whitehouse.gov/ostp/news-updates/2022/01/27/scientific-integrity/",
+        "Federal Register Notice 88 FR 1659 (Jan 12, 2023)",
+        "GIA CONSTITUTION.md Article II"
+      ],
+      "lastReviewed": "2026-05-13",
+      "nextReview": "2027-05-13"
+    },
+    "ostp": {
+      "status": "active",
+      "governanceLayer": "Seven-OS",
+      "lastUpdated": "2026-07-24T11:55:58Z",
+      "policies": []
+    },
+    "routes.config": {
+      "updatedAt": "2026-07-24T21:01:12Z",
+      "runtimeStatus": "online",
+      "activeRoutes": [
+        "/api/sector/sector/autoscaler",
+        "/api/sector/sector/crosssectorroutingengine",
+        "/api/sector/sector/eventbuilder",
+        "/api/sector/sector/globalgridgovernor",
+        "/api/sector/sector/globalmanifest",
+        "/api/sector/sector/index",
+        "/api/sector/sector/microgridenginecontract",
+        "/api/sector/sector/missionorchestrator",
+        "/api/sector/sector/ruralnodespec",
+        "/api/sector/sector/sectorcontract",
+        "/api/sector/sector/sectorengine",
+        "/api/sector/sector/sectorloader",
+        "/api/sector/sector/sectormanifest",
+        "/api/sector/sector/sectormappinglogic",
+        "/api/sector/sector/sectormeta",
+        "/api/sector/sector/sectoroverlays",
+        "/api/sector/sector/sectorsystemmanifest",
+        "/api/sector/sector/sector",
+        "/api/sector/sector/space",
+        "/api/sector/sector/workerhook",
+        "/api/sector/agri/cattleengine",
+        "/api/sector/agri/cropengine",
+        "/api/sector/agri/farmerhaulermatchingengine",
+        "/api/sector/agri/farmerprofitabilitydashboard",
+        "/api/sector/agri/globallivestockpriceforecastingengine",
+        "/api/sector/agri/landengine",
+        "/api/sector/agri/livestockeconomiccore",
+        "/api/sector/agri/livestockdiseaseroutingengine",
+        "/api/sector/agri/livestocklogisticsengine",
+        "/api/sector/agri/livestockmarketroutingengine",
+        "/api/sector/agri/livestocksustainabilityengine",
+        "/api/sector/agri/sectorsync",
+        "/api/sector/visual/blueprintengine",
+        "/api/sector/visual/documentengine",
+        "/api/sector/visual/engine2d",
+        "/api/sector/visual/engine3d",
+        "/api/sector/visual/engineblueprint",
+        "/api/sector/visual/enginedocs",
+        "/api/sector/visual/engineflight",
+        "/api/sector/visual/enginespectral",
+        "/api/sector/visual/enginetwin",
+        "/api/sector/visual/mapping2dengine",
+        "/api/sector/visual/mapping3dengine",
+        "/api/sector/construction/contractorworkforceengine",
+        "/api/sector/construction/engineeringengine",
+        "/api/sector/construction/sectorcontractorengine",
+        "/api/sector/cyber/anomalyengine",
+        "/api/sector/cyber/cyberautoblock",
+        "/api/sector/cyber/cyberengine",
+        "/api/sector/cyber/cybernormalizer",
+        "/api/sector/cyber/cyberthreatintel",
+        "/api/sector/cyber/cybertrustengine",
+        "/api/sector/cyber/cyberescalation",
+        "/api/sector/cyber/cyberrouter",
+        "/api/sector/cyber/cybersocdashboard",
+        "/api/sector/cyber/cyberworker",
+        "/api/sector/cyber/threatscoreengine",
+        "/api/sector/cyber/trustzonefirewall",
+        "/api/sector/cyber/trustzonefirwall",
+        "/api/sector/disaster_response/manifest",
+        "/api/sector/disaster_response/schema",
+        "/api/sector/drone/routingmanifest",
+        "/api/sector/education/documentaccessaudit",
+        "/api/sector/education/documentauditdashboard",
+        "/api/sector/education/documentgenerator",
+        "/api/sector/education/documentretrieval",
+        "/api/sector/education/documenttemlateregistry",
+        "/api/sector/education/templateautorepairengine",
+        "/api/sector/education/templatediffengine",
+        "/api/sector/energy/geothermalengine",
+        "/api/sector/energy/renewablesengine",
+        "/api/sector/engines/contractorengine",
+        "/api/sector/engines/farmerengine",
+        "/api/sector/engines/govengine",
+        "/api/sector/engines/jobsengine",
+        "/api/sector/engines/sectoralfaengine",
+        "/api/sector/engines/sectordeepgovengine",
+        "/api/sector/engines/sectorgovengine",
+        "/api/sector/engines/sectorpublicengine",
+        "/api/sector/finance/risktrendanalyticsengine",
+        "/api/sector/general/_shared",
+        "/api/sector/general/aiaim",
+        "/api/sector/general/aicontext",
+        "/api/sector/general/aicore",
+        "/api/sector/general/aicortex",
+        "/api/sector/general/aigeo",
+        "/api/sector/general/aigiicontext",
+        "/api/sector/general/aimatching",
+        "/api/sector/general/airouter",
+        "/api/sector/general/aiutilities",
+        "/api/sector/general/aiautonomy",
+        "/api/sector/general/autonomous_routing",
+        "/api/sector/general/buildengine",
+        "/api/sector/general/contextbuilder",
+        "/api/sector/general/cortex",
+        "/api/sector/general/crypto",
+        "/api/sector/general/disasterdeploymentengine",
+        "/api/sector/general/distance",
+        "/api/sector/general/enforceaipolicy",
+        "/api/sector/general/enforcementresponce",
+        "/api/sector/general/engineindex",
+        "/api/sector/general/engine",
+        "/api/sector/general/errorhandler",
+        "/api/sector/general/globalailoader",
+        "/api/sector/general/haulerregistry",
+        "/api/sector/general/haulercredentialingmodule",
+        "/api/sector/general/highmachine",
+        "/api/sector/general/incidentresponseworkflow",
+        "/api/sector/general/incidentstore",
+        "/api/sector/general/incidentutils",
+        "/api/sector/general/lifecyclemanager",
+        "/api/sector/general/logicengine",
+        "/api/sector/general/mappingengine",
+        "/api/sector/general/memorymanager",
+        "/api/sector/general/policyobject",
+        "/api/sector/general/processairequest",
+        "/api/sector/general/readme",
+        "/api/sector/general/responsesanitizer",
+        "/api/sector/general/sandboxbridge",
+        "/api/sector/general/sectoranalysis",
+        "/api/sector/general/securityalertingservice",
+        "/api/sector/general/semanticrouter",
+        "/api/sector/general/shared",
+        "/api/sector/general/tools",
+        "/api/sector/general/topologyvalidationengine",
+        "/api/sector/general/worker",
+        "/api/sector/general/workflows",
+        "/api/sector/gov/aimthreatmodel",
+        "/api/sector/gov/formatadvisory",
+        "/api/sector/gov/generaterecommendations",
+        "/api/sector/logistics/loadmatchingengine",
+        "/api/sector/logistics/loadregistry",
+        "/api/sector/public_safety/aisafety",
+        "/api/sector/public_safety/livestockemergencyevacuationengine",
+        "/api/sector/shared/aiglobalcode",
+        "/api/sector/shared/buildingcodeengine",
+        "/api/sector/shared/datacontracts",
+        "/api/sector/shared/dataengine",
+        "/api/sector/shared/decisionengine",
+        "/api/sector/shared/keyengine",
+        "/api/sector/shared/mathengine",
+        "/api/sector/shared/mathmappingengine",
+        "/api/sector/shared/mechanicsengine",
+        "/api/sector/shared/metadata",
+        "/api/sector/shared/rundecision",
+        "/api/sector/shared/scienceengine",
+        "/api/sector/shared/zoningengine",
+        "/api/sector/finance/bridge",
+        "/api/sector/finance/global-livestock-price-forecasting",
+        "/api/sector/finance/risk-trend-analytics",
+        "/api/sector/finance/enterprise-decision",
+        "/api/sector/shared/voice-education-hub",
+        "/api/sector/space/isru-fuel-cell",
+        "/api/sector/space/flight-path-matrix",
+        "/api/sector/shared/math-engine",
+        "/api/sector/shared/spatial-mapping",
+        "/api/sector/shared/cyber-cloud-logic",
+        "/api/sector/shared/sector-audit-engine",
+        "/api/sector/shared/financial-audit-engine"
+      ],
+      "activeWorkers": [
+        "admin",
+        "anys",
+        "backend",
+        "contractor",
+        "cyber",
+        "deepgov",
+        "emergency-router",
+        "expansion",
+        "farmer",
+        "fcc",
+        "finance",
+        "gov",
+        "govview",
+        "mcp",
+        "opportunity",
+        "organizer",
+        "policy",
+        "system",
+        "system-workers"
+      ],
+      "runtimeEngine": "Native-TS-Engine",
+      "stage": "First-Stage-Mix",
+      "engineRegistryStatus": "government-audit-compliance-active"
+    },
+    "sovereign": {
+      "oge": {
+        "status": "active",
+        "governanceLayer": "Seven-OS",
+        "lastUpdated": "2026-07-24T11:55:58Z",
+        "policies": []
+      },
+      "omb": {
+        "status": "active",
+        "governanceLayer": "Seven-OS",
+        "lastUpdated": "2026-07-24T11:55:58Z",
+        "policies": []
+      },
+      "ostp": {
+        "status": "active",
+        "governanceLayer": "Seven-OS",
+        "lastUpdated": "2026-07-24T11:55:58Z",
+        "policies": []
+      }
+    },
+    "sovereignOverrides": {},
     "system-manifest": {
       "manifest": [],
       "version": "7.0.0"
+    },
+    "trustZones": {},
+    "workforce.ledger": {
+      "meta": {
+        "schemaTitle": "Seven-OS Unified Workforce Ledger",
+        "updatedAt": "2026-07-24T14:56:28Z",
+        "runtimeStatus": "online",
+        "engineStage": "First-Stage-Autonomous-Hardware-Mix",
+        "securityGuard": "mcp-enforcer"
+      },
+      "workforceManifest": [
+        {
+          "workerId": "WKR-ADMIN-9096",
+          "name": "admin",
+          "type": "autonomous",
+          "assignedSector": "infrastructure",
+          "status": "online",
+          "evidenceMatrix": {
+            "verificationHash": "ed6d841a-34f9-4ef5-a869-144a21214ed3",
+            "lastAudit": "2026-07-24T12:50:42Z",
+            "executionStatus": "verified",
+            "csvMapBinding": "seven-os\\config\\csv\\maps\\admin-evidence.csv"
+          }
+        },
+        {
+          "workerId": "WKR-ANYS-9027",
+          "name": "anys",
+          "type": "autonomous",
+          "assignedSector": "infrastructure",
+          "status": "online",
+          "evidenceMatrix": {
+            "verificationHash": "82a77f1b-0a1c-44bd-b185-a17030e5e7b6",
+            "lastAudit": "2026-07-24T12:50:42Z",
+            "executionStatus": "verified",
+            "csvMapBinding": "seven-os\\config\\csv\\maps\\anys-evidence.csv"
+          }
+        },
+        {
+          "workerId": "WKR-BACKEND-7532",
+          "name": "backend",
+          "type": "autonomous",
+          "assignedSector": "infrastructure",
+          "status": "online",
+          "evidenceMatrix": {
+            "verificationHash": "bd5e780d-2f0e-48cb-b609-336087d526cf",
+            "lastAudit": "2026-07-24T12:50:42Z",
+            "executionStatus": "verified",
+            "csvMapBinding": "seven-os\\config\\csv\\maps\\backend-evidence.csv"
+          }
+        },
+        {
+          "workerId": "WKR-CONTRACTOR-8972",
+          "name": "contractor",
+          "type": "autonomous",
+          "assignedSector": "infrastructure",
+          "status": "online",
+          "evidenceMatrix": {
+            "verificationHash": "4b0ca866-bfba-457d-a377-6e0c244e41a3",
+            "lastAudit": "2026-07-24T12:50:42Z",
+            "executionStatus": "verified",
+            "csvMapBinding": "seven-os\\config\\csv\\maps\\contractor-evidence.csv"
+          }
+        },
+        {
+          "workerId": "WKR-CYBER-4311",
+          "name": "cyber",
+          "type": "autonomous",
+          "assignedSector": "cyber",
+          "status": "online",
+          "evidenceMatrix": {
+            "verificationHash": "e1ec3f59-f750-4a22-9191-0c8329a627c3",
+            "lastAudit": "2026-07-24T12:50:42Z",
+            "executionStatus": "verified",
+            "csvMapBinding": "seven-os\\config\\csv\\maps\\cyber-evidence.csv"
+          }
+        },
+        {
+          "workerId": "WKR-DEEPGOV-9949",
+          "name": "deepgov",
+          "type": "autonomous",
+          "assignedSector": "governance",
+          "status": "online",
+          "evidenceMatrix": {
+            "verificationHash": "600d0edb-80b7-422a-9dcf-2390ca86a61f",
+            "lastAudit": "2026-07-24T12:50:42Z",
+            "executionStatus": "verified",
+            "csvMapBinding": "seven-os\\config\\csv\\maps\\deepgov-evidence.csv"
+          }
+        },
+        {
+          "workerId": "WKR-EMERGENCY-ROUTER-2844",
+          "name": "emergency-router",
+          "type": "autonomous",
+          "assignedSector": "infrastructure",
+          "status": "online",
+          "evidenceMatrix": {
+            "verificationHash": "e9c3f120-7f16-41a4-81a6-f1c194059951",
+            "lastAudit": "2026-07-24T12:50:42Z",
+            "executionStatus": "verified",
+            "csvMapBinding": "seven-os\\config\\csv\\maps\\emergency-router-evidence.csv"
+          }
+        },
+        {
+          "workerId": "WKR-EXPANSION-7263",
+          "name": "expansion",
+          "type": "autonomous",
+          "assignedSector": "infrastructure",
+          "status": "online",
+          "evidenceMatrix": {
+            "verificationHash": "3751bfb5-17bc-45f3-aa35-93505559caa3",
+            "lastAudit": "2026-07-24T12:50:42Z",
+            "executionStatus": "verified",
+            "csvMapBinding": "seven-os\\config\\csv\\maps\\expansion-evidence.csv"
+          }
+        },
+        {
+          "workerId": "WKR-FARMER-6174",
+          "name": "farmer",
+          "type": "autonomous",
+          "assignedSector": "agri",
+          "status": "online",
+          "evidenceMatrix": {
+            "verificationHash": "dbdc5e16-42f5-4226-b09f-60ef0048c7eb",
+            "lastAudit": "2026-07-24T12:50:42Z",
+            "executionStatus": "verified",
+            "csvMapBinding": "seven-os\\config\\csv\\maps\\agri-farmer-evidence.csv"
+          }
+        },
+        {
+          "workerId": "WKR-FCC-2222",
+          "name": "fcc",
+          "type": "autonomous",
+          "assignedSector": "telecom",
+          "status": "online",
+          "evidenceMatrix": {
+            "verificationHash": "dd87592d-071d-48dc-b97e-dcca5b084b13",
+            "lastAudit": "2026-07-24T12:50:42Z",
+            "executionStatus": "verified",
+            "csvMapBinding": "seven-os\\config\\csv\\maps\\fcc-evidence.csv"
+          }
+        },
+        {
+          "workerId": "WKR-FINANCE-2577",
+          "name": "finance",
+          "type": "autonomous",
+          "assignedSector": "infrastructure",
+          "status": "online",
+          "evidenceMatrix": {
+            "verificationHash": "3b96c125-7b01-4753-832a-edcd37cbc9d0",
+            "lastAudit": "2026-07-24T12:50:42Z",
+            "executionStatus": "verified",
+            "csvMapBinding": "seven-os\\config\\csv\\maps\\finance-evidence.csv"
+          }
+        },
+        {
+          "workerId": "WKR-GOV-7004",
+          "name": "gov",
+          "type": "autonomous",
+          "assignedSector": "governance",
+          "status": "online",
+          "evidenceMatrix": {
+            "verificationHash": "3caae0a2-5758-4eff-894e-65212a375d86",
+            "lastAudit": "2026-07-24T12:50:42Z",
+            "executionStatus": "verified",
+            "csvMapBinding": "seven-os\\config\\csv\\maps\\gov-evidence.csv"
+          }
+        },
+        {
+          "workerId": "WKR-GOVVIEW-9853",
+          "name": "govview",
+          "type": "autonomous",
+          "assignedSector": "infrastructure",
+          "status": "online",
+          "evidenceMatrix": {
+            "verificationHash": "6ac27f79-5135-4921-986e-772af3251cbe",
+            "lastAudit": "2026-07-24T12:50:42Z",
+            "executionStatus": "verified",
+            "csvMapBinding": "seven-os\\config\\csv\\maps\\govview-evidence.csv"
+          }
+        },
+        {
+          "workerId": "WKR-MCP-4719",
+          "name": "mcp",
+          "type": "autonomous",
+          "assignedSector": "infrastructure",
+          "status": "online",
+          "evidenceMatrix": {
+            "verificationHash": "42d9ea07-0cd9-4a4f-862d-e9a6a04ad6bf",
+            "lastAudit": "2026-07-24T12:50:42Z",
+            "executionStatus": "verified",
+            "csvMapBinding": "seven-os\\config\\csv\\maps\\mcp-evidence.csv"
+          }
+        },
+        {
+          "workerId": "WKR-OPPORTUNITY-8782",
+          "name": "opportunity",
+          "type": "autonomous",
+          "assignedSector": "infrastructure",
+          "status": "online",
+          "evidenceMatrix": {
+            "verificationHash": "dcf9f7f1-2562-4b7c-a32f-6897791592ac",
+            "lastAudit": "2026-07-24T12:50:42Z",
+            "executionStatus": "verified",
+            "csvMapBinding": "seven-os\\config\\csv\\maps\\opportunity-evidence.csv"
+          }
+        },
+        {
+          "workerId": "WKR-ORGANIZER-7297",
+          "name": "organizer",
+          "type": "autonomous",
+          "assignedSector": "operations",
+          "status": "online",
+          "evidenceMatrix": {
+            "verificationHash": "36e64fe4-1e1e-47b7-9c49-70683762548e",
+            "lastAudit": "2026-07-24T12:50:42Z",
+            "executionStatus": "verified",
+            "csvMapBinding": "seven-os\\config\\csv\\maps\\organizer-evidence.csv"
+          }
+        },
+        {
+          "workerId": "WKR-POLICY-5044",
+          "name": "policy",
+          "type": "autonomous",
+          "assignedSector": "infrastructure",
+          "status": "online",
+          "evidenceMatrix": {
+            "verificationHash": "2d86b8c2-de0f-49ad-b5ed-996229bbacf7",
+            "lastAudit": "2026-07-24T12:50:42Z",
+            "executionStatus": "verified",
+            "csvMapBinding": "seven-os\\config\\csv\\maps\\policy-evidence.csv"
+          }
+        },
+        {
+          "workerId": "WKR-SYSTEM-1724",
+          "name": "system",
+          "type": "autonomous",
+          "assignedSector": "infrastructure",
+          "status": "online",
+          "evidenceMatrix": {
+            "verificationHash": "dbc21b71-bc60-47d5-9142-9ab62a4059b5",
+            "lastAudit": "2026-07-24T12:50:42Z",
+            "executionStatus": "verified",
+            "csvMapBinding": "seven-os\\config\\csv\\maps\\system-evidence.csv"
+          }
+        },
+        {
+          "workerId": "WKR-SYSTEM-WORKERS-9215",
+          "name": "system-workers",
+          "type": "autonomous",
+          "assignedSector": "infrastructure",
+          "status": "online",
+          "evidenceMatrix": {
+            "verificationHash": "a64582a6-76ce-4dbe-a462-37dad1f23923",
+            "lastAudit": "2026-07-24T12:50:42Z",
+            "executionStatus": "verified",
+            "csvMapBinding": "seven-os\\config\\csv\\maps\\system-workers-evidence.csv"
+          }
+        }
+      ],
+      "roboticFleet": [
+        {
+          "assetId": "ROB-DRN-VALKYRIE",
+          "type": "drone",
+          "model": "Valkyrie-X4-Autonomous",
+          "status": "online",
+          "batteryStatus": 94,
+          "currentPayload": "Thermal-Infrared / LIDAR-3D-Mapping",
+          "capabilities": [
+            "airborne_structural_scanning",
+            "disaster_mesh_broadcast",
+            "gas_ventilation_mapping"
+          ],
+          "assignedSector": "emergency",
+          "operationalMissions": [
+            "disaster_response",
+            "mine_safety"
+          ]
+        },
+        {
+          "assetId": "ROB-RVR-VANGUARD",
+          "type": "rover",
+          "model": "Vanguard-T6-Subterranean",
+          "status": "online",
+          "batteryStatus": 88,
+          "currentPayload": "Multi-Gas-Sniffer / Seismic-Acoustic-Sensor",
+          "capabilities": [
+            "subterranean_shaft_navigation",
+            "toxic_gas_threshold_detection",
+            "thermal_heat_tracking"
+          ],
+          "assignedSector": "public_safety",
+          "operationalMissions": [
+            "mine_safety",
+            "disaster_response"
+          ]
+        }
+      ]
     }
   },
   "data": {
     "schemas": {}
   },
   "ai": {
+    "audit": {},
     "config": {
       "manifest": {
         "version": "1.0.0",
         "autonomousMode": true
       }
     },
-    "Data contracts": {
-      "requestId": "uuid",
-      "timestamp": "ISO-8601",
-      "actor": {
-        "userId": "string",
-        "roles": [
-          "Admin",
-          "Contractor",
-          "Gov"
-        ],
-        "trustZone": "public|farmer|contractor|employee|admin|gov|deepgov|system",
-        "hub": "PublicHub|FarmerHub|AdminHub|SystemHub|..."
-      },
-      "action": {
-        "type": "READ|WRITE|EXECUTE|EVALUATE|DEPLOY|MATCH|SURVEY",
-        "name": "CreateEvaluationPlan|RunAIModel|AccessDataset|...",
-        "resourceType": "DATASET|MODEL|WORKFLOW|DOCUMENT|ENDPOINT",
-        "resourceId": "string"
-      },
-      "dataContext": {
-        "containsHumanSubjects": true,
-        "containsPII": true,
-        "containsClassified": false,
-        "sourceSystem": "HR|Payroll|Zoning|NCES|DHS|...",
-        "intendedUse": "STATISTICAL|OPERATIONAL|RESEARCH|EVALUATION"
-      },
-      "aiContext": {
-        "modelId": "string",
-        "modelType": "LLM|ML|RULE_ENGINE",
-        "explainabilityRequired": true,
-        "humanInLoopRequired": true
-      },
-      "environment": {
-        "ip": "string",
-        "location": "string",
-        "clientType": "WEB|API|BATCH",
-        "version": "v12-alpha"
-      }
-    },
-    "document-temlate-registry": {
-      "registryId": "GLOBAL_DOCUMENT_TEMPLATE_REGISTRY_V12_ALPHA",
-      "version": "1.0.0",
-      "description": "Unified registry for all document templates across trustZones and sectors.",
-      "templates": [
-        {
-          "templateId": "FARMER_IRRIGATION_SAFETY_V1",
-          "name": "Farmer Irrigation Safety Sheet",
-          "file": "farmer-irrigation-safety.html",
-          "trustZone": "farmer",
-          "sector": "water",
-          "docType": "safety",
-          "placeholders": [
-            "name",
-            "farmName",
-            "location",
-            "date"
-          ],
-          "version": "1.0.0",
-          "status": "active"
-        },
-        {
-          "templateId": "CONTRACTOR_ONBOARDING_PACKET_V1",
-          "name": "Contractor Onboarding Packet",
-          "file": "contractor-onboarding.html",
-          "trustZone": "contractor",
-          "sector": "building",
-          "docType": "program",
-          "placeholders": [
-            "contractorName",
-            "company",
-            "licenseId",
-            "startDate"
-          ],
-          "version": "1.0.0",
-          "status": "active"
-        },
-        {
-          "templateId": "PUBLIC_WATER_QUALITY_REPORT_V1",
-          "name": "Public Water Quality Report",
-          "file": "public-water-quality.html",
-          "trustZone": "public",
-          "sector": "water",
-          "docType": "report",
-          "placeholders": [
-            "city",
-            "reportDate",
-            "contaminantLevels"
-          ],
-          "version": "1.0.0",
-          "status": "active"
-        },
-        {
-          "templateId": "GOV_COMPLIANCE_REPORT_V1",
-          "name": "Government Compliance Report",
-          "file": "gov-compliance-report.html",
-          "trustZone": "gov",
-          "sector": "energy",
-          "docType": "policy",
-          "placeholders": [
-            "agency",
-            "reportDate",
-            "complianceStatus",
-            "notes"
-          ],
-          "version": "1.0.0",
-          "status": "active"
-        },
-        {
-          "templateId": "DEEPGOV_CRITICAL_EVENT_BRIEF_V1",
-          "name": "DeepGov Critical Event Brief",
-          "file": "deepgov-critical-event.html",
-          "trustZone": "deepgov",
-          "sector": "telecom",
-          "docType": "policy",
-          "placeholders": [
-            "eventId",
-            "timestamp",
-            "severity",
-            "intelSummary"
-          ],
-          "version": "1.0.0",
-          "status": "active"
-        }
-      ]
+    "engines": {
+      "csharp": {}
     },
     "filters": {},
     "governance-brain": {},
@@ -3754,7 +4665,6 @@
       }
     },
     "policies": {},
-    "policy": {},
     "system": {
       "system-map": {
         "map": {
