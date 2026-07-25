@@ -8,7 +8,7 @@ _ledger.logWorkerEvidence("finance", "online", "Autonomous worker runtime initia
 
 import { basicSecurityGuard } from "../../system/security/worker-guard";
 import { PolicyEngine } from "../../system/policy-engine";
-import { sha256 } from "../../ai-engines/utils/crypto";
+import { sha256 } from "../../sector/finance/index";
 
 import { buildEvent } from "../../sector/event-builder";
 import { cyberHook } from "../../sector/worker-hook";
@@ -150,4 +150,5 @@ export async function onRequest(
 
   return json(fallback, 404);
 }
+
 

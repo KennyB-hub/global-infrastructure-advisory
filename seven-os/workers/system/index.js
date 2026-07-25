@@ -8,7 +8,7 @@ _ledger.logWorkerEvidence("system", "online", "Autonomous worker runtime initial
 
 import { basicSecurityGuard } from "../../system/security/worker-guard.js";
 import { PolicyEngine } from "../../system/policy-engine.js";
-import { CryptoV12 } from "../../ai-engines/utils/crypto.js";
+import { CryptoV12 } from "../../sector/finance/index";
 import { SectorEngine } from "../../sector/sector-engine.js";
 
 import { verifyDidVcIdentity } from "../../backend/identity/did-vc-verifier.js";
@@ -28,7 +28,7 @@ import { anysWorker } from "../system-workers/index.js";
 import { govViewWorker } from "../govview/index.js";
 import { opportunityScannerWorker } from "../opportunity/index.js";
 import * as fccWorker from "../fcc/index.js";
-import { CryptoV12 } from "../../ai-engines/utils/crypto.js";
+import { CryptoV12 } from "../../sector/finance/index";
 
 const policy = new PolicyEngine();
 
@@ -299,4 +299,5 @@ if (request.method === "POST") {
 
   return json(fallback, 404);
 }
+
 

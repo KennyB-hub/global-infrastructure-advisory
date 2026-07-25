@@ -8,7 +8,7 @@ _ledger.logWorkerEvidence("gov-workers", "online", "Autonomous worker runtime in
 
 import { basicSecurityGuard } from "../../../system/security/worker-guard.js";
 import { PolicyEngine } from "../../../system/policy-engine.js";
-import { CryptoV12 } from "../../../ai-engines/utils/crypto.js";
+import { CryptoV12 } from "../../sector/finance/index";
 
 import { buildEvent } from "../../../sector/event-builder.js";
 import { cyberHook } from "../../../sector/worker-hook.js";
@@ -230,4 +230,5 @@ export async function onRequest(context: {
 
   return json(fallback, 404);
 }
+
 

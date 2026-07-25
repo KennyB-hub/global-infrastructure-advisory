@@ -8,7 +8,7 @@ import { buildContext } from "../backend/gii/context/context-builder.js";
 import { sanitizeOutput } from "../sector/general/response-sanitizer.js";
 import { handleError } from "../sector/general/error-handler.js";
 import { processAIRequest } from "../sector/general/ai-router.js";
-import { CryptoV12 } from "../../seven-os/ai-engines/utils/crypto.js";
+import { CryptoV12 } from "../../sector/finance/index";
 
 
 const policy = new PolicyEngine();
@@ -122,3 +122,4 @@ export default {
     });
   }
 };
+

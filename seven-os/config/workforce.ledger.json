@@ -5,8 +5,6 @@
     "runtimeStatus": "online",
     "engineStage": "First-Stage-Autonomous-Hardware-Mix",
     "securityGuard": "mcp-enforcer",
-    "globalInfrastructureAuditedCount": 0,
-    "systemPerimeterStatus": "PRODUCTION_READY",
     "systemCreator": "Kenny // Global Infrastructure Advisory",
     "platformLegacyStatus": "Sovereign-Founder-Locked",
     "developmentMaturityLevel": "V12-Alpha-Core-Stabilized",

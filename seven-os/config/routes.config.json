@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-25T13:16:18Z",
+  "updatedAt": "2026-07-25T15:53:50Z",
   "runtimeStatus": "online",
   "activeRoutes": [
     "/api/sector/sector/autoscaler",
@@ -333,7 +333,13 @@
     "/api/backend/edge-vault/resumes",
     "/api/backend/edge-vault/blueprints",
     "/api/autonomous/core/cognitive-learning",
-    "/api/sector/shared/voice-synthesis"
+    "/api/sector/shared/voice-synthesis",
+    "/api/sector/finance/core-engine",
+    "/api/sector/finance/calculate",
+    "/api/sector/finance/contracts",
+    "/api/sector/finance/models",
+    "/api/sector/finance/economics-layer",
+    "/api/workers/govview/farmer-portal"
   ],
   "activeWorkers": [
     "admin",
@@ -358,6 +364,6 @@
   ],
   "runtimeEngine": "Native-TS-Engine",
   "stage": "First-Stage-Mix",
-  "engineRegistryStatus": "crypto-integrated-and-vault-secured",
+  "engineRegistryStatus": "finance-and-sha256-crypto-fully-coupled",
   "storageDriver": "Cloudflare-R2-Secure-Mesh"
 }
