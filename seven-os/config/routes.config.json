@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-25T12:51:15Z",
+  "updatedAt": "2026-07-25T13:16:18Z",
   "runtimeStatus": "online",
   "activeRoutes": [
     "/api/sector/sector/autoscaler",
@@ -332,7 +332,8 @@
     "/api/backend/edge-vault/protected",
     "/api/backend/edge-vault/resumes",
     "/api/backend/edge-vault/blueprints",
-    "/api/autonomous/core/cognitive-learning"
+    "/api/autonomous/core/cognitive-learning",
+    "/api/sector/shared/voice-synthesis"
   ],
   "activeWorkers": [
     "admin",
