@@ -1,0 +1,29 @@
+{
+    "$schema": "https://json-schema.org",
+    "title": "Seven-OS V12 Alpha Global Infrastructure Schema",
+    "type": "object",
+    "required": ["topologyMetadata", "networkNodes", "operationalFlowRate"],
+    "properties": {
+        "topologyMetadata": {
+            "type": "object",
+            "properties": {
+                "assetClass": { "type": "string" },
+                "sectorDomain": { "type": "string" },
+                "lastAuditedTimestamp": { "type": "string" }
+            }
+        },
+        "networkNodes": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "nodeId": { "type": "string" },
+                    "latitude": { "type": "number" },
+                    "longitude": { "type": "number" },
+                    "currentCapacity": { "type": "number" }
+                }
+            }
+        },
+        "operationalFlowRate": { "type": "number" }
+    }
+}

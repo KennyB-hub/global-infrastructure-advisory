@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-25T05:52:16Z",
+  "updatedAt": "2026-07-25T11:36:10Z",
   "runtimeStatus": "online",
   "activeRoutes": [
     "/api/sector/sector/autoscaler",
@@ -312,7 +312,19 @@
     "/api/r2-stream/space/testisruharvest",
     "/api/autonomous/core/integration-check",
     "/api/workers/govview/portal",
-    "/api/autonomous/core/field-dispatcher"
+    "/api/autonomous/core/field-dispatcher",
+    "/api/sector/telecom/lidar-core",
+    "/api/sector/telecom/satcom-mesh",
+    "/api/sector/water/topology",
+    "/api/sector/transport/roads",
+    "/api/sector/transport/rail",
+    "/api/sector/energy/power",
+    "/api/sector/transport/ports",
+    "/api/sector/energy/pipeline",
+    "/api/sector/energy/oilgas",
+    "/api/sector/schema",
+    "/api/autonomous/core/topology-connector",
+    "/api/autonomous/core/compliance-guard"
   ],
   "activeWorkers": [
     "admin",
@@ -337,6 +349,6 @@
   ],
   "runtimeEngine": "Native-TS-Engine",
   "stage": "First-Stage-Mix",
-  "engineRegistryStatus": "100-percent-linked-and-synchronized",
+  "engineRegistryStatus": "topology-reconstructed-and-aligned",
   "storageDriver": "Cloudflare-R2-Secure-Mesh"
 }
