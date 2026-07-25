@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-25T04:22:52Z",
+  "updatedAt": "2026-07-25T05:52:16Z",
   "runtimeStatus": "online",
   "activeRoutes": [
     "/api/sector/sector/autoscaler",
@@ -311,7 +311,8 @@
     "/api/sector/space/testisruharvest",
     "/api/r2-stream/space/testisruharvest",
     "/api/autonomous/core/integration-check",
-    "/api/workers/govview/portal"
+    "/api/workers/govview/portal",
+    "/api/autonomous/core/field-dispatcher"
   ],
   "activeWorkers": [
     "admin",
