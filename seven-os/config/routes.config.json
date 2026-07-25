@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-24T21:01:12Z",
+  "updatedAt": "2026-07-25T02:29:23Z",
   "runtimeStatus": "online",
   "activeRoutes": [
     "/api/sector/sector/autoscaler",
@@ -160,7 +160,13 @@
     "/api/sector/shared/spatial-mapping",
     "/api/sector/shared/cyber-cloud-logic",
     "/api/sector/shared/sector-audit-engine",
-    "/api/sector/shared/financial-audit-engine"
+    "/api/sector/shared/financial-audit-engine",
+    "/api/sector/shared/nist-generator",
+    "/api/sector/cyber/firewall-banner",
+    "/api/autonomous/core/data-router",
+    "/api/sector/logistics/fleet-sensor-matrix",
+    "/api/autonomous/core/cortex",
+    "/api/autonomous/core/verify-cortex-link"
   ],
   "activeWorkers": [
     "admin",
@@ -185,5 +191,5 @@
   ],
   "runtimeEngine": "Native-TS-Engine",
   "stage": "First-Stage-Mix",
-  "engineRegistryStatus": "government-audit-compliance-active"
+  "engineRegistryStatus": "cortex-mesh-fully-reconnected"
 }
