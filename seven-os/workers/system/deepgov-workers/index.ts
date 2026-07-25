@@ -1,10 +1,10 @@
 // --- SEVEN-OS AUTOMATED LEDGER TRACKING HOOK ---
-import { SevenOsLedgerManager } from "../../../utils/ledger-manager";
+import { SevenOsLedgerManager } from "../../../utils/ledger-manager.js";
 const _ledger = new SevenOsLedgerManager();
-_ledger.logWorkerEvidence("gov-workers", "online", "Autonomous worker runtime initialization cycle verified.");
+_ledger.logWorkerEvidence("deepgov-workers", "online", "Autonomous worker runtime initialization cycle verified.");
 // -----------------------------------------------
-// /workers/gov/index.ts
-// GIA Sovereign Gov Worker – V12 Sovereign Edition (TypeScript)
+// /workers/deepgov/index.ts
+// GIA Sovereign DeepGov Worker – V12 Sovereign Edition
 
 import { basicSecurityGuard } from "../../../system/security/worker-guard.js";
 import { PolicyEngine } from "../../../system/policy-engine.js";
@@ -27,14 +27,14 @@ function json(data: Record<string, any>, status: number = 200): Response {
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
-      "GIA-Trust-Zone": "gov",
+      "GIA-Trust-Zone": "deepgov",
       "GIA-Version": "v12-sovereign"
     }
   });
 }
 
 // ---------------------------------------------------------
-// MAIN GOV WORKER
+// MAIN DEEPGOV WORKER
 // ---------------------------------------------------------
 export async function onRequest(context: {
   request: Request;
@@ -62,8 +62,8 @@ export async function onRequest(context: {
   // 3. Cyber Threat Scoring
   //
   const event = buildEvent({
-    source: "gov-worker",
-    sector: "gov",
+    source: "deepgov-worker",
+    sector: "deepgov",
     trustZone,
     type: "access_attempt",
     metadata: {
@@ -114,7 +114,7 @@ export async function onRequest(context: {
   }
 
   //
-  // 5. Integrity Verification (Decision Engine → Gov Worker)
+  // 5. Integrity Verification (Decision Engine → DeepGov Worker)
   //
   let integrityToken: string | null = null;
   let decisionPayload: any = null;
@@ -147,12 +147,12 @@ export async function onRequest(context: {
   }
 
   //
-  // 6. Policy Check
+  // 6. DeepGov Override Policy Check
   //
   const decision = await policy.check({
     trustZone,
-    workflow: "gov-access",
-    action: "view"
+    workflow: "deepgov-access",
+    action: "override"
   });
 
   if (!decision.allowed) {
@@ -161,7 +161,7 @@ export async function onRequest(context: {
       type: "policy-deny",
       reason: decision.reason,
       trustZone,
-      workflow: "gov-access",
+      workflow: "deepgov-access",
       systemTraceId,
       timestamp: new Date().toISOString()
     };
@@ -179,56 +179,32 @@ export async function onRequest(context: {
   }
 
   //
-  // 7. Gov Status Endpoint
+  // 7. DeepGov Sovereign Response
   //
-  if (url.pathname.endsWith("/gov/status")) {
-    const payload = {
-      ok: true,
-      zone: "gov",
-      endpoint: "status",
-      status: "ok",
-      systemTraceId,
-      integrityToken,
-      timestamp: new Date().toISOString(),
-      meta: {
-        trustZone,
-        workflow: "gov-access",
-        version: "v12-sovereign"
-      }
-    };
-
-    payload.integrity = {
-      hash: await CryptoV12.sha256(JSON.stringify(payload)),
-      verified: true
-    };
-
-    return json(payload);
-  }
-
-  //
-  // 8. Fallback
-  //
-  const fallback = {
-    ok: false,
-    zone: "gov",
-    status: "not-found",
+  const payload = {
+    ok: true,
+    zone: "deepgov",
+    access: "sovereign-only",
     path: url.pathname,
+    status: "override-granted",
     systemTraceId,
     integrityToken,
     timestamp: new Date().toISOString(),
     meta: {
       trustZone,
-      workflow: "gov-access",
+      workflow: "deepgov-access",
+      override: true,
       version: "v12-sovereign"
     }
   };
 
-  fallback.integrity = {
-    hash: await CryptoV12.sha256(JSON.stringify(fallback)),
+  payload["integrity"] = {
+    hash: await CryptoV12.sha256(JSON.stringify(payload)),
     verified: true
   };
 
-  return json(fallback, 404);
+  return json(payload);
 }
+
 
 

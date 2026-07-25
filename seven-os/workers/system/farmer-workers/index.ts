@@ -1,10 +1,10 @@
 // --- SEVEN-OS AUTOMATED LEDGER TRACKING HOOK ---
-import { SevenOsLedgerManager } from "../../../utils/ledger-manager";
+import { SevenOsLedgerManager } from "../../../utils/ledger-manager.js";
 const _ledger = new SevenOsLedgerManager();
-_ledger.logWorkerEvidence("deepgov-workers", "online", "Autonomous worker runtime initialization cycle verified.");
+_ledger.logWorkerEvidence("farmer-workers", "online", "Autonomous worker runtime initialization cycle verified.");
 // -----------------------------------------------
-// /workers/deepgov/index.ts
-// GIA Sovereign DeepGov Worker – V12 Sovereign Edition
+// /workers/farmer/index.ts
+// GIA Sovereign Farmer Worker – V12 Sovereign Edition
 
 import { basicSecurityGuard } from "../../../system/security/worker-guard.js";
 import { PolicyEngine } from "../../../system/policy-engine.js";
@@ -27,14 +27,14 @@ function json(data: Record<string, any>, status: number = 200): Response {
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
-      "GIA-Trust-Zone": "deepgov",
+      "GIA-Trust-Zone": "farmer",
       "GIA-Version": "v12-sovereign"
     }
   });
 }
 
 // ---------------------------------------------------------
-// MAIN DEEPGOV WORKER
+// MAIN FARMER WORKER
 // ---------------------------------------------------------
 export async function onRequest(context: {
   request: Request;
@@ -62,8 +62,8 @@ export async function onRequest(context: {
   // 3. Cyber Threat Scoring
   //
   const event = buildEvent({
-    source: "deepgov-worker",
-    sector: "deepgov",
+    source: "farmer-worker",
+    sector: "farmer",
     trustZone,
     type: "access_attempt",
     metadata: {
@@ -114,7 +114,7 @@ export async function onRequest(context: {
   }
 
   //
-  // 5. Integrity Verification (Decision Engine → DeepGov Worker)
+  // 5. Integrity Verification (Decision Engine → Farmer Worker)
   //
   let integrityToken: string | null = null;
   let decisionPayload: any = null;
@@ -147,12 +147,30 @@ export async function onRequest(context: {
   }
 
   //
-  // 6. DeepGov Override Policy Check
+  // 6. Farmer Authentication
+  //
+  const auth = request.headers.get("Authorization");
+  if (!auth) {
+    return json(
+      {
+        ok: false,
+        zone: "farmer",
+        status: "unauthorized",
+        reason: "Missing Authorization header",
+        systemTraceId,
+        timestamp: new Date().toISOString()
+      },
+      401
+    );
+  }
+
+  //
+  // 7. Policy Check
   //
   const decision = await policy.check({
     trustZone,
-    workflow: "deepgov-access",
-    action: "override"
+    workflow: "farmer-access",
+    action: "view"
   });
 
   if (!decision.allowed) {
@@ -161,7 +179,7 @@ export async function onRequest(context: {
       type: "policy-deny",
       reason: decision.reason,
       trustZone,
-      workflow: "deepgov-access",
+      workflow: "farmer-access",
       systemTraceId,
       timestamp: new Date().toISOString()
     };
@@ -179,32 +197,56 @@ export async function onRequest(context: {
   }
 
   //
-  // 7. DeepGov Sovereign Response
+  // 8. Farmer Status Endpoint
   //
-  const payload = {
-    ok: true,
-    zone: "deepgov",
-    access: "sovereign-only",
+  if (url.pathname.endsWith("/farmer/status")) {
+    const payload = {
+      ok: true,
+      zone: "farmer",
+      endpoint: "status",
+      status: "ok",
+      systemTraceId,
+      integrityToken,
+      timestamp: new Date().toISOString(),
+      meta: {
+        trustZone,
+        workflow: "farmer-access",
+        version: "v12-sovereign"
+      }
+    };
+
+    payload["integrity"] = {
+      hash: await CryptoV12.sha256(JSON.stringify(payload)),
+      verified: true
+    };
+
+    return json(payload);
+  }
+
+  //
+  // 9. Fallback
+  //
+  const fallback = {
+    ok: false,
+    zone: "farmer",
+    status: "not-found",
     path: url.pathname,
-    status: "override-granted",
     systemTraceId,
     integrityToken,
     timestamp: new Date().toISOString(),
     meta: {
       trustZone,
-      workflow: "deepgov-access",
-      override: true,
+      workflow: "farmer-access",
       version: "v12-sovereign"
     }
   };
 
-  payload["integrity"] = {
-    hash: await CryptoV12.sha256(JSON.stringify(payload)),
+  fallback["integrity"] = {
+    hash: await CryptoV12.sha256(JSON.stringify(fallback)),
     verified: true
   };
 
-  return json(payload);
+  return json(fallback, 404);
 }
-
 
 

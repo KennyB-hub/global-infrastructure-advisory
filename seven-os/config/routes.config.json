@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-25T15:53:50Z",
+  "updatedAt": "2026-07-25T18:27:38Z",
   "runtimeStatus": "online",
   "activeRoutes": [
     "/api/sector/sector/autoscaler",
@@ -364,6 +364,6 @@
   ],
   "runtimeEngine": "Native-TS-Engine",
   "stage": "First-Stage-Mix",
-  "engineRegistryStatus": "finance-and-sha256-crypto-fully-coupled",
+  "engineRegistryStatus": "financial-matrix-aligned",
   "storageDriver": "Cloudflare-R2-Secure-Mesh"
 }

@@ -1,76 +1,47 @@
 const fs = require('fs');
 const path = require('path');
 
-const REPO_ROOT = path.resolve(__dirname);
+const APP_CONTEXT_DIR = path.resolve(__dirname, 'sector');
 let START_FILE = null;
 
-const possibleEntries = [
-    path.join(REPO_ROOT, 'seven-os', 'index.js'),
-    path.join(REPO_ROOT, 'seven-os', 'index.ts'),
-    path.join(REPO_ROOT, 'index.js'),
-    path.join(REPO_ROOT, 'index.ts')
-];
-
+const possibleEntries = ['index.ts', 'index.js', 'cli.ts', 'cli.js', 'main.ts'];
 for (const entry of possibleEntries) {
-    if (fs.existsSync(entry)) {
-        START_FILE = entry;
+    const testPath = path.join(APP_CONTEXT_DIR, entry);
+    if (fs.existsSync(testPath)) {
+        START_FILE = testPath;
         break;
     }
 }
 
 const visitedFiles = new Set();
 const missingFiles = [];
-
-const NODE_BUILTINS = new Set([
-    'fs', 'path', 'crypto', 'os', 'http', 'https', 'child_process', 'cluster', 'events', 'util', 'stream'
-]);
-
-const IMPORT_REGEX = /(?:require\(['"]([^'"]+)['"]\)|from\s+['"]([^'"]+)['"]|import\(['"]([^'"]+)['"]\)|import\s+['"]([^'"]+)['"])/g;
+const IMPORT_REGEX = /(?:require\(['"](.+?)['"]\)|from\s+['"](.+?)['"]|import\(['"](.+?)['"]\))/g;
 
 function resolveFilePath(baseDir, importPath) {
-    if (!importPath || typeof importPath !== 'string') return null;
-    importPath = importPath.trim();
-
-    if (NODE_BUILTINS.has(importPath) || (!importPath.startsWith('.') && !importPath.startsWith('/') && !importPath.includes('/') && !importPath.startsWith('@'))) {
+    if (!importPath || (!importPath.startsWith('.') && !importPath.startsWith('/'))) {
         return null; 
     }
 
-    // Automatically resolve tsconfig.json Path Aliases
-    let virtualImportPath = importPath;
-    if (importPath.startsWith('@seven-os/')) virtualImportPath = importPath.replace('@seven-os/', 'seven-os/');
-    if (importPath.startsWith('@ai-engines/')) virtualImportPath = importPath.replace('@ai-engines/', 'ai-engines/');
-    if (importPath.startsWith('@autonomous/')) virtualImportPath = importPath.replace('@autonomous/', 'autonomous/');
-    if (importPath.startsWith('@runtime/')) virtualImportPath = importPath.replace('@runtime/', 'seven-runtime/');
-
-    const potentialPaths = [
-        path.resolve(baseDir, virtualImportPath),                     
-        path.resolve(REPO_ROOT, virtualImportPath),                    
-        path.resolve(REPO_ROOT, 'seven-os', virtualImportPath)
-    ];
-
-    if (importPath.startsWith('..')) {
-        potentialPaths.push(path.resolve(REPO_ROOT, importPath.replace(/^\.\.\//, '')));
-    }
-
+    const fullPath = path.resolve(baseDir, importPath);
     const extensions = ['.ts', '.tsx', '.js', '.jsx', '.json'];
 
-    for (const fullPath of potentialPaths) {
-        if (fs.existsSync(fullPath) && fs.statSync(fullPath).isFile()) {
-            return fullPath;
-        }
+    if (fs.existsSync(fullPath) && fs.statSync(fullPath).isFile()) {
+        return fullPath;
+    }
+
+    for (const ext of extensions) {
+        const withExt = fullPath + ext;
+        if (fs.existsSync(withExt)) return withExt;
+    }
+
+    if (fs.existsSync(fullPath) && fs.statSync(fullPath).isDirectory()) {
         for (const ext of extensions) {
-            const withExt = fullPath + ext;
-            if (fs.existsSync(withExt) && fs.statSync(withExt).isFile()) return withExt;
-        }
-        if (fs.existsSync(fullPath) && fs.statSync(fullPath).isDirectory()) {
-            for (const ext of extensions) {
-                const indexPath = path.join(fullPath, `index${ext}`);
-                if (fs.existsSync(indexPath) && fs.statSync(indexPath).isFile()) return indexPath;
-            }
+            const indexPath = path.join(fullPath, `index${ext}`);
+            if (fs.existsSync(indexPath)) return indexPath;
         }
     }
-    
-    return path.resolve(baseDir, importPath);
+
+    return fullPath; 
 }
 
 function auditFile(filePath, importedFrom = 'Root') {
@@ -78,14 +49,18 @@ function auditFile(filePath, importedFrom = 'Root') {
     
     if (!fs.existsSync(filePath)) {
         missingFiles.push({ missing: filePath, from: importedFrom });
-        console.log(`\x1b[31m[MISSING]\x1b[0m ${path.relative(REPO_ROOT, filePath)}\n          (imported from ${path.relative(REPO_ROOT, importedFrom)})\n`);
+        console.log(`\x1b[31m[MISSING]\x1b[0m ${path.relative(APP_CONTEXT_DIR, filePath)}\n          (imported from ${path.relative(APP_CONTEXT_DIR, importedFrom)})\n`);
         return;
     }
 
     visitedFiles.add(filePath);
-    const displayPath = path.relative(REPO_ROOT, filePath);
+    const displayPath = path.relative(APP_CONTEXT_DIR, filePath);
     
-    console.log(`\x1b[32m[AUDITED]\x1b[0m ${displayPath}`);
+    if (filePath.endsWith('ai-router.js') || filePath.endsWith('ai-router.ts')) {
+        console.log(`\x1b[35m[AI ROUTER INTERFACE]\x1b[0m ${displayPath} -> Initializing Autonomous Stack`);
+    } else {
+        console.log(`\x1b[32m[AUDITED]\x1b[0m ${displayPath}`);
+    }
 
     try {
         const content = fs.readFileSync(filePath, 'utf8');
@@ -94,8 +69,7 @@ function auditFile(filePath, importedFrom = 'Root') {
 
         IMPORT_REGEX.lastIndex = 0;
         while ((match = IMPORT_REGEX.exec(content)) !== null) {
-            const importPath = match || match || match || match;
-            
+            const importPath = match[1] || match[2] || match[3];
             if (importPath) {
                 const resolvedPath = resolveFilePath(currentDir, importPath);
                 if (resolvedPath) {
@@ -109,18 +83,18 @@ function auditFile(filePath, importedFrom = 'Root') {
 }
 
 console.log("====================================================");
-console.log("   TSCONFIG PATH-AWARE CONTEXT ROUTING AUDITOR      ");
+console.log("    SEVEN-OS NESTED TS CONTEXT ROUTING AUDITOR       ");
 console.log("====================================================\n");
 
 if (!START_FILE) {
-    console.error(`\x1b[31mError: Could not locate a valid entry file root.\x1b[0m`);
+    console.error(`\x1b[31mError: Entry file not found inside directory: ${APP_CONTEXT_DIR}\x1b[0m`);
     process.exit(1);
 }
 
-console.log(`Targeting root index context at: .\\${path.relative(REPO_ROOT, START_FILE)}\n`);
+console.log(`Targeting root index context at: .\\seven-os\\${path.basename(START_FILE)}\n`);
 auditFile(START_FILE);
 
-console.log('\n--- Realignment Audit Summary ---');
+console.log('\n--- Context Audit Summary ---');
 console.log(`Total files scanned: ${visitedFiles.size}`);
 console.log(`Total missing files found: ${missingFiles.length}`);
 
