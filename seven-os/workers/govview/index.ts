@@ -98,8 +98,8 @@ export class SevenOsGovViewWorker {
         console.log(`\n📡 [GovView-Worker] Compiling Dynamic Three-Tier Economics Portal...`);
 
         // Load active financials out of her standalone R2 storage registry
-        let reserves = 4957350;
-        let assetValue = 142500000;
+        let reserves = 8957350;
+        let assetValue = 142579200;
         let phoenixAllocated = 2500000;
         let phoenixExpended = 950000;
 
