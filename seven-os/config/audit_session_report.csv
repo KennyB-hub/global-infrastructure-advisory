@@ -1,0 +1,4 @@
+"Timestamp","ProjectID","Funding","BudgetRemaining","ExpectedStatus","IsCompliant"
+"2026-07-26 18:12:33","proj-alpha-2026","federal","250000","VERIFIED_COMPLIANT","True"
+"2026-07-26 18:12:33","proj-beta-overspent","federal","-50000","AUDIT_FAILED","False"
+"2026-07-26 18:12:34","proj-gamma-commercial","private","650000","AUDIT_FAILED","False"

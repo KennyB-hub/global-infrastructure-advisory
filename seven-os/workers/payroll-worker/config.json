@@ -1,0 +1,7 @@
+{
+  "vaultLayer": "../../backend/edge-vault/VAULT-LAYER",
+  "enginePath": "../../sector/shared/financial-audit-engine",
+  "workerId": "payroll-worker-01",
+  "status": "ACTIVE_STANDBY",
+  "escrowLink": "CHIPS-DLT-PROD-01"
+}
