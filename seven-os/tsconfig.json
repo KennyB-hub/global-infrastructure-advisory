@@ -15,8 +15,7 @@
   "include": [
     "**/*",
     "../proprietary-cli/**/*",
-    "../scripts/**/*"
-, "workers/payroll-worker"  ],
+    "../scripts/**/*" ],
   "exclude": [
     "dist",
     "node_modules"

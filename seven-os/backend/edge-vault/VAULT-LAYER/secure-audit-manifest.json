@@ -1,0 +1,16 @@
+{
+  "TrackingToken": "4b673c60-0371-4531-871f-c9f0fff9c290",
+  "VaultMetadata": {
+    "ComplianceToken": "VERIFIED_COMPLIANT",
+    "RemainingDelta": 17500000,
+    "Timestamp": "2026-07-26T22:14:36.901Z",
+    "ProjectId": "proj-gia-prod-01"
+  },
+  "ArchiveDate": "2026-07-26 20:38:03",
+  "StorageSnapshot": {
+    "PlatformBucket": "gia-platform-data (Objects: 24, Size: 40.71 MB)",
+    "SecureBucket": "gia-secure-vault (Objects: 114, Size: 30.86 MB)",
+    "PublicBucket": "gia-public-content (Objects: 37, Size: 31.42 MB)"
+  },
+  "EscrowNetwork": "CHIPS-DLT-PROD-01"
+}
