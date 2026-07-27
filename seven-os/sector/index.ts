@@ -1,5 +1,14 @@
 import { readdirSync, readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
+import { startSectorHeartbeat } from "../shared/heartbeat";
+startSectorHeartbeat("agri");
+startSectorHeartbeat("water");
+startSectorHeartbeat("cyber");
+startSectorHeartbeat("transport");
+startSectorHeartbeat("energy");
+startSectorHeartbeat("finance");
+startSectorHeartbeat("space");
+startSectorHeartbeat("telecom");
 
 export class MainInfrastructureBrain {
     private sectorRootDir = join(process.cwd(), "seven-os", "sector");
