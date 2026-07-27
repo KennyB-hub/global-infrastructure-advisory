@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generated_at": "2026-07-25T08:45:31.112Z",
+  "generated_at": "2026-07-27T16:05:34.998Z",
   "engines": {},
   "autonomous": {
     "agents": {
@@ -655,6 +655,7 @@
     },
     "core": {},
     "dashboards": {
+      "bindings": {},
       "universal": {
         "layouts": {},
         "themes": {}
@@ -685,7 +686,9 @@
     "interop": {},
     "layouts": {},
     "mission": {},
-    "publisher": {},
+    "publisher": {
+      "audit": {}
+    },
     "region": {},
     "regions": {
       "region-meta": {}
@@ -755,6 +758,7 @@
   "backend": {
     "ai": {
       "tools": {},
+      "utils": {},
       "workflows": {}
     },
     "ai-worker": {},
@@ -2369,9 +2373,42 @@
     "edge-vault": {
       "VAULT-LAYER": {
         "blueprints": {},
-        "identities": {},
+        "identities": {
+          "secure-audit-manifest": {
+            "ArchiveDate": "2026-07-26 17:58:56",
+            "StorageSnapshot": {
+              "PlatformBucket": "gia-platform-data (Objects: 24, Size: 40.71 MB)",
+              "PublicBucket": "gia-public-content (Objects: 37, Size: 31.42 MB)",
+              "SecureBucket": "gia-secure-vault (Objects: 114, Size: 30.86 MB)"
+            },
+            "TrackingToken": "65fb43ee-a0cd-44ec-8d47-706701a1f975",
+            "EscrowNetwork": "CHIPS-DLT-PROD-01",
+            "VaultMetadata": {
+              "ComplianceToken": "VERIFIED_COMPLIANT",
+              "ProjectId": "proj-gia-prod-01",
+              "RemainingDelta": 17500000,
+              "Timestamp": "2026-07-26T21:38:16.541Z"
+            }
+          }
+        },
         "protected": {},
-        "resumes": {}
+        "resumes": {},
+        "secure-audit-manifest": {
+          "TrackingToken": "4b673c60-0371-4531-871f-c9f0fff9c290",
+          "VaultMetadata": {
+            "ComplianceToken": "VERIFIED_COMPLIANT",
+            "RemainingDelta": 17500000,
+            "Timestamp": "2026-07-26T22:14:36.901Z",
+            "ProjectId": "proj-gia-prod-01"
+          },
+          "ArchiveDate": "2026-07-26 20:38:03",
+          "StorageSnapshot": {
+            "PlatformBucket": "gia-platform-data (Objects: 24, Size: 40.71 MB)",
+            "SecureBucket": "gia-secure-vault (Objects: 114, Size: 30.86 MB)",
+            "PublicBucket": "gia-public-content (Objects: 37, Size: 31.42 MB)"
+          },
+          "EscrowNetwork": "CHIPS-DLT-PROD-01"
+        }
       }
     },
     "functions": {
@@ -2380,7 +2417,8 @@
         "logs": {},
         "map": {},
         "routes": {},
-        "system": {}
+        "system": {},
+        "workers": {}
       }
     },
     "gii": {
@@ -2801,6 +2839,9 @@
     "services": {
       "ewo": {}
     },
+    "seven-runtime": {
+      "drone": {}
+    },
     "system": {
       "disaster": {},
       "ewo": {
@@ -2851,6 +2892,7 @@
         }
       },
       "logging": {},
+      "mcp": {},
       "mission": {},
       "routing": {},
       "uptime": {},
@@ -2861,7 +2903,9 @@
     "utilities": {
       "dns": {},
       "geo": {},
-      "geomapping-logic": {},
+      "geomapping-logic": {
+        "hubs-logic": {}
+      },
       "integrity": {
         "file-map": {},
         "sync-queue": []
@@ -2934,6 +2978,7 @@
         }
       ]
     },
+    "context": {},
     "cyber": {},
     "db": {},
     "diagnostics": {},
@@ -3782,7 +3827,7 @@
       "policies": []
     },
     "routes.config": {
-      "updatedAt": "2026-07-25T04:22:52Z",
+      "updatedAt": "2026-07-26T23:48:45Z",
       "runtimeStatus": "online",
       "activeRoutes": [
         "/api/sector/sector/autoscaler",
@@ -4094,7 +4139,54 @@
         "/api/sector/space/testisruharvest",
         "/api/r2-stream/space/testisruharvest",
         "/api/autonomous/core/integration-check",
-        "/api/workers/govview/portal"
+        "/api/workers/govview/portal",
+        "/api/autonomous/core/field-dispatcher",
+        "/api/sector/telecom/lidar-core",
+        "/api/sector/telecom/satcom-mesh",
+        "/api/sector/water/topology",
+        "/api/sector/transport/roads",
+        "/api/sector/transport/rail",
+        "/api/sector/energy/power",
+        "/api/sector/transport/ports",
+        "/api/sector/energy/pipeline",
+        "/api/sector/energy/oilgas",
+        "/api/sector/schema",
+        "/api/autonomous/core/topology-connector",
+        "/api/autonomous/core/compliance-guard",
+        "/api/autonomous/core/infrastructure-loader",
+        "/api/sector/shared/nist-report-generator",
+        "/api/sector/finance/crypto-ledger",
+        "/api/backend/edge-vault/identities",
+        "/api/backend/edge-vault/protected",
+        "/api/backend/edge-vault/resumes",
+        "/api/backend/edge-vault/blueprints",
+        "/api/autonomous/core/cognitive-learning",
+        "/api/sector/shared/voice-synthesis",
+        "/api/sector/finance/core-engine",
+        "/api/sector/finance/calculate",
+        "/api/sector/finance/contracts",
+        "/api/sector/finance/models",
+        "/api/sector/finance/economics-layer",
+        "/api/workers/govview/farmer-portal",
+        "/api/r2-stream/sector/index",
+        "/api/sector/agri/collaringest",
+        "/api/r2-stream/agri/collaringest",
+        "/api/sector/finance/crypto",
+        "/api/r2-stream/finance/crypto",
+        "/api/sector/finance/economicslayer",
+        "/api/r2-stream/finance/economicslayer",
+        "/api/sector/finance/index",
+        "/api/r2-stream/finance/index",
+        "/api/sector/shared/heartbeat",
+        "/api/r2-stream/shared/heartbeat",
+        "/api/sector/shared/nistreportgenerator",
+        "/api/r2-stream/shared/nistreportgenerator",
+        "/api/sector/shared/voicesynthesis",
+        "/api/r2-stream/shared/voicesynthesis",
+        "/api/sector/telecom/lidarcore",
+        "/api/r2-stream/telecom/lidarcore",
+        "/api/sector/telecom/satcommesh",
+        "/api/r2-stream/telecom/satcommesh"
       ],
       "activeWorkers": [
         "admin",
@@ -4117,10 +4209,59 @@
         "system",
         "system-workers"
       ],
+      "engineRegistryStatus": "financial-matrix-aligned",
+      "storageDriver": "Cloudflare-R2-Secure-Mesh",
       "runtimeEngine": "Native-TS-Engine",
-      "stage": "First-Stage-Mix",
-      "engineRegistryStatus": "100-percent-linked-and-synchronized",
-      "storageDriver": "Cloudflare-R2-Secure-Mesh"
+      "stage": "First-Stage-Mix"
+    },
+    "schema": {
+      "$schema": "https://json-schema.org",
+      "title": "Seven-OS V12 Alpha Global Infrastructure Schema",
+      "type": "object",
+      "required": [
+        "topologyMetadata",
+        "networkNodes",
+        "operationalFlowRate"
+      ],
+      "properties": {
+        "topologyMetadata": {
+          "type": "object",
+          "properties": {
+            "assetClass": {
+              "type": "string"
+            },
+            "sectorDomain": {
+              "type": "string"
+            },
+            "lastAuditedTimestamp": {
+              "type": "string"
+            }
+          }
+        },
+        "networkNodes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "nodeId": {
+                "type": "string"
+              },
+              "latitude": {
+                "type": "number"
+              },
+              "longitude": {
+                "type": "number"
+              },
+              "currentCapacity": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        "operationalFlowRate": {
+          "type": "number"
+        }
+      }
     },
     "sovereign": {
       "oge": {
@@ -4154,7 +4295,15 @@
         "updatedAt": "2026-07-24T14:56:28Z",
         "runtimeStatus": "online",
         "engineStage": "First-Stage-Autonomous-Hardware-Mix",
-        "securityGuard": "mcp-enforcer"
+        "securityGuard": "mcp-enforcer",
+        "systemCreator": "Kenny // Global Infrastructure Advisory",
+        "platformLegacyStatus": "Sovereign-Founder-Locked",
+        "developmentMaturityLevel": "V12-Alpha-Core-Stabilized",
+        "lastGlobalAuditTimestamp": "2026-07-26T14:28:26Z",
+        "govComplianceAudit": "VERIFIED_COMPLIANT",
+        "auditedProjectId": "proj-gia-prod-01",
+        "certifiedRemainingFunds": 17500000,
+        "lastGovAuditTimestamp": "2026-07-26T22:14:36.901Z"
       },
       "workforceManifest": [
         {
@@ -4457,6 +4606,7 @@
       }
     },
     "engines": {
+      "autonomous": {},
       "csharp": {}
     },
     "filters": {},
@@ -5069,5 +5219,7 @@
     "validation": {},
     "workflow": {}
   },
-  "platform": {}
+  "platform": {
+    "engines": {}
+  }
 }
