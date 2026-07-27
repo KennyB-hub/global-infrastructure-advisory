@@ -1,4 +1,4 @@
-import { DroneTelemetry } from "../../../sector/drone/routing manifest.yaml";
+import { DroneTelemetry } from "./drone/routing manifest.yaml";
 import { DamageClassifier } from "./drone/damage-classifier.js";
 import { CostEstimator } from "./drone/cost-estimator.js";
 import { InfrastructureLoader } from "../../autonomous/core/infrastructure-loader";
