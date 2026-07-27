@@ -1,6 +1,6 @@
 import { DroneTelemetry } from "../../../sector/drone/routing manifest.yaml";
-import { DamageClassifier } from "../../../shared/drone/damage-classifier.js";
-import { CostEstimator } from "../../../shared/financials/cost-estimator.js";
+import { DamageClassifier } from "./drone/damage-classifier.js";
+import { CostEstimator } from "./drone/cost-estimator.js";
 import { InfrastructureLoader } from "../../autonomous/core/infrastructure-loader";
 
 import { CyberEscalation } from "./cyber.escalation";

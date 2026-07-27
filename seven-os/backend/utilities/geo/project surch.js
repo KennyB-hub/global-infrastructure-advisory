@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { calculateDistance } = require('../../geo/index.js');
+const { calculateDistance } = require('../../../workers/system/public-worker/index.js');
 
 /**
  * Searches for projects within a specific radius of a user's coordinates.

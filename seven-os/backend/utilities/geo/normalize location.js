@@ -1,6 +1,6 @@
 // backend/utilities/geo/normalize-location.js
 
-const { mapLocationToContext, calculateDistance } = require('../../geo/index.js');
+const { mapLocationToContext, calculateDistance } = require('../../../workers/system/public-worker/index.js');
 module.exports.normalizeLocation = async function(input) {
   return {
     country: input.country?.toLowerCase(),

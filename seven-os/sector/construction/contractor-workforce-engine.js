@@ -1,6 +1,6 @@
 // Contractor + Public Workforce Engine
 
-import { writeLog } from '../../../../logs/log-writer.js';
+import { writeLog } from '../../ai/logs/log-writer.js';
 
 export function matchWorkforce(task) {
   const { sector, location, skillsRequired, priority, context } = task;
@@ -46,6 +46,7 @@ function scoreWorker(worker, priority, context) {
   if (context?.warZone && worker.tags?.includes('humanitarian')) score += 20;
   return score;
 }
+
 
 
 

@@ -17,8 +17,8 @@ import * as adminWorker from "../../../workers/system/index.js";
 import * as systemWorker from "../../../workers/system/index.js";
 
 // NEW WORKERS
-import * as govViewWorker from "../../workers/system/govView.worker.js";
-import * as opportunityScannerWorker from "../../workers/system/opportunityScanner.worker.js";
+import * as govViewWorker from "./workers/govView.worker.js";
+import * as opportunityScannerWorker from "../../../workers/system/opportunityScanner.worker.js";
 
 import { runDecision } from "../../../sector/shared/decision-engine.js";
 import { Cortex } from "../../../system/ai-cortex.js";
