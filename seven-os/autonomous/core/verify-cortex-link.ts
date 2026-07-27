@@ -1,4 +1,4 @@
-import { SevenOsUniversalMathEngine } from "../../sector/shared/math-engine";
+import { SevenOsUniversalMathEngine } from "..\..\sector\shared\math-engine.js";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
@@ -27,3 +27,4 @@ export class SevenOsCortexLinkVerifier {
 
 const verifier = new SevenOsCortexLinkVerifier();
 verifier.verifyLinkedCortexSynapse();
+

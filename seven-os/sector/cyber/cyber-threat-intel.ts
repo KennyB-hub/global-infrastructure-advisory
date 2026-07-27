@@ -2,7 +2,7 @@
 // Enriches normalized cyber telemetry with threat intelligence,
 // scoring, and simple correlation.
 
-import { NormalizedCyberTelemetry } from "./cyber.normalizer";
+import { NormalizedCyberTelemetry } from "./cyber-normalizer";
 
 export interface ThreatIntelResult {
   score: number; // 0–100
@@ -159,3 +159,4 @@ export class CyberThreatIntelEngine {
     };
   }
 }
+

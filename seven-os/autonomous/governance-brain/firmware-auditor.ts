@@ -1,5 +1,5 @@
-import { DeviceRFProfile, GovernanceViolation } from './types';
-import { ComplianceEngine } from './compliance-engine';
+import { DeviceRFProfile, GovernanceViolation } from 'types.ts';
+import { ComplianceEngine } from 'compliance-engine.ts';
 
 export interface FirmwareAuditor {
   evaluateFirmwareChange(
@@ -19,3 +19,4 @@ export class SimpleFirmwareAuditor implements FirmwareAuditor {
     return this.compliance.evaluateDevice(after, []);
   }
 }
+

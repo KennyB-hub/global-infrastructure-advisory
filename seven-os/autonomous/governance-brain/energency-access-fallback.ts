@@ -1,4 +1,4 @@
-import { EmergencyRule } from './types';
+import { EmergencyRule } from 'types.ts';
 
 export class GovernanceBrain {
   private rules: EmergencyRule[] = [];
@@ -15,3 +15,4 @@ export class GovernanceBrain {
     return this.rules.find(r => r.id === id);
   }
 }
+

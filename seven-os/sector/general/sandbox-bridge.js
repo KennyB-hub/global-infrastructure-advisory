@@ -6,7 +6,7 @@ import { buildContext } from "./context-builder.js";
 import { sanitizeOutput } from "./response-sanitizer.js";
 import { handleError } from "./error-handler.js";
 
-import { AI as SandboxAI } from "../../src/ai/ai-engine.js";
+import { AI as SandboxAI } from "../../ai/ai-core.js";
 
 export async function runSandboxAI(input = {}, env = {}) {
   //
@@ -45,3 +45,4 @@ export async function runSandboxAI(input = {}, env = {}) {
   //
   return sanitized;
 }
+

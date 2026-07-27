@@ -1,7 +1,7 @@
 // Repo Diff Analyzer
 
 import { execSync } from "child_process";
-import { queueTask } from "../task-queue";
+import { queueTask } from "..\task-queue.ts";
 
 export class RepoDiffAnalyzer {
   static analyzeSinceLastCommit() {
@@ -43,3 +43,4 @@ export class RepoDiffAnalyzer {
     }
   }
 }
+

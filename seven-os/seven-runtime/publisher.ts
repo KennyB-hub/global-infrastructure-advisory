@@ -1,5 +1,5 @@
 import { fetchTowerTelemetry } from "./infra/ingest";
-import { auditTower } from "./audit";
+import { auditTower } from "./audit/index.js";
 import { InfraEvent } from "../autonomous/core/fcc/telecom-equipment-authorization/types";
 import { bus } from "./event-bus/client"; // your NATS/MQTT client
 
@@ -12,3 +12,4 @@ export async function runTowerAuditCycle() {
     await bus.publish("tower.events", JSON.stringify(ev));
   }
 }
+

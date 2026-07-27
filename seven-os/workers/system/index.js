@@ -25,7 +25,7 @@ import { adminWorker } from "../admin/index.js";
 import { expansionWorker } from "../expansion/index.js";
 import { organizerWorker } from "../organizer/index.js";
 import { anysWorker } from "../anys/index.js";
-import { govViewWorker } from "../govview/index.js";
+import { govViewWorker } from "./public-worker/index.js";
 import { opportunityScannerWorker } from "../opportunity/index.js";
 import * as fccWorker from "../fcc/index.js";
 import { CryptoV12 } from "../../sector/finance/index";

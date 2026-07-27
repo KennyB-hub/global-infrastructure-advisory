@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { calculateDistance } = require('../utilities/geo');
+const { calculateDistance } = require('../../geo/index.js');
 
 /**
  * Searches for projects within a specific radius of a user's coordinates.
@@ -36,3 +36,5 @@ module.exports.findNearbyProjects = function(userLat, userLon) {
     return [];
   }
 };
+
+

@@ -1,4 +1,4 @@
-import { SevenStack } from "../../seven-runtime/stack/seven-stack";
+import { SevenStack } from "..\..\seven-runtime\stack\seven-stack.ts";
 
 const stack = new SevenStack(null, { say: console.log });
 
@@ -25,3 +25,4 @@ export async function route(input: any) {
       };
   }
 }
+

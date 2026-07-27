@@ -2,7 +2,7 @@
 
 import fs from "fs";
 import path from "path";
-import { queueTask } from "../../task-queue";
+import { queueTask } from "..\..\task-queue.ts";
 
 export class FullIntegrityScan {
   static run() {
@@ -74,3 +74,4 @@ export class FullIntegrityScan {
     return { missing };
   }
 }
+

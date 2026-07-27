@@ -1,6 +1,6 @@
 // seven-os/backend/infrastructure/utils/infra-logger.js
 
-import { getPlatformContext, getNodeContext, getClusterContext } from "./backend/utils/context.js";
+import { getPlatformContext, getNodeContext, getClusterContext } from "../utils/context.js";
 
 export function infraLog(env, level, message, meta = {}) {
   const entry = {
@@ -17,3 +17,4 @@ export function infraLog(env, level, message, meta = {}) {
   console.log("[INFRA]", JSON.stringify(entry));
   return entry;
 }
+

@@ -1,5 +1,5 @@
 // --- SEVEN-OS AUTOMATED LEDGER TRACKING HOOK ---
-import { SevenOsLedgerManager } from "../../../utils/ledger-manager.js";
+import { SevenOsLedgerManager } from "../../utils/ledger-manager.js";
 const _ledger = new SevenOsLedgerManager();
 _ledger.logWorkerEvidence("employee", "online", "Autonomous worker runtime initialization cycle verified.");
 // -----------------------------------------------
@@ -8,7 +8,7 @@ _ledger.logWorkerEvidence("employee", "online", "Autonomous worker runtime initi
 
 import { basicSecurityGuard } from "../../../system/security/worker-guard.js";
 import { PolicyEngine } from "../../../system/policy-engine.js";
-import { CryptoV12 } from "../../sector/finance/index";
+import { CryptoV12 } from "../../../../proprietary-cli/index";
 
 import { buildEvent } from "../../../sector/event-builder.js";
 import { cyberHook } from "../../../sector/worker-hook.js";
@@ -230,6 +230,7 @@ export async function onRequest(context: {
 
   return json(fallback, 404);
 }
+
 
 
 

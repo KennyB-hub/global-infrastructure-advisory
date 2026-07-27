@@ -1,5 +1,5 @@
-import { fixBackendStructure } from "./fix-backend";
-import { repairSchemas } from "./repair-schemas";
+import { fixBackendStructure } from "fix-backend.ts";
+import { repairSchemas } from "repair-schemas.ts";
 
 export function getTaskHandler(type: string) {
   switch (type) {
@@ -11,3 +11,4 @@ export function getTaskHandler(type: string) {
       return null;
   }
 }
+

@@ -8,7 +8,7 @@ const registryPath = path.join(__dirname, "document-template-registry.json");
 
 const { enforceSecurity } = require("../../templates/template-lifecycle-security");
 const { enforcePolicy } = require("../../templates/template-security-policy-enforcer");
-const { recordTemplateChange } = require("../api/template-change-history-api");
+const { recordTemplateChange } = require("../../../backend/functions/api/template-change-history-api.js");
 
 function loadRegistry() {
   return JSON.parse(fs.readFileSync(registryPath, "utf8"));
@@ -155,3 +155,5 @@ module.exports = {
   rollbackTemplate,
   promoteTemplate
 };
+
+

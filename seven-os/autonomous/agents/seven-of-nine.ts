@@ -1,7 +1,7 @@
 // V12 Alpha – Autonomous Worker "7 of 9" (Task Queue Worker)
 
-import { getNextPendingTask, updateTask, Task } from "../task-queue";
-import { getTaskHandler } from "../agents/tasks/task-registry";
+import { getNextPendingTask, updateTask, Task } from "..\task-queue.ts";
+import { getTaskHandler } from "tasks\task-registry.ts";
 
 async function runSingleTask(task: Task): Promise<void> {
   const handler = getTaskHandler(task.type);
@@ -45,3 +45,4 @@ export async function runSevenOfNineLoop(intervalMs = 60000): Promise<void> {
     await new Promise(res => setTimeout(res, intervalMs));
   }
 }
+

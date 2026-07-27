@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchOpportunities } from "../api";
+import { fetchOpportunities } from "../api/index.js";
 
 export function useOpportunities() {
   const [opportunities, setOpportunities] = useState([]);
@@ -14,3 +14,4 @@ export function useOpportunities() {
 
   return { opportunities, loading };
 }
+

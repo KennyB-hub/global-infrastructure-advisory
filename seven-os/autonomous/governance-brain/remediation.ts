@@ -1,4 +1,4 @@
-import { GovernanceViolation } from './types';
+import { GovernanceViolation } from 'types.ts';
 
 export interface RemediationAction {
   id: string;
@@ -21,3 +21,4 @@ export class SimpleRemediationEngine implements RemediationEngine {
     }));
   }
 }
+

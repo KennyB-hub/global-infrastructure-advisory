@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-26T14:45:05Z",
+  "updatedAt": "2026-07-26T23:48:45Z",
   "runtimeStatus": "online",
   "activeRoutes": [
     "/api/sector/sector/autoscaler",
@@ -339,7 +339,26 @@
     "/api/sector/finance/contracts",
     "/api/sector/finance/models",
     "/api/sector/finance/economics-layer",
-    "/api/workers/govview/farmer-portal"
+    "/api/workers/govview/farmer-portal",
+    "/api/r2-stream/sector/index",
+    "/api/sector/agri/collaringest",
+    "/api/r2-stream/agri/collaringest",
+    "/api/sector/finance/crypto",
+    "/api/r2-stream/finance/crypto",
+    "/api/sector/finance/economicslayer",
+    "/api/r2-stream/finance/economicslayer",
+    "/api/sector/finance/index",
+    "/api/r2-stream/finance/index",
+    "/api/sector/shared/heartbeat",
+    "/api/r2-stream/shared/heartbeat",
+    "/api/sector/shared/nistreportgenerator",
+    "/api/r2-stream/shared/nistreportgenerator",
+    "/api/sector/shared/voicesynthesis",
+    "/api/r2-stream/shared/voicesynthesis",
+    "/api/sector/telecom/lidarcore",
+    "/api/r2-stream/telecom/lidarcore",
+    "/api/sector/telecom/satcommesh",
+    "/api/r2-stream/telecom/satcommesh"
   ],
   "activeWorkers": [
     "admin",
@@ -362,8 +381,8 @@
     "system",
     "system-workers"
   ],
+  "engineRegistryStatus": "financial-matrix-aligned",
+  "storageDriver": "Cloudflare-R2-Secure-Mesh",
   "runtimeEngine": "Native-TS-Engine",
-  "stage": "First-Stage-Mix",
-  "engineRegistryStatus": "crypto-integrated-and-vault-secured",
-  "storageDriver": "Cloudflare-R2-Secure-Mesh"
+  "stage": "First-Stage-Mix"
 }

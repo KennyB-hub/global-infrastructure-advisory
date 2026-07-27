@@ -21,7 +21,7 @@ import { runDecisionEngine } from "../../ai/decision-engine.js";
 import { Cortex } from "../../ai/cortex.js";
 import nodeRegistry from "../../config/node-registry.json" assert { type: "json" };
 
-import { enforceMCP } from "../../backend/system/mcp/enforcer.js";
+import { enforceMCP } from "../../system/mcp/enforcer.js";
 import { handleCyberApi } from "../../../system/api/cyber.js";
 import { handleGovViewApi } from "../../../system/api/gov-view.js";
 import { handleOpportunityApi } from "../../../system/api/opportunity.js";
@@ -247,3 +247,4 @@ function sovereignError(code, message, sovereign) {
     { status: 400, headers: { "Content-Type": "application/json" } }
   );
 }
+

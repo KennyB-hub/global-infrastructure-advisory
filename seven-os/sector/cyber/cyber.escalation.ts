@@ -1,7 +1,7 @@
 // cyber.escalation.ts – V12 Alpha
 // Handles escalation from Cyber Worker → Gov Worker
 
-import { ThreatIntelResult } from "./cyber.threat-intel";
+import { ThreatIntelResult } from "./cyber-threat-intel";
 
 export class CyberEscalation {
   /**
@@ -44,3 +44,4 @@ export class CyberEscalation {
     };
   }
 }
+

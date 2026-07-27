@@ -1,6 +1,6 @@
 // seven-os/autonomous/core/system-trigger.ts
-import { SevenOsSectorAuditEngine } from "../../sector/shared/sector-audit-engine";
-import { SevenOsFinancialAuditEngine } from "../../sector/shared/financial-audit-engine";
+import { SevenOsSectorAuditEngine } from "..\..\sector\shared\sector-audit-engine.ts";
+import { SevenOsFinancialAuditEngine } from "..\..\sector\shared\financial-audit-engine.ts";
 
 export class SevenOsMasterTrigger {
     private sectorAuditor = new SevenOsSectorAuditEngine();
@@ -35,3 +35,4 @@ export class SevenOsMasterTrigger {
         }
     }
 }
+

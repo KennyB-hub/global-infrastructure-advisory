@@ -1,5 +1,5 @@
 // /src/ai/tools.js
-import { MathEngine } from "./engines/math-engine.js";
+import { MathEngine } from "../shared/math-engine.js";
 import { LogicEngine } from "./logic-engine.js";
 import { MappingEngine } from "./mapping-engine.js";
 import { DataEngine } from "../shared/data-engine.js";
@@ -23,3 +23,4 @@ export class Tools {
     this.document = new DocumentEngine();
   }
 }
+

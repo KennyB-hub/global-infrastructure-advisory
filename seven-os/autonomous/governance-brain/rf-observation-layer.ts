@@ -1,4 +1,4 @@
-import { DeviceRFProfile, BehaviorSample } from './types';
+import { DeviceRFProfile, BehaviorSample } from 'types.ts';
 
 export interface RFObservationLayer {
   registerDeviceProfile(profile: DeviceRFProfile): void;
@@ -27,3 +27,4 @@ export class InMemoryRFObservationLayer implements RFObservationLayer {
     return this.behavior.filter(b => b.deviceId === deviceId);
   }
 }
+

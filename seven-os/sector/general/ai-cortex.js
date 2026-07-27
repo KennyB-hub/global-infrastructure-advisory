@@ -1,7 +1,7 @@
 // Seven‑OS V12 Alpha — AI Cortex
 // Central reasoning hub that orchestrates AI engines under autonomy + trustZone rules.
 
-import { runEngine } from "../engine-runner.js"; // your generic engine executor
+import { runEngine } from "../../engines/engine-runner.js"; // your generic engine executor
 import { loadContext } from "../../system/context/context-loader.js"; // sector/route/user context
 
 const ENGINE_MAP = {
@@ -79,3 +79,5 @@ export async function runCortex(task) {
     result
   };
 }
+
+

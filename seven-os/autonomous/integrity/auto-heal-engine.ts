@@ -1,8 +1,8 @@
 // Auto-Heal Engine
 
-import { FullIntegrityScan } from "../integrity/full-integrity-scan";
-import { RepoDiffAnalyzer } from "../integrity/repo-diff-analyzer";
-import { queueTask } from "../../autonomous/task-queue";
+import { FullIntegrityScan } from "full-integrity-scan.ts";
+import { RepoDiffAnalyzer } from "repo-diff-analyzer.ts";
+import { queueTask } from "..\task-queue.ts";
 
 export class AutoHealEngine {
   static async run() {
@@ -16,3 +16,4 @@ export class AutoHealEngine {
     });
   }
 }
+

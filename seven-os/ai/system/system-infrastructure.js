@@ -1,7 +1,7 @@
 // /workers/system/system-infrastructure.js
 // GIA Sovereign Infrastructure Node – V12 Alpha
 
-import infra from "src/backend/infrastructure/index.js";
+import infra from "../../backend/infrastructure/index.js";
 import systemManifest from "../../config/system-manifest.json" assert { type: "json" };
 import nodeRegistry from "../../backend/config/node-registry.json" assert { type: "json" };
 import clusterHealth from "../../config/cluster-health.json" assert { type: "json" };

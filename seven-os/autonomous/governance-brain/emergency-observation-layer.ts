@@ -1,4 +1,4 @@
-import { EmergencyEvent, FallbackPath } from '../governance-brain/types';
+import { EmergencyEvent, FallbackPath } from 'types.ts';
 
 export class EmergencyObservationLayer {
   private events: EmergencyEvent[] = [];
@@ -20,3 +20,4 @@ export class EmergencyObservationLayer {
     return this.fallbacks.filter(f => f.deviceId === deviceId);
   }
 }
+

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchActiveOpportunity } from "../api";
+import { fetchActiveOpportunity } from "../api/index.js";
 
 export function useActiveOpportunity() {
   const [active, setActive] = useState(null);
@@ -10,3 +10,4 @@ export function useActiveOpportunity() {
 
   return active;
 }
+

@@ -1,11 +1,11 @@
-import { DroneTelemetry } from "../../drone/drone-telemetry";
-import { DamageClassifier } from "../../drone/damage-classifier";
-import { CostEstimator } from "../../drone/cost-estimator";
-import { InfrastructureLoader } from "../../infrastructure-packs/infrastructure-loader";
+import { DroneTelemetry } from "../../../sector/drone/routing manifest.yaml";
+import { DamageClassifier } from "../../../shared/drone/damage-classifier.js";
+import { CostEstimator } from "../../../shared/financials/cost-estimator.js";
+import { InfrastructureLoader } from "../../autonomous/core/infrastructure-loader";
 
 import { CyberEscalation } from "./cyber.escalation";
-import { CyberThreatIntelEngine } from "./cyber.threat-intel";
-import { CyberTelemetryNormalizer } from "./cyber.normalizer";
+import { CyberThreatIntelEngine } from "./cyber-threat-intel";
+import { CyberTelemetryNormalizer } from "./cyber-normalizer";
 
 export default {
   /**
@@ -134,3 +134,7 @@ export default {
     }
   }
 };
+
+
+
+

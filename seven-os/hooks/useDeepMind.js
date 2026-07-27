@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { deepMindQuery } from "../api";
+import { deepMindQuery } from "../api/index.js";
 
 export function useDeepMind() {
   const [result, setResult] = useState(null);
@@ -11,3 +11,4 @@ export function useDeepMind() {
 
   return { result, ask };
 }
+

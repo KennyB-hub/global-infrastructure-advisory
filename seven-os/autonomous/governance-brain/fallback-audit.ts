@@ -1,4 +1,4 @@
-import { ComplianceEngine } from './compliance-engine';
+import { ComplianceEngine } from 'compliance-engine.ts';
 
 export class FallbackAuditor {
   constructor(private compliance: ComplianceEngine) {}
@@ -7,3 +7,4 @@ export class FallbackAuditor {
     return this.compliance.evaluate(deviceId);
   }
 }
+

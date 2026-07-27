@@ -1,4 +1,4 @@
-import { enqueueTask } from "../seven-os/autonomous/task-queue.js";
+import { enqueueTask } from "../seven-os/autonomous/task-queue.ts";
 
 const [,, taskType, payloadJson] = process.argv;
 

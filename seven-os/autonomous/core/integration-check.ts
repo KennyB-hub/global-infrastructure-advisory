@@ -1,5 +1,5 @@
-import { SevenOsFirewallBanner } from "../../sector/cyber/firewall-banner";
-import { SevenOsFleetSensorMatrix } from "../../sector/logistics/fleet-sensor-matrix";
+import { SevenOsFirewallBanner } from "..\..\sector\cyber\firewall-banner.ts";
+import { SevenOsFleetSensorMatrix } from "..\..\sector\logistics\fleet-sensor-matrix.ts";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
@@ -23,3 +23,4 @@ export class SevenOsIntegrationVerifier {
 
 const verifier = new SevenOsIntegrationVerifier();
 verifier.executeCoreIntegrationCheck();
+

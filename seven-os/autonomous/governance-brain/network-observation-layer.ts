@@ -1,4 +1,4 @@
-import { TowerProfile, NetworkEvent } from './types';
+import { TowerProfile, NetworkEvent } from 'types.ts';
 
 export class NetworkObservationLayer {
   private towers = new Map<string, TowerProfile>();
@@ -20,3 +20,4 @@ export class NetworkObservationLayer {
     return this.events.filter(e => e.towerId === towerId);
   }
 }
+

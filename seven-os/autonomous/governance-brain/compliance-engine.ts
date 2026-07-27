@@ -1,7 +1,7 @@
 import { GovernanceBrain } from '../governance-brain';
-import { RFObservationLayer } from './rf-observation-layer';
-import { EmergencyObservationLayer } from './emergency-observation-layer';
-import { NetworkObservationLayer } from './network-observation-layer';
+import { RFObservationLayer } from 'rf-observation-layer.ts';
+import { EmergencyObservationLayer } from 'emergency-observation-layer.ts';
+import { NetworkObservationLayer } from 'network-observation-layer.ts';
 
 import {
   DeviceRFProfile,
@@ -115,3 +115,4 @@ export class ComplianceEngine {
     return violations;
   }
 }
+

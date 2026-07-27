@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchWorkforce } from "../api";
+import { fetchWorkforce } from "../api/index.js";
 
 export function useWorkforce() {
   const [workforce, setWorkforce] = useState([]);
@@ -10,3 +10,4 @@ export function useWorkforce() {
 
   return workforce;
 }
+

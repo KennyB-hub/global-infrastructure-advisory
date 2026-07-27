@@ -1,5 +1,5 @@
 // unified-ux-core.ts
-import { UXInput, UXResult, Persona } from "./ux-core-types";
+import { UXInput, UXResult, Persona } from "ux-core-types.ts";
 
 export async function processUX(input: UXInput): Promise<UXResult> {
   const { persona, text, context = {} } = input;
@@ -32,3 +32,4 @@ export async function processUX(input: UXInput): Promise<UXResult> {
     summary: buildHumanSummary(persona, intent, payload)
   };
 }
+

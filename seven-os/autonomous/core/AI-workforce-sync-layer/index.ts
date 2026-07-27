@@ -1,4 +1,4 @@
-import { RemediationAction } from '../../governance-brain/remediation-engine';
+import { RemediationAction } from '..\..\governance-brain\remediation-engine.ts';
 
 export interface AIWorkforceSyncLayer {
   dispatch(actions: RemediationAction[]): Promise<void>;
@@ -10,3 +10,4 @@ export class LoggingWorkforceSync implements AIWorkforceSyncLayer {
     console.log('[AI Workforce] Dispatching actions:', actions);
   }
 }
+

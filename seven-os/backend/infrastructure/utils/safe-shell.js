@@ -1,6 +1,6 @@
 // seven-os/backend/infrastructure/utils/safe-shell.js
 
-import { makeOk, makeError } from "./backend/utils/context.js";
+import { makeOk, makeError } from "../utils/context.js";
 
 export async function safeShell(env, command, options = {}) {
   if (!command || typeof command !== "string") {
@@ -15,3 +15,4 @@ export async function safeShell(env, command, options = {}) {
     return makeError("Shell execution failed", env, { message: err.message });
   }
 }
+

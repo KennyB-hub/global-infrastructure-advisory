@@ -1,4 +1,4 @@
-import { GovernanceRule } from '../core/fcc/telecom-equipment-authorization/types';
+import { GovernanceRule } from '..\core\fcc\telecom-equipment-authorization\types.ts';
 
 export class GovernanceBrain {
   private rules: GovernanceRule[] = [];
@@ -15,3 +15,4 @@ export class GovernanceBrain {
     return this.rules.find(r => r.id === id);
   }
 }
+

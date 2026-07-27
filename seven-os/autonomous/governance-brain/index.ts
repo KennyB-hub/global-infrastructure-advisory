@@ -1,5 +1,5 @@
-import { GovernanceRule } from './types';
-import { loadGlobalManifest } from "../../seven-runtime/manifest-loader";
+import { GovernanceRule } from 'types.ts';
+import { loadGlobalManifest } from "..\..\seven-runtime\manifest-loader.ts";
 
 const globalManifest = loadGlobalManifest();
 
@@ -24,3 +24,4 @@ export class InMemoryGovernanceBrain implements GovernanceBrain {
     return this.rules.find(r => r.id === id);
   }
 }
+

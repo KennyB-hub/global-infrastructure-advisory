@@ -108,7 +108,7 @@ handlers["generate-ux-rules"] = async () => {
   }
 };
 
-import { generateAIEngineStubForSector } from "./ai-engine-generator";
+import { generateAIEngineStubForSector } from "ai-engine-generator.ts";
 import fs from "fs";
 
 handlers["generate-ai-engines"] = async () => {
@@ -127,3 +127,4 @@ handlers["generate-ai-engines"] = async () => {
     fs.writeFileSync(file, stub, "utf8");
   }
 };
+

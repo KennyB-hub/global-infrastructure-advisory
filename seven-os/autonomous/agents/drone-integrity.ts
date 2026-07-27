@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { queueTask } from "../task-queue";
+import { queueTask } from "..\task-queue.ts";
 
 export class DroneIntegrity {
   static checkBackend() {
@@ -61,3 +61,4 @@ export class DroneIntegrity {
     return badSchemas;
   }
 }
+
