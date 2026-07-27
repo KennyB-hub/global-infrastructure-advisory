@@ -5,7 +5,7 @@ import workflows from "./workflows/index.js";
 import policies from "../../workers/system/index.js";
 import { validatePayload, validateTrustZone } from "../utils/validator.js";
 import { makeOk, makeError } from "../utils/context.js";
-import { CryptoV12 } from "../../ai-engines/utils/crypto.js"; // ← NEW
+import { CryptoV12 } from "../../sector/finance/crypto.js"; // ← NEW
 import { runEnterpriseDecision } from "../../platform/enterprise-decision-engine.js";
 
 export async function runDecisionEngine(input, env, nodeRegistry = {}) {
